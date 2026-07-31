@@ -1,0 +1,83 @@
+.homepage-contenedor {
+  padding: 0;
+  text-align: center;
+}
+
+.hero-principal {
+  padding: 5rem 1.5rem;
+  background-color: var(--color-primario, #0f5132);
+  color: white;
+}
+
+.seccion-formulario {
+  padding: 4rem 1.5rem;
+  background-color: #f8f9fa;
+}
+
+.formulario-grado {
+  display: inline-flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.formulario-grado select {
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.seccion-espaciada {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.fondo-claro {
+  background-color: var(--color-fondo-claro, #ffffff);
+}
+
+.fondo-alternativo {
+  background-color: var(--color-fondo-alternativo, #f0f0f0);
+}
+
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.cuadricula-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.tarjeta {
+  padding: 2rem;
+  border-radius: var(--radio-md, 8px);
+}
+
+.tarjeta-clara {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+}
+
+.tarjeta-oscura {
+  background-color: var(--color-primario, #0f5132);
+  color: white;
+}
+
+.titulo-tarjeta, .tituloh2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.texto-tarjeta {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.texto-centrado {
+  text-align: center;
+}

@@ -1,0 +1,43 @@
+.cabecera {
+    background-color: var(--color-fondo);
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-cabecera img {
+    height: 50px;
+}
+
+.nav-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-wrapper a {
+    text-decoration: none;
+    color: var(--color-primario);
+    font-weight: bold;
+      
+}
+
+.menu-hamburguesa {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Estilos responsivos para móviles */
+@media (max-width: 768px) {
+    .nav-wrapper {
+        display: none;
+    }
+
+    .menu-hamburguesa {
+        display: block;
+    }
+}

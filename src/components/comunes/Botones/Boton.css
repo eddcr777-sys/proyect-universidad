@@ -1,0 +1,173 @@
+/**
+ * ============================================================================
+ * ESTILOS DE BOTÓN BASE Y VARIANTES - LB-LEMUS
+ * Regla: Bordes rectos (border-radius: 0px !important)
+ * ============================================================================
+ */
+
+.boton-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 0px !important; /* Estricto: Sin bordes redondeados */
+  border: 1px solid transparent;
+  font-family: var(--fuente-principal);
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color var(--transicion-rapida),
+              border-color var(--transicion-rapida),
+              color var(--transicion-rapida),
+              box-shadow var(--transicion-rapida),
+              transform 0.1s ease;
+  box-shadow: var(--sombra-sm);
+  outline: none;
+}
+
+.boton-base:focus-visible {
+  outline: 2px solid var(--color-inst-celeste);
+  outline-offset: 2px;
+}
+
+.boton-base:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.boton-base:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* --------------------------------------------------------------------------
+ * TAMAÑOS CONSISTENTES
+ * -------------------------------------------------------------------------- */
+.boton-pequeno {
+  padding: 6px 12px;
+  font-size: var(--tamano-texto-xs);
+  height: 32px;
+}
+
+.boton-mediano {
+  padding: 10px 18px;
+  font-size: var(--tamano-texto-sm);
+  height: 40px;
+}
+
+.boton-grande {
+  padding: 14px 24px;
+  font-size: var(--tamano-texto-md);
+  height: 48px;
+}
+
+.boton-ancho-completo {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+ * VARIANTES DE COLOR INSTITUCIONAL Y CIBERSEGURIDAD
+ * -------------------------------------------------------------------------- */
+
+/* Rojo Institucional (Escudo LB-LEMUS) */
+.boton-rojo-institucional {
+  background-color: var(--color-inst-rojo);
+  color: #ffffff;
+  border-color: var(--color-inst-rojo);
+}
+.boton-rojo-institucional:hover:not(:disabled) {
+  background-color: var(--color-inst-rojo-hover);
+  border-color: var(--color-inst-rojo-hover);
+  box-shadow: 0 4px 10px rgba(200, 16, 46, 0.3);
+}
+
+/* Azul Rey Institucional (Franja Escudo LB-LEMUS) */
+.boton-azul-institucional {
+  background-color: var(--color-inst-azul);
+  color: #ffffff;
+  border-color: var(--color-inst-azul);
+}
+.boton-azul-institucional:hover:not(:disabled) {
+  background-color: var(--color-inst-azul-hover);
+  border-color: var(--color-inst-azul-hover);
+  box-shadow: 0 4px 10px rgba(15, 44, 89, 0.3);
+}
+
+/* Ciberseguridad (Cian Neón / Tech) */
+.boton-ciberseguridad {
+  background-color: var(--color-ciber-primario);
+  color: #000000;
+  border-color: var(--color-ciber-primario);
+  font-family: var(--fuente-principal);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.boton-ciberseguridad:hover:not(:disabled) {
+  background-color: var(--color-ciber-primario-hover);
+  border-color: var(--color-ciber-primario-hover);
+  box-shadow: 0 0 12px var(--color-ciber-resplandor);
+}
+
+/* Secundario (Neutro) */
+.boton-secundario {
+  background-color: var(--color-fondo-tarjeta);
+  color: var(--color-texto-principal);
+  border-color: var(--color-borde);
+}
+.boton-secundario:hover:not(:disabled) {
+  background-color: var(--color-fondo-variante);
+  border-color: var(--color-texto-secundario);
+}
+
+/* Alerta / Peligro */
+.boton-alerta {
+  background-color: var(--color-ciber-alerta);
+  color: #ffffff;
+  border-color: var(--color-ciber-alerta);
+}
+.boton-alerta:hover:not(:disabled) {
+  filter: brightness(0.9);
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
+}
+
+/* Éxito */
+.boton-exito {
+  background-color: var(--color-ciber-secundario);
+  color: #ffffff;
+  border-color: var(--color-ciber-secundario);
+}
+.boton-exito:hover:not(:disabled) {
+  filter: brightness(0.9);
+  box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3);
+}
+
+/* Fantasma (Sin Fondo) */
+.boton-fantasma {
+  background-color: transparent;
+  color: var(--color-texto-principal);
+  border-color: transparent;
+  box-shadow: none;
+}
+.boton-fantasma:hover:not(:disabled) {
+  background-color: var(--color-fondo-variante);
+}
+
+/* --------------------------------------------------------------------------
+ * SPINNER DE CARGA
+ * -------------------------------------------------------------------------- */
+.boton-cargador-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: currentColor;
+  border-radius: 50% !important; /* Excepción interna del spinner de carga */
+  animation: boton-girar 0.6s linear infinite;
+}
+
+@keyframes boton-girar {
+  to {
+    transform: rotate(360deg);
+  }
+}

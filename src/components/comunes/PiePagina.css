@@ -1,0 +1,13 @@
+.pie-pagina {
+    background-color: var(--color-fondo);
+    padding: 10px 20px;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    font-family: var(--fuente-principal);
+}
+
+.pie-pagina h4 {
+    color: var(--color-primario);
+    margin-bottom: 10px;
+}
+

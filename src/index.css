@@ -1,0 +1,179 @@
+/**
+ * ============================================================================
+ * SISTEMA DE DISEÑO Y VARIABLES GLOBALES CSS - LB-LEMUS
+ * ============================================================================
+ * Incluye:
+ * - Paleta Institucional (Escudo Oficial: Rojo, Azul Rey, Amarillo/Dorado, Celeste)
+ * - Paleta de Ciberseguridad (Cian Neón, Verde Terminal, Rojo Amenaza, Azul Noche)
+ * - Modos Claro y Oscuro (por clase .dark o atributo [data-theme="dark"])
+ * - Regla Estricta: BORDES RECTOS/CUADRADOS (border-radius: 0px)
+ * ============================================================================
+ */
+
+:root {
+  /* --------------------------------------------------------------------------
+   * 1. BORDES Y RADIOS (REGLA ESTRICTA: 0px POR DEFECTO EN TODA LA APP)
+   * -------------------------------------------------------------------------- */
+  --radio-principal: 0px;
+  --radio-modulo: 0px;
+  --radio-boton: 0px;
+  --radio-insumo: 0px;
+  --radio-modal: 0px;
+  --radio-md: 0px;
+  --radio-sm: 0px;
+  --radio-complementario: 4px; /* Reservado excepcionalmente para detalles específicos */
+
+  /* --------------------------------------------------------------------------
+   * 2. PALETA OFICIAL INSTITUCIONAL (EXTRAÍDA DEL ESCUDO - MODO CLARO)
+   * -------------------------------------------------------------------------- */
+  --color-inst-rojo: #C8102E;              /* Rojo primario del borde exterior */
+  --color-inst-rojo-hover: #A00C24;        /* Estado hover rojo */
+  --color-inst-azul: #0F2C59;              /* Azul rey / oscuro "CUMANA" */
+  --color-inst-azul-hover: #081B3A;        /* Estado hover azul */
+  --color-inst-amarillo: #F59E0B;          /* Amarillo / Dorado "Moral y Luces" */
+  --color-inst-dorado: #D4AF37;            /* Dorado acento */
+  --color-inst-celeste: #0284C7;           /* Celeste / Azul claro diagonal */
+  --color-inst-blanco: #FFFFFF;            /* Fondo base y libro abierto */
+  --color-inst-texto: #111827;            /* Texto principal negro/gris muy oscuro */
+  --color-inst-texto-secundario: #4B5563; /* Texto secundario */
+  --color-inst-fondo: #F8FAFC;             /* Fondo general de la app */
+  --color-inst-tarjeta: #FFFFFF;           /* Fondo de tarjetas y paneles */
+  --color-inst-borde: #E2E8F0;             /* Color de bordes */
+
+  /* --------------------------------------------------------------------------
+   * 3. PALETA DE CIBERSEGURIDAD (MODO CLARO TECH)
+   * -------------------------------------------------------------------------- */
+  --color-ciber-primario: #0284C7;         /* Cian Tech */
+  --color-ciber-primario-hover: #0369A1;
+  --color-ciber-secundario: #059669;       /* Verde Seguro / Estado Ok */
+  --color-ciber-alerta: #DC2626;           /* Rojo Alerta / Vulnerabilidad */
+  --color-ciber-fondo: #F0F9FF;            /* Fondo Ciber */
+  --color-ciber-tarjeta: #FFFFFF;          /* Tarjeta Ciber */
+  --color-ciber-texto: #0F172A;            /* Texto Ciber */
+  --color-ciber-borde: #BAE6FD;            /* Borde Ciber */
+  --color-ciber-resplandor: rgba(2, 132, 199, 0.2);
+
+  /* --------------------------------------------------------------------------
+   * 4. ALIAS DE COMPATIBILIDAD CON EL CÓDIGO EXISTENTE (MODO CLARO)
+   * -------------------------------------------------------------------------- */
+  --color-primario: var(--color-inst-rojo);
+  --color-primario-hover: var(--color-inst-rojo-hover);
+  --color-secundario: var(--color-inst-azul);
+  --color-texto-principal: var(--color-inst-texto);
+  --color-texto-secundario: var(--color-inst-texto-secundario);
+  --color-texto-claro: #64748B;
+  --color-blanco: #FFFFFF;
+  --color-fondo: var(--color-inst-fondo);
+  --color-fondo-variante: #F1F5F9;
+  --color-fondo-tarjeta: var(--color-inst-tarjeta);
+  --color-borde: var(--color-inst-borde);
+
+  --bg-indicador: rgba(255, 255, 255, 0.95);
+  --color-indicador: #111827;
+  --bg-drawer: #FFFFFF;
+  --border-drawer: rgba(0, 0, 0, 0.1);
+
+  /* --------------------------------------------------------------------------
+   * 5. TIPOGRAFÍA Y DIMENSIONES
+   * -------------------------------------------------------------------------- */
+  --fuente-principal: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --fuente-codigo: 'Courier New', Courier, monospace;
+
+  --tamano-texto-xs: 0.75rem;    /* 12px */
+  --tamano-texto-sm: 0.875rem;   /* 14px */
+  --tamano-texto-md: 1rem;       /* 16px */
+  --tamano-texto-lg: 1.125rem;   /* 18px */
+  --tamano-texto-xl: 1.25rem;    /* 20px */
+  --tamano-texto-2xl: 1.5rem;    /* 24px */
+
+  --ancho-maximo: 100rem;
+  --transicion-rapida: 0.15s ease-in-out;
+  --transicion-normal: 0.25s ease-in-out;
+
+  --sombra-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --sombra-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --sombra-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================================================
+ * MODO OSCURO (.dark o [data-theme="dark"])
+ * ============================================================================ */
+.dark, [data-theme="dark"] {
+  /* Paleta Institucional (Modo Oscuro) */
+  --color-inst-rojo: #EF4444;
+  --color-inst-rojo-hover: #F87171;
+  --color-inst-azul: #3B82F6;
+  --color-inst-azul-hover: #60A5FA;
+  --color-inst-amarillo: #FBBF24;
+  --color-inst-dorado: #F59E0B;
+  --color-inst-celeste: #38BDF8;
+  --color-inst-blanco: #1E293B;
+  --color-inst-texto: #F9FAFB;
+  --color-inst-texto-secundario: #9CA3AF;
+  --color-inst-fondo: #0F172A;
+  --color-inst-tarjeta: #1E293B;
+  --color-inst-borde: #334155;
+
+  /* Paleta Ciberseguridad (Modo Oscuro Cyberpunk / Matrix) */
+  --color-ciber-primario: #00F0FF;         /* Cian Neón Cyber */
+  --color-ciber-primario-hover: #5EEAD4;
+  --color-ciber-secundario: #00FF66;       /* Verde Matrix Terminal */
+  --color-ciber-alerta: #FF0055;           /* Rojo Neón Amenaza */
+  --color-ciber-fondo: #080C14;            /* Azul Noche Profundo */
+  --color-ciber-tarjeta: #0F172A;          /* Tarjeta Ciber Oscura */
+  --color-ciber-texto: #F0FDF4;            /* Texto Ciber */
+  --color-ciber-borde: rgba(0, 240, 255, 0.25);
+  --color-ciber-resplandor: rgba(0, 240, 255, 0.4);
+
+  /* Alias de Compatibilidad en Modo Oscuro */
+  --color-primario: var(--color-inst-rojo);
+  --color-primario-hover: var(--color-inst-rojo-hover);
+  --color-secundario: var(--color-inst-azul);
+  --color-texto-principal: var(--color-inst-texto);
+  --color-texto-secundario: var(--color-inst-texto-secundario);
+  --color-texto-claro: #9CA3AF;
+  --color-blanco: #1E293B;
+  --color-fondo: var(--color-inst-fondo);
+  --color-fondo-variante: #1E293B;
+  --color-fondo-tarjeta: var(--color-inst-tarjeta);
+  --color-borde: var(--color-inst-borde);
+
+  --bg-indicador: #1E293B;
+  --color-indicador: #F9FAFB;
+  --bg-drawer: #0F172A;
+  --border-drawer: rgba(255, 255, 255, 0.15);
+}
+
+/* ============================================================================
+ * ESTILOS GLOBALES BASE Y RESET (REGLA DE BORDES RECTOS)
+ * ============================================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  border-radius: var(--radio-principal) !important; /* Fuerza 0px en toda la app */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--fuente-principal);
+  background-color: var(--color-fondo);
+  color: var(--color-texto-principal);
+  transition: background-color var(--transicion-normal), color var(--transicion-normal);
+  border-radius: 0 !important;
+}
+
+/* Forzar esquinas rectar en elementos comunes de formulario y estructura */
+button, input, select, textarea, div, section, header, footer, nav, article, aside, dialog {
+  border-radius: var(--radio-principal) !important;
+}
+
+/* Clases utilitarias de tema */
+.tema-ciberseguridad {
+  --color-primario: var(--color-ciber-primario);
+  --color-primario-hover: var(--color-ciber-primario-hover);
+  --color-secundario: var(--color-ciber-secundario);
+  --color-fondo: var(--color-ciber-fondo);
+  --color-fondo-tarjeta: var(--color-ciber-tarjeta);
+  --color-texto-principal: var(--color-ciber-texto);
+  --color-borde: var(--color-ciber-borde);
+}

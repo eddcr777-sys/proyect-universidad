@@ -1,0 +1,165 @@
+/**
+ * ============================================================================
+ * ESTILOS DE MODAL BASE Y VARIANTES - LB-LEMUS
+ * Regla: Bordes rectos (border-radius: 0px !important)
+ * ============================================================================
+ */
+
+.modal-overlay-base {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  animation: modal-overlay-aparecer 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-contenido-base {
+  background-color: var(--color-fondo-tarjeta);
+  color: var(--color-texto-principal);
+  border-radius: 0px !important; /* Estricto: Sin bordes redondeados */
+  border: 1px solid var(--color-borde);
+  box-shadow: var(--sombra-lg);
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  width: 100%;
+  position: relative;
+  animation: modal-contenido-aparecer 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+ * TAMAÑOS DE DIÁLOGO
+ * -------------------------------------------------------------------------- */
+.modal-pequeno {
+  max-width: 420px;
+}
+
+.modal-mediano {
+  max-width: 580px;
+}
+
+.modal-grande {
+  max-width: 800px;
+}
+
+.modal-pantalla-completa {
+  max-width: 96vw;
+  height: 92vh;
+}
+
+/* --------------------------------------------------------------------------
+ * CABECERA, CUERPO Y PIE
+ * -------------------------------------------------------------------------- */
+.modal-cabecera {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--color-borde);
+  background-color: var(--color-fondo-variante);
+}
+
+.modal-titulos {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modal-titulo-texto {
+  margin: 0;
+  font-size: var(--tamano-texto-xl);
+  font-weight: 700;
+  color: var(--color-texto-principal);
+}
+
+.modal-subtitulo-texto {
+  margin: 0;
+  font-size: var(--tamano-texto-sm);
+  color: var(--color-texto-secundario);
+}
+
+.modal-boton-cerrar {
+  background: transparent;
+  border: none !important;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--color-texto-secundario);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 0px !important;
+  line-height: 1;
+  transition: color var(--transicion-rapida), background-color var(--transicion-rapida);
+}
+
+.modal-boton-cerrar:hover {
+  color: var(--color-inst-rojo);
+  background-color: rgba(200, 16, 46, 0.08);
+}
+
+.modal-cuerpo {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+  font-size: var(--tamano-texto-md);
+  line-height: 1.6;
+}
+
+.modal-pie-acciones {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 24px;
+  border-top: 1px solid var(--color-borde);
+  background-color: var(--color-fondo-variante);
+}
+
+/* --------------------------------------------------------------------------
+ * VARIANTES
+ * -------------------------------------------------------------------------- */
+.modal-variante-ciberseguridad {
+  border-color: var(--color-ciber-primario);
+  box-shadow: 0 0 20px var(--color-ciber-resplandor);
+}
+.modal-variante-ciberseguridad .modal-cabecera {
+  border-bottom-color: var(--color-ciber-borde);
+}
+.modal-variante-ciberseguridad .modal-titulo-texto {
+  color: var(--color-ciber-primario);
+}
+
+.modal-variante-alerta {
+  border-left: 4px solid var(--color-ciber-alerta);
+}
+
+/* --------------------------------------------------------------------------
+ * ANIMACIONES
+ * -------------------------------------------------------------------------- */
+@keyframes modal-overlay-aparecer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-contenido-aparecer {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
