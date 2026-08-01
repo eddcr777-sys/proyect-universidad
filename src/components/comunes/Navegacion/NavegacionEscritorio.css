@@ -1,0 +1,102 @@
+/* ==========================================
+   NAVEGACIÓN ESCRITORIO - CORRECCIÓN DE COLORES EN DESPLEGABLE
+   ========================================== */
+
+.nav-desktop {
+    display: flex;
+    gap: 8px;
+    margin-left: auto; 
+    align-items: center;
+}
+
+/* Enlaces principales */
+.nav-desktop a.nav-link,
+.nav-desktop a.nav-link:visited {
+    text-decoration: none;
+    color: var(--color-inst-azul);
+    font-size: 0.9rem;
+    font-weight: 400;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.nav-desktop a.nav-link:hover {
+    color: var(--color-inst-azul-hover);
+    background-color: var(--color-inst-fondo);
+}
+
+/* Contenedor del Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Botón disparador */
+.dropbtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 400;
+    padding: 8px 12px;
+    color: var(--color-inst-azul);
+    border-radius: 4px;
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.dropdown:hover .dropbtn {
+    color: var(--color-inst-azul-hover);
+    background-color: var(--color-inst-fondo);
+}
+
+/* Menú Desplegable Minimalista */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: var(--color-inst-blanco);
+    min-width: 200px;
+    border: 1px solid var(--color-inst-borde);
+    border-radius: 4px;
+    z-index: 100;
+}
+
+/* Forzar estado normal/visitado a TEXTO OSCURO/AZUL (evita rojo heredado) */
+.dropdown-content a,
+.dropdown-content a:link,
+.dropdown-content a:visited {
+    color: var(--color-inst-texto) !important; /* Fuerza color oscuro/neutro sin rojo */
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 400;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--color-inst-borde);
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+/* Hover: Fondo azul e icono/texto en blanco (o fondo suave con texto azul) */
+.dropdown-content a:hover,
+.dropdown-content a:focus {
+    background-color: var(--color-inst-azul) !important;
+    color: var(--color-inst-blanco) !important;
+}
+
+/* Mostrar desplegable */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Ocultar en móvil */
+@media (max-width: 768px) {
+    .nav-desktop {
+        display: none;
+    }
+}

@@ -12,7 +12,6 @@
   gap: 8px;
   border-radius: 0px !important; /* Estricto: Sin bordes redondeados */
   border: 1px solid transparent;
-  font-family: var(--fuente-principal);
   font-weight: 600;
   cursor: pointer;
   user-select: none;
@@ -100,7 +99,6 @@
   background-color: var(--color-ciber-primario);
   color: #000000;
   border-color: var(--color-ciber-primario);
-  font-family: var(--fuente-principal);
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }

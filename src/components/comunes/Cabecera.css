@@ -1,43 +1,88 @@
+/* ==========================================
+   CABECERA INSTITUCIONAL (MINIMALISTA)
+   ========================================== */
+
 .cabecera {
-    background-color: var(--color-fondo);
-    padding: 10px 20px;
-    border-bottom: 1px solid #ddd;
+    background-color: var(--color-inst-blanco);
+    border-bottom: 1px solid var(--color-inst-borde);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.cabecera-contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo-cabecera img {
-    height: 50px;
+/* Marca / Logo */
+.cabecera-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--color-inst-azul);
 }
 
+.cabecera-logo-icono {
+    color: var(--color-inst-azul);
+    flex-shrink: 0;
+}
+
+.cabecera-logo-texto {
+    display: flex;
+    flex-direction: column;
+}
+
+.cabecera-titulo {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-inst-azul);
+    line-height: 1.2;
+}
+
+.cabecera-subtitulo {
+    font-size: 0.75rem;
+    color: var(--color-inst-texto-secundario);
+    font-weight: 400;
+}
+
+/* Envoltorio Navegación Escritorio */
 .nav-wrapper {
     display: flex;
-    gap: 20px;
+    align-items: center;
 }
 
-.nav-wrapper a {
-    text-decoration: none;
-    color: var(--color-primario);
-    font-weight: bold;
-      
-}
-
+/* Botón Hamburguesa Móvil */
 .menu-hamburguesa {
     display: none;
     background: none;
     border: none;
-    font-size: 1.5rem;
     cursor: pointer;
+    color: var(--color-inst-azul);
+    padding: 6px;
+    border-radius: 4px;
+    transition: background-color 0.15s ease;
 }
 
-/* Estilos responsivos para móviles */
+.menu-hamburguesa:hover {
+    background-color: var(--color-inst-fondo);
+}
+
+/* Responsividad para pantallas móviles */
 @media (max-width: 768px) {
     .nav-wrapper {
         display: none;
     }
 
     .menu-hamburguesa {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

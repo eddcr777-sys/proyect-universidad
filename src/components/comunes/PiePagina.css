@@ -1,13 +1,149 @@
+/* ==========================================
+   PIE DE PÁGINA INSTITUCIONAL (MINIMALISTA)
+   ========================================== */
+
 .pie-pagina {
-    background-color: var(--color-fondo);
-    padding: 10px 20px;
-    border-top: 1px solid #ddd;
-    text-align: center;
-    font-family: var(--fuente-principal);
+    background-color: var(--color-inst-blanco);
+    border-top: 1px solid var(--color-inst-borde);
+    color: var(--color-inst-texto);
+    padding: 40px 20px 20px 20px;
+    font-size: 0.875rem;
+    margin-top: auto;
 }
 
-.pie-pagina h4 {
-    color: var(--color-primario);
+.pie-contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cuadrícula principal */
+.pie-cuadricula {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--color-inst-borde);
+}
+
+/* Columna de Marca */
+.pie-marca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.pie-logo-icono {
+    color: var(--color-inst-azul);
+    font-size: 1.8rem !important;
+}
+
+.pie-titulo {
+    color: var(--color-inst-azul);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.pie-descripcion {
+    color: var(--color-inst-texto-secundario);
+    line-height: 1.5;
+    font-weight: 400;
+    max-width: 380px;
+}
+
+/* Encabezados de Sección */
+.pie-encabezado {
+    color: var(--color-inst-azul);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Listas de Enlaces */
+.pie-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pie-lista li {
+    margin-bottom: 8px;
+}
+
+.pie-lista a,
+.pie-lista a:visited {
+    color: var(--color-inst-texto) !important;
+    text-decoration: none;
+    transition: color 0.15s ease;
+    font-weight: 400;
+}
+
+.pie-lista a:hover {
+    color: var(--color-inst-azul) !important;
+    text-decoration: underline;
+}
+
+/* Lista de Contacto */
+.pie-lista-contacto {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pie-lista-contacto li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-inst-texto-secundario);
     margin-bottom: 10px;
 }
 
+.pie-lista-contacto .material-symbols-outlined {
+    font-size: 1.2rem;
+    color: var(--color-inst-azul);
+}
+
+/* Barra Inferior (Derechos y Créditos) */
+.pie-inferior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.pie-derechos {
+    color: var(--color-inst-texto-secundario);
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.pie-creditos,
+.pie-creditos:visited {
+    color: var(--color-inst-azul) !important;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: color 0.15s ease;
+}
+
+.pie-creditos:hover {
+    color: var(--color-inst-azul-hover) !important;
+    text-decoration: underline;
+}
+
+/* Adaptación Móvil */
+@media (max-width: 768px) {
+    .pie-cuadricula {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .pie-inferior {
+        flex-direction: column;
+        text-align: center;
+    }
+}

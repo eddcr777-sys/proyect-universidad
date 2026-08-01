@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { CATALAGO_MODULOS, DICCIONARIO_GRADOS, GradoEscolar } from '../../data/datosModulos';
+import { CATALAGO_MODULOS, DICCIONARIO_GRADOS } from '../../data/datosModulos';
+import type { GradoEscolar } from '../../data/datosModulos';
 import Boton from '../../components/comunes/Botones/Boton';
 import './DescripcionModulo.css';
 
