@@ -9,7 +9,7 @@ const HomePage: React.FC = () => {
   const manejarEnvio = (event: React.FormEvent) => {
     event.preventDefault();
     if (grado) {
-      navigate(`/dashboard/${grado}`);
+      navigate(`/presentacion/${grado}`);
     }
   };
 
@@ -444,11 +444,11 @@ const HomePage: React.FC = () => {
             <label htmlFor="grado">Tu Grado:</label>
             <select id="grado" value={grado} onChange={(e) => setGrado(e.target.value)} required>
               <option value="">Selecciona...</option>
-              <option value="1ro">1ro Grado</option>
-              <option value="2do">2do Grado</option>
-              <option value="3ro">3ro Grado</option>
-              <option value="4to">4to Grado</option>
-              <option value="5to">5to Grado</option>
+              <option value="1ro">1er Año</option>
+              <option value="2do">2do Año</option>
+              <option value="3ro">3er Año</option>
+              <option value="4to">4to Año</option>
+              <option value="5to">5to Año</option>
             </select>
             <button type="submit" className="boton-primario">Acceder a mis módulos</button>
           </form>

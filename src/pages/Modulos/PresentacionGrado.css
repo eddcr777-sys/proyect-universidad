@@ -1,0 +1,309 @@
+/**
+ * ============================================================================
+ * ESTILOS DE PRESENTACIÓN DEL GRADO - LB-LEMUS
+ * Regla: Bordes rectos (border-radius: 0px !important)
+ * ============================================================================
+ */
+
+.presentacion-grado-contenedor {
+  width: 100%;
+  min-height: 80vh;
+  background-color: var(--color-inst-fondo);
+  color: var(--color-inst-texto);
+}
+
+.contenedor-presentacion-grado {
+  max-width: var(--ancho-maximo);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --------------------------------------------------------------------------
+ * BANNER SUPERIOR DE BIENVENIDA AL GRADO
+ * -------------------------------------------------------------------------- */
+.banner-presentacion-grado {
+  background: linear-gradient(135deg, var(--color-inst-azul) 0%, #061833 100%);
+  color: #ffffff;
+  padding: 48px 0 36px 0;
+  border-bottom: 4px solid var(--color-inst-rojo);
+  border-radius: 0px !important;
+}
+
+.dark .banner-presentacion-grado {
+  background: linear-gradient(135deg, #0B0F19 0%, #030712 100%);
+  border-bottom-color: var(--color-ciber-primario);
+}
+
+.etiqueta-bienvenida-grado {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 6px 14px;
+  font-size: var(--tamano-texto-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  border-radius: 0px !important;
+}
+
+.icono-etiqueta {
+  font-size: 16px;
+  color: var(--color-inst-amarillo);
+}
+
+.dark .icono-etiqueta {
+  color: var(--color-ciber-primario);
+}
+
+.titulo-presentacion-grado {
+  margin: 0 0 16px 0;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.descripcion-presentacion-grado {
+  margin: 0 0 32px 0;
+  max-width: 800px;
+  font-size: var(--tamano-texto-md);
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------------------------------
+ * SELECTOR RÁPIDO DE GRADOS (PESTAÑAS RECTAS)
+ * -------------------------------------------------------------------------- */
+.selector-grados-pestanas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pestana-grado {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 0px !important;
+  padding: 10px 20px;
+  font-size: var(--tamano-texto-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transicion-rapida);
+}
+
+.pestana-grado:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.pestana-grado-activa {
+  background-color: var(--color-inst-rojo) !important;
+  border-color: var(--color-inst-rojo) !important;
+  box-shadow: 0 4px 12px rgba(200, 16, 46, 0.4);
+}
+
+.dark .pestana-grado-activa {
+  background-color: var(--color-ciber-primario) !important;
+  border-color: var(--color-ciber-primario) !important;
+  color: #000000 !important;
+  box-shadow: 0 0 12px var(--color-ciber-resplandor);
+}
+
+/* --------------------------------------------------------------------------
+ * SECCIÓN DE MÓDULOS
+ * -------------------------------------------------------------------------- */
+.seccion-modulos-grado {
+  padding: 48px 0;
+}
+
+.encabezado-seccion-modulos {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.titulo-seccion-modulos {
+  margin: 0 0 8px 0;
+  font-size: var(--tamano-texto-2xl);
+  font-weight: 800;
+  color: var(--color-inst-texto);
+}
+
+.subtitulo-seccion-modulos {
+  margin: 0;
+  font-size: var(--tamano-texto-sm);
+  color: var(--color-inst-texto-secundario);
+}
+
+.insignia-conteo-modulos {
+  background-color: var(--color-inst-azul);
+  color: #ffffff;
+  padding: 8px 16px;
+  font-size: var(--tamano-texto-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 0px !important;
+}
+
+.dark .insignia-conteo-modulos {
+  background-color: var(--color-ciber-tarjeta);
+  border: 1px solid var(--color-ciber-borde);
+  color: var(--color-ciber-primario);
+}
+
+/* --------------------------------------------------------------------------
+ * CUADRÍCULA DE TARJETAS DE MÓDULO
+ * -------------------------------------------------------------------------- */
+.cuadricula-tarjetas-modulo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.tarjeta-modulo-grado {
+  background-color: var(--color-inst-tarjeta);
+  border: 1px solid var(--color-inst-borde);
+  border-radius: 0px !important; /* Estricto 0px */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform var(--transicion-normal), box-shadow var(--transicion-normal), border-color var(--transicion-normal);
+  box-shadow: var(--sombra-sm);
+}
+
+.tarjeta-modulo-grado:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-lg);
+  border-color: var(--color-inst-azul);
+}
+
+.dark .tarjeta-modulo-grado:hover {
+  border-color: var(--color-ciber-primario);
+  box-shadow: 0 0 16px var(--color-ciber-resplandor);
+}
+
+.tarjeta-modulo-cabecera {
+  padding: 20px 20px 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-inst-borde);
+}
+
+.tarjeta-modulo-icono {
+  width: 44px;
+  height: 44px;
+  background-color: rgba(15, 44, 89, 0.08);
+  color: var(--color-inst-azul);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0px !important;
+}
+
+.tarjeta-modulo-icono .material-symbols-outlined {
+  font-size: 24px;
+}
+
+.dark .tarjeta-modulo-icono {
+  background-color: rgba(0, 240, 255, 0.1);
+  color: var(--color-ciber-primario);
+}
+
+.tarjeta-modulo-categoria {
+  font-size: var(--tamano-texto-xs);
+  font-weight: 700;
+  color: var(--color-inst-texto-secundario);
+  text-transform: uppercase;
+}
+
+.tarjeta-modulo-cuerpo {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tarjeta-modulo-titulo {
+  margin: 0;
+  font-size: var(--tamano-texto-lg);
+  font-weight: 700;
+  color: var(--color-inst-texto);
+  line-height: 1.3;
+}
+
+.caja-bienvenida-corta {
+  background-color: var(--color-inst-fondo);
+  padding: 12px 14px;
+  border-left: 3px solid var(--color-inst-rojo);
+  border-radius: 0px !important;
+}
+
+.dark .caja-bienvenida-corta {
+  background-color: #080C14;
+  border-left-color: var(--color-ciber-secundario);
+}
+
+.texto-bienvenida-corta {
+  margin: 0;
+  font-size: var(--tamano-texto-xs);
+  line-height: 1.5;
+  color: var(--color-inst-texto-secundario);
+}
+
+.detalles-rapidos-modulo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: auto;
+  font-size: var(--tamano-texto-xs);
+  color: var(--color-inst-texto-secundario);
+}
+
+.item-detalle-rapido {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icono-mini {
+  font-size: 16px;
+}
+
+.tarjeta-modulo-pie {
+  padding: 16px 20px 20px 20px;
+  border-top: 1px solid var(--color-inst-borde);
+  background-color: var(--color-inst-fondo);
+}
+
+.caja-pie-retorno {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.enlace-volver-inicio {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-inst-azul);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: var(--tamano-texto-sm);
+  transition: color var(--transicion-rapida);
+}
+
+.enlace-volver-inicio:hover {
+  color: var(--color-inst-rojo);
+}
+
+.dark .enlace-volver-inicio {
+  color: var(--color-ciber-primario);
+}
