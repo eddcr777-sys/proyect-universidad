@@ -1,102 +1,125 @@
 /* ==========================================
-   NAVEGACIÓN ESCRITORIO - CORRECCIÓN DE COLORES EN DESPLEGABLE
+   NAVEGACIÓN ESCRITORIO
    ========================================== */
 
+/* Navbar Contenedor */
 .nav-desktop {
-    display: flex;
-    gap: 8px;
-    margin-left: auto; 
-    align-items: center;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: var(--color-inst-azul);
+  padding: 0.75rem 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
-/* Enlaces principales */
-.nav-desktop a.nav-link,
-.nav-desktop a.nav-link:visited {
-    text-decoration: none;
-    color: var(--color-inst-azul);
-    font-size: 0.9rem;
-    font-weight: 400;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: color 0.15s ease, background-color 0.15s ease;
-}
-
-.nav-desktop a.nav-link:hover {
-    color: var(--color-inst-azul-hover);
-    background-color: var(--color-inst-fondo);
-}
-
-/* Contenedor del Dropdown */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-/* Botón disparador */
+/* Enlaces simples y Botones */
+.nav-link,
 .dropbtn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 400;
-    padding: 8px 12px;
-    color: var(--color-inst-azul);
-    border-radius: 4px;
-    transition: color 0.15s ease, background-color 0.15s ease;
+  background: transparent;
+  border: none;
+  color: var(--color-inst-blanco);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.5rem 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
 }
 
+/* Ícono de flechita (Chevron) dentro del botón */
+.chevron-icon {
+  transition: transform 0.25s ease;
+}
+
+/* Rotación del chevron al hacer hover */
+.dropdown:hover .chevron-icon {
+  transform: rotate(180deg);
+}
+
+.nav-link:hover,
+.dropbtn:hover,
 .dropdown:hover .dropbtn {
-    color: var(--color-inst-azul-hover);
-    background-color: var(--color-inst-fondo);
+  background-color: var(--color-inst-azul-hover);
+  color: var(--color-inst-blanco);
 }
 
-/* Menú Desplegable Minimalista */
+/* Posición del contenedor desplegable */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Puente de tolerancia para que no se cierre la tarjeta al mover el ratón */
+.dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 14px;
+}
+
+/* ----------------------------------------------------
+   TARJETA DESPLEGABLE (DROPDOWN CARD CON FLECHA)
+   ---------------------------------------------------- */
 .dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 100%;
-    background-color: var(--color-inst-blanco);
-    min-width: 200px;
-    border: 1px solid var(--color-inst-borde);
-    border-radius: 4px;
-    z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: calc(100% + 12px); /* Distancia para encajar con la flecha */
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  
+  background-color: var(--color-inst-tarjeta);
+  min-width: 200px;
+  padding: 0.6rem 0;
+  border-radius: 8px;
+  
+  /* Sombras y bordes idénticos al de la captura */
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.05);
+  
+  z-index: 1000;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
 }
 
-/* Forzar estado normal/visitado a TEXTO OSCURO/AZUL (evita rojo heredado) */
-.dropdown-content a,
-.dropdown-content a:link,
-.dropdown-content a:visited {
-    color: var(--color-inst-texto) !important; /* Fuerza color oscuro/neutro sin rojo */
-    padding: 10px 14px;
-    text-decoration: none;
-    display: block;
-    font-size: 0.875rem;
-    font-weight: 400;
-    white-space: nowrap;
-    border-bottom: 1px solid var(--color-inst-borde);
-    transition: background-color 0.15s ease, color 0.15s ease;
+/* TRIÁNGULO / FLECHITA SUPERIOR (Tooltip Arrow) */
+.dropdown-content::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 11px;
+  height: 11px;
+  background-color: var(--color-inst-tarjeta);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.dropdown-content a:last-child {
-    border-bottom: none;
-}
-
-/* Hover: Fondo azul e icono/texto en blanco (o fondo suave con texto azul) */
-.dropdown-content a:hover,
-.dropdown-content a:focus {
-    background-color: var(--color-inst-azul) !important;
-    color: var(--color-inst-blanco) !important;
-}
-
-/* Mostrar desplegable */
+/* Mostrar Menú en Hover */
 .dropdown:hover .dropdown-content {
-    display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
 }
 
-/* Ocultar en móvil */
-@media (max-width: 768px) {
-    .nav-desktop {
-        display: none;
-    }
+/* ÍTEMS INTERNOS DE LA TARJETA */
+.dropdown-item {
+  color: var(--color-inst-texto);
+  padding: 0.65rem 1.25rem;
+  text-decoration: none;
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.dropdown-item:hover {
+  background-color: var(--color-inst-fondo);
+  color: var(--color-inst-rojo);
 }
