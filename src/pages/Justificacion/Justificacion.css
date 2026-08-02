@@ -1,3 +1,655 @@
-.justificacion-contenedor {
-  padding: 20px;
+/* src/pages/Justificacion.css */
+
+.justificacion-pagina {
+  background-color: #F8FAFC; /* Fondo general más limpio y corporativo */
+  color: var(--color-inst-texto);
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO SECTION (Densa y Moderna)
+   -------------------------------------------------------------------------- */
+.hero-densa {
+  position: relative;
+  padding: 6rem 1.5rem 8rem 1.5rem;
+  background-color: var(--color-inst-blanco);
+  overflow: hidden;
+}
+
+.hero-fondo-decorativo {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(15, 44, 89, 0.04) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.contenedor-hero-grid {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 1024px) {
+  .contenedor-hero-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+  }
+}
+
+.hero-contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.insignia-badget-justificacion {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(15, 44, 89, 0.06);
+  color: var(--color-inst-azul);
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1px solid rgba(15, 44, 89, 0.15);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  width: fit-content;
+}
+
+.titulo-hero {
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--color-inst-azul);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+  .titulo-hero { font-size: 2.5rem; }
+}
+
+.texto-destacado-rojo {
+  color: var(--color-inst-rojo);
+}
+
+.descripcion-hero {
+  font-size: 1.25rem;
+  color: var(--color-inst-texto-secundario);
+  margin: 0;
+}
+
+/* Botones Integrados del Hero */
+.hero-botones-grupo {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.boton-primario {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--color-inst-azul);
+  color: var(--color-inst-blanco);
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(15, 44, 89, 0.2);
+}
+
+.boton-primario:hover {
+  background-color: var(--color-inst-rojo);
+  box-shadow: 0 10px 20px rgba(200, 16, 46, 0.25);
+  transform: translateY(-2px);
+}
+
+.boton-secundario {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--color-inst-azul);
+  border: 2px solid var(--color-inst-borde);
+  padding: 1rem 1.75rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.boton-secundario:hover {
+  border-color: var(--color-inst-azul);
+  background-color: rgba(15, 44, 89, 0.04);
+}
+
+/* Métricas debajo de los botones */
+.hero-metricas-rapidas {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-inst-borde);
+}
+
+.metrica-mini {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-inst-texto);
+}
+
+.icono-verde { color: #10B981; }
+
+/* Visual Hero */
+.hero-visual {
+  position: relative;
+}
+
+.imagen-principal-wrapper {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(15, 44, 89, 0.25);
+  border: 4px solid var(--color-inst-blanco);
+}
+
+.imagen-hero {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  display: block;
+}
+
+.tarjeta-flotante-hero {
+  position: absolute;
+  bottom: -1rem;
+  left: -2rem;
+  background: var(--color-inst-blanco);
+  padding: 1.25rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  border: 1px solid var(--color-inst-borde);
+  animation: flotar 4s ease-in-out infinite;
+}
+
+@media (max-width: 1024px) {
+  .tarjeta-flotante-hero { left: 1rem; bottom: 1rem; }
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.tarjeta-flotante-hero strong {
+  display: block;
+  color: var(--color-inst-azul);
+  font-size: 1.1rem;
+}
+
+.tarjeta-flotante-hero p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-inst-texto-secundario);
+}
+
+/* --------------------------------------------------------------------------
+   2. ESTADÍSTICAS SUPERPUESTAS (Rompen el diseño para dar profundidad)
+   -------------------------------------------------------------------------- */
+.seccion-estadisticas-superpuestas {
+  position: relative;
+  margin-top: -5rem; /* Superpone sobre el hero */
+  z-index: 10;
+  padding: 0 1.5rem;
+}
+
+.contenedor-estadisticas {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .contenedor-estadisticas {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.tarjeta-dato {
+  padding: 2rem 1.5rem;
+  border-radius: 1.25rem;
+  text-align: left;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.tarjeta-dato:hover {
+  transform: translateY(-5px);
+}
+
+.dark-card {
+  background-color: var(--color-inst-azul);
+  color: var(--color-inst-blanco);
+  border: none;
+}
+
+.dark-card .numero-dato { color: var(--color-inst-blanco); }
+.dark-card .etiqueta-dato { color: rgba(255,255,255,0.8); }
+
+.light-card {
+  background-color: var(--color-inst-blanco);
+  border: 1px solid var(--color-inst-borde);
+}
+
+.icono-dato { margin-bottom: 1rem; }
+.icono-dato.rojo { color: var(--color-inst-rojo); }
+.icono-dato.azul { color: var(--color-inst-azul); }
+.icono-dato.amarillo { color: var(--color-inst-amarillo); }
+
+.numero-dato {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--color-inst-azul);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.etiqueta-dato {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   3. BENTO GRID PILARES (Diseño Asimétrico Lleno)
+   -------------------------------------------------------------------------- */
+.seccion-bento-pilares {
+  padding: 8rem 1.5rem 5rem 1.5rem;
+}
+
+.contenedor-bento {
+ 
+  margin: 0 auto;
+}
+
+.encabezado-bento {
+  margin-bottom: 3rem;
+
+}
+
+.encabezado-bento h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-inst-azul);
+  margin-bottom: 0.5rem;
+}
+
+.encabezado-bento p {
+  font-size: 1.15rem;
+  color: var(--color-inst-texto-secundario);
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+  }
+}
+
+.bento-card {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--color-inst-borde);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(15, 44, 89, 0.1);
+}
+
+/* Card Ancha (Span 2 columns en Desktop) */
+.bento-wide {
+  background-color: var(--color-inst-azul);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .bento-wide {
+    grid-column: span 2;
+    flex-direction: row;
+  }
+}
+
+.bento-wide .bento-contenido {
+  padding: 3rem;
+  flex: 1;
+  color: var(--color-inst-blanco);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bento-wide h3 { font-size: 1.8rem; margin: 1rem 0; font-weight: 800; }
+.bento-wide p { font-size: 1.05rem; opacity: 0.9; line-height: 1.6; }
+
+.bento-decoracion {
+  flex: 1;
+  min-height: 250px;
+}
+
+.bento-decoracion img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Cards Standard */
+.bento-standard {
+  background-color: var(--color-inst-blanco);
+  display: flex;
+  flex-direction: column;
+}
+
+.gris-bg { background-color: #F1F5F9; }
+
+.bento-imagen-top {
+  height: 200px;
+  position: relative;
+}
+
+.bento-imagen-top img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bento-badge {
+  position: absolute;
+  bottom: -1.25rem;
+  left: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--color-inst-rojo);
+  color: white;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid var(--color-inst-blanco);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.bento-badge.bg-azul { background-color: var(--color-inst-azul); }
+
+.bento-standard .bento-contenido {
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+}
+
+.bento-standard h3 {
+  font-size: 1.35rem;
+  color: var(--color-inst-azul);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.bento-standard p {
+  color: var(--color-inst-texto-secundario);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. FILOSOFÍA INMERSIVA (BANNER ANCHO)
+   -------------------------------------------------------------------------- */
+.seccion-filosofia-inmersiva {
+  position: relative;
+  padding: 7rem 1.5rem;
+  background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  text-align: center;
+  color: var(--color-inst-blanco);
+  margin: 4rem 0;
+}
+
+.filosofia-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(15, 44, 89, 0.95) 0%, rgba(200, 16, 46, 0.85) 100%);
+}
+
+.contenedor-filosofia-inmersiva {
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+}
+
+.icono-brillo { color: var(--color-inst-amarillo); margin-bottom: 1.5rem; }
+
+.contenedor-filosofia-inmersiva h2 {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 800;
+  color: var(--color-inst-amarillo);
+  margin-bottom: 2rem;
+}
+
+.contenedor-filosofia-inmersiva blockquote {
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0 0 2rem 0;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .contenedor-filosofia-inmersiva blockquote { font-size: 1.8rem; }
+}
+
+.contenedor-filosofia-inmersiva p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------------------------------
+   5. DETALLES Y FAQ (Doble Columna Densa)
+   -------------------------------------------------------------------------- */
+.seccion-detalles-faq {
+  padding: 5rem 1.5rem;
+}
+
+.contenedor-doble {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .contenedor-doble { grid-template-columns: 1fr 1fr; }
+}
+
+.columna-necesidad {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.caja-contexto {
+  background: var(--color-inst-blanco);
+  padding: 2.5rem;
+  border-radius: 1.25rem;
+  border: 1px solid var(--color-inst-borde);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+}
+
+.caja-contexto.reverso {
+  background: var(--color-inst-azul);
+  color: white;
+}
+
+.caja-contexto.reverso h3 { color: white; }
+.caja-contexto.reverso p { color: rgba(255,255,255,0.85); }
+
+.icono-caja {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  background: rgba(15, 44, 89, 0.1);
+  color: var(--color-inst-azul);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.icono-caja.rojo { background: rgba(255,255,255,0.1); color: var(--color-inst-amarillo); }
+
+.caja-contexto h3 { font-size: 1.5rem; font-weight: 800; color: var(--color-inst-azul); margin-bottom: 1rem; }
+.caja-contexto p { font-size: 1.05rem; line-height: 1.7; color: var(--color-inst-texto-secundario); margin: 0; }
+
+/* Lista FAQ Densa */
+.encabezado-faq-mini {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.encabezado-faq-mini h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-inst-azul);
+  margin: 0;
+}
+
+.lista-faq-densa {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.item-faq-denso {
+  background: var(--color-inst-blanco);
+  border: 1px solid var(--color-inst-borde);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.item-faq-denso:hover { border-color: var(--color-inst-azul); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+
+.pregunta-faq-densa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pregunta-faq-densa h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-inst-azul);
+  margin: 0;
+  padding-right: 1rem;
+}
+
+.icono-flecha-faq { color: var(--color-inst-texto-secundario); transition: transform 0.3s ease; }
+.item-faq-denso.activo .icono-flecha-faq { transform: rotate(180deg); color: var(--color-inst-rojo); }
+
+.respuesta-faq-densa {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--color-inst-borde);
+}
+
+.respuesta-faq-densa p {
+  color: var(--color-inst-texto-secundario);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   6. CTA FINAL MASIVO
+   -------------------------------------------------------------------------- */
+.seccion-cta-masivo {
+  padding: 6rem 1.5rem;
+  background-color: var(--color-inst-blanco);
+  border-top: 1px solid var(--color-inst-borde);
+}
+
+.cta-masivo-contenedor {
+ 
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(180deg, var(--color-inst-fondo) 0%, var(--color-inst-blanco) 100%);
+  padding: 4rem 2rem;
+  border-radius: 2rem;
+  border: 1px solid var(--color-inst-borde);
+}
+
+.cta-masivo-contenedor h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--color-inst-azul);
+  margin-bottom: 1rem;
+}
+
+.cta-masivo-contenedor p {
+  font-size: 1.2rem;
+  color: var(--color-inst-texto-secundario);
+  margin-bottom: 2.5rem;
+}
+
+.boton-cta-gigante {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--color-inst-rojo);
+  color: var(--color-inst-blanco);
+  padding: 1.25rem 3rem;
+  border-radius: 9999px; /* Botón tipo píldora */
+  font-size: 1.15rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 15px 30px rgba(200, 16, 46, 0.3);
+  transition: all 0.3s ease;
+}
+
+.boton-cta-gigante:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(200, 16, 46, 0.4);
 }

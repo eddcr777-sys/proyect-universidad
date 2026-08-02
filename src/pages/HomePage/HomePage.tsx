@@ -10,7 +10,8 @@ import {
   ShieldCheck, 
   BookOpen, 
   FileText,
-  School
+  School,
+  ArrowRight
 } from 'lucide-react';
 import '../HomePage/HomePage.css';
 import { useCarrusel } from '../../hooks/useCarrusel';
@@ -21,9 +22,13 @@ import {
   CARRUSEL_GALERIA_DATA,
   CARRUSEL_PERSONAL_DATA
 } from '../../data/HomeData';
-
-
-
+ 
+import fotoFachada from '../../assets/lb.jpeg';  
+import fotoCancha from '../../assets/lemu.jpeg';
+import fotoAulas from '../../assets/le.jpeg';
+import { BanderaVenezuela } from '../../components/comunes/Extras/Bandera/BanderaVenezuela';
+import ArrowMoving from '../../components/comunes/Extras/arrowMoving/ArrowMoving';
+import { MarginBandera } from '../../components/comunes/Extras/MarginBandera/MarginBandera';
 
 export const Home: React.FC = () => {
 
@@ -37,18 +42,17 @@ export const Home: React.FC = () => {
   return (
     <main className="inicio-pagina">
       
-      {/* 1. SECCIÓN DE PORTADA */}
-  {/* 1. SECCIÓN DE PORTADA INSTITUCIONAL */}
-   {/* 1. SECCIÓN DE PORTADA INSTITUCIONAL */}
+      {/* 1. SECCIÓN DE PORTADA INSTITUCIONAL */}
       <header className="portada-institucional">
         <div className="contenedor cuadricula-institucional">
           
           {/* Lado Izquierdo: Información Académica */}
           <div className="contenido-institucional">
+            <BanderaVenezuela />
             <div className="cintillo-oficial">
-              <span className="escudo-texto">República Bolivariana de Venezuela</span>
-              <span className="separador-cintillo">•</span>
-              <span>MPPE</span>
+                <span className="escudo-texto">República Bolivariana de Venezuela</span>
+                <span className="separador-cintillo">•</span>
+                <span>MPPE</span>
             </div>
 
             <h1 className="titulo-institucional">
@@ -86,12 +90,12 @@ export const Home: React.FC = () => {
           {/* Lado Derecho: Marco Fotográfico Institucional */}
           <div className="columna-foto-institucional">
             <div className="marco-fotografico">
-              <img 
-                src="/imagenes/images.jpeg" 
-                alt="Fachada del Liceo Bolivariano Antonio Lemus Pérez" 
+              <img
+                src={fotoFachada} 
+                alt="Fachada del Liceo Bolivariano Antonio Lemus Pérez"
                 className="foto-fachada"
-                width="640" 
-                height="426" 
+                width="640"
+                height="426"
               />
               <div className="pie-foto-institucional">
                 <span>Instalaciones Principales — Cumaná, Edo. Sucre</span>
@@ -101,6 +105,8 @@ export const Home: React.FC = () => {
 
         </div>
       </header>
+
+      <MarginBandera />
 
       {/* 2. MISIÓN Y VISIÓN */}
       <section className="seccion-mision-vision">
@@ -131,6 +137,7 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      
       {/* 3. RESEÑA HISTÓRICA */}
       <section id="historia" className="seccion-historia">
         <div className="contenedor">
@@ -160,21 +167,31 @@ export const Home: React.FC = () => {
                   <p className="etiqueta-hito">Fundación</p>
                 </div>
                 <div className="caja-imagen-mosaico">
-                  <img src="/imagenes/le.jpeg" width="400" height="300" alt="Aula" loading="lazy" />
+                  <img src={fotoAulas} width="400" height="300" alt="Aula" loading="lazy" />
                 </div>
               </div>
               <div className="columna-mosaico desplazada">
                 <div className="caja-imagen-mosaico">
-                  <img src="/imagenes/lem.jpeg" width="400" height="300" alt="Estudiante" loading="lazy" />
+                  <img src={fotoCancha} width="400" height="300" alt="Estudiante" loading="lazy" />
                 </div>
                 <div className="caja-hito destacado">
                   <p className="ano-hito">2026</p>
                   <p className="etiqueta-hito">Digitalización</p>
                 </div>
               </div>
-            </div>
-          </div>
+      
+         
         </div>
+        </div>
+            </div>
+            
+        
+              
+            
+              <ArrowMoving direction="right"   text="Descubre más sobre nuestra historia" 
+               onClick={() => window.location.href = "/nosotros/sobre-ue"} />
+              
+              
       </section>
 
       {/* 4. NUESTRAS LABORES E INICIATIVAS (TARJETAS DESPLEGABLES) */}
@@ -214,7 +231,7 @@ export const Home: React.FC = () => {
             })}
           </div>
 
-          {/* Carrusel Integrado en Labores */}
+          {/* Carrusel Integrado en Labores (Ancho Completo) */}
           <div className="bloque-carrusel-interno">
             <h4 className="subtitulo-carrusel">Galería de Iniciativas en Acción</h4>
             <div className="contenedor-carrusel">
@@ -279,7 +296,7 @@ export const Home: React.FC = () => {
             <button 
               type="button" 
               aria-label="Anterior" 
-              onClick={carruselLabores.anterior}
+              onClick={carruselGaleria.anterior}
             >
               <ChevronLeft size={24} />
             </button>
@@ -332,7 +349,7 @@ export const Home: React.FC = () => {
             })}
           </div>
 
-          {/* Galería del Personal */}
+          {/* Galería del Personal (Ancho Completo) */}
           <div className="bloque-carrusel-interno">
             <div className="encabezado-centrado">
               <h2 className="etiqueta-seccion">Galería del Personal</h2>
@@ -390,7 +407,7 @@ export const Home: React.FC = () => {
               </div>
               
               <h2>
-                Alfabetización Digital: Protegiendo a nuestra Comunidad.
+                Protegiendo a nuestra Comunidad.
               </h2>
               
               <p>

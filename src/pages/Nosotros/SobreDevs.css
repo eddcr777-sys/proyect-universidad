@@ -1,3 +1,348 @@
-.sobredevs-contenedor {
-  padding: 20px;
+/* src/pages/SobreDevs.css */
+
+.contenedor-nosotros {
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem 1.5rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--color-inst-fondo);
+  color: var(--color-inst-texto);
+}
+
+/* --------------------------------------------------------------------------
+   1. HERO / DESCRIPCIÓN PRINCIPAL
+   -------------------------------------------------------------------------- */
+.seccion-hero {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 4rem auto;
+  padding: 2rem 1rem;
+}
+
+.insignia-badget {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(15, 44, 89, 0.08);
+  color: var(--color-inst-azul);
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(15, 44, 89, 0.15);
+}
+
+.titulo-hero {
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--color-inst-azul);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.titulo-hero .resaltado-rojo {
+  color: var(--color-inst-rojo);
+}
+
+.descripcion-hero {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--color-inst-texto-secundario);
+  margin-bottom: 2.5rem;
+}
+
+.colaboracion-caja {
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-inst-borde);
+  display: inline-block;
+}
+
+.texto-sub {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-inst-texto-secundario);
+  opacity: 0.75;
+  margin-bottom: 0.5rem;
+}
+
+.texto-institucion {
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--color-inst-rojo);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. MÉTRICAS Y ESTADÍSTICAS DEL PROYECTO
+   -------------------------------------------------------------------------- */
+.seccion-estadisticas {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 640px) {
+  .seccion-estadisticas {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.tarjeta-stat {
+  background-color: var(--color-inst-tarjeta);
+  border: 1px solid var(--color-inst-borde);
+  border-top: 4px solid var(--color-inst-rojo);
+  border-radius: 1rem;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-icono {
+  color: var(--color-inst-rojo);
+  margin-bottom: 0.5rem;
+}
+
+.stat-numero {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--color-inst-azul);
+  margin-bottom: 0.25rem;
+}
+
+.stat-etiqueta {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-inst-texto-secundario);
+}
+
+/* --------------------------------------------------------------------------
+   3. PILARES / OBJETIVOS
+   -------------------------------------------------------------------------- */
+.seccion-pilares {
+  margin-bottom: 4rem;
+}
+
+.encabezado-seccion {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.encabezado-seccion h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-inst-azul);
+  margin-bottom: 0.5rem;
+}
+
+.encabezado-seccion p {
+  color: var(--color-inst-texto-secundario);
+  font-size: 1rem;
+}
+
+.grid-pilares {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid-pilares {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.tarjeta-pilar {
+  background: var(--color-inst-tarjeta);
+  border: 1px solid var(--color-inst-borde);
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+}
+
+.tarjeta-pilar:hover {
+  border-color: var(--color-inst-azul);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px -5px rgba(15, 44, 89, 0.1);
+}
+
+.icono-pilar {
+  width: 48px;
+  height: 48px;
+  background-color: rgba(200, 16, 46, 0.1);
+  color: var(--color-inst-rojo);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.tarjeta-pilar h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-inst-azul);
+  margin-bottom: 0.75rem;
+}
+
+.tarjeta-pilar p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-inst-texto-secundario);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. SECCIÓN DEL EQUIPO DE DESARROLLADORES
+   -------------------------------------------------------------------------- */
+.seccion-equipo {
+  background: linear-gradient(135deg, rgba(15, 44, 89, 0.04) 0%, rgba(2, 132, 199, 0.04) 100%);
+  padding: 3.5rem 2rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--color-inst-borde);
+  margin-bottom: 4rem;
+}
+
+.encabezado-equipo {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.encabezado-equipo h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--color-inst-azul);
+  margin-bottom: 0.5rem;
+}
+
+.encabezado-equipo p {
+  color: var(--color-inst-texto-secundario);
+  font-size: 1.05rem;
+}
+
+/* Grid de Creadores */
+.grid-creadores {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .grid-creadores {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-creadores {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Tarjeta individual */
+.tarjeta-creador {
+  background: var(--color-inst-tarjeta);
+  border: 1px solid var(--color-inst-borde);
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.tarjeta-creador::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--color-inst-azul);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tarjeta-creador:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 25px -5px rgba(15, 44, 89, 0.12);
+  border-color: var(--color-inst-azul);
+}
+
+.tarjeta-creador:hover::before {
+  opacity: 1;
+}
+
+.avatar-contenedor {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 1.5rem auto;
+  border-radius: 50%;
+  background-color: var(--color-inst-fondo);
+  border: 2px solid var(--color-inst-borde);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.icono-perfil {
+  color: var(--color-inst-texto-secundario);
+  transition: color 0.3s ease;
+}
+
+.tarjeta-creador:hover .avatar-contenedor {
+  border-color: var(--color-inst-rojo);
+  background-color: rgba(200, 16, 46, 0.05);
+}
+
+.tarjeta-creador:hover .icono-perfil {
+  color: var(--color-inst-rojo);
+}
+
+/* --------------------------------------------------------------------------
+   5. COMPROMISO INSTITUCIONAL
+   -------------------------------------------------------------------------- */
+.seccion-compromiso {
+  background-color: var(--color-inst-azul);
+  color: var(--color-inst-blanco);
+  padding: 3rem 2rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  box-shadow: 0 10px 15px -3px rgba(15, 44, 89, 0.3);
+}
+
+.seccion-compromiso h2 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.seccion-compromiso p {
+  max-width: 750px;
+  margin: 0 auto 1.5rem auto;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.insignia-compromiso {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background-color: var(--color-inst-rojo);
+  color: var(--color-inst-blanco);
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 9999px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }

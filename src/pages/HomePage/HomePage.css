@@ -6,12 +6,13 @@
     width: 100%;
     color: var(--color-inst-texto);
     background-color: var(--color-inst-blanco);
+    overflow-x: hidden; /* Evita scroll horizontal por elementos de 100vw */
 }
 
 .contenedor {
-    max-width: 1200px;
+    max-width: 1450px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0  40px;
 }
 
 .align-center {
@@ -19,15 +20,10 @@
 }
 
 
-
-
-
-
 /* --- PORTADA CON VARIABLES INSTITUCIONALES --- */
 .portada-institucional {
-  background-color: var(--color-inst-fondo);
-  border-bottom: 4px solid var(--color-inst-rojo); /* Detalle institucional en rojo */
-  padding: 3.5rem 1.5rem;
+  background-color: var(--color-inst-blanco);
+  padding: 0.5rem 1.5rem;
   color: var(--color-inst-texto);
 }
 
@@ -51,8 +47,56 @@
   margin-bottom: 1rem;
 }
 
+/* Contenedor principal de la línea tricolor */
+.linea-bandera-venezuela {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 520px; /* Longitud sutil de la línea */
+  height: 20px; /* Altura total de la línea */
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.463);
+}
+
+
+/* Franjas proporcionales */
+.franja-linea {
+  width: 100%;
+  flex: 1;
+}
+
+.franja-linea.amarillo {
+  background-color: #FFCC00;
+}
+
+.franja-linea.azul {
+  background-color: #00247D;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.franja-linea.rojo {
+  background-color: #CF142B;
+}
+
+/* Estrellas diminutas sobre la franja azul */
+.estrellas-linea {
+  color: #FFFFFF;
+  font-size: 3.5px; /* Tamaño micro para encajar perfectamente */
+  letter-spacing: 1.5px;
+  line-height: 1;
+  opacity: 0.95;
+  user-select: none;
+  pointer-events: none;
+  transform: translateY(-0.2px);
+}
+
 .separador-cintillo {
-  color: var(--color-inst-amarillo); /* Toque de acento amarillo */
+  color: var(--color-inst-amarillo);
 }
 
 /* Título de la Institución */
@@ -65,7 +109,7 @@
 }
 
 .nombre-liceo {
-  color: var(--color-inst-azul); /* Predomina el Azul Institucional */
+  color: var(--color-inst-azul);
   display: inline-block;
   margin-top: 0.25rem;
 }
@@ -86,7 +130,6 @@
   margin-bottom: 2.5rem;
 }
 
-/* Botón Primario: Azul Rey Predominante */
 .boton-institucional-principal {
   display: inline-flex;
   align-items: center;
@@ -107,7 +150,6 @@
   box-shadow: 0 6px 16px rgba(15, 44, 89, 0.3);
 }
 
-/* Botón Secundario: Blanco con Borde y Hover Azul/Rojo */
 .boton-institucional-secundario {
   display: inline-flex;
   align-items: center;
@@ -134,7 +176,7 @@
   display: flex;
   gap: 2rem;
   padding-top: 1.5rem;
-  border-top: 1px solid var(--color-inst-borde);
+
 }
 
 .item-acceso {
@@ -153,6 +195,7 @@
   color: var(--color-inst-texto);
 }
 
+
 .item-acceso p {
   font-size: 0.8rem;
   color: var(--color-inst-texto-secundario);
@@ -169,9 +212,6 @@
   background: var(--color-inst-tarjeta);
   padding: 10px;
   border-radius: 12px;
-  border: 1px solid var(--color-inst-borde);
-  border-top: 4px solid var(--color-inst-azul); /* Detalle de color superior */
-  box-shadow: 0 10px 25px -5px rgba(15, 44, 89, 0.08);
   width: 100%;
 }
 
@@ -203,28 +243,6 @@
     gap: 1rem;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**/
 
 .boton-primario {
     display: inline-flex;
@@ -374,7 +392,7 @@
 
 /* --- Tarjetas Desplegables --- */
 .seccion-labores, .seccion-personal {
-    padding: 60px 0;
+    padding:  0;
 }
 
 .encabezado-centrado {
@@ -472,7 +490,7 @@
     line-height: 1.6;
 }
 
-/* --- Carruseles --- */
+/* --- CARRUSELES ANCHO COMPLETO (100% PANTALLA) --- */
 .bloque-carrusel-interno {
     margin-top: 50px;
 }
@@ -489,13 +507,15 @@
     background-color: var(--color-inst-fondo);
 }
 
+/* Regla para romper el contenedor y extender a 100vw */
 .contenedor-carrusel {
     position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
-    border-radius: 8px;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
     overflow: hidden;
-    border: 1px solid var(--color-inst-borde);
     background-color: var(--color-inst-blanco);
 }
 
@@ -506,9 +526,9 @@
 }
 
 .item-carrusel {
-    min-width: 100%;
+    min-width: 100vw;
     position: relative;
-    height: 450px;
+    height: 520px;
 }
 
 .item-carrusel img {
@@ -522,18 +542,18 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(15, 44, 89, 0.85));
+    background: linear-gradient(transparent, rgba(15, 44, 89, 0.88));
     color: var(--color-inst-blanco);
-    padding: 30px 20px 20px 20px;
+    padding: 40px 10% 30px 10%;
 }
 
 .overlay-carrusel h3 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin-bottom: 6px;
 }
 
 .overlay-carrusel p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     opacity: 0.9;
 }
 
@@ -545,27 +565,30 @@
     transform: translateY(-50%);
     display: flex;
     justify-content: space-between;
-    padding: 0 16px;
+    padding: 0 24px;
     pointer-events: none;
+    z-index: 10;
 }
 
 .controles-carrusel button {
     pointer-events: auto;
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 0.88);
     color: var(--color-inst-azul);
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .controles-carrusel button:hover {
     background-color: var(--color-inst-blanco);
+    transform: scale(1.08);
 }
 
 /* --- Banner de Proyecto --- */
@@ -669,7 +692,11 @@
     }
 
     .item-carrusel {
-        height: 300px;
+        height: 350px;
+    }
+
+    .overlay-carrusel {
+        padding: 20px 16px 16px 16px;
     }
 
     .caja-banner-proyecto {

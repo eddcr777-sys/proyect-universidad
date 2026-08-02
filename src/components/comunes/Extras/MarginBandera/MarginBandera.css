@@ -1,0 +1,44 @@
+/* Contenedor centralizado */
+.contenedor-separador-sutil {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px 100; /* Espaciado limpio entre secciones */
+  gap: 2px;
+}
+
+/* Franjas muy finas con degradado a transparente */
+.linea-desvanecida {
+  height: 6px;
+  width: 60px; /* Longitud corta */
+}
+
+.linea-desvanecida.amarillo {
+  background: linear-gradient(90deg, transparent, #FFCC00);
+}
+
+.linea-desvanecida.azul {
+  background-color: #00247D;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.linea-desvanecida.rojo {
+  background: linear-gradient(90deg, #CF142B, transparent);
+}
+
+/* Estrellas centrales micro en la franja azul */
+.puntos-estrellas {
+  color: #FFFFFF;
+  font-size: 5px;
+  letter-spacing: 1px;
+  line-height: 1;
+  transform: translateY(-5px); /* Quedan elevadas sutilmente sobre el centro */
+  background: #00247D;
+  padding: 0 4px;
+  border-radius: 4px;
+}

@@ -122,4 +122,5 @@
 .dropdown-item:hover {
   background-color: var(--color-inst-fondo);
   color: var(--color-inst-rojo);
+  border-left: 4px solid var(--color-inst-rojo);
 }
