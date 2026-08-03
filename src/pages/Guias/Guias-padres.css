@@ -1,0 +1,379 @@
+
+.contenedor-principal {
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem; /* Espaciado externo ampliado */
+  background-color: var(--color-fondo);
+  color: var(--color-texto-principal);
+  transition: background-color var(--transicion-normal), color var(--transicion-normal);
+}
+
+.etiqueta-superior {
+  font-family: var(--fuente-codigo);
+  font-size: 0.95rem; /* Aumentado (antes era sm) */
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-ciber-primario);
+  margin-bottom: 0.75rem;
+}
+
+.titulo-principal {
+  font-size: clamp(2.25rem, 6vw, 3.8rem); /* Titular mucho más grande y legible */
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--color-texto-principal);
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+  border-left: 8px solid var(--color-inst-rojo); /* Borde más visible */
+  padding-left: 1.25rem;
+}
+
+.seccion-espaciada {
+  margin-bottom: 3.5rem; /* Más aire entre secciones */
+}
+
+.flex-centro {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.mt-2 {
+  margin-top: 1rem;
+}
+
+code {
+  font-family: var(--fuente-codigo);
+  background-color: var(--color-fondo-variante);
+  color: var(--color-ciber-primario);
+  padding: 0.3rem 0.6rem; /* Más espacio dentro del texto de código */
+  border: 1px solid var(--color-borde);
+  font-size: 0.95rem; /* Texto de código más grande */
+  border-radius: 4px;
+}
+
+
+.cuadricula-2-columnas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem; /* Mayor separación entre tarjetas */
+  margin-top: 1.75rem;
+}
+
+
+.titulo-seccion,
+.titulo-seccion-ambar,
+.titulo-seccion-roja {
+  font-size: 1.85rem; /* Titulares de sección ampliados */
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.6rem;
+  line-height: 1.25;
+}
+
+.titulo-seccion {
+  color: var(--color-texto-principal);
+  border-bottom: 3px solid var(--color-borde);
+}
+
+.titulo-seccion-ambar {
+  color: var(--color-inst-amarillo);
+}
+
+.titulo-seccion-roja {
+  color: var(--color-ciber-alerta);
+}
+
+.texto-informativo-ambar,
+.texto-informativo-rojo,
+.texto-descriptivo {
+  font-size: 1.15rem; /* Texto descriptivo más grande y fácil de leer */
+  color: var(--color-texto-secundario);
+  line-height: 1.7; /* Mayor espacio entre líneas */
+  margin-bottom: 1.75rem;
+}
+
+
+.tarjeta-pro {
+  background-color: var(--color-fondo-tarjeta);
+  border: 1px solid var(--color-borde);
+  padding: 2.25rem; /* Tarjetas más espaciosas */
+  box-shadow: var(--sombra-md);
+  border-radius: 8px;
+}
+
+.tarjeta-pro.border-rojo {
+  border: 3px solid var(--color-ciber-alerta);
+}
+
+/* Tarjetas de Avisos Premium con acentos laterales */
+.tarjeta-aviso-premium {
+  background-color: var(--color-fondo-variante);
+  padding: 1.5rem; /* Relleno interno ampliado */
+  border: 1px solid var(--color-borde);
+  border-left-width: 6px;
+  border-radius: 6px;
+  transition: transform var(--transicion-rapida), box-shadow var(--transicion-rapida);
+}
+
+.tarjeta-aviso-premium:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-md);
+}
+
+.tarjeta-aviso-premium h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.3rem; /* Título del aviso más grande */
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  color: var(--color-texto-principal);
+}
+
+.tarjeta-aviso-premium p {
+  font-size: 1.05rem; /* Texto interior del aviso agrandado */
+  color: var(--color-texto-secundario);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Variantes de Color para Tarjetas */
+.alerta-ambar { border-left-color: var(--color-inst-amarillo); }
+.alerta-azul { border-left-color: var(--color-inst-azul); }
+.alerta-esmeralda { border-left-color: var(--color-ciber-secundario); }
+.alerta-naranja { border-left-color: var(--color-inst-rojo); }
+
+/* Tarjetas Criticas (Vectores de Ataque) */
+.tarjeta-alerta-critica {
+  background-color: var(--color-ciber-tarjeta);
+  border: 1px solid var(--color-ciber-borde);
+  padding: 1.75rem;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.etiqueta-critica,
+.etiqueta-verde,
+.etiqueta-rosa {
+  align-self: flex-start;
+  color: #ffffff;
+  font-size: 0.85rem; /* Etiquetas superiores más legibles */
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+  border-radius: 4px;
+}
+
+.etiqueta-critica { background-color: var(--color-ciber-alerta); }
+.etiqueta-verde { background-color: var(--color-ciber-secundario); }
+.etiqueta-rosa { background-color: var(--color-ciber-primario); }
+
+.titulo-tarjeta {
+  font-size: 1.4rem; /* Titulares de tarjetas significativamente más grandes */
+  font-weight: 800;
+  color: var(--color-texto-principal);
+  margin-top: 0;
+  margin-bottom: 0.85rem;
+  line-height: 1.3;
+}
+
+.texto-pasos {
+  font-size: 1.05rem; /* Cuerpo del texto más cómodo para lectura */
+  color: var(--color-texto-secundario);
+  line-height: 1.65;
+  margin: 0;
+}
+
+
+.lista-protocolo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+}
+
+.paso-protocolo {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  background-color: var(--color-fondo-variante);
+  padding: 1.5rem;
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  color: var(--color-texto-principal);
+  line-height: 1.6;
+}
+
+.numero-critico {
+  background-color: var(--color-ciber-alerta);
+  color: #ffffff;
+  font-family: var(--fuente-codigo);
+  font-weight: 900;
+  font-size: 1.35rem; /* Número de paso más grande */
+  min-width: 3rem; /* Círculo/bloque más grande */
+  height: 3rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tarjeta-paso {
+  background-color: var(--color-fondo-tarjeta);
+  border: 1px solid var(--color-borde);
+  padding: 1.75rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.lista-pasos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.paso-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icono-numero {
+  background-color: var(--color-fondo-variante);
+  color: var(--color-ciber-primario);
+  border: 2px solid var(--color-ciber-borde);
+  font-family: var(--fuente-codigo);
+  font-weight: 800;
+  font-size: 1rem;
+  width: 2.25rem; /* Indicadores numéricos más grandes */
+  height: 2.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.paso-item p {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--color-texto-secundario);
+}
+
+
+.tarjeta-triage {
+  background-color: var(--color-ciber-fondo);
+  border: 2px dashed var(--color-ciber-primario);
+  padding: 2.25rem;
+  margin-top: 2.25rem;
+  border-radius: 8px;
+}
+
+.titulo-triage {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--color-ciber-primario);
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lista-triage {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.lista-triage li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 1.1rem;
+  color: var(--color-ciber-texto);
+  line-height: 1.6;
+}
+
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 30px; /* Íconos generales ampliados a 30px */
+  line-height: 1;
+  display: inline-block;
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+}
+
+.caja-video-tutorial {
+  background-color: var(--color-fondo-variante);
+  border-left: 5px solid var(--color-ciber-alerta);
+  padding: 0.85rem 1.1rem; /* Caja de video más alta y ancha */
+  font-size: 0.95rem; /* Texto de la caja más grande */
+  color: var(--color-texto-principal);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.1rem;
+  border-radius: 0 6px 6px 0;
+}
+
+.caja-video-tutorial code {
+  background-color: var(--color-fondo-tarjeta);
+  color: var(--color-ciber-primario);
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--color-borde);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.icono-ambar { color: var(--color-inst-amarillo); flex-shrink: 0; }
+.icono-azul { color: var(--color-inst-azul); flex-shrink: 0; }
+.icono-verde { color: var(--color-ciber-secundario); flex-shrink: 0; }
+.icono-rojo { color: var(--color-ciber-alerta); flex-shrink: 0; }
+
+
+@media (max-width: 640px) {
+  .contenedor-principal {
+    padding: 1.25rem 1rem;
+  }
+
+  .cuadricula-2-columnas {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .tarjeta-pro, 
+  .tarjeta-paso, 
+  .tarjeta-alerta-critica {
+    padding: 1.5rem; /* Buen espacio interno incluso en teléfonos */
+  }
+
+  .titulo-seccion {
+    font-size: 1.5rem;
+  }
+
+  .texto-pasos, 
+  .tarjeta-aviso-premium p {
+    font-size: 1rem; /* Mantener texto mínimo en 16px para evitar zoom forzado en móviles */
+  }
+
+  .paso-protocolo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
