@@ -59,8 +59,12 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
             Inicio
           </Link>
 
+          <Link to="/justificacion" className="drawer-item-directo" onClick={cerrar}>
+            Justificación
+          </Link>
+
           <Link to="/Indices" className="drawer-item-directo" onClick={cerrar}>
-            Acceder
+            Centro de Acceso
           </Link>
 
           {/* Sección Módulos */}
@@ -71,10 +75,13 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
             </button>
             {secciones.modulos && (
               <div className="sub-menu">
-                <Link to="/modulos/auditorias" onClick={cerrar}>Auditorías</Link>
-                <Link to="/modulos/phishing" onClick={cerrar}>Phishing</Link>
-                <Link to="/modulos/manual-completo" onClick={cerrar}>Manual completo</Link>
-                <Link to="/modulos/guia-defensa" onClick={cerrar}>Guía de defensa</Link>
+                <Link to="/presentacion/1ro" onClick={cerrar}>Presentación por Grado</Link>
+                <Link to="/modulos/phishing" onClick={cerrar}>Phishing e Ingeniería Social</Link>
+                <Link to="/modulos/auditorias" onClick={cerrar}>Auditoría e Higiene Digital</Link>
+                <Link to="/modulos/proteccion-cuentas" onClick={cerrar}>Protección de Cuentas</Link>
+                <Link to="/modulos/redes-sociales" onClick={cerrar}>Redes Sociales</Link>
+                <Link to="/modulos/videojuegos" onClick={cerrar}>Videojuegos Seguros</Link>
+                <Link to="/modulos/software-pirata" onClick={cerrar}>Software Pirata</Link>
               </div>
             )}
           </div>
@@ -87,8 +94,8 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
             </button>
             {secciones.guias && (
               <div className="sub-menu">
-                <Link to="/guias/docentes" onClick={cerrar}>Docentes</Link>
-                <Link to="/guias/padres" onClick={cerrar}>Padres</Link>
+                <Link to="/guias/docentes" onClick={cerrar}>Guía para Docentes</Link>
+                <Link to="/guias/padres" onClick={cerrar}>Guía para Padres</Link>
               </div>
             )}
           </div>

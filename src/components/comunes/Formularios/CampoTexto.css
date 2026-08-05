@@ -1,147 +1,286 @@
-/* ==========================================
-   Contenedor Principal y Formulario
-   ========================================== */
-.contenedor-formulario {
-  max-width: 450px;
-  margin: 2rem auto;
+/* Contenedor del Formulario del Estudiante */
+.contenedor-formulario-estudiante {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
   padding: 2rem;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: #1f2937;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  max-width: 650px;
+  margin: 0 auto;
 }
 
-.contenedor-formulario h2 {
-  margin-top: 0;
+.formulario-cabecera {
   margin-bottom: 1.5rem;
-  font-size: 1.5rem;
-  text-align: center;
-  color: #111827;
 }
 
-.formulario {
+.insignia-form {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.formulario-titulo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.5rem 0;
+}
+
+.formulario-subtitulo {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Campos de entrada */
+.formulario-cuerpo {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
 }
 
-/* ==========================================
-   Campos de Entrada (Input, Select, Label)
-   ========================================== */
-.campo-texto {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.campo-texto label {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #374151;
-}
-
-.campo-texto input[type="text"],
-.campo-texto select {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  font-size: 1rem;
-  background-color: #f9fafb;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  box-sizing: border-box;
-}
-
-/* Estado Focus al hacer clic en los campos */
-.campo-texto input[type="text"]:focus,
-.campo-texto select:focus {
-  outline: none;
-  border-color: #2563eb;
-  background-color: #ffffff;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-}
-
-/* ==========================================
-   Boton de Envío
-   ========================================== */
-button[type="submit"] {
-  width: 100%;
-  padding: 0.8rem;
-  margin-top: 0.5rem;
-  background-color: #2563eb;
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-button[type="submit"]:hover:not(:disabled) {
-  background-color: #1d4ed8;
-}
-
-button[type="submit"]:active:not(:disabled) {
-  transform: scale(0.99);
-}
-
-button[type="submit"]:disabled {
-  background-color: #93c5fd;
-  cursor: not-allowed;
-  opacity: 0.7;
-}
-
-/* ==========================================
-   Sección de Resultado de Módulos
-   ========================================== */
-.resultado-modulos {
-  margin-top: 1.75rem;
-  padding-top: 1.5rem;
-  border-top: 2px stroke #f3f4f6;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.resultado-modulos h3 {
-  margin: 0 0 0.5rem 0;
-  color: #1e3a8a;
-  font-size: 1.25rem;
-}
-
-.resultado-modulos p {
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-  color: #4b5563;
-}
-
-.resultado-modulos ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+.campo-texto-grupo {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  text-align: left;
 }
 
-.resultado-modulos li {
-  padding: 0.65rem 0.9rem;
-  background-color: #f0f9ff;
-  border-left: 4px solid #0284c7;
-  border-radius: 4px;
+.campo-texto-etiqueta {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.campo-texto-input,
+.campo-texto-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
   font-size: 0.95rem;
-  color: #0369a1;
-  font-weight: 500;
+  color: #0f172a;
+  background-color: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Animación suave al mostrar los resultados */
+.campo-texto-input:focus,
+.campo-texto-select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.boton-submit-estudiante {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.85rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+  margin-top: 0.5rem;
+}
+
+.boton-submit-estudiante:hover:not(:disabled) {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+}
+
+.boton-submit-estudiante:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Resultados de la presentación */
+.resultado-presentacion-grado {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  animation: fadeIn 0.4s ease-out;
+}
+
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.resultado-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 1rem;
+  border-radius: 12px;
+  color: #166534;
+}
+
+.icono-sparkles {
+  color: #16a34a;
+  flex-shrink: 0;
+}
+
+.resultado-header h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.05rem;
+}
+
+.resultado-header p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Caja CTA a la Presentación */
+.caja-cta-presentacion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #ffffff;
+  padding: 1.25rem;
+  border-radius: 12px;
+}
+
+.info-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.info-cta strong {
+  display: block;
+  font-size: 0.975rem;
+}
+
+.info-cta p {
+  margin: 0;
+  font-size: 0.825rem;
+  color: #94a3b8;
+}
+
+.boton-ir-presentacion {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.boton-ir-presentacion:hover {
+  background-color: #1d4ed8;
+}
+
+/* Lista de Módulos para el Estudiante */
+.titulo-lista-modulos {
+  font-size: 1rem;
+  color: #334155;
+  margin: 0;
+}
+
+.lista-modulos-estudiante {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.tarjeta-modulo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  transition: border-color 0.2s ease;
+}
+
+.tarjeta-modulo-item:hover {
+  border-color: #cbd5e1;
+}
+
+.icono-modulo-item {
+  font-size: 1.25rem;
+}
+
+.info-modulo-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.categoria-modulo-item {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.titulo-modulo-item {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.btn-ir-modulo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #2563eb;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  background-color: #eff6ff;
+  transition: background-color 0.2s ease;
+}
+
+.btn-ir-modulo:hover {
+  background-color: #dbeafe;
+}
+
+@media (max-width: 640px) {
+  .contenedor-formulario-estudiante {
+    padding: 1.25rem;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .caja-cta-presentacion {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .boton-ir-presentacion {
+    width: 100%;
+    justify-content: center;
   }
 }

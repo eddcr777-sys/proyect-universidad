@@ -1,0 +1,295 @@
+/* Base y Fallbacks (por si acaso no llegan las variables) */
+.descripcion-modulo-contenedor {
+  --color-primario: #3b82f6; 
+  --color-secundario: #1e40af;
+  
+  background-color: #f8fafc;
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #334155;
+}
+
+/* =========================================
+   HEADER / BANNER
+   ========================================= */
+.banner-descripcion-modulo {
+  background-color: var(--color-primario);
+  color: #ffffff;
+  padding: 3rem 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.contenedor-descripcion-modulo {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Miga de Pan */
+.miga-pan-modulo {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+.miga-pan-modulo a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.2s;
+}
+.miga-pan-modulo a:hover {
+  text-decoration-color: #ffffff;
+}
+.miga-activa {
+  font-weight: 600;
+}
+
+/* Cabecera y Títulos */
+.bloque-cabecera-modulo {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.icono-modulo-gigante {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.insignias-modulo-grupo {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+.insignia-categoria-modulo,
+.insignia-grado-modulo,
+.insignia-duracion-modulo {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.insignia-categoria-modulo {
+  background-color: var(--color-secundario); /* Color oscuro inyectado */
+  color: white;
+}
+.insignia-grado-modulo {
+  background-color: white;
+  color: var(--color-primario); /* Texto del color principal */
+}
+.insignia-duracion-modulo {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.titulo-principal-modulo {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Caja de Bienvenida */
+.caja-mensaje-bienvenida {
+  background-color: rgba(0, 0, 0, 0.15); /* Fondo oscuro translúcido */
+  border-left: 4px solid var(--color-secundario);
+  padding: 1.5rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.subtitulo-bienvenida {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 0.25rem;
+}
+.texto-mensaje-bienvenida {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Selector de Grados */
+.selector-grados-descripcion {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.texto-selector-grado {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.grupo-botones-grados {
+  display: flex;
+  gap: 0.5rem;
+}
+.boton-grado-selector {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.boton-grado-selector:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.boton-grado-selector.activo {
+  background-color: white;
+  color: var(--color-primario);
+  border-color: white;
+}
+
+/* =========================================
+   CUERPO Y CUADRICULA
+   ========================================= */
+.seccion-cuerpo-descripcion {
+  padding: 3rem 1.5rem;
+}
+.cuadricula-detalles-modulo {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+/* Tarjetas (General) */
+.bloque-tarjeta-descripcion,
+.tarjeta-panel-accion,
+.tarjeta-temario-modulo {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  margin-bottom: 2rem;
+  border-top: 4px solid var(--color-primario); /* Borde superior con color del tema */
+}
+
+/* Textos e Iconos Interiores */
+.titulo-bloque-descripcion,
+.titulo-temario-modulo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  color: #1e293b;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+.icono-bloque,
+.icono-temario {
+  color: var(--color-primario); /* Iconos adoptan el color base */
+}
+.texto-explicacion-breve {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #475569;
+}
+
+/* Lista de Objetivos */
+.lista-objetivos-grado {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.item-objetivo-grado {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 1.05rem;
+}
+.icono-check {
+  color: var(--color-primario); /* Checkmarks teñidos del tema */
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* Panel Acción */
+.tarjeta-panel-accion {
+  border-top: none;
+  background-color: var(--color-primario); /* Fondo primario */
+  color: white;
+}
+.titulo-panel-accion {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+.texto-panel-accion {
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+.caja-botones-accion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Temario */
+.lista-temas-grado {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.item-tema-grado {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background-color: #f8fafc;
+  border-radius: 0.5rem;
+  border-left: 3px solid var(--color-primario); /* Borde lateral del tema */
+}
+.numero-tema {
+  background-color: var(--color-primario);
+  color: white;
+  font-weight: 700;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.875rem;
+}
+.texto-tema {
+  font-weight: 500;
+  color: #334155;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .cuadricula-detalles-modulo {
+    grid-template-columns: 1fr;
+  }
+  .bloque-cabecera-modulo {
+    flex-direction: column;
+    text-align: center;
+  }
+  .insignias-modulo-grupo {
+    justify-content: center;
+  }
+  .caja-mensaje-bienvenida {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+}

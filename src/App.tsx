@@ -9,6 +9,10 @@ import GuiasDocentes from './pages/Guias/Guias-Docentes';
 import GuiasPadres from './pages/Guias/Guias-Padres';
 import PresentacionGrado from './pages/Modulos/PresentacionGrado';
 import DescripcionModulo from './pages/Modulos/DescripcionModulo';
+
+// Enrutador Central de Módulos
+import ModuloRouter from './pages/Modulos/ModuloRouter';
+
 import Cabecera from './components/comunes/Cabecera';
 import PiePagina from './components/comunes/PiePagina';
 import './App.css';
@@ -28,11 +32,13 @@ const App: React.FC = () => {
             <Route path="/guias/docentes" element={<GuiasDocentes />} />
             <Route path="/guias/padres" element={<GuiasPadres />} />
 
-            {/* Rutas del Sistema de Módulos por Grado Escolar */}
+            {/* Rutas de Presentación por Grado */}
             <Route path="/presentacion/:grado" element={<PresentacionGrado />} />
             <Route path="/dashboard/:grado" element={<PresentacionGrado />} />
             <Route path="/modulos/:moduloId" element={<DescripcionModulo />} />
-            <Route path="/modulos/:moduloId/:grado" element={<DescripcionModulo />} />
+
+            {/* RUTA DINÁMICA UNIVERSAL PARA TODOS LOS MÓDULOS */}
+            <Route path="/modulos/:categoria/:grado" element={<ModuloRouter />} />
           </Routes>
         </main>
         <PiePagina />

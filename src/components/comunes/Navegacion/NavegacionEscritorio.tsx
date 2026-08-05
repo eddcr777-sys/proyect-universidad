@@ -23,14 +23,16 @@ const NavegacionEscritorio: React.FC = () => {
   return (
     <nav className="nav-desktop" aria-label="Navegación principal">
       <Link to="/" className="nav-link">Inicio</Link>
+      <Link to="/justificacion" className="nav-link">Justificación</Link>
 
-      {/* Acceder */}
+      {/* Acceder / Registro */}
       <div className="dropdown">
         <button className="dropbtn" aria-expanded="false" aria-haspopup="true">
           Acceder <ChevronIcon />
         </button>
         <div className="dropdown-content">
-          <Link to="/Indices" className="dropdown-item">Índices</Link>
+          <Link to="/Indices" className="dropdown-item">Centro de Acceso Virtual</Link>
+          <Link to="/justificacion#registro-estudiante" className="dropdown-item">Registro de Estudiante por Grado</Link>
         </div>
       </div>
 
@@ -40,10 +42,13 @@ const NavegacionEscritorio: React.FC = () => {
           Módulos <ChevronIcon />
         </button>
         <div className="dropdown-content">
-          <Link to="/modulos/auditorias" className="dropdown-item">Auditorías</Link>
-          <Link to="/modulos/phishing" className="dropdown-item">Phishing</Link>
-          <Link to="/modulos/manual-completo" className="dropdown-item">Manual completo</Link>
-          <Link to="/modulos/guia-defensa" className="dropdown-item">Guía de defensa</Link>
+          <Link to="/presentacion/1ro" className="dropdown-item">Presentación por Grado</Link>
+          <Link to="/modulos/phishing" className="dropdown-item">Phishing e Ingeniería Social</Link>
+          <Link to="/modulos/auditorias" className="dropdown-item">Auditoría e Higiene Digital</Link>
+          <Link to="/modulos/proteccion-cuentas" className="dropdown-item">Protección de Cuentas</Link>
+          <Link to="/modulos/redes-sociales" className="dropdown-item">Redes Sociales</Link>
+          <Link to="/modulos/videojuegos" className="dropdown-item">Videojuegos Seguros</Link>
+          <Link to="/modulos/software-pirata" className="dropdown-item">Riesgos de Software Pirata</Link>
         </div>
       </div>
 
@@ -53,8 +58,8 @@ const NavegacionEscritorio: React.FC = () => {
           Guías <ChevronIcon />
         </button>
         <div className="dropdown-content">
-          <Link to="/guias/docentes" className="dropdown-item">Docentes</Link>
-          <Link to="/guias/padres" className="dropdown-item">Padres</Link>
+          <Link to="/guias/docentes" className="dropdown-item">Guía para Docentes</Link>
+          <Link to="/guias/padres" className="dropdown-item">Guía para Padres</Link>
         </div>
       </div>
 

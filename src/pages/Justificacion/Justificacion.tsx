@@ -9,14 +9,15 @@ import {
   ArrowRight,
   Sparkles,
   ChevronDown,
-  Lock,
   Eye,
   AlertTriangle,
   HelpCircle,
   Target,
   CheckCircle2,
-  Activity
+  Activity,
+  GraduationCap
 } from 'lucide-react';
+import FormularioModulos from '../../components/comunes/Formularios/CampoTexto';
 import './Justificacion.css';
 
 interface FAQItem {
@@ -30,7 +31,7 @@ const FAQS: FAQItem[] = [
     respuesta: "Brindar a los estudiantes las bases necesarias para un uso correcto de internet, enseñándoles a protegerse desde temprana edad mediante la prevención, en lugar de solo reaccionar ante los problemas."
   },
   {
-    pregunta: "¿Quiénes impulsan esta iniciativa en Modulo?",
+    pregunta: "¿Quiénes impulsan esta iniciativa en el liceo?",
     respuesta: "Es un proyecto colaborativo e institucional desarrollado por los estudiantes de la UPTOS CR en beneficio de la comunidad educativa del L.B. Antonio Lemus Pérez."
   },
   {
@@ -69,7 +70,7 @@ export const Justificacion: React.FC = () => {
             </div>
             
             <h1 className="titulo-hero">
-              El uso correcto de internet: prevención desde <span className="texto-destacado-rojo">temprana edad.</span>
+              El uso correcto de internet: prevención desde <span className="texto-destacado-azul">temprana edad.</span>
             </h1>
             
             <p className="descripcion-hero">
@@ -78,10 +79,9 @@ export const Justificacion: React.FC = () => {
             </p>
             
             <div className="hero-botones-grupo">
-              <a href="/manual" className="boton-primario
-              ">
-                Ingresar a Módulos <ArrowRight size={18} />
-              </a>
+              <button onClick={() => scrollToSeccion('registro-estudiante')} className="boton-primario">
+                Acceso por Grado <ArrowRight size={18} />
+              </button>
               <button onClick={() => scrollToSeccion('pilares')} className="boton-secundario">
                 Ver Justificación <ChevronDown size={18} />
               </button>
@@ -94,7 +94,7 @@ export const Justificacion: React.FC = () => {
               </div>
               <div className="metrica-mini">
                 <ShieldCheck size={20} className="icono-azul" />
-                <span>Entorno Módulo</span>
+                <span>Entorno Moodle</span>
               </div>
             </div>
           </div>
@@ -107,7 +107,6 @@ export const Justificacion: React.FC = () => {
                 alt="Seguridad Digital Educativa" 
                 className="imagen-hero"
               />
-              
             </div>
           </div>
 
@@ -118,7 +117,7 @@ export const Justificacion: React.FC = () => {
       <section className="seccion-estadisticas-superpuestas">
         <div className="contenedor-estadisticas">
           <div className="tarjeta-dato dark-card">
-            <AlertTriangle className="icono-dato rojo" size={32} />
+            <AlertTriangle className="icono-dato azul-ciber" size={32} />
             <div className="numero-dato">Prevención</div>
             <p className="etiqueta-dato">Dejar de reaccionar ante la falla y aprender a anticiparla.</p>
           </div>
@@ -128,7 +127,7 @@ export const Justificacion: React.FC = () => {
             <p className="etiqueta-dato">Plataforma educativa para la gestión del aprendizaje.</p>
           </div>
           <div className="tarjeta-dato light-card">
-            <Brain className="icono-dato amarillo" size={32} />
+            <Brain className="icono-dato violeta" size={32} />
             <div className="numero-dato">UPTOS CR</div>
             <p className="etiqueta-dato">Sinergia universitaria para el desarrollo de la educación media.</p>
           </div>
@@ -195,7 +194,22 @@ export const Justificacion: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. SECCIÓN FILOSOFÍA TIPO BANNER INMERSIVO */}
+      {/* 4. SECCIÓN ESTRATÉGICA: FORMULARIO DE ACCESO Y PRESENTACIÓN POR GRADO */}
+      <section id="registro-estudiante" className="seccion-formulario-estrategico">
+        <div className="contenedor-formulario-estrategico">
+          <div className="encabezado-seccion-form">
+            <GraduationCap size={36} className="icono-grado-hero" />
+            <h2>Accede a la Presentación de tu Grado</h2>
+            <p>
+              Ingresa tu nombre y selecciona tu año escolar (1ro a 5to Año) para visualizar la ruta y presentación completa de tus módulos.
+            </p>
+          </div>
+
+          <FormularioModulos />
+        </div>
+      </section>
+
+      {/* 5. SECCIÓN FILOSOFÍA TIPO BANNER INMERSIVO */}
       <section className="seccion-filosofia-inmersiva">
         <div className="filosofia-overlay"></div>
         <div className="contenedor-filosofia-inmersiva">
@@ -211,7 +225,7 @@ export const Justificacion: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. TEXTO DETALLADO & FAQ JUNTOS */}
+      {/* 6. TEXTO DETALLADO & FAQ JUNTOS */}
       <section className="seccion-detalles-faq">
         <div className="contenedor-doble">
           
@@ -228,7 +242,7 @@ export const Justificacion: React.FC = () => {
             </div>
 
             <div className="caja-contexto reverso">
-              <div className="icono-caja rojo"><Eye size={28} /></div>
+              <div className="icono-caja azul-soft"><Eye size={28} /></div>
               <h3>Un Proyecto de Impacto Real</h3>
               <p>
                 La integración de este manual en el entorno Moodle no solo representa la carta de presentación 
@@ -269,14 +283,17 @@ export const Justificacion: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. CTA FINAL FULL WIDTH */}
+      {/* 7. CTA FINAL MASIVO CON ESTILO CIBERAZUL MEJORADO */}
       <section className="seccion-cta-masivo">
         <div className="cta-masivo-contenedor">
           <h2>Inicia tu formación preventiva</h2>
           <p>Descubre las bases del uso correcto de internet en nuestra plataforma interactiva.</p>
-          <a href="/indices" className="boton-cta-gigante">
-            Acceder al Manual <ArrowRight size={24} />
-          </a>
+          <button 
+            onClick={() => scrollToSeccion('registro-estudiante')} 
+            className="boton-cta-gigante"
+          >
+            Acceder al Registro por Grado <ArrowRight size={22} />
+          </button>
         </div>
       </section>
 

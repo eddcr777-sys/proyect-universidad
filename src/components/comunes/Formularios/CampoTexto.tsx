@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { UserCheck, GraduationCap, ArrowRight, Sparkles, BookOpen, Shield } from 'lucide-react';
 import './CampoTexto.css';
 
 interface CampoTextoProps {
@@ -6,61 +8,66 @@ interface CampoTextoProps {
   nombre: string;
   valor: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+  placeholder?: string;
 }
 
-const CampoTexto: React.FC<CampoTextoProps> = ({ etiqueta, nombre, valor, onChange }) => {
+export const CampoTexto: React.FC<CampoTextoProps> = ({
+  etiqueta,
+  nombre,
+  valor,
+  onChange,
+  placeholder = 'Ej. María Pérez',
+}) => {
   return (
-    <div className="campo-texto">
-      <label htmlFor={nombre}>{etiqueta}</label>
+    <div className="campo-texto-grupo">
+      <label htmlFor={nombre} className="campo-texto-etiqueta">
+        {etiqueta}
+      </label>
       <input
         type="text"
         id={nombre}
         name={nombre}
         value={valor}
         onChange={onChange}
+        placeholder={placeholder}
         required
+        className="campo-texto-input"
       />
     </div>
   );
 };
 
-// Estructura de tipo para los módulos con su nombre y ruta dinámica
-interface ModuloItem {
-  nombre: string;
-  path: string;
-}
-
-// Mapeo completo ajustado a tu árbol de directorios
-const MODULOS_POR_GRADO: Record<string, ModuloItem[]> = {
+// Mapeo pedagógico oficial por año escolar del L.B. Antonio Lemus Pérez
+const MODULOS_POR_GRADO: Record<string, { id: string; titulo: string; categoria: string; icono: string }[]> = {
   '1ro': [
-    { nombre: 'Introducción al Uso de Internet (Redes Sociales)', path: '/Modulos/RedesSociales/1ro/RedesSociales1ro' },
-    { nombre: 'Identidad Digital y Reputación Online (Protección de Cuentas)', path: '/Modulos/ProteccionCuentas/1ro/ProteccionCuentas1ro' },
-    { nombre: 'Privacidad, Riesgos y Amenazas (Phishing)', path: '/Modulos/Phishing/1ro/Phishing1ro' },
-    { nombre: 'Alfabetización Mediática (VideoJuegos)', path: '/Modulos/VideoJuegos/1ro/VideoJuegos1ro' },
+    { id: 'redes-sociales', titulo: 'Introducción al Uso Seguro de Internet', categoria: 'Redes Sociales', icono: '📱' },
+    { id: 'proteccion-cuentas', titulo: 'Identidad Digital y Reputación Online', categoria: 'Protección de Cuentas', icono: '🔑' },
+    { id: 'phishing', titulo: 'Privacidad y Detección de Engaños (Phishing)', categoria: 'Phishing', icono: '🎣' },
+    { id: 'videojuegos', titulo: 'Alfabetización Digital y Entretenimiento', categoria: 'VideoJuegos', icono: '🎮' },
   ],
   '2do': [
-    { nombre: 'Protección de Datos Personales (Protección Cuentas)', path: '/Modulos/ProteccionCuentas/2do/ProteccionCuentas2do' },
-    { nombre: 'Seguridad en Redes Sociales', path: '/Modulos/RedesSociales/2do/RedesSociales2do' },
-    { nombre: 'Prevención de Ciberacoso y Riesgos en Juegos', path: '/Modulos/VideoJuegos/2do/VideoJuegos2do' },
-    { nombre: 'Derechos y Ciudadanía Digital (Software Pirata)', path: '/Modulos/SoftwarePiratas/2do/SoftwarePirata2do' },
+    { id: 'proteccion-cuentas', titulo: 'Protección de Datos Personales y Claves', categoria: 'Protección de Cuentas', icono: '🔒' },
+    { id: 'redes-sociales', titulo: 'Seguridad en Redes Sociales y Grooming', categoria: 'Redes Sociales', icono: '📱' },
+    { id: 'videojuegos', titulo: 'Prevención de Ciberacoso y Riesgos Gamer', categoria: 'VideoJuegos', icono: '🎮' },
+    { id: 'software-pirata', titulo: 'Derechos y Ciudadanía Digital', categoria: 'Software Pirata', icono: '⚠️' },
   ],
   '3ro': [
-    { nombre: 'Ciberdelincuencia y Amenazas (Phishing)', path: '/Modulos/Phishing/3ro/Phishing3ro' },
-    { nombre: 'Protección de Información Personal', path: '/Modulos/ProteccionCuentas/3ro/ProteccionCuentas3ro' },
-    { nombre: 'Riesgos en Software No Autorizado', path: '/Modulos/SoftwarePiratas/3ro/SoftwarePirata3ro' },
-    { nombre: 'Auditoría y Gestión de Riesgos', path: '/Modulos/Auditorias/3ro/AuditoriaDigital3ro' },
+    { id: 'phishing', titulo: 'Ciberdelincuencia y Phishing Avanzado', categoria: 'Phishing', icono: '🎣' },
+    { id: 'proteccion-cuentas', titulo: 'Protección de Información Sensible', categoria: 'Protección de Cuentas', icono: '🔑' },
+    { id: 'software-pirata', titulo: 'Riesgos del Software No Autorizado', categoria: 'Software Pirata', icono: '⚠️' },
+    { id: 'auditorias', titulo: 'Auditoría y Gestión de Riesgos I', categoria: 'Auditorías', icono: '🛡️' },
   ],
   '4to': [
-    { nombre: 'Gestión de la Identidad Digital', path: '/Modulos/ProteccionCuentas/4to/ProteccionCuentas4to' },
-    { nombre: 'Navegación Segura y Protección de Dispositivos', path: '/Modulos/Auditorias/4to/AuditoriaDigital4to' },
-    { nombre: 'Ciberdelincuencia: Amenazas y Prevención (Phishing)', path: '/Modulos/Phishing/4to/Phishing4to' },
-    { nombre: 'Seguridad y Software Pirata', path: '/Modulos/SoftwarePiratas/4to/SoftwarePirata4to' },
+    { id: 'proteccion-cuentas', titulo: 'Gestión Avanzada de Identidad Digital', categoria: 'Protección de Cuentas', icono: '🔐' },
+    { id: 'auditorias', titulo: 'Navegación Segura y Protección de Dispositivos', categoria: 'Auditorías', icono: '🛡️' },
+    { id: 'phishing', titulo: 'Ciberdelincuencia: Amenazas Complejas', categoria: 'Phishing', icono: '🎣' },
+    { id: 'software-pirata', titulo: 'Seguridad en Sistemas y Software Pirata', categoria: 'Software Pirata', icono: '⚠️' },
   ],
   '5to': [
-    { nombre: 'Seguridad en Redes Sociales Avanzada', path: '/Modulos/RedesSociales/5to/RedesSociales5to' },
-    { nombre: 'Prevención del Ciberacoso y Grooming', path: '/Modulos/VideoJuegos/5to/VideoJuegos5to' },
-    { nombre: 'Auditoría y Gestión de Riesgos Digitales', path: '/Modulos/Auditorias/5to/AuditoriaDigital5to' },
-    { nombre: 'Ciberdelincuencia y Protección Empresarial', path: '/Modulos/Phishing/5to/Phishing5to' },
+    { id: 'redes-sociales', titulo: 'Seguridad en Redes Sociales Nivel Profesional', categoria: 'Redes Sociales', icono: '📱' },
+    { id: 'videojuegos', titulo: 'Prevención de Ciberacoso y Riesgos Digitales', categoria: 'VideoJuegos', icono: '🎮' },
+    { id: 'auditorias', titulo: 'Auditoría Digital y Gestión de Diagnósticos', categoria: 'Auditorías', icono: '🛡️' },
+    { id: 'phishing', titulo: 'Protección Cibernética Institucional', categoria: 'Phishing', icono: '🎣' },
   ],
 };
 
@@ -91,57 +98,94 @@ export const FormularioModulos: React.FC = () => {
   const modulosActuales = MODULOS_POR_GRADO[formData.grado] || [];
 
   return (
-    <div className="contenedor-formulario">
-      <h2>Registro de Estudiante</h2>
+    <div className="contenedor-formulario-estudiante">
+      <div className="formulario-cabecera">
+        <div className="insignia-form">
+          <GraduationCap size={18} />
+          <span>Acceso Personalizado por Grado</span>
+        </div>
+        <h3 className="formulario-titulo">Portal de Registro del Estudiante</h3>
+        <p className="formulario-subtitulo">
+          Ingresa tus datos para obtener la presentación del plan de estudio adaptado a tu año académico.
+        </p>
+      </div>
 
-      <form onSubmit={handleSubmit} className="formulario">
+      <form onSubmit={handleSubmit} className="formulario-cuerpo">
         <CampoTexto
-          etiqueta="Nombre Completo:"
+          etiqueta="Nombre y Apellido:"
           nombre="nombre"
           valor={formData.nombre}
           onChange={handleChange}
+          placeholder="Ej. Carlos Rodríguez"
         />
 
-        <div className="campo-texto">
-          <label htmlFor="grado">Grado:</label>
+        <div className="campo-texto-grupo">
+          <label htmlFor="grado" className="campo-texto-etiqueta">
+            Año / Grado Escolar:
+          </label>
           <select
             id="grado"
             name="grado"
             value={formData.grado}
             onChange={handleChange}
             required
+            className="campo-texto-select"
           >
-            <option value="">-- Selecciona un grado --</option>
-            <option value="1ro">1ro</option>
-            <option value="2do">2do</option>
-            <option value="3ro">3ro</option>
-            <option value="4to">4to</option>
-            <option value="5to">5to</option>
+            <option value="">-- Selecciona tu grado --</option>
+            <option value="1ro">1er Año de Bachillerato</option>
+            <option value="2do">2do Año de Bachillerato</option>
+            <option value="3ro">3er Año de Bachillerato</option>
+            <option value="4to">4to Año de Bachillerato</option>
+            <option value="5to">5to Año de Bachillerato</option>
           </select>
         </div>
 
-        <button type="submit" disabled={!formData.nombre || !formData.grado}>
-          Ver Módulos
+        <button type="submit" className="boton-submit-estudiante" disabled={!formData.nombre || !formData.grado}>
+          <UserCheck size={18} /> Generar Presentación de Mi Grado
         </button>
       </form>
 
       {enviado && (
-        <div className="resultado-modulos">
-          <h3>¡Hola, {formData.nombre}!</h3>
-          <p>
-            Estos son los módulos asignados para <strong>{formData.grado} año/grado</strong>:
-          </p>
-          <ul className="lista-modulos">
-            {modulosActuales.map((modulo, index) => (
-              <li key={index} className="item-modulo">
-                <span className="nombre-modulo">{modulo.nombre}</span>
-                {/* Enlace o botón para navegar hacia el archivo/componente según la ruta */}
-                <a href={modulo.path} className="btn-ir-modulo">
-                  Acceder al Módulo →
-                </a>
-              </li>
+        <div className="resultado-presentacion-grado">
+          <div className="resultado-header">
+            <Sparkles size={24} className="icono-sparkles" />
+            <div>
+              <h4>¡Bienvenido(a), {formData.nombre}!</h4>
+              <p>
+                Se ha generado la presentación del plan de lecciones para <strong>{formData.grado} Año</strong>.
+              </p>
+            </div>
+          </div>
+
+          {/* Enlace destacado directo a la Presentación del Grado */}
+          <div className="caja-cta-presentacion">
+            <div className="info-cta">
+              <BookOpen size={24} />
+              <div>
+                <strong>Presentación Principal de {formData.grado} Año</strong>
+                <p>Ver catálogo completo de módulos para tu nivel</p>
+              </div>
+            </div>
+            <Link to={`/presentacion/${formData.grado}`} className="boton-ir-presentacion">
+              Ver Presentación de {formData.grado} <ArrowRight size={18} />
+            </Link>
+          </div>
+
+          <h5 className="titulo-lista-modulos">Módulos Asignados para tu Nivel:</h5>
+          <div className="lista-modulos-estudiante">
+            {modulosActuales.map((modulo) => (
+              <div key={modulo.id} className="tarjeta-modulo-item">
+                <span className="icono-modulo-item">{modulo.icono}</span>
+                <div className="info-modulo-item">
+                  <span className="categoria-modulo-item">{modulo.categoria}</span>
+                  <span className="titulo-modulo-item">{modulo.titulo}</span>
+                </div>
+                <Link to={`/modulos/${modulo.id}/${formData.grado}`} className="btn-ir-modulo">
+                  Ir <ArrowRight size={14} />
+                </Link>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       )}
     </div>
