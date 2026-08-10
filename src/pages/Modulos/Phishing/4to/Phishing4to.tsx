@@ -64,7 +64,7 @@ export const Phishing4to: React.FC = () => {
         subTitulo="Aprende a identificar ataques dirigidos personalizados, engaños mediante mensajes de texto (SMS) y suplantación en llamadas de voz en 4to Año."
         categoria="Defensa Digital y Privacidad"
         tiempoEstimado="45 min"
-        icono="🎯"
+        icono={<Target size={36} />}
       />
 
       <div className="contenedor-phishing-contenido">

@@ -60,7 +60,7 @@ export const Phishing5to: React.FC = () => {
         subTitulo="Examina el marco legal venezolano sobre delitos informáticos, el impacto ético de la ciberseguridad y lidera campañas de prevención en 5to Año."
         categoria="Defensa Digital y Privacidad"
         tiempoEstimado="50 min"
-        icono="⚖️"
+        icono={<Scale size={36} />}
       />
 
       <div className="contenedor-phishing-contenido">

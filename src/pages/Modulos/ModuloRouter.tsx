@@ -63,18 +63,19 @@ const modulosMap: Record<string, Record<string, React.LazyExoticComponent<React.
 };
 
 const ModuloRouter: React.FC = () => {
-  const { categoria, grado } = useParams<{ categoria: string; grado: string }>();
+  // Lee los parámetros del nuevo esquema de rutas: /modulos/leccion/:moduloId/:grado
+  const { moduloId, grado } = useParams<{ moduloId: string; grado: string }>();
 
-  const keyNormalizada = categoria?.toLowerCase() || '';
+  const keyNormalizada = moduloId?.toLowerCase() || '';
   const ComponenteModulo = keyNormalizada && grado ? modulosMap[keyNormalizada]?.[grado] : null;
 
   if (!ComponenteModulo) {
     return (
       <div style={{ padding: '4rem 1.5rem', textAlign: 'center', maxWidth: '600px', margin: '0 auto' }}>
         <h2>Módulo no encontrado</h2>
-        <p>El módulo <strong>{categoria}</strong> para el grado <strong>{grado}</strong> no existe o está en desarrollo.</p>
-        <Link to={grado ? `/presentacion/${grado}` : '/justificacion'} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '1rem', color: '#2563eb', fontWeight: 'bold' }}>
-          <ArrowLeft size={18} /> Volver a la presentación del grado
+        <p>El módulo <strong>{moduloId}</strong> para el grado <strong>{grado}</strong> no existe o está en desarrollo.</p>
+        <Link to={grado ? `/modulos/grado/${grado}` : '/modulos'} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '1rem', color: '#2563eb', fontWeight: 'bold' }}>
+          <ArrowLeft size={18} /> Volver al catálogo del grado
         </Link>
       </div>
     );

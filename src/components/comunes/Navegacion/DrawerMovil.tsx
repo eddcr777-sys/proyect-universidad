@@ -75,13 +75,12 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
             </button>
             {secciones.modulos && (
               <div className="sub-menu">
-                <Link to="/presentacion/1ro" onClick={cerrar}>Presentación por Grado</Link>
-                <Link to="/modulos/phishing" onClick={cerrar}>Phishing e Ingeniería Social</Link>
-                <Link to="/modulos/auditorias" onClick={cerrar}>Auditoría e Higiene Digital</Link>
-                <Link to="/modulos/proteccion-cuentas" onClick={cerrar}>Protección de Cuentas</Link>
-                <Link to="/modulos/redes-sociales" onClick={cerrar}>Redes Sociales</Link>
-                <Link to="/modulos/videojuegos" onClick={cerrar}>Videojuegos Seguros</Link>
-                <Link to="/modulos/software-pirata" onClick={cerrar}>Software Pirata</Link>
+                <Link to="/modulos" onClick={cerrar}>Explorar Módulos</Link>
+                <Link to="/modulos/grado/1ro" onClick={cerrar}>1er Año</Link>
+                <Link to="/modulos/grado/2do" onClick={cerrar}>2do Año</Link>
+                <Link to="/modulos/grado/3ro" onClick={cerrar}>3er Año</Link>
+                <Link to="/modulos/grado/4to" onClick={cerrar}>4to Año</Link>
+                <Link to="/modulos/grado/5to" onClick={cerrar}>5to Año</Link>
               </div>
             )}
           </div>

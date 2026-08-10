@@ -73,7 +73,7 @@ export const Phishing1ro: React.FC = () => {
         subTitulo="Aprende a reconocer señuelos, correos sospechosos y engaños por mensajes de texto para proteger tu información personal en 1er Año."
         categoria="Defensa Digital y Privacidad"
         tiempoEstimado="35 min"
-        icono="🎣"
+        icono={<Fish size={36} />}
       />
 
       <div className="contenedor-phishing-contenido">

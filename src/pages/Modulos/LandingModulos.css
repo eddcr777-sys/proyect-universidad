@@ -1,0 +1,389 @@
+/**
+ * ============================================================================
+ * ESTILOS — LandingModulos.tsx
+ * Página de Bienvenida y Selección de Grado (Nivel 1 del Flujo de Módulos)
+ * Paleta: Institucional + Ciberseguridad (vars de index.css)
+ * Regla: bordes rectos (border-radius: 0px) según REGLA ESTRICTA del proyecto
+ * ============================================================================
+ */
+
+/* ── CONTENEDOR RAÍZ ── */
+.landing-modulos-contenedor {
+  min-height: 100vh;
+  background-color: var(--color-inst-fondo);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─────────────────────────────────────────────
+   HERO SECTION
+───────────────────────────────────────────── */
+.landing-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    var(--color-inst-azul) 0%,
+    #0F3B7A 40%,
+    var(--color-ciber-primario) 100%
+  );
+  padding: 5rem 1.5rem 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Partículas decorativas de fondo */
+.landing-hero-fondo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-particula {
+  position: absolute;
+  border-radius: 0px;
+  opacity: 0.08;
+  animation: flotar 8s ease-in-out infinite;
+}
+
+.hero-particula-1 {
+  width: 300px;
+  height: 300px;
+  background: var(--color-inst-celeste);
+  top: -80px;
+  right: -60px;
+  animation-delay: 0s;
+}
+
+.hero-particula-2 {
+  width: 200px;
+  height: 200px;
+  background: var(--color-inst-amarillo);
+  bottom: -40px;
+  left: 5%;
+  animation-delay: 2s;
+}
+
+.hero-particula-3 {
+  width: 150px;
+  height: 150px;
+  background: var(--color-inst-rojo);
+  top: 30%;
+  left: -30px;
+  animation-delay: 4s;
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-20px) rotate(5deg); }
+}
+
+/* Contenido del Hero */
+.landing-hero-contenido {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Etiqueta institucional */
+.landing-etiqueta-inst {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  backdrop-filter: blur(8px);
+}
+
+/* Título hero */
+.landing-titulo-hero {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0;
+}
+
+.landing-titulo-destacado {
+  color: var(--color-inst-amarillo);
+  display: block;
+}
+
+/* Subtítulo */
+.landing-subtitulo-hero {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.65;
+  max-width: 580px;
+  margin: 0;
+}
+
+/* Indicadores de valor */
+.landing-indicadores {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.indicador-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.5rem 1rem;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s;
+}
+
+.indicador-item:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* ─────────────────────────────────────────────
+   SECCIÓN DE SELECCIÓN DE GRADO
+───────────────────────────────────────────── */
+.landing-seleccion-grado {
+  padding: 4rem 1.5rem 5rem;
+  background-color: var(--color-inst-fondo);
+}
+
+.landing-seccion-contenedor {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+/* Encabezado de sección */
+.landing-seccion-encabezado {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.landing-icono-seccion {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--color-inst-azul), var(--color-ciber-primario));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-titulo-seccion {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-inst-texto);
+  margin: 0;
+}
+
+.landing-descripcion-seccion {
+  font-size: 1rem;
+  color: var(--color-inst-texto-secundario);
+  margin: 0;
+  max-width: 480px;
+}
+
+/* ── GRID DE TARJETAS DE GRADO ── */
+.landing-grid-grados {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Tarjeta base */
+.tarjeta-grado {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem 1rem;
+  border: 2px solid var(--color-inst-borde);
+  background: var(--color-inst-tarjeta);
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  outline: none;
+}
+
+.tarjeta-grado:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta-grado:focus-visible {
+  outline: 3px solid var(--color-ciber-primario);
+  outline-offset: 2px;
+}
+
+/* Colores de acento por grado */
+.tarjeta-grado.grado-verde   { border-top: 4px solid #059669; }
+.tarjeta-grado.grado-azul    { border-top: 4px solid var(--color-inst-azul); }
+.tarjeta-grado.grado-celeste { border-top: 4px solid var(--color-ciber-primario); }
+.tarjeta-grado.grado-amarillo{ border-top: 4px solid var(--color-inst-amarillo); }
+.tarjeta-grado.grado-rojo    { border-top: 4px solid var(--color-inst-rojo); }
+
+/* Estado activo (seleccionado) */
+.tarjeta-grado-activa {
+  box-shadow: 0 0 0 3px var(--color-ciber-primario), 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+}
+
+.tarjeta-grado.grado-verde.tarjeta-grado-activa   { box-shadow: 0 0 0 3px #059669, 0 8px 24px rgba(0,0,0,0.1); }
+.tarjeta-grado.grado-azul.tarjeta-grado-activa    { box-shadow: 0 0 0 3px var(--color-inst-azul), 0 8px 24px rgba(0,0,0,0.1); }
+.tarjeta-grado.grado-celeste.tarjeta-grado-activa { box-shadow: 0 0 0 3px var(--color-ciber-primario), 0 8px 24px rgba(0,0,0,0.1); }
+.tarjeta-grado.grado-amarillo.tarjeta-grado-activa{ box-shadow: 0 0 0 3px var(--color-inst-amarillo), 0 8px 24px rgba(0,0,0,0.1); }
+.tarjeta-grado.grado-rojo.tarjeta-grado-activa    { box-shadow: 0 0 0 3px var(--color-inst-rojo), 0 8px 24px rgba(0,0,0,0.1); }
+
+/* Textos de la tarjeta */
+.tarjeta-grado-nivel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-inst-texto-secundario);
+}
+
+.tarjeta-grado-numero {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--color-inst-texto);
+  line-height: 1;
+}
+
+.tarjeta-grado-descripcion {
+  font-size: 0.82rem;
+  color: var(--color-inst-texto-secundario);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Badge de seleccionado */
+.tarjeta-grado-seleccionado-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-ciber-primario);
+  margin-top: 0.25rem;
+  animation: aparecer 0.2s ease;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── CTA FINAL ── */
+.landing-cta-contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+/* Botón explorar — activo */
+.landing-btn-explorar {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+
+.landing-btn-activo {
+  background: linear-gradient(135deg, var(--color-inst-azul), var(--color-ciber-primario));
+  color: #ffffff;
+}
+
+.landing-btn-activo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+}
+
+.landing-btn-activo:focus-visible {
+  outline: 3px solid var(--color-ciber-primario);
+  outline-offset: 3px;
+}
+
+/* Botón explorar — inactivo */
+.landing-btn-inactivo {
+  background: var(--color-inst-borde);
+  color: var(--color-inst-texto-secundario);
+  cursor: not-allowed;
+}
+
+/* Hint de selección */
+.landing-hint-seleccion {
+  font-size: 0.82rem;
+  color: var(--color-inst-texto-secundario);
+  margin: 0;
+  animation: pulso 2s ease-in-out infinite;
+}
+
+@keyframes pulso {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .landing-hero {
+    padding: 3.5rem 1rem 3rem;
+  }
+
+  .landing-grid-grados {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .landing-titulo-hero {
+    font-size: 1.75rem;
+  }
+
+  .landing-indicadores {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .landing-grid-grados {
+    grid-template-columns: 1fr;
+  }
+}

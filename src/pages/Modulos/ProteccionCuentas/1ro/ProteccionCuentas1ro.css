@@ -1,3 +1,225 @@
-.proteccioncuentas-contenedor {
-  padding: 20px;
+/* Estilos para las lecciones de Protección de Cuentas por Grado */
+
+.pagina-modulo-proteccion {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem 1.5rem;
+  font-family: var(--fuente-principal);
+  color: var(--color-texto-principal);
 }
+
+.contenedor-proteccion-contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.bloque-modulo-tarjeta {
+  background: var(--color-fondo-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-principal);
+  padding: 2.25rem;
+  box-shadow: var(--sombra-md);
+  transition: transform var(--transicion-rapida), box-shadow var(--transicion-rapida);
+}
+
+.bloque-modulo-tarjeta:hover {
+  box-shadow: var(--sombra-lg);
+}
+
+.encabezado-bloque {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.encabezado-bloque h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-texto-principal);
+  margin: 0;
+}
+
+.texto-lectura-modulo {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-texto-secundario);
+  margin: 0 0 1.5rem 0;
+}
+
+.subtitulo-bloque {
+  font-size: 1rem;
+  color: var(--color-texto-claro);
+  margin-bottom: 1.5rem;
+}
+
+/* Grid Pilares */
+.grid-pilares-proteccion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.caja-pilar-proteccion {
+  background-color: var(--color-fondo-variante);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-principal);
+  padding: 1.5rem;
+  transition: transform var(--transicion-rapida);
+}
+
+.caja-pilar-proteccion:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-ciber-primario);
+}
+
+.icono-pilar {
+  margin-bottom: 0.75rem;
+}
+
+.icono-pilar.rojo { color: var(--color-ciber-alerta); }
+.icono-pilar.azul { color: var(--color-ciber-primario); }
+.icono-pilar.verde { color: var(--color-ciber-secundario); }
+
+.caja-pilar-proteccion h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-texto-principal);
+  margin: 0 0 0.5rem 0;
+}
+
+.caja-pilar-proteccion p {
+  font-size: 0.925rem;
+  color: var(--color-texto-secundario);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Interactivo Específico */
+.interactivo-caja {
+  background-color: var(--color-fondo-variante);
+  border: 1px solid var(--color-ciber-primario);
+}
+
+.input-password-simulador {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.25rem;
+  font-family: var(--fuente-codigo);
+  border: 2px solid var(--color-borde);
+  border-radius: var(--radio-principal);
+  background-color: var(--color-fondo-tarjeta);
+  color: var(--color-texto-principal);
+  margin-bottom: 1rem;
+  transition: border-color var(--transicion-rapida);
+}
+
+.input-password-simulador:focus {
+  outline: none;
+  border-color: var(--color-ciber-primario);
+  box-shadow: 0 0 0 3px var(--color-ciber-resplandor);
+}
+
+.medidor-fortaleza {
+  display: flex;
+  height: 12px;
+  background-color: var(--color-borde);
+  border-radius: var(--radio-principal);
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.barra-fortaleza {
+  height: 100%;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.texto-fortaleza {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: right;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.criterios-password {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .criterios-password {
+    grid-template-columns: 1fr;
+  }
+}
+
+.criterio-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-texto-secundario);
+}
+
+.criterio-item.cumple {
+  color: var(--color-ciber-secundario);
+  font-weight: 600;
+}
+
+/* Quiz */
+.opciones-quiz-modulo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.opcion-quiz-btn {
+  text-align: left;
+  background-color: var(--color-fondo-variante);
+  border: 1px solid var(--color-borde);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radio-principal);
+  font-size: 0.975rem;
+  color: var(--color-texto-principal);
+  cursor: pointer;
+  transition: all var(--transicion-rapida);
+}
+
+.opcion-quiz-btn:hover {
+  border-color: var(--color-ciber-primario);
+  background-color: var(--color-fondo);
+}
+
+.opcion-quiz-btn.correcta {
+  background-color: rgba(5, 150, 105, 0.1);
+  border-color: var(--color-ciber-secundario);
+  color: var(--color-ciber-secundario);
+  font-weight: 700;
+}
+
+.opcion-quiz-btn.incorrecta {
+  background-color: rgba(220, 38, 38, 0.1);
+  border-color: var(--color-ciber-alerta);
+  color: var(--color-ciber-alerta);
+}
+
+.feedback-quiz {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  border-radius: var(--radio-principal);
+  font-size: 0.95rem;
+}
+
+.feedback-quiz.correcto { 
+  background-color: rgba(5, 150, 105, 0.1); 
+  border: 1px solid var(--color-ciber-secundario); 
+  color: var(--color-ciber-secundario); 
+}
+
+/* Iconos de cabecera de bloque (reutilizables) */
+.icono-bloque-azul { color: var(--color-ciber-primario); }
+.icono-bloque-verde { color: var(--color-ciber-secundario); }
+.icono-bloque-amarillo { color: #f59e0b; }
+.icono-bloque-rojo { color: var(--color-ciber-alerta); }

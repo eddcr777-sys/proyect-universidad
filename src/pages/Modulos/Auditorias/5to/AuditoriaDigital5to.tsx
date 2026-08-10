@@ -48,7 +48,7 @@ export const AuditoriaDigital5to: React.FC = () => {
         subTitulo="Conviértete en un líder digital capaz de realizar diagnósticos cibernéticos, diseñar matrices de riesgo y presentar recomendaciones al Liceo."
         categoria="Auditoría e Higiene"
         tiempoEstimado="50 min"
-        icono="📊"
+        icono={<ClipboardCheck size={36} />}
       />
 
       <div className="contenedor-auditoria-contenido">

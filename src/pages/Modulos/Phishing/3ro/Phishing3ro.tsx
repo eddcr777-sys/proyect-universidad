@@ -60,7 +60,7 @@ export const Phishing3ro: React.FC = () => {
         subTitulo="Descubre cómo los atacantes usan emociones como la urgencia, el miedo y la curiosidad para manipular a las personas sin necesidad de hackear computadoras."
         categoria="Defensa Digital y Privacidad"
         tiempoEstimado="40 min"
-        icono="🧠"
+        icono={<Brain size={36} />}
       />
 
       <div className="contenedor-phishing-contenido">

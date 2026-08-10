@@ -42,13 +42,12 @@ const NavegacionEscritorio: React.FC = () => {
           Módulos <ChevronIcon />
         </button>
         <div className="dropdown-content">
-          <Link to="/presentacion/1ro" className="dropdown-item">Presentación por Grado</Link>
-          <Link to="/modulos/phishing" className="dropdown-item">Phishing e Ingeniería Social</Link>
-          <Link to="/modulos/auditorias" className="dropdown-item">Auditoría e Higiene Digital</Link>
-          <Link to="/modulos/proteccion-cuentas" className="dropdown-item">Protección de Cuentas</Link>
-          <Link to="/modulos/redes-sociales" className="dropdown-item">Redes Sociales</Link>
-          <Link to="/modulos/videojuegos" className="dropdown-item">Videojuegos Seguros</Link>
-          <Link to="/modulos/software-pirata" className="dropdown-item">Riesgos de Software Pirata</Link>
+          <Link to="/modulos" className="dropdown-item">Explorar Módulos</Link>
+          <Link to="/modulos/grado/1ro" className="dropdown-item">1er Año</Link>
+          <Link to="/modulos/grado/2do" className="dropdown-item">2do Año</Link>
+          <Link to="/modulos/grado/3ro" className="dropdown-item">3er Año</Link>
+          <Link to="/modulos/grado/4to" className="dropdown-item">4to Año</Link>
+          <Link to="/modulos/grado/5to" className="dropdown-item">5to Año</Link>
         </div>
       </div>
 

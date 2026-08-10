@@ -9,9 +9,8 @@ import "./HeaderModulo.css";
 export interface HeaderModuloProps {
   titulo: string;
   subTitulo: string;
-  grado: string;
   modulo: string;
-  icono?: string;
+  icono?: React.ReactNode;
   img?: string;
   categoria?: string;
   tiempoEstimado?: string;
@@ -27,7 +26,7 @@ export const HeaderModulo: React.FC<HeaderModuloProps> = ({
   subTitulo,
   grado,
   modulo,
-  icono = "🛡️",
+  icono = <ShieldCheck size={36} color="currentColor" />,
   img,
   categoria = "Ciberseguridad",
   tiempoEstimado = "15-20 min",
@@ -38,9 +37,9 @@ export const HeaderModulo: React.FC<HeaderModuloProps> = ({
       {/* Botón de retorno al panel del grado */}
       {mostrarBotonVolver && (
         <div className="header-modulo-navegacion">
-          <Link to={`/presentacion/${grado}`} className="boton-volver-grado">
+          <Link to={`/modulos/grado/${grado}`} className="boton-volver-grado">
             <ArrowLeft size={18} />
-            <span>Volver a la Presentación de {grado} Año</span>
+            <span>Volver al Catálogo de {grado} Año</span>
           </Link>
         </div>
       )}
@@ -58,7 +57,7 @@ export const HeaderModulo: React.FC<HeaderModuloProps> = ({
 
           {/* Título e Ícono */}
           <div className="header-modulo-titulo-container">
-            <span className="header-modulo-icono" role="img" aria-label="Icono del módulo">
+            <span className="header-modulo-icono">
               {icono}
             </span>
             <h1 className="header-modulo-titulo">{titulo}</h1>

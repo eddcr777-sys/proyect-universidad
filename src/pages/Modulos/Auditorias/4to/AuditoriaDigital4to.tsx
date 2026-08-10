@@ -48,7 +48,7 @@ export const AuditoriaDigital4to: React.FC = () => {
         subTitulo="Conoce cómo auditar las cookies de rastreo, controlar permisos de navegador y verificar si tus credenciales han sido filtradas."
         categoria="Auditoría e Higiene"
         tiempoEstimado="45 min"
-        icono="🌐"
+        icono={<Globe size={36} />}
       />
 
       <div className="contenedor-auditoria-contenido">

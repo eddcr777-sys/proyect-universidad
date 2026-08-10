@@ -33,8 +33,9 @@ export const PresentacionGrado: React.FC = () => {
   const nombreGradoLegible = DICCIONARIO_GRADOS[gradoActual] || '1er Año';
   const listaModulos = Object.values(CATALAGO_MODULOS);
 
+  /** Navega al catálogo del nuevo grado seleccionado */
   const cambiarGrado = (nuevoGrado: GradoEscolar) => {
-    navigate(`/presentacion/${nuevoGrado}`);
+    navigate(`/modulos/grado/${nuevoGrado}`);
   };
 
   return (
@@ -132,7 +133,7 @@ export const PresentacionGrado: React.FC = () => {
                       variante="ciberseguridad"
                       tamano="mediano"
                       anchoCompleto
-                      onClick={() => navigate(`/modulos/${modulo.id}/${gradoActual}`)}
+                      onClick={() => navigate(`/modulos/info/${modulo.id}/${gradoActual}`)}
                     >
                       Ingresar al Módulo <ArrowRight size={18} />
                     </Boton>
@@ -144,9 +145,9 @@ export const PresentacionGrado: React.FC = () => {
 
           {/* Enlace de Retorno */}
           <div className="caja-pie-retorno">
-            <Link to="/justificacion" className="enlace-volver-inicio">
+            <Link to="/modulos" className="enlace-volver-inicio">
               <ArrowLeft size={18} />
-              Volver al Registro por Grado
+              Volver a Módulos
             </Link>
           </div>
         </div>

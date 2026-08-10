@@ -64,7 +64,7 @@ export const Phishing2do: React.FC = () => {
         subTitulo="Aprende a inspeccionar las barras de direcciones web (URL), identificar el candado de seguridad HTTPS y descubrir páginas falsas en 2do Año."
         categoria="Defensa Digital y Privacidad"
         tiempoEstimado="40 min"
-        icono="🌐"
+        icono={<Globe size={36} />}
       />
 
       <div className="contenedor-phishing-contenido">

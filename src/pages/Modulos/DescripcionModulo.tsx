@@ -27,9 +27,9 @@ export const DescripcionModuloWrapper: React.FC = () => {
       gradoActual={gradoActual}
       nombreGradoLegible={nombreGradoLegible}
       // Acciones inyectadas desde el Router
-      onCambiarGrado={(nuevoGrado) => navigate(`/modulos/${idValido}/${nuevoGrado}`)}
-      onIniciarModulo={() => navigate(`/modulos/${idValido}/${gradoActual}`)}
-      onVolver={() => navigate(`/presentacion/${gradoActual}`)}
+      onCambiarGrado={(nuevoGrado) => navigate(`/modulos/info/${idValido}/${nuevoGrado}`)}
+      onIniciarModulo={() => navigate(`/modulos/leccion/${idValido}/${gradoActual}`)}
+      onVolver={() => navigate(`/modulos/grado/${gradoActual}`)}
     />
   );
 };
