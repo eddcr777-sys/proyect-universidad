@@ -53,6 +53,7 @@ const App: React.FC = () => {
             <Route path="/modulos/leccion/:moduloId/:grado" element={<ModuloRouter />} />
 
             {/* ── REDIRECCIONES DE COMPATIBILIDAD (rutas antiguas) ── */}
+            <Route path="/Indices" element={<Navigate to="/indices" replace />} />
             <Route path="/presentacion/:grado" element={<RedireccionPresentacion />} />
             <Route path="/dashboard/:grado" element={<Navigate to="/modulos" replace />} />
           </Routes>

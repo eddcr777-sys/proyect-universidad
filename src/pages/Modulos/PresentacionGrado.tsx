@@ -7,13 +7,26 @@ import {
   ArrowRight, 
   ArrowLeft, 
   ShieldCheck, 
-  Sparkles,
+  Lock,
+  Share2,
+  Download,
+  Gamepad2,
   BookOpen
 } from 'lucide-react';
 import { CATALAGO_MODULOS, DICCIONARIO_GRADOS } from '../../data/datosModulos';
 import type { GradoEscolar } from '../../data/datosModulos';
 import Boton from '../../components/comunes/Botones/Boton';
 import './PresentacionGrado.css';
+
+// Mapeo de iconos Lucide por módulo
+const ICONOS_MODULOS: Record<string, React.ReactNode> = {
+  'phishing': <ShieldCheck size={28} />,
+  'proteccion-cuentas': <Lock size={28} />,
+  'redes-sociales': <Share2 size={28} />,
+  'software-pirata': <Download size={28} />,
+  'videojuegos': <Gamepad2 size={28} />,
+  'auditorias': <CheckSquare size={28} />,
+};
 
 /**
  * Pantalla de Presentación del Grado Escolar (1ro a 5to Año).
@@ -98,7 +111,7 @@ export const PresentacionGrado: React.FC = () => {
                   {/* Cabecera con Categoría */}
                   <div className="tarjeta-modulo-cabecera">
                     <div className="tarjeta-modulo-icono">
-                      <ShieldCheck size={28} />
+                      {ICONOS_MODULOS[modulo.id] || <ShieldCheck size={28} />}
                     </div>
                     <div className="tarjeta-modulo-categoria">
                       {modulo.nombreCategoria}

@@ -275,6 +275,84 @@
   color: #334155;
 }
 
+/* =========================================
+   GLOSARIO Y AMENAZAS EN LANDING
+   ========================================= */
+.grid-glosario-terminos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.tarjeta-termino-glosario {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta-termino-glosario:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-color: #cbd5e1;
+}
+
+.cabecera-termino {
+  margin-bottom: 0.5rem;
+}
+
+.badge-termino {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-primario);
+  background-color: rgba(2, 132, 199, 0.1);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.35rem;
+}
+
+.cabecera-termino h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.definicion-termino {
+  font-size: 0.92rem;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0 0 0.75rem 0;
+}
+
+.ejemplo-termino {
+  background-color: #ffffff;
+  border-left: 3px solid var(--color-primario);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.85rem;
+  color: #334155;
+}
+
+.grid-amenazas-casos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.caja-amenaza-caso {
+  background-color: #fefce8;
+  border: 1px solid #fef08a;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
 /* Responsive */
 @media (max-width: 992px) {
   .cuadricula-detalles-modulo {

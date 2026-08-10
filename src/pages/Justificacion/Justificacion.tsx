@@ -25,7 +25,7 @@ import {
 
   ChevronUp,
 } from 'lucide-react';
-import FormularioModulos from '../../components/comunes/Formularios/CampoTexto';
+import { Link } from 'react-router-dom';
 import './Justificacion.css';
 
 // ============================================================
@@ -110,9 +110,9 @@ export const Justificacion: React.FC = () => {
             </p>
 
             <div className="hero-botones-grupo">
-              <button onClick={() => scrollToSeccion('registro-estudiante')} className="boton-primario">
-                Acceder por Grado <ArrowRight size={18} />
-              </button>
+              <Link to="/modulos" className="boton-primario">
+                Explorar Módulos <ArrowRight size={18} />
+              </Link>
               <button onClick={() => scrollToSeccion('diagnostico')} className="boton-secundario">
                 Conoce el Proyecto <ChevronDown size={18} />
               </button>
@@ -264,18 +264,20 @@ export const Justificacion: React.FC = () => {
    
 
       {/* ============================================================
-          SECCIÓN 10: FORMULARIO DE ACCESO POR GRADO
+          SECCIÓN 10: CTA HACIA MÓDULOS
           ============================================================ */}
       <section id="registro-estudiante" className="seccion-formulario-estrategico">
         <div className="contenedor-formulario-estrategico">
           <div className="encabezado-seccion-form">
             <GraduationCap size={36} className="icono-grado-hero" />
-            <h2>Accede a la Presentación de tu Grado</h2>
+            <h2>Accede a los Módulos de tu Grado</h2>
             <p>
-              Ingresa tu nombre y selecciona tu año escolar (1ro a 5to Año) para visualizar la ruta y presentación completa de tus módulos.
+              Selecciona tu año escolar y explora los módulos interactivos de ciberseguridad diseñados para tu nivel.
             </p>
           </div>
-          <FormularioModulos />
+          <Link to="/modulos" className="boton-primario" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}>
+            Explorar Módulos <ArrowRight size={18} />
+          </Link>
         </div>
       </section>
 

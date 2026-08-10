@@ -69,7 +69,7 @@ export const Home: React.FC = () => {
                 Reseña Histórica
                 <ArrowDown size={18} />
               </a>
-              <Link to="/modulos/manual-completo" className="boton-institucional-secundario">
+              <Link to="/modulos" className="boton-institucional-secundario">
                 <BookOpen size={18} />
                 Manual Educativo
               </Link>
@@ -420,7 +420,7 @@ export const Home: React.FC = () => {
                   <FileText size={18} />
                   Ver Justificación
                 </Link>
-                <Link to="/modulos/manual-completo" className="boton-delineado-transparente">
+                <Link to="/modulos" className="boton-delineado-transparente">
                   <BookOpen size={18} />
                   Manual Maestro
                 </Link>

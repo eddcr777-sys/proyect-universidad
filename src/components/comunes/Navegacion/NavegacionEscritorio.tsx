@@ -25,31 +25,11 @@ const NavegacionEscritorio: React.FC = () => {
       <Link to="/" className="nav-link">Inicio</Link>
       <Link to="/justificacion" className="nav-link">Justificación</Link>
 
-      {/* Acceder / Registro */}
-      <div className="dropdown">
-        <button className="dropbtn" aria-expanded="false" aria-haspopup="true">
-          Acceder <ChevronIcon />
-        </button>
-        <div className="dropdown-content">
-          <Link to="/Indices" className="dropdown-item">Centro de Acceso Virtual</Link>
-          <Link to="/justificacion#registro-estudiante" className="dropdown-item">Registro de Estudiante por Grado</Link>
-        </div>
-      </div>
+      {/* Acceso */}
+      <Link to="/indices" className="nav-link">Acceso</Link>
 
       {/* Módulos */}
-      <div className="dropdown">
-        <button className="dropbtn" aria-expanded="false" aria-haspopup="true">
-          Módulos <ChevronIcon />
-        </button>
-        <div className="dropdown-content">
-          <Link to="/modulos" className="dropdown-item">Explorar Módulos</Link>
-          <Link to="/modulos/grado/1ro" className="dropdown-item">1er Año</Link>
-          <Link to="/modulos/grado/2do" className="dropdown-item">2do Año</Link>
-          <Link to="/modulos/grado/3ro" className="dropdown-item">3er Año</Link>
-          <Link to="/modulos/grado/4to" className="dropdown-item">4to Año</Link>
-          <Link to="/modulos/grado/5to" className="dropdown-item">5to Año</Link>
-        </div>
-      </div>
+      <Link to="/modulos" className="nav-link">Módulos</Link>
 
       {/* Guías */}
       <div className="dropdown">

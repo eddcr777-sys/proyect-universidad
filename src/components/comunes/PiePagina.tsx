@@ -30,7 +30,7 @@ const PiePagina: React.FC = () => {
                         <h4 className="pie-encabezado">Enlaces Rápidos</h4>
                         <ul className="pie-lista">
                             <li><Link to="/">Inicio</Link></li>
-                            <li><Link to="/modulos/manual-completo">Manual Digital</Link></li>
+                            <li><Link to="/modulos">Manual Digital</Link></li>
                             <li><Link to="/guias/docentes">Guías para Docentes</Link></li>
                             <li><Link to="/guias/padres">Guías para Padres</Link></li>
                         </ul>

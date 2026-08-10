@@ -25,7 +25,6 @@ const ChevronIcon = ({ abierto }: { abierto: boolean }) => (
 
 const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
   const [secciones, setSecciones] = useState({
-    modulos: false,
     guias: false,
     nosotros: false
   });
@@ -63,27 +62,14 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
             Justificación
           </Link>
 
-          <Link to="/Indices" className="drawer-item-directo" onClick={cerrar}>
-            Centro de Acceso
+          <Link to="/indices" className="drawer-item-directo" onClick={cerrar}>
+            Acceso
           </Link>
 
-          {/* Sección Módulos */}
-          <div className="menu-seccion">
-            <button className={`btn-seccion ${secciones.modulos ? 'activo' : ''}`} onClick={() => alternarSeccion('modulos')}>
-              <span>Módulos</span>
-              <ChevronIcon abierto={secciones.modulos} />
-            </button>
-            {secciones.modulos && (
-              <div className="sub-menu">
-                <Link to="/modulos" onClick={cerrar}>Explorar Módulos</Link>
-                <Link to="/modulos/grado/1ro" onClick={cerrar}>1er Año</Link>
-                <Link to="/modulos/grado/2do" onClick={cerrar}>2do Año</Link>
-                <Link to="/modulos/grado/3ro" onClick={cerrar}>3er Año</Link>
-                <Link to="/modulos/grado/4to" onClick={cerrar}>4to Año</Link>
-                <Link to="/modulos/grado/5to" onClick={cerrar}>5to Año</Link>
-              </div>
-            )}
-          </div>
+          {/* Módulos — enlace directo al landing de selección de grado */}
+          <Link to="/modulos" className="drawer-item-directo" onClick={cerrar}>
+            Módulos
+          </Link>
 
           {/* Sección Guías */}
           <div className="menu-seccion">
