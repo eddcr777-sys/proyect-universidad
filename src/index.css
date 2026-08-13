@@ -55,25 +55,26 @@
   /* Color de bordes */
 
   /* --------------------------------------------------------------------------
-   * 3. PALETA DE CIBERSEGURIDAD (MODO CLARO TECH)
+   * 3. PALETA DE CIBERSEGURIDAD (MATE / ESTILO SOC - MODO CLARO)
    * -------------------------------------------------------------------------- */
-  --color-ciber-primario: #0284C7;
-  /* Cian Tech */
-  --color-ciber-primario-hover: z#0369A1;
-  --color-ciber-secundario: #059669;
-  /* Verde Seguro / Estado Ok */
-  --color-ciber-alerta: #DC2626;
-  /* Rojo Alerta / Vulnerabilidad */
-  --color-ciber-fondo: #F0F9FF;
-  /* Fondo Ciber */
+  --color-ciber-primario: #1D4ED8;
+  /* Azul Acero (Confianza y Tecnología) */
+  --color-ciber-primario-hover: #1E3A8A;
+  /* Azul más profundo al pasar ratón */
+  --color-ciber-secundario: #047857;
+  /* Verde Bosque (Sistema seguro / OK) */
+  --color-ciber-alerta: #B91C1C;
+  /* Rojo Ladrillo (Amenaza crítica) */
+  --color-ciber-fondo: #F8FAFC;
+  /* Fondo gris neutro mate */
   --color-ciber-tarjeta: #FFFFFF;
-  /* Tarjeta Ciber */
-  --color-ciber-texto: #0F172A;
-  /* Texto Ciber */
-  --color-ciber-borde: #BAE6FD;
-  /* Borde Ciber */
-  --color-ciber-resplandor: rgba(2, 132, 199, 0.2);
-
+  /* Tarjeta blanca pura */
+  --color-ciber-texto: #1E293B;
+  /* Texto en gris oscuro slate */
+  --color-ciber-borde: #CBD5E1;
+  /* Borde gris perla mate */
+  --color-ciber-resplandor: transparent;
+  /* Eliminado el glow neón */
   /* --------------------------------------------------------------------------
    * 4. ALIAS DE COMPATIBILIDAD CON EL CÓDIGO EXISTENTE (MODO CLARO)
    * -------------------------------------------------------------------------- */

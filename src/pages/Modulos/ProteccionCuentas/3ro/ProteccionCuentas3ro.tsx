@@ -1,230 +1,261 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
-  Smartphone,
+  Key,
   ShieldCheck,
-  Timer,
-  CheckCircle2,
-  XCircle,
+  ShieldAlert,
   Sparkles,
   HelpCircle,
-  KeyRound
+  CheckCircle2,
+  XCircle,
+  Award,
+  Video,
+  ListChecks,
+  Fingerprint,
+  UserCog,
+  Lock
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
-import '../1ro/ProteccionCuentas1ro.css';
+import { useProteccionCuentas3ro, HABITOS_CUENTAS_3RO } from '../../../../hooks/HooksProteccionCuentas/useProteccionCuentas3ro';
+import '../1ro/ProteccionCuentas1ro.css'
+import './ProteccionCuentas3ro.css';
 
 export const ProteccionCuentas3ro: React.FC = () => {
-  const [faseSimulador, setFaseSimulador] = useState(1); // 1: Login, 2: 2FA, 3: Éxito
-  const [codigoGenerado, setCodigoGenerado] = useState('');
-  const [inputCodigo, setInputCodigo] = useState('');
-  const [error2FA, setError2FA] = useState(false);
-  const [tiempoRestante, setTiempoRestante] = useState(30);
-  const [respuestaQuiz, setRespuestaQuiz] = useState<number | null>(null);
-
-  // Generar código aleatorio
-  const generarNuevoCodigo = () => {
-    const num = Math.floor(100000 + Math.random() * 900000);
-    setCodigoGenerado(num.toString());
-    setTiempoRestante(30);
-  };
-
-  useEffect(() => {
-    if (faseSimulador === 2) {
-      generarNuevoCodigo();
-      const intervalo = setInterval(() => {
-        setTiempoRestante(prev => {
-          if (prev <= 1) {
-            generarNuevoCodigo();
-            return 30;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-      return () => clearInterval(intervalo);
-    }
-  }, [faseSimulador]);
-
-  const simularLogin = () => {
-    setFaseSimulador(2);
-  };
-
-  const verificarCodigo = () => {
-    if (inputCodigo === codigoGenerado) {
-      setFaseSimulador(3);
-      setError2FA(false);
-    } else {
-      setError2FA(true);
-    }
-  };
-
-  const reiniciarSimulador = () => {
-    setFaseSimulador(1);
-    setInputCodigo('');
-    setError2FA(false);
-  };
+  const {
+    habitosComprobados,
+    toggleHabito,
+    totalHabitos,
+    habitosCompletados,
+    porcentajeHabitos,
+    escenarios,
+    respuestasEscenario,
+    responderEscenario,
+    resultadoEscenario,
+    videos,
+    preguntasQuiz,
+    respuestasQuiz,
+    responderPreguntaQuiz,
+    enviarQuiz,
+    puntajeQuiz,
+    quizEnviado
+  } = useProteccionCuentas3ro();
 
   return (
-    <main className="pagina-modulo-proteccion">
+    <main className="pagina-modulo-proteccion-3ro">
       <HeaderModulo
         grado="3ro"
-        modulo="3: Autenticación en Dos Pasos (2FA)"
-        titulo="Tu Segundo Escudo Protector"
-        subTitulo="La autenticación en dos pasos agrega una segunda cerradura a tus cuentas: aunque descubran tu contraseña, no podrán entrar sin tu código temporal."
+        modulo="3: Políticas del Sistema y Biometría"
+        titulo="Cuentas, Privilegios y Autenticación en el Sistema"
+        subTitulo="Aprende a gestionar cuentas de usuario, configurar políticas de contraseñas y usar biometría de forma segura en Windows y Linux."
         categoria="Protección de Cuentas y Accesos"
-        tiempoEstimado="45 min"
-        icono={<Smartphone size={36} />}
+        tiempoEstimado="50 min"
+        icono={<Fingerprint size={36} />}
       />
 
       <div className="contenedor-proteccion-contenido">
-        {/* SECCIÓN 1: CONCEPTOS */}
+        {/* SECCIÓN 1: TEORÍA */}
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. ¿Qué es el 2FA?</h2>
+            <h2>1. El Poder de los Privilegios: Administrador vs Usuario</h2>
           </div>
           <p className="texto-lectura-modulo">
-            El 2FA (Two-Factor Authentication) significa que para entrar a tu cuenta necesitas dos cosas: algo que <strong>sabes</strong> (tu contraseña) y algo que <strong>tienes</strong> (tu celular).
+            En todo sistema operativo existen <strong>cuentas con diferentes niveles de poder</strong>. La cuenta de administrador (root en Linux) tiene control total: puede instalar programas, modificar archivos del sistema y cambiar cualquier configuración. Una cuenta de usuario normal solo puede ejecutar tareas limitadas. Usar siempre la cuenta de administrador es como caminar por tu casa con todas las llaves, incluida la de la caja fuerte: si te roban, lo pierdes todo.
           </p>
 
           <div className="grid-pilares-proteccion">
             <div className="caja-pilar-proteccion">
-              <KeyRound className="icono-pilar azul" size={28} />
-              <h3 style={{ fontSize: '1rem' }}>Paso 1: La Contraseña</h3>
-              <p>Tu clave secreta habitual. Si un hacker la descubre, pasará esta primera barrera.</p>
+              <UserCog className="icono-pilar rojo" size={28} />
+              <h3>Principio de Mínimo Privilegio</h3>
+              <p>Regla de oro: <strong>cada tarea debe usar el mínimo nivel de permisos necesario</strong>. Para jugar y navegar usa cuenta normal; para instalar, usa administrador temporalmente.</p>
             </div>
 
             <div className="caja-pilar-proteccion">
-              <Smartphone className="icono-pilar verde" size={28} />
-              <h3 style={{ fontSize: '1rem' }}>Paso 2: El Código Temporal</h3>
-              <p>Un número de 6 dígitos que cambia cada 30 segundos en tu App Autenticadora (ej. Google Authenticator o Authy).</p>
-            </div>
-
-            <div className="caja-pilar-proteccion">
-              <ShieldCheck className="icono-pilar verde" size={28} />
-              <h3 style={{ fontSize: '1rem' }}>Bloqueo Total</h3>
-              <p>Como el hacker no tiene tu celular físico, la cuenta no le permite entrar y tus datos quedan a salvo.</p>
+              <Fingerprint className="icono-pilar verde" size={28} />
+              <h3>Biometría: Ventajas y Riesgos</h3>
+              <p>La huella dactilar o el reconocimiento facial son cómodos, pero tienen una gran desventaja: <strong>si tu huella es robada, no la puedes cambiar</strong> como una contraseña. Úsalos combinados con un PIN o contraseña de respaldo.</p>
             </div>
           </div>
         </section>
 
-        {/* SECCIÓN 2: SIMULADOR 2FA */}
+        {/* SECCIÓN 2: ESCENARIOS */}
         <section className="bloque-modulo-tarjeta interactivo-caja">
           <div className="encabezado-bloque">
-            <Smartphone className="icono-bloque-azul" size={24} />
-            <h2>2. Simulador: Inicia Sesión con 2FA</h2>
+            <ShieldCheck className="icono-bloque-verde" size={24} />
+            <h2>2. ¿Qué harías? Decisiones de Privilegios</h2>
           </div>
           <p className="subtitulo-bloque">
-            Prueba cómo funciona este segundo escudo al intentar entrar a tu correo.
+            Lee cada situación y elige la opción más segura:
           </p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginTop: '1rem' }}>
-            
-            {/* Dispositivo de Login */}
-            <div style={{ backgroundColor: '#fff', padding: '1.5rem', border: '1px solid var(--color-borde)', borderRadius: 'var(--radio-principal)' }}>
-              <h3 style={{ marginTop: 0, marginBottom: '1.5rem', textAlign: 'center' }}>Pantalla de tu Computadora</h3>
-              
-              {faseSimulador === 1 && (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  <input type="text" value="estudiante@liceolemus.edu.ve" readOnly className="input-password-simulador" style={{ fontSize: '1rem', color: '#64748b' }} />
-                  <input type="password" value="********" readOnly className="input-password-simulador" style={{ fontSize: '1rem', color: '#64748b' }} />
-                  <button onClick={simularLogin} className="btn-decision seguro" style={{ justifyContent: 'center' }}>
-                    Iniciar Sesión
-                  </button>
+          <div className="escenarios-lista">
+            {escenarios.map(escenario => (
+              <div key={escenario.id} className="escenario-card">
+                <h3 className="escenario-titulo">{escenario.titulo}</h3>
+                <p className="escenario-descripcion">{escenario.descripcion}</p>
+                <div className="opciones-escenario">
+                  {escenario.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-escenario-btn ${respuestasEscenario[escenario.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderEscenario(escenario.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
                 </div>
-              )}
-
-              {faseSimulador === 2 && (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
-                  <ShieldCheck size={48} color="var(--color-ciber-primario)" />
-                  <h4 style={{ margin: 0, textAlign: 'center' }}>Verificación en Dos Pasos</h4>
-                  <p style={{ textAlign: 'center', fontSize: '0.9rem' }}>Ingresa el código temporal generado en tu aplicación móvil.</p>
-                  
-                  <input 
-                    type="text" 
-                    placeholder="000000" 
-                    maxLength={6}
-                    value={inputCodigo}
-                    onChange={(e) => setInputCodigo(e.target.value.replace(/[^0-9]/g, ''))}
-                    className="input-password-simulador" 
-                    style={{ fontSize: '2rem', textAlign: 'center', letterSpacing: '0.5rem', fontWeight: 'bold' }} 
-                  />
-                  
-                  {error2FA && <span style={{ color: 'var(--color-ciber-alerta)', fontSize: '0.9rem', fontWeight: 'bold' }}>❌ Código incorrecto o expirado</span>}
-                  
-                  <button onClick={verificarCodigo} className="btn-decision seguro" style={{ justifyContent: 'center', width: '100%' }}>
-                    Verificar
-                  </button>
-                </div>
-              )}
-
-              {faseSimulador === 3 && (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center', padding: '2rem 0' }}>
-                  <CheckCircle2 size={64} color="var(--color-ciber-secundario)" />
-                  <h4 style={{ margin: 0, textAlign: 'center', color: 'var(--color-ciber-secundario)' }}>¡Acceso Concedido!</h4>
-                  <p style={{ textAlign: 'center', fontSize: '0.9rem' }}>Has ingresado a tu cuenta de forma segura.</p>
-                  <button onClick={reiniciarSimulador} className="btn-decision" style={{ marginTop: '1rem' }}>
-                    Volver a probar
-                  </button>
-                </div>
-              )}
-            </div>
-
-            {/* App Autenticadora en Celular */}
-            <div style={{ backgroundColor: '#1e293b', color: '#fff', padding: '1.5rem', border: '8px solid #0f172a', borderRadius: '24px', display: 'flex', flexDirection: 'column', position: 'relative' }}>
-              <div style={{ width: '40px', height: '5px', backgroundColor: '#334155', borderRadius: '10px', alignSelf: 'center', marginBottom: '1.5rem' }}></div>
-              <h3 style={{ marginTop: 0, marginBottom: '1.5rem', textAlign: 'center', fontSize: '1rem', color: '#94a3b8' }}>📱 App Autenticadora</h3>
-              
-              {faseSimulador === 2 ? (
-                <div style={{ backgroundColor: '#0f172a', padding: '1.5rem', borderRadius: '12px', marginTop: 'auto', marginBottom: 'auto' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                    <span style={{ fontWeight: 'bold' }}>Correo Liceo</span>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', color: tiempoRestante < 5 ? '#ef4444' : '#38bdf8' }}>
-                      <Timer size={16} /> {tiempoRestante}s
-                    </span>
+                {resultadoEscenario[escenario.id] !== undefined && (
+                  <div className={`feedback-escenario ${resultadoEscenario[escenario.id] ? 'correcto' : 'incorrecto'}`}>
+                    {resultadoEscenario[escenario.id] ? (
+                      <><CheckCircle2 size={18} /> ¡Correcto! </>
+                    ) : (
+                      <><XCircle size={18} /> Atención: </>
+                    )}
+                    {escenario.explicacion}
                   </div>
-                  <div style={{ fontSize: '2.5rem', fontWeight: 'bold', letterSpacing: '0.3rem', color: '#f8fafc', textAlign: 'center' }}>
-                    {codigoGenerado.slice(0,3)} {codigoGenerado.slice(3,6)}
-                  </div>
-                </div>
-              ) : (
-                <div style={{ textAlign: 'center', color: '#64748b', marginTop: 'auto', marginBottom: 'auto' }}>
-                  Esperando solicitud de inicio de sesión...
-                </div>
-              )}
-            </div>
-
+                )}
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* SECCIÓN 3: QUIZ */}
-        <section className="bloque-modulo-tarjeta">
+        {/* SECCIÓN 3: CHECKLIST */}
+        <section className="bloque-modulo-tarjeta diagnostico-caja">
           <div className="encabezado-bloque">
-            <HelpCircle className="icono-bloque-amarillo" size={24} />
-            <h2>3. Evaluación Diagnóstica</h2>
+            <ListChecks className="icono-bloque-verde" size={24} />
+            <h2>3. Checklist de Cuentas y Privilegios</h2>
           </div>
-          <p className="texto-lectura-modulo">
-            <strong>Pregunta:</strong> Es mejor usar una aplicación autenticadora (como Google Authenticator) en lugar de recibir los códigos 2FA por Mensajes de Texto (SMS). ¿Por qué?
+          <p className="subtitulo-bloque">
+            Marca las prácticas que ya realizas:
           </p>
 
-          <div className="opciones-quiz-modulo">
-            <button
-              className={`opcion-quiz-btn ${respuestaQuiz === 1 ? 'incorrecta' : ''}`}
-              onClick={() => setRespuestaQuiz(1)}
-            >
-              A) Porque la aplicación gasta menos saldo del celular.
-            </button>
-            <button
-              className={`opcion-quiz-btn ${respuestaQuiz === 2 ? 'correcta' : ''}`}
-              onClick={() => setRespuestaQuiz(2)}
-            >
-              B) Porque los SMS pueden ser interceptados o pueden clonar tu línea telefónica (SIM Swapping), mientras que la App genera códigos sin necesitar señal.
-            </button>
+          <div className="lista-habitos-interactiva">
+            {HABITOS_CUENTAS_3RO.map((habito) => (
+              <div
+                key={habito.id}
+                className={`item-habito-check ${habitosComprobados[habito.id] ? 'activo' : ''}`}
+                onClick={() => toggleHabito(habito.id)}
+              >
+                <input
+                  type="checkbox"
+                  checked={!!habitosComprobados[habito.id]}
+                  onChange={() => {}}
+                  className="checkbox-custom"
+                />
+                <div className="info-item-habito">
+                  <span className="categoria-badge-mini">{habito.categoria}</span>
+                  <p className="texto-habito">{habito.texto}</p>
+                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                </div>
+              </div>
+            ))}
           </div>
 
-          {respuestaQuiz === 2 && (
-            <div className="feedback-quiz correcto">
-              ✅ <strong>¡Correcto!</strong> El ataque "SIM Swapping" permite a un delincuente robar tu número de teléfono en la operadora y recibir tus SMS. Las Apps Autenticadoras son mucho más seguras.
+          <div className="resultado-diagnostico-bar">
+            <div className="info-porcentaje">
+              <strong>Protección de Cuentas: {porcentajeHabitos}%</strong>
+              <span>({habitosCompletados} de {totalHabitos} buenas prácticas)</span>
             </div>
-          )}
+            <div className="barra-fondo-diagnostico">
+              <div className="barra-relleno-diagnostico" style={{ width: `${porcentajeHabitos}%` }}></div>
+            </div>
+            {porcentajeHabitos === 100 ? (
+              <div className="mensaje-resultado excelente">
+                🏆 ¡Excelente! Gestionas correctamente tus privilegios y biometría.
+              </div>
+            ) : (
+              <div className="mensaje-resultado inicial">
+                💡 Completa todas las prácticas para tener un sistema blindado.
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* SECCIÓN 4: VIDEOS */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <Video className="icono-bloque-amarillo" size={24} />
+            <h2>4. Videos para Aprender Más</h2>
+          </div>
+          <p className="texto-lectura-modulo">
+            Mira estos videos para configurar correctamente las políticas del sistema:
+          </p>
+
+          <div className="videos-grid">
+            {videos.map(video => (
+              <div key={video.id} className="video-card">
+                <h3 className="video-titulo">{video.titulo}</h3>
+                <div className="video-wrapper">
+                  <iframe
+                    src={video.url}
+                    title={video.titulo}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <p className="video-descripcion">{video.descripcion}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SECCIÓN 5: QUIZ */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <HelpCircle className="icono-bloque-azul" size={24} />
+            <h2>5. Evaluación Final</h2>
+          </div>
+          <p className="texto-lectura-modulo">
+            Demuestra lo aprendido.
+          </p>
+
+          <div className="quiz-container">
+            {preguntasQuiz.map(pregunta => (
+              <div key={pregunta.id} className="pregunta-quiz">
+                <h3 className="pregunta-titulo">{pregunta.id}. {pregunta.pregunta}</h3>
+                <div className="opciones-quiz-modulo">
+                  {pregunta.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-quiz-btn ${respuestasQuiz[pregunta.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderPreguntaQuiz(pregunta.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {quizEnviado && respuestasQuiz[pregunta.id] !== undefined && (
+                  <div className={`feedback-quiz-item ${respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? 'correcto' : 'incorrecto'}`}>
+                    {respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? (
+                      <CheckCircle2 size={18} />
+                    ) : (
+                      <XCircle size={18} />
+                    )}
+                    <span>{pregunta.explicacion}</span>
+                  </div>
+                )}
+              </div>
+            ))}
+
+            <div className="acciones-quiz">
+              <button
+                className="boton-enviar-quiz"
+                onClick={enviarQuiz}
+                disabled={quizEnviado}
+              >
+                Enviar respuestas
+              </button>
+              {puntajeQuiz && (
+                <div className="resultado-quiz">
+                  <Award size={24} className="icono-premio" />
+                  <p>
+                    Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
         </section>
       </div>
     </main>

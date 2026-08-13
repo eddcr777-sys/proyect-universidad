@@ -1,68 +1,37 @@
-import React, { useState } from 'react';
-import { 
-  Fish, 
-  AlertTriangle, 
-  ShieldCheck, 
-  Sparkles, 
-  HelpCircle, 
-  Mail, 
+import React from 'react';
+import {
+  Fish,
+  AlertTriangle,
+  ShieldCheck,
+  Sparkles,
+  HelpCircle,
+  Mail,
   MessageSquare,
   CheckCircle2,
-  XCircle
+  XCircle,
+  Award
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import { usePhishing1ro, SENALES_PHISHING } from '../../../../hooks/HooksPhishing/usePhishing1ro';
 import './Phishing1ro.css';
 
-interface MensajeSimulado {
-  id: number;
-  remitente: string;
-  canal: string;
-  asunto: string;
-  contenido: string;
-  esPhishing: boolean;
-  explicacion: string;
-}
-
-const MENSAJES_1RO: MensajeSimulado[] = [
-  {
-    id: 1,
-    remitente: "Soporte Roblox <premios-gratis99@gmail-soporte.com>",
-    canal: "Correo Electrónico",
-    asunto: "¡FELICIDADES! Ganaste 10,000 Robux gratis",
-    contenido: "Haz clic en este enlace inmediatamente e ingresa tu contraseña de usuario para reclamar tu premio antes de que expire en 2 horas: http://roblox-premios-gratis.xyz",
-    esPhishing: true,
-    explicacion: "¡Es Phishing! La empresa oficial nunca te pedirá tu contraseña ni usará un correo de Gmail gratuito o un enlace sospecoso (.xyz)."
-  },
-  {
-    id: 2,
-    remitente: "Coordinación L.B. Antonio Lemus Pérez",
-    canal: "Moodle Liceo",
-    asunto: "Horario de evaluaciones del 2do lapso",
-    contenido: "Estimado estudiante, ya se encuentra disponible el cronograma de exámenes en la sección de Avisos del aula virtual Moodle.",
-    esPhishing: false,
-    explicacion: "¡Mensaje Seguro! Es un comunicado informativo oficial sin solicitar datos ni enlaces externos sospechosos."
-  },
-  {
-    id: 3,
-    remitente: "+58 412 000-9988 (Desconocido)",
-    canal: "WhatsApp",
-    asunto: "Urgencia Familiar",
-    contenido: "Hola tío/papá, cambié de número. Tuve una emergencia y necesito que me envíes un código que te llegará por SMS en este momento.",
-    esPhishing: true,
-    explicacion: "¡Es un engaño! Pedir códigos de verificación por SMS es una táctica típica para secuestrar tu cuenta de WhatsApp."
-  }
-];
-
 export const Phishing1ro: React.FC = () => {
-  const [respuestas, setRespuestas] = useState<Record<number, boolean | null>>({});
-  const [respuestaQuiz, setRespuestaQuiz] = useState<number | null>(null);
-
-  const evaluarMensaje = (id: number, eleccionUsuario: boolean) => {
-    setRespuestas(prev => ({
-      ...prev,
-      [id]: eleccionUsuario
-    }));
-  };
+  const {
+    mensajes,
+    respuestasMensajes,
+    evaluarMensaje,
+    senalesComprobadas,
+    toggleSenal,
+    totalSenales,
+    senalesCompletadas,
+    porcentajeSenales,
+    preguntasQuiz,
+    respuestasQuiz,
+    responderPreguntaQuiz,
+    enviarQuiz,
+    puntajeQuiz,
+    quizEnviado
+  } = usePhishing1ro();
 
   return (
     <main className="pagina-modulo-phishing">
@@ -72,7 +41,7 @@ export const Phishing1ro: React.FC = () => {
         titulo="Prevención de Phishing e Identificación de Mensajes Falsos"
         subTitulo="Aprende a reconocer señuelos, correos sospechosos y engaños por mensajes de texto para proteger tu información personal en 1er Año."
         categoria="Defensa Digital y Privacidad"
-        tiempoEstimado="35 min"
+        tiempoEstimado="45 min"
         icono={<Fish size={36} />}
       />
 
@@ -108,19 +77,19 @@ export const Phishing1ro: React.FC = () => {
           </div>
         </section>
 
-        {/* SECCIÓN 2: SIMULADOR INTERACTIVO DETECTOR DE PHISHING */}
+        {/* SECCIÓN 2: LABORATORIO INTERACTIVO */}
         <section className="bloque-phishing-tarjeta interactivo-caja">
           <div className="encabezado-bloque-phishing">
             <MessageSquare className="icono-bloque-verde" size={24} />
             <h2>2. Laboratorio Interactivo: Detecta el Anzuelo</h2>
           </div>
           <p className="subtitulo-bloque-phishing">
-            Analiza cada uno de los siguientes mensajes simulados y decide si es **Seguro** o si se trata de **Phishing**:
+            Analiza cada uno de los siguientes mensajes simulados y decide si es <strong>Seguro</strong> o si se trata de <strong>Phishing</strong>:
           </p>
 
           <div className="lista-simuladores-phishing">
-            {MENSAJES_1RO.map((msg) => {
-              const resEleccion = respuestas[msg.id];
+            {mensajes.map((msg) => {
+              const resEleccion = respuestasMensajes[msg.id];
 
               return (
                 <div key={msg.id} className="tarjeta-mensaje-simulado">
@@ -134,15 +103,14 @@ export const Phishing1ro: React.FC = () => {
                     <p>"{msg.contenido}"</p>
                   </div>
 
-                  {/* Botones de Decisión */}
                   <div className="acciones-decision-phishing">
-                    <button 
+                    <button
                       className={`btn-decision seguro ${resEleccion === false ? 'seleccionado' : ''}`}
                       onClick={() => evaluarMensaje(msg.id, false)}
                     >
                       <ShieldCheck size={18} /> Es Seguro
                     </button>
-                    <button 
+                    <button
                       className={`btn-decision phishing ${resEleccion === true ? 'seleccionado' : ''}`}
                       onClick={() => evaluarMensaje(msg.id, true)}
                     >
@@ -150,7 +118,6 @@ export const Phishing1ro: React.FC = () => {
                     </button>
                   </div>
 
-                  {/* Feedback educativo */}
                   {resEleccion !== undefined && (
                     <div className={`feedback-decision ${resEleccion === msg.esPhishing ? 'acierto' : 'fallo'}`}>
                       {resEleccion === msg.esPhishing ? (
@@ -172,36 +139,115 @@ export const Phishing1ro: React.FC = () => {
           </div>
         </section>
 
-        {/* SECCIÓN 3: QUIZ RÁPIDO */}
+        {/* SECCIÓN 3: CHECKLIST DE SEÑALES */}
+        <section className="bloque-phishing-tarjeta">
+          <div className="encabezado-bloque-phishing">
+            <ShieldCheck className="icono-bloque-verde" size={24} />
+            <h2>3. Señales de Alerta que Debes Conocer</h2>
+          </div>
+          <p className="subtitulo-bloque-phishing">
+            Marca las señales de phishing que ya sabes reconocer:
+          </p>
+
+          <div className="lista-senales-interactiva">
+            {SENALES_PHISHING.map((senal) => (
+              <div
+                key={senal.id}
+                className={`item-senal-check ${senalesComprobadas[senal.id] ? 'activo' : ''}`}
+                onClick={() => toggleSenal(senal.id)}
+              >
+                <input
+                  type="checkbox"
+                  checked={!!senalesComprobadas[senal.id]}
+                  onChange={() => {}}
+                  className="checkbox-phishing"
+                />
+                <div className="info-item-senal">
+                  <span className="categoria-badge-phishing">{senal.categoria}</span>
+                  <p className="texto-senal">{senal.texto}</p>
+                  <span className="ejemplo-senal">📌 Ejemplo: {senal.ejemplo}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="resultado-diagnostico-bar phishing">
+            <div className="info-porcentaje">
+              <strong>Reconocimiento de Señales: {porcentajeSenales}%</strong>
+              <span>({senalesCompletadas} de {totalSenales} señales identificadas)</span>
+            </div>
+            <div className="barra-fondo-diagnostico phishing">
+              <div className="barra-relleno-diagnostico phishing" style={{ width: `${porcentajeSenales}%` }}></div>
+            </div>
+            {porcentajeSenales === 100 ? (
+              <div className="mensaje-resultado excelente">
+                🏆 ¡Ya conoces todas las señales de alerta! Estás listo para defenderte.
+              </div>
+            ) : (
+              <div className="mensaje-resultado inicial">
+                💡 Repasa las señales para estar preparado ante cualquier engaño.
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* SECCIÓN 4: QUIZ */}
         <section className="bloque-phishing-tarjeta">
           <div className="encabezado-bloque-phishing">
             <HelpCircle className="icono-bloque-amarillo" size={24} />
-            <h2>3. Evaluación Diagnóstica</h2>
+            <h2>4. Evaluación Final</h2>
           </div>
           <p className="texto-lectura-phishing">
-            <strong>Pregunta:</strong> Recibes un mensaje de un número desconocido diciendo que tu mamá tuvo una emergencia y debes enviarles dinero o claves. ¿Qué debes hacer primero?
+            Demuestra lo aprendido respondiendo estas preguntas.
           </p>
 
-          <div className="opciones-quiz-phishing">
-            <button 
-              className={`opcion-quiz-btn ${respuestaQuiz === 1 ? 'incorrecta' : ''}`}
-              onClick={() => setRespuestaQuiz(1)}
-            >
-              A) Enviar inmediatamente las claves o el dinero por si acaso es verdad.
-            </button>
-            <button 
-              className={`opcion-quiz-btn ${respuestaQuiz === 2 ? 'correcta' : ''}`}
-              onClick={() => setRespuestaQuiz(2)}
-            >
-              B) Mantener la calma y llamar directamente a tu familiar o a tus profesores para verificar antes de responder.
-            </button>
-          </div>
+          <div className="quiz-container phishing">
+            {preguntasQuiz.map(pregunta => (
+              <div key={pregunta.id} className="pregunta-quiz phishing">
+                <h3 className="pregunta-titulo">{pregunta.id}. {pregunta.pregunta}</h3>
+                <div className="opciones-quiz-phishing">
+                  {pregunta.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-quiz-btn ${respuestasQuiz[pregunta.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderPreguntaQuiz(pregunta.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {quizEnviado && respuestasQuiz[pregunta.id] !== undefined && (
+                  <div className={`feedback-quiz-item ${respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? 'correcto' : 'incorrecto'}`}>
+                    {respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? (
+                      <CheckCircle2 size={18} />
+                    ) : (
+                      <XCircle size={18} />
+                    )}
+                    <span>{pregunta.explicacion}</span>
+                  </div>
+                )}
+              </div>
+            ))}
 
-          {respuestaQuiz === 2 && (
-            <div className="feedback-quiz correcto">
-              ✅ <strong>¡Correcto!</strong> Ante cualquier mensaje de urgencia de desconocidos, la regla de oro es verificar por una llamada directa.
+            <div className="acciones-quiz">
+              <button
+                className="boton-enviar-quiz phishing"
+                onClick={enviarQuiz}
+                disabled={quizEnviado}
+              >
+                Enviar respuestas
+              </button>
+              {puntajeQuiz && (
+                <div className="resultado-quiz">
+                  <Award size={24} className="icono-premio" />
+                  <p>
+                    Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                  </p>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </section>
       </div>
     </main>

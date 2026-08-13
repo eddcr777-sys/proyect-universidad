@@ -1,166 +1,260 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  Users,
-  Database,
-  UserCheck,
-  CheckCircle2,
-  XCircle,
+  Key,
+  ShieldCheck,
+  ShieldAlert,
   Sparkles,
   HelpCircle,
-  ShieldCheck,
-  Building2
+  CheckCircle2,
+  XCircle,
+  Award,
+  Video,
+  ListChecks,
+  Building2,
+  UserCheck,
+  FileCheck2
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
-import '../1ro/ProteccionCuentas1ro.css'; // Reutilizamos estilos base
-
-interface RolUsuario {
-  id: string;
-  nombre: string;
-  descripcion: string;
-  permisosPermitidos: string[];
-}
-
-const ROLES: RolUsuario[] = [
-  { id: 'estudiante', nombre: 'Estudiante', descripcion: 'Puede ver sus notas e inscribirse.', permisosPermitidos: ['ver_notas', 'editar_perfil'] },
-  { id: 'profesor', nombre: 'Profesor', descripcion: 'Puede modificar notas de sus clases.', permisosPermitidos: ['ver_notas', 'editar_notas', 'editar_perfil'] },
-  { id: 'admin', nombre: 'Administrador IT', descripcion: 'Puede modificar toda la plataforma.', permisosPermitidos: ['ver_notas', 'editar_notas', 'editar_perfil', 'borrar_sistemas'] },
-];
+import { HABITOS_CUENTAS_5TO, useProteccionCuentas5to } from '../../../../hooks/HooksProteccionCuentas/useProteccionCuentas5to';
+import './ProteccionCuentas5to.css';
 
 export const ProteccionCuentas5to: React.FC = () => {
-  const [rolSeleccionado, setRolSeleccionado] = useState<string>('estudiante');
-  const [respuestaQuiz, setRespuestaQuiz] = useState<number | null>(null);
-
-  const rolActivo = ROLES.find(r => r.id === rolSeleccionado);
-
-  const verificarPermiso = (permisoRequerido: string) => {
-    return rolActivo?.permisosPermitidos.includes(permisoRequerido);
-  };
+  const {
+    habitosComprobados,
+    toggleHabito,
+    totalHabitos,
+    habitosCompletados,
+    porcentajeHabitos,
+    escenarios,
+    respuestasEscenario,
+    responderEscenario,
+    resultadoEscenario,
+    videos,
+    preguntasQuiz,
+    respuestasQuiz,
+    responderPreguntaQuiz,
+    enviarQuiz,
+    puntajeQuiz,
+    quizEnviado
+  } = useProteccionCuentas5to();
 
   return (
-    <main className="pagina-modulo-proteccion">
+    <main className="pagina-modulo-proteccion-5to">
       <HeaderModulo
         grado="5to"
-        modulo="5: Accesos a Nivel Experto"
-        titulo="Gestión de Identidades y RBAC"
-        subTitulo="Administra identidades y accesos institucionales con estándares profesionales. Aprende sobre Control de Acceso Basado en Roles (RBAC)."
+        modulo="5: Identidad Corporativa y Cumplimiento"
+        titulo="SSO, OAuth y Auditoría de Accesos"
+        subTitulo="Aprende a gestionar identidades en organizaciones, implementar SSO y OAuth, y auditar accesos cumpliendo ISO 27001."
         categoria="Protección de Cuentas y Accesos"
-        tiempoEstimado="50 min"
+        tiempoEstimado="60 min"
         icono={<Building2 size={36} />}
       />
 
       <div className="contenedor-proteccion-contenido">
-        {/* SECCIÓN 1: CONCEPTOS */}
+        {/* SECCIÓN 1: TEORÍA */}
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. Control de Acceso Basado en Roles (RBAC)</h2>
+            <h2>1. Gestión de Identidades en Organizaciones</h2>
           </div>
           <p className="texto-lectura-modulo">
-            En organizaciones grandes como una universidad o un liceo, no todos los usuarios pueden tener los mismos permisos. El sistema <strong>RBAC</strong> asigna permisos a "Roles" (ej. Profesor) y luego asigna usuarios a esos roles.
+            En una organización, la protección de cuentas no es solo individual: requiere <strong>políticas corporativas</strong>, <strong>controles de acceso</strong> y <strong>cumplimiento normativo</strong>. Dos tecnologías clave son <strong>SSO (Single Sign-On)</strong> y <strong>OAuth</strong>.
           </p>
 
           <div className="grid-pilares-proteccion">
             <div className="caja-pilar-proteccion">
-              <Building2 className="icono-pilar azul" size={28} />
-              <h3>Principio de Mínimo Privilegio</h3>
-              <p>Otorgar a un usuario estrictamente los permisos mínimos necesarios para que pueda hacer su trabajo, y nada más.</p>
+              <UserCheck className="icono-pilar rojo" size={28} />
+              <h3>SSO (Single Sign-On)</h3>
+              <p>Un solo inicio de sesión para acceder a múltiples sistemas. <strong>Ventaja:</strong> comodidad. <strong>Riesgo:</strong> si se compromete, afecta todo. Siempre debe combinarse con MFA.</p>
             </div>
 
             <div className="caja-pilar-proteccion">
-              <Database className="icono-pilar rojo" size={28} />
-              <h3>Filtración de Datos (Data Breach)</h3>
-              <p>Cuando la base de datos de contraseñas de una empresa es robada. Si un usuario repite su clave, los atacantes la probarán en otros sitios.</p>
-            </div>
-
-            <div className="caja-pilar-proteccion">
-              <ShieldCheck className="icono-pilar verde" size={28} />
-              <h3>Políticas de Seguridad</h3>
-              <p>Definir reglas en la institución: Obligar a usar claves de 12 caracteres y forzar el uso del 2FA para el personal docente.</p>
+              <FileCheck2 className="icono-pilar verde" size={28} />
+              <h3>OAuth (Autorización)</h3>
+              <p>Permite que aplicaciones accedan a tus datos <strong>sin compartir contraseña</strong>. Es el estándar para "iniciar sesión con Google/Facebook".</p>
             </div>
           </div>
         </section>
 
-        {/* SECCIÓN 2: SIMULADOR RBAC */}
+        {/* SECCIÓN 2: ESCENARIOS */}
         <section className="bloque-modulo-tarjeta interactivo-caja">
           <div className="encabezado-bloque">
-            <Users className="icono-bloque-azul" size={24} />
-            <h2>2. Laboratorio: Simulador RBAC</h2>
+            <ShieldCheck className="icono-bloque-verde" size={24} />
+            <h2>2. Decisiones de Auditor de Accesos</h2>
           </div>
           <p className="subtitulo-bloque">
-            Selecciona un Rol de la base de datos del Liceo y observa qué acciones le permite ejecutar el sistema.
+            Analiza cada situación y elige la respuesta correcta como futuro auditor:
           </p>
 
-          <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
-            {ROLES.map(rol => (
-              <button
-                key={rol.id}
-                onClick={() => setRolSeleccionado(rol.id)}
-                className={`btn-decision ${rolSeleccionado === rol.id ? 'seguro' : ''}`}
-                style={{ flex: '1', justifyContent: 'center' }}
+          <div className="escenarios-lista">
+            {escenarios.map(escenario => (
+              <div key={escenario.id} className="escenario-card">
+                <h3 className="escenario-titulo">{escenario.titulo}</h3>
+                <p className="escenario-descripcion">{escenario.descripcion}</p>
+                <div className="opciones-escenario">
+                  {escenario.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-escenario-btn ${respuestasEscenario[escenario.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderEscenario(escenario.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {resultadoEscenario[escenario.id] !== undefined && (
+                  <div className={`feedback-escenario ${resultadoEscenario[escenario.id] ? 'correcto' : 'incorrecto'}`}>
+                    {resultadoEscenario[escenario.id] ? (
+                      <><CheckCircle2 size={18} /> ¡Correcto! </>
+                    ) : (
+                      <><XCircle size={18} /> Atención: </>
+                    )}
+                    {escenario.explicacion}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SECCIÓN 3: CHECKLIST */}
+        <section className="bloque-modulo-tarjeta diagnostico-caja">
+          <div className="encabezado-bloque">
+            <ListChecks className="icono-bloque-verde" size={24} />
+            <h2>3. Checklist de Competencias de Auditoría</h2>
+          </div>
+          <p className="subtitulo-bloque">
+            Marca las competencias que ya dominas:
+          </p>
+
+          <div className="lista-habitos-interactiva">
+            {HABITOS_CUENTAS_5TO.map((habito) => (
+              <div
+                key={habito.id}
+                className={`item-habito-check ${habitosComprobados[habito.id] ? 'activo' : ''}`}
+                onClick={() => toggleHabito(habito.id)}
               >
-                <UserCheck size={18} /> {rol.nombre}
-              </button>
+                <input
+                  type="checkbox"
+                  checked={!!habitosComprobados[habito.id]}
+                  onChange={() => {}}
+                  className="checkbox-custom"
+                />
+                <div className="info-item-habito">
+                  <span className="categoria-badge-mini">{habito.categoria}</span>
+                  <p className="texto-habito">{habito.texto}</p>
+                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                </div>
+              </div>
             ))}
           </div>
 
-          <div style={{ backgroundColor: '#f8fafc', padding: '1.5rem', borderRadius: 'var(--radio-principal)', border: '1px solid var(--color-borde)' }}>
-            <h3 style={{ marginTop: 0 }}>Rol Seleccionado: {rolActivo?.nombre}</h3>
-            <p style={{ color: 'var(--color-texto-secundario)', marginBottom: '1.5rem' }}>{rolActivo?.descripcion}</p>
-            
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
-              <div style={{ padding: '1rem', backgroundColor: '#fff', border: `1px solid ${verificarPermiso('ver_notas') ? 'var(--color-ciber-secundario)' : 'var(--color-ciber-alerta)'}`, borderRadius: 'var(--radio-principal)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                {verificarPermiso('ver_notas') ? <CheckCircle2 color="var(--color-ciber-secundario)" /> : <XCircle color="var(--color-ciber-alerta)" />}
-                Consultar Calificaciones
-              </div>
-              
-              <div style={{ padding: '1rem', backgroundColor: '#fff', border: `1px solid ${verificarPermiso('editar_perfil') ? 'var(--color-ciber-secundario)' : 'var(--color-ciber-alerta)'}`, borderRadius: 'var(--radio-principal)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                {verificarPermiso('editar_perfil') ? <CheckCircle2 color="var(--color-ciber-secundario)" /> : <XCircle color="var(--color-ciber-alerta)" />}
-                Editar Perfil Propio
-              </div>
-
-              <div style={{ padding: '1rem', backgroundColor: '#fff', border: `1px solid ${verificarPermiso('editar_notas') ? 'var(--color-ciber-secundario)' : 'var(--color-ciber-alerta)'}`, borderRadius: 'var(--radio-principal)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                {verificarPermiso('editar_notas') ? <CheckCircle2 color="var(--color-ciber-secundario)" /> : <XCircle color="var(--color-ciber-alerta)" />}
-                Modificar Notas de Alumnos
-              </div>
-
-              <div style={{ padding: '1rem', backgroundColor: '#fff', border: `1px solid ${verificarPermiso('borrar_sistemas') ? 'var(--color-ciber-secundario)' : 'var(--color-ciber-alerta)'}`, borderRadius: 'var(--radio-principal)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                {verificarPermiso('borrar_sistemas') ? <CheckCircle2 color="var(--color-ciber-secundario)" /> : <XCircle color="var(--color-ciber-alerta)" />}
-                Borrar Base de Datos
-              </div>
+          <div className="resultado-diagnostico-bar">
+            <div className="info-porcentaje">
+              <strong>Preparación como Auditor: {porcentajeHabitos}%</strong>
+              <span>({habitosCompletados} de {totalHabitos} competencias)</span>
             </div>
+            <div className="barra-fondo-diagnostico">
+              <div className="barra-relleno-diagnostico" style={{ width: `${porcentajeHabitos}%` }}></div>
+            </div>
+            {porcentajeHabitos === 100 ? (
+              <div className="mensaje-resultado excelente">
+                🏆 ¡Excelente! Estás listo para auditar accesos en una organización.
+              </div>
+            ) : (
+              <div className="mensaje-resultado inicial">
+                💡 Completa todas las competencias para convertirte en un auditor profesional.
+              </div>
+            )}
           </div>
         </section>
 
-        {/* SECCIÓN 3: QUIZ */}
+        {/* SECCIÓN 4: VIDEOS */}
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
-            <HelpCircle className="icono-bloque-amarillo" size={24} />
-            <h2>3. Evaluación Final de Grado</h2>
+            <Video className="icono-bloque-amarillo" size={24} />
+            <h2>4. Videos para Aprender Más</h2>
           </div>
           <p className="texto-lectura-modulo">
-            <strong>Pregunta:</strong> Aplicando el Principio del Mínimo Privilegio, si un profesor necesita registrar las notas de su materia en el sistema, ¿Debería dársele acceso de Administrador al sistema completo por comodidad?
+            Mira estos videos para profundizar en SSO, OAuth y cumplimiento:
           </p>
 
-          <div className="opciones-quiz-modulo">
-            <button
-              className={`opcion-quiz-btn ${respuestaQuiz === 1 ? 'correcta' : ''}`}
-              onClick={() => setRespuestaQuiz(1)}
-            >
-              A) No. Solo debe tener un Rol que le permita editar las notas de su curso. Darle permisos de Administrador es un riesgo innecesario si su cuenta es comprometida.
-            </button>
-            <button
-              className={`opcion-quiz-btn ${respuestaQuiz === 2 ? 'incorrecta' : ''}`}
-              onClick={() => setRespuestaQuiz(2)}
-            >
-              B) Sí. Dar permisos completos ahorra problemas de configuración técnica y agiliza el trabajo del profesor.
-            </button>
+          <div className="videos-grid">
+            {videos.map(video => (
+              <div key={video.id} className="video-card">
+                <h3 className="video-titulo">{video.titulo}</h3>
+                <div className="video-wrapper">
+                  <iframe
+                    src={video.url}
+                    title={video.titulo}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <p className="video-descripcion">{video.descripcion}</p>
+              </div>
+            ))}
           </div>
+        </section>
 
-          {respuestaQuiz === 1 && (
-            <div className="feedback-quiz correcto">
-              ✅ <strong>¡Correcto, Experto!</strong> Si la cuenta del profesor sufre un ataque de Phishing, el atacante solo podrá afectar una clase. Si tuviese acceso de Administrador, el atacante destruiría todo el sistema. ¡El mínimo privilegio salva organizaciones!
+        {/* SECCIÓN 5: QUIZ */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <HelpCircle className="icono-bloque-azul" size={24} />
+            <h2>5. Evaluación Final</h2>
+          </div>
+          <p className="texto-lectura-modulo">
+            Demuestra lo aprendido.
+          </p>
+
+          <div className="quiz-container">
+            {preguntasQuiz.map(pregunta => (
+              <div key={pregunta.id} className="pregunta-quiz">
+                <h3 className="pregunta-titulo">{pregunta.id}. {pregunta.pregunta}</h3>
+                <div className="opciones-quiz-modulo">
+                  {pregunta.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-quiz-btn ${respuestasQuiz[pregunta.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderPreguntaQuiz(pregunta.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {quizEnviado && respuestasQuiz[pregunta.id] !== undefined && (
+                  <div className={`feedback-quiz-item ${respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? 'correcto' : 'incorrecto'}`}>
+                    {respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? (
+                      <CheckCircle2 size={18} />
+                    ) : (
+                      <XCircle size={18} />
+                    )}
+                    <span>{pregunta.explicacion}</span>
+                  </div>
+                )}
+              </div>
+            ))}
+
+            <div className="acciones-quiz">
+              <button
+                className="boton-enviar-quiz"
+                onClick={enviarQuiz}
+                disabled={quizEnviado}
+              >
+                Enviar respuestas
+              </button>
+              {puntajeQuiz && (
+                <div className="resultado-quiz">
+                  <Award size={24} className="icono-premio" />
+                  <p>
+                    Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                  </p>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </section>
       </div>
     </main>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   ClipboardCheck,
   FileSpreadsheet,
@@ -6,38 +6,37 @@ import {
   CheckCircle2,
   Sparkles,
   HelpCircle,
-  Award
+  Award,
+  XCircle,
+  AlertTriangle,
+  FileText
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import { useAuditoria5to, HABITOS_5TO } from '../../../../hooks/HooksAuditoria/useAuditoria5to';
 import '../1ro/AuditoriaDigital1ro.css';
-
-interface Habito5to {
-  id: string;
-  texto: string;
-  categoria: string;
-  enfoque: string;
-}
-
-const HABITOS_5TO: Habito5to[] = [
-  { id: '1', texto: 'Sé elaborar una matriz simple de riesgos para identificar vulnerabilidades en mi liceo u hogar', categoria: 'Diagnóstico', enfoque: 'Clasifica los riesgos por probabilidad e impacto antes de que ocurran fallas.' },
-  { id: '2', texto: 'Compruebo que los equipos compartidos cumplan con políticas de contraseñas y privacidad básicas', categoria: 'Políticas', enfoque: 'Asegura que el grupo siga pautas colectivas de protección digital.' },
-  { id: '3', texto: 'Sé redactar un informe breve de hallazgos con recomendaciones claras de corrección', categoria: 'Informes Técnicos', enfoque: 'Sintetiza la auditoría en un documento accesible para autoridades y profesores.' },
-  { id: '4', texto: 'Oriento a estudiantes de grados menores sobre el uso ético y seguro de la red', categoria: 'Liderazgo Digital', enfoque: 'Fomenta el rol de mentor cibernético como futuro graduando del liceo.' },
-];
+import './AuditoriaDigital5to.css';
 
 export const AuditoriaDigital5to: React.FC = () => {
-  const [comprobados, setComprobados] = useState<Record<string, boolean>>({});
-  const [respuestaQuiz, setRespuestaQuiz] = useState<number | null>(null);
-
-  const toggleHabito = (id: string) => {
-    setComprobados(prev => ({
-      ...prev,
-      [id]: !prev[id]
-    }));
-  };
-
-  const totalComprobados = Object.values(comprobados).filter(Boolean).length;
-  const porcentaje = Math.round((totalComprobados / HABITOS_5TO.length) * 100);
+  const {
+    habitosComprobados,
+    toggleHabito,
+    totalHabitos,
+    habitosCompletados,
+    porcentajeHabitos,
+    riesgos,
+    clasificarRiesgo,
+    resultadoRiesgo,
+    hallazgos,
+    respuestasHallazgo,
+    responderHallazgo,
+    resultadoHallazgo,
+    preguntasQuiz,
+    respuestasQuiz,
+    responderPreguntaQuiz,
+    enviarQuiz,
+    puntajeQuiz,
+    quizEnviado
+  } = useAuditoria5to();
 
   return (
     <main className="pagina-modulo-auditoria">
@@ -47,19 +46,19 @@ export const AuditoriaDigital5to: React.FC = () => {
         titulo="Auditoría e Informe Digital Comunitario"
         subTitulo="Conviértete en un líder digital capaz de realizar diagnósticos cibernéticos, diseñar matrices de riesgo y presentar recomendaciones al Liceo."
         categoria="Auditoría e Higiene"
-        tiempoEstimado="50 min"
+        tiempoEstimado="60 min"
         icono={<ClipboardCheck size={36} />}
       />
 
       <div className="contenedor-auditoria-contenido">
-        {/* SECCIÓN 1: CONCEPTOS DE AUDITORÍA NIVEL EXPERTO */}
+        {/* ========== SECCIÓN 1: TEORÍA ========== */}
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
             <h2>1. La Auditoría Cibernética en 5to Año</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Como futuro bachiller del Liceo Bolivariano Antonio Lemus Pérez, la auditoría digital pasa de un enfoque personal a un <strong>liderazgo comunitario</strong>, evaluando la postura de seguridad de un entorno de estudio o trabajo.
+            Como futuro bachiller del Liceo Bolivariano, la auditoría digital pasa de un enfoque personal a un <strong>liderazgo comunitario</strong>. Ya no solo proteges tus dispositivos; ahora eres capaz de evaluar el entorno digital de tu institución y proponer mejoras concretas.
           </p>
 
           <div className="grid-pilares-higiene">
@@ -80,14 +79,121 @@ export const AuditoriaDigital5to: React.FC = () => {
               <h3>Plan de Mitigación</h3>
               <p>Redacción de propuestas prácticas para corregir las vulnerabilidades detectadas.</p>
             </div>
+
+            <div className="caja-pilar-higiene">
+              <ShieldCheck className="icono-pilar morado" size={28} />
+              <h3>Ética Profesional</h3>
+              <p>La divulgación responsable y la confidencialidad son pilares del auditor digital.</p>
+            </div>
+          </div>
+
+          <div className="conceptos-clave-grid">
+            <h3 className="titulo-mini-seccion">Conceptos Clave</h3>
+            <div className="lista-conceptos">
+              <div className="item-concepto">
+                <strong>Matriz de riesgo:</strong> Herramienta visual que cruza probabilidad e impacto para determinar la criticidad de una amenaza.
+              </div>
+              <div className="item-concepto">
+                <strong>Hallazgo:</strong> Descripción estructurada de un problema detectado, incluyendo evidencia, impacto y recomendación.
+              </div>
+              <div className="item-concepto">
+                <strong>Divulgación responsable:</strong> Protocolo ético que consiste en notificar privadamente al afectado antes de publicar una vulnerabilidad.
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* SECCIÓN 2: TEST EXPERTO */}
+        {/* ========== SECCIÓN 2: MATRIZ DE RIESGO ========== */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <AlertTriangle className="icono-bloque-rojo" size={24} />
+            <h2>2. Clasifica el Riesgo</h2>
+          </div>
+          <p className="texto-lectura-modulo">
+            Para cada escenario, determina la <strong>criticidad</strong> (Crítico, Alto, Medio o Bajo) según la probabilidad y el impacto.
+          </p>
+
+          <div className="riesgos-lista">
+            {riesgos.map(riesgo => (
+              <div key={riesgo.id} className="riesgo-card">
+                <h3 className="riesgo-titulo">{riesgo.titulo}</h3>
+                <p className="riesgo-descripcion">{riesgo.descripcion}</p>
+                <div className="riesgo-probabilidad-impacto">
+                  <span className="badge-probabilidad">Probabilidad: {riesgo.probabilidad}</span>
+                  <span className="badge-impacto">Impacto: {riesgo.impacto}</span>
+                </div>
+                <div className="riesgo-opciones">
+                  {['Crítico', 'Alto', 'Medio', 'Bajo'].map(criticidad => (
+                    <button
+                      key={criticidad}
+                      className={`boton-criticidad ${criticidad.toLowerCase()}`}
+                      onClick={() => clasificarRiesgo(riesgo.id, criticidad)}
+                    >
+                      {criticidad}
+                    </button>
+                  ))}
+                </div>
+                {resultadoRiesgo[riesgo.id] !== undefined && (
+                  <div className={`feedback-proceso ${resultadoRiesgo[riesgo.id] ? 'correcto' : 'incorrecto'}`}>
+                    {resultadoRiesgo[riesgo.id] ? (
+                      <><CheckCircle2 size={18} /> ¡Acertaste! </>
+                    ) : (
+                      <><XCircle size={18} /> Incorrecto: </>
+                    )}
+                    {riesgo.explicacion}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ========== SECCIÓN 3: REDACCIÓN DE HALLAZGOS ========== */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <FileText className="icono-bloque-azul" size={24} />
+            <h2>3. Redacta Hallazgos Profesionales</h2>
+          </div>
+          <p className="texto-lectura-modulo">
+            Un buen informe de auditoría requiere hallazgos claros y accionables. Elige la redacción más adecuada para cada situación.
+          </p>
+
+          <div className="hallazgos-lista">
+            {hallazgos.map(hallazgo => (
+              <div key={hallazgo.id} className="hallazgo-card">
+                <p className="hallazgo-contexto">{hallazgo.contexto}</p>
+                <p className="hallazgo-pregunta">{hallazgo.problema}</p>
+                <div className="opciones-escenario">
+                  {hallazgo.opcionesInforme.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-escenario-btn ${respuestasHallazgo[hallazgo.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderHallazgo(hallazgo.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {resultadoHallazgo[hallazgo.id] !== undefined && (
+                  <div className={`feedback-escenario ${resultadoHallazgo[hallazgo.id] ? 'correcto' : 'incorrecto'}`}>
+                    {resultadoHallazgo[hallazgo.id] ? (
+                      <><CheckCircle2 size={18} /> ¡Correcto! </>
+                    ) : (
+                      <><XCircle size={18} /> Atención: </>
+                    )}
+                    {hallazgo.explicacion}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ========== SECCIÓN 4: CHECKLIST DE COMPETENCIAS ========== */}
         <section className="bloque-modulo-tarjeta diagnostico-caja">
           <div className="encabezado-bloque">
             <CheckCircle2 className="icono-bloque-verde" size={24} />
-            <h2>2. Matriz de Auditoría Comunitaria (5to Año)</h2>
+            <h2>4. Matriz de Auditoría Comunitaria</h2>
           </div>
           <p className="subtitulo-bloque">
             Evalúa tus competencias para conducir una auditoría de ciberseguridad escolar:
@@ -97,13 +203,13 @@ export const AuditoriaDigital5to: React.FC = () => {
             {HABITOS_5TO.map((habito) => (
               <div
                 key={habito.id}
-                className={`item-habito-check ${comprobados[habito.id] ? 'activo' : ''}`}
+                className={`item-habito-check ${habitosComprobados[habito.id] ? 'activo' : ''}`}
                 onClick={() => toggleHabito(habito.id)}
               >
                 <input
                   type="checkbox"
-                  checked={!!comprobados[habito.id]}
-                  onChange={() => { }}
+                  checked={!!habitosComprobados[habito.id]}
+                  onChange={() => {}}
                   className="checkbox-custom"
                 />
                 <div className="info-item-habito">
@@ -117,13 +223,13 @@ export const AuditoriaDigital5to: React.FC = () => {
 
           <div className="resultado-diagnostico-bar">
             <div className="info-porcentaje">
-              <strong>Nivel de Liderazgo Digital: {porcentaje}%</strong>
-              <span>({totalComprobados} de {HABITOS_5TO.length} competencias validadas)</span>
+              <strong>Nivel de Liderazgo Digital: {porcentajeHabitos}%</strong>
+              <span>({habitosCompletados} de {totalHabitos} competencias validadas)</span>
             </div>
             <div className="barra-fondo-diagnostico">
-              <div className="barra-relleno-diagnostico" style={{ width: `${porcentaje}%` }}></div>
+              <div className="barra-relleno-diagnostico" style={{ width: `${porcentajeHabitos}%` }}></div>
             </div>
-            {porcentaje === 100 ? (
+            {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
                 🏆 ¡Nivel Experto Alcanzado! Estás capacitado para elaborar informes de auditoría cibernética comunitarios.
               </div>
@@ -135,36 +241,63 @@ export const AuditoriaDigital5to: React.FC = () => {
           </div>
         </section>
 
-        {/* SECCIÓN 3: CUESTIONARIO FINAL */}
+        {/* ========== SECCIÓN 5: QUIZ FINAL ========== */}
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <HelpCircle className="icono-bloque-amarillo" size={24} />
-            <h2>3. Evaluación Final de Grado</h2>
+            <h2>5. Evaluación Final de Grado</h2>
           </div>
           <p className="texto-lectura-modulo">
-            <strong>Pregunta:</strong> Al realizar una auditoría digital en tu grupo de clase, notas que varios estudiantes usan la misma clave sencilla para su correo. ¿Cuál es la mejor propuesta de mitigación?
+            Demuestra tu preparación como auditor digital respondiendo estas preguntas.
           </p>
 
-          <div className="opciones-quiz-modulo">
-            <button
-              className={`opcion-quiz-btn ${respuestaQuiz === 1 ? 'incorrecta' : ''}`}
-              onClick={() => setRespuestaQuiz(1)}
-            >
-              A) Prohibirles el uso de computadoras durante el resto del año.
-            </button>
-            <button
-              className={`opcion-quiz-btn ${respuestaQuiz === 2 ? 'correcta' : ''}`}
-              onClick={() => setRespuestaQuiz(2)}
-            >
-              B) Organizar una micro-taller explicativo sobre contraseñas seguras y ayudarlos a activar la verificación en dos pasos (2FA).
-            </button>
-          </div>
+          <div className="quiz-container">
+            {preguntasQuiz.map(pregunta => (
+              <div key={pregunta.id} className="pregunta-quiz">
+                <h3 className="pregunta-titulo">{pregunta.id}. {pregunta.pregunta}</h3>
+                <div className="opciones-quiz-modulo">
+                  {pregunta.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-quiz-btn ${respuestasQuiz[pregunta.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderPreguntaQuiz(pregunta.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {quizEnviado && respuestasQuiz[pregunta.id] !== undefined && (
+                  <div className={`feedback-quiz-item ${respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? 'correcto' : 'incorrecto'}`}>
+                    {respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? (
+                      <CheckCircle2 size={18} />
+                    ) : (
+                      <XCircle size={18} />
+                    )}
+                    <span>{pregunta.explicacion}</span>
+                  </div>
+                )}
+              </div>
+            ))}
 
-          {respuestaQuiz === 2 && (
-            <div className="feedback-quiz correcto">
-              ✅ <strong>¡Excelente respuesta!</strong> El objetivo pedagógico de la auditoría es educar y fortalecer la cultura de prevención.
+            <div className="acciones-quiz">
+              <button
+                className="boton-enviar-quiz"
+                onClick={enviarQuiz}
+                disabled={quizEnviado}
+              >
+                Enviar respuestas
+              </button>
+              {puntajeQuiz && (
+                <div className="resultado-quiz">
+                  <Award size={24} className="icono-premio" />
+                  <p>
+                    Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                  </p>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </section>
       </div>
     </main>

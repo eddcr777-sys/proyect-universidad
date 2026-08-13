@@ -1,115 +1,222 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  Eye,
-  Cookie,
+  ShieldCheck,
   Lock,
+  Globe,
   CheckCircle2,
   Sparkles,
   HelpCircle,
-  Globe
+  XCircle,
+  Award,
+  WifiOff,
+  EyeOff
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
-import '../1ro/AuditoriaDigital1ro.css';
-
-interface Habito4to {
-  id: string;
-  texto: string;
-  categoria: string;
-  explicacion: string;
-}
-
-const HABITOS_4TO: Habito4to[] = [
-  { id: '1', texto: 'Reviso los permisos concedidos a extensiones instaladas en el navegador web', categoria: 'Extensiones', explicacion: 'Extensiones maliciosas pueden leer las páginas que visitas y robar credenciales.' },
-  { id: '2', texto: 'Bloqueo o borro periódicamente las cookies de rastreo de terceros (Third-Party Cookies)', categoria: 'Privacidad Web', explicacion: 'Evita que empresas publicitarias creen un perfil detallado de tus hábitos de navegación.' },
-  { id: '3', texto: 'Audito si alguna de mis contraseñas ha aparecido en filtraciones masivas de datos', categoria: 'Filtraciones', explicacion: 'Herramientas como HaveIBeenPwned permiten saber si tu correo estuvo en un hackeo masivo.' },
-  { id: '4', texto: 'Desactivo los permisos de cámara y micrófono a sitios web que no lo requieren', categoria: 'Permisos del Sistema', explicacion: 'Previene el espionaje no autorizado mediante la cámara del equipo.' },
-];
+import { useAuditoria4to, HABITOS_4TO } from '../../../../hooks/HooksAuditoria/useAuditoria4to';
+import '../1ro/AuditoriaDigital1ro.css'; // Estilos base reutilizados
+import './AuditoriaDigital4to.css'; // Estilos específicos de 4to
 
 export const AuditoriaDigital4to: React.FC = () => {
-  const [comprobados, setComprobados] = useState<Record<string, boolean>>({});
-  const [respuestaQuiz, setRespuestaQuiz] = useState<number | null>(null);
-
-  const toggleHabito = (id: string) => {
-    setComprobados(prev => ({
-      ...prev,
-      [id]: !prev[id]
-    }));
-  };
-
-  const totalComprobados = Object.values(comprobados).filter(Boolean).length;
-  const porcentaje = Math.round((totalComprobados / HABITOS_4TO.length) * 100);
+  const {
+    habitosComprobados,
+    toggleHabito,
+    totalHabitos,
+    habitosCompletados,
+    porcentajeHabitos,
+    traficos,
+    resultadoTrafico,
+    evaluarTrafico,
+    escenariosRed,
+    respuestasRed,
+    responderRed,
+    resultadoRed,
+    preguntasQuiz,
+    respuestasQuiz,
+    responderPreguntaQuiz,
+    enviarQuiz,
+    puntajeQuiz,
+    quizEnviado
+  } = useAuditoria4to();
 
   return (
     <main className="pagina-modulo-auditoria">
       <HeaderModulo
         grado="4to"
-        modulo="4: Auditoría de Navegación"
-        titulo="Privacidad en Navegadores y Filtraciones"
-        subTitulo="Conoce cómo auditar las cookies de rastreo, controlar permisos de navegador y verificar si tus credenciales han sido filtradas."
-        categoria="Auditoría e Higiene"
-        tiempoEstimado="45 min"
+        modulo="4: Análisis de Tráfico"
+        titulo="Auditoría de Tráfico de Red y Protocolos"
+        subTitulo="Cada vez que navegas, tus datos viajan en paquetes. Aprende a distinguir entre comunicaciones seguras (HTTPS, VPN) e inseguras (HTTP, FTP) para protegerte de miradas indiscretas."
+        categoria="Auditoría Avanzada"
+        tiempoEstimado="55 min"
         icono={<Globe size={36} />}
       />
 
       <div className="contenedor-auditoria-contenido">
-        {/* SECCIÓN 1: CONCEPTOS AVANZADOS */}
+        {/* ========== SECCIÓN 1: TEORÍA ========== */}
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. El Rastreo Digital en la Navegación Web</h2>
+            <h2>1. El viaje de tus datos</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Cada vez que navegas por internet, los servidores recolectan pequeños fragmentos de datos llamados <strong>Cookies</strong> y huellas de dispositivo para rastrear tus intereses y comportamiento.
+            Cuando envías un mensaje, una foto o una contraseña, todo se divide en <strong>paquetes</strong> que viajan por la red. Si esos paquetes no van cifrados, cualquier persona conectada a la misma red (Wi-Fi público, por ejemplo) puede capturarlos con un sniffer y leer su contenido.
           </p>
 
           <div className="grid-pilares-higiene">
             <div className="caja-pilar-higiene">
-              <Cookie className="icono-pilar rojo" size={28} />
-              <h3>Cookies de Seguimiento</h3>
-              <p>Archivos guardados por terceros que registran qué páginas visitas, tus compras y búsquedas.</p>
-            </div>
-
-            <div className="caja-pilar-higiene">
-              <Eye className="icono-pilar azul" size={28} />
-              <h3>Permisos Sensibles</h3>
-              <p>Sitios web no confiables pueden solicitar acceso a tu ubicación, cámara o archivos locales.</p>
-            </div>
-
-            <div className="caja-pilar-higiene">
               <Lock className="icono-pilar verde" size={28} />
-              <h3>Bases de Datos Filtradas</h3>
-              <p>Cuando un servicio en la nube es vulnerado, millones de nombres y contraseñas quedan expuestas.</p>
+              <h3>HTTPS = Candado</h3>
+              <p>El protocolo HTTPS cifra los datos entre tu navegador y el servidor. Así, aunque capturen los paquetes, no podrán entenderlos.</p>
+            </div>
+
+            <div className="caja-pilar-higiene">
+              <WifiOff className="icono-pilar rojo" size={28} />
+              <h3>HTTP = Texto plano</h3>
+              <p>HTTP no cifra nada. Tus contraseñas, cookies y mensajes viajan en claro, legibles para cualquiera que espíe la red.</p>
+            </div>
+
+            <div className="caja-pilar-higiene">
+              <EyeOff className="icono-pilar azul" size={28} />
+              <h3>VPN = Túnel blindado</h3>
+              <p>Una VPN cifra todo tu tráfico, incluso las consultas DNS, protegiéndote en redes abiertas.</p>
+            </div>
+
+            <div className="caja-pilar-higiene">
+              <ShieldCheck className="icono-pilar morado" size={28} />
+              <h3>Cifrado de extremo a extremo</h3>
+              <p>En apps de mensajería como WhatsApp o Signal, ni siquiera la empresa puede leer tus conversaciones.</p>
+            </div>
+          </div>
+
+          <div className="conceptos-clave-grid">
+            <h3 className="titulo-mini-seccion">Conceptos Clave</h3>
+            <div className="lista-conceptos">
+              <div className="item-concepto">
+                <strong>Sniffer:</strong> Programa que captura paquetes de red. Wireshark es el más usado. Sirve para auditar tu propia red.
+              </div>
+              <div className="item-concepto">
+                <strong>DNS sin cifrar:</strong> Consultas que revelan qué páginas visitas. Pueden ser interceptadas y manipuladas (DNS spoofing).
+              </div>
+              <div className="item-concepto">
+                <strong>Gemelo malvado (Evil Twin):</strong> Punto de acceso Wi-Fi falso con nombre similar al legítimo, usado para espiar a las víctimas.
+              </div>
             </div>
           </div>
         </section>
 
-        {/* SECCIÓN 2: TEST AUDITORÍA */}
+        {/* ========== SECCIÓN 2: SIMULADOR DE TRÁFICO ========== */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <Lock className="icono-bloque-rojo" size={24} />
+            <h2>2. ¿Qué tráfico es seguro?</h2>
+          </div>
+          <p className="texto-lectura-modulo">
+            Para cada tipo de conexión, decide si consideras que viaja <strong>cifrada (segura)</strong> o <strong>en texto plano (insegura)</strong>.
+          </p>
+
+          <div className="traficos-lista">
+            {traficos.map(trafico => (
+              <div key={trafico.id} className="trafico-card">
+                <div className="trafico-info">
+                  <h3 className="trafico-protocolo">{trafico.protocolo}</h3>
+                  <p className="trafico-descripcion">{trafico.descripcion}</p>
+                </div>
+                <div className="trafico-acciones">
+                  <button
+                    className={`boton-trafico seguro ${resultadoTrafico[trafico.id] === true && trafico.esSeguro === true ? 'acierto' : ''}`}
+                    onClick={() => evaluarTrafico(trafico.id, true)}
+                  >
+                    <ShieldCheck size={18} /> Seguro
+                  </button>
+                  <button
+                    className={`boton-trafico inseguro ${resultadoTrafico[trafico.id] === true && trafico.esSeguro === false ? 'acierto' : ''}`}
+                    onClick={() => evaluarTrafico(trafico.id, false)}
+                  >
+                    <Lock size={18} /> Inseguro
+                  </button>
+                </div>
+                {resultadoTrafico[trafico.id] !== undefined && (
+                  <div className={`feedback-proceso ${resultadoTrafico[trafico.id] ? 'correcto' : 'incorrecto'}`}>
+                    {resultadoTrafico[trafico.id] ? (
+                      <><CheckCircle2 size={18} /> ¡Acertaste! </>
+                    ) : (
+                      <><XCircle size={18} /> Incorrecto: </>
+                    )}
+                    {trafico.explicacion}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ========== SECCIÓN 3: ESCENARIOS DE RED PÚBLICA ========== */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <WifiOff className="icono-bloque-amarillo" size={24} />
+            <h2>3. Decisiones en redes abiertas</h2>
+          </div>
+          <p className="texto-lectura-modulo">
+            Lee cada situación y elige la opción más segura.
+          </p>
+
+          <div className="escenarios-lista">
+            {escenariosRed.map(escenario => (
+              <div key={escenario.id} className="escenario-card">
+                <h3 className="escenario-titulo">{escenario.titulo}</h3>
+                <p className="escenario-descripcion">{escenario.descripcion}</p>
+                <div className="opciones-escenario">
+                  {escenario.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-escenario-btn ${respuestasRed[escenario.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderRed(escenario.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {resultadoRed[escenario.id] !== undefined && (
+                  <div className={`feedback-escenario ${resultadoRed[escenario.id] ? 'correcto' : 'incorrecto'}`}>
+                    {resultadoRed[escenario.id] ? (
+                      <><CheckCircle2 size={18} /> ¡Correcto! </>
+                    ) : (
+                      <><XCircle size={18} /> Atención: </>
+                    )}
+                    {escenario.explicacion}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ========== SECCIÓN 4: CHECKLIST ========== */}
         <section className="bloque-modulo-tarjeta diagnostico-caja">
           <div className="encabezado-bloque">
-            <CheckCircle2 className="icono-bloque-verde" size={24} />
-            <h2>2. Auditoría Avanzada de Navegación (4to Año)</h2>
+            <ShieldCheck className="icono-bloque-verde" size={24} />
+            <h2>4. Checklist de Navegación Segura</h2>
           </div>
           <p className="subtitulo-bloque">
-            Marca las verificaciones de privacidad que aplicas en tu navegador:
+            Marca las prácticas que ya realizas en tu día a día digital:
           </p>
 
           <div className="lista-habitos-interactiva">
             {HABITOS_4TO.map((habito) => (
               <div
                 key={habito.id}
-                className={`item-habito-check ${comprobados[habito.id] ? 'activo' : ''}`}
+                className={`item-habito-check ${habitosComprobados[habito.id] ? 'activo' : ''}`}
                 onClick={() => toggleHabito(habito.id)}
               >
                 <input
                   type="checkbox"
-                  checked={!!comprobados[habito.id]}
-                  onChange={() => { }}
+                  checked={!!habitosComprobados[habito.id]}
+                  onChange={() => {}}
                   className="checkbox-custom"
                 />
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">🛡️ Explicación: {habito.explicacion}</span>
+                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -117,54 +224,81 @@ export const AuditoriaDigital4to: React.FC = () => {
 
           <div className="resultado-diagnostico-bar">
             <div className="info-porcentaje">
-              <strong>Control de Privacidad: {porcentaje}%</strong>
-              <span>({totalComprobados} de {HABITOS_4TO.length} controles aplicados)</span>
+              <strong>Seguridad en la Navegación: {porcentajeHabitos}%</strong>
+              <span>({habitosCompletados} de {totalHabitos} prácticas)</span>
             </div>
             <div className="barra-fondo-diagnostico">
-              <div className="barra-relleno-diagnostico" style={{ width: `${porcentaje}%` }}></div>
+              <div className="barra-relleno-diagnostico" style={{ width: `${porcentajeHabitos}%` }}></div>
             </div>
-            {porcentaje === 100 ? (
+            {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🎉 ¡Excelente auditoría! Proteges tu privacidad contra el rastreo masivo en la web.
+                🏆 ¡Perfecto! Eres un navegante consciente y protegido.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Revisa la configuración de privacidad de tu navegador para evitar filtraciones.
+                💡 Completa todas las prácticas para reducir los riesgos al navegar.
               </div>
             )}
           </div>
         </section>
 
-        {/* SECCIÓN 3: QUIZ RÁPIDO */}
+        {/* ========== SECCIÓN 5: QUIZ ========== */}
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
-            <HelpCircle className="icono-bloque-amarillo" size={24} />
-            <h2>3. Desafío de Ciberseguridad</h2>
+            <HelpCircle className="icono-bloque-azul" size={24} />
+            <h2>5. Evaluación Final</h2>
           </div>
           <p className="texto-lectura-modulo">
-            <strong>Pregunta:</strong> Descubres que una plataforma donde estabas registrado sufrió una filtración de datos de millones de usuarios. ¿Cuál debe ser tu primera acción inmediata?
+            Demuestra lo aprendido.
           </p>
 
-          <div className="opciones-quiz-modulo">
-            <button
-              className={`opcion-quiz-btn ${respuestaQuiz === 1 ? 'incorrecta' : ''}`}
-              onClick={() => setRespuestaQuiz(1)}
-            >
-              A) Desinstalar el navegador web y formatear el celular.
-            </button>
-            <button
-              className={`opcion-quiz-btn ${respuestaQuiz === 2 ? 'correcta' : ''}`}
-              onClick={() => setRespuestaQuiz(2)}
-            >
-              B) Cambiar de inmediato la contraseña en ese servicio y en cualquier otra cuenta donde la hayas reutilizado.
-            </button>
-          </div>
+          <div className="quiz-container">
+            {preguntasQuiz.map(pregunta => (
+              <div key={pregunta.id} className="pregunta-quiz">
+                <h3 className="pregunta-titulo">{pregunta.id}. {pregunta.pregunta}</h3>
+                <div className="opciones-quiz-modulo">
+                  {pregunta.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-quiz-btn ${respuestasQuiz[pregunta.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderPreguntaQuiz(pregunta.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {quizEnviado && respuestasQuiz[pregunta.id] !== undefined && (
+                  <div className={`feedback-quiz-item ${respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? 'correcto' : 'incorrecto'}`}>
+                    {respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? (
+                      <CheckCircle2 size={18} />
+                    ) : (
+                      <XCircle size={18} />
+                    )}
+                    <span>{pregunta.explicacion}</span>
+                  </div>
+                )}
+              </div>
+            ))}
 
-          {respuestaQuiz === 2 && (
-            <div className="feedback-quiz correcto">
-              ✅ <strong>¡Correcto!</strong> Ante una filtración, el cambio de clave inmediato impide que utilicen tus credenciales vulneradas.
+            <div className="acciones-quiz">
+              <button
+                className="boton-enviar-quiz"
+                onClick={enviarQuiz}
+                disabled={quizEnviado}
+              >
+                Enviar respuestas
+              </button>
+              {puntajeQuiz && (
+                <div className="resultado-quiz">
+                  <Award size={24} className="icono-premio" />
+                  <p>
+                    Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                  </p>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </section>
       </div>
     </main>

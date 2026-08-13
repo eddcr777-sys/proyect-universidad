@@ -10,6 +10,7 @@ export interface HeaderModuloProps {
   titulo: string;
   subTitulo: string;
   modulo: string;
+  grado?: string;
   icono?: React.ReactNode;
   img?: string;
   categoria?: string;

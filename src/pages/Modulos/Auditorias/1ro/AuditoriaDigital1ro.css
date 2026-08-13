@@ -1,5 +1,4 @@
-/* Estilos para las lecciones de Auditoría Digital por Grado */
-
+/* ===== ESTILOS BASE (heredados y ajustados) ===== */
 .pagina-modulo-auditoria {
   max-width: 1100px;
   margin: 0 auto;
@@ -54,10 +53,17 @@
   margin-bottom: 1.5rem;
 }
 
-/* Grid Pilares */
+/* Iconos de colores */
+.icono-bloque-azul { color: var(--color-ciber-primario); }
+.icono-bloque-verde { color: var(--color-ciber-secundario); }
+.icono-bloque-amarillo { color: #f59e0b; }
+.icono-bloque-rojo { color: var(--color-ciber-alerta); }
+.icono-bloque-morado { color: #8b5cf6; }
+
+/* ===== GRID PILARES DE HIGIENE ===== */
 .grid-pilares-higiene {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 1.25rem;
 }
 
@@ -66,7 +72,7 @@
   border: 1px solid var(--color-borde);
   border-radius: var(--radio-principal);
   padding: 1.5rem;
-  transition: transform var(--transicion-rapida);
+  transition: transform var(--transicion-rapida), border-color var(--transicion-rapida);
 }
 
 .caja-pilar-higiene:hover {
@@ -77,10 +83,10 @@
 .icono-pilar {
   margin-bottom: 0.75rem;
 }
-
 .icono-pilar.rojo { color: var(--color-ciber-alerta); }
 .icono-pilar.azul { color: var(--color-ciber-primario); }
 .icono-pilar.verde { color: var(--color-ciber-secundario); }
+.icono-pilar.morado { color: #8b5cf6; }
 
 .caja-pilar-higiene h3 {
   font-size: 1.15rem;
@@ -96,7 +102,155 @@
   line-height: 1.5;
 }
 
-/* Lista Interactiva de Hábitos/Diagnóstico */
+/* ===== CONCEPTOS CLAVE ===== */
+.conceptos-clave-grid {
+  margin-top: 2rem;
+}
+
+.titulo-mini-seccion {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-texto-principal);
+  margin-bottom: 1rem;
+}
+
+.lista-conceptos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.item-concepto {
+  background-color: var(--color-fondo-variante);
+  border-left: 4px solid var(--color-ciber-primario);
+  padding: 0.75rem 1rem;
+  border-radius: 0 var(--radio-principal) var(--radio-principal) 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.item-concepto strong {
+  color: var(--color-texto-principal);
+}
+
+/* ===== SIMULADOR DE PERMISOS ===== */
+.apps-permisos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.app-permiso-card {
+  background-color: var(--color-fondo-variante);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-principal);
+  padding: 1.5rem;
+  transition: box-shadow var(--transicion-rapida);
+}
+
+.app-permiso-card:hover {
+  box-shadow: var(--sombra-md);
+}
+
+.app-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.app-icono {
+  font-size: 2.5rem;
+}
+
+.app-info h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  color: var(--color-texto-principal);
+}
+
+.permisos-solicitados {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-texto-secundario);
+}
+
+.permisos-opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.chip-permiso {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-fondo);
+  border: 1px solid var(--color-borde);
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--transicion-rapida);
+  user-select: none;
+}
+
+.chip-permiso:hover {
+  border-color: var(--color-ciber-primario);
+}
+
+.chip-permiso.activo {
+  background-color: var(--color-ciber-primario);
+  color: white;
+  border-color: var(--color-ciber-primario);
+}
+
+.acciones-app-permiso {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.boton-comprobar {
+  align-self: flex-start;
+  padding: 0.6rem 1.5rem;
+  background-color: var(--color-ciber-secundario);
+  color: white;
+  border: none;
+  border-radius: var(--radio-principal);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color var(--transicion-rapida);
+}
+
+.boton-comprobar:hover {
+  background-color: darken(var(--color-ciber-secundario), 10%);
+}
+
+.feedback-permiso {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radio-principal);
+}
+
+.feedback-permiso.correcto {
+  background-color: rgba(5, 150, 105, 0.1);
+  border: 1px solid var(--color-ciber-secundario);
+  color: var(--color-ciber-secundario);
+}
+
+.feedback-permiso.incorrecto {
+  background-color: rgba(220, 38, 38, 0.1);
+  border: 1px solid var(--color-ciber-alerta);
+  color: var(--color-ciber-alerta);
+}
+
+/* ===== CHECKLIST (heredado y ampliado) ===== */
 .lista-habitos-interactiva {
   display: flex;
   flex-direction: column;
@@ -122,7 +276,7 @@
 }
 
 .item-habito-check.activo {
-  background-color: rgba(5, 150, 105, 0.05); /* Verde muy claro */
+  background-color: rgba(5, 150, 105, 0.05);
   border-color: var(--color-ciber-secundario);
 }
 
@@ -163,7 +317,7 @@
   color: var(--color-texto-secundario);
 }
 
-/* Barra de Progreso Diagnóstico */
+/* ===== BARRA DE PROGRESO ===== */
 .resultado-diagnostico-bar {
   background-color: var(--color-fondo-variante);
   border: 1px solid var(--color-borde);
@@ -215,7 +369,107 @@
   border: 1px solid var(--color-ciber-primario);
 }
 
-/* Quiz */
+/* ===== MEDIDOR DE CONTRASEÑAS ===== */
+.password-tester {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-password {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-principal);
+  font-size: 1rem;
+  background-color: var(--color-fondo);
+  color: var(--color-texto-principal);
+}
+
+.input-password:focus {
+  outline: none;
+  border-color: var(--color-ciber-primario);
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+}
+
+.icono-ojo {
+  position: absolute;
+  right: 0.75rem;
+  color: var(--color-texto-claro);
+  pointer-events: none;
+}
+
+.password-feedback {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.barra-fortaleza {
+  width: 100%;
+  height: 8px;
+  background-color: var(--color-borde);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.barra-fortaleza-relleno {
+  height: 100%;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.etiqueta-fortaleza {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.sugerencias-password {
+  background-color: var(--color-fondo-variante);
+  padding: 1rem;
+  border-radius: var(--radio-principal);
+  font-size: 0.9rem;
+}
+
+.sugerencias-password p {
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.sugerencias-password ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.sugerencias-password li {
+  margin-bottom: 0.25rem;
+}
+
+/* ===== QUIZ ===== */
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.pregunta-quiz {
+  background-color: var(--color-fondo-variante);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-principal);
+  padding: 1.5rem;
+}
+
+.pregunta-titulo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+}
+
 .opciones-quiz-modulo {
   display: flex;
   flex-direction: column;
@@ -224,11 +478,11 @@
 
 .opcion-quiz-btn {
   text-align: left;
-  background-color: var(--color-fondo-variante);
+  background-color: var(--color-fondo);
   border: 1px solid var(--color-borde);
-  padding: 1rem 1.25rem;
+  padding: 0.8rem 1.25rem;
   border-radius: var(--radio-principal);
-  font-size: 0.975rem;
+  font-size: 0.95rem;
   color: var(--color-texto-principal);
   cursor: pointer;
   transition: all var(--transicion-rapida);
@@ -236,37 +490,97 @@
 
 .opcion-quiz-btn:hover {
   border-color: var(--color-ciber-primario);
-  background-color: var(--color-fondo);
 }
 
-.opcion-quiz-btn.correcta {
-  background-color: rgba(5, 150, 105, 0.1);
-  border-color: var(--color-ciber-secundario);
-  color: var(--color-ciber-secundario);
-  font-weight: 700;
+.opcion-quiz-btn.seleccionada {
+  background-color: rgba(2, 132, 199, 0.1);
+  border-color: var(--color-ciber-primario);
+  font-weight: 600;
 }
 
-.opcion-quiz-btn.incorrecta {
-  background-color: rgba(220, 38, 38, 0.1);
-  border-color: var(--color-ciber-alerta);
-  color: var(--color-ciber-alerta);
-}
-
-.feedback-quiz {
-  margin-top: 1.25rem;
-  padding: 1rem;
+.feedback-quiz-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
   border-radius: var(--radio-principal);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
-.feedback-quiz.correcto { 
-  background-color: rgba(5, 150, 105, 0.1); 
-  border: 1px solid var(--color-ciber-secundario); 
-  color: var(--color-ciber-secundario); 
+.feedback-quiz-item.correcto {
+  background-color: rgba(5, 150, 105, 0.1);
+  color: var(--color-ciber-secundario);
+  border: 1px solid var(--color-ciber-secundario);
 }
 
-/* Iconos de cabecera de bloque (reutilizables) */
-.icono-bloque-azul { color: var(--color-ciber-primario); }
-.icono-bloque-verde { color: var(--color-ciber-secundario); }
-.icono-bloque-amarillo { color: #f59e0b; }
-.icono-bloque-rojo { color: var(--color-ciber-alerta); }
+.feedback-quiz-item.incorrecto {
+  background-color: rgba(220, 38, 38, 0.1);
+  color: var(--color-ciber-alerta);
+  border: 1px solid var(--color-ciber-alerta);
+}
+
+.acciones-quiz {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.boton-enviar-quiz {
+  padding: 0.75rem 2rem;
+  background-color: var(--color-ciber-primario);
+  color: white;
+  border: none;
+  border-radius: var(--radio-principal);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color var(--transicion-rapida);
+}
+
+.boton-enviar-quiz:hover {
+  background-color: darken(var(--color-ciber-primario), 10%);
+}
+
+.boton-enviar-quiz:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.resultado-quiz {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--color-fondo-variante);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radio-principal);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.icono-premio {
+  color: #f59e0b;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .bloque-modulo-tarjeta {
+    padding: 1.5rem;
+  }
+
+  .grid-pilares-higiene {
+    grid-template-columns: 1fr;
+  }
+
+  .info-porcentaje {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .acciones-quiz {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

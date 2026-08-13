@@ -1,177 +1,260 @@
-import React, { useState } from 'react';
-import { 
-  Target, 
-  Smartphone, 
-  PhoneCall, 
-  Sparkles, 
-  HelpCircle, 
-  CheckCircle2,
+import React from 'react';
+import {
+  Fish,
+  AlertTriangle,
   ShieldCheck,
-  MailCheck
+  Sparkles,
+  HelpCircle,
+  Mail,
+  Link as LinkIcon,
+  CheckCircle2,
+  XCircle,
+  Award,
+  Search,
+  FileCode
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
-import '../1ro/Phishing1ro.css';
-
-interface VectorAtaque {
-  id: number;
-  tipo: string;
-  canal: string;
-  ejemplo: string;
-  tecnicaMitigacion: string;
-}
-
-const VECTORES_4TO: VectorAtaque[] = [
-  {
-    id: 1,
-    tipo: "Spear Phishing (Ataque Dirigido)",
-    canal: "Correo Institucional / Personal",
-    ejemplo: "Hola Carlos (estudiante de 4to A del L.B. Lemus Pérez), según tu informe de Química entregado ayer con el profesor Roberto, debes corregir este archivo adjunto malicioso.",
-    tecnicaMitigacion: "El atacante recopiló tu nombre y materias en redes sociales. Confirma siempre con tu profesor en persona antes de abrir adjuntos sospechosos."
-  },
-  {
-    id: 2,
-    tipo: "Smishing (SMS Engañoso)",
-    canal: "Mensajería SMS de Teléfono Móvil",
-    ejemplo: "MRW Informa: Su paquete con guía #88921 no pudo ser entregado por dirección incompleta. Pague $1 de flete aquí: http://mrw-rastreo-envios.top",
-    tecnicaMitigacion: "Las empresas de envíos jamás piden pagos por enlaces cortos desconocidos (.top / .xyz) vía SMS."
-  },
-  {
-    id: 3,
-    tipo: "Vishing (Suplantación Telefónica)",
-    canal: "Llamada de Voz",
-    ejemplo: "Llamada del soporte técnico de Movistar: 'Estamos actualizando su línea a 5G. Por favor dícteme el código de 6 dígitos que le acaba de llegar por mensaje'.",
-    tecnicaMitigacion: "Nunca dictes códigos SMS de 6 dígitos por llamada; ese código es para registrar tu cuenta de WhatsApp o correo en otro equipo."
-  }
-];
+import { usePhishing4to } from '../../../../hooks/HooksPhishing/usePhishing4to';
+import './Phishing4to.css';
 
 export const Phishing4to: React.FC = () => {
-  const [vectorAbierto, setVectorAbierto] = useState<Record<number, boolean>>({});
-  const [respuestaQuiz, setRespuestaQuiz] = useState<number | null>(null);
-
-  const toggleVector = (id: number) => {
-    setVectorAbierto(prev => ({
-      ...prev,
-      [id]: !prev[id]
-    }));
-  };
+  const {
+    correos,
+    respuestasCorreos,
+    evaluarCorreo,
+    urls,
+    respuestasUrl,
+    evaluarUrl,
+    preguntasQuiz,
+    respuestasQuiz,
+    responderPreguntaQuiz,
+    enviarQuiz,
+    puntajeQuiz,
+    quizEnviado
+  } = usePhishing4to();
 
   return (
-    <main className="pagina-modulo-phishing">
+    <main className="pagina-modulo-phishing-4to">
       <HeaderModulo
         grado="4to"
-        modulo="4: Phishing Avanzado"
-        titulo="Spear Phishing, Smishing y Vishing"
-        subTitulo="Aprende a identificar ataques dirigidos personalizados, engaños mediante mensajes de texto (SMS) y suplantación en llamadas de voz en 4to Año."
+        modulo="4: Análisis Técnico de Phishing"
+        titulo="Inspección de Encabezados, URLs y Dominios"
+        subTitulo="Aprende a verificar técnicamente un correo sospechoso: SPF, DKIM, DMARC, dominios homógrafos y herramientas de análisis como VirusTotal."
         categoria="Defensa Digital y Privacidad"
-        tiempoEstimado="45 min"
-        icono={<Target size={36} />}
+        tiempoEstimado="55 min"
+        icono={<Search size={36} />}
       />
 
       <div className="contenedor-phishing-contenido">
-        {/* SECCIÓN 1: CONCEPTOS AVANZADOS */}
+        {/* SECCIÓN 1: CONCEPTOS */}
         <section className="bloque-phishing-tarjeta">
           <div className="encabezado-bloque-phishing">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. Vectores Modernos de Ciberataque</h2>
+            <h2>1. Análisis Técnico de Correos Sospechosos</h2>
           </div>
           <p className="texto-lectura-phishing">
-            Con el avance tecnológico, los ciberdelincuentes ya no solo envían correos masivos genéricos. Ahora investigan a la víctima para diseñar engaños altamente personalizados.
+            En 4to año pasamos de la identificación visual a la <strong>inspección técnica</strong>. Aprenderás a leer los encabezados de un correo (SPF, DKIM, DMARC), analizar URLs sospechosas y usar herramientas como <strong>VirusTotal</strong> y <strong>URLVoid</strong> para verificar enlaces sin hacer clic.
           </p>
 
           <div className="grid-senales-phishing">
             <div className="caja-senal-item">
-              <Target className="icono-senal rojo" size={28} />
-              <h3>Spear Phishing</h3>
-              <p>Ataques hiperpersonalizados que usan tu nombre verdadero, colegio y nombres de amigos recopilados de tu huella digital.</p>
+              <FileCode className="icono-senal rojo" size={28} />
+              <h3>Encabezados SPF, DKIM y DMARC</h3>
+              <p>Son firmas digitales que validan si el correo realmente proviene del dominio que dice ser. Si fallan, es phishing.</p>
             </div>
 
             <div className="caja-senal-item">
-              <Smartphone className="icono-senal azul" size={28} />
-              <h3>Smishing (SMS)</h3>
-              <p>Mensajes de texto falsos sobre paquetes retenidos, premios de operadoras telefónicas o alertas de bancos.</p>
+              <LinkIcon className="icono-senal azul" size={28} />
+              <h3>Dominios Homógrafos (Typosquatting)</h3>
+              <p>URLs con errores sutiles: paypal.com-cgi-bin.net en lugar de paypal.com. El dominio real está al final.</p>
             </div>
 
             <div className="caja-senal-item">
-              <PhoneCall className="icono-senal amarillo" size={28} />
-              <h3>Vishing (Llamadas de Voz)</h3>
-              <p>Llamadas falsas de supuesto soporte para convencerte de dictar códigos de verificación de WhatsApp o claves.</p>
+              <Search className="icono-senal amarillo" size={28} />
+              <h3>Herramientas de Verificación</h3>
+              <p>VirusTotal, URLVoid y expansores de enlaces cortos te permiten analizar URLs sin arriesgarte.</p>
             </div>
           </div>
         </section>
 
-        {/* SECCIÓN 2: ANALIZADOR DE VECTORES */}
+        {/* SECCIÓN 2: LABORATORIO DE CORREOS */}
         <section className="bloque-phishing-tarjeta interactivo-caja">
           <div className="encabezado-bloque-phishing">
-            <MailCheck className="icono-bloque-verde" size={24} />
-            <h2>2. Análisis de Vectores de Ataque</h2>
+            <Mail className="icono-bloque-verde" size={24} />
+            <h2>2. Laboratorio: Inspecciona los Encabezados</h2>
           </div>
           <p className="subtitulo-bloque-phishing">
-            Inspecciona cada tipo de ataque avanzado y descubre cómo neutralizarlo:
+            Analiza cada correo, sus encabezados SPF/DKIM/DMARC y la URL incluida. Decide si es <strong>Seguro</strong> o <strong>Phishing</strong>:
           </p>
 
           <div className="lista-simuladores-phishing">
-            {VECTORES_4TO.map((vec) => (
-              <div key={vec.id} className="tarjeta-mensaje-simulado">
-                <div className="cabecera-mensaje-simulado">
-                  <span className="badge-canal">{vec.tipo}</span>
-                  <span className="remitente-texto">Canal: {vec.canal}</span>
+            {correos.map((correo) => {
+              const resEleccion = respuestasCorreos[correo.id];
+
+              return (
+                <div key={correo.id} className="tarjeta-mensaje-simulado">
+                  <div className="cabecera-mensaje-simulado">
+                    <span className="badge-canal">Correo Electrónico</span>
+                    <span className="remitente-texto">De: {correo.remitente}</span>
+                  </div>
+
+                  <div className="cuerpo-mensaje-simulado">
+                    <h4>Asunto: {correo.asunto}</h4>
+                    <p>"{correo.contenido}"</p>
+                  </div>
+
+                  <div className="encabezados-info">
+                    <span className="badge-encabezado spf">SPF: {correo.encabezados.spf}</span>
+                    <span className="badge-encabezado dkim">DKIM: {correo.encabezados.dkim}</span>
+                    <span className="badge-encabezado dmarc">DMARC: {correo.encabezados.dmarc}</span>
+                  </div>
+
+                  <div className="url-incluida">
+                    <strong>URL incluida:</strong> <code>{correo.urlIncluida}</code>
+                  </div>
+
+                  <div className="acciones-decision-phishing">
+                    <button
+                      className={`btn-decision seguro ${resEleccion === false ? 'seleccionado' : ''}`}
+                      onClick={() => evaluarCorreo(correo.id, false)}
+                    >
+                      <ShieldCheck size={18} /> Es Seguro
+                    </button>
+                    <button
+                      className={`btn-decision phishing ${resEleccion === true ? 'seleccionado' : ''}`}
+                      onClick={() => evaluarCorreo(correo.id, true)}
+                    >
+                      <AlertTriangle size={18} /> Es Phishing
+                    </button>
+                  </div>
+
+                  {resEleccion !== undefined && (
+                    <div className={`feedback-decision ${resEleccion === correo.esPhishing ? 'acierto' : 'fallo'}`}>
+                      {resEleccion === correo.esPhishing ? (
+                        <div className="flex-resultado">
+                          <CheckCircle2 size={20} className="icono-acierto" />
+                          <span><strong>¡Excelente diagnóstico!</strong> {correo.explicacion}</span>
+                        </div>
+                      ) : (
+                        <div className="flex-resultado">
+                          <XCircle size={20} className="icono-fallo" />
+                          <span><strong>Atención:</strong> {correo.explicacion}</span>
+                        </div>
+                      )}
+                      <span className="badge-tipo-phishing">{correo.tipoPhishing}</span>
+                    </div>
+                  )}
                 </div>
+              );
+            })}
+          </div>
+        </section>
 
-                <div className="cuerpo-mensaje-simulado">
-                  <p>"{vec.ejemplo}"</p>
+        {/* SECCIÓN 3: ANÁLISIS DE URLS */}
+        <section className="bloque-phishing-tarjeta">
+          <div className="encabezado-bloque-phishing">
+            <LinkIcon className="icono-bloque-amarillo" size={24} />
+            <h2>3. Juzga la URL: ¿Oficial o Falsa?</h2>
+          </div>
+          <p className="subtitulo-bloque-phishing">
+            Observa cada URL y determina si es <strong>legítima</strong> o <strong>maliciosa</strong>:
+          </p>
+
+          <div className="lista-simuladores-phishing">
+            {urls.map((url) => {
+              const resEleccion = respuestasUrl[url.id];
+
+              return (
+                <div key={url.id} className="tarjeta-url-analisis">
+                  <div className="url-texto">
+                    <code>{url.url}</code>
+                  </div>
+                  <div className="acciones-decision-phishing">
+                    <button
+                      className={`btn-decision seguro ${resEleccion === true ? 'seleccionado' : ''}`}
+                      onClick={() => evaluarUrl(url.id, true)}
+                    >
+                      <ShieldCheck size={18} /> Legítima
+                    </button>
+                    <button
+                      className={`btn-decision phishing ${resEleccion === false ? 'seleccionado' : ''}`}
+                      onClick={() => evaluarUrl(url.id, false)}
+                    >
+                      <AlertTriangle size={18} /> Maliciosa
+                    </button>
+                  </div>
+                  {resEleccion !== undefined && (
+                    <div className={`feedback-decision ${resEleccion === url.esLegitima ? 'acierto' : 'fallo'}`}>
+                      <div className="flex-resultado">
+                        {resEleccion === url.esLegitima ? (
+                          <CheckCircle2 size={18} className="icono-acierto" />
+                        ) : (
+                          <XCircle size={18} className="icono-fallo" />
+                        )}
+                        <span>{url.explicacion}</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
+              );
+            })}
+          </div>
+        </section>
 
-                <button 
-                  className="btn-decision seguro"
-                  onClick={() => toggleVector(vec.id)}
-                  style={{ width: 'fit-content' }}
-                >
-                  <ShieldCheck size={18} /> {vectorAbierto[vec.id] ? 'Ocultar Estrategia' : 'Ver Estrategia de Mitigación'}
-                </button>
+        {/* SECCIÓN 4: QUIZ */}
+        <section className="bloque-phishing-tarjeta">
+          <div className="encabezado-bloque-phishing">
+            <HelpCircle className="icono-bloque-azul" size={24} />
+            <h2>4. Evaluación Final</h2>
+          </div>
 
-                {vectorAbierto[vec.id] && (
-                  <div className="feedback-decision acierto">
-                    <p style={{ margin: '0 0 0.5rem 0', fontWeight: '800' }}>
-                      🛡️ Medida de Protección:
-                    </p>
-                    <p style={{ margin: 0 }}>{vec.tecnicaMitigacion}</p>
+          <div className="quiz-container phishing">
+            {preguntasQuiz.map(pregunta => (
+              <div key={pregunta.id} className="pregunta-quiz phishing">
+                <h3 className="pregunta-titulo">{pregunta.id}. {pregunta.pregunta}</h3>
+                <div className="opciones-quiz-phishing">
+                  {pregunta.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-quiz-btn ${respuestasQuiz[pregunta.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderPreguntaQuiz(pregunta.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {quizEnviado && respuestasQuiz[pregunta.id] !== undefined && (
+                  <div className={`feedback-quiz-item ${respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? 'correcto' : 'incorrecto'}`}>
+                    {respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? (
+                      <CheckCircle2 size={18} />
+                    ) : (
+                      <XCircle size={18} />
+                    )}
+                    <span>{pregunta.explicacion}</span>
                   </div>
                 )}
               </div>
             ))}
-          </div>
-        </section>
 
-        {/* SECCIÓN 3: QUIZ RÁPIDO */}
-        <section className="bloque-phishing-tarjeta">
-          <div className="encabezado-bloque-phishing">
-            <HelpCircle className="icono-bloque-amarillo" size={24} />
-            <h2>3. Evaluación Diagnóstica</h2>
-          </div>
-          <p className="texto-lectura-phishing">
-            <strong>Pregunta:</strong> Recibes una llamada diciéndote que te enviaron un código por SMS para actualizar tu línea telefónica y te piden que se los leas. ¿Qué debes hacer?
-          </p>
-
-          <div className="opciones-quiz-phishing">
-            <button 
-              className={`opcion-quiz-btn ${respuestaQuiz === 1 ? 'incorrecta' : ''}`}
-              onClick={() => setRespuestaQuiz(1)}
-            >
-              A) Dictar el código rápidamente para no perder el servicio telefónico.
-            </button>
-            <button 
-              className={`opcion-quiz-btn ${respuestaQuiz === 2 ? 'correcta' : ''}`}
-              onClick={() => setRespuestaQuiz(2)}
-            >
-              B) Colgar la llamada inmediatamente. Los códigos recibidos por SMS son privados y nunca deben dictarse a terceros.
-            </button>
-          </div>
-
-          {respuestaQuiz === 2 && (
-            <div className="feedback-quiz correcto">
-              ✅ <strong>¡Correcto!</strong> Los códigos de verificación de 6 dígitos sirven para proteger o tomar el control de tus cuentas. Jamás deben compartirse.
+            <div className="acciones-quiz">
+              <button
+                className="boton-enviar-quiz phishing"
+                onClick={enviarQuiz}
+                disabled={quizEnviado}
+              >
+                Enviar respuestas
+              </button>
+              {puntajeQuiz && (
+                <div className="resultado-quiz">
+                  <Award size={24} className="icono-premio" />
+                  <p>
+                    Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                  </p>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </section>
       </div>
     </main>

@@ -1,173 +1,240 @@
-import React, { useState } from 'react';
-import { 
-  Gavel, 
-  Scale, 
-  Megaphone, 
-  Sparkles, 
-  HelpCircle, 
-  CheckCircle2,
+import React from 'react';
+import {
+  UserX,
   ShieldCheck,
-  FileText
+  Sparkles,
+  HelpCircle,
+  CheckCircle2,
+  XCircle,
+  Award,
+  Briefcase,
+  FileBarChart2,
+  Megaphone
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
-import '../1ro/Phishing1ro.css';
-
-interface LeyItem {
-  articulo: string;
-  delito: string;
-  sancion: string;
-  aplicacionPhishing: string;
-}
-
-const LEYES_VENEZUELA: LeyItem[] = [
-  {
-    articulo: "Artículo 6°",
-    delito: "Acceso Indebido",
-    sancion: "Prisión de 1 a 5 años",
-    aplicacionPhishing: "Sanciona a quien ingrese a sistemas informáticos o cuentas ajenas usando claves obtenidas mediante engaños."
-  },
-  {
-    articulo: "Artículo 14°",
-    delito: "Fraude o Estafa Electrónica",
-    sancion: "Prisión de 3 a 7 años",
-    aplicacionPhishing: "Penaliza la manipulación de datos o suplantación para obtener beneficios económicos o patrimoniales no autorizados."
-  },
-  {
-    articulo: "Artículo 22°",
-    delito: "Revelación Indebida de Datos",
-    sancion: "Prisión de 2 a 6 años",
-    aplicacionPhishing: "Sanciona a quien publique o comercialice información privada de terceros obtenida por técnicas de phishing."
-  }
-];
+import {usePhishing5to} from '../../../../hooks/HooksPhishing/usePhishing5to';
+import './Phishing5to.css';
 
 export const Phishing5to: React.FC = () => {
-  const [articuloAbierto, setArticuloAbierto] = useState<Record<string, boolean>>({});
-  const [respuestaQuiz, setRespuestaQuiz] = useState<number | null>(null);
-
-  const toggleArticulo = (art: string) => {
-    setArticuloAbierto(prev => ({
-      ...prev,
-      [art]: !prev[art]
-    }));
-  };
+  const {
+    escenarios,
+    respuestasEscenario,
+    evaluarEscenario,
+    campañas,
+    respuestasCampaña,
+    evaluarCampaña,
+    preguntasQuiz,
+    respuestasQuiz,
+    responderPreguntaQuiz,
+    enviarQuiz,
+    puntajeQuiz,
+    quizEnviado
+  } = usePhishing5to();
 
   return (
-    <main className="pagina-modulo-phishing">
+    <main className="pagina-modulo-phishing-5to">
       <HeaderModulo
         grado="5to"
-        modulo="5: Marco Legal y Liderazgo"
-        titulo="Delitos Informáticos y Prevención Institucional"
-        subTitulo="Examina el marco legal venezolano sobre delitos informáticos, el impacto ético de la ciberseguridad y lidera campañas de prevención en 5to Año."
+        modulo="5: Ingeniería Social y Concientización"
+        titulo="Phishing Ético, Simulación y Auditoría del Factor Humano"
+        subTitulo="Aprende a evaluar campañas de simulación de phishing, analizar técnicas de ingeniería social y redactar informes de concientización organizacional."
         categoria="Defensa Digital y Privacidad"
-        tiempoEstimado="50 min"
-        icono={<Scale size={36} />}
+        tiempoEstimado="60 min"
+        icono={<UserX size={36} />}
       />
 
       <div className="contenedor-phishing-contenido">
-        {/* SECCIÓN 1: MARCO LEGAL */}
+        {/* SECCIÓN 1: CONCEPTOS */}
         <section className="bloque-phishing-tarjeta">
           <div className="encabezado-bloque-phishing">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. Marco Legal en Venezuela: Ley Especial contra Delitos Informáticos</h2>
+            <h2>1. Ingeniería Social y Auditoría del Factor Humano</h2>
           </div>
           <p className="texto-lectura-phishing">
-            Como futuro bachiller de la República, es fundamental que conozcas que la suplantación de identidad y el phishing no son "travesuras en la red", sino <strong>delitos sancionados penalmente por la legislación venezolana</strong>.
+            El phishing no solo es técnico: explota la <strong>psicología humana</strong>. Como auditor, tu misión es evaluar qué tan preparada está una organización ante estas manipulaciones y proponer mejoras. Esto incluye analizar <strong>campañas de simulación</strong> y educar a los usuarios.
           </p>
 
           <div className="grid-senales-phishing">
             <div className="caja-senal-item">
-              <Gavel className="icono-senal rojo" size={28} />
-              <h3>Responsabilidad Penal</h3>
-              <p>El uso no autorizado de claves ajenas o creación de páginas falsas conlleva penas de prisión formal.</p>
+              <Briefcase className="icono-senal rojo" size={28} />
+              <h3>Pretexting</h3>
+              <p>Crear una historia falsa (pretexto) para ganar confianza y sacar información. Ej: "soy del soporte técnico".</p>
             </div>
 
             <div className="caja-senal-item">
-              <Scale className="icono-senal azul" size={28} />
-              <h3>Protección a Víctimas</h3>
-              <p>Los organismos de seguridad (CICPC - División de Delitos Informáticos) reciben y procesan denuncias cibernéticas.</p>
+              <Megaphone className="icono-senal azul" size={28} />
+              <h3>Campañas de Simulación</h3>
+              <p>Envíos controlados de correos falsos para medir cuántos usuarios caen y luego capacitarlos.</p>
             </div>
 
             <div className="caja-senal-item">
-              <Megaphone className="icono-senal verde" size={28} />
-              <h3>Mentoría y Liderazgo</h3>
-              <p>Los graduandos de 5to Año promueven campañas de concienciación para los estudiantes de 1er a 4to Año.</p>
+              <FileBarChart2 className="icono-senal amarillo" size={28} />
+              <h3>Métricas de Concientización</h3>
+              <p>Tasa de clics, tasa de reportes, reducción de incidentes. Permiten medir la mejora.</p>
             </div>
           </div>
         </section>
 
-        {/* SECCIÓN 2: EXAMEN DE LA LEY */}
+        {/* SECCIÓN 2: IDENTIFICA EL ATAQUE DE INGENIERÍA SOCIAL */}
         <section className="bloque-phishing-tarjeta interactivo-caja">
           <div className="encabezado-bloque-phishing">
-            <FileText className="icono-bloque-verde" size={24} />
-            <h2>2. Análisis de Artículos Legales Clave</h2>
+            <UserX className="icono-bloque-rojo" size={24} />
+            <h2>2. ¿Ataque de Ingeniería Social o Actividad Legítima?</h2>
           </div>
           <p className="subtitulo-bloque-phishing">
-            Haz clic en cada artículo de la ley venezolana para analizar su penalización y cómo se aplica al Phishing:
+            Para cada situación, decide si es un <strong>Ataque</strong> o una <strong>Actividad segura</strong>:
           </p>
 
           <div className="lista-simuladores-phishing">
-            {LEYES_VENEZUELA.map((ley) => (
-              <div key={ley.articulo} className="tarjeta-mensaje-simulado">
-                <div className="cabecera-mensaje-simulado">
-                  <span className="badge-canal">{ley.articulo}</span>
-                  <span className="remitente-texto">Delito: {ley.delito}</span>
+            {escenarios.map((esc) => {
+              const resEleccion = respuestasEscenario[esc.id];
+
+              return (
+                <div key={esc.id} className="tarjeta-mensaje-simulado">
+                  <h3 className="titulo-escenario">{esc.titulo}</h3>
+                  <p className="descripcion-escenario">{esc.descripcion}</p>
+                  <span className="badge-tecnica">{esc.tecnica}</span>
+
+                  <div className="acciones-decision-phishing">
+                    <button
+                      className={`btn-decision seguro ${resEleccion === false ? 'seleccionado' : ''}`}
+                      onClick={() => evaluarEscenario(esc.id, false)}
+                    >
+                      <ShieldCheck size={18} /> Seguro
+                    </button>
+                    <button
+                      className={`btn-decision phishing ${resEleccion === true ? 'seleccionado' : ''}`}
+                      onClick={() => evaluarEscenario(esc.id, true)}
+                    >
+                      <UserX size={18} /> Ataque
+                    </button>
+                  </div>
+
+                  {resEleccion !== undefined && (
+                    <div className={`feedback-decision ${resEleccion === esc.esAtaque ? 'acierto' : 'fallo'}`}>
+                      <div className="flex-resultado">
+                        {resEleccion === esc.esAtaque ? (
+                          <CheckCircle2 size={20} className="icono-acierto" />
+                        ) : (
+                          <XCircle size={20} className="icono-fallo" />
+                        )}
+                        <span>{esc.explicacion}</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
+              );
+            })}
+          </div>
+        </section>
 
-                <div className="cuerpo-mensaje-simulado">
-                  <p>⚖️ <strong>Sanción Prevista:</strong> {ley.sancion}</p>
+        {/* SECCIÓN 3: EVALÚA CAMPAÑAS SIMULADAS */}
+        <section className="bloque-phishing-tarjeta">
+          <div className="encabezado-bloque-phishing">
+            <FileBarChart2 className="icono-bloque-verde" size={24} />
+            <h2>3. ¿Campaña Efectiva o No?</h2>
+          </div>
+          <p className="subtitulo-bloque-phishing">
+            Analiza los resultados de estas campañas de simulación y decide si fueron <strong>efectivas</strong> (lograron reducir el riesgo) o <strong>no efectivas</strong>:
+          </p>
+
+          <div className="lista-simuladores-phishing">
+            {campañas.map((camp) => {
+              const resEleccion = respuestasCampaña[camp.id];
+
+              return (
+                <div key={camp.id} className="tarjeta-campaña">
+                  <h3 className="titulo-campaña">{camp.nombre}</h3>
+                  <p className="descripcion-campaña">{camp.descripcion}</p>
+                  <span className="badge-metrica">{camp.metrica}</span>
+
+                  <div className="acciones-decision-phishing">
+                    <button
+                      className={`btn-decision seguro ${resEleccion === true ? 'seleccionado' : ''}`}
+                      onClick={() => evaluarCampaña(camp.id, true)}
+                    >
+                      <ShieldCheck size={18} /> Efectiva
+                    </button>
+                    <button
+                      className={`btn-decision phishing ${resEleccion === false ? 'seleccionado' : ''}`}
+                      onClick={() => evaluarCampaña(camp.id, false)}
+                    >
+                      <UserX size={18} /> No efectiva
+                    </button>
+                  </div>
+
+                  {resEleccion !== undefined && (
+                    <div className={`feedback-decision ${resEleccion === camp.esEfectiva ? 'acierto' : 'fallo'}`}>
+                      <div className="flex-resultado">
+                        {resEleccion === camp.esEfectiva ? (
+                          <CheckCircle2 size={18} className="icono-acierto" />
+                        ) : (
+                          <XCircle size={18} className="icono-fallo" />
+                        )}
+                        <span>{camp.explicacion}</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
+              );
+            })}
+          </div>
+        </section>
 
-                <button 
-                  className="btn-decision seguro"
-                  onClick={() => toggleArticulo(ley.articulo)}
-                  style={{ width: 'fit-content' }}
-                >
-                  <ShieldCheck size={18} /> {articuloAbierto[ley.articulo] ? 'Ocultar Detalle' : 'Ver Aplicación al Phishing'}
-                </button>
+        {/* SECCIÓN 4: QUIZ FINAL */}
+        <section className="bloque-phishing-tarjeta">
+          <div className="encabezado-bloque-phishing">
+            <HelpCircle className="icono-bloque-amarillo" size={24} />
+            <h2>4. Evaluación Final</h2>
+          </div>
 
-                {articuloAbierto[ley.articulo] && (
-                  <div className="feedback-decision acierto">
-                    <p style={{ margin: '0 0 0.5rem 0', fontWeight: '800' }}>
-                      📜 Aplicación en Casos de Ciberseguridad:
-                    </p>
-                    <p style={{ margin: 0 }}>{ley.aplicacionPhishing}</p>
+          <div className="quiz-container phishing">
+            {preguntasQuiz.map(pregunta => (
+              <div key={pregunta.id} className="pregunta-quiz phishing">
+                <h3 className="pregunta-titulo">{pregunta.id}. {pregunta.pregunta}</h3>
+                <div className="opciones-quiz-phishing">
+                  {pregunta.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-quiz-btn ${respuestasQuiz[pregunta.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderPreguntaQuiz(pregunta.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {quizEnviado && respuestasQuiz[pregunta.id] !== undefined && (
+                  <div className={`feedback-quiz-item ${respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? 'correcto' : 'incorrecto'}`}>
+                    {respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? (
+                      <CheckCircle2 size={18} />
+                    ) : (
+                      <XCircle size={18} />
+                    )}
+                    <span>{pregunta.explicacion}</span>
                   </div>
                 )}
               </div>
             ))}
-          </div>
-        </section>
 
-        {/* SECCIÓN 3: QUIZ FINAL DE GRADO */}
-        <section className="bloque-phishing-tarjeta">
-          <div className="encabezado-bloque-phishing">
-            <HelpCircle className="icono-bloque-amarillo" size={24} />
-            <h2>3. Evaluación Final de Nivel Experto</h2>
-          </div>
-          <p className="texto-lectura-phishing">
-            <strong>Pregunta:</strong> Si un estudiante de tu liceo detecta una campaña masiva de correos engañosos dirigida a los alumnos del liceo, ¿cuál es el canal de denuncia oficial recomendado en Venezuela?
-          </p>
-
-          <div className="opciones-quiz-phishing">
-            <button 
-              className={`opcion-quiz-btn ${respuestaQuiz === 1 ? 'incorrecta' : ''}`}
-              onClick={() => setRespuestaQuiz(1)}
-            >
-              A) Ignorarlo y borrar los correos en silencio.
-            </button>
-            <button 
-              className={`opcion-quiz-btn ${respuestaQuiz === 2 ? 'correcta' : ''}`}
-              onClick={() => setRespuestaQuiz(2)}
-            >
-              B) Notificar a la directiva del Liceo y acudir ante la División de Delitos Informáticos del CICPC para formalizar la denuncia.
-            </button>
-          </div>
-
-          {respuestaQuiz === 2 && (
-            <div className="feedback-quiz correcto">
-              ✅ <strong>¡Excelente respuesta!</strong> El conocimiento del marco legal y los canales institucionales permite proteger a la comunidad escolar.
+            <div className="acciones-quiz">
+              <button
+                className="boton-enviar-quiz phishing"
+                onClick={enviarQuiz}
+                disabled={quizEnviado}
+              >
+                Enviar respuestas
+              </button>
+              {puntajeQuiz && (
+                <div className="resultado-quiz">
+                  <Award size={24} className="icono-premio" />
+                  <p>
+                    Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                  </p>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </section>
       </div>
     </main>

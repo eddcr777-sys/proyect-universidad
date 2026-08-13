@@ -1,173 +1,251 @@
-import React, { useState } from 'react';
-import { 
-  Brain, 
-  Flame, 
-  AlertTriangle, 
-  Sparkles, 
-  HelpCircle, 
-  CheckCircle2,
+import React from 'react';
+import {
+  AlertTriangle,
   ShieldCheck,
-  Zap
+  Sparkles,
+  MessageSquare,
+  CheckCircle2,
+  XCircle,
+  Phone,
+  FileWarning,
+  HelpCircle,
+  Award
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
-import '../1ro/Phishing1ro.css';
-
-interface TacticaEngano {
-  id: number;
-  escenario: string;
-  disparadorPsicologico: string;
-  explicacion: string;
-}
-
-const TACTICAS_3RO: TacticaEngano[] = [
-  {
-    id: 1,
-    escenario: "Recibes un correo que dice: 'Tu cuenta de correo será suspendida de manera permanente en las próximas 2 horas si no actualizas tu clave aquí'.",
-    disparadorPsicologico: "Miedo y Urgencia Extrema",
-    explicacion: "Los atacantes usan el pánico para que actúes de inmediato sin consultar con un adulto o analizar el enlace."
-  },
-  {
-    id: 2,
-    escenario: "Un mensaje directo dice: 'Alguien publicó fotos tuyas privadas en este foro web. Entra para verlas y borrarlas'.",
-    disparadorPsicologico: "Curiosidad e Inseguridad",
-    explicacion: "Juegan con la preocupación de la reputación personal para inducirte a ingresar tus credenciales en una página clonada."
-  },
-  {
-    id: 3,
-    escenario: "Te llega una notificación: 'El Director del Liceo solicita que envíes el listado de claves de tu sección para la auditoría de Moodle'.",
-    disparadorPsicologico: "Falsa Autoridad",
-    explicacion: "Suplantan a directores o profesores sabiendo que los estudiantes tienden a obedecer figuras de autoridad rápidamente."
-  }
-];
+import { usePhishing3ro, SENALES_AVANZADAS_3RO } from '../../../../hooks/HooksPhishing/usePhishing3ro';
+import './Phishing3ro.css';
 
 export const Phishing3ro: React.FC = () => {
-  const [tacticaRevelada, setTacticaRevelada] = useState<Record<number, boolean>>({});
-  const [respuestaQuiz, setRespuestaQuiz] = useState<number | null>(null);
-
-  const toggleTactica = (id: number) => {
-    setTacticaRevelada(prev => ({
-      ...prev,
-      [id]: !prev[id]
-    }));
-  };
+  const {
+    mensajes,
+    respuestasMensajes,
+    evaluarMensaje,
+    senalesComprobadas,
+    toggleSenal,
+    totalSenales,
+    senalesCompletadas,
+    porcentajeSenales,
+    preguntasQuiz,
+    respuestasQuiz,
+    responderPreguntaQuiz,
+    enviarQuiz,
+    puntajeQuiz,
+    quizEnviado
+  } = usePhishing3ro();
 
   return (
-    <main className="pagina-modulo-phishing">
+    <main className="pagina-modulo-phishing-3ro">
       <HeaderModulo
         grado="3ro"
-        modulo="3: Psicología del Engaño"
-        titulo="Ingeniería Social y Manipulación en Línea"
-        subTitulo="Descubre cómo los atacantes usan emociones como la urgencia, el miedo y la curiosidad para manipular a las personas sin necesidad de hackear computadoras."
+        modulo="3: Engaños por SMS, Llamadas y Archivos"
+        titulo="Smishing, Vishing y Phishing Dirigido"
+        subTitulo="Aprende a identificar fraudes por SMS, llamadas falsas de soporte técnico, archivos adjuntos maliciosos y enlaces engañosos en 3er Año."
         categoria="Defensa Digital y Privacidad"
-        tiempoEstimado="40 min"
-        icono={<Brain size={36} />}
+        tiempoEstimado="50 min"
+        icono={<Phone size={36} />}
       />
 
       <div className="contenedor-phishing-contenido">
-        {/* SECCIÓN 1: CONCEPTOS PSICOLÓGICOS */}
+        {/* SECCIÓN 1: CONCEPTOS */}
         <section className="bloque-phishing-tarjeta">
           <div className="encabezado-bloque-phishing">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. ¿Qué es la Ingeniería Social?</h2>
+            <h2>1. Phishing en todas sus formas: Smishing, Vishing y Spear Phishing</h2>
           </div>
           <p className="texto-lectura-phishing">
-            En lugar de buscar fallas complejas en un sistema informático, la <strong>Ingeniería Social</strong> busca la falla en el factor humano: manipular tus emociones para que seas tú mismo quien le entregue las claves al ciberdelincuente.
+            En 1ro y 2do aprendiste a detectar phishing básico y en redes sociales. Ahora veremos técnicas más avanzadas que usan <strong>SMS, llamadas telefónicas y archivos adjuntos</strong> para engañarte. También hablaremos del <strong>spear phishing</strong>, que es un ataque dirigido específicamente a ti.
           </p>
 
           <div className="grid-senales-phishing">
             <div className="caja-senal-item">
-              <Flame className="icono-senal rojo" size={28} />
-              <h3>Presión de Tiempo</h3>
-              <p>Te hacen creer que no tienes tiempo para pensar o pedir consejo.</p>
+              <MessageSquare className="icono-senal rojo" size={28} />
+              <h3>Smishing (SMS Falso)</h3>
+              <p>Mensajes de texto que aparentan ser de bancos, tiendas o servicios de paquetería, pidiendo que hagas clic en enlaces maliciosos.</p>
             </div>
 
             <div className="caja-senal-item">
-              <Zap className="icono-senal amarillo" size={28} />
-              <h3>Codicia y Oportunidad</h3>
-              <p>Promesas de dinero fácil, diamantes gratis o cuentas premium sin costo.</p>
+              <Phone className="icono-senal azul" size={28} />
+              <h3>Vishing (Llamada Falsa)</h3>
+              <p>Llamadas de supuestos técnicos, agentes bancarios o familiares en apuros que buscan sacarte información o acceso remoto.</p>
             </div>
 
             <div className="caja-senal-item">
-              <Brain className="icono-senal azul" size={28} />
-              <h3>Suplantación de Confianza</h3>
-              <p>Fingen ser tus amigos, profesores o empresas muy reconocidas.</p>
+              <FileWarning className="icono-senal amarillo" size={28} />
+              <h3>Adjuntos Maliciosos</h3>
+              <p>Archivos .exe, .scr o documentos con macros que, al abrirlos, instalan malware en tu equipo.</p>
             </div>
           </div>
         </section>
 
-        {/* SECCIÓN 2: ANALIZADOR DE TÁCTICAS */}
+        {/* SECCIÓN 2: LABORATORIO */}
         <section className="bloque-phishing-tarjeta interactivo-caja">
           <div className="encabezado-bloque-phishing">
-            <Brain className="icono-bloque-verde" size={24} />
-            <h2>2. Revela el Truco Psicológico</h2>
+            <MessageSquare className="icono-bloque-verde" size={24} />
+            <h2>2. Laboratorio Interactivo: Detecta el Engaño Avanzado</h2>
           </div>
           <p className="subtitulo-bloque-phishing">
-            Haz clic en cada escenario real para desmantelar la táctica de manipulación emocional empleada:
+            Analiza cada mensaje y decide si es <strong>Seguro</strong> o <strong>Phishing</strong>:
           </p>
 
           <div className="lista-simuladores-phishing">
-            {TACTICAS_3RO.map((tac) => (
-              <div key={tac.id} className="tarjeta-mensaje-simulado">
-                <div className="cabecera-mensaje-simulado">
-                  <span className="badge-canal">Caso #{tac.id}</span>
-                  <span className="remitente-texto">Escenario de Manipulación</span>
+            {mensajes.map((msg) => {
+              const resEleccion = respuestasMensajes[msg.id];
+
+              return (
+                <div key={msg.id} className="tarjeta-mensaje-simulado">
+                  <div className="cabecera-mensaje-simulado">
+                    <span className="badge-canal">{msg.canal}</span>
+                    <span className="remitente-texto">De: {msg.remitente}</span>
+                  </div>
+
+                  <div className="cuerpo-mensaje-simulado">
+                    <h4>Asunto: {msg.asunto}</h4>
+                    <p>"{msg.contenido}"</p>
+                  </div>
+
+                  <div className="acciones-decision-phishing">
+                    <button
+                      className={`btn-decision seguro ${resEleccion === false ? 'seleccionado' : ''}`}
+                      onClick={() => evaluarMensaje(msg.id, false)}
+                    >
+                      <ShieldCheck size={18} /> Es Seguro
+                    </button>
+                    <button
+                      className={`btn-decision phishing ${resEleccion === true ? 'seleccionado' : ''}`}
+                      onClick={() => evaluarMensaje(msg.id, true)}
+                    >
+                      <AlertTriangle size={18} /> Es Phishing / Engaño
+                    </button>
+                  </div>
+
+                  {resEleccion !== undefined && (
+                    <div className={`feedback-decision ${resEleccion === msg.esPhishing ? 'acierto' : 'fallo'}`}>
+                      {resEleccion === msg.esPhishing ? (
+                        <div className="flex-resultado">
+                          <CheckCircle2 size={20} className="icono-acierto" />
+                          <span><strong>¡Excelente diagnóstico!</strong> {msg.explicacion}</span>
+                        </div>
+                      ) : (
+                        <div className="flex-resultado">
+                          <XCircle size={20} className="icono-fallo" />
+                          <span><strong>Atención:</strong> {msg.explicacion}</span>
+                        </div>
+                      )}
+                      <span className="badge-tipo-phishing">{msg.tipoPhishing}</span>
+                    </div>
+                  )}
                 </div>
+              );
+            })}
+          </div>
+        </section>
 
-                <div className="cuerpo-mensaje-simulado">
-                  <p>"{tac.escenario}"</p>
+        {/* SECCIÓN 3: CHECKLIST DE SEÑALES AVANZADAS */}
+        <section className="bloque-phishing-tarjeta">
+          <div className="encabezado-bloque-phishing">
+            <ShieldCheck className="icono-bloque-verde" size={24} />
+            <h2>3. Señales de Alerta Avanzadas</h2>
+          </div>
+          <p className="subtitulo-bloque-phishing">
+            Marca las señales que ya sabes reconocer:
+          </p>
+
+          <div className="lista-senales-interactiva">
+            {SENALES_AVANZADAS_3RO.map((senal) => (
+              <div
+                key={senal.id}
+                className={`item-senal-check ${senalesComprobadas[senal.id] ? 'activo' : ''}`}
+                onClick={() => toggleSenal(senal.id)}
+              >
+                <input
+                  type="checkbox"
+                  checked={!!senalesComprobadas[senal.id]}
+                  onChange={() => {}}
+                  className="checkbox-phishing"
+                />
+                <div className="info-item-senal">
+                  <span className="categoria-badge-phishing">{senal.categoria}</span>
+                  <p className="texto-senal">{senal.texto}</p>
+                  <span className="ejemplo-senal">📌 Ejemplo: {senal.ejemplo}</span>
                 </div>
+              </div>
+            ))}
+          </div>
 
-                <button 
-                  className="btn-decision seguro"
-                  onClick={() => toggleTactica(tac.id)}
-                  style={{ width: 'fit-content' }}
-                >
-                  <ShieldCheck size={18} /> {tacticaRevelada[tac.id] ? 'Ocultar Análisis' : 'Desmantelar Truco Psicológico'}
-                </button>
+          <div className="resultado-diagnostico-bar phishing">
+            <div className="info-porcentaje">
+              <strong>Reconocimiento de Señales: {porcentajeSenales}%</strong>
+              <span>({senalesCompletadas} de {totalSenales} señales identificadas)</span>
+            </div>
+            <div className="barra-fondo-diagnostico phishing">
+              <div className="barra-relleno-diagnostico phishing" style={{ width: `${porcentajeSenales}%` }}></div>
+            </div>
+            {porcentajeSenales === 100 ? (
+              <div className="mensaje-resultado excelente">
+                🏆 ¡Dominas las señales de smishing, vishing y adjuntos maliciosos!
+              </div>
+            ) : (
+              <div className="mensaje-resultado inicial">
+                💡 Completa el checklist para estar preparado ante engaños avanzados.
+              </div>
+            )}
+          </div>
+        </section>
 
-                {tacticaRevelada[tac.id] && (
-                  <div className="feedback-decision acierto">
-                    <p style={{ margin: '0 0 0.5rem 0', fontWeight: '800' }}>
-                      🎯 Disparador Usado: {tac.disparadorPsicologico}
-                    </p>
-                    <p style={{ margin: 0 }}>{tac.explicacion}</p>
+        {/* SECCIÓN 4: QUIZ */}
+        <section className="bloque-phishing-tarjeta">
+          <div className="encabezado-bloque-phishing">
+            <HelpCircle className="icono-bloque-amarillo" size={24} />
+            <h2>4. Evaluación Final</h2>
+          </div>
+
+          <div className="quiz-container phishing">
+            {preguntasQuiz.map(pregunta => (
+              <div key={pregunta.id} className="pregunta-quiz phishing">
+                <h3 className="pregunta-titulo">{pregunta.id}. {pregunta.pregunta}</h3>
+                <div className="opciones-quiz-phishing">
+                  {pregunta.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-quiz-btn ${respuestasQuiz[pregunta.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderPreguntaQuiz(pregunta.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {quizEnviado && respuestasQuiz[pregunta.id] !== undefined && (
+                  <div className={`feedback-quiz-item ${respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? 'correcto' : 'incorrecto'}`}>
+                    {respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? (
+                      <CheckCircle2 size={18} />
+                    ) : (
+                      <XCircle size={18} />
+                    )}
+                    <span>{pregunta.explicacion}</span>
                   </div>
                 )}
               </div>
             ))}
-          </div>
-        </section>
 
-        {/* SECCIÓN 3: QUIZ RÁPIDO */}
-        <section className="bloque-phishing-tarjeta">
-          <div className="encabezado-bloque-phishing">
-            <HelpCircle className="icono-bloque-amarillo" size={24} />
-            <h2>3. Evaluación Diagnóstica</h2>
-          </div>
-          <p className="texto-lectura-phishing">
-            <strong>Pregunta:</strong> ¿Cuál es la mejor defensa frente a cualquier intento de Ingeniería Social basado en urgencia?
-          </p>
-
-          <div className="opciones-quiz-phishing">
-            <button 
-              className={`opcion-quiz-btn ${respuestaQuiz === 1 ? 'incorrecta' : ''}`}
-              onClick={() => setRespuestaQuiz(1)}
-            >
-              A) Responder rápidamente antes de que expire la cuenta.
-            </button>
-            <button 
-              className={`opcion-quiz-btn ${respuestaQuiz === 2 ? 'correcta' : ''}`}
-              onClick={() => setRespuestaQuiz(2)}
-            >
-              B) Hacer una pausa, respirar y verificar la autenticidad por otro medio sin hacer clic en los enlaces enviados.
-            </button>
-          </div>
-
-          {respuestaQuiz === 2 && (
-            <div className="feedback-quiz correcto">
-              ✅ <strong>¡Excelente!</strong> Romper el ciclo de urgencia e inspeccionar los canales oficiales neutraliza por completo la ingeniería social.
+            <div className="acciones-quiz">
+              <button
+                className="boton-enviar-quiz phishing"
+                onClick={enviarQuiz}
+                disabled={quizEnviado}
+              >
+                Enviar respuestas
+              </button>
+              {puntajeQuiz && (
+                <div className="resultado-quiz">
+                  <Award size={24} className="icono-premio" />
+                  <p>
+                    Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                  </p>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </section>
       </div>
     </main>

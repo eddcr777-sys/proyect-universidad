@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Key,
   EyeOff,
@@ -8,44 +8,35 @@ import {
   Sparkles,
   HelpCircle,
   ShieldCheck,
-  ShieldAlert
+  ShieldAlert,
+  Award,
+  Video,
+  ListChecks
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import { HABITOS_CONTRASENA_1RO, useProteccionCuentas1ro } from '../../../../hooks/HooksProteccionCuentas/useProteccionCuentas1ro';
 import './ProteccionCuentas1ro.css';
 
 export const ProteccionCuentas1ro: React.FC = () => {
-  const [password, setPassword] = useState('');
-  const [mostrarPassword, setMostrarPassword] = useState(false);
-  const [respuestaQuiz, setRespuestaQuiz] = useState<number | null>(null);
-
-  // Evaluador simple de contraseñas
-  const tieneMinimo = password.length >= 8;
-  const tieneMayuscula = /[A-Z]/.test(password);
-  const tieneNumero = /[0-9]/.test(password);
-  const tieneSimbolo = /[^A-Za-z0-9]/.test(password);
-  
-  const esFecha = /^[0-9]{4,8}$/.test(password); // Si solo son números y parecen fechas
-
-  let fortaleza = 0;
-  if (tieneMinimo) fortaleza += 25;
-  if (tieneMayuscula) fortaleza += 25;
-  if (tieneNumero) fortaleza += 25;
-  if (tieneSimbolo) fortaleza += 25;
-  if (esFecha) fortaleza = 10; // Penalización fuerte por usar solo números como fechas
-
-  let colorBarra = '#ef4444'; // Rojo (Débil)
-  let textoFortaleza = 'Débil';
-  
-  if (fortaleza === 10) {
-    textoFortaleza = '¡Peligro! Parece una fecha de nacimiento';
-    colorBarra = '#dc2626';
-  } else if (fortaleza >= 50 && fortaleza < 100) {
-    colorBarra = '#f59e0b'; // Amarillo (Aceptable)
-    textoFortaleza = 'Aceptable';
-  } else if (fortaleza === 100) {
-    colorBarra = '#10b981'; // Verde (Fuerte)
-    textoFortaleza = 'Fuerte 🔒';
-  }
+  const {
+    password,
+    setPassword,
+    mostrarPassword,
+    setMostrarPassword,
+    evaluacion,
+    habitosComprobados,
+    toggleHabito,
+    totalHabitos,
+    habitosCompletados,
+    porcentajeHabitos,
+    videos,
+    preguntasQuiz,
+    respuestasQuiz,
+    responderPreguntaQuiz,
+    enviarQuiz,
+    puntajeQuiz,
+    quizEnviado
+  } = useProteccionCuentas1ro();
 
   return (
     <main className="pagina-modulo-proteccion">
@@ -55,32 +46,39 @@ export const ProteccionCuentas1ro: React.FC = () => {
         titulo="Creación de Contraseñas Robustas"
         subTitulo="Una contraseña es la llave digital de tu casillero personal. Aprende a crear claves secretas en 1er Año."
         categoria="Protección de Cuentas y Accesos"
-        tiempoEstimado="35 min"
+        tiempoEstimado="45 min"
         icono={<Key size={36} />}
       />
 
       <div className="contenedor-proteccion-contenido">
-        {/* SECCIÓN 1: CONCEPTOS */}
+        {/* SECCIÓN 1: TEORÍA */}
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. El Peligro de las Claves Obvias</h2>
+            <h2>1. ¿Por qué tu contraseña es como un cepillo de dientes?</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Muchas personas usan "123456", "password" o su fecha de cumpleaños como contraseña. ¡Esto es un gran error! Los ciberdelincuentes usan programas que adivinan estas claves obvias en segundos.
+            Piensa en tu contraseña como la llave de tu casillero. Si alguien la consigue, puede abrir tu vida digital: ver tus fotos, leer tus conversaciones, robar tus cuentas de juegos y hasta suplantar tu identidad. Por eso, una contraseña debe ser <strong>personal, secreta y difícil de adivinar</strong>.
           </p>
 
           <div className="grid-pilares-proteccion">
             <div className="caja-pilar-proteccion">
               <ShieldAlert className="icono-pilar rojo" size={28} />
-              <h3>Lo que NO debes usar</h3>
-              <p>Tu nombre, el nombre de tu mascota, fechas de cumpleaños, número de cédula o palabras simples del diccionario.</p>
+              <h3>Lo que NUNCA debes usar</h3>
+              <ul className="lista-errores">
+                <li>Tu nombre o apellido</li>
+                <li>Fecha de nacimiento</li>
+                <li>Nombre de tu mascota</li>
+                <li>Número de cédula</li>
+                <li>"123456", "password", "contraseña"</li>
+              </ul>
             </div>
 
             <div className="caja-pilar-proteccion">
               <ShieldCheck className="icono-pilar verde" size={28} />
-              <h3>Frases de Contraseña</h3>
-              <p>Es más fácil recordar una frase larga y rara que una clave corta y confusa. Ejemplo: "Un-Perrito-Azul-Vuela-99!".</p>
+              <h3>La regla de oro: Frases de Contraseña</h3>
+              <p>En lugar de una palabra corta, usa una <strong>frase larga y sin sentido para otros</strong>. Es más fácil de recordar y mucho más difícil de descifrar.</p>
+              <p className="ejemplo-frase">Ejemplo: <code>"MiAbuelaPreparaArepasConQueso_58!"</code></p>
             </div>
           </div>
         </section>
@@ -92,10 +90,10 @@ export const ProteccionCuentas1ro: React.FC = () => {
             <h2>2. Simulador: Crea tu Contraseña</h2>
           </div>
           <p className="subtitulo-bloque">
-            Prueba a escribir una contraseña y observa cómo mejora su fortaleza al agregar diferentes caracteres (¡No uses tu contraseña real aquí!).
+            Escribe una contraseña de prueba (¡no uses tu contraseña real!) y observa cómo cambia la fortaleza según los caracteres que agregas.
           </p>
 
-          <div style={{ position: 'relative' }}>
+          <div className="input-wrapper">
             <input
               type={mostrarPassword ? 'text' : 'password'}
               className="input-password-simulador"
@@ -103,65 +101,185 @@ export const ProteccionCuentas1ro: React.FC = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button 
+            <button
+              className="boton-ojo"
               onClick={() => setMostrarPassword(!mostrarPassword)}
-              style={{ position: 'absolute', right: '15px', top: '22px', background: 'none', border: 'none', cursor: 'pointer', color: '#64748b' }}
+              aria-label={mostrarPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'}
             >
               {mostrarPassword ? <EyeOff size={20} /> : <Eye size={20} />}
             </button>
           </div>
 
           <div className="medidor-fortaleza">
-            <div className="barra-fortaleza" style={{ width: `${fortaleza}%`, backgroundColor: colorBarra }}></div>
+            <div
+              className="barra-fortaleza"
+              style={{ width: `${evaluacion.score}%`, backgroundColor: evaluacion.color }}
+            ></div>
           </div>
-          <span className="texto-fortaleza" style={{ color: colorBarra }}>{textoFortaleza}</span>
+          <span className="texto-fortaleza" style={{ color: evaluacion.color }}>
+            {evaluacion.etiqueta || 'Empieza a escribir...'}
+          </span>
 
           <div className="criterios-password">
-            <div className={`criterio-item ${tieneMinimo ? 'cumple' : ''}`}>
-              {tieneMinimo ? <CheckCircle2 size={18} /> : <XCircle size={18} />} Al menos 8 caracteres
+            <div className={`criterio-item ${password.length >= 8 ? 'cumple' : ''}`}>
+              {password.length >= 8 ? <CheckCircle2 size={18} /> : <XCircle size={18} />} Al menos 8 caracteres
             </div>
-            <div className={`criterio-item ${tieneMayuscula ? 'cumple' : ''}`}>
-              {tieneMayuscula ? <CheckCircle2 size={18} /> : <XCircle size={18} />} Una letra mayúscula
+            <div className={`criterio-item ${/[A-Z]/.test(password) ? 'cumple' : ''}`}>
+              {/[A-Z]/.test(password) ? <CheckCircle2 size={18} /> : <XCircle size={18} />} Una mayúscula
             </div>
-            <div className={`criterio-item ${tieneNumero ? 'cumple' : ''}`}>
-              {tieneNumero ? <CheckCircle2 size={18} /> : <XCircle size={18} />} Un número
+            <div className={`criterio-item ${/[a-z]/.test(password) ? 'cumple' : ''}`}>
+              {/[a-z]/.test(password) ? <CheckCircle2 size={18} /> : <XCircle size={18} />} Una minúscula
             </div>
-            <div className={`criterio-item ${tieneSimbolo ? 'cumple' : ''}`}>
-              {tieneSimbolo ? <CheckCircle2 size={18} /> : <XCircle size={18} />} Un símbolo (@, $, !, %, etc.)
+            <div className={`criterio-item ${/[0-9]/.test(password) ? 'cumple' : ''}`}>
+              {/[0-9]/.test(password) ? <CheckCircle2 size={18} /> : <XCircle size={18} />} Un número
+            </div>
+            <div className={`criterio-item ${/[^A-Za-z0-9]/.test(password) ? 'cumple' : ''}`}>
+              {/[^A-Za-z0-9]/.test(password) ? <CheckCircle2 size={18} /> : <XCircle size={18} />} Un símbolo (@, $, !, %)
+            </div>
+            <div className={`criterio-item ${password.length >= 12 ? 'cumple' : ''}`}>
+              {password.length >= 12 ? <CheckCircle2 size={18} /> : <XCircle size={18} />} 12+ caracteres (ideal)
             </div>
           </div>
         </section>
 
-        {/* SECCIÓN 3: QUIZ */}
-        <section className="bloque-modulo-tarjeta">
+        {/* SECCIÓN 3: CHECKLIST DE BUENAS PRÁCTICAS */}
+        <section className="bloque-modulo-tarjeta diagnostico-caja">
           <div className="encabezado-bloque">
-            <HelpCircle className="icono-bloque-amarillo" size={24} />
-            <h2>3. Evaluación Diagnóstica</h2>
+            <ListChecks className="icono-bloque-verde" size={24} />
+            <h2>3. Checklist de Protección de Cuentas</h2>
           </div>
-          <p className="texto-lectura-modulo">
-            <strong>Pregunta:</strong> Acabas de crear una cuenta nueva y te piden una contraseña. ¿Cuál de las siguientes opciones es la más segura?
+          <p className="subtitulo-bloque">
+            Marca las prácticas que ya realizas:
           </p>
 
-          <div className="opciones-quiz-modulo">
-            <button
-              className={`opcion-quiz-btn ${respuestaQuiz === 1 ? 'incorrecta' : ''}`}
-              onClick={() => setRespuestaQuiz(1)}
-            >
-              A) "JuanPerez2010" (Tu nombre y año de nacimiento).
-            </button>
-            <button
-              className={`opcion-quiz-btn ${respuestaQuiz === 2 ? 'correcta' : ''}`}
-              onClick={() => setRespuestaQuiz(2)}
-            >
-              B) "MeGustaComerArepa_15!" (Una frase aleatoria con un número y símbolo).
-            </button>
+          <div className="lista-habitos-interactiva">
+            {HABITOS_CONTRASENA_1RO.map((habito) => (
+              <div
+                key={habito.id}
+                className={`item-habito-check ${habitosComprobados[habito.id] ? 'activo' : ''}`}
+                onClick={() => toggleHabito(habito.id)}
+              >
+                <input
+                  type="checkbox"
+                  checked={!!habitosComprobados[habito.id]}
+                  onChange={() => {}}
+                  className="checkbox-custom"
+                />
+                <div className="info-item-habito">
+                  <span className="categoria-badge-mini">{habito.categoria}</span>
+                  <p className="texto-habito">{habito.texto}</p>
+                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                </div>
+              </div>
+            ))}
           </div>
 
-          {respuestaQuiz === 2 && (
-            <div className="feedback-quiz correcto">
-              ✅ <strong>¡Correcto!</strong> Usar frases sin sentido para otros (Passphrases) combinadas con símbolos y números es la mejor estrategia contra los ataques de adivinación (Fuerza Bruta).
+          <div className="resultado-diagnostico-bar">
+            <div className="info-porcentaje">
+              <strong>Protección de Cuentas: {porcentajeHabitos}%</strong>
+              <span>({habitosCompletados} de {totalHabitos} buenas prácticas)</span>
             </div>
-          )}
+            <div className="barra-fondo-diagnostico">
+              <div className="barra-relleno-diagnostico" style={{ width: `${porcentajeHabitos}%` }}></div>
+            </div>
+            {porcentajeHabitos === 100 ? (
+              <div className="mensaje-resultado excelente">
+                🏆 ¡Excelente! Eres un guardián de tus cuentas.
+              </div>
+            ) : (
+              <div className="mensaje-resultado inicial">
+                💡 Completa todas las prácticas para tener la máxima protección.
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* SECCIÓN 4: VIDEOS EDUCATIVOS */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <Video className="icono-bloque-amarillo" size={24} />
+            <h2>4. Videos para Aprender Más</h2>
+          </div>
+          <p className="texto-lectura-modulo">
+            Mira estos videos cortos para reforzar lo aprendido:
+          </p>
+
+          <div className="videos-grid">
+            {videos.map(video => (
+              <div key={video.id} className="video-card">
+                <h3 className="video-titulo">{video.titulo}</h3>
+                <div className="video-wrapper">
+                  <iframe
+                    src={video.url}
+                    title={video.titulo}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <p className="video-descripcion">{video.descripcion}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SECCIÓN 5: QUIZ FINAL */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <HelpCircle className="icono-bloque-azul" size={24} />
+            <h2>5. Evaluación Final</h2>
+          </div>
+          <p className="texto-lectura-modulo">
+            Demuestra lo aprendido respondiendo estas preguntas.
+          </p>
+
+          <div className="quiz-container">
+            {preguntasQuiz.map(pregunta => (
+              <div key={pregunta.id} className="pregunta-quiz">
+                <h3 className="pregunta-titulo">{pregunta.id}. {pregunta.pregunta}</h3>
+                <div className="opciones-quiz-modulo">
+                  {pregunta.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-quiz-btn ${respuestasQuiz[pregunta.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderPreguntaQuiz(pregunta.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {quizEnviado && respuestasQuiz[pregunta.id] !== undefined && (
+                  <div className={`feedback-quiz-item ${respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? 'correcto' : 'incorrecto'}`}>
+                    {respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? (
+                      <CheckCircle2 size={18} />
+                    ) : (
+                      <XCircle size={18} />
+                    )}
+                    <span>{pregunta.explicacion}</span>
+                  </div>
+                )}
+              </div>
+            ))}
+
+            <div className="acciones-quiz">
+              <button
+                className="boton-enviar-quiz"
+                onClick={enviarQuiz}
+                disabled={quizEnviado}
+              >
+                Enviar respuestas
+              </button>
+              {puntajeQuiz && (
+                <div className="resultado-quiz">
+                  <Award size={24} className="icono-premio" />
+                  <p>
+                    Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
         </section>
       </div>
     </main>

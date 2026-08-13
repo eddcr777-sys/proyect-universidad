@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Wifi,
   Bluetooth,
@@ -6,37 +6,34 @@ import {
   CheckCircle2,
   Sparkles,
   HelpCircle,
-  ShieldAlert
+  ShieldAlert,
+  ShieldCheck,
+  XCircle,
+  Award
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
-import '../1ro/AuditoriaDigital1ro.css'; // Reutilizamos los estilos base
-
-interface Habito2do {
-  id: string;
-  texto: string;
-  categoria: string;
-  enfoque: string;
-}
-
-const HABITOS_2DO: Habito2do[] = [
-  { id: '1', texto: 'Tengo desactivado el Wi-Fi y el Bluetooth cuando salgo de mi casa y no los estoy usando.', categoria: 'Conexiones', enfoque: 'Evita conexiones automáticas a redes maliciosas.' },
-  { id: '2', texto: 'Nunca realizo compras ni inicio sesión en redes sociales estando conectado a un Wi-Fi público (plazas, cafés).', categoria: 'Redes Abiertas', enfoque: 'Las redes sin contraseña permiten a otros interceptar lo que envías.' },
-  { id: '3', texto: 'He revisado la lista de "Dispositivos conectados" en mi cuenta de Google/redes y he borrado los que no reconozco.', categoria: 'Cuentas', enfoque: 'Asegura que nadie más tenga acceso a tus sesiones activas.' },
-];
+import { useAuditoria2do, HABITOS_2DO } from '../../../../hooks/HooksAuditoria/useAuditoria2do';
+import '../1ro/AuditoriaDigital1ro.css';
+import './AuditoriaDigital2do.css';
 
 export const AuditoriaDigital2do: React.FC = () => {
-  const [comprobados, setComprobados] = useState<Record<string, boolean>>({});
-  const [respuestaQuiz, setRespuestaQuiz] = useState<number | null>(null);
-
-  const toggleHabito = (id: string) => {
-    setComprobados(prev => ({
-      ...prev,
-      [id]: !prev[id]
-    }));
-  };
-
-  const totalComprobados = Object.values(comprobados).filter(Boolean).length;
-  const porcentaje = Math.round((totalComprobados / HABITOS_2DO.length) * 100);
+  const {
+    habitosComprobados,
+    toggleHabito,
+    totalHabitos,
+    habitosCompletados,
+    porcentajeHabitos,
+    escenarios,
+    respuestasEscenario,
+    responderEscenario,
+    escenarioEvaluado,
+    preguntasQuiz,
+    respuestasQuiz,
+    responderPreguntaQuiz,
+    enviarQuiz,
+    puntajeQuiz,
+    quizEnviado
+  } = useAuditoria2do();
 
   return (
     <main className="pagina-modulo-auditoria">
@@ -46,25 +43,25 @@ export const AuditoriaDigital2do: React.FC = () => {
         titulo="Auditoría de Redes y Dispositivos Vinculados"
         subTitulo="Conectarse a redes Wi-Fi públicas sin contraseña expone tus datos a miradas indiscretas. Aprende a conectarte de forma segura en 2do Año."
         categoria="Auditoría e Higiene"
-        tiempoEstimado="40 min"
+        tiempoEstimado="45 min"
         icono={<Wifi size={36} />}
       />
 
       <div className="contenedor-auditoria-contenido">
-        {/* SECCIÓN 1: CONCEPTOS */}
+        {/* ========== SECCIÓN 1: TEORÍA AMPLIADA ========== */}
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. Peligros de las Conexiones Invisibles</h2>
+            <h2>1. Los peligros de las conexiones invisibles</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Nuestro teléfono se comunica constantemente con el mundo exterior. A veces, si no somos cuidadosos, se conecta a redes o dispositivos que pueden intentar extraer nuestra información personal.
+            Nuestro celular se comunica constantemente con el mundo exterior. A veces, si no somos cuidadosos, se conecta a redes o dispositivos que pueden intentar extraer nuestra información personal. La seguridad de tus conexiones es tan importante como la de tu propia casa.
           </p>
 
           <div className="grid-pilares-higiene">
             <div className="caja-pilar-higiene">
               <Wifi className="icono-pilar rojo" size={28} />
-              <h3>Wi-Fi Públicas Abiertas</h3>
+              <h3>Wi‑Fi Públicas Abiertas</h3>
               <p>Las redes de plazas o aeropuertos sin clave no cifran tu información. Un ciberdelincuente conectado a la misma red puede "escuchar" todo lo que envías.</p>
             </div>
 
@@ -79,14 +76,81 @@ export const AuditoriaDigital2do: React.FC = () => {
               <h3>Sesiones Vinculadas</h3>
               <p>Muchos servicios te permiten ver en qué otros celulares o computadoras está abierta tu cuenta. Debes revisar esta lista frecuentemente.</p>
             </div>
+
+            <div className="caja-pilar-higiene">
+              <ShieldCheck className="icono-pilar morado" size={28} />
+              <h3>VPN (Red Privada Virtual)</h3>
+              <p>Una VPN crea un túnel cifrado para todo tu tráfico. Es la mejor defensa cuando usas redes que no son de confianza.</p>
+            </div>
+          </div>
+
+          <div className="conceptos-clave-grid">
+            <h3 className="titulo-mini-seccion">Conceptos Clave</h3>
+            <div className="lista-conceptos">
+              <div className="item-concepto">
+                <strong>Red abierta:</strong> Aquella que no pide contraseña. Todo el tráfico puede ser capturado por otros usuarios.
+              </div>
+              <div className="item-concepto">
+                <strong>Dirección MAC:</strong> Identificador único de tu dispositivo. Algunos atacantes pueden rastrear tu ubicación por ella.
+              </div>
+              <div className="item-concepto">
+                <strong>Sesión activa:</strong> Cuando inicias sesión en un servicio, queda una "sesión" guardada en ese dispositivo. Puedes cerrarla a distancia.
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* SECCIÓN 2: CHECKLIST DE CONEXIONES */}
-        <section className="bloque-modulo-tarjeta diagnostico-caja">
+        {/* ========== SECCIÓN 2: SIMULADOR DE DECISIONES ========== */}
+        <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <ShieldAlert className="icono-bloque-rojo" size={24} />
-            <h2>2. Checklist de Conexiones Seguras</h2>
+            <h2>2. ¿Qué harías en esta situación?</h2>
+          </div>
+          <p className="texto-lectura-modulo">
+            Lee cada escenario y elige la opción más segura. Recibirás retroalimentación inmediata.
+          </p>
+
+          <div className="escenarios-lista">
+            {escenarios.map(escenario => (
+              <div key={escenario.id} className="escenario-card">
+                <h3 className="escenario-titulo">{escenario.titulo}</h3>
+                <p className="escenario-descripcion">{escenario.descripcion}</p>
+                <div className="opciones-escenario">
+                  {escenario.opciones.map((opcion, idx) => {
+                    const seleccionada = respuestasEscenario[escenario.id] === idx;
+                    const evaluada = escenarioEvaluado[escenario.id] !== undefined;
+                    const correcta = idx === escenario.opcionCorrecta;
+                    return (
+                      <button
+                        key={idx}
+                        className={`opcion-escenario-btn ${seleccionada ? 'seleccionada' : ''}`}
+                        onClick={() => responderEscenario(escenario.id, idx)}
+                      >
+                        {String.fromCharCode(65 + idx)}) {opcion}
+                      </button>
+                    );
+                  })}
+                </div>
+                {escenarioEvaluado[escenario.id] !== undefined && (
+                  <div className={`feedback-escenario ${escenarioEvaluado[escenario.id] ? 'correcto' : 'incorrecto'}`}>
+                    {escenarioEvaluado[escenario.id] ? (
+                      <><CheckCircle2 size={18} /> ¡Bien hecho! </>
+                    ) : (
+                      <><XCircle size={18} /> Atención: </>
+                    )}
+                    {escenario.explicacion}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ========== SECCIÓN 3: CHECKLIST ========== */}
+        <section className="bloque-modulo-tarjeta diagnostico-caja">
+          <div className="encabezado-bloque">
+            <ShieldCheck className="icono-bloque-verde" size={24} />
+            <h2>3. Checklist de Conexiones Seguras</h2>
           </div>
           <p className="subtitulo-bloque">
             Audita tus hábitos de conexión marcando las prácticas que ya realizas:
@@ -96,13 +160,13 @@ export const AuditoriaDigital2do: React.FC = () => {
             {HABITOS_2DO.map((habito) => (
               <div
                 key={habito.id}
-                className={`item-habito-check ${comprobados[habito.id] ? 'activo' : ''}`}
+                className={`item-habito-check ${habitosComprobados[habito.id] ? 'activo' : ''}`}
                 onClick={() => toggleHabito(habito.id)}
               >
                 <input
                   type="checkbox"
-                  checked={!!comprobados[habito.id]}
-                  onChange={() => { }}
+                  checked={!!habitosComprobados[habito.id]}
+                  onChange={() => {}}
                   className="checkbox-custom"
                 />
                 <div className="info-item-habito">
@@ -116,54 +180,81 @@ export const AuditoriaDigital2do: React.FC = () => {
 
           <div className="resultado-diagnostico-bar">
             <div className="info-porcentaje">
-              <strong>Seguridad de Conexión: {porcentaje}%</strong>
-              <span>({totalComprobados} de {HABITOS_2DO.length} verificaciones)</span>
+              <strong>Seguridad de Conexión: {porcentajeHabitos}%</strong>
+              <span>({habitosCompletados} de {totalHabitos} verificaciones)</span>
             </div>
             <div className="barra-fondo-diagnostico">
-              <div className="barra-relleno-diagnostico" style={{ width: `${porcentaje}%` }}></div>
+              <div className="barra-relleno-diagnostico" style={{ width: `${porcentajeHabitos}%` }}></div>
             </div>
-            {porcentaje === 100 ? (
+            {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
                 🏆 ¡Genial! Tus conexiones están bien controladas.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Desactiva el Wi-Fi cuando salgas de casa para protegerte de redes falsas.
+                💡 Completa todas las prácticas para maximizar tu seguridad en redes.
               </div>
             )}
           </div>
         </section>
 
-        {/* SECCIÓN 3: QUIZ */}
+        {/* ========== SECCIÓN 4: QUIZ ========== */}
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <HelpCircle className="icono-bloque-amarillo" size={24} />
-            <h2>3. Evaluación Diagnóstica</h2>
+            <h2>4. Evaluación Final</h2>
           </div>
           <p className="texto-lectura-modulo">
-            <strong>Pregunta:</strong> Estás en una cafetería y necesitas revisar un mensaje urgente en tu correo, pero no tienes datos móviles. La cafetería tiene un Wi-Fi gratuito sin contraseña. ¿Qué precaución debes tomar?
+            Demuestra lo que aprendiste respondiendo estas preguntas.
           </p>
 
-          <div className="opciones-quiz-modulo">
-            <button
-              className={`opcion-quiz-btn ${respuestaQuiz === 1 ? 'correcta' : ''}`}
-              onClick={() => setRespuestaQuiz(1)}
-            >
-              A) Evitar iniciar sesión o escribir contraseñas, ya que la red abierta no es segura y alguien podría interceptar los datos.
-            </button>
-            <button
-              className={`opcion-quiz-btn ${respuestaQuiz === 2 ? 'incorrecta' : ''}`}
-              onClick={() => setRespuestaQuiz(2)}
-            >
-              B) Conectarte y hacer lo que necesites rápido; como es un lugar público, la red seguro está protegida por los dueños.
-            </button>
-          </div>
+          <div className="quiz-container">
+            {preguntasQuiz.map(pregunta => (
+              <div key={pregunta.id} className="pregunta-quiz">
+                <h3 className="pregunta-titulo">{pregunta.id}. {pregunta.pregunta}</h3>
+                <div className="opciones-quiz-modulo">
+                  {pregunta.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-quiz-btn ${respuestasQuiz[pregunta.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderPreguntaQuiz(pregunta.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {quizEnviado && respuestasQuiz[pregunta.id] !== undefined && (
+                  <div className={`feedback-quiz-item ${respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? 'correcto' : 'incorrecto'}`}>
+                    {respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? (
+                      <CheckCircle2 size={18} />
+                    ) : (
+                      <XCircle size={18} />
+                    )}
+                    <span>{pregunta.explicacion}</span>
+                  </div>
+                )}
+              </div>
+            ))}
 
-          {respuestaQuiz === 1 && (
-            <div className="feedback-quiz correcto">
-              ✅ <strong>¡Correcto!</strong> Las redes abiertas envían tu información "en texto claro". Es mejor esperar a tener datos o usar una red segura con contraseña conocida para iniciar sesiones.
+            <div className="acciones-quiz">
+              <button
+                className="boton-enviar-quiz"
+                onClick={enviarQuiz}
+                disabled={quizEnviado}
+              >
+                Enviar respuestas
+              </button>
+              {puntajeQuiz && (
+                <div className="resultado-quiz">
+                  <Award size={24} className="icono-premio" />
+                  <p>
+                    Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                  </p>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </section>
       </div>
     </main>

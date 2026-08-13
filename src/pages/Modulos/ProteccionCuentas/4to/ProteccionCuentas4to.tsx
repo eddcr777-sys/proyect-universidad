@@ -1,165 +1,306 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  Fingerprint,
-  ScanFace,
-  KeySquare,
-  CheckCircle2,
-  XCircle,
+  Key,
+  ShieldCheck,
+  ShieldAlert,
   Sparkles,
   HelpCircle,
-  Settings
+  CheckCircle2,
+  XCircle,
+  Award,
+  Video,
+  ListChecks,
+  Hash,
+  Lock,
+  Code,
+  TerminalSquare
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
-import '../1ro/ProteccionCuentas1ro.css'; // Reutilizamos estilos base
+import { useProteccionCuentas4to, HABITOS_CUENTAS_4TO } from '../../../../hooks/HooksProteccionCuentas/useProteccionCuentas4to';
+import './ProteccionCuentas4to.css';
 
 export const ProteccionCuentas4to: React.FC = () => {
-  const [pasoBiometria, setPasoBiometria] = useState(0); // 0: Inicial, 1: Escaneando, 2: Passkey Generada
-  const [respuestaQuiz, setRespuestaQuiz] = useState<number | null>(null);
-
-  const simularBiometria = () => {
-    setPasoBiometria(1);
-    setTimeout(() => {
-      setPasoBiometria(2);
-    }, 2000);
-  };
-
-  const reiniciar = () => {
-    setPasoBiometria(0);
-  };
+  const {
+    habitosComprobados,
+    toggleHabito,
+    totalHabitos,
+    habitosCompletados,
+    porcentajeHabitos,
+    escenarios,
+    respuestasEscenario,
+    responderEscenario,
+    resultadoEscenario,
+    hashes,
+    respuestasHash,
+    evaluarHash,
+    resultadoHash,
+    videos,
+    preguntasQuiz,
+    respuestasQuiz,
+    responderPreguntaQuiz,
+    enviarQuiz,
+    puntajeQuiz,
+    quizEnviado
+  } = useProteccionCuentas4to();
 
   return (
-    <main className="pagina-modulo-proteccion">
+    <main className="pagina-modulo-proteccion-4to">
       <HeaderModulo
         grado="4to"
-        modulo="4: Biometría y Passkeys"
-        titulo="El Futuro sin Contraseñas"
-        subTitulo="Analiza los métodos de autenticación sin contraseña (Passkeys), huella dactilar y reconocimiento facial en dispositivos móviles para 4to Año."
+        modulo="4: Hash, Salt y Auditoría de Contraseñas"
+        titulo="Almacenamiento Seguro y Ataques de Fuerza Bruta"
+        subTitulo="Aprende cómo se guardan las contraseñas de forma segura (hash y salt), cómo funcionan los ataques de fuerza bruta y cómo auditar éticamente."
         categoria="Protección de Cuentas y Accesos"
-        tiempoEstimado="40 min"
-        icono={<ScanFace size={36} />}
+        tiempoEstimado="55 min"
+        icono={<Hash size={36} />}
       />
 
       <div className="contenedor-proteccion-contenido">
-        {/* SECCIÓN 1: CONCEPTOS */}
+        {/* SECCIÓN 1: TEORÍA */}
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. Más allá de las Contraseñas</h2>
+            <h2>1. ¿Cómo se almacenan las contraseñas de forma segura?</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Las contraseñas pueden olvidarse o ser robadas mediante Phishing. Por eso, los expertos en ciberseguridad crearon los <strong>Passkeys</strong> (Llaves de acceso), un sistema que usa la biometría de tu teléfono para iniciar sesión de manera segura.
+            Las contraseñas NUNCA deben guardarse en texto plano. En su lugar, se utiliza una <strong>función hash</strong>: un algoritmo que convierte la contraseña en una cadena única e irreversible. Además, se añade un <strong>salt</strong> (cadena aleatoria) para que dos usuarios con la misma contraseña tengan hashes diferentes.
           </p>
 
           <div className="grid-pilares-proteccion">
             <div className="caja-pilar-proteccion">
-              <Fingerprint className="icono-pilar verde" size={28} />
-              <h3>Biometría Local</h3>
-              <p>Tu huella o rostro nunca viajan por internet. El teléfono las revisa localmente y le dice a la página web: "Sí, es el dueño".</p>
+              <Lock className="icono-pilar rojo" size={28} />
+              <h3>Ataques de Fuerza Bruta y Diccionario</h3>
+              <p><strong>Fuerza bruta:</strong> probar todas las combinaciones posibles. <strong>Diccionario:</strong> usar listas de contraseñas comunes. Los hash lentos (bcrypt, Argon2) hacen estos ataques inviables.</p>
             </div>
 
             <div className="caja-pilar-proteccion">
-              <KeySquare className="icono-pilar azul" size={28} />
-              <h3>Passkeys (Criptografía)</h3>
-              <p>Una llave matemática única generada entre tu dispositivo y el sitio web. Es inmune al Phishing porque solo funciona en el sitio real.</p>
-            </div>
-
-            <div className="caja-pilar-proteccion">
-              <Settings className="icono-pilar rojo" size={28} />
-              <h3>Desvincular Apps</h3>
-              <p>Aprender a revisar qué aplicaciones de terceros (Juegos, Tests de personalidad) tienen permiso para leer tus datos de cuenta.</p>
+              <TerminalSquare className="icono-pilar verde" size={28} />
+              <h3>Herramientas de Auditoría</h3>
+              <p>John the Ripper y Hashcat son las más usadas para probar la fortaleza de contraseñas. <strong>Solo se usan en laboratorios propios o con autorización.</strong></p>
             </div>
           </div>
         </section>
 
-        {/* SECCIÓN 2: SIMULADOR PASSKEYS */}
+        {/* SECCIÓN 2: CLASIFICA EL HASH */}
         <section className="bloque-modulo-tarjeta interactivo-caja">
           <div className="encabezado-bloque">
-            <ScanFace className="icono-bloque-azul" size={24} />
-            <h2>2. Simulador: Creación de Passkey</h2>
+            <Code className="icono-bloque-verde" size={24} />
+            <h2>2. Laboratorio: ¿Hash Seguro o Inseguro?</h2>
           </div>
           <p className="subtitulo-bloque">
-            Experimenta cómo iniciarías sesión en un sitio moderno usando tu sensor biométrico en lugar de escribir una contraseña.
+            Observa cada hash y su algoritmo. Determina si es seguro para almacenar contraseñas:
           </p>
 
-          <div style={{ backgroundColor: '#f8fafc', padding: '2rem', borderRadius: 'var(--radio-principal)', border: '1px solid var(--color-borde)', textAlign: 'center' }}>
-            {pasoBiometria === 0 && (
-              <div>
-                <KeySquare size={48} color="var(--color-texto-secundario)" style={{ marginBottom: '1rem' }} />
-                <h3>Configurar inicio de sesión rápido</h3>
-                <p style={{ color: 'var(--color-texto-secundario)', marginBottom: '1.5rem' }}>
-                  Usa tu huella digital, rostro o bloqueo de pantalla para iniciar sesión en "LiceoVirtual" sin contraseñas.
-                </p>
-                <button onClick={simularBiometria} className="btn-decision seguro" style={{ fontSize: '1.1rem' }}>
-                  Crear Passkey
-                </button>
-              </div>
-            )}
-
-            {pasoBiometria === 1 && (
-              <div>
-                <Fingerprint size={64} color="var(--color-ciber-primario)" style={{ marginBottom: '1rem', animation: 'pulse 1.5s infinite' }} />
-                <h3>Escaneando biometría...</h3>
-                <p style={{ color: 'var(--color-texto-secundario)' }}>Verificando identidad en el dispositivo.</p>
-              </div>
-            )}
-
-            {pasoBiometria === 2 && (
-              <div>
-                <CheckCircle2 size={64} color="var(--color-ciber-secundario)" style={{ marginBottom: '1rem' }} />
-                <h3 style={{ color: 'var(--color-ciber-secundario)' }}>Passkey Creado Exitosamente</h3>
-                <p style={{ color: 'var(--color-texto-secundario)', marginBottom: '1.5rem' }}>
-                  Tu dispositivo ha generado un par de claves criptográficas. La llave privada nunca salió de tu equipo.
-                </p>
-                <div style={{ backgroundColor: '#fff', padding: '1rem', fontFamily: 'monospace', color: '#64748b', wordBreak: 'break-all', marginBottom: '1.5rem', border: '1px solid #e2e8f0' }}>
-                  0x7A9B3C...[Llave Pública registrada en el Servidor]
+          <div className="hashes-lista">
+            {hashes.map(hash => (
+              <div key={hash.id} className="hash-card">
+                <div className="hash-info">
+                  <span className="badge-algoritmo">{hash.tipo}</span>
+                  <code className="hash-texto">{hash.hash}</code>
                 </div>
-                <button onClick={reiniciar} className="btn-decision">
-                  Reiniciar Simulador
-                </button>
+                <div className="acciones-decision-phishing">
+                  <button
+                    className={`btn-decision seguro ${respuestasHash[hash.id] === true ? 'seleccionado' : ''}`}
+                    onClick={() => evaluarHash(hash.id, true)}
+                  >
+                    <ShieldCheck size={18} /> Seguro
+                  </button>
+                  <button
+                    className={`btn-decision phishing ${respuestasHash[hash.id] === false ? 'seleccionado' : ''}`}
+                    onClick={() => evaluarHash(hash.id, false)}
+                  >
+                    <ShieldAlert size={18} /> Inseguro
+                  </button>
+                </div>
+                {resultadoHash[hash.id] !== undefined && (
+                  <div className={`feedback-decision ${resultadoHash[hash.id] ? 'acierto' : 'fallo'}`}>
+                    <div className="flex-resultado">
+                      {resultadoHash[hash.id] ? (
+                        <CheckCircle2 size={18} className="icono-acierto" />
+                      ) : (
+                        <XCircle size={18} className="icono-fallo" />
+                      )}
+                      <span>{hash.explicacion}</span>
+                    </div>
+                  </div>
+                )}
               </div>
-            )}
+            ))}
           </div>
         </section>
 
-        {/* SECCIÓN 3: QUIZ */}
+        {/* SECCIÓN 3: ESCENARIOS */}
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
-            <HelpCircle className="icono-bloque-amarillo" size={24} />
-            <h2>3. Evaluación Diagnóstica</h2>
+            <ShieldCheck className="icono-bloque-verde" size={24} />
+            <h2>3. Decisiones sobre Almacenamiento y Auditoría</h2>
           </div>
-          <p className="texto-lectura-modulo">
-            <strong>Pregunta:</strong> Cuando utilizas tu huella dactilar para iniciar sesión en una aplicación bancaria a través de un Passkey, ¿A dónde se envía la imagen de tu huella dactilar?
+
+          <div className="escenarios-lista">
+            {escenarios.map(escenario => (
+              <div key={escenario.id} className="escenario-card">
+                <h3 className="escenario-titulo">{escenario.titulo}</h3>
+                <p className="escenario-descripcion">{escenario.descripcion}</p>
+                <div className="opciones-escenario">
+                  {escenario.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-escenario-btn ${respuestasEscenario[escenario.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderEscenario(escenario.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {resultadoEscenario[escenario.id] !== undefined && (
+                  <div className={`feedback-escenario ${resultadoEscenario[escenario.id] ? 'correcto' : 'incorrecto'}`}>
+                    {resultadoEscenario[escenario.id] ? (
+                      <><CheckCircle2 size={18} /> ¡Correcto! </>
+                    ) : (
+                      <><XCircle size={18} /> Atención: </>
+                    )}
+                    {escenario.explicacion}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SECCIÓN 4: CHECKLIST */}
+        <section className="bloque-modulo-tarjeta diagnostico-caja">
+          <div className="encabezado-bloque">
+            <ListChecks className="icono-bloque-verde" size={24} />
+            <h2>4. Checklist de Conocimientos en Hash y Auditoría</h2>
+          </div>
+          <p className="subtitulo-bloque">
+            Marca los conceptos que ya dominas:
           </p>
 
-          <div className="opciones-quiz-modulo">
-            <button
-              className={`opcion-quiz-btn ${respuestaQuiz === 1 ? 'incorrecta' : ''}`}
-              onClick={() => setRespuestaQuiz(1)}
-            >
-              A) Se envía a los servidores del banco para que ellos comprueben que eres tú.
-            </button>
-            <button
-              className={`opcion-quiz-btn ${respuestaQuiz === 2 ? 'correcta' : ''}`}
-              onClick={() => setRespuestaQuiz(2)}
-            >
-              B) A ninguna parte. El teléfono verifica la huella de forma local y solo envía un mensaje de "Aprobado" (junto con la llave criptográfica) al banco.
-            </button>
+          <div className="lista-habitos-interactiva">
+            {HABITOS_CUENTAS_4TO.map((habito) => (
+              <div
+                key={habito.id}
+                className={`item-habito-check ${habitosComprobados[habito.id] ? 'activo' : ''}`}
+                onClick={() => toggleHabito(habito.id)}
+              >
+                <input
+                  type="checkbox"
+                  checked={!!habitosComprobados[habito.id]}
+                  onChange={() => {}}
+                  className="checkbox-custom"
+                />
+                <div className="info-item-habito">
+                  <span className="categoria-badge-mini">{habito.categoria}</span>
+                  <p className="texto-habito">{habito.texto}</p>
+                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                </div>
+              </div>
+            ))}
           </div>
 
-          {respuestaQuiz === 2 && (
-            <div className="feedback-quiz correcto">
-              ✅ <strong>¡Correcto!</strong> La biometría es segura precisamente porque los datos físicos de tu huella o rostro nunca abandonan el chip de seguridad (Secure Enclave) de tu dispositivo.
+          <div className="resultado-diagnostico-bar">
+            <div className="info-porcentaje">
+              <strong>Dominio del Tema: {porcentajeHabitos}%</strong>
+              <span>({habitosCompletados} de {totalHabitos} conceptos)</span>
             </div>
-          )}
+            <div className="barra-fondo-diagnostico">
+              <div className="barra-relleno-diagnostico" style={{ width: `${porcentajeHabitos}%` }}></div>
+            </div>
+            {porcentajeHabitos === 100 ? (
+              <div className="mensaje-resultado excelente">
+                🏆 ¡Excelente! Tienes una comprensión sólida de la seguridad de contraseñas.
+              </div>
+            ) : (
+              <div className="mensaje-resultado inicial">
+                💡 Repasa los conceptos para completar tu formación.
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* SECCIÓN 5: VIDEOS */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <Video className="icono-bloque-amarillo" size={24} />
+            <h2>5. Videos para Aprender Más</h2>
+          </div>
+
+          <div className="videos-grid">
+            {videos.map(video => (
+              <div key={video.id} className="video-card">
+                <h3 className="video-titulo">{video.titulo}</h3>
+                <div className="video-wrapper">
+                  <iframe
+                    src={video.url}
+                    title={video.titulo}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <p className="video-descripcion">{video.descripcion}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SECCIÓN 6: QUIZ */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <HelpCircle className="icono-bloque-azul" size={24} />
+            <h2>6. Evaluación Final</h2>
+          </div>
+
+          <div className="quiz-container">
+            {preguntasQuiz.map(pregunta => (
+              <div key={pregunta.id} className="pregunta-quiz">
+                <h3 className="pregunta-titulo">{pregunta.id}. {pregunta.pregunta}</h3>
+                <div className="opciones-quiz-modulo">
+                  {pregunta.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-quiz-btn ${respuestasQuiz[pregunta.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderPreguntaQuiz(pregunta.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {quizEnviado && respuestasQuiz[pregunta.id] !== undefined && (
+                  <div className={`feedback-quiz-item ${respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? 'correcto' : 'incorrecto'}`}>
+                    {respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? (
+                      <CheckCircle2 size={18} />
+                    ) : (
+                      <XCircle size={18} />
+                    )}
+                    <span>{pregunta.explicacion}</span>
+                  </div>
+                )}
+              </div>
+            ))}
+
+            <div className="acciones-quiz">
+              <button
+                className="boton-enviar-quiz"
+                onClick={enviarQuiz}
+                disabled={quizEnviado}
+              >
+                Enviar respuestas
+              </button>
+              {puntajeQuiz && (
+                <div className="resultado-quiz">
+                  <Award size={24} className="icono-premio" />
+                  <p>
+                    Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
         </section>
       </div>
-      <style>{`
-        @keyframes pulse {
-          0% { transform: scale(1); opacity: 1; }
-          50% { transform: scale(1.1); opacity: 0.7; }
-          100% { transform: scale(1); opacity: 1; }
-        }
-      `}</style>
     </main>
   );
 };

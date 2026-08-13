@@ -1,3 +1,211 @@
-.auditoriadigital-contenedor {
-  padding: 20px;
+
+/* Estilos para el simulador de decisiones */
+.escenarios-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.escenario-card {
+  background-color: var(--color-fondo-variante);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-principal);
+  padding: 1.5rem;
+}
+
+.escenario-titulo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem 0;
+  color: var(--color-texto-principal);
+}
+
+.escenario-descripcion {
+  font-size: 0.95rem;
+  color: var(--color-texto-secundario);
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+}
+
+.opciones-escenario {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.opcion-escenario-btn {
+  text-align: left;
+  background-color: var(--color-fondo);
+  border: 1px solid var(--color-borde);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radio-principal);
+  font-size: 0.95rem;
+  color: var(--color-texto-principal);
+  cursor: pointer;
+  transition: all var(--transicion-rapida);
+}
+
+.opcion-escenario-btn:hover {
+  border-color: var(--color-ciber-primario);
+}
+
+.opcion-escenario-btn.seleccionada {
+  background-color: rgba(2, 132, 199, 0.1);
+  border-color: var(--color-ciber-primario);
+  font-weight: 600;
+}
+
+.feedback-escenario {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: var(--radio-principal);
+  font-size: 0.9rem;
+}
+
+.feedback-escenario.correcto {
+  background-color: rgba(5, 150, 105, 0.1);
+  color: var(--color-ciber-secundario);
+  border: 1px solid var(--color-ciber-secundario);
+}
+
+.feedback-escenario.incorrecto {
+  background-color: rgba(220, 38, 38, 0.1);
+  color: var(--color-ciber-alerta);
+  border: 1px solid var(--color-ciber-alerta);
+}
+
+/* Estilos para el quiz (ya vienen de 1ro, se reutilizan) */
+/* Aseguramos que existan las clases necesarias */
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.pregunta-quiz {
+  background-color: var(--color-fondo-variante);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-principal);
+  padding: 1.5rem;
+}
+
+.pregunta-titulo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+}
+
+.opciones-quiz-modulo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.opcion-quiz-btn {
+  text-align: left;
+  background-color: var(--color-fondo);
+  border: 1px solid var(--color-borde);
+  padding: 0.8rem 1.25rem;
+  border-radius: var(--radio-principal);
+  font-size: 0.95rem;
+  color: var(--color-texto-principal);
+  cursor: pointer;
+  transition: all var(--transicion-rapida);
+}
+
+.opcion-quiz-btn:hover {
+  border-color: var(--color-ciber-primario);
+}
+
+.opcion-quiz-btn.seleccionada {
+  background-color: rgba(2, 132, 199, 0.1);
+  border-color: var(--color-ciber-primario);
+  font-weight: 600;
+}
+
+.feedback-quiz-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: var(--radio-principal);
+  font-size: 0.9rem;
+}
+
+.feedback-quiz-item.correcto {
+  background-color: rgba(5, 150, 105, 0.1);
+  color: var(--color-ciber-secundario);
+  border: 1px solid var(--color-ciber-secundario);
+}
+
+.feedback-quiz-item.incorrecto {
+  background-color: rgba(220, 38, 38, 0.1);
+  color: var(--color-ciber-alerta);
+  border: 1px solid var(--color-ciber-alerta);
+}
+
+.acciones-quiz {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.boton-enviar-quiz {
+  padding: 0.75rem 2rem;
+  background-color: var(--color-ciber-primario);
+  color: white;
+  border: none;
+  border-radius: var(--radio-principal);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color var(--transicion-rapida);
+}
+
+.boton-enviar-quiz:hover {
+  background-color: darken(var(--color-ciber-primario), 10%);
+}
+
+.boton-enviar-quiz:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.resultado-quiz {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--color-fondo-variante);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radio-principal);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.icono-premio {
+  color: #f59e0b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .bloque-modulo-tarjeta {
+    padding: 1.5rem;
+  }
+  .grid-pilares-higiene {
+    grid-template-columns: 1fr;
+  }
+  .info-porcentaje {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .acciones-quiz {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
