@@ -10,7 +10,7 @@
 }
 
 .contenedor {
-    max-width: 1450px;
+    max-width: 1650px;
     margin: 0 auto;
     padding: 0  40px;
 }
@@ -23,7 +23,7 @@
 /* --- PORTADA CON VARIABLES INSTITUCIONALES --- */
 .portada-institucional {
   background-color: var(--color-inst-blanco);
-  padding: 0.5rem 1.5rem;
+  padding: 3.2rem 3rem 3.2rem 1rem;
   color: var(--color-inst-texto);
 }
 
