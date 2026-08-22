@@ -1,200 +1,266 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
+  Share2,
+  ShieldCheck,
   ShieldAlert,
-  Smartphone,
-  Mic,
-  Camera,
-  MapPin,
-  CheckCircle2,
-  XCircle,
   Sparkles,
   HelpCircle,
-  ToggleRight
+  CheckCircle2,
+  XCircle,
+  Award,
+  Video,
+  ListChecks,
+  HeartHandshake,
+  MessageSquareOff,
+  UserX
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
-import '../1ro/RedesSociales1ro.css';
+import { useRedesSociales3ro, HABITOS_REDES_3RO } from '../../../../hooks/HooksRedesSociales/useRedesSociales3ro';
+import './RedesSociales3ro.css';
 
 export const RedesSociales3ro: React.FC = () => {
-  // Estado de permisos para la app "Linterna Ultra Flash"
-  const [permisos, setPermisos] = useState({
-    camara: true, // Justificado (usa el flash de la cámara)
-    microfono: true, // Abusivo
-    contactos: true, // Abusivo
-    ubicacion: true // Abusivo
-  });
-  const [respuestaQuiz, setRespuestaQuiz] = useState<number | null>(null);
-
-  const togglePermiso = (clave: keyof typeof permisos) => {
-    setPermisos(prev => ({ ...prev, [clave]: !prev[clave] }));
-  };
-
-  const permisosAbusivosActivos = permisos.microfono || permisos.contactos || permisos.ubicacion;
-  const esConfiguracionPerfecta = permisos.camara && !permisosAbusivosActivos;
+  const {
+    escenarios,
+    respuestasEscenario,
+    responderEscenario,
+    resultadoEscenario,
+    habitosComprobados,
+    toggleHabito,
+    totalHabitos,
+    habitosCompletados,
+    porcentajeHabitos,
+    videos,
+    preguntasQuiz,
+    respuestasQuiz,
+    responderPreguntaQuiz,
+    enviarQuiz,
+    puntajeQuiz,
+    quizEnviado
+  } = useRedesSociales3ro();
 
   return (
-    <main className="pagina-modulo-redes">
+    <main className="pagina-modulo-redes-3ro">
       <HeaderModulo
         grado="3ro"
-        modulo="3: Auditoría de Permisos Móviles"
-        titulo="Si es gratis, el producto eres tú"
-        subTitulo="Analiza por qué aplicaciones simples solicitan acceso a funciones que no necesitan, y aprende a revocar permisos invasivos."
+        modulo="3: Ciberacoso y Reputación Digital"
+        titulo="Construye una Convivencia Digital Sana"
+        subTitulo="Aprende a prevenir el ciberacoso, gestionar comentarios negativos y proteger tu reputación en línea."
         categoria="Redes Sociales e Identidad"
-        tiempoEstimado="45 min"
-        icono={<ShieldAlert size={36} />}
+        tiempoEstimado="55 min"
+        icono={<HeartHandshake size={36} />}
       />
 
       <div className="contenedor-redes-contenido">
-        {/* SECCIÓN 1: CONCEPTOS */}
+        {/* SECCIÓN 1: TEORÍA */}
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. El Negocio de los Datos Personales</h2>
+            <h2>1. Ciberacoso y Reputación Digital</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Muchas aplicaciones de la tienda se ofrecen gratis, pero ganan dinero recolectando y vendiendo tus datos personales a empresas de publicidad. Lo hacen pidiendo "Permisos" abusivos en tu celular.
+            El <strong>ciberacoso</strong> es el uso de medios digitales para hostigar, humillar o amenazar a una persona. Tu <strong>reputación digital</strong> es la imagen que proyectas a través de lo que publicas y compartes. Ambos están conectados: una buena gestión de tu privacidad y de tus interacciones te protege.
           </p>
 
           <div className="grid-pilares-redes">
             <div className="caja-pilar-redes">
-              <ToggleRight className="icono-pilar rojo" size={28} />
-              <h3>Permisos Injustificados</h3>
-              <p>Una app de calculadora no necesita saber tu ubicación GPS. Si lo pide, es para rastrearte y vender esa data.</p>
+              <MessageSquareOff className="icono-pilar rojo" size={28} />
+              <h3>Control de Comentarios</h3>
+              <p>Configura quién puede comentar en tus publicaciones. Restringir o silenciar son herramientas discretas para mantener la paz.</p>
             </div>
 
             <div className="caja-pilar-redes">
-              <Smartphone className="icono-pilar azul" size={28} />
-              <h3>El Producto Eres Tú</h3>
-              <p>Las redes sociales son gratis porque usan todo lo que publicas (y los permisos que les das) para perfilarte y mostrarte anuncios.</p>
+              <UserX className="icono-pilar azul" size={28} />
+              <h3>Bloqueo y Denuncia</h3>
+              <p>Si alguien te acosa, bloquea y denuncia. Guarda evidencia (capturas) antes de eliminar.</p>
             </div>
 
             <div className="caja-pilar-redes">
-              <ShieldAlert className="icono-pilar verde" size={28} />
-              <h3>Revocación (iOS / Android)</h3>
-              <p>Puedes ir a "Ajustes  Privacidad" y apagar el acceso al micrófono y cámara a cualquier app que ya tengas instalada.</p>
+              <HeartHandshake className="icono-pilar verde" size={28} />
+              <h3>Apoyo y Denuncia</h3>
+              <p>Si eres testigo, apoya a la víctima y denuncia ante un adulto. No seas cómplice con el silencio.</p>
             </div>
           </div>
         </section>
 
-        {/* SECCIÓN 2: SIMULADOR DE PERMISOS */}
+        {/* SECCIÓN 2: SIMULADOR DE ESCENARIOS DE CIBERACOSO */}
         <section className="bloque-modulo-tarjeta interactivo-caja">
           <div className="encabezado-bloque">
-            <Smartphone className="icono-bloque-azul" size={24} />
-            <h2>2. Simulador: Ajustes de App SOS</h2>
+            <ShieldCheck className="icono-bloque-verde" size={24} />
+            <h2>2. Decisiones ante el Ciberacoso</h2>
           </div>
           <p className="subtitulo-bloque">
-            Estás auditando los permisos de una aplicación llamada <strong>"Linterna Ultra Flash"</strong>. Apaga (revoca) los permisos que sean excesivos e injustificados para su función.
+            Lee cada situación y elige la acción más correcta:
           </p>
 
-          <div style={{ backgroundColor: '#f8fafc', border: '1px solid var(--color-borde)', borderRadius: 'var(--radio-principal)', padding: '2rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem', paddingBottom: '1rem', borderBottom: '1px solid #cbd5e1' }}>
-              <div style={{ width: '60px', height: '60px', backgroundColor: '#eab308', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontSize: '2rem' }}>🔦</span>
+          <div className="escenarios-lista">
+            {escenarios.map(escenario => (
+              <div key={escenario.id} className="escenario-card">
+                <h3 className="escenario-titulo">{escenario.titulo}</h3>
+                <p className="escenario-descripcion">{escenario.descripcion}</p>
+                <div className="opciones-escenario">
+                  {escenario.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-escenario-btn ${respuestasEscenario[escenario.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderEscenario(escenario.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {resultadoEscenario[escenario.id] !== undefined && (
+                  <div className={`feedback-escenario ${resultadoEscenario[escenario.id] ? 'correcto' : 'incorrecto'}`}>
+                    {resultadoEscenario[escenario.id] ? (
+                      <><CheckCircle2 size={18} /> ¡Correcto! </>
+                    ) : (
+                      <><XCircle size={18} /> Atención: </>
+                    )}
+                    {escenario.explicacion}
+                  </div>
+                )}
               </div>
-              <div>
-                <h3 style={{ margin: 0, fontSize: '1.25rem' }}>Linterna Ultra Flash</h3>
-                <p style={{ margin: 0, color: '#64748b' }}>Permisos de la Aplicación</p>
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              
-              <div className="toggle-row" style={{ backgroundColor: '#fff', border: '1px solid var(--color-borde)', borderRadius: '8px' }} onClick={() => togglePermiso('camara')}>
-                <div className="toggle-info">
-                  <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Camera size={18}/> Cámara</h4>
-                  <p>Permite encender el LED flash de la cámara trasera.</p>
-                </div>
-                <div className={`toggle-switch ${permisos.camara ? 'activo' : ''}`}>
-                  <div className="toggle-thumb"></div>
-                </div>
-              </div>
-
-              <div className="toggle-row" style={{ backgroundColor: '#fff', border: '1px solid var(--color-borde)', borderRadius: '8px' }} onClick={() => togglePermiso('microfono')}>
-                <div className="toggle-info">
-                  <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Mic size={18}/> Micrófono</h4>
-                  <p>Grabar audio en segundo plano.</p>
-                </div>
-                <div className={`toggle-switch ${permisos.microfono ? 'activo' : ''}`}>
-                  <div className="toggle-thumb"></div>
-                </div>
-              </div>
-
-              <div className="toggle-row" style={{ backgroundColor: '#fff', border: '1px solid var(--color-borde)', borderRadius: '8px' }} onClick={() => togglePermiso('contactos')}>
-                <div className="toggle-info">
-                  <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Users size={18}/> Contactos</h4>
-                  <p>Leer tu lista de contactos telefónicos y correos.</p>
-                </div>
-                <div className={`toggle-switch ${permisos.contactos ? 'activo' : ''}`}>
-                  <div className="toggle-thumb"></div>
-                </div>
-              </div>
-
-              <div className="toggle-row" style={{ backgroundColor: '#fff', border: '1px solid var(--color-borde)', borderRadius: '8px' }} onClick={() => togglePermiso('ubicacion')}>
-                <div className="toggle-info">
-                  <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><MapPin size={18}/> Ubicación Precisa</h4>
-                  <p>Obtener ubicación GPS en todo momento.</p>
-                </div>
-                <div className={`toggle-switch ${permisos.ubicacion ? 'activo' : ''}`}>
-                  <div className="toggle-thumb"></div>
-                </div>
-              </div>
-
-            </div>
-
-            <div style={{ marginTop: '2rem', padding: '1rem', backgroundColor: esConfiguracionPerfecta ? 'rgba(16, 185, 129, 0.1)' : 'white', border: `2px solid ${esConfiguracionPerfecta ? '#10b981' : 'transparent'}`, borderRadius: 'var(--radio-principal)', textAlign: 'center' }}>
-              {esConfiguracionPerfecta ? (
-                <div>
-                  <CheckCircle2 color="#10b981" size={48} style={{ margin: '0 auto 0.5rem auto' }}/>
-                  <h3 style={{ color: '#10b981', margin: 0 }}>¡Auditoría Perfecta!</h3>
-                  <p style={{ marginTop: '0.5rem' }}>Dejaste solo el permiso de cámara (necesario para activar el flash) y eliminaste los permisos invasivos.</p>
-                </div>
-              ) : permisosAbusivosActivos ? (
-                <div>
-                  <ShieldAlert color="#ef4444" size={48} style={{ margin: '0 auto 0.5rem auto' }}/>
-                  <h3 style={{ color: '#ef4444', margin: 0 }}>Riesgo de Privacidad</h3>
-                  <p style={{ marginTop: '0.5rem' }}>Una linterna NO necesita tu micrófono, GPS ni contactos. Revoca esos permisos de inmediato.</p>
-                </div>
-              ) : !permisos.camara ? (
-                <div>
-                  <XCircle color="#f59e0b" size={48} style={{ margin: '0 auto 0.5rem auto' }}/>
-                  <h3 style={{ color: '#f59e0b', margin: 0 }}>App Inutilizable</h3>
-                  <p style={{ marginTop: '0.5rem' }}>Revocaste todos los permisos, pero la linterna requiere acceso a la cámara para poder encender el LED.</p>
-                </div>
-              ) : null}
-            </div>
-
+            ))}
           </div>
         </section>
 
-        {/* SECCIÓN 3: QUIZ */}
-        <section className="bloque-modulo-tarjeta">
+        {/* SECCIÓN 3: CHECKLIST */}
+        <section className="bloque-modulo-tarjeta diagnostico-caja">
           <div className="encabezado-bloque">
-            <HelpCircle className="icono-bloque-amarillo" size={24} />
-            <h2>3. Evaluación Diagnóstica</h2>
+            <ListChecks className="icono-bloque-verde" size={24} />
+            <h2>3. Checklist de Protección y Convivencia</h2>
           </div>
-          <p className="texto-lectura-modulo">
-            <strong>Pregunta:</strong> Acabas de descargar un juego de carreras muy famoso. Al abrirlo por primera vez, te pide "Acceso a tu Micrófono". ¿Qué debes hacer?
+          <p className="subtitulo-bloque">
+            Marca las prácticas que ya realizas:
           </p>
 
-          <div className="opciones-quiz-modulo">
-            <button
-              className={`opcion-quiz-btn ${respuestaQuiz === 1 ? 'incorrecta' : ''}`}
-              onClick={() => setRespuestaQuiz(1)}
-            >
-              A) Aceptar (Permitir). Todos los juegos piden esos permisos para funcionar mejor.
-            </button>
-            <button
-              className={`opcion-quiz-btn ${respuestaQuiz === 2 ? 'correcta' : ''}`}
-              onClick={() => setRespuestaQuiz(2)}
-            >
-              B) Rechazar (Denegar). Un juego de carreras no tiene una justificación lógica para usar el micrófono, a menos que tenga chat de voz activo. Es preferible denegarlo.
-            </button>
+          <div className="lista-habitos-interactiva">
+            {HABITOS_REDES_3RO.map((habito) => (
+              <div
+                key={habito.id}
+                className={`item-habito-check ${habitosComprobados[habito.id] ? 'activo' : ''}`}
+                onClick={() => toggleHabito(habito.id)}
+              >
+                <input
+                  type="checkbox"
+                  checked={!!habitosComprobados[habito.id]}
+                  onChange={() => {}}
+                  className="checkbox-custom"
+                />
+                <div className="info-item-habito">
+                  <span className="categoria-badge-mini">{habito.categoria}</span>
+                  <p className="texto-habito">{habito.texto}</p>
+                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                </div>
+              </div>
+            ))}
           </div>
 
-          {respuestaQuiz === 2 && (
-            <div className="feedback-quiz correcto">
-              ✅ <strong>¡Correcto!</strong> El Principio de Mínimo Privilegio también aplica para tu teléfono: no otorgues permisos a menos que sean estrictamente lógicos y necesarios para el funcionamiento central de la app.
+          <div className="resultado-diagnostico-bar">
+            <div className="info-porcentaje">
+              <strong>Protección y Convivencia: {porcentajeHabitos}%</strong>
+              <span>({habitosCompletados} de {totalHabitos} buenas prácticas)</span>
             </div>
-          )}
+            <div className="barra-fondo-diagnostico">
+              <div className="barra-relleno-diagnostico" style={{ width: `${porcentajeHabitos}%` }}></div>
+            </div>
+            {porcentajeHabitos === 100 ? (
+              <div className="mensaje-resultado excelente">
+                🏆 ¡Excelente! Eres un defensor de la convivencia digital.
+              </div>
+            ) : (
+              <div className="mensaje-resultado inicial">
+                💡 Completa todas las prácticas para un entorno digital más sano.
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* SECCIÓN 4: VIDEOS */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <Video className="icono-bloque-amarillo" size={24} />
+            <h2>4. Videos para Aprender Más</h2>
+          </div>
+          <p className="texto-lectura-modulo">
+            Mira estos videos para profundizar en la prevención del ciberacoso y el cuidado de tu reputación:
+          </p>
+
+          <div className="videos-grid">
+            {videos.map(video => (
+              <div key={video.id} className="video-card">
+                <h3 className="video-titulo">{video.titulo}</h3>
+                <div className="video-wrapper">
+                  <iframe
+                    src={video.url}
+                    title={video.titulo}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <p className="video-descripcion">{video.descripcion}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SECCIÓN 5: QUIZ */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <HelpCircle className="icono-bloque-azul" size={24} />
+            <h2>5. Evaluación Final</h2>
+          </div>
+          <p className="texto-lectura-modulo">
+            Demuestra lo aprendido.
+          </p>
+
+          <div className="quiz-container">
+            {preguntasQuiz.map(pregunta => (
+              <div key={pregunta.id} className="pregunta-quiz">
+                <h3 className="pregunta-titulo">{pregunta.id}. {pregunta.pregunta}</h3>
+                <div className="opciones-quiz-modulo">
+                  {pregunta.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-quiz-btn ${respuestasQuiz[pregunta.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderPreguntaQuiz(pregunta.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {quizEnviado && respuestasQuiz[pregunta.id] !== undefined && (
+                  <div className={`feedback-quiz-item ${respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? 'correcto' : 'incorrecto'}`}>
+                    {respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? (
+                      <CheckCircle2 size={18} />
+                    ) : (
+                      <XCircle size={18} />
+                    )}
+                    <span>{pregunta.explicacion}</span>
+                  </div>
+                )}
+              </div>
+            ))}
+
+            <div className="acciones-quiz">
+              <button
+                className="boton-enviar-quiz"
+                onClick={enviarQuiz}
+                disabled={quizEnviado}
+              >
+                Enviar respuestas
+              </button>
+              {puntajeQuiz && (
+                <div className="resultado-quiz">
+                  <Award size={24} className="icono-premio" />
+                  <p>
+                    Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
         </section>
       </div>
     </main>

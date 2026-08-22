@@ -24,8 +24,7 @@
   background: linear-gradient(
     135deg,
     var(--color-inst-azul) 0%,
-    #0F3B7A 40%,
-    var(--color-ciber-primario) 100%
+    var(--color-inst-azul) 100%
   );
   padding: 5rem 1.5rem 4rem;
   display: flex;

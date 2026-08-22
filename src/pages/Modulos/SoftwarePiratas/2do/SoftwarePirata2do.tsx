@@ -1,11 +1,312 @@
 import React from 'react';
+import {
+  ShieldCheck,
+  ShieldAlert,
+  Sparkles,
+  HelpCircle,
+  CheckCircle2,
+  XCircle,
+  Award,
+  Video,
+  ListChecks,
+  FileCheck,
+  Lock,
+  Code2
+} from 'lucide-react';
+import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import { useSoftwarePirata2do, HABITOS_SOFTWARE_2DO } from '../../../../hooks/HooksSoftwarePirata/useSoftwarePirata2do';
 import './SoftwarePirata2do.css';
 
-const SoftwarePirata2do: React.FC = () => {
+export const SoftwarePirata2do: React.FC = () => {
+  const {
+    licencias,
+    respuestasLicencia,
+    evaluarLicencia,
+    resultadoLicencia,
+    escenarios,
+    respuestasEscenario,
+    responderEscenario,
+    resultadoEscenario,
+    habitosComprobados,
+    toggleHabito,
+    totalHabitos,
+    habitosCompletados,
+    porcentajeHabitos,
+    videos,
+    preguntasQuiz,
+    respuestasQuiz,
+    responderPreguntaQuiz,
+    enviarQuiz,
+    puntajeQuiz,
+    quizEnviado
+  } = useSoftwarePirata2do();
+
   return (
-    <div className="softwarepirata-contenedor">
-      <h1>SoftwarePirata - 2do</h1>
-    </div>
+    <main className="pagina-modulo-software-2do">
+      <HeaderModulo
+        grado="2do"
+        modulo="2: Licencias y Verificación de Software"
+        titulo="Conoce las licencias y verifica tus descargas"
+        subTitulo="Aprende a diferenciar software libre, propietario, freeware y shareware, y cómo asegurarte de que tus descargas sean legítimas."
+        categoria="Software y Descargas"
+        tiempoEstimado="50 min"
+        icono={<FileCheck size={36} />}
+      />
+
+      <div className="contenedor-software-contenido">
+        {/* SECCIÓN 1: TEORÍA */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <Sparkles className="icono-bloque-azul" size={24} />
+            <h2>1. Tipos de Licencias de Software</h2>
+          </div>
+          <p className="texto-lectura-modulo">
+            No todo software es igual. Entender las <strong>licencias</strong> te permite elegir programas legales, seguros y adecuados para cada necesidad. Existen varios tipos:
+          </p>
+
+          <div className="grid-pilares-software">
+            <div className="caja-pilar-software">
+              <Code2 className="icono-pilar azul" size={28} />
+              <h3>Software Libre / Open Source</h3>
+              <p>Su código fuente está disponible. Puedes usarlo, modificarlo y compartirlo. Ejemplo: LibreOffice, GIMP, Linux.</p>
+            </div>
+
+            <div className="caja-pilar-software">
+              <Lock className="icono-pilar rojo" size={28} />
+              <h3>Software Propietario</h3>
+              <p>De código cerrado. Requiere comprar una licencia. Ejemplo: Microsoft Office, Adobe Photoshop.</p>
+            </div>
+
+            <div className="caja-pilar-software">
+              <FileCheck className="icono-pilar verde" size={28} />
+              <h3>Freeware y Shareware</h3>
+              <p><strong>Freeware:</strong> gratuito pero de código cerrado. <strong>Shareware:</strong> prueba gratis con pago posterior para uso completo.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* SECCIÓN 2: LABORATORIO DE LICENCIAS */}
+        <section className="bloque-modulo-tarjeta interactivo-caja">
+          <div className="encabezado-bloque">
+            <ShieldCheck className="icono-bloque-verde" size={24} />
+            <h2>2. Laboratorio: Clasifica la Licencia</h2>
+          </div>
+          <p className="subtitulo-bloque">
+            Para cada software, selecciona el tipo de licencia que le corresponde:
+          </p>
+
+          <div className="licencias-lista">
+            {licencias.map(licencia => (
+              <div key={licencia.id} className="licencia-card">
+                <h3 className="licencia-nombre">{licencia.nombre}</h3>
+                <p className="licencia-descripcion">{licencia.descripcion}</p>
+                <div className="licencia-opciones">
+                  {['libre', 'propietario', 'freeware', 'shareware', 'creative-commons'].map(tipo => (
+                    <button
+                      key={tipo}
+                      className={`chip-licencia ${respuestasLicencia[licencia.id] === tipo ? 'activo' : ''}`}
+                      onClick={() => evaluarLicencia(licencia.id, tipo)}
+                    >
+                      {tipo.charAt(0).toUpperCase() + tipo.slice(1).replace('-', ' ')}
+                    </button>
+                  ))}
+                </div>
+                {resultadoLicencia[licencia.id] !== undefined && (
+                  <div className={`feedback-decision ${resultadoLicencia[licencia.id] ? 'acierto' : 'fallo'}`}>
+                    <div className="flex-resultado">
+                      {resultadoLicencia[licencia.id] ? (
+                        <CheckCircle2 size={18} className="icono-acierto" />
+                      ) : (
+                        <XCircle size={18} className="icono-fallo" />
+                      )}
+                      <span>{licencia.explicacion}</span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SECCIÓN 3: ESCENARIOS */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <ShieldCheck className="icono-bloque-verde" size={24} />
+            <h2>3. Decisiones sobre Licencias y Descargas</h2>
+          </div>
+
+          <div className="escenarios-lista">
+            {escenarios.map(escenario => (
+              <div key={escenario.id} className="escenario-card">
+                <h3 className="escenario-titulo">{escenario.titulo}</h3>
+                <p className="escenario-descripcion">{escenario.descripcion}</p>
+                <div className="opciones-escenario">
+                  {escenario.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-escenario-btn ${respuestasEscenario[escenario.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderEscenario(escenario.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {resultadoEscenario[escenario.id] !== undefined && (
+                  <div className={`feedback-escenario ${resultadoEscenario[escenario.id] ? 'correcto' : 'incorrecto'}`}>
+                    {resultadoEscenario[escenario.id] ? (
+                      <><CheckCircle2 size={18} /> ¡Correcto! </>
+                    ) : (
+                      <><XCircle size={18} /> Atención: </>
+                    )}
+                    {escenario.explicacion}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SECCIÓN 4: CHECKLIST */}
+        <section className="bloque-modulo-tarjeta diagnostico-caja">
+          <div className="encabezado-bloque">
+            <ListChecks className="icono-bloque-verde" size={24} />
+            <h2>4. Checklist de Verificación de Software</h2>
+          </div>
+          <p className="subtitulo-bloque">
+            Marca las prácticas que ya realizas:
+          </p>
+
+          <div className="lista-habitos-interactiva">
+            {HABITOS_SOFTWARE_2DO.map((habito) => (
+              <div
+                key={habito.id}
+                className={`item-habito-check ${habitosComprobados[habito.id] ? 'activo' : ''}`}
+                onClick={() => toggleHabito(habito.id)}
+              >
+                <input
+                  type="checkbox"
+                  checked={!!habitosComprobados[habito.id]}
+                  onChange={() => {}}
+                  className="checkbox-custom"
+                />
+                <div className="info-item-habito">
+                  <span className="categoria-badge-mini">{habito.categoria}</span>
+                  <p className="texto-habito">{habito.texto}</p>
+                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="resultado-diagnostico-bar">
+            <div className="info-porcentaje">
+              <strong>Verificación de Software: {porcentajeHabitos}%</strong>
+              <span>({habitosCompletados} de {totalHabitos} buenas prácticas)</span>
+            </div>
+            <div className="barra-fondo-diagnostico">
+              <div className="barra-relleno-diagnostico" style={{ width: `${porcentajeHabitos}%` }}></div>
+            </div>
+            {porcentajeHabitos === 100 ? (
+              <div className="mensaje-resultado excelente">
+                🏆 ¡Excelente! Verificas y usas software de forma segura y legal.
+              </div>
+            ) : (
+              <div className="mensaje-resultado inicial">
+                💡 Completa todas las prácticas para ser un experto en licencias.
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* SECCIÓN 5: VIDEOS */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <Video className="icono-bloque-amarillo" size={24} />
+            <h2>5. Videos para Aprender Más</h2>
+          </div>
+          <p className="texto-lectura-modulo">
+            Mira estos videos para profundizar en licencias y verificación:
+          </p>
+
+          <div className="videos-grid">
+            {videos.map(video => (
+              <div key={video.id} className="video-card">
+                <h3 className="video-titulo">{video.titulo}</h3>
+                <div className="video-wrapper">
+                  <iframe
+                    src={video.url}
+                    title={video.titulo}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <p className="video-descripcion">{video.descripcion}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SECCIÓN 6: QUIZ */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <HelpCircle className="icono-bloque-azul" size={24} />
+            <h2>6. Evaluación Final</h2>
+          </div>
+          <p className="texto-lectura-modulo">
+            Demuestra lo aprendido.
+          </p>
+
+          <div className="quiz-container">
+            {preguntasQuiz.map(pregunta => (
+              <div key={pregunta.id} className="pregunta-quiz">
+                <h3 className="pregunta-titulo">{pregunta.id}. {pregunta.pregunta}</h3>
+                <div className="opciones-quiz-modulo">
+                  {pregunta.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-quiz-btn ${respuestasQuiz[pregunta.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderPreguntaQuiz(pregunta.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {quizEnviado && respuestasQuiz[pregunta.id] !== undefined && (
+                  <div className={`feedback-quiz-item ${respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? 'correcto' : 'incorrecto'}`}>
+                    {respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? (
+                      <CheckCircle2 size={18} />
+                    ) : (
+                      <XCircle size={18} />
+                    )}
+                    <span>{pregunta.explicacion}</span>
+                  </div>
+                )}
+              </div>
+            ))}
+
+            <div className="acciones-quiz">
+              <button
+                className="boton-enviar-quiz"
+                onClick={enviarQuiz}
+                disabled={quizEnviado}
+              >
+                Enviar respuestas
+              </button>
+              {puntajeQuiz && (
+                <div className="resultado-quiz">
+                  <Award size={24} className="icono-premio" />
+                  <p>
+                    Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
   );
 };
 

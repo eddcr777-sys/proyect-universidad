@@ -1,169 +1,312 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  Gavel,
-  Network,
-  Scale,
-  CheckCircle2,
-  XCircle,
+  Share2,
+  ShieldCheck,
+  ShieldAlert,
   Sparkles,
   HelpCircle,
-  EyeOff,
-  Filter
+  CheckCircle2,
+  XCircle,
+  Award,
+  Video,
+  ListChecks,
+  Briefcase,
+  Lock,
+  Globe
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
-import '../1ro/RedesSociales1ro.css';
+import { useRedesSociales5to, HABITOS_REDES_5TO } from '../../../../hooks/HooksRedesSociales/useRedesSociales5to';
+import './RedesSociales5to.css';
 
 export const RedesSociales5to: React.FC = () => {
-  const [burbujaActiva, setBurbujaActiva] = useState(true);
-  const [respuestaQuiz, setRespuestaQuiz] = useState<number | null>(null);
-
-  const romperBurbuja = () => {
-    setBurbujaActiva(false);
-  };
+  const {
+    perfilesAuditoria,
+    respuestasPerfil,
+    evaluarPerfil,
+    escenarios,
+    respuestasEscenario,
+    responderEscenario,
+    resultadoEscenario,
+    habitosComprobados,
+    toggleHabito,
+    totalHabitos,
+    habitosCompletados,
+    porcentajeHabitos,
+    videos,
+    preguntasQuiz,
+    respuestasQuiz,
+    responderPreguntaQuiz,
+    enviarQuiz,
+    puntajeQuiz,
+    quizEnviado
+  } = useRedesSociales5to();
 
   return (
-    <main className="pagina-modulo-redes">
+    <main className="pagina-modulo-redes-5to">
       <HeaderModulo
         grado="5to"
-        modulo="5: Algoritmos y Derecho al Olvido"
-        titulo="La Matrix de las Redes Sociales"
-        subTitulo="Analiza cómo los algoritmos crean cámaras de eco para manipular tu atención, y comprende tus derechos jurídicos en el entorno digital."
+        modulo="5: Marca Personal y Liderazgo Digital"
+        titulo="Redes Sociales como Herramienta Profesional"
+        subTitulo="Aprende a construir una marca personal sólida, respetar políticas organizacionales y liderar buenas prácticas digitales."
         categoria="Redes Sociales e Identidad"
-        tiempoEstimado="50 min"
-        icono={<Gavel size={36} />}
+        tiempoEstimado="65 min"
+        icono={<Briefcase size={36} />}
       />
 
       <div className="contenedor-redes-contenido">
-        {/* SECCIÓN 1: CONCEPTOS */}
+        {/* SECCIÓN 1: TEORÍA */}
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. El Algoritmo de Recomendación</h2>
+            <h2>1. Marca Personal, Políticas y Cumplimiento</h2>
           </div>
           <p className="texto-lectura-modulo">
-            TikTok, Instagram y X (Twitter) utilizan Inteligencia Artificial para decidir qué videos ves. Su objetivo es mantenerte conectado el mayor tiempo posible mostrándote contenido que confirma tus sesgos (creencias previas).
+            Tus redes sociales ya no son solo para amigos: son tu <strong>carta de presentación</strong>. Universidades, becas y empleadores revisan tu huella digital. Además, cuando formas parte de una organización (liceo, trabajo), debes cumplir <strong>políticas de uso</strong> que protegen la imagen institucional y los datos de todos.
           </p>
 
           <div className="grid-pilares-redes">
             <div className="caja-pilar-redes">
-              <Filter className="icono-pilar azul" size={28} />
-              <h3>Burbuja de Filtros</h3>
-              <p>El estado en el que una plataforma solo te muestra opiniones que concuerdan contigo, ocultándote la realidad completa o los puntos de vista opuestos.</p>
+              <Briefcase className="icono-pilar azul" size={28} />
+              <h3>Marca Personal Profesional</h3>
+              <p>Construye un perfil que destaque tus logros, habilidades y valores. LinkedIn es una herramienta clave para tu futuro.</p>
             </div>
 
             <div className="caja-pilar-redes">
-              <Network className="icono-pilar rojo" size={28} />
-              <h3>Polarización Social</h3>
-              <p>Los algoritmos descubrieron que el contenido que genera enojo o indignación retiene más la atención de los usuarios, fomentando el odio y las fake news.</p>
+              <Lock className="icono-pilar rojo" size={28} />
+              <h3>Políticas de Uso</h3>
+              <p>Las organizaciones regulan qué se puede publicar para evitar fugas de información y daños reputacionales.</p>
             </div>
 
             <div className="caja-pilar-redes">
-              <Scale className="icono-pilar verde" size={28} />
-              <h3>Derecho al Olvido</h3>
-              <p>El derecho legal (en muchas jurisdicciones) a exigir que las empresas borren tu información personal o fotos antiguas que afectan tu reputación.</p>
+              <Globe className="icono-pilar verde" size={28} />
+              <h3>Cumplimiento Normativo</h3>
+              <p>Normas como ISO 27001 o leyes de protección de datos exigen cuidar la información sensible que se comparte.</p>
             </div>
           </div>
         </section>
 
-        {/* SECCIÓN 2: SIMULADOR DE BURBUJA DE FILTRO */}
+        {/* SECCIÓN 2: AUDITORÍA DE PERFILES */}
         <section className="bloque-modulo-tarjeta interactivo-caja">
           <div className="encabezado-bloque">
-            <Filter className="icono-bloque-azul" size={24} />
-            <h2>2. Laboratorio: La Cámara de Eco (Echo Chamber)</h2>
+            <ShieldCheck className="icono-bloque-verde" size={24} />
+            <h2>2. Auditoría de Perfiles: ¿Cumple o No Cumple?</h2>
           </div>
           <p className="subtitulo-bloque">
-            Simularemos tu "Feed" de noticias. En la Burbuja, solo verás noticias polarizadas. Haz clic en "Romper Algoritmo" para ver el Feed Neutral.
+            Analiza cada perfil y decide si <strong>cumple</strong> con las políticas de uso responsable o <strong>no cumple</strong>:
           </p>
 
-          <div style={{ backgroundColor: burbujaActiva ? '#fef2f2' : '#f0fdf4', border: `1px solid ${burbujaActiva ? '#ef4444' : '#10b981'}`, borderRadius: 'var(--radio-principal)', padding: '2rem', transition: 'all 0.5s' }}>
-            
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-              <h3 style={{ margin: 0, color: burbujaActiva ? '#ef4444' : '#10b981', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                {burbujaActiva ? <Filter size={24}/> : <EyeOff size={24}/>}
-                {burbujaActiva ? 'Algoritmo de Retención: ACTIVO' : 'Feed Neutral (Cronológico)'}
-              </h3>
-              {burbujaActiva && (
-                <button onClick={romperBurbuja} className="btn-decision seguro" style={{ backgroundColor: '#ef4444', borderColor: '#ef4444' }}>
-                  Romper Algoritmo
-                </button>
-              )}
-            </div>
-
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1rem' }}>
-              
-              {/* Noticia 1 */}
-              <div style={{ backgroundColor: '#fff', padding: '1rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                {burbujaActiva ? (
-                  <>
-                    <h4 style={{ margin: '0 0 0.5rem 0', color: '#b91c1c' }}>¡El grupo rival quiere destruir nuestra escuela! [INDIGNANTE]</h4>
-                    <p style={{ margin: 0, fontSize: '0.9rem', color: '#475569' }}>Noticia manipulada diseñada para generar rabia y likes rápidos.</p>
-                  </>
-                ) : (
-                  <>
-                    <h4 style={{ margin: '0 0 0.5rem 0', color: '#1e293b' }}>Debate inter-escolar: Propuestas para mejorar el liceo</h4>
-                    <p style={{ margin: 0, fontSize: '0.9rem', color: '#475569' }}>Noticia balanceada y objetiva de fuentes verificadas.</p>
-                  </>
+          <div className="perfiles-auditoria-lista">
+            {perfilesAuditoria.map(perfil => (
+              <div key={perfil.id} className="perfil-card">
+                <h3 className="perfil-nombre">{perfil.nombre}</h3>
+                <p className="perfil-descripcion">{perfil.descripcion}</p>
+                <div className="acciones-decision">
+                  <button
+                    className={`btn-decision seguro ${respuestasPerfil[perfil.id] === true ? 'seleccionado' : ''}`}
+                    onClick={() => evaluarPerfil(perfil.id, true)}
+                  >
+                    <ShieldCheck size={18} /> Cumple
+                  </button>
+                  <button
+                    className={`btn-decision phishing ${respuestasPerfil[perfil.id] === false ? 'seleccionado' : ''}`}
+                    onClick={() => evaluarPerfil(perfil.id, false)}
+                  >
+                    <ShieldAlert size={18} /> No Cumple
+                  </button>
+                </div>
+                {respuestasPerfil[perfil.id] !== undefined && (
+                  <div className={`feedback-decision ${respuestasPerfil[perfil.id] === perfil.cumplePoliticas ? 'acierto' : 'fallo'}`}>
+                    <div className="flex-resultado">
+                      {respuestasPerfil[perfil.id] === perfil.cumplePoliticas ? (
+                        <CheckCircle2 size={18} className="icono-acierto" />
+                      ) : (
+                        <XCircle size={18} className="icono-fallo" />
+                      )}
+                      <span>{perfil.explicacion}</span>
+                    </div>
+                  </div>
                 )}
               </div>
+            ))}
+          </div>
+        </section>
 
-              {/* Noticia 2 */}
-              <div style={{ backgroundColor: '#fff', padding: '1rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                {burbujaActiva ? (
-                  <>
-                    <h4 style={{ margin: '0 0 0.5rem 0', color: '#b91c1c' }}>Solo TÚ tienes la razón, mira como humillan a este experto</h4>
-                    <p style={{ margin: 0, fontSize: '0.9rem', color: '#475569' }}>Contenido que refuerza el sesgo de confirmación.</p>
-                  </>
-                ) : (
-                  <>
-                    <h4 style={{ margin: '0 0 0.5rem 0', color: '#1e293b' }}>Estudio científico revela nuevos descubrimientos de tecnología</h4>
-                    <p style={{ margin: 0, fontSize: '0.9rem', color: '#475569' }}>Información educativa sin carga emocional extrema.</p>
-                  </>
+        {/* SECCIÓN 3: ESCENARIOS DE PUBLICACIÓN */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <ShieldCheck className="icono-bloque-verde" size={24} />
+            <h2>3. Decisiones de Publicación Responsable</h2>
+          </div>
+
+          <div className="escenarios-lista">
+            {escenarios.map(escenario => (
+              <div key={escenario.id} className="escenario-card">
+                <h3 className="escenario-titulo">{escenario.titulo}</h3>
+                <p className="escenario-descripcion">{escenario.descripcion}</p>
+                <div className="opciones-escenario">
+                  {escenario.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-escenario-btn ${respuestasEscenario[escenario.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderEscenario(escenario.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {resultadoEscenario[escenario.id] !== undefined && (
+                  <div className={`feedback-escenario ${resultadoEscenario[escenario.id] ? 'correcto' : 'incorrecto'}`}>
+                    {resultadoEscenario[escenario.id] ? (
+                      <><CheckCircle2 size={18} /> ¡Correcto! </>
+                    ) : (
+                      <><XCircle size={18} /> Atención: </>
+                    )}
+                    {escenario.explicacion}
+                  </div>
                 )}
               </div>
+            ))}
+          </div>
+        </section>
 
+        {/* SECCIÓN 4: CHECKLIST DE LIDERAZGO */}
+        <section className="bloque-modulo-tarjeta diagnostico-caja">
+          <div className="encabezado-bloque">
+            <ListChecks className="icono-bloque-verde" size={24} />
+            <h2>4. Checklist de Liderazgo Digital</h2>
+          </div>
+          <p className="subtitulo-bloque">
+            Marca las competencias que ya posees:
+          </p>
+
+          <div className="lista-habitos-interactiva">
+            {HABITOS_REDES_5TO.map((habito) => (
+              <div
+                key={habito.id}
+                className={`item-habito-check ${habitosComprobados[habito.id] ? 'activo' : ''}`}
+                onClick={() => toggleHabito(habito.id)}
+              >
+                <input
+                  type="checkbox"
+                  checked={!!habitosComprobados[habito.id]}
+                  onChange={() => {}}
+                  className="checkbox-custom"
+                />
+                <div className="info-item-habito">
+                  <span className="categoria-badge-mini">{habito.categoria}</span>
+                  <p className="texto-habito">{habito.texto}</p>
+                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="resultado-diagnostico-bar">
+            <div className="info-porcentaje">
+              <strong>Liderazgo Digital: {porcentajeHabitos}%</strong>
+              <span>({habitosCompletados} de {totalHabitos} competencias)</span>
             </div>
-
-            {!burbujaActiva && (
-              <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
-                <p style={{ color: '#15803d', fontWeight: 'bold' }}>Has escapado de la burbuja. Para evitarla en la vida real: sigue a personas con opiniones diferentes, desactiva las recomendaciones basadas en IA o usa redes sociales de código abierto (Descentralizadas).</p>
-                <button onClick={() => setBurbujaActiva(true)} className="btn-decision" style={{ margin: '1rem auto 0 auto' }}>
-                  Volver a activar Algoritmo
-                </button>
+            <div className="barra-fondo-diagnostico">
+              <div className="barra-relleno-diagnostico" style={{ width: `${porcentajeHabitos}%` }}></div>
+            </div>
+            {porcentajeHabitos === 100 ? (
+              <div className="mensaje-resultado excelente">
+                🏆 ¡Excelente! Eres un líder digital preparado para el futuro.
+              </div>
+            ) : (
+              <div className="mensaje-resultado inicial">
+                💡 Completa todas las competencias para maximizar tu impacto positivo.
               </div>
             )}
           </div>
         </section>
 
-        {/* SECCIÓN 3: QUIZ */}
+        {/* SECCIÓN 5: VIDEOS */}
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
-            <HelpCircle className="icono-bloque-amarillo" size={24} />
-            <h2>3. Evaluación Final de Grado</h2>
+            <Video className="icono-bloque-amarillo" size={24} />
+            <h2>5. Videos para Aprender Más</h2>
           </div>
           <p className="texto-lectura-modulo">
-            <strong>Pregunta:</strong> De acuerdo con el concepto de "Derecho al Olvido", si un periódico web mantiene publicada una foto tuya de cuando eras niño y esto te perjudica actualmente...
+            Mira estos videos para profundizar en marca personal, políticas y auditoría:
           </p>
 
-          <div className="opciones-quiz-modulo">
-            <button
-              className={`opcion-quiz-btn ${respuestaQuiz === 1 ? 'correcta' : ''}`}
-              onClick={() => setRespuestaQuiz(1)}
-            >
-              A) Tienes el derecho legal de exigirle al medio y a motores de búsqueda (como Google) que retiren el enlace porque afecta tu privacidad y reputación presente.
-            </button>
-            <button
-              className={`opcion-quiz-btn ${respuestaQuiz === 2 ? 'incorrecta' : ''}`}
-              onClick={() => setRespuestaQuiz(2)}
-            >
-              B) No puedes hacer nada. Todo lo que se sube a internet es propiedad pública y la ley prohíbe borrar archivos históricos.
-            </button>
+          <div className="videos-grid">
+            {videos.map(video => (
+              <div key={video.id} className="video-card">
+                <h3 className="video-titulo">{video.titulo}</h3>
+                <div className="video-wrapper">
+                  <iframe
+                    src={video.url}
+                    title={video.titulo}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <p className="video-descripcion">{video.descripcion}</p>
+              </div>
+            ))}
           </div>
+        </section>
 
-          {respuestaQuiz === 1 && (
-            <div className="feedback-quiz correcto">
-              ✅ <strong>¡Correcto, Experto!</strong> El Derecho al Olvido busca proteger la dignidad de las personas, permitiéndoles solicitar la eliminación de datos personales u obsoletos que vulneren sus derechos fundamentales en el presente.
+        {/* SECCIÓN 6: QUIZ */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <HelpCircle className="icono-bloque-azul" size={24} />
+            <h2>6. Evaluación Final</h2>
+          </div>
+          <p className="texto-lectura-modulo">
+            Demuestra lo aprendido.
+          </p>
+
+          <div className="quiz-container">
+            {preguntasQuiz.map(pregunta => (
+              <div key={pregunta.id} className="pregunta-quiz">
+                <h3 className="pregunta-titulo">{pregunta.id}. {pregunta.pregunta}</h3>
+                <div className="opciones-quiz-modulo">
+                  {pregunta.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-quiz-btn ${respuestasQuiz[pregunta.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderPreguntaQuiz(pregunta.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {quizEnviado && respuestasQuiz[pregunta.id] !== undefined && (
+                  <div className={`feedback-quiz-item ${respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? 'correcto' : 'incorrecto'}`}>
+                    {respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? (
+                      <CheckCircle2 size={18} />
+                    ) : (
+                      <XCircle size={18} />
+                    )}
+                    <span>{pregunta.explicacion}</span>
+                  </div>
+                )}
+              </div>
+            ))}
+
+            <div className="acciones-quiz">
+              <button
+                className="boton-enviar-quiz"
+                onClick={enviarQuiz}
+                disabled={quizEnviado}
+              >
+                Enviar respuestas
+              </button>
+              {puntajeQuiz && (
+                <div className="resultado-quiz">
+                  <Award size={24} className="icono-premio" />
+                  <p>
+                    Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                  </p>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </section>
       </div>
     </main>

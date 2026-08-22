@@ -1,186 +1,313 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  MapPin,
-  Camera,
-  Ghost,
-  CheckCircle2,
-  XCircle,
+  Share2,
+  ShieldCheck,
+  ShieldAlert,
   Sparkles,
   HelpCircle,
-  Image as ImageIcon,
-  Info
+  CheckCircle2,
+  XCircle,
+  Award,
+  Video,
+  ListChecks,
+  UserX,
+  Eye
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
-import '../1ro/RedesSociales1ro.css'; // Reutilizamos estilos base
+import { useRedesSociales2do, HABITOS_REDES_2DO } from '../../../../hooks/HooksRedesSociales/useRedesSociales2do';
+import './RedesSociales2do.css';
 
 export const RedesSociales2do: React.FC = () => {
-  const [mostrarMetadatos, setMostrarMetadatos] = useState(false);
-  const [fotoLimpia, setFotoLimpia] = useState(false);
-  const [respuestaQuiz, setRespuestaQuiz] = useState<number | null>(null);
-
-  const limpiarFoto = () => {
-    setFotoLimpia(true);
-  };
-
-  const reiniciarSimulador = () => {
-    setMostrarMetadatos(false);
-    setFotoLimpia(false);
-  };
+  const {
+    perfiles,
+    respuestasPerfil,
+    evaluarPerfil,
+    escenarios,
+    respuestasEscenario,
+    responderEscenario,
+    resultadoEscenario,
+    habitosComprobados,
+    toggleHabito,
+    totalHabitos,
+    habitosCompletados,
+    porcentajeHabitos,
+    videos,
+    preguntasQuiz,
+    respuestasQuiz,
+    responderPreguntaQuiz,
+    enviarQuiz,
+    puntajeQuiz,
+    quizEnviado
+  } = useRedesSociales2do();
 
   return (
-    <main className="pagina-modulo-redes">
+    <main className="pagina-modulo-redes-2do">
       <HeaderModulo
         grado="2do"
-        modulo="2: Metadatos y Catfishing"
-        titulo="El mapa oculto en tus fotos"
-        subTitulo="Aprenderás a limpiar la información de ubicación de tus imágenes y a identificar perfiles falsos que se hacen pasar por adolescentes."
+        modulo="2: Perfiles Falsos y Suplantación"
+        titulo="Detecta Falsos y Protege tu Identidad"
+        subTitulo="Aprende a identificar cuentas falsas, verificar identidades y denunciar suplantación en redes sociales."
         categoria="Redes Sociales e Identidad"
-        tiempoEstimado="40 min"
-        icono={<Camera size={36} />}
+        tiempoEstimado="50 min"
+        icono={<UserX size={36} />}
       />
 
       <div className="contenedor-redes-contenido">
-        {/* SECCIÓN 1: CONCEPTOS */}
+        {/* SECCIÓN 1: TEORÍA */}
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. Más que simples píxeles</h2>
+            <h2>1. Perfiles Falsos y Suplantación de Identidad</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Cada vez que tomas una foto con tu teléfono, este guarda información invisible llamada <strong>Metadatos EXIF</strong>. Esta información incluye la fecha, hora exacta y las coordenadas GPS donde tomaste la foto.
+            En 1er año aprendiste a configurar la privacidad. Ahora veamos cómo identificar a quienes intentan engañarte: <strong>perfiles falsos</strong> que se hacen pasar por celebridades, marcas o incluso por tus amigos. La <strong>suplantación de identidad</strong> ocurre cuando alguien usa tu nombre, fotos o información personal sin tu permiso.
           </p>
 
           <div className="grid-pilares-redes">
             <div className="caja-pilar-redes">
-              <MapPin className="icono-pilar rojo" size={28} />
-              <h3>Geolocalización Involuntaria</h3>
-              <p>Si subes una foto original sin limpiar, un acosador podría extraer las coordenadas y saber exactamente dónde vives o estudias.</p>
+              <UserX className="icono-pilar rojo" size={28} />
+              <h3>Señales de Perfil Falso</h3>
+              <p>Cuenta recién creada, sin foto real, sigue a miles pero tiene pocos seguidores, y envía mensajes pidiendo dinero o datos.</p>
             </div>
 
             <div className="caja-pilar-redes">
-              <Camera className="icono-pilar azul" size={28} />
-              <h3>Desactivar GPS en Cámara</h3>
-              <p>Puedes ir a la configuración de tu cámara (iOS/Android) y apagar el permiso de "Ubicación" para que las fotos nazcan seguras.</p>
+              <Eye className="icono-pilar azul" size={28} />
+              <h3>Badge de Verificación</h3>
+              <p>El check azul confirma que una cuenta es auténtica. Siempre verifica que sea la oficial antes de interactuar con famosos o marcas.</p>
             </div>
 
             <div className="caja-pilar-redes">
-              <Ghost className="icono-pilar verde" size={28} />
-              <h3>Catfishing (Perfiles Falsos)</h3>
-              <p>Adultos malintencionados roban fotos de adolescentes para crear perfiles falsos. Mantener tu cuenta privada evita que roben tus fotos.</p>
+              <ShieldCheck className="icono-pilar verde" size={28} />
+              <h3>¿Qué hacer si te suplantan?</h3>
+              <p>Denuncia en la plataforma, avisa a tus contactos, guarda capturas de evidencia y cambia tus contraseñas.</p>
             </div>
           </div>
         </section>
 
-        {/* SECCIÓN 2: SIMULADOR DE METADATOS */}
+        {/* SECCIÓN 2: SIMULADOR DE PERFILES */}
         <section className="bloque-modulo-tarjeta interactivo-caja">
           <div className="encabezado-bloque">
-            <ImageIcon className="icono-bloque-azul" size={24} />
-            <h2>2. Simulador: Escáner de Metadatos</h2>
+            <UserX className="icono-bloque-rojo" size={24} />
+            <h2>2. Laboratorio: ¿Perfil Falso o Real?</h2>
           </div>
           <p className="subtitulo-bloque">
-            Un usuario acaba de publicar esta foto inocente desde su casa. Presiona "Escanear EXIF" para ver lo que un acosador puede descubrir.
+            Analiza cada perfil y decide si es <strong>Falso</strong> o <strong>Legítimo</strong>:
           </p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', marginTop: '1rem' }}>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              {/* Representación de la Foto */}
-              <div style={{ position: 'relative', width: '100%', aspectRatio: '4/3', backgroundColor: '#e2e8f0', borderRadius: 'var(--radio-principal)', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <ImageIcon size={64} color="#94a3b8" />
-                <div style={{ position: 'absolute', bottom: '1rem', right: '1rem', backgroundColor: 'rgba(0,0,0,0.6)', color: 'white', padding: '0.25rem 0.75rem', borderRadius: '1rem', fontSize: '0.85rem' }}>
-                  IMG_2026.jpg
+          <div className="perfiles-lista">
+            {perfiles.map(perfil => (
+              <div key={perfil.id} className="perfil-card">
+                <div className="perfil-info">
+                  <h3 className="perfil-nombre">{perfil.nombre}</h3>
+                  <p className="perfil-descripcion">{perfil.descripcion}</p>
                 </div>
+                <div className="acciones-decision">
+                  <button
+                    className={`btn-decision seguro ${respuestasPerfil[perfil.id] === false ? 'seleccionado' : ''}`}
+                    onClick={() => evaluarPerfil(perfil.id, false)}
+                  >
+                    <ShieldCheck size={18} /> Legítimo
+                  </button>
+                  <button
+                    className={`btn-decision phishing ${respuestasPerfil[perfil.id] === true ? 'seleccionado' : ''}`}
+                    onClick={() => evaluarPerfil(perfil.id, true)}
+                  >
+                    <UserX size={18} /> Falso
+                  </button>
+                </div>
+                {respuestasPerfil[perfil.id] !== undefined && (
+                  <div className={`feedback-decision ${respuestasPerfil[perfil.id] === perfil.esFalso ? 'acierto' : 'fallo'}`}>
+                    <div className="flex-resultado">
+                      {respuestasPerfil[perfil.id] === perfil.esFalso ? (
+                        <CheckCircle2 size={18} className="icono-acierto" />
+                      ) : (
+                        <XCircle size={18} className="icono-fallo" />
+                      )}
+                      <span>{perfil.explicacion}</span>
+                    </div>
+                  </div>
+                )}
               </div>
-              
-              {!mostrarMetadatos ? (
-                <button onClick={() => setMostrarMetadatos(true)} className="btn-decision seguro" style={{ justifyContent: 'center' }}>
-                  <Info size={18} /> Escanear Datos EXIF
-                </button>
-              ) : (
-                <div style={{ display: 'flex', gap: '0.5rem' }}>
-                  <button onClick={limpiarFoto} className="btn-decision" style={{ flex: '1', justifyContent: 'center', backgroundColor: '#10b981', color: 'white', borderColor: '#10b981' }}>
-                    <Sparkles size={18} /> Limpiar Metadatos
-                  </button>
-                  <button onClick={reiniciarSimulador} className="btn-decision" style={{ flex: '1', justifyContent: 'center' }}>
-                    Reiniciar
-                  </button>
-                </div>
-              )}
-            </div>
-
-            {/* Panel EXIF */}
-            <div style={{ backgroundColor: '#1e293b', color: '#f8fafc', padding: '1.5rem', borderRadius: 'var(--radio-principal)', fontFamily: 'monospace' }}>
-              <h3 style={{ margin: '0 0 1rem 0', color: '#38bdf8', fontSize: '1.1rem', borderBottom: '1px solid #334155', paddingBottom: '0.5rem' }}>Visor EXIF Forense</h3>
-              
-              {!mostrarMetadatos ? (
-                <p style={{ color: '#64748b' }}>Esperando archivo de imagen...</p>
-              ) : (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: '#94a3b8' }}>Dispositivo:</span>
-                    <span>{fotoLimpia ? 'Desconocido' : 'iPhone 13 Pro'}</span>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: '#94a3b8' }}>Fecha original:</span>
-                    <span>{fotoLimpia ? 'Eliminada' : '2026-10-15 14:32'}</span>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: '#94a3b8' }}>Latitud:</span>
-                    <span style={{ color: fotoLimpia ? '#f8fafc' : '#ef4444' }}>{fotoLimpia ? 'Eliminada' : '10.4806° N'}</span>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: '#94a3b8' }}>Longitud:</span>
-                    <span style={{ color: fotoLimpia ? '#f8fafc' : '#ef4444' }}>{fotoLimpia ? 'Eliminada' : '66.9036° W'}</span>
-                  </div>
-                  
-                  {fotoLimpia ? (
-                    <div style={{ marginTop: '1rem', padding: '0.75rem', backgroundColor: 'rgba(16, 185, 129, 0.2)', border: '1px solid #10b981', color: '#10b981', borderRadius: '4px' }}>
-                      <CheckCircle2 size={16} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '0.5rem' }}/>
-                      Foto segura para publicar
-                    </div>
-                  ) : (
-                    <div style={{ marginTop: '1rem', padding: '0.75rem', backgroundColor: 'rgba(239, 68, 68, 0.2)', border: '1px solid #ef4444', color: '#fca5a5', borderRadius: '4px' }}>
-                      <MapPin size={16} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '0.5rem' }}/>
-                      ¡Peligro! Ubicación exacta expuesta.
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-
+            ))}
           </div>
         </section>
 
-        {/* SECCIÓN 3: QUIZ */}
+        {/* SECCIÓN 3: ESCENARIOS */}
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
-            <HelpCircle className="icono-bloque-amarillo" size={24} />
-            <h2>3. Evaluación Diagnóstica</h2>
+            <ShieldCheck className="icono-bloque-verde" size={24} />
+            <h2>3. Decisiones ante la Suplantación</h2>
           </div>
-          <p className="texto-lectura-modulo">
-            <strong>Pregunta:</strong> Te envían una solicitud de amistad en Facebook. La foto de perfil es de un chico de tu edad muy atractivo, pero su cuenta fue creada ayer y no tiene publicaciones previas ni etiquetas con otras personas. ¿Qué deberías hacer?
+
+          <div className="escenarios-lista">
+            {escenarios.map(escenario => (
+              <div key={escenario.id} className="escenario-card">
+                <h3 className="escenario-titulo">{escenario.titulo}</h3>
+                <p className="escenario-descripcion">{escenario.descripcion}</p>
+                <div className="opciones-escenario">
+                  {escenario.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-escenario-btn ${respuestasEscenario[escenario.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderEscenario(escenario.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {resultadoEscenario[escenario.id] !== undefined && (
+                  <div className={`feedback-escenario ${resultadoEscenario[escenario.id] ? 'correcto' : 'incorrecto'}`}>
+                    {resultadoEscenario[escenario.id] ? (
+                      <><CheckCircle2 size={18} /> ¡Correcto! </>
+                    ) : (
+                      <><XCircle size={18} /> Atención: </>
+                    )}
+                    {escenario.explicacion}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SECCIÓN 4: CHECKLIST */}
+        <section className="bloque-modulo-tarjeta diagnostico-caja">
+          <div className="encabezado-bloque">
+            <ListChecks className="icono-bloque-verde" size={24} />
+            <h2>4. Checklist de Protección de Identidad</h2>
+          </div>
+          <p className="subtitulo-bloque">
+            Marca las prácticas que ya realizas:
           </p>
 
-          <div className="opciones-quiz-modulo">
-            <button
-              className={`opcion-quiz-btn ${respuestaQuiz === 1 ? 'incorrecta' : ''}`}
-              onClick={() => setRespuestaQuiz(1)}
-            >
-              A) Aceptarlo de inmediato para conocerlo y ver qué me dice por mensaje privado.
-            </button>
-            <button
-              className={`opcion-quiz-btn ${respuestaQuiz === 2 ? 'correcta' : ''}`}
-              onClick={() => setRespuestaQuiz(2)}
-            >
-              B) Rechazar la solicitud e informarle a mis padres o profesores. Es una "bandera roja" (Red Flag) muy común de Catfishing (Perfil Falso).
-            </button>
+          <div className="lista-habitos-interactiva">
+            {HABITOS_REDES_2DO.map((habito) => (
+              <div
+                key={habito.id}
+                className={`item-habito-check ${habitosComprobados[habito.id] ? 'activo' : ''}`}
+                onClick={() => toggleHabito(habito.id)}
+              >
+                <input
+                  type="checkbox"
+                  checked={!!habitosComprobados[habito.id]}
+                  onChange={() => {}}
+                  className="checkbox-custom"
+                />
+                <div className="info-item-habito">
+                  <span className="categoria-badge-mini">{habito.categoria}</span>
+                  <p className="texto-habito">{habito.texto}</p>
+                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                </div>
+              </div>
+            ))}
           </div>
 
-          {respuestaQuiz === 2 && (
-            <div className="feedback-quiz correcto">
-              ✅ <strong>¡Correcto!</strong> Las cuentas creadas recientemente, con una sola foto muy perfecta y sin interacciones reales (Catfishing), suelen ser operadas por adultos intentando engañar a menores de edad.
+          <div className="resultado-diagnostico-bar">
+            <div className="info-porcentaje">
+              <strong>Protección de Identidad: {porcentajeHabitos}%</strong>
+              <span>({habitosCompletados} de {totalHabitos} buenas prácticas)</span>
             </div>
-          )}
+            <div className="barra-fondo-diagnostico">
+              <div className="barra-relleno-diagnostico" style={{ width: `${porcentajeHabitos}%` }}></div>
+            </div>
+            {porcentajeHabitos === 100 ? (
+              <div className="mensaje-resultado excelente">
+                🏆 ¡Excelente! Estás protegido contra la suplantación.
+              </div>
+            ) : (
+              <div className="mensaje-resultado inicial">
+                💡 Completa todas las prácticas para blindar tu identidad digital.
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* SECCIÓN 5: VIDEOS */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <Video className="icono-bloque-amarillo" size={24} />
+            <h2>5. Videos para Aprender Más</h2>
+          </div>
+          <p className="texto-lectura-modulo">
+            Mira estos videos para profundizar en la detección de perfiles falsos y suplantación:
+          </p>
+
+          <div className="videos-grid">
+            {videos.map(video => (
+              <div key={video.id} className="video-card">
+                <h3 className="video-titulo">{video.titulo}</h3>
+                <div className="video-wrapper">
+                  <iframe
+                    src={video.url}
+                    title={video.titulo}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <p className="video-descripcion">{video.descripcion}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SECCIÓN 6: QUIZ */}
+        <section className="bloque-modulo-tarjeta">
+          <div className="encabezado-bloque">
+            <HelpCircle className="icono-bloque-azul" size={24} />
+            <h2>6. Evaluación Final</h2>
+          </div>
+          <p className="texto-lectura-modulo">
+            Demuestra lo aprendido.
+          </p>
+
+          <div className="quiz-container">
+            {preguntasQuiz.map(pregunta => (
+              <div key={pregunta.id} className="pregunta-quiz">
+                <h3 className="pregunta-titulo">{pregunta.id}. {pregunta.pregunta}</h3>
+                <div className="opciones-quiz-modulo">
+                  {pregunta.opciones.map((opcion, idx) => (
+                    <button
+                      key={idx}
+                      className={`opcion-quiz-btn ${respuestasQuiz[pregunta.id] === idx ? 'seleccionada' : ''}`}
+                      onClick={() => responderPreguntaQuiz(pregunta.id, idx)}
+                    >
+                      {String.fromCharCode(65 + idx)}) {opcion}
+                    </button>
+                  ))}
+                </div>
+                {quizEnviado && respuestasQuiz[pregunta.id] !== undefined && (
+                  <div className={`feedback-quiz-item ${respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? 'correcto' : 'incorrecto'}`}>
+                    {respuestasQuiz[pregunta.id] === pregunta.respuestaCorrecta ? (
+                      <CheckCircle2 size={18} />
+                    ) : (
+                      <XCircle size={18} />
+                    )}
+                    <span>{pregunta.explicacion}</span>
+                  </div>
+                )}
+              </div>
+            ))}
+
+            <div className="acciones-quiz">
+              <button
+                className="boton-enviar-quiz"
+                onClick={enviarQuiz}
+                disabled={quizEnviado}
+              >
+                Enviar respuestas
+              </button>
+              {puntajeQuiz && (
+                <div className="resultado-quiz">
+                  <Award size={24} className="icono-premio" />
+                  <p>
+                    Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
         </section>
       </div>
     </main>
