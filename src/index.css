@@ -1,19 +1,6 @@
-/**
- * ============================================================================
- * SISTEMA DE DISEÑO Y VARIABLES GLOBALES CSS - LB-LEMUS
- * ============================================================================
- * Incluye:
- * - Paleta Institucional (Escudo Oficial: Rojo, Azul Rey, Amarillo/Dorado, Celeste)
- * - Paleta de Ciberseguridad (Cian Neón, Verde Terminal, Rojo Amenaza, Azul Noche)
- * - Modos Claro y Oscuro (por clase .dark o atributo [data-theme="dark"])
- * - Regla Estricta: BORDES RECTOS/CUADRADOS (border-radius: 0px)
- * ============================================================================
- */
+
 
 :root {
-  /* --------------------------------------------------------------------------
-   * 1. BORDES Y RADIOS (REGLA ESTRICTA: 0px POR DEFECTO EN TODA LA APP)
-   * -------------------------------------------------------------------------- */
   --radio-principal: 0px;
   --radio-modulo: 0px;
   --radio-boton: 0px;
@@ -22,59 +9,30 @@
   --radio-md: 0px;
   --radio-sm: 0px;
   --radio-complementario: 4px;
-  /* Reservado excepcionalmente para detalles específicos */
 
-  /* --------------------------------------------------------------------------
-   * 2. PALETA OFICIAL INSTITUCIONAL (EXTRAÍDA DEL ESCUDO - MODO CLARO)
-   * -------------------------------------------------------------------------- */
   --color-inst-rojo: #C8102E;
-  /* Rojo primario del borde exterior */
   --color-inst-rojo-hover: #A00C24;
-  /* Estado hover rojo */
   --color-inst-azul: #0F2C59;
-  /* Azul rey / oscuro "CUMANA" */
   --color-inst-azul-hover: #081B3A;
-  /* Estado hover azul */
   --color-inst-amarillo: #F59E0B;
-  /* Amarillo / Dorado "Moral y Luces" */
   --color-inst-dorado: #D4AF37;
-  /* Dorado acento */
   --color-inst-celeste: #0284C7;
-  /* Celeste / Azul claro diagonal */
   --color-inst-blanco: #FFFFFF;
-  /* Fondo base y libro abierto */
   --color-inst-texto: #111827;
-  /* Texto principal negro/gris muy oscuro */
   --color-inst-texto-secundario: #4B5563;
-  /* Texto secundario */
   --color-inst-fondo: #F8FAFC;
-  /* Fondo general de la app */
   --color-inst-tarjeta: #FFFFFF;
-  /* Fondo de tarjetas y paneles */
   --color-inst-borde: #E2E8F0;
-  /* Color de bordes */
 
-  /* --------------------------------------------------------------------------
-   * 3. PALETA DE CIBERSEGURIDAD (MATE / ESTILO SOC - MODO CLARO)
-   * -------------------------------------------------------------------------- */
   --color-ciber-primario: #1D4ED8;
-  /* Azul Acero (Confianza y Tecnología) */
   --color-ciber-primario-hover: #1E3A8A;
-  /* Azul más profundo al pasar ratón */
   --color-ciber-secundario: #047857;
-  /* Verde Bosque (Sistema seguro / OK) */
   --color-ciber-alerta: #B91C1C;
-  /* Rojo Ladrillo (Amenaza crítica) */
   --color-ciber-fondo: #F8FAFC;
-  /* Fondo gris neutro mate */
   --color-ciber-tarjeta: #FFFFFF;
-  /* Tarjeta blanca pura */
   --color-ciber-texto: #1E293B;
-  /* Texto en gris oscuro slate */
   --color-ciber-borde: #CBD5E1;
-  /* Borde gris perla mate */
   --color-ciber-resplandor: transparent;
-  /* Eliminado el glow neón */
   /* --------------------------------------------------------------------------
    * 4. ALIAS DE COMPATIBILIDAD CON EL CÓDIGO EXISTENTE (MODO CLARO)
    * -------------------------------------------------------------------------- */
