@@ -74,7 +74,7 @@ const ModuloRouter: React.FC = () => {
       <div style={{ padding: '4rem 1.5rem', textAlign: 'center', maxWidth: '600px', margin: '0 auto' }}>
         <h2>Módulo no encontrado</h2>
         <p>El módulo <strong>{moduloId}</strong> para el grado <strong>{grado}</strong> no existe o está en desarrollo.</p>
-        <Link to={grado ? `/modulos/grado/${grado}` : '/modulos'} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '1rem', color: '#2563eb', fontWeight: 'bold' }}>
+        <Link to={grado ? `/proyectos/ciberseguridad/grado/${grado}` : '/proyectos/ciberseguridad'} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '1rem', color: '#2563eb', fontWeight: 'bold' }}>
           <ArrowLeft size={18} /> Volver al catálogo del grado
         </Link>
       </div>

@@ -45,9 +45,9 @@ export const DescripcionModuloWrapper: React.FC = () => {
       gradoActual={gradoActual}
       nombreGradoLegible={nombreGradoLegible}
       // Acciones inyectadas desde el Router
-      onCambiarGrado={(nuevoGrado) => navigate(`/modulos/info/${idValido}/${nuevoGrado}`)}
-      onIniciarModulo={() => navigate(`/modulos/leccion/${idValido}/${gradoActual}`)}
-      onVolver={() => navigate(`/modulos/grado/${gradoActual}`)}
+      onCambiarGrado={(nuevoGrado) => navigate(`/proyectos/ciberseguridad/info/${idValido}/${nuevoGrado}`)}
+      onIniciarModulo={() => navigate(`/proyectos/ciberseguridad/leccion/${idValido}/${gradoActual}`)}
+      onVolver={() => navigate(`/proyectos/ciberseguridad/grado/${gradoActual}`)}
     />
   );
 };

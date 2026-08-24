@@ -2,6 +2,7 @@ import img1 from '../assets/images.jpeg';
 import img2 from '../assets/lem.jpeg';
 import img3 from '../assets/le.jpeg';
 import img4 from '../assets/lemu.jpeg';
+import img5 from '../assets/pbk-Hero-3.jpg';
 
 
 export interface Labor {
@@ -50,13 +51,7 @@ export const LABORES_DATA: Labor[] = [
     detalle: 'A través de una gestión coordinada con los comités de alimentación, aseguramos raciones alimenticias balanceadas diariamente para optimizar el rendimiento cognitivo y físico de los alumnos.',
     imagen: img3
   },
-  {
-    id: 4,
-    titulo: 'Vínculo Comunitario',
-    resumen: 'Actividades culturales, deportivas y ambientales integrando constantemente a la escuela, la familia y la comunidad.',
-    detalle: 'Fomentamos jornadas ecológicas, festivales de canto, ferias socio-productivas y torneos deportivos abiertos que estrechan lazos de convivencia armónica en el municipio.',
-    imagen: img4
-  }
+  
 ];
 
 export const PERSONAL_DATA: Personal[] = [

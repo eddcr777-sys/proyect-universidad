@@ -2,7 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './NavegacionEscritorio.css';
 
-// SVG simple para la flechita desplegable (Chevron)
+interface NavegacionEscritorioProps {
+  esTransparente?: boolean;
+}
+
 const ChevronIcon = () => (
   <svg 
     className="chevron-icon" 
@@ -19,28 +22,18 @@ const ChevronIcon = () => (
   </svg>
 );
 
-const NavegacionEscritorio: React.FC = () => {
+/**
+ * Componente de navegación de escritorio.
+ * Adapta sus estilos si se encuentra sobre una cabecera transparente o sólida.
+ */
+const NavegacionEscritorio: React.FC<NavegacionEscritorioProps> = ({ esTransparente = false }) => {
   return (
-    <nav className="nav-desktop" aria-label="Navegación principal">
+    <nav className={`nav-desktop ${esTransparente ? 'nav-transparente' : 'nav-solida'}`} aria-label="Navegación principal">
       <Link to="/" className="nav-link">Inicio</Link>
-      <Link to="/justificacion" className="nav-link">Justificación</Link>
 
-      {/* Acceso */}
-      <Link to="/indices" className="nav-link">Acceso</Link>
+      {/* Proyectos Estudiantiles */}
+      <Link to="/proyectos" className="nav-link">Proyectos</Link>
 
-      {/* Módulos */}
-      <Link to="/modulos" className="nav-link">Módulos</Link>
-
-      {/* Guías */}
-      <div className="dropdown">
-        <button className="dropbtn" aria-expanded="false" aria-haspopup="true">
-          Guías <ChevronIcon />
-        </button>
-        <div className="dropdown-content">
-          <Link to="/guias/docentes" className="dropdown-item">Guía para Docentes</Link>
-          <Link to="/guias/padres" className="dropdown-item">Guía para Padres</Link>
-        </div>
-      </div>
 
       {/* Nosotros */}
       <div className="dropdown">
@@ -48,8 +41,8 @@ const NavegacionEscritorio: React.FC = () => {
           Nosotros <ChevronIcon />
         </button>
         <div className="dropdown-content">
-          <Link to="/nosotros/sobre-ue" className="dropdown-item">Sobre la U.E.</Link>
-          <Link to="/nosotros/sobre-devs" className="dropdown-item">Sobre los Desarrolladores</Link>
+          <Link to="/proyectos/ciberseguridad/nosotros/sobre-ue" className="dropdown-item">Sobre la U.E.</Link>
+          <Link to="/proyectos/ciberseguridad/nosotros/sobre-devs" className="dropdown-item">Desarrolladores</Link>
         </div>
       </div>
     </nav>

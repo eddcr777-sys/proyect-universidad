@@ -8,6 +8,7 @@ import {
   GraduationCap,
   Zap,
 } from 'lucide-react';
+import HeaderProyecto from '../../components/comunes/HeaderProyecto/HeaderProyecto';
 import type { GradoEscolar } from '../../data/datosModulos';
 import './LandingModulos.css';
 
@@ -18,6 +19,15 @@ import './LandingModulos.css';
 const LandingModulos: React.FC = () => {
   const navigate = useNavigate();
   const [gradoSeleccionado, setGradoSeleccionado] = useState<GradoEscolar | null>(null);
+
+  const enlacesSubNav = [
+    { label: 'Catálogo por Grado', ruta: '/proyectos/ciberseguridad' },
+    { label: 'Justificación', ruta: '/proyectos/ciberseguridad/justificacion' },
+    { label: 'Índices y Temario', ruta: '/proyectos/ciberseguridad/indices' },
+    { label: 'Guía Docentes', ruta: '/proyectos/ciberseguridad/guias/docentes' },
+    { label: 'Guía Padres', ruta: '/proyectos/ciberseguridad/guias/padres' },
+    { label: 'Desarrolladores', ruta: '/proyectos/ciberseguridad/nosotros/sobre-devs' },
+  ];
 
   /** Datos de cada tarjeta de grado */
   const gradosInfo: Array<{
@@ -67,12 +77,20 @@ const LandingModulos: React.FC = () => {
   /** Navega al catálogo del grado elegido */
   const irAlCatalogo = () => {
     if (gradoSeleccionado) {
-      navigate(`/modulos/grado/${gradoSeleccionado}`);
+      navigate(`/proyectos/ciberseguridad/grado/${gradoSeleccionado}`);
     }
   };
 
   return (
     <div className="landing-modulos-contenedor">
+      <HeaderProyecto
+        titulo="Ciberseguridad Escolar y Conciencia Digital"
+        categoria="Proyecto #1 — Ciberseguridad"
+        descripcion="Módulos formativos, guías didácticas y auditorías digitales diseñadas para capacitar a la comunidad educativa en el uso seguro y ético de la tecnología."
+        autores="Equipo de Ciberseguridad L.B. Lemus"
+        icono="ShieldCheck"
+        enlacesSubNav={enlacesSubNav}
+      />
 
       {/* ── HERO SECTION ── */}
       <section className="landing-hero">

@@ -20,6 +20,7 @@ import {
   SparklesIcon,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import HeaderProyecto from '../../components/comunes/HeaderProyecto/HeaderProyecto';
 import './Justificacion.css';
 
 interface FAQItem {
@@ -67,8 +68,26 @@ export const Justificacion: React.FC = () => {
     }
   };
 
+  const enlacesSubNav = [
+    { label: 'Catálogo por Grado', ruta: '/proyectos/ciberseguridad' },
+    { label: 'Justificación', ruta: '/proyectos/ciberseguridad/justificacion' },
+    { label: 'Índices y Temario', ruta: '/proyectos/ciberseguridad/indices' },
+    { label: 'Guía Docentes', ruta: '/proyectos/ciberseguridad/guias/docentes' },
+    { label: 'Guía Padres', ruta: '/proyectos/ciberseguridad/guias/padres' },
+    { label: 'Desarrolladores', ruta: '/proyectos/ciberseguridad/nosotros/sobre-devs' },
+  ];
+
   return (
     <div className="justificacion-pagina">
+      <HeaderProyecto
+        titulo="Justificación del Proyecto Sociotecnológico"
+        categoria="Proyecto #1 — Ciberseguridad"
+        descripcion="Fundamentación académica, diagnóstico de vulnerabilidades digitales e impacto pedagógico en la comunidad del Liceo Bolivariano Antonio Lemus Pérez."
+        autores="Equipo de Ciberseguridad L.B. Lemus"
+        icono="ShieldCheck"
+        enlacesSubNav={enlacesSubNav}
+      />
+
       {/* HERO */}
       <section className="hero">
         <div className="hero-contenido">
@@ -85,7 +104,7 @@ export const Justificacion: React.FC = () => {
               que promueve la prevención, el pensamiento crítico y la seguridad en el uso de Internet.
             </p>
             <div className="hero-botones">
-              <Link to="/modulos" className="boton-primario">
+              <Link to="/proyectos/ciberseguridad" className="boton-primario">
                 Explorar Módulos <ArrowRight size={18} />
               </Link>
               <button onClick={() => scrollToSeccion('diagnostico')} className="boton-secundario">

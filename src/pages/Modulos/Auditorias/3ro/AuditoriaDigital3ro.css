@@ -56,7 +56,7 @@
   transition: all var(--transicion-rapida);
 }
 
-.boton-proceso. seguro:hover {
+.boton-proceso.seguro:hover {
   border-color: var(--color-ciber-secundario);
   background-color: rgba(5, 150, 105, 0.05);
 }
@@ -66,7 +66,7 @@
   background-color: rgba(220, 38, 38, 0.05);
 }
 
-.boton-proceso. seguro.acierto {
+.boton-proceso.seguro.acierto {
   background-color: rgba(5, 150, 105, 0.15);
   border-color: var(--color-ciber-secundario);
   color: var(--color-ciber-secundario);

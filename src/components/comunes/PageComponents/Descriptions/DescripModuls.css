@@ -1,4 +1,4 @@
-/* Base y Fallbacks (por si acaso no llegan las variables) */
+/* Base y Fallbacks */
 .descripcion-modulo-contenedor {
   --color-primario: #3b82f6; 
   --color-secundario: #1e40af;
@@ -77,12 +77,12 @@
   letter-spacing: 0.05em;
 }
 .insignia-categoria-modulo {
-  background-color: var(--color-secundario); /* Color oscuro inyectado */
+  background-color: var(--color-secundario);
   color: white;
 }
 .insignia-grado-modulo {
   background-color: white;
-  color: var(--color-primario); /* Texto del color principal */
+  color: var(--color-primario);
 }
 .insignia-duracion-modulo {
   background-color: rgba(255, 255, 255, 0.2);
@@ -96,7 +96,7 @@
 
 /* Caja de Bienvenida */
 .caja-mensaje-bienvenida {
-  background-color: rgba(0, 0, 0, 0.15); /* Fondo oscuro translúcido */
+  background-color: rgba(0, 0, 0, 0.15);
   border-left: 4px solid var(--color-secundario);
   padding: 1.5rem;
   border-radius: 0 0.5rem 0.5rem 0;
@@ -155,18 +155,25 @@
 }
 
 /* =========================================
-   CUERPO Y CUADRICULA
+   CUERPO Y CUADRICULA (MEJORADO)
    ========================================= */
 .seccion-cuerpo-descripcion {
   padding: 3rem 1.5rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(2, 132, 199, 0.1);
+  margin: 1.5rem;
 }
+
 .cuadricula-detalles-modulo {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 2rem;
 }
 
-/* Tarjetas (General) */
+/* =========================================
+   TARJETAS (NUEVO ESTILO)
+   ========================================= */
 .bloque-tarjeta-descripcion,
 .tarjeta-panel-accion,
 .tarjeta-temario-modulo {
@@ -175,7 +182,25 @@
   border-radius: 1rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   margin-bottom: 2rem;
-  border-top: 4px solid var(--color-primario); /* Borde superior con color del tema */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Tarjetas de teoría con acento lateral */
+.bloque-tarjeta-descripcion.tarjeta-ciberseguridad {
+  border-left: 5px solid var(--color-primario, #0284c7);
+  border-top: none; /* Quitamos el borde superior */
+}
+.bloque-tarjeta-descripcion.tarjeta-ciberseguridad:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(2, 132, 199, 0.15);
+}
+
+/* Variantes especiales */
+.tarjeta-amenazas {
+  border-left-color: #eab308 !important;
+}
+.tarjeta-reglas-oro {
+  border-left-color: #22c55e !important;
 }
 
 /* Textos e Iconos Interiores */
@@ -191,12 +216,30 @@
 }
 .icono-bloque,
 .icono-temario {
-  color: var(--color-primario); /* Iconos adoptan el color base */
+  color: var(--color-primario);
 }
 .texto-explicacion-breve {
   font-size: 1.125rem;
   line-height: 1.7;
   color: #475569;
+}
+
+/* Caja de Importancia Fundamental */
+.caja-importancia-fundamental {
+  background: #f0f9ff;
+  border-left: 4px solid var(--color-primario);
+  padding: 1rem;
+  border-radius: 0 8px 8px 0;
+}
+.caja-importancia-fundamental strong {
+  color: #0369a1;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.caja-importancia-fundamental p {
+  margin: 0;
+  color: #334155;
+  font-size: 0.95rem;
 }
 
 /* Lista de Objetivos */
@@ -215,32 +258,114 @@
   font-size: 1.05rem;
 }
 .icono-check {
-  color: var(--color-primario); /* Checkmarks teñidos del tema */
+  color: var(--color-primario);
   flex-shrink: 0;
   margin-top: 0.1rem;
 }
 
-/* Panel Acción */
-.tarjeta-panel-accion {
-  border-top: none;
-  background-color: var(--color-primario); /* Fondo primario */
-  color: white;
-}
-.titulo-panel-accion {
-  margin-top: 0;
-  font-size: 1.5rem;
-}
-.texto-panel-accion {
-  margin-bottom: 1.5rem;
-  opacity: 0.9;
-}
-.caja-botones-accion {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+/* =========================================
+   GLOSARIO Y AMENAZAS
+   ========================================= */
+.grid-glosario-terminos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
 }
 
-/* Temario */
+.tarjeta-termino-glosario {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.tarjeta-termino-glosario:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-color: #cbd5e1;
+}
+
+.cabecera-termino {
+  margin-bottom: 0.5rem;
+}
+.badge-termino {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-primario);
+  background-color: rgba(2, 132, 199, 0.1);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.35rem;
+}
+.cabecera-termino h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+.definicion-termino {
+  font-size: 0.92rem;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0 0 0.75rem 0;
+}
+.ejemplo-termino {
+  background-color: #ffffff;
+  border-left: 3px solid var(--color-primario);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.85rem;
+  color: #334155;
+}
+
+.grid-amenazas-casos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.caja-amenaza-caso {
+  background-color: #fefce8;
+  border: 1px solid #fef08a;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.caja-amenaza-caso h4 {
+  color: #0f172a;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.05rem;
+}
+.caja-amenaza-caso p {
+  color: #475569;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* =========================================
+   COLUMNA LATERAL (TEMARIO)
+   ========================================= */
+.columna-lateral-modulo {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+}
+.tarjeta-temario-modulo {
+  border-top: none;
+  border-left: 5px solid var(--color-primario);
+}
+.titulo-temario-modulo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  color: #1e293b;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
 .lista-temas-grado {
   list-style: none;
   padding: 0;
@@ -256,7 +381,7 @@
   padding: 0.75rem;
   background-color: #f8fafc;
   border-radius: 0.5rem;
-  border-left: 3px solid var(--color-primario); /* Borde lateral del tema */
+  border-left: 3px solid var(--color-primario);
 }
 .numero-tema {
   background-color: var(--color-primario);
@@ -276,87 +401,64 @@
 }
 
 /* =========================================
-   GLOSARIO Y AMENAZAS EN LANDING
+   SECCIÓN CTA FINAL (NUEVA)
    ========================================= */
-.grid-glosario-terminos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.25rem;
+.seccion-cta-final {
+  margin: 3rem 0 0 0;
+  background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+  border-radius: 1.5rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
 }
-
-.tarjeta-termino-glosario {
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 0.75rem;
-  padding: 1.25rem;
+.seccion-cta-final::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(2, 132, 199, 0.2) 0%, transparent 60%);
+  pointer-events: none;
+}
+.contenedor-cta {
+  position: relative;
+  z-index: 1;
+}
+.icono-cta {
+  color: #22c55e;
+  margin-bottom: 1rem;
+}
+.titulo-cta {
+  color: #f8fafc;
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+}
+.texto-cta {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+.caja-botones-accion {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.tarjeta-termino-glosario:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border-color: #cbd5e1;
-}
-
-.cabecera-termino {
-  margin-bottom: 0.5rem;
-}
-
-.badge-termino {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--color-primario);
-  background-color: rgba(2, 132, 199, 0.1);
-  padding: 0.15rem 0.5rem;
-  border-radius: 4px;
-  margin-bottom: 0.35rem;
-}
-
-.cabecera-termino h4 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin: 0;
-}
-
-.definicion-termino {
-  font-size: 0.92rem;
-  color: #475569;
-  line-height: 1.5;
-  margin: 0 0 0.75rem 0;
-}
-
-.ejemplo-termino {
-  background-color: #ffffff;
-  border-left: 3px solid var(--color-primario);
-  padding: 0.5rem 0.75rem;
-  border-radius: 0 6px 6px 0;
-  font-size: 0.85rem;
-  color: #334155;
-}
-
-.grid-amenazas-casos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
-.caja-amenaza-caso {
-  background-color: #fefce8;
-  border: 1px solid #fef08a;
-  border-radius: 0.5rem;
-  padding: 1rem;
-}
-
-/* Responsive */
+/* =========================================
+   RESPONSIVE
+   ========================================= */
 @media (max-width: 992px) {
   .cuadricula-detalles-modulo {
     grid-template-columns: 1fr;
+  }
+  .columna-lateral-modulo {
+    position: static; /* Deja de ser sticky en móvil */
   }
   .bloque-cabecera-modulo {
     flex-direction: column;
@@ -369,5 +471,11 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
+  }
+  .seccion-cta-final {
+    padding: 2rem 1rem;
+  }
+  .titulo-cta {
+    font-size: 1.5rem;
   }
 }

@@ -1,0 +1,239 @@
+.pagina-explorador {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+.contenedor-explorador {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.header-explorador {
+  background: linear-gradient(135deg, #0f2c59 0%, #1e3a8a 100%);
+  color: #ffffff;
+  padding: 70px 0 60px 0;
+}
+
+.cintillo-explorador {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.titulo-explorador {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.subtitulo-explorador {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  max-width: 750px;
+  line-height: 1.6;
+}
+
+.cuerpo-explorador {
+  padding-top: 60px;
+  padding-bottom: 90px;
+}
+
+.grid-proyectos-registrados {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 32px;
+  margin-bottom: 70px;
+}
+
+.tarjeta-proyecto-estudiantil {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.tarjeta-proyecto-estudiantil:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(15, 44, 89, 0.12);
+  border-color: #3b82f6;
+}
+
+.cabecera-tarjeta-proy {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.categoria-proy {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #1d4ed8;
+}
+
+.badge-fecha {
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.icono-contenedor-proy {
+  margin-bottom: 20px;
+}
+
+.icono-proy.ciber {
+  color: #2563eb;
+}
+
+.icono-proy.info {
+  color: #059669;
+}
+
+.titulo-proy {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0f2c59;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.descripcion-proy {
+  font-size: 0.98rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.meta-proy {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 16px;
+  margin-bottom: 16px;
+  font-size: 0.88rem;
+  color: #334155;
+}
+
+.meta-proy p {
+  margin-bottom: 6px;
+}
+
+.etiquetas-proy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.tag-item {
+  background: #eff6ff;
+  color: #1e40af;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.boton-acceder-proyecto {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #0f2c59;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.boton-acceder-proyecto:hover {
+  background: #1e40af;
+  transform: translateX(2px);
+}
+
+.seccion-sumar-proyecto {
+  margin-top: 40px;
+}
+
+.caja-sumar-proyecto {
+  background: linear-gradient(135deg, #0f2c59 0%, #1e3a8a 100%);
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 48px;
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  box-shadow: 0 10px 30px rgba(15, 44, 89, 0.15);
+}
+
+.icono-sumar-contenedor {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  padding: 20px;
+  border-radius: 16px;
+  flex-shrink: 0;
+}
+
+.contenido-sumar h2 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.contenido-sumar p {
+  font-size: 1.05rem;
+  opacity: 0.92;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 800px;
+}
+
+.acciones-sumar {
+  display: flex;
+  gap: 16px;
+}
+
+.boton-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  color: #0f2c59;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.boton-github:hover {
+  background: #f1f5f9;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .caja-sumar-proyecto {
+    flex-direction: column;
+    padding: 32px 24px;
+  }
+}

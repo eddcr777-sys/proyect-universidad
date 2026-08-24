@@ -48,7 +48,7 @@ export const PresentacionGrado: React.FC = () => {
 
   /** Navega al catálogo del nuevo grado seleccionado */
   const cambiarGrado = (nuevoGrado: GradoEscolar) => {
-    navigate(`/modulos/grado/${nuevoGrado}`);
+    navigate(`/proyectos/ciberseguridad/grado/${nuevoGrado}`);
   };
 
   return (
@@ -146,7 +146,7 @@ export const PresentacionGrado: React.FC = () => {
                       variante="ciberseguridad"
                       tamano="mediano"
                       anchoCompleto
-                      onClick={() => navigate(`/modulos/info/${modulo.id}/${gradoActual}`)}
+                      onClick={() => navigate(`/proyectos/ciberseguridad/info/${modulo.id}/${gradoActual}`)}
                     >
                       Ingresar al Módulo <ArrowRight size={18} />
                     </Boton>
@@ -158,9 +158,9 @@ export const PresentacionGrado: React.FC = () => {
 
           {/* Enlace de Retorno */}
           <div className="caja-pie-retorno">
-            <Link to="/modulos" className="enlace-volver-inicio">
+            <Link to="/proyectos/ciberseguridad" className="enlace-volver-inicio">
               <ArrowLeft size={18} />
-              Volver a Módulos
+              Volver a Ciberseguridad
             </Link>
           </div>
         </div>

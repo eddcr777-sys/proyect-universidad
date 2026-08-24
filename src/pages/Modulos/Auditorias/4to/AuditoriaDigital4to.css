@@ -56,17 +56,17 @@
   transition: all var(--transicion-rapida);
 }
 
-.boton-trafico. seguro:hover {
+.boton-trafico.seguro:hover {
   border-color: var(--color-ciber-secundario);
   background-color: rgba(5, 150, 105, 0.05);
 }
 
-.boton-trafico.inseguro:hover {
+.boton-trafico.sospechoso:hover {
   border-color: var(--color-ciber-alerta);
   background-color: rgba(220, 38, 38, 0.05);
 }
 
-.boton-trafico. seguro.acierto {
+.boton-trafico.seguro.acierto {
   background-color: rgba(5, 150, 105, 0.15);
   border-color: var(--color-ciber-secundario);
   color: var(--color-ciber-secundario);

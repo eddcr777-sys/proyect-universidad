@@ -25,6 +25,7 @@ const ChevronIcon = ({ abierto }: { abierto: boolean }) => (
 
 const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
   const [secciones, setSecciones] = useState({
+    ciberseguridad: false,
     guias: false,
     nosotros: false
   });
@@ -35,16 +36,14 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
 
   return (
     <>
-      {/* Fondo oscuro traslúcido para cerrar al hacer clic afuera */}
       <div 
         className={`drawer-overlay ${abierto ? 'activo' : ''}`} 
         onClick={cerrar} 
       />
 
-      {/* Menú lateral que se desliza desde la derecha */}
       <aside className={`drawer-panel ${abierto ? 'activo' : ''}`}>
         <div className="drawer-header">
-          <span className="drawer-titulo">Navegación</span>
+          <span className="drawer-titulo">Navegación Escolar</span>
           <button className="btn-cerrar" onClick={cerrar} aria-label="Cerrar menú">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -58,18 +57,24 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
             Inicio
           </Link>
 
-          <Link to="/justificacion" className="drawer-item-directo" onClick={cerrar}>
-            Justificación
+          <Link to="/proyectos" className="drawer-item-directo" onClick={cerrar}>
+            Proyectos Estudiantiles
           </Link>
 
-          <Link to="/indices" className="drawer-item-directo" onClick={cerrar}>
-            Acceso
-          </Link>
-
-          {/* Módulos — enlace directo al landing de selección de grado */}
-          <Link to="/modulos" className="drawer-item-directo" onClick={cerrar}>
-            Módulos
-          </Link>
+          {/* Sección Ciberseguridad */}
+          <div className="menu-seccion">
+            <button className={`btn-seccion ${secciones.ciberseguridad ? 'activo' : ''}`} onClick={() => alternarSeccion('ciberseguridad')}>
+              <span>Ciberseguridad</span>
+              <ChevronIcon abierto={secciones.ciberseguridad} />
+            </button>
+            {secciones.ciberseguridad && (
+              <div className="sub-menu">
+                <Link to="/proyectos/ciberseguridad" onClick={cerrar}>Catálogo por Grado</Link>
+                <Link to="/proyectos/ciberseguridad/justificacion" onClick={cerrar}>Justificación</Link>
+                <Link to="/proyectos/ciberseguridad/indices" onClick={cerrar}>Acceso e Índices</Link>
+              </div>
+            )}
+          </div>
 
           {/* Sección Guías */}
           <div className="menu-seccion">
@@ -79,8 +84,8 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
             </button>
             {secciones.guias && (
               <div className="sub-menu">
-                <Link to="/guias/docentes" onClick={cerrar}>Guía para Docentes</Link>
-                <Link to="/guias/padres" onClick={cerrar}>Guía para Padres</Link>
+                <Link to="/proyectos/ciberseguridad/guias/docentes" onClick={cerrar}>Guía para Docentes</Link>
+                <Link to="/proyectos/ciberseguridad/guias/padres" onClick={cerrar}>Guía para Padres</Link>
               </div>
             )}
           </div>
@@ -93,8 +98,8 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
             </button>
             {secciones.nosotros && (
               <div className="sub-menu">
-                <Link to="/nosotros/sobre-ue" onClick={cerrar}>Sobre la U.E.</Link>
-                <Link to="/nosotros/sobre-devs" onClick={cerrar}>Sobre los Desarrolladores</Link>
+                <Link to="/proyectos/ciberseguridad/nosotros/sobre-ue" onClick={cerrar}>Sobre la U.E.</Link>
+                <Link to="/proyectos/ciberseguridad/nosotros/sobre-devs" onClick={cerrar}>Desarrolladores</Link>
               </div>
             )}
           </div>
