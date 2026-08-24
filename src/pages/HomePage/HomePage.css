@@ -16,12 +16,15 @@
   --transition-base: all 0.3s ease;
   --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.05);
   --sombra-media: 0 8px 24px rgba(0, 0, 0, 0.08);
-  --radio-principal: 0px; /* Bordes rectos */
+  --radio-principal: 0px;
 }
 
-
-
-
+body {
+  margin: 0;
+  font-family: var(--fuente-cuerpo);
+  color: var(--color-inst-texto);
+  background-color: var(--color-inst-fondo);
+}
 
 .inicio-pagina {
   width: 100%;
@@ -50,26 +53,129 @@ p, span, a, button, li, input, select, textarea {
   font-family: var(--fuente-cuerpo);
 }
 
+
+
 /* ==========================================
-   HERO
+   CARRUSELES
    ========================================== */
-.hero-institucional {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+
+.encabezado-carrusel{
   text-align: center;
   color: var(--color-inst-blanco);
-  background-image: url('../../assets/lb.jpeg');
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
-  padding: 2rem 1rem;
-  z-index: 0;
+  padding: 10px;
+  
 }
 
-.hero-institucional::before {
+/* ==========================================
+   MISIÓN Y VISIÓN (CRUZADO)
+   ========================================== */
+.seccion-mision-vision {
+  padding: 100px 20px;
+  background-color: var(--color-inst-blanco);
+}
+
+.contenedor-cruzado {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.bloque-cruzado {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+}
+
+.bloque-cruzado.mision .imagen-cruzada { order: 1; }
+.bloque-cruzado.mision .texto-cruzado { order: 2; }
+.bloque-cruzado.vision .texto-cruzado { order: 1; }
+.bloque-cruzado.vision .imagen-cruzada { order: 2; }
+
+.imagen-cruzada {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  overflow: hidden;
+  border-radius: 0; /* o var(--radio-principal) */
+}
+
+.imagen-cruzada img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.texto-cruzado {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  background-color: var(--color-inst-azul);
+  color: white;
+}
+
+.texto-cruzado .badge-apple {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.texto-cruzado .titulo-apple {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.texto-cruzado .subtitulo-apple {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+@media (max-width: 992px) {
+  .contenedor-cruzado {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .bloque-cruzado {
+    grid-template-columns: 1fr;
+  }
+
+  .bloque-cruzado.mision .imagen-cruzada,
+  .bloque-cruzado.mision .texto-cruzado,
+  .bloque-cruzado.vision .imagen-cruzada,
+  .bloque-cruzado.vision .texto-cruzado {
+    order: initial;
+  }
+
+  .imagen-cruzada {
+    min-height: 250px;
+  }
+}
+
+/* ==========================================
+   HISTORIA (con parallax)
+   ========================================== */
+.seccion-historia-harvard {
+  position: relative;
+  background-color: var(--color-inst-azul);
+  color: #ffffff;
+  padding: 100px 20px;
+  overflow: hidden;
+  background-image: url('../../assets/lb.jpeg'); /* Cambia la ruta */
+  background-size: cover;
+
+  background-repeat: no-repeat;
+}
+
+.seccion-historia-harvard::before {
   content: '';
   position: absolute;
   top: 0;
@@ -79,194 +185,15 @@ p, span, a, button, li, input, select, textarea {
   background: linear-gradient(
     to bottom,
     rgba(15, 44, 89, 0.9) 0%,
-    rgba(15, 44, 89, 0.8) 50%,
-    rgba(15, 44, 89, 0.7) 100%
+    rgba(15, 44, 89, 0.85) 50%,
+    rgba(15, 44, 89, 0.95) 100%
   );
-  z-index: -1;
-}
-
-.hero-contenido {
-  max-width: 900px;
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  position: relative;
-  z-index: 1;
-}
-
-.hero-cintillo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
-
-.hero-cintillo-texto {
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  opacity: 0.9;
-}
-
-.hero-titulo {
-  font-size: clamp(2.8rem, 6vw, 4.8rem);
-  line-height: 1.15;
-  margin: 0;
-  letter-spacing: 0.02em;
-}
-
-.hero-nombre {
-  display: block;
-  font-size: 0.7em;
-  margin-top: 0.5rem;
-}
-
-.hero-descripcion {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  opacity: 0.95;
-  max-width: 600px;
-  margin: 0;
-}
-
-.hero-acciones {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.boton-hero-principal,
-.boton-hero-secundario {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 0.9rem 1.8rem;
-  border-radius: var(--radio-principal);
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
-  transition: var(--transition-base);
-}
-
-.boton-hero-principal {
-  background-color: var(--color-inst-blanco);
-  color: var(--color-inst-azul);
-}
-
-.boton-hero-principal:hover {
-  background-color: #f0f0f0;
-  transform: translateY(-2px);
-}
-
-.boton-hero-secundario {
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  color: var(--color-inst-blanco);
-  background-color: transparent;
-}
-
-.boton-hero-secundario:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  border-color: var(--color-inst-blanco);
-}
-
-/* ==========================================
-   MISIÓN Y VISIÓN
-   ========================================== */
-.seccion-mision-vision {
-  padding: 80px 20px;
-  background-color: var(--color-inst-blanco);
-}
-
-.contenedor-paralelo {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.tarjeta-apple {
-  padding: 50px 30px 0 30px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.tarjeta-apple:hover {
-  transform: scale(1.02);
-}
-
-.tarjeta-oscura {
-  background-color: var(--color-inst-azul);
-  color: var(--color-inst-blanco);
-}
-
-.tarjeta-clara {
-  background-color: var(--color-inst-azul);
-  color: var(--color-inst-blanco);
-}
-
-.encabezado-apple {
-  max-width: 450px;
-  margin-bottom: 30px;
-}
-
-.badge-apple {
-  display: block;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  opacity: 0.8;
-  margin-bottom: 8px;
-}
-
-.titulo-apple {
-  font-size: 2.2rem;
-  letter-spacing: -0.015em;
-  line-height: 1.1;
-  margin-bottom: 12px;
-}
-
-.subtitulo-apple {
-  font-size: 1rem;
-  line-height: 1.45;
-  opacity: 0.9;
-}
-
-.contenedor-imagen-apple {
-  width: 100%;
-  height: 300px;
-  overflow: hidden;
-}
-
-.contenedor-imagen-apple img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ==========================================
-   HISTORIA
-   ========================================== */
-.seccion-historia-harvard {
-  background-color: #2a3341;
-  color: #ffffff;
-  padding: 100px 20px;
+  z-index: 0;
 }
 
 .contenedor-harvard {
+  position: relative;
+  z-index: 1;
   max-width: 1280px;
   margin: 0 auto;
   display: grid;
@@ -360,28 +287,30 @@ p, span, a, button, li, input, select, textarea {
   font-size: 1.05rem;
   font-weight: 700;
   line-height: 1.4;
-  text-decoration: underline;
   text-underline-offset: 4px;
   margin: 0;
 }
 
 /* ==========================================
-   LABORES / PERSONAL (EDITORIAL)
+   LABORES / PERSONAL
    ========================================== */
 .seccion-labores-harvard {
-  padding: 90px 24px;
+  padding: 10px 24px;
   background-color: var(--color-inst-fondo);
   color: var(--color-inst-texto);
 }
 
 .contenedor-harvard-ancho {
-  max-width: 1280px;
+
   margin: 0 auto;
 }
 
 .encabezado-harvard-simple {
   margin-bottom: 50px;
   max-width: 700px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .titulo-seccion-editorial {
@@ -406,24 +335,24 @@ p, span, a, button, li, input, select, textarea {
 }
 
 .tarjeta-harvard-editorial {
-  background-color: #ffffff;
+  background-color: var(--color-inst-azul);
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  transition: transform 0.25s ease;
-  border-radius: 0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-radius: var(--radio-principal);
+  overflow: hidden;
 }
 
 .tarjeta-harvard-editorial:hover {
   transform: translateY(-4px);
-  box-shadow: var(--sombra-md);
+  box-shadow: var(--sombra-media);
 }
 
 .marco-imagen-editorial {
   width: 100%;
   height: 250px;
   overflow: hidden;
-  background-color: #e2e6ea;
 }
 
 .marco-imagen-editorial img {
@@ -447,7 +376,7 @@ p, span, a, button, li, input, select, textarea {
 
 .titulo-card-editorial {
   font-size: 1.65rem;
-  color: var(--color-inst-azul);
+  color: var(--color-inst-blanco);
   margin-bottom: 14px;
   line-height: 1.25;
 }
@@ -460,12 +389,12 @@ p, span, a, button, li, input, select, textarea {
 
 .tarjeta-harvard-editorial:hover .titulo-card-editorial span,
 .titulo-card-editorial.subrayado span {
-  border-bottom-color: var(--color-inst-blanco);
+  border-bottom-color: var(--color-inst-dorado);
 }
 
 .descripcion-card-editorial {
   font-size: 0.98rem;
-  color: var(--color-inst-texto-secundario);
+  color: var(--color-inst-blanco);
   line-height: 1.6;
   margin-bottom: 16px;
   flex-grow: 1;
@@ -476,9 +405,10 @@ p, span, a, button, li, input, select, textarea {
   border-top: 1px solid var(--color-inst-borde);
   margin-bottom: 16px;
   font-size: 0.93rem;
-  color: var(--color-inst-texto);
+  color: var(--color-inst-blanco);
   line-height: 1.6;
   animation: fadeIn 0.3s ease-in-out;
+  
 }
 
 .boton-leer-mas-harvard {
@@ -490,7 +420,7 @@ p, span, a, button, li, input, select, textarea {
   gap: 6px;
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--color-inst-azul);
+  color: var(--color-inst-blanco);
   cursor: pointer;
   align-self: flex-start;
   text-decoration: underline;
@@ -513,13 +443,12 @@ p, span, a, button, li, input, select, textarea {
 /* ==========================================
    CARRUSEL
    ========================================== */
-.bloque-carrusel-interno {
-  margin-top: 60px;
-}
+
 
 .contenedor-carrusel {
   position: relative;
   width: 100%;
+  height: 100vh;             /* Alto completo de la ventana */
   overflow: hidden;
   background-color: var(--color-inst-azul);
 }
@@ -528,12 +457,13 @@ p, span, a, button, li, input, select, textarea {
   display: flex;
   transition: transform 0.4s ease-in-out;
   width: 100%;
+  height: 100%;               /* Ocupa todo el alto del contenedor */
 }
 
 .item-carrusel {
   min-width: 100%;
   position: relative;
-  height: 500px;
+  height: 100%;               /* Ocupa todo el alto de la pista */
 }
 
 .item-carrusel img {
@@ -549,7 +479,8 @@ p, span, a, button, li, input, select, textarea {
   right: 0;
   background: linear-gradient(transparent, rgba(15,44,89,0.85));
   color: white;
-  padding: 40px 10% 30px 10%;
+  padding: 40px 10% 20px 10%;
+
 }
 
 .overlay-carrusel h3 {
@@ -634,13 +565,8 @@ p, span, a, button, li, input, select, textarea {
     width: 100%;
   }
 
-  .contenedor-paralelo {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .contenedor-imagen-apple {
-    height: 240px;
+  .seccion-mision-vision {
+    padding: 60px 20px;
   }
 
   .seccion-historia-harvard {

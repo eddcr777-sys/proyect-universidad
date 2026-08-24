@@ -1,88 +1,131 @@
 /* ==========================================
-   CABECERA INSTITUCIONAL (MINIMALISTA)
+   CABECERA INSTITUCIONAL (ESTILO HARVARD & GLASSMORPHISM)
    ========================================== */
 
 .cabecera {
-    background-color: var(--color-inst-blanco);
-    border-bottom: 1px solid var(--color-inst-borde);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+ 
+}
+
+/* Estado 1: Transparente sobre el Hero de Inicio (Estilo Harvard) */
+.cabecera.cabecera-transparente {
+  background-color: transparent;
+ 
+}
+
+.cabecera.cabecera-transparente .cabecera-logo-icono,
+.cabecera.cabecera-transparente .cabecera-titulo {
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.cabecera.cabecera-transparente .cabecera-subtitulo {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.cabecera.cabecera-transparente .menu-hamburguesa {
+  color: #ffffff;
+}
+
+/* Estado 2: Sólido / Glassmorphism al hacer scroll o en subpáginas */
+.cabecera.cabecera-solida {
+  background-color: var(--color-inst-azul);
+ 
+}
+
+.cabecera.cabecera-solida .cabecera-logo-icono,
+.cabecera.cabecera-solida .cabecera-titulo {
+  color: var(--color-inst-blanco);
+  text-shadow: none;
+}
+
+.cabecera.cabecera-solida .cabecera-subtitulo {
+  color: var(--color-inst-blanco);
+}
+
+.cabecera.cabecera-solida .menu-hamburguesa {
+  color: var(--color-inst-azul);
 }
 
 .cabecera-contenedor {
-    
-    margin: 0 auto;
-    padding: 12px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Marca / Logo */
 .cabecera-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: var(--color-inst-azul);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.cabecera-logo:hover {
+  opacity: 0.9;
 }
 
 .cabecera-logo-icono {
-    color: var(--color-inst-azul);
-    flex-shrink: 0;
+  flex-shrink: 0;
+  transition: color 0.3s ease;
 }
 
 .cabecera-logo-texto {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .cabecera-titulo {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-inst-azul);
-    line-height: 1.2;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.2;
+  transition: color 0.3s ease;
 }
 
 .cabecera-subtitulo {
-    font-size: 0.75rem;
-    color: var(--color-inst-texto-secundario);
-    font-weight: 400;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 /* Envoltorio Navegación Escritorio */
 .nav-wrapper {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 /* Botón Hamburguesa Móvil */
 .menu-hamburguesa {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--color-inst-azul);
-    padding: 6px;
-    border-radius: 4px;
-    transition: background-color 0.15s ease;
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
 }
 
 .menu-hamburguesa:hover {
-    background-color: var(--color-inst-fondo);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Responsividad para pantallas móviles */
-@media (max-width: 768px) {
-    .nav-wrapper {
-        display: none;
-    }
+@media (max-width: 868px) {
+  .nav-wrapper {
+    display: none;
+  }
 
-    .menu-hamburguesa {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  .menu-hamburguesa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

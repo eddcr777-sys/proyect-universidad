@@ -140,25 +140,7 @@
 /* ============================================================================
  * ESTILOS GLOBALES BASE Y RESET (REGLA DE BORDES RECTOS)
  * ============================================================================ */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  border-radius: var(--radio-principal) !important;
-  /* Fuerza 0px en toda la app */
-  font-family: inherit;
-  /* Asegura herencia de fuente en todos los elementos */
-}
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: var(--fuente-principal);
-  background-color: var(--color-fondo);
-  color: var(--color-texto-principal);
-  transition: background-color var(--transicion-normal), color var(--transicion-normal);
-  border-radius: 0 !important;
-}
 
 /* Forzar esquinas rectar en elementos comunes de formulario y estructura */
 button,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { GraduationCap, MapPin, Mail } from 'lucide-react';
+import { MapPin, Mail, Phone, Clock } from 'lucide-react';
 import './PiePagina.css';
 
 /**
@@ -10,60 +10,42 @@ const PiePagina: React.FC = () => {
     const anioActual = new Date().getFullYear();
 
     return (
-        <footer className="pie-pagina" aria-label="Pie de página institucional">
-            <div className="pie-contenedor">
-                <div className="pie-cuadricula">
-                    
-                    {/* Columna 1: Identidad Institucional */}
-                    <div className="pie-columna pie-columna-marca">
-                        <div className="pie-marca">
-                            <GraduationCap className="pie-logo-icono" size={28} />
-                            <span className="pie-titulo">L.B. Antonio Lemus Pérez</span>
-                        </div>
-                        <p className="pie-descripcion">
-                            Comunidad Educativa comprometida con la formación integral, la moral y las luces de nuestros estudiantes.
-                        </p>
+         <footer className="pie-pagina">
+                <div className="contenedor">
+                  <div className="grid-pie">
+                    <div className="pie-col">
+                      <h4 className="pie-titulo">Liceo Bolivariano "Antonio Lemus Pérez"</h4>
+                      <p className="pie-texto">
+                        Institución educativa pública dedicada a la formación integral de la juventud sucrense desde 1984.
+                      </p>
+                      <div className="pie-contacto">
+                        <p><MapPin size={16} /> Av. Las Industrias, Cumaná, Estado Sucre</p>
+                        <p><Phone size={16} /> +58 (0293) 123-4567</p>
+                        <p><Mail size={16} /> contacto@liceoalps.edu.ve</p>
+                      </div>
                     </div>
-
-                    {/* Columna 2: Navegación Rápida */}
-                    <div className="pie-columna">
-                        <h4 className="pie-encabezado">Enlaces Rápidos</h4>
-                        <ul className="pie-lista">
-                            <li><Link to="/">Inicio</Link></li>
-                            <li><Link to="/modulos">Manual Digital</Link></li>
-                            <li><Link to="/guias/docentes">Guías para Docentes</Link></li>
-                            <li><Link to="/guias/padres">Guías para Padres</Link></li>
-                        </ul>
+                    <div className="pie-col">
+                      <h4 className="pie-titulo">Enlaces Rápidos</h4>
+                      <ul className="pie-links">
+                        <li><a href="#historia">Historia</a></li>
+                        <li><a href="#labores">Labores</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#personal">Equipo</a></li>
+                       
+                      </ul>
                     </div>
-
-                    {/* Columna 3: Ubicación y Contacto */}
-                    <div className="pie-columna">
-                        <h4 className="pie-encabezado">Ubicación y Contacto</h4>
-                        <ul className="pie-lista-contacto">
-                            <li>
-                                <MapPin size={18} className="icono-contacto" />
-                                <span>Cumaná, Estado Sucre, Venezuela</span>
-                            </li>
-                            <li>
-                                <Mail size={18} className="icono-contacto" />
-                                <span>contacto@lemusperez.edu.ve</span>
-                            </li>
-                        </ul>
+                    <div className="pie-col">
+                      <h4 className="pie-titulo">Horario</h4>
+                      <p className="pie-texto">
+                        <Clock size={16} /> Lunes a Viernes: 7:00 AM - 4:00 PM
+                      </p>
                     </div>
-
+                  </div>
+                  <div className="pie-copy">
+                    © 2026 Liceo Bolivariano "Antonio Lemus Pérez". Todos los derechos reservados.
+                  </div>
                 </div>
-
-                {/* Sub-footer / Derechos y Créditos */}
-                <div className="pie-inferior">
-                    <p className="pie-derechos">
-                        © {anioActual} Liceo Bolivariano "Antonio Lemus Pérez". Todos los derechos reservados.
-                    </p>
-                    <Link to="/nosotros/sobre-devs" className="pie-creditos">
-                        Desarrollado por: Cordova / Guipe / Giraldo / Ruiz
-                    </Link>
-                </div>
-            </div>
-        </footer>
+              </footer>
     );
 };
 

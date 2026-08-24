@@ -1,16 +1,43 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, GraduationCap } from 'lucide-react';
 import { useMenuMovil } from '../../hooks/useMenuMovil';
 import NavegacionEscritorio from './Navegacion/NavegacionEscritorio';
 import DrawerMovil from './Navegacion/DrawerMovil';
 import './Cabecera.css';
 
+
 const Cabecera: React.FC = () => {
   const { abierto, toggle } = useMenuMovil();
+  const location = useLocation();
+  const [desplazado, setDesplazado] = useState(false);
+
+  const esHome = location.pathname === '/';
+
+  useEffect(() => {
+    const manejarScroll = () => {
+      if (window.scrollY > 40) {
+        setDesplazado(true);
+      } else {
+        setDesplazado(false);
+      }
+    };
+
+    window.addEventListener('scroll', manejarScroll, { passive: true });
+    manejarScroll(); // Verificar estado inicial
+
+    return () => {
+      window.removeEventListener('scroll', manejarScroll);
+    };
+  }, []);
+
+  const esTransparente = esHome && !desplazado && !abierto;
 
   return (
-    <header className="cabecera" aria-label="Encabezado principal">
+    <header
+      className={`cabecera ${esTransparente ? 'cabecera-transparente' : 'cabecera-solida'}`}
+      aria-label="Encabezado principal"
+    >
       <div className="cabecera-contenedor">
         
         {/* Identidad / Logo */}
@@ -18,16 +45,16 @@ const Cabecera: React.FC = () => {
           <GraduationCap size={28} className="cabecera-logo-icono" />
           <div className="cabecera-logo-texto">
             <span className="cabecera-titulo">L.B. Antonio Lemus Pérez</span>
-            <span className="cabecera-subtitulo">Plataforma Digital</span>
+            <span className="cabecera-subtitulo">Plataforma Digital Escolar</span>
           </div>
         </Link>
 
         {/* Navegación Escritorio */}
         <div className="nav-wrapper">
-          <NavegacionEscritorio />
+          <NavegacionEscritorio esTransparente={esTransparente} />
         </div>
 
-        {/* Botón Menú Móvil con Lucide React */}
+        {/* Botón Menú Móvil */}
         <button 
           className="menu-hamburguesa" 
           onClick={toggle} 

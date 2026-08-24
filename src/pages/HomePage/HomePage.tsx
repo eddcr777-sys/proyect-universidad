@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-  ArrowDown,
-  BookOpen,
-} from 'lucide-react';
+import { ArrowDown, BookOpen } from 'lucide-react';
 import '../HomePage/HomePage.css';
 import { useCarrusel } from '../../hooks/useCarrusel';
 import {
@@ -14,18 +11,16 @@ import {
 } from '../../data/HomeData';
 
 import HeroInstitucional from '../../components/comunes/HeroInstitucional/HeroInstitucional';
-import TarjetasDesplegables from '../../components/comunes/tarjetas/tarjetasHome';
-import CarruselBase from '../../components/comunes/Extras/carrusel'; // Carrusel reutilizable
+import TarjetasDesplegables from '../../components/comunes/tarjetas/tarjetasHome'; // Ajusta si tienes otro archivo
+import CarruselBase from '../../components/comunes/Extras/carrusel';
 
-import fotoFachada from '../../assets/lb.jpeg';
 import fotoCancha from '../../assets/lemu.jpeg';
-import { BanderaVenezuela } from '../../components/comunes/Extras/Bandera/BanderaVenezuela';
+import img5 from '../../assets/pbk-Hero-3.jpg';
 
 export const Home: React.FC = () => {
   const carruselLabores = useCarrusel(CARRUSEL_LABORES_DATA.length);
   const carruselPersonal = useCarrusel(CARRUSEL_PERSONAL_DATA.length);
 
-  // Adaptar PERSONAL_DATA para el componente TarjetasDesplegables
   const personalAdaptado = PERSONAL_DATA.map((p) => ({
     id: p.id,
     imagen: p.imagen,
@@ -36,19 +31,9 @@ export const Home: React.FC = () => {
 
   return (
     <main className="inicio-pagina">
-      {/* ============================================
-          HERO INSTITUCIONAL
-      ============================================ */}
+      {/* HERO */}
       <HeroInstitucional
-        imagenFondo={fotoFachada}
-        cintillo={
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <BanderaVenezuela />
-            <span style={{ fontSize: '0.88rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-              República Bolivariana de Venezuela · MPPE
-            </span>
-          </div>
-        }
+        imagenFondo={img5}
         titulo="Liceo Bolivariano"
         subtitulo='"Antonio Lemus Pérez"'
         descripcion="Más de 40 años formando ciudadanos integrales con excelencia académica, valores éticos y compromiso social en Cumaná, Estado Sucre."
@@ -66,60 +51,36 @@ export const Home: React.FC = () => {
         }
       />
 
-      {/* ============================================
-          MISIÓN Y VISIÓN (dos tarjetas en fila)
-      ============================================ */}
+      {/* MISIÓN Y VISIÓN */}
       <section className="seccion-mision-vision">
-        <div className="contenedor-paralelo">
-          <div className="tarjeta-apple tarjeta-oscura">
-            <div className="encabezado-apple">
-              <span className="badge-apple">Desde 1984</span>
-              <h2 className="titulo-apple">Nuestra Misión</h2>
-              <p className="subtitulo-apple">
-                Promover y desarrollar un alto nivel socio-ético-cultural mediante la formación integral de
-                estudiantes capaces de enfrentar los retos de la vida.
-              </p>
-            </div>
-            <div className="contenedor-imagen-apple">
-              <img src={fotoCancha} alt="Nuestra Misión" loading="lazy" />
-            </div>
+        <div className="contenedor-cruzado">
+          <div className="imagen-cruzada">
+            <img src={fotoCancha} alt="Nuestra Misión" loading="lazy" decoding="async" />
+          </div>
+          <div className="texto-cruzado">
+            <span className="badge-apple">Desde 1984</span>
+            <h2 className="titulo-apple">Nuestra Misión</h2>
+            <p className="subtitulo-apple">
+              Promover y desarrollar un alto nivel socio-ético-cultural mediante la formación integral de
+              estudiantes capaces de enfrentar los retos de la vida.
+            </p>
           </div>
 
-           <div className="contenedor-paralelo">
-          <div className="tarjeta-apple tarjeta-oscura">
-            <div className="encabezado-apple">
-              <span className="badge-apple">Desde 1984</span>
-              <h2 className="titulo-apple">Nuestra Misión</h2>
-              <p className="subtitulo-apple">
-                Promover y desarrollar un alto nivel socio-ético-cultural mediante la formación integral de
-                estudiantes capaces de enfrentar los retos de la vida.
-              </p>
-            </div>
-            <div className="contenedor-imagen-apple">
-              <img src={fotoCancha} alt="Nuestra Misión" loading="lazy" />
-            </div>
+          <div className="texto-cruzado">
+            <span className="badge-apple">Futuro</span>
+            <h2 className="titulo-apple">Nuestra Visión</h2>
+            <p className="subtitulo-apple">
+              Ser un referente colectivo e integrador que forme ciudadanos integrales, socializando la
+              relación entre escuela, familia y comunidad.
+            </p>
           </div>
-
-          <div className="tarjeta-apple tarjeta-clara">
-            <div className="encabezado-apple">
-              <span className="badge-apple">Futuro</span>
-              <h2 className="titulo-apple">Nuestra Visión</h2>
-              <p className="subtitulo-apple">
-                Ser un referente colectivo e integrador que forme ciudadanos integrales, socializando la
-                relación entre escuela, familia y comunidad.
-              </p>
-            </div>
-            <div className="contenedor-imagen-apple">
-              <img src={fotoCancha} alt="Nuestra Visión" loading="lazy" />
-            </div>
+          <div className="imagen-cruzada">
+            <img src={fotoCancha} alt="Nuestra Visión" loading="lazy" decoding="async" />
           </div>
-        </div>
         </div>
       </section>
 
-      {/* ============================================
-          HISTORIA
-      ============================================ */}
+      {/* HISTORIA */}
       <section id="historia" className="seccion-historia-harvard">
         <div className="contenedor-harvard">
           <div className="columna-izquierda-harvard">
@@ -134,8 +95,9 @@ export const Home: React.FC = () => {
                 <span>Conozca más sobre nuestra historia</span>
               </a>
             </div>
+
             <div className="marco-imagen-harvard">
-              <img src={fotoCancha} alt="Instalaciones del Liceo" loading="lazy" />
+              <img src={fotoCancha} alt="Instalaciones del Liceo" loading="lazy" decoding="async" />
             </div>
           </div>
 
@@ -168,9 +130,7 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* ============================================
-          LABORES E INICIATIVAS
-      ============================================ */}
+      {/* LABORES */}
       <section id="labores" className="seccion-labores-harvard">
         <div className="contenedor-harvard-ancho">
           <div className="encabezado-harvard-simple">
@@ -180,24 +140,23 @@ export const Home: React.FC = () => {
               comunidad.
             </p>
           </div>
-
           <div className="grid-labores-harvard">
             <TarjetasDesplegables items={LABORES_DATA} />
           </div>
-
-          <CarruselBase
-            titulo="Galería de Iniciativas en Acción"
-            slides={CARRUSEL_LABORES_DATA}
-            indiceActual={carruselLabores.indiceActual}
-            onAnterior={carruselLabores.anterior}
-            onSiguiente={carruselLabores.siguiente}
-          />
         </div>
       </section>
 
-      {/* ============================================
-          PERSONAL
-      ============================================ */}
+      <section className="carruseles">
+        <CarruselBase
+          titulo="Galería de Iniciativas en Acción"
+          slides={CARRUSEL_LABORES_DATA}
+          indiceActual={carruselLabores.indiceActual}
+          onAnterior={carruselLabores.anterior}
+          onSiguiente={carruselLabores.siguiente}
+        />
+      </section>
+
+      {/* PERSONAL */}
       <section id="personal" className="seccion-labores-harvard">
         <div className="contenedor-harvard-ancho">
           <div className="encabezado-harvard-simple">
@@ -206,19 +165,20 @@ export const Home: React.FC = () => {
               Profesionales dedicados a la excelencia educativa.
             </p>
           </div>
-
           <div className="grid-labores-harvard">
             <TarjetasDesplegables items={personalAdaptado} />
           </div>
-
-          <CarruselBase
-            titulo="Galería de Nuestro Equipo"
-            slides={CARRUSEL_PERSONAL_DATA}
-            indiceActual={carruselPersonal.indiceActual}
-            onAnterior={carruselPersonal.anterior}
-            onSiguiente={carruselPersonal.siguiente}
-          />
         </div>
+      </section>
+
+      <section className="carruseles">
+        <CarruselBase
+          titulo="Galería de Nuestro Equipo"
+          slides={CARRUSEL_PERSONAL_DATA}
+          indiceActual={carruselPersonal.indiceActual}
+          onAnterior={carruselPersonal.anterior}
+          onSiguiente={carruselPersonal.siguiente}
+        />
       </section>
     </main>
   );

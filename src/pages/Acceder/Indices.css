@@ -89,7 +89,7 @@
 .tarjeta-flotante-hero {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
+ 
   padding: 1.5rem;
   border-radius: 12px;
   display: flex;
@@ -236,16 +236,7 @@
   transform: rotate(180deg);
 }
 
-/* Contenido expandible */
-.contenido-expandido {
-  border-top: 1px solid #e2e8f0;
-  background-color: #fafcfd;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 2rem;
-  padding: 1.5rem;
-  animation: slideDown 0.35s ease;
-}
+
 
 @keyframes slideDown {
   from { opacity: 0; transform: translateY(-10px); }

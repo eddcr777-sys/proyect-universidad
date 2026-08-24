@@ -1,0 +1,113 @@
+.header-proyecto-contenedor {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.header-proyecto-banner {
+  position: relative;
+  background: linear-gradient(135deg, #0f2c59 0%, #1e3a8a 100%);
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  padding: 80px 0 50px 0;
+  overflow: hidden;
+}
+
+.header-proyecto-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(15, 44, 89, 0.95) 0%, rgba(15, 44, 89, 0.75) 100%);
+  z-index: 1;
+}
+
+.header-proyecto-contenido {
+  position: relative;
+  z-index: 2;
+}
+
+.header-proyecto-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.badge-categoria-proyecto,
+.badge-autores-proyecto {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.badge-categoria-proyecto {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+
+}
+
+.badge-autores-proyecto {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.titulo-proyecto-header {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.descripcion-proyecto-header {
+  font-size: 1.15rem;
+  opacity: 0.92;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+/* Sub-Navegación propia del Proyecto */
+.header-proyecto-subnav {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.subnav-flex {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.subnav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  color: #475569;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.subnav-item:hover {
+  color: #0f2c59;
+  background: #f8fafc;
+}
+
+.subnav-item.activo {
+  color: #0f2c59;
+  border-bottom-color: #0f2c59;
+  background: #f1f5f9;
+}
