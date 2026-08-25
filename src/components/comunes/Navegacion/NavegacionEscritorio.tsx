@@ -31,39 +31,33 @@ const NavegacionEscritorio: React.FC<NavegacionEscritorioProps> = ({ esTranspare
     <nav className={`nav-desktop ${esTransparente ? 'nav-transparente' : 'nav-solida'}`} aria-label="Navegación principal">
       <Link to="/" className="nav-link">Inicio</Link>
       
+      {/* Galerías */}
+      <Link to="/galeria" className="nav-link">Galerías</Link>
 
-  {/* galerias */}
-      <Link to="/Galeria" className="nav-link">Galerías</Link>
-
-      {/* sebre EL LICEO */}
+      {/* El Liceo */}
       <div className="dropdown">
         <button className="dropbtn" aria-expanded="false" aria-haspopup="true">
           El Liceo <ChevronIcon />
         </button>
         <div className="dropdown-content">
-          <Link to="/proyectos/ciberseguridad/el-liceo/historia" className="dropdown-item">Historia</Link>
-          <Link to="/proyectos/ciberseguridad/el-liceo/mision" className="dropdown-item">Misión</Link>
-          <Link to="/proyectos/ciberseguridad/el-liceo/vision" className="dropdown-item">Visión</Link>
-          <Link to="/proyectos/ciberseguridad/el-liceo/valores" className="dropdown-item">Valores</Link>
-          <Link to="/nosotros/sobre-ue/#Directivos" className="dropdown-item">Directivos</Link>
-          <Link to="/proyectos/ciberseguridad/el-liceo/simbolos" className="dropdown-item">Símbolos</Link>
-          <Link to="/proyectos/ciberseguridad/el-liceo/normas" className="dropdown-item">Normas de Convivencia</Link>
-          <Link to="/galeria/#instalaciones" className="dropdown-item">Instalaciones</Link>
-        
+          <Link to="/el-liceo/historia" className="dropdown-item">Historia</Link>
+          <Link to="/el-liceo/mision" className="dropdown-item">Misión</Link>
+          <Link to="/el-liceo/vision" className="dropdown-item">Visión</Link>
+          <Link to="/el-liceo/valores" className="dropdown-item">Valores</Link>
+          <Link to="/proyectos/ciberseguridad/nosotros/sobre-ue#Directivos" className="dropdown-item">Directivos</Link>
+          <Link to="/el-liceo/simbolos" className="dropdown-item">Símbolos</Link>
+          <Link to="/el-liceo/normas" className="dropdown-item">Normas de Convivencia</Link>
+          <Link to="/galeria#instalaciones" className="dropdown-item">Instalaciones</Link>
         </div>
       </div>
 
-
-
-
-     {/*admision */}
-     
+      {/* Admisión */}
       <div className="dropdown">
         <button className="dropbtn" aria-expanded="false" aria-haspopup="true">
           Admisión <ChevronIcon />
         </button>
         <div className="dropdown-content">
-          <Link to="/proyectos/ciberseguridad/admision/requisitos" className="dropdown-item">Requisitos</Link>
+          <Link to="/admision/requisitos" className="dropdown-item">Requisitos</Link>
         </div>
       </div>
 
@@ -75,16 +69,8 @@ const NavegacionEscritorio: React.FC<NavegacionEscritorioProps> = ({ esTranspare
         <div className="dropdown-content">
           <Link to="/proyectos/ciberseguridad/guias/docentes" className="dropdown-item">Guía para Docentes</Link>
           <Link to="/proyectos/ciberseguridad/guias/padres" className="dropdown-item">Guía para Padres</Link>
-          <Link to="/proyectos/ciberseguridad/guias/alumnos" className="dropdown-item">Guía para Alumnos</Link>
         </div>
       </div>
-
-    
-
-    
-
-
-      
 
       {/* Nosotros */}
       <div className="dropdown">

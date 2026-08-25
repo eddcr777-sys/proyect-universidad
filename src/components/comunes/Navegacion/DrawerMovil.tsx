@@ -25,6 +25,8 @@ const ChevronIcon = ({ abierto }: { abierto: boolean }) => (
 
 const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
   const [secciones, setSecciones] = useState({
+    elLiceo: false,
+    admision: false,
     ciberseguridad: false,
     guias: false,
     nosotros: false
@@ -57,6 +59,43 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
             Inicio
           </Link>
 
+          <Link to="/galeria" className="drawer-item-directo" onClick={cerrar}>
+            Galerías
+          </Link>
+
+          {/* Sección El Liceo */}
+          <div className="menu-seccion">
+            <button className={`btn-seccion ${secciones.elLiceo ? 'activo' : ''}`} onClick={() => alternarSeccion('elLiceo')}>
+              <span>El Liceo</span>
+              <ChevronIcon abierto={secciones.elLiceo} />
+            </button>
+            {secciones.elLiceo && (
+              <div className="sub-menu">
+                <Link to="/el-liceo/historia" onClick={cerrar}>Historia</Link>
+                <Link to="/el-liceo/mision" onClick={cerrar}>Misión</Link>
+                <Link to="/el-liceo/vision" onClick={cerrar}>Visión</Link>
+                <Link to="/el-liceo/valores" onClick={cerrar}>Valores</Link>
+                <Link to="/proyectos/ciberseguridad/nosotros/sobre-ue#Directivos" onClick={cerrar}>Directivos</Link>
+                <Link to="/el-liceo/simbolos" onClick={cerrar}>Símbolos</Link>
+                <Link to="/el-liceo/normas" onClick={cerrar}>Normas de Convivencia</Link>
+              </div>
+            )}
+          </div>
+
+          {/* Sección Admisión */}
+          <div className="menu-seccion">
+            <button className={`btn-seccion ${secciones.admision ? 'activo' : ''}`} onClick={() => alternarSeccion('admision')}>
+              <span>Admisión</span>
+              <ChevronIcon abierto={secciones.admision} />
+            </button>
+            {secciones.admision && (
+              <div className="sub-menu">
+                <Link to="/admision/requisitos" onClick={cerrar}>Requisitos</Link>
+              </div>
+            )}
+          </div>
+
+          {/* Sección Proyectos */}
           <Link to="/proyectos" className="drawer-item-directo" onClick={cerrar}>
             Proyectos Estudiantiles
           </Link>
