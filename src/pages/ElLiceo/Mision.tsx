@@ -1,9 +1,14 @@
 import React from 'react';
-import { Target, Compass, BookOpen, Users, CheckCircle2, ArrowLeft } from 'lucide-react';
+import { Target, Compass, Users, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import HeroInstitucional from '../../components/comunes/HeroInstitucional/HeroInstitucional';
 import img5 from '../../assets/pbk-Hero-3.jpg';
+import fotoFachada from '../../assets/lb.jpeg';
+import fotoAula from '../../assets/le.jpeg';
+import fotoEstudiantes from '../../assets/lem.jpeg';
+import fotoComunidad from '../../assets/images.jpeg';
 import './ElLiceo.css';
+import './Mision.css'
 
 export const Mision: React.FC = () => {
   return (
@@ -22,53 +27,69 @@ export const Mision: React.FC = () => {
         }
       />
 
-      <main className="contenedor-liceo">
+      <main className="contenedor-liceo-ancho">
         <div className="encabezado-seccion-liceo">
-          <span className="badge-liceo">Identidad Institucional</span>
+
           <h2 className="titulo-seccion-liceo">Propósito Educativo</h2>
           <p className="subtitulo-seccion-liceo">
             Comprometidos con el desarrollo socio-ético y cultural de la juventud sucrense.
           </p>
         </div>
 
-        <div className="caja-destacada-liceo">
-          <h3>Declaración de Misión</h3>
-          <p>
-            "Promover y desarrollar un alto nivel socio-ético-cultural mediante la formación integral de estudiantes capaces de enfrentar los retos de la vida, garantizando el acceso a una educación pública, inclusiva y de calidad respaldada por valores de responsabilidad, solidaridad y pensamiento crítico."
-          </p>
-        </div>
-
-        <div className="grid-tarjetas-liceo">
-          <div className="tarjeta-liceo">
-            <div className="icono-tarjeta-liceo">
-              <Target size={28} />
+        {/* --- SECCIÓN CRUZADA DE MISIÓN CON CSS PROPIO --- */}
+        <section className="mision-seccion">
+          <div className="mision-contenedor">
+            {/* Bloque 1: Declaración de Misión */}
+            <div className="mision-imagen">
+              <img src={fotoFachada} alt="Sede del Liceo Bolivariano Antonio Lemus Pérez" loading="lazy" />
             </div>
-            <h3 className="titulo-tarjeta-liceo">Formación Integral</h3>
-            <p className="texto-tarjeta-liceo">
-              Desarrollamos competencias científicas, humanísticas y tecnológicas centradas en el desarrollo humano armónico.
-            </p>
-          </div>
-
-          <div className="tarjeta-liceo">
-            <div className="icono-tarjeta-liceo">
-              <Compass size={28} />
+            <div className="mision-texto">
+              <span className="mision-badge">Nuestra Razón de Ser</span>
+              <h2 className="mision-titulo">Declaración de Misión</h2>
+              <p className="mision-subtitulo">
+                "Promover y desarrollar un alto nivel socio-ético-cultural mediante la formación integral de estudiantes capaces de enfrentar los retos de la vida, garantizando el acceso a una educación pública, inclusiva y de calidad respaldada por valores de responsabilidad, solidaridad y pensamiento crítico."
+              </p>
             </div>
-            <h3 className="titulo-tarjeta-liceo">Orientación Ética</h3>
-            <p className="texto-tarjeta-liceo">
-              Inculcamos principios y valores fundamentales para el ejercicio transparente y responsable de la ciudadanía.
-            </p>
-          </div>
 
-          <div className="tarjeta-liceo">
-            <div className="icono-tarjeta-liceo">
-              <Users size={28} />
+            {/* Bloque 2: Formación Integral */}
+            <div className="mision-texto">
+              <span className="mision-badge">Pilar I</span>
+              <h2 className="mision-titulo">Formación Integral</h2>
+              <p className="mision-subtitulo">
+                Desarrollamos competencias científicas, humanísticas y tecnológicas centradas en el desarrollo humano armónico, brindando a nuestros estudiantes las herramientas académicas necesarias para su crecimiento intelectual.
+              </p>
             </div>
-            <h3 className="titulo-tarjeta-liceo">Vinculación Comunitaria</h3>
-            <p className="texto-tarjeta-liceo">
-              Integramos activamente a la familia y la comunidad en los procesos de aprendizaje e iniciativas socioproductivas.
-            </p>
+            <div className="mision-imagen">
+              <img src={fotoAula} alt="Formación académica e intelectual" loading="lazy" />
+            </div>
+
+            {/* Bloque 3: Orientación Ética */}
+            <div className="mision-imagen">
+              <img src={fotoEstudiantes} alt="Orientación ética y ciudadanía" loading="lazy" />
+            </div>
+            <div className="mision-texto">
+              <span className="mision-badge">Pilar II</span>
+              <h2 className="mision-titulo">Orientación Ética y Ciudadanía</h2>
+              <p className="mision-subtitulo">
+                Inculcamos principios y valores fundamentales para el ejercicio transparente, tolerante y responsable de la ciudadanía, promoviendo la convivencia armónica y el compromiso con la patria.
+              </p>
+            </div>
+
+            {/* Bloque 4: Vinculación Comunitaria */}
+            <div className="mision-texto">
+              <span className="mision-badge">Pilar III</span>
+              <h2 className="mision-titulo">Vinculación Comunitaria</h2>
+              <p className="mision-subtitulo">
+                Integramos activamente a la familia y la comunidad en los procesos de aprendizaje, fomentando proyectos socioproductivos, actividades deportivas y culturales que fortalecen la cohesión social.
+              </p>
+            </div>
+            <div className="mision-imagen">
+              <img src={fotoComunidad} alt="Integración escuela, familia y comunidad" loading="lazy" />
+            </div>
           </div>
-        </div>
+        </section>
+
+    
       </main>
     </div>
   );

@@ -3,7 +3,12 @@ import { Eye, Lightbulb, ShieldCheck, Globe, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import HeroInstitucional from '../../components/comunes/HeroInstitucional/HeroInstitucional';
 import img5 from '../../assets/pbk-Hero-3.jpg';
+import fotoFachada from '../../assets/lb.jpeg';
+import fotoAula from '../../assets/le.jpeg';
+import fotoEstudiantes from '../../assets/lem.jpeg';
+import fotoComunidad from '../../assets/images.jpeg';
 import './ElLiceo.css';
+import './Mision.css';
 
 export const Vision: React.FC = () => {
   return (
@@ -22,53 +27,66 @@ export const Vision: React.FC = () => {
         }
       />
 
-      <main className="contenedor-liceo">
+      <main className="contenedor-liceo-ancho">
         <div className="encabezado-seccion-liceo">
-          <span className="badge-liceo">Visión de Futuro</span>
           <h2 className="titulo-seccion-liceo">Horizonte Institucional</h2>
           <p className="subtitulo-seccion-liceo">
-            Consolidándonos como una comunidad de aprendizaje referente en excelencia y desarrollo humano.
+            Nuestra proyección hacia una educación transformadora y de vanguardia en Sucre.
           </p>
         </div>
 
-        <div className="caja-destacada-liceo">
-          <h3>Declaración de Visión</h3>
-          <p>
-            "Ser un referente colectivo e integrador que forme ciudadanos integrales, socializando la relación entre escuela, familia y comunidad, mediante un modelo pedagógico innovador, tecnológico y transformador que inspire el desarrollo regional y nacional."
-          </p>
-        </div>
-
-        <div className="grid-tarjetas-liceo">
-          <div className="tarjeta-liceo">
-            <div className="icono-tarjeta-liceo">
-              <Eye size={28} />
+        {/* --- SECCIÓN CRUZADA DE VISIÓN CON CSS PROPIO --- */}
+        <section className="mision-seccion">
+          <div className="mision-contenedor">
+            {/* Bloque 1: Declaración de Visión */}
+            <div className="mision-imagen">
+              <img src={fotoFachada} alt="Sede del Liceo Bolivariano Antonio Lemus Pérez" loading="lazy" />
             </div>
-            <h3 className="titulo-tarjeta-liceo">Referente Educativo</h3>
-            <p className="texto-tarjeta-liceo">
-              Posicionarnos como el liceo de mayor impacto positivo en la formación académica y vocacional en Cumaná.
-            </p>
-          </div>
-
-          <div className="tarjeta-liceo">
-            <div className="icono-tarjeta-liceo">
-              <Lightbulb size={28} />
+            <div className="mision-texto">
+              <span className="mision-badge">Nuestro Horizonte</span>
+              <h2 className="mision-titulo">Declaración de Visión</h2>
+              <p className="mision-subtitulo">
+                "Ser una institución educativa de referencia regional y nacional, reconocida por su excelencia académica, innovación pedagógica y formación de ciudadanos íntegros, comprometidos con la transformación social y el desarrollo sostenible de su comunidad."
+              </p>
             </div>
-            <h3 className="titulo-tarjeta-liceo">Innovación Digital</h3>
-            <p className="texto-tarjeta-liceo">
-              Fomentar el uso ético y productivo de la tecnología como herramienta clave para la resolución de problemas reales.
-            </p>
-          </div>
 
-          <div className="tarjeta-liceo">
-            <div className="icono-tarjeta-liceo">
-              <Globe size={28} />
+            {/* Bloque 2: Innovación Educativa */}
+            <div className="mision-texto">
+              <span className="mision-badge">Pilar I</span>
+              <h2 className="mision-titulo">Innovación Educativa</h2>
+              <p className="mision-subtitulo">
+                Integramos tecnologías emergentes y metodologías activas que promueven el pensamiento crítico, la creatividad y la resolución de problemas en contextos reales.
+              </p>
             </div>
-            <h3 className="titulo-tarjeta-liceo">Sostenibilidad Social</h3>
-            <p className="texto-tarjeta-liceo">
-              Construir proyectos pedagógicos con conciencia ecológica y compromiso transformador para nuestra sociedad.
-            </p>
+            <div className="mision-imagen">
+              <img src={fotoAula} alt="Innovación educativa" loading="lazy" />
+            </div>
+
+            {/* Bloque 3: Compromiso Social */}
+            <div className="mision-imagen">
+              <img src={fotoEstudiantes} alt="Compromiso social y ético" loading="lazy" />
+            </div>
+            <div className="mision-texto">
+              <span className="mision-badge">Pilar II</span>
+              <h2 className="mision-titulo">Compromiso Social y Ético</h2>
+              <p className="mision-subtitulo">
+                Formamos ciudadanos responsables, solidarios y respetuosos de los derechos humanos, con profundo sentido de pertenencia y servicio a la comunidad.
+              </p>
+            </div>
+
+            {/* Bloque 4: Liderazgo Comunitario */}
+            <div className="mision-texto">
+              <span className="mision-badge">Pilar III</span>
+              <h2 className="mision-titulo">Liderazgo Comunitario</h2>
+              <p className="mision-subtitulo">
+                Impulsamos el liderazgo juvenil y la participación activa en proyectos socioproductivos, culturales y ambientales que fortalezcan el tejido social de la región.
+              </p>
+            </div>
+            <div className="mision-imagen">
+              <img src={fotoComunidad} alt="Liderazgo comunitario" loading="lazy" />
+            </div>
           </div>
-        </div>
+        </section>
       </main>
     </div>
   );

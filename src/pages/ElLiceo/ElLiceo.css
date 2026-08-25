@@ -53,6 +53,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 32px;
+  margin: 20px;
 }
 
 .tarjeta-liceo {
@@ -60,8 +61,6 @@
   border: 1px solid var(--color-inst-borde);
   border-radius: 12px;
   padding: 36px 28px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -80,15 +79,7 @@
   transition: opacity 0.3s ease;
 }
 
-.tarjeta-liceo:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 36px rgba(15, 44, 89, 0.1);
-  border-color: rgba(15, 44, 89, 0.2);
-}
 
-.tarjeta-liceo:hover::before {
-  opacity: 1;
-}
 
 .icono-tarjeta-liceo {
   width: 56px;
