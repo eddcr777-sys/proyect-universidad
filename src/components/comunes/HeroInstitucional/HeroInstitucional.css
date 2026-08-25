@@ -108,13 +108,15 @@
 }
 
 .hero-home-acciones .boton-hero-principal {
-  background-color: #ffffff;
-  color: var(--color-inst-azul);
+  background-color: transparent;
+  color: var(--color-inst-blanco);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .hero-home-acciones .boton-hero-principal:hover {
-  background-color: #f1f5f9;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
   transform: translateY(-2px);
 }
 

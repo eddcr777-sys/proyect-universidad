@@ -168,3 +168,7 @@ dialog {
   --color-texto-principal: var(--color-ciber-texto);
   --color-borde: var(--color-ciber-borde);
 }
+
+html{
+  scroll-behavior: smooth;
+}

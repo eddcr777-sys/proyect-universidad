@@ -1,63 +1,81 @@
-// src/components/comunes/tarjetas/members.tsx
-import React from 'react';
-import { User } from 'lucide-react'; // Importamos el ícono de Lucide
+import React, { useState } from 'react';
+import { ChevronDown, User } from 'lucide-react';
+import './members.css'
 
-export interface TeamMember {
+export interface MemberItem {
+  id: number;
   name: string;
   role: string;
-  description: string;
+  description?: string;
+  imagen?: string; // opcional, puede estar vacía
 }
 
-export const MemberCard: React.FC<TeamMember> = ({ name, role, description }) => {
+interface MembersProps {
+  items: MemberItem[];
+}
+
+const Members: React.FC<MembersProps> = ({ items }) => {
+  const [activa, setActiva] = useState<number | null>(null);
+
   return (
-    <div className="tarjeta-creador relleno-grande bordes-redondeados texto-centrado">
-      <div className="ancho-avatar alto-avatar margen-x-auto margen-abajo-grande brillo-avatar">
-        <div className="avatar-contenedor ancho-completo alto-completo bordes-circulares caja-flexible elementos-centrados justificar-centro desbordamiento-oculto sombra-media">
-          <User className="icono-perfil opacidad-30" size={56} />
-        </div>
-      </div>
-      <h3 className="texto-titulo-pequeno mayusculas margen-abajo-pequeno texto-principal">
-        {name}
-      </h3>
-      <p className="texto-principal texto-pequeno mayusculas letras-separadas margen-abajo-medio opacidad-70">
-        {role}
-      </p>
-      <p className="texto-gris-oscuro texto-pequeno altura-linea-relajada">
-        {description}
-      </p>
-    </div>
+    <>
+      {items.map((item) => {
+        const estaAbierto = activa === item.id;
+
+        return (
+          <article
+            key={item.id}
+            className="tarjeta-harvard-editorial-"
+            onClick={() => setActiva(estaAbierto ? null : item.id)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                setActiva(estaAbierto ? null : item.id);
+              }
+            }}
+          >
+            <div className="marco-imagen-editorial-">
+              {item.imagen ? (
+                <img src={item.imagen} alt={item.name} loading="lazy" decoding="async" />
+              ) : (
+                <div className="miembro-avatar-placeholder-">
+                  <User size={56} />
+                </div>
+              )}
+            </div>
+
+            <div className="cuerpo-editorial-">
+              <h3 className={`titulo-card-editorial-${estaAbierto ? 'subrayado' : ''}`}>
+                <span>{item.name}</span>
+              </h3>
+
+              <p className="descripcion-card-editorial-">{item.role}</p>
+
+              {estaAbierto && item.description && (
+                <div className="detalle-expandido-editorial-">
+                  <p>{item.description}</p>
+                </div>
+              )}
+
+              <button
+                type="button"
+                className="boton-leer-mas-harvard-"
+                aria-expanded={estaAbierto}
+              >
+                <span>{estaAbierto ? 'Leer menos' : 'Saber más'}</span>
+                <ChevronDown
+                  className={`chevron-editorial-${estaAbierto ? 'rotado' : ''}`}
+                  size={16}
+                />
+              </button>
+            </div>
+          </article>
+        );
+      })}
+    </>
   );
 };
 
-{/*PARA PROFESORES Y PERSNAL INSTITUCIONAL*/}
-export interface MemberInfo {
-  name: string;
-  role: string;
-  description: string;
-  imageUrl: string;
-}
-
-export const MemberCardInst: React.FC<MemberInfo> = ({ name, role, description, imageUrl }) => {
-  return (
-    <div className="tarjeta-creador relleno-grande bordes-redondeados texto-centrado">
-      <div className="ancho-avatar alto-avatar margen-x-auto margen-abajo-grande brillo-avatar">
-        <div className="avatar-contenedor ancho-completo alto-completo bordes-circulares caja-flexible elementos-centrados justificar-centro desbordamiento-oculto sombra-media">
-          <img
-            src={imageUrl}
-            alt={name}
-            className="ancho-completo alto-completo objeto-cubrir"
-          />
-        </div>
-      </div>
-      <h3 className="texto-titulo-pequeno mayusculas margen-abajo-pequeno texto-principal">
-        {name}
-      </h3>
-      <p className="texto-principal texto-pequeno mayusculas letras-separadas margen-abajo-medio opacidad-70">
-        {role}
-      </p>
-      <p className="texto-gris-oscuro texto-pequeno altura-linea-relajada">
-        {description}
-      </p>
-    </div>
-  );
-};
+export default Members;

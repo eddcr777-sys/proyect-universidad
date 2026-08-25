@@ -1,57 +1,31 @@
 // src/pages/TeamSection.tsx
 import React from 'react';
-import { MemberCard } from '../../components/comunes/tarjetas/members';
-import type { TeamMember } from '../../components/comunes/tarjetas/members';
-import { Users, ShieldCheck, BookOpen, Code, GraduationCap, Award } from 'lucide-react';
+import Members from '../../components/comunes/tarjetas/members';
+import { TEAM_MEMBERS } from '../../data/datosPersonal';
+import { Users, ShieldCheck, BookOpen, Code, GraduationCap, Award, Link, ArrowLeft } from 'lucide-react';
 import './SobreDevs.css';
-
-const TEAM_MEMBERS: TeamMember[] = [
-  {
-    name: 'Elvis Cordova',
-    role: 'Desarrollador',
-    description: 'Encargado del desarrollo web y la creación de entornos digitales seguros para las nuevas generaciones.',
-  },
-  {
-    name: 'Henyer Guipe',
-    role: 'Desarrollador',
-    description: 'Comprometido con la creación de herramientas que protejan a los estudiantes del Lemus Pérez.',
-  },
-  {
-    name: 'Jesus Giraldo',
-    role: 'Desarrollador',
-    description: 'Enfocado en la investigación técnica y la alfabetización digital para la prevención.',
-  },
-  {
-    name: 'Luis Ruiz',
-    role: 'Desarrollador',
-    description: 'Buscando democratizar el acceso a la ciberseguridad mediante recursos simples y efectivos.',
-  },
-];
+import HeroInstitucional from '../../components/comunes/HeroInstitucional/HeroInstitucional';
+import img5 from '../../assets/pbk-Hero-3.jpg';
 
 export const TeamSection: React.FC = () => {
   return (
+
+      <>
+    <HeroInstitucional
+        imagenFondo={img5}
+        titulo="Desarrolladores del proyecto"
+        descripcion="Conoce a quienes han dedicado su labor al servicio de la educación en el Liceo Bolivariano Antonio Lemus Pérez."
+        acciones={
+           
+          <Link to="/" className="sebre-devs-volver">
+            <ArrowLeft size={18} />
+            Volver al inicio
+          </Link>
+          
+        }
+      />
     <main className="contenedor-nosotros">
-      {/* 1. SECCIÓN PRINCIPAL: DESCRIPCIÓN Y META */}
-      <section className="seccion-hero">
-        <div className="insignia-badget">
-          <Users size={18} />
-          <span>Proyecto Académico & Social</span>
-        </div>
-        
-        <h1 className="titulo-hero">
-          Fortaleciendo la <span className="resaltado-rojo">Seguridad Digital</span>
-        </h1>
-        
-        <p className="descripcion-hero">
-          Somos estudiantes de la <strong>UPTOS "Clodosbaldo Russián"</strong>. Este proyecto representa nuestro aporte y compromiso con la comunidad del Liceo Bolivariano Antonio Lemus Pérez para garantizar un entorno digital accesible, preventivo y seguro.
-        </p>
-
-        <div className="colaboracion-caja">
-          <span className="texto-sub">En colaboración institucional con</span>
-          <p className="texto-institucion">UPTOS "CLODOSBALDO RUSSIÁN" — CUMANÁ</p>
-        </div>
-      </section>
-
+     
       {/* 2. MÉTRICAS E IMPACTO DEL PROYECTO */}
       <section className="seccion-estadisticas">
         <div className="tarjeta-stat">
@@ -111,20 +85,19 @@ export const TeamSection: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. SECCIÓN DE DESARROLLADORES */}
-      <section className="seccion-equipo">
-        <div className="encabezado-equipo">
-          <h2>Conoce al Equipo Creador</h2>
-          <p>Los desarrolladores detrás de la ingeniería, diseño y mantenimiento de este portal.</p>
-        </div>
-
-        <div className="grid-creadores">
-          {TEAM_MEMBERS.map((member) => (
-            <MemberCard key={member.name} {...member} />
-          ))}
+          <section id="labores" className="seccion-labores-harvard">
+        <div className="contenedor-harvard-ancho">
+          <div className="encabezado-harvard-simple">
+            <h2 className="titulo-seccion-editorial">Conoce a Nuestro Personal Directivo y Docente</h2>
+            <p className="subtitulo-seccion-editorial">
+              Conoce a quienes han dedicado su labor al servicio de la educación en el Liceo Bolivariano Antonio Lemus Pérez.
+            </p>
+          </div>
+          <div className="grid-labores-harvard">
+            <Members items={TEAM_MEMBERS} />
+          </div>
         </div>
       </section>
-
       {/* 5. COMPROMISO FINAL */}
       <section className="seccion-compromiso">
         <h2>Compromiso UPTOS con la Comunidad</h2>
@@ -134,6 +107,8 @@ export const TeamSection: React.FC = () => {
         <span className="insignia-compromiso">Moral y Luces</span>
       </section>
     </main>
+
+    </>
   );
 };
 

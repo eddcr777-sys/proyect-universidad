@@ -4,86 +4,70 @@ import {
   GraduationCap, Clock, Monitor, Building, ArrowRight, 
   ArrowDown, ArrowUp 
 } from 'lucide-react';
-import { MemberCard } from '../../components/comunes/tarjetas/members';
-import type { MemberInfo } from '../../components/comunes/tarjetas/members'; // Ajusta la ruta si es necesario
+import Members from '../../components/comunes/tarjetas/members';
 import './SobreU.E.css';
+import HeroInstitucional from '../../components/comunes/HeroInstitucional/HeroInstitucional';
+import img5 from '../../assets/pbk-Hero-3.jpg';
+import { TEAM_INST_MEMBER } from '../../data/datosPersonal';
+import { BanderaVenezuela } from '../../components/comunes/Extras/Bandera/BanderaVenezuela';
 
-const TEAM_INST_MEMBER: MemberInfo[] = [
-  {
-    name: 'Belén Campos de Santos',
-    role: 'Directora Fundadora (1984)',
-    description: 'Primera directora asignada por decreto del Ministerio de Educación.',
-    imageUrl: ''
-  },
-  {
-    name: 'Juan Navarro Carvajal',
-    role: 'Subdirector / Director (1988)',
-    description: 'Pilar fundamental en los inicios y en la transición al nombre actual.',
-    imageUrl: ''
-  },
-  {
-    name: 'Eudys Hidalgo',
-    role: 'Directora Actual',
-    description: 'Encargada de la gestión educativa, académica y el bienestar estudiantil en la actualidad.',
-    imageUrl: ''
-  },
-  {
-    name: 'Antonio Lemus Pérez',
-    role: 'Epónimo de la Institución',
-    description: 'Insigne educador sucrense cuyo nombre honra a la institución desde 1988.',
-    imageUrl: ''
-  }
-];
+
+
 
 export const SobreUE: React.FC = () => {
   return (
+      <>
+
+      <HeroInstitucional
+      imagenFondo={img5}
+      titulo="Liceo Bolivariano 'Antonio Lemus Pérez'"
+      subtitulo="Formando líderes para el futuro"
+      descripcion="Un espacio de excelencia académica y formación integral"
+      acciones={[
+        <a href="#Directivos" className="boton-hero-principal">
+          Conoce a Nuestro Personal
+          <ArrowDown size={20} />
+        </a>
+      ]}
+      />
+      
+
+    
     <main className="contenedor-nosotros">
       
-      {/* --- HERO --- */}
-      <section className="seccion-hero" id="inicio">
-        <div className="insignia-badget">
-          <Users size={18} />
-          <span>Proyecto Académico & Social</span>
-        </div>
-        <h1 className="titulo-hero">
-          Fortaleciendo la <span className="resaltado-rojo">Seguridad Digital</span>
-        </h1>
-        <p className="descripcion-hero">
-          Somos estudiantes de la <strong>UPTOS "Clodosbaldo Russián"</strong>. Este proyecto representa nuestro aporte y compromiso con la comunidad del Liceo Bolivariano Antonio Lemus Pérez para garantizar un entorno digital accesible, preventivo y seguro.
-        </p>
-        <div className="colaboracion-caja">
-          <span className="texto-sub">En colaboración institucional con</span>
-          <p className="texto-institucion">LICEO BOLIVARIANO ANTONIO LEMUS PÉREZ — CUMANÁ</p>
-        </div>
-
-        {/* Botón moderno para bajar a Homenaje */}
-        <div className="scroll-indicador-wrapper">
-          <a href="#homenaje" className="scroll-indicador">
-            <span>Conoce a nuestros educadores</span>
-            <ArrowDown size={20} className="icono-animado" />
-          </a>
-        </div>
-      </section>
 
       {/* --- HOMENAJE A PROFESORES --- */}
-      <section className="seccion-homenaje" id="homenaje">
-        <div className="encabezado-seccion">
-          <Award size={32} className="icono-seccion" />
-          <h2>Homenaje a Nuestros Educadores</h2>
-          <p>Un reconocimiento a quienes han guiado los pasos de nuestra institución a lo largo de los años.</p>
-        </div>
-        <div className="contenedor-tarjetas-profesores">
-          {TEAM_INST_MEMBER.map((member, index) => (
-            <MemberCard key={index} {...member} />
-          ))}
-        </div>
+      <section id="labores" className="seccion-labores-harvard">
+        <div className="contenedor-harvard-ancho">
+          <div className="encabezado-harvard-simple">
+            <h2 className="titulo-seccion-editorial">Conoce a Nuestro Personal Directivo y Docente</h2>
+            <p className="subtitulo-seccion-editorial">
+              Conoce a quienes han dedicado su labor al servicio de la educación en el Liceo Bolivariano Antonio Lemus Pérez.
+            </p>
+          </div>
 
-        {/* Botón moderno para bajar a Historia */}
-        <div className="scroll-indicador-wrapper">
-          <a href="#reseña-historica" className="scroll-indicador">
-            <span>Descubre nuestra historia</span>
-            <ArrowDown size={20} className="icono-animado" />
-          </a>
+          {/* bandera */}
+          <div className='centro-bandera'>
+            <BanderaVenezuela />
+          </div>
+
+
+          {/* directivos */}
+          <h2 id='Directivos' className="titulo-seccion-homenaje">Personal Directivo</h2>
+          <div className='grid-labores-harvard'>
+            
+            <Members items={TEAM_INST_MEMBER} />
+          </div>
+
+          
+          {/* personal docente */}
+          <h2 className="titulo-seccion-homenaje">Personal Docente</h2>
+          <div id="docentes" className='grid-labores-harvard'>
+            
+            <Members items={TEAM_INST_MEMBER} />
+            
+          </div>
+         
         </div>
       </section>
 
@@ -332,6 +316,8 @@ export const SobreUE: React.FC = () => {
 
       </section>
     </main>
+
+    </>
   );
 };
 

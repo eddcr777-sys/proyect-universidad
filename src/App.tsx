@@ -7,15 +7,17 @@ import SobreDevs from './pages/Nosotros/SobreDevs';
 import SobreUE from './pages/Nosotros/SobreU.E';
 import GuiasDocentes from './pages/Guias/Guias-Docentes';
 import GuiasPadres from './pages/Guias/Guias-Padres';
+import Galeria from './pages/Galerias/Galeria';
 
 import ExploradorProyectos from './pages/ExploradorProyectos/ExploradorProyectos';
-import InformaticaPage from './proyectos/informatica/InformaticaPage';
+
 
 // ── Flujo de Módulos de Ciberseguridad ──
 import LandingModulos from './pages/Modulos/LandingModulos';       // Nivel 1 — Bienvenida
 import PresentacionGrado from './pages/Modulos/PresentacionGrado'; // Nivel 2 — Catálogo por grado
 import DescripcionModulo from './pages/Modulos/DescripcionModulo'; // Nivel 3 — Pre-Lobby
 import ModuloRouter from './pages/Modulos/ModuloRouter';           // Nivel 4 — Lección
+
 
 import Cabecera from './components/comunes/Cabecera';
 import PiePagina from './components/comunes/PiePagina';
@@ -62,9 +64,10 @@ const App: React.FC = () => {
             <Route path="/proyectos/ciberseguridad/info/:moduloId/:grado" element={<DescripcionModulo />} />
             <Route path="/proyectos/ciberseguridad/leccion/:moduloId/:grado" element={<ModuloRouter />} />
 
-            {/* ── PROYECTO 2: INFORMÁTICA ── */}
-            <Route path="/proyectos/informatica" element={<InformaticaPage />} />
-
+              <Route path="/galeria" element={<Galeria />} />
+            
+           
+            
             {/* ── REDIRECCIONES DE RETROCOMPATIBILIDAD (URLs Antiguas) ── */}
             <Route path="/justificacion" element={<Navigate to="/proyectos/ciberseguridad/justificacion" replace />} />
             <Route path="/indices" element={<Navigate to="/proyectos/ciberseguridad/indices" replace />} />
