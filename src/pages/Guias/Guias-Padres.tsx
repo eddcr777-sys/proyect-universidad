@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   ShieldAlert, ShieldCheck, Smartphone, KeyRound, ShoppingBag,
-  Link, MessageSquareWarning, AlertTriangle, UserX, PhoneCall,
+  Link as RouterLink, MessageSquareWarning, AlertTriangle, UserX, PhoneCall,
   Siren, Gavel, Scale, Lock, SmartphoneNfc, Users, Globe,
   CheckCircle2, ListOrdered, Eye, Shield, FileText, Download,
   PlayCircle, BookOpen, RefreshCw, AlertOctagon, HardDrive, Cpu,
@@ -10,23 +10,53 @@ import {
   MessageSquare, Radio, Send,
   UserCheck,
   Mail,
-  Server
+  Server,
+  ArrowRight,
+  ArrowDown,
+  Link
 } from 'lucide-react';
+import HeaderProyecto from '../../components/comunes/HeaderProyecto/HeaderProyecto';
 import './Guias-padres.css';
 
 const GuiaPadres: React.FC = () => {
+  const enlacesSubNav = [
+    { label: 'Inicio Proyecto', ruta: '/proyectos/ciberseguridad' },
+    { label: 'Catálogo por Grado', ruta: '/proyectos/ciberseguridad/modulos' },
+    { label: 'Justificación', ruta: '/proyectos/ciberseguridad/justificacion' },
+    { label: 'Índices y Temario', ruta: '/proyectos/ciberseguridad/indices' },
+    { label: 'Guía Docentes', ruta: '/proyectos/ciberseguridad/guias/docentes' },
+    { label: 'Guía Padres', ruta: '/proyectos/ciberseguridad/guias/padres' },
+    { label: 'Desarrolladores', ruta: '/proyectos/ciberseguridad/nosotros/sobre-devs' },
+  ];
+
   return (
     <main className="contenedor-principal">
-      <p className="etiqueta-superior">Manual Integral de Ciberseguridad y Protección Familiar</p>
-      <h1 className="titulo-principal">
-        ESCUDO FAMILIAR <br /> DIGITAL.
-      </h1>
+      {/* Hero Unificado del Proyecto */}
+      <HeaderProyecto
+        categoria="Manual Integral de Ciberseguridad y Protección Familiar"
+        titulo="ESCUDO FAMILIAR"
+        tituloResaltado="DIGITAL"
+        descripcion="Orientaciones fundamentales, glosario de términos y protocolos prácticos de protección en el hogar para padres, madres y representantes del Liceo Bolivariano Antonio Lemus Pérez."
+        enlacesSubNav={enlacesSubNav}
+        acciones={[
+          {
+            label: 'Explorar Diccionario Digital',
+            href: '#diccionario-digital',
+            icono: <ArrowDown size={18} />,
+          },
+          {
+            label: 'Ver Guía para Docentes',
+            ruta: '/proyectos/ciberseguridad/guias/docentes',
+            icono: <ArrowRight size={20} />,
+          },
+        ]}
+      />
 
       {/* 1. GLOSARIO EXPLICATIVO PARA PRINCIPIANTES */}
    {/* ========================================================================= */}
 {/* SECCIÓN 1: DICCIONARIO DIGITAL AMPLIADO (CONCEPTOS QUE POCOS CONOCEN)     */}
 {/* ========================================================================= */}
-<section className="tarjeta-pro seccion-espaciada">
+<section id="diccionario-digital" className="tarjeta-pro seccion-espaciada">
   <h2 className="titulo-seccion flex-centro">
     <BookOpen size={28} /> Diccionario Digital para Padres: Términos Explicados al Detalle
   </h2>

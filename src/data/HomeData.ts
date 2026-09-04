@@ -51,6 +51,13 @@ export const LABORES_DATA: Labor[] = [
     detalle: 'A través de una gestión coordinada con los comités de alimentación, aseguramos raciones alimenticias balanceadas diariamente para optimizar el rendimiento cognitivo y físico de los alumnos.',
     imagen: img3
   },
+  {
+    id: 4,
+    titulo: 'Atención Nutricional',
+    resumen: 'Garantía del Programa de Alimentación Escolar (PAE) para fortalecer el bienestar integral de la comunidad estudiantil.',
+    detalle: 'A través de una gestión coordinada con los comités de alimentación, aseguramos raciones alimenticias balanceadas diariamente para optimizar el rendimiento cognitivo y físico de los alumnos.',
+    imagen: img3
+  },
   
 ];
 
@@ -73,6 +80,14 @@ export const PERSONAL_DATA: Personal[] = [
   },
   {
     id: 3,
+    cargo: 'Personal Administrativo',
+    subtitulo: 'Soporte Operativo',
+    resumen: 'Garantizan el funcionamiento diario, control de matrícula y mantenimiento.',
+    detalle: 'El personal de apoyo administrativo y operativo asegura la correcta gestión de trámites estudiantiles, el orden de las instalaciones y el mantenimiento constante de los espacios escolares.',
+    imagen: img2
+  },
+  {
+    id: 4,
     cargo: 'Personal Administrativo',
     subtitulo: 'Soporte Operativo',
     resumen: 'Garantizan el funcionamiento diario, control de matrícula y mantenimiento.',

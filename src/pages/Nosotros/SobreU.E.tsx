@@ -1,8 +1,6 @@
 import React from 'react';
 import { 
-  Users, BookOpen, Camera, Award, Calendar, 
-  GraduationCap, Clock, Monitor, Building, ArrowRight, 
-  ArrowDown, ArrowUp 
+  ArrowDown 
 } from 'lucide-react';
 import Members from '../../components/comunes/tarjetas/members';
 import './SobreU.E.css';
@@ -43,11 +41,13 @@ export const SobreUE: React.FC = () => {
             </div>
 
             <h2 id='Directivos' className="titulo-seccion-homenaje">Personal Directivo</h2>
+            <p className='parrafo-homenaje'>En esta sección rendimos homenaje a nuestros directivos, quienes con su dedicación y esfuerzo han formado a generaciones de estudiantes. Su labor es fundamental para el desarrollo de nuestra institución y para el futuro de nuestros alumnos.</p>
             <div className='grid-labores-harvard'>
               <Members items={TEAM_INST_MEMBER} />
             </div>
 
             <h2 className="titulo-seccion-homenaje">Personal Docente</h2>
+            <p className='parrafo-homenaje'>En esta sección rendimos homenaje a nuestros docentes, quienes con su dedicación y esfuerzo han formado a generaciones de estudiantes. Su labor es fundamental para el desarrollo de nuestra institución y para el futuro de nuestros alumnos.</p>
             <div id="docentes" className='grid-labores-harvard'>
               <Members items={TEAM_INST_MEMBER} />
             </div>

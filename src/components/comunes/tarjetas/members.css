@@ -1,24 +1,32 @@
-.tarjeta-harvard-editorial- {
+/* Tarjeta principal */
+.tarjeta-miembro {
   background-color: var(--color-inst-azul);
   display: flex;
   flex-direction: column;
   cursor: pointer;
   border-radius: 30px;
   overflow: hidden;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.tarjeta-harvard-editorial-:hover {
+.tarjeta-miembro:hover {
   transform: translateY(-4px);
   box-shadow: var(--sombra-media);
 }
 
-.marco-imagen-editorial- {
+.tarjeta-miembro.tarjeta-activa {
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen o placeholder */
+.marco-imagen {
   width: 100%;
   height: 250px;
   overflow: hidden;
 }
 
-.marco-imagen-editorial- img {
+.marco-imagen img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -26,71 +34,96 @@
   transition: transform 0.4s ease;
 }
 
-.tarjeta-harvard-editorial-:hover .marco-imagen-editorial- img {
+.tarjeta-miembro:hover .marco-imagen img {
   transform: scale(1.03);
 }
 
-.cuerpo-editorial- {
+.placeholder-avatar {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-inst-blanco);
+}
+
+/* Cuerpo */
+.cuerpo {
   padding: 24px 20px 28px 20px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-.titulo-card-editorial- {
+.titulo {
   font-size: 1.65rem;
   color: var(--color-inst-blanco);
-  margin-bottom: 14px;
+  margin-bottom: 0.5rem;
   line-height: 1.25;
+  font-weight: 700;
 }
 
-.titulo-card-editorial-span {
-  display: inline;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.2s ease;
-}
-
-
-
-.descripcion-card-editorial- {
-  font-size: 0.98rem;
+.rol {
+  font-size: 0.95rem;
   color: var(--color-inst-blanco);
-  line-height: 1.6;
-  margin-bottom: 16px;
-  flex-grow: 1;
+  opacity: 0.8;
+  margin-bottom: 12px;
+  font-weight: 500;
 }
 
-.detalle-expandido-editorial- {
-  padding-top: 14px;
-  border-top: 1px solid var(--color-inst-borde);
+/* Contenedor expandible con animación de grid */
+.contenido-expandible {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease, opacity 0.4s ease, margin 0.4s ease;
+  opacity: 0;
+  margin-bottom: 0;
+}
+
+.contenido-expandible.abierto {
+  grid-template-rows: 1fr;
+  opacity: 1;
   margin-bottom: 16px;
+}
+
+.contenido-expandible > .descripcion {
+  overflow: hidden;
+}
+
+.descripcion {
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   font-size: 0.93rem;
   color: var(--color-inst-blanco);
   line-height: 1.6;
-  animation: fadeIn 0.3s ease-in-out;
-  
 }
 
-.boton-leer-mas-harvard- {
+/* Botón */
+.boton-toggle {
   background: none;
   border: none;
   padding: 0;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap:7px;
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--color-inst-blanco);
   cursor: pointer;
   align-self: flex-start;
+  margin-top: 20px;
+}
+
+.boton-toggle span:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.chevron-editorial- {
+.chevron {
   transition: transform 0.25s ease;
 }
 
-.chevron-editorial-.rotado {
+.chevron.rotado {
   transform: rotate(180deg);
 }

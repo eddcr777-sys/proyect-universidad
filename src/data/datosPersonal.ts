@@ -41,29 +41,30 @@ export const TEAM_INST_MEMBER: MemberItem[] = [
  {
     id: 1,
     name: 'Henyer Guipe',
-    role: 'Directora Fundadora (1984)',
-    description: 'Primera directora asignada por decreto del Ministerio de Educación.',
+    role: 'Desarrollador',
+    description: 'Desarrollador del proyecto de ciberseguridad en el Liceo Bolivariano Antonio Lemus Pérez.',
     imagen: foto1
   },
   {
     id: 2,
     name: 'Elvis Cordova',
-    role: 'Subdirector / Director (1988)',
-    description: 'Pilar fundamental en los inicios y en la transición al nombre actual.',
+    role: 'Desarrollador',
+    description: 'Desarrollador del proyecto de ciberseguridad en el Liceo Bolivariano Antonio Lemus Pérez.',
     imagen: foto2
   },
   {
     id: 3,
     name: 'Luis Ruiz',
-    role: 'Directora Actual',
-    description: 'Encargada de la gestión educativa, académica y el bienestar estudiantil en la actualidad.',
+    role: 'Desarrollador',
+    description: 'Desarrollador del proyecto de ciberseguridad en el Liceo Bolivariano Antonio Lemus Pérez.',
     imagen: foto3
   },
   {
     id: 4,
     name: 'Jesus Giraldo',
-    role: 'Epónimo de la Institución',
-    description: 'Insigne educador sucrense cuyo nombre honra a la institución desde 1988.',
+    role: 'Desarrollador',
+    description: 'Desarrollador del proyecto de ciberseguridad en el Liceo Bolivariano Antonio Lemus Pérez.',
     imagen: foto4
+
   }
 ];

@@ -53,18 +53,13 @@ p, span, a, button, li, input, select, textarea {
   font-family: var(--fuente-cuerpo);
 }
 
-
-
 /* ==========================================
    CARRUSELES
    ========================================== */
-
-
-.encabezado-carrusel{
+.encabezado-carrusel {
   text-align: center;
   color: var(--color-inst-blanco);
   padding: 10px;
-  
 }
 
 /* ==========================================
@@ -76,7 +71,10 @@ p, span, a, button, li, input, select, textarea {
 }
 
 .contenedor-cruzado {
-  max-width: 1400px;
+  max-width: 1280px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 1.5rem;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -99,7 +97,7 @@ p, span, a, button, li, input, select, textarea {
   width: 100%;
   min-height: 400px;
   overflow: hidden;
-  border-radius: 0; /* o var(--radio-principal) */
+  border-radius: 0;
 }
 
 .imagen-cruzada img {
@@ -169,9 +167,8 @@ p, span, a, button, li, input, select, textarea {
   color: #ffffff;
   padding: 100px 20px;
   overflow: hidden;
-  background-image: url('../../assets/lb.jpeg'); /* Cambia la ruta */
+  background-image: url('../../assets/lb.jpeg');
   background-size: cover;
-
   background-repeat: no-repeat;
 }
 
@@ -195,6 +192,9 @@ p, span, a, button, li, input, select, textarea {
   position: relative;
   z-index: 1;
   max-width: 1280px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 1.5rem;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -295,14 +295,18 @@ p, span, a, button, li, input, select, textarea {
    LABORES / PERSONAL
    ========================================== */
 .seccion-labores-harvard {
-  padding: 10px 24px;
+  padding: 4rem 1.5rem;
   background-color: var(--color-inst-fondo);
   color: var(--color-inst-texto);
 }
 
 .contenedor-harvard-ancho {
-
+  max-width: 1540px;
+  width: 100%;
   margin: 0 auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+ 
 }
 
 .encabezado-harvard-simple {
@@ -334,28 +338,35 @@ p, span, a, button, li, input, select, textarea {
   margin-bottom: 70px;
 }
 
-.tarjeta-harvard-editorial {
+/* Tarjeta desplegable (estilo Members) */
+.tarjeta-desplegable {
   background-color: var(--color-inst-azul);
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  border-radius: var(--radio-principal);
+  border-radius: 30px;
   overflow: hidden;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.tarjeta-harvard-editorial:hover {
+.tarjeta-desplegable:hover {
   transform: translateY(-4px);
   box-shadow: var(--sombra-media);
 }
 
-.marco-imagen-editorial {
+.tarjeta-desplegable.tarjeta-activa {
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen */
+.marco-imagen {
   width: 100%;
   height: 250px;
   overflow: hidden;
 }
 
-.marco-imagen-editorial img {
+.marco-imagen img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -363,55 +374,20 @@ p, span, a, button, li, input, select, textarea {
   transition: transform 0.4s ease;
 }
 
-.tarjeta-harvard-editorial:hover .marco-imagen-editorial img {
+.tarjeta-desplegable:hover .marco-imagen img {
   transform: scale(1.03);
 }
 
-.cuerpo-editorial {
+/* Cuerpo */
+.cuerpo {
   padding: 24px 20px 28px 20px;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  flex: 1 1 auto;
 }
 
-.titulo-card-editorial {
-  font-size: 1.65rem;
-  color: var(--color-inst-blanco);
-  margin-bottom: 14px;
-  line-height: 1.25;
-}
-
-.titulo-card-editorial span {
-  display: inline;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.2s ease;
-}
-
-.tarjeta-harvard-editorial:hover .titulo-card-editorial span,
-.titulo-card-editorial.subrayado span {
-  border-bottom-color: var(--color-inst-dorado);
-}
-
-.descripcion-card-editorial {
-  font-size: 0.98rem;
-  color: var(--color-inst-blanco);
-  line-height: 1.6;
-  margin-bottom: 16px;
-  flex-grow: 1;
-}
-
-.detalle-expandido-editorial {
-  padding-top: 14px;
-  border-top: 1px solid var(--color-inst-borde);
-  margin-bottom: 16px;
-  font-size: 0.93rem;
-  color: var(--color-inst-blanco);
-  line-height: 1.6;
-  animation: fadeIn 0.3s ease-in-out;
-  
-}
-
-.boton-leer-mas-harvard {
+.boton-toggle {
+  margin-top: auto;
   background: none;
   border: none;
   padding: 0;
@@ -427,28 +403,58 @@ p, span, a, button, li, input, select, textarea {
   text-underline-offset: 3px;
 }
 
-.chevron-editorial {
-  transition: transform 0.25s ease;
+.titulo {
+  font-size: 1.65rem;
+  color: var(--color-inst-blanco);
+  margin-bottom: 0.5rem;
+  line-height: 1.25;
+  font-weight: 700;
 }
 
-.chevron-editorial.rotado {
-  transform: rotate(180deg);
+.resumen {
+  font-size: 0.95rem;
+  color: var(--color-inst-blanco);
+  opacity: 0.85;
+  margin-bottom: 12px;
+  font-weight: 500;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Contenedor expandible con animación de grid */
+.contenido-expandible {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease, opacity 0.4s ease, margin 0.4s ease;
+  opacity: 0;
+  margin-bottom: 0;
 }
+
+.contenido-expandible.abierto {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-bottom: 16px;
+}
+
+.contenido-expandible > .detalle {
+  overflow: hidden;
+}
+
+.detalle {
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.93rem;
+  color: var(--color-inst-blanco);
+  line-height: 1.6;
+}
+
+
 
 /* ==========================================
    CARRUSEL
    ========================================== */
-
-
 .contenedor-carrusel {
   position: relative;
   width: 100%;
-  height: 100vh;             /* Alto completo de la ventana */
+  height: 100vh;
   overflow: hidden;
   background-color: var(--color-inst-azul);
 }
@@ -457,13 +463,13 @@ p, span, a, button, li, input, select, textarea {
   display: flex;
   transition: transform 0.4s ease-in-out;
   width: 100%;
-  height: 100%;               /* Ocupa todo el alto del contenedor */
+  height: 100%;
 }
 
 .item-carrusel {
   min-width: 100%;
   position: relative;
-  height: 100%;               /* Ocupa todo el alto de la pista */
+  height: 100%;
 }
 
 .item-carrusel img {
@@ -480,7 +486,6 @@ p, span, a, button, li, input, select, textarea {
   background: linear-gradient(transparent, rgba(15,44,89,0.85));
   color: white;
   padding: 40px 10% 20px 10%;
-
 }
 
 .overlay-carrusel h3 {
@@ -594,7 +599,7 @@ p, span, a, button, li, input, select, textarea {
     font-size: 2.2rem;
   }
 
-  .marco-imagen-editorial {
+  .marco-imagen {
     height: 220px;
   }
 

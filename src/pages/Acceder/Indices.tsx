@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ShieldCheck, Lock, Share2, Download, Gamepad2, CheckSquare,
-  ArrowRight, BookOpen, Clock, GraduationCap, CheckCircle2, HelpCircle,
-  FileText, Lightbulb, Target, BookMarked, ChevronDown, ChevronUp
+  ArrowRight, ArrowDown, BookOpen, Clock, GraduationCap, CheckCircle2, HelpCircle,
+  FileText, Lightbulb, Target, BookMarked, ChevronDown, ChevronUp,
+  ArrowLeft
 } from "lucide-react";
+import HeaderProyecto from "../../components/comunes/HeaderProyecto/HeaderProyecto";
 import { CATALAGO_MODULOS } from "../../data/datosModulos";
 import type { GradoEscolar } from "../../data/datosModulos";
 import DETALLES_CONTEXTUALES from "../../data/datosIndices";
@@ -149,37 +151,42 @@ const SeccionModulo: React.FC<{ mod: any }> = ({ mod }) => {
 const Indices: React.FC = () => {
   const modulosLista = Object.values(CATALAGO_MODULOS);
 
+  const enlacesSubNav = [
+    { label: 'Inicio Proyecto', ruta: '/proyectos/ciberseguridad' },
+    { label: 'Catálogo por Grado', ruta: '/proyectos/ciberseguridad/modulos' },
+    { label: 'Justificación', ruta: '/proyectos/ciberseguridad/justificacion' },
+    { label: 'Índices y Temario', ruta: '/proyectos/ciberseguridad/indices' },
+    { label: 'Guía Docentes', ruta: '/proyectos/ciberseguridad/guias/docentes' },
+    { label: 'Guía Padres', ruta: '/proyectos/ciberseguridad/guias/padres' },
+    { label: 'Desarrolladores', ruta: '/proyectos/ciberseguridad/nosotros/sobre-devs' },
+  ];
+
   return (
     <main className="pagina-indices">
-      {/* HERO */}
-      <header className="hero-acceso-virtual">
-        <div className="contenedor-hero-virtual">
-          <div className="contenedor-texto-hero">
-            <span className="badge-hero">
-              <GraduationCap size={16} style={{ display: 'inline', marginRight: '6px', verticalAlign: 'middle' }} />
-              Plataforma Educativa Sociotecnológica
-            </span>
-            <h1>Índice Contextual de Ciberseguridad</h1>
-            <p>
-              Guía completa e interactiva sobre los temas de seguridad digital abordados en el
-              L.B. "Antonio Lemus Pérez". Conoce qué enseña cada módulo y accede directamente a las lecciones de tu año escolar.
-            </p>
-            <div className="hero-acciones">
-              <Link to="/modulos" className="boton-hero-primario">Explorar todos los grados <ArrowRight size={16} /></Link>
-              <a href="#seccion-modulos" className="boton-hero-secundario">Ver temáticas <ArrowRight size={16} /></a>
-            </div>
-          </div>
-          <div className="contenedor-visual-hero">
-            <div className="tarjeta-flotante-hero">
-              <BookOpen size={36} color="#38bdf8" />
-              <div className="info-tarjeta">
-                <h3>6 Temáticas Clave</h3>
-                <p>5 Niveles Académicos</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
+      {/* Hero Unificado del Proyecto */}
+      <HeaderProyecto
+    
+        titulo="ÍNDICES Y TEMARIO DE"
+        tituloResaltado="CIBERSEGURIDAD"
+        descripcion="Guía completa e interactiva sobre los temas de seguridad digital abordados en el L.B. Antonio Lemus Pérez. Conoce qué enseña cada módulo y accede directamente a las lecciones de tu año escolar."
+        enlacesSubNav={enlacesSubNav}
+        acciones={[
+          {
+            label: 'Explorar Catálogo por Grado',
+            ruta: '/proyectos/ciberseguridad/modulos',
+          },
+          {
+            label: 'Ver Justificación Sociotecnológica',
+            ruta: '/proyectos/ciberseguridad/justificacion',
+            icono: <ArrowRight size={20} />,
+          },
+          {
+            label: 'Ver Temáticas',
+            href: '#seccion-modulos',
+            icono: <ChevronDown size={18} />,
+          },
+        ]}
+      />
 
       {/* INTRODUCCIÓN */}
       <section className="seccion-info ciberseguridad-que-es">
@@ -243,7 +250,7 @@ const Indices: React.FC = () => {
           <p style={{ maxWidth: '600px', margin: '0 auto 1.5rem auto', color: '#475569' }}>
             También puedes visitar el portal general de módulos para ver una vista panorámica de todas las tarjetas de grados escolares.
           </p>
-          <Link to="/modulos" className="boton-acceso-modulo" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.8rem 1.8rem', fontSize: '1rem' }}>
+          <Link to="/proyectos/ciberseguridad/modulos" className="boton-acceso-modulo" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.8rem 1.8rem', fontSize: '1rem' }}>
             Ir a Selección General de Grado <ArrowRight size={18} />
           </Link>
         </div>

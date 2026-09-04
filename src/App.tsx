@@ -20,7 +20,8 @@ import NormasConvivencia from './pages/ElLiceo/NormasConvivencia';
 import ExploradorProyectos from './pages/ExploradorProyectos/ExploradorProyectos';
 
 // ── Flujo de Módulos de Ciberseguridad ──
-import LandingModulos from './pages/Modulos/LandingModulos';       // Nivel 1 — Bienvenida
+import PrincipalProyecto from './pages/Proyectos/Ciberseguridad/PrincipalProyecto'; // Portada principal del Proyecto
+import LandingModulos from './pages/Modulos/LandingModulos';       // Nivel 1 — Bienvenida / Catálogo
 import PresentacionGrado from './pages/Modulos/PresentacionGrado'; // Nivel 2 — Catálogo por grado
 import DescripcionModulo from './pages/Modulos/DescripcionModulo'; // Nivel 3 — Pre-Lobby
 import ModuloRouter from './pages/Modulos/ModuloRouter';           // Nivel 4 — Lección
@@ -75,7 +76,9 @@ const App: React.FC = () => {
             <Route path="/proyectos" element={<ExploradorProyectos />} />
 
             {/* ── PROYECTO 1: CIBERSEGURIDAD (ESTRUCTURA ANIDADA) ── */}
-            <Route path="/proyectos/ciberseguridad" element={<LandingModulos />} />
+            <Route path="/proyectos/ciberseguridad" element={<PrincipalProyecto />} />
+            <Route path="/proyectos/ciberseguridad/modulos" element={<LandingModulos />} />
+            <Route path="/modulos" element={<LandingModulos />} />
             <Route path="/proyectos/ciberseguridad/justificacion" element={<Justificacion />} />
             <Route path="/proyectos/ciberseguridad/indices" element={<Indices />} />
             <Route path="/proyectos/ciberseguridad/nosotros/sobre-devs" element={<SobreDevs />} />

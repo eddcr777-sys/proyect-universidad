@@ -1,82 +1,28 @@
-.header-proyecto-contenedor {
-  width: 100%;
-  margin-bottom: 30px;
-}
+/* ============================================================================
+   ESTILOS — HeaderProyecto.css (Hero Portada Unificado + Subnav Transparente)
+   ============================================================================ */
 
-.header-proyecto-banner {
+.header-proyecto-wrapper {
   position: relative;
-  background: linear-gradient(135deg, #0f2c59 0%, #1e3a8a 100%);
-  background-size: cover;
-  background-position: center;
-  color: #ffffff;
-  padding: 80px 0 50px 0;
+  width: 100%;
   overflow: hidden;
 }
 
-.header-proyecto-overlay {
-  position: absolute;
+/* ─────────────────────────────────────────────
+   SUBNAVEGACIÓN TRANSPARENTE FUSIONADA CON EL HERO
+───────────────────────────────────────────── */
+.header-proyecto-wrapper .header-proyecto-contenedor {
+  background: transparent !important;
+  position: absolute !important;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, rgba(15, 44, 89, 0.95) 0%, rgba(15, 44, 89, 0.75) 100%);
-  z-index: 1;
+  z-index: 90;
+  padding-top: 78px;
 }
 
-.header-proyecto-contenido {
-  position: relative;
-  z-index: 2;
-}
-
-.header-proyecto-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.badge-categoria-proyecto,
-.badge-autores-proyecto {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.badge-categoria-proyecto {
-  background: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-
-}
-
-.badge-autores-proyecto {
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.titulo-proyecto-header {
-  font-size: clamp(2.2rem, 4vw, 3rem);
-  font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 14px;
-}
-
-.descripcion-proyecto-header {
-  font-size: 1.15rem;
-  opacity: 0.92;
-  max-width: 800px;
-  line-height: 1.6;
-}
-
-/* Sub-Navegación propia del Proyecto */
 .header-proyecto-subnav {
-  background: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  width: 100%;
 }
 
 .subnav-flex {
@@ -87,27 +33,121 @@
   padding-bottom: 4px;
 }
 
-.subnav-item {
+.header-proyecto-wrapper .subnav-item {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 12px 18px;
-  color: #475569;
+  color: rgba(255, 255, 255, 0.88) !important;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
-  border-bottom: 3px solid transparent;
   white-space: nowrap;
+  border-bottom: 2px solid transparent !important;
   transition: all 0.2s ease;
 }
 
-.subnav-item:hover {
-  color: #0f2c59;
-  background: #f8fafc;
+.header-proyecto-wrapper .subnav-item:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.15) !important;
 }
 
-.subnav-item.activo {
-  color: #0f2c59;
-  border-bottom-color: #0f2c59;
-  background: #f1f5f9;
+
+
+/* ─────────────────────────────────────────────
+   SECCIÓN HERO PORTADA (PRINCIPAL & SECUNDARIO)
+───────────────────────────────────────────── */
+.seccion-hero-portada {
+  position: relative;
+  width: 100%;
+  min-height: 85vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9rem 1.5rem 5rem;
+  box-sizing: border-box;
+}
+
+.hero-overlay-oscuro {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 44, 89, 0.88);
+  z-index: 1;
+}
+
+.hero-zindex {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.badge-categoria-hero {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.titulo-ciber-gigante {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.12;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.texto-resaltado-inst {
+  color: #ffffff;
+}
+
+.descripcion-ciber-destacada {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.65;
+  max-width: 780px;
+  margin: 0;
+}
+
+.acciones-ciber-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.btn-ciber-solido-azul {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: #0f2c59;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.9rem 1.8rem;
+  text-decoration: none;
+  border-radius: 0px;
+  transition: all 0.25s ease;
+}
+
+.btn-ciber-solido-azul:hover {
+  background-color: rgba(15, 44, 89, 0.8);
+  transform: translateY(-2px);
 }

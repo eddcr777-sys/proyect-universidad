@@ -97,10 +97,19 @@
 .imagen-historica {
   width: 100%;
   aspect-ratio: 4/3;
-  object-fit: cover; /* Ajusta la imagen sin deformarla */
+  object-fit: cover; 
+  text-align: center;        
 }
 
-
+.parrafo-homenaje {
+  color: var(--color-inst-texto-secundario);
+  text-align: center;        
+  max-width: 900px;          
+  margin-left: auto;         
+  margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
 
 /* Pie de foto */
 .marco-imagen figcaption {

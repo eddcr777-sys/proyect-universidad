@@ -4,24 +4,23 @@ import {
   ShieldCheck,
   BookOpen,
   ArrowRight,
+  ArrowDown,
   Sparkles,
   GraduationCap,
   Zap,
+  CheckCircle2,
 } from 'lucide-react';
 import HeaderProyecto from '../../components/comunes/HeaderProyecto/HeaderProyecto';
 import type { GradoEscolar } from '../../data/datosModulos';
 import './LandingModulos.css';
 
-/**
- * Pantalla de Bienvenida y Selección de Grado para la sección de Módulos.
- * Nivel 1 del flujo: Usuario elige grado → navega al catálogo personalizado.
- */
 const LandingModulos: React.FC = () => {
   const navigate = useNavigate();
   const [gradoSeleccionado, setGradoSeleccionado] = useState<GradoEscolar | null>(null);
 
   const enlacesSubNav = [
-    { label: 'Catálogo por Grado', ruta: '/proyectos/ciberseguridad' },
+    { label: 'Inicio Proyecto', ruta: '/proyectos/ciberseguridad' },
+    { label: 'Catálogo por Grado', ruta: '/proyectos/ciberseguridad/modulos' },
     { label: 'Justificación', ruta: '/proyectos/ciberseguridad/justificacion' },
     { label: 'Índices y Temario', ruta: '/proyectos/ciberseguridad/indices' },
     { label: 'Guía Docentes', ruta: '/proyectos/ciberseguridad/guias/docentes' },
@@ -29,52 +28,44 @@ const LandingModulos: React.FC = () => {
     { label: 'Desarrolladores', ruta: '/proyectos/ciberseguridad/nosotros/sobre-devs' },
   ];
 
-  /** Datos de cada tarjeta de grado */
-  const gradosInfo: Array<{
+  const gradosInfo: {
     grado: GradoEscolar;
     etiqueta: string;
     descripcion: string;
     nivel: string;
-    color: string;
-  }> = [
+  }[] = [
     {
       grado: '1ro',
       etiqueta: '1ro Año',
-      descripcion: 'Fundamentos básicos de seguridad digital e identificación de amenazas simples.',
+      descripcion: 'Fundamentos de higiene digital, contraseñas seguras y uso responsable de dispositivos.',
       nivel: 'Nivel Inicial',
-      color: 'grado-verde',
     },
     {
       grado: '2do',
       etiqueta: '2do Año',
-      descripcion: 'Protección de cuentas, contraseñas seguras y verificación de identidades.',
+      descripcion: 'Identificación de phishing, estafas en línea y protección de datos personales.',
       nivel: 'Nivel Básico',
-      color: 'grado-azul',
     },
     {
       grado: '3ro',
       etiqueta: '3ro Año',
-      descripcion: 'Análisis de amenazas en redes sociales y tácticas de ingeniería social.',
+      descripcion: 'Privacidad en redes sociales, huella digital y prevención del ciberacoso.',
       nivel: 'Nivel Intermedio',
-      color: 'grado-celeste',
     },
     {
       grado: '4to',
       etiqueta: '4to Año',
-      descripcion: 'Auditoría digital, higiene tecnológica y protocolos de seguridad avanzados.',
+      descripcion: 'Seguridad en redes Wi-Fi, descargas responsables y licencias de software.',
       nivel: 'Nivel Avanzado',
-      color: 'grado-amarillo',
     },
     {
       grado: '5to',
       etiqueta: '5to Año',
       descripcion: 'Ciberseguridad experta: análisis forense básico, software pirata y ética digital.',
       nivel: 'Nivel Experto',
-      color: 'grado-rojo',
     },
   ];
 
-  /** Navega al catálogo del grado elegido */
   const irAlCatalogo = () => {
     if (gradoSeleccionado) {
       navigate(`/proyectos/ciberseguridad/grado/${gradoSeleccionado}`);
@@ -83,124 +74,102 @@ const LandingModulos: React.FC = () => {
 
   return (
     <div className="landing-modulos-contenedor">
+      {/* Hero Unificado */}
       <HeaderProyecto
-        titulo="Ciberseguridad Escolar y Conciencia Digital"
-        categoria="Proyecto #1 — Ciberseguridad"
-        descripcion="Módulos formativos, guías didácticas y auditorías digitales diseñadas para capacitar a la comunidad educativa en el uso seguro y ético de la tecnología."
-        autores="Equipo de Ciberseguridad L.B. Lemus"
-        icono="ShieldCheck"
+        titulo="APRENDE A PROTEGERTE EN EL"
+        tituloResaltado="MUNDO DIGITAL"
+        descripcion="Módulos pedagógicos, lecciones interactivas y guías didácticas adaptadas nivel a nivel desde 1ro hasta 5to año para la comunidad del Liceo Bolivariano Antonio Lemus Pérez."
         enlacesSubNav={enlacesSubNav}
+        acciones={[
+          {
+            label: 'Seleccionar Grado Escolar',
+            href: '#seleccion-grado',
+            icono: <ArrowDown size={18} />,
+          },
+          {
+            label: 'Ver Justificación Sociotecnológica',
+            ruta: '/proyectos/ciberseguridad/justificacion',
+            icono: <ArrowRight size={20} />,
+          },
+        ]}
       />
 
-      {/* ── HERO SECTION ── */}
-      <section className="landing-hero">
-        <div className="landing-hero-fondo" aria-hidden="true">
-          <div className="hero-particula hero-particula-1" />
-          <div className="hero-particula hero-particula-2" />
-          <div className="hero-particula hero-particula-3" />
-        </div>
-
-        <div className="landing-hero-contenido">
-          {/* Etiqueta institucional */}
-          <div className="landing-etiqueta-inst">
-            <GraduationCap size={16} />
-            <span>L.B. Antonio Lemus Pérez · Plataforma Digital de Ciberseguridad</span>
-          </div>
-
-          {/* Título principal */}
-          <h1 className="landing-titulo-hero">
-            Aprende a protegerte{' '}
-            <span className="landing-titulo-destacado">en el mundo digital</span>
-          </h1>
-
-          {/* Subtítulo inspirador */}
-          <p className="landing-subtitulo-hero">
-            Domina las herramientas digitales y conviértete en tu propio escudo cibernético.
-            Contenidos pedagógicos diseñados especialmente para cada año escolar.
-          </p>
-
-          {/* Indicadores de valor */}
-          <div className="landing-indicadores">
-            <div className="indicador-item">
-              <ShieldCheck size={20} />
-              <span>6 Módulos activos</span>
-            </div>
-            <div className="indicador-item">
-              <BookOpen size={20} />
-              <span>5 Años escolares</span>
-            </div>
-            <div className="indicador-item">
-              <Zap size={20} />
-              <span>Lecciones interactivas</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SECCIÓN DE SELECCIÓN DE GRADO ── */}
+      {/* ── SECCIÓN UNIFICADA DE SELECCIÓN DE GRADO (2 COLUMNAS) ── */}
       <section className="landing-seleccion-grado" id="seleccion-grado">
-        <div className="landing-seccion-contenedor">
-
-          {/* Encabezado de sección */}
-          <div className="landing-seccion-encabezado">
-            <div className="landing-icono-seccion">
-              <Sparkles size={28} />
-            </div>
+        <div className="landing-seccion-contenedor-grid">
+          {/* Columna Izquierda: Descripción e Información del proyecto */}
+          <div className="columna-descripcion-grado">
+            <span className="badge-seccion-sub">Selección de Nivel</span>
             <h2 className="landing-titulo-seccion">
               ¿En qué año escolar estás?
             </h2>
             <p className="landing-descripcion-seccion">
-              Selecciona tu año para acceder al contenido adaptado a tu nivel de conocimiento.
+              Selecciona tu año escolar para acceder al catálogo pedagógico de módulos interactivos adaptado a tu grado de instrucción.
             </p>
+
+            <ul className="lista-caracteristicas-grado">
+              <li>
+                <CheckCircle2 size={20} className="icono-check-inst" />
+                <span>Contenidos adaptados al plan formativo del L.B. "Antonio Lemus Pérez".</span>
+              </li>
+              <li>
+                <CheckCircle2 size={20} className="icono-check-inst" />
+                <span>Lecciones prácticas, evaluación en línea y material descargable.</span>
+              </li>
+              <li>
+                <CheckCircle2 size={20} className="icono-check-inst" />
+                <span>Ruta continua de aprendizaje desde 1ro hasta 5to año general.</span>
+              </li>
+            </ul>
           </div>
 
-          {/* Tarjetas de grado */}
-          <div className="landing-grid-grados">
-            {gradosInfo.map(({ grado, etiqueta, descripcion, nivel, color }) => (
+          {/* Columna Derecha: Tarjetas de Grado y Botón de Acción */}
+          <div className="columna-seleccion-derecha">
+            <div className="landing-grid-grados">
+              {gradosInfo.map(({ grado, etiqueta, descripcion, nivel }) => (
+                <button
+                  key={grado}
+                  type="button"
+                  className={`tarjeta-grado ${gradoSeleccionado === grado ? 'tarjeta-grado-activa' : ''}`}
+                  onClick={() => setGradoSeleccionado(grado)}
+                  aria-pressed={gradoSeleccionado === grado}
+                >
+                  <div className="tarjeta-grado-nivel">{nivel}</div>
+                  <div className="tarjeta-grado-numero">{etiqueta}</div>
+                  <p className="tarjeta-grado-descripcion">{descripcion}</p>
+                  {gradoSeleccionado === grado && (
+                    <div className="tarjeta-grado-seleccionado-badge">
+  
+                      <span>Seleccionado</span>
+                    </div>
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {/* Botón de acción ubicado en la columna derecha */}
+            <div className="landing-cta-contenedor">
               <button
-                key={grado}
                 type="button"
-                id={`btn-grado-${grado}`}
-                className={`tarjeta-grado ${color} ${gradoSeleccionado === grado ? 'tarjeta-grado-activa' : ''}`}
-                onClick={() => setGradoSeleccionado(grado)}
-                aria-pressed={gradoSeleccionado === grado}
+                className={`landing-btn-explorar ${gradoSeleccionado ? 'landing-btn-activo' : 'landing-btn-inactivo'}`}
+                onClick={irAlCatalogo}
+                disabled={!gradoSeleccionado}
+                aria-disabled={!gradoSeleccionado}
               >
-                <div className="tarjeta-grado-nivel">{nivel}</div>
-                <div className="tarjeta-grado-numero">{etiqueta}</div>
-                <p className="tarjeta-grado-descripcion">{descripcion}</p>
-                {gradoSeleccionado === grado && (
-                  <div className="tarjeta-grado-seleccionado-badge">
-                    <ShieldCheck size={14} />
-                    <span>Seleccionado</span>
-                  </div>
-                )}
+                <span>
+                  {gradoSeleccionado
+                    ? `Ver módulos de ${gradoSeleccionado} Año`
+                    : 'Selecciona tu año para continuar'}
+                </span>
+                {gradoSeleccionado && <ArrowRight size={20} />}
               </button>
-            ))}
-          </div>
 
-          {/* Botón de acción principal */}
-          <div className="landing-cta-contenedor">
-            <button
-              type="button"
-              id="btn-explorar-modulos"
-              className={`landing-btn-explorar ${gradoSeleccionado ? 'landing-btn-activo' : 'landing-btn-inactivo'}`}
-              onClick={irAlCatalogo}
-              disabled={!gradoSeleccionado}
-              aria-disabled={!gradoSeleccionado}
-            >
-              <span>
-                {gradoSeleccionado
-                  ? `Ver módulos de ${gradoSeleccionado} Año`
-                  : 'Selecciona tu año para continuar'}
-              </span>
-              {gradoSeleccionado && <ArrowRight size={20} />}
-            </button>
-
-            {!gradoSeleccionado && (
-              <p className="landing-hint-seleccion">
-                ↑ Toca una tarjeta para seleccionar tu año escolar
-              </p>
-            )}
+              {!gradoSeleccionado && (
+                <p className="landing-hint-seleccion">
+                  ↑ Selecciona una tarjeta arriba para activar el botón
+                </p>
+              )}
+            </div>
           </div>
         </div>
       </section>

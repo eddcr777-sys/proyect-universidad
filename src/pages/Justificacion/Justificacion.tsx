@@ -69,7 +69,8 @@ export const Justificacion: React.FC = () => {
   };
 
   const enlacesSubNav = [
-    { label: 'Catálogo por Grado', ruta: '/proyectos/ciberseguridad' },
+    { label: 'Inicio Proyecto', ruta: '/proyectos/ciberseguridad' },
+    { label: 'Catálogo por Grado', ruta: '/proyectos/ciberseguridad/modulos' },
     { label: 'Justificación', ruta: '/proyectos/ciberseguridad/justificacion' },
     { label: 'Índices y Temario', ruta: '/proyectos/ciberseguridad/indices' },
     { label: 'Guía Docentes', ruta: '/proyectos/ciberseguridad/guias/docentes' },
@@ -79,53 +80,30 @@ export const Justificacion: React.FC = () => {
 
   return (
     <div className="justificacion-pagina">
+      {/* Hero Unificado del Proyecto */}
       <HeaderProyecto
-        titulo="Justificación del Proyecto Sociotecnológico"
-        categoria="Proyecto #1 — Ciberseguridad"
+      
+        titulo="JUSTIFICACIÓN SOCIOTECNOLÓGICA Y"
+        tituloResaltado="DIAGNÓSTICO INSTITUCIONAL"
         descripcion="Fundamentación académica, diagnóstico de vulnerabilidades digitales e impacto pedagógico en la comunidad del Liceo Bolivariano Antonio Lemus Pérez."
-        autores="Equipo de Ciberseguridad L.B. Lemus"
-        icono="ShieldCheck"
         enlacesSubNav={enlacesSubNav}
+        acciones={[
+          {
+            label: 'Explorar Catálogo por Grado',
+            ruta: '/proyectos/ciberseguridad/modulos',
+          },
+          {
+            label: 'Ver Índices y Temario',
+            ruta: '/proyectos/ciberseguridad/indices',
+            icono: <ArrowRight size={20} />,
+          },
+          {
+            label: 'Conoce el Proyecto',
+            href: '#justificacion-detalle',
+            icono: <ChevronDown size={18} />,
+          },
+        ]}
       />
-
-      {/* HERO */}
-      <section className="hero">
-        <div className="hero-contenido">
-          <div className="hero-texto">
-            <span className="hero-insignia">
-              <Activity size={18} />
-              Proyecto Sociotecnológico PNFI
-            </span>
-            <h1 className="hero-titulo">
-              Plataforma Web para la <span className="texto-azul">Concientización sobre Riesgos Digitales</span>
-            </h1>
-            <p className="hero-descripcion">
-              Una herramienta educativa diseñada para estudiantes del L.B. Antonio Lemus Pérez,
-              que promueve la prevención, el pensamiento crítico y la seguridad en el uso de Internet.
-            </p>
-            <div className="hero-botones">
-              <Link to="/proyectos/ciberseguridad" className="boton-primario">
-                Explorar Módulos <ArrowRight size={18} />
-              </Link>
-              <button onClick={() => scrollToSeccion('diagnostico')} className="boton-secundario">
-                Conoce el Proyecto <ChevronDown size={18} />
-              </button>
-            </div>
-            <div className="hero-datos">
-              <span><School size={18} /> L.B. Antonio Lemus Pérez</span>
-              <span><Users size={18} /> +965 estudiantes</span>
-              <span><ShieldCheck size={18} /> Seguridad Digital</span>
-            </div>
-          </div>
-          <div className="hero-imagen">
-            <img
-              src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80"
-              alt="Seguridad Digital Educativa"
-              className="imagen-hero"
-            />
-          </div>
-        </div>
-      </section>
 
       {/* JUSTIFICACIÓN DETALLADA */}
       <section id="justificacion-detalle" className="seccion-justificacion">
@@ -201,7 +179,7 @@ export const Justificacion: React.FC = () => {
             <GraduationCap size={36} className="icono-cta" />
             <h2>Accede a los Módulos de tu Grado</h2>
             <p>Selecciona tu año escolar y explora los módulos interactivos de ciberseguridad diseñados para tu nivel.</p>
-            <Link to="/modulos" className="boton-primario">
+            <Link to="/proyectos/ciberseguridad/modulos" className="boton-primario">
               Explorar Módulos <ArrowRight size={18} />
             </Link>
           </div>

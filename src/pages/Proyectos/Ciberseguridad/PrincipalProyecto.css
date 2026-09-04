@@ -1,0 +1,589 @@
+/* ============================================================================
+   ESTILOS — PrincipalProyecto.tsx (Diseño Editorial Asimétrico con Paleta Institucional)
+   ============================================================================ */
+
+:root {
+  --color-inst-azul: #0F2C59;
+  --color-inst-blanco: #FFFFFF;
+  --color-inst-texto: #111827;
+  --color-inst-texto-secundario: #4B5563;
+  --color-inst-fondo: #F8FAFC;
+  --color-inst-borde: #E2E8F0;
+
+  /* Versiones RGB para usar con rgba() */
+  --color-inst-azul-rgb: 15, 44, 89;
+  --color-inst-blanco-rgb: 255, 255, 255;
+}
+
+.principal-ciberseguridad-contenedor {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--color-inst-fondo);
+  color: var(--color-inst-texto);
+}
+
+/* ─────────────────────────────────────────────
+   SUBNAVEGACIÓN TRANSPARENTE FUSIONADA CON EL HERO
+───────────────────────────────────────────── */
+.principal-ciberseguridad-contenedor .header-proyecto-contenedor {
+  background: transparent !important;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 90;
+  padding-top: 68px;
+}
+
+.principal-ciberseguridad-contenedor .subnav-item {
+  color: rgba(var(--color-inst-blanco-rgb), 0.88) !important;
+  font-weight: 600;
+  border-bottom: 2px solid transparent !important;
+}
+
+.principal-ciberseguridad-contenedor .subnav-item:hover {
+  color: var(--color-inst-blanco) !important;
+  background: rgba(var(--color-inst-blanco-rgb), 0.15) !important;
+}
+
+.principal-ciberseguridad-contenedor .subnav-item.activo {
+  color: var(--color-inst-blanco) !important;
+  border-bottom-color: var(--color-inst-blanco) !important;
+  background: rgba(var(--color-inst-blanco-rgb), 0.15) !important;
+}
+
+/* ─────────────────────────────────────────────
+   SECCIÓN 1: HERO PRINCIPAL (PORTADA)
+───────────────────────────────────────────── */
+.seccion-hero-portada {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 1.5rem 5rem;
+  box-sizing: border-box;
+}
+
+.hero-overlay-oscuro {
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--color-inst-azul-rgb), 0.85);
+  z-index: 1;
+}
+
+.hero-zindex {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.titulo-ciber-gigante {
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1.12;
+  color: var(--color-inst-blanco);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.texto-resaltado-inst {
+  color: var(--color-inst-blanco);
+  /* antes amarillo, ahora blanco */
+}
+
+.descripcion-ciber-destacada {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: rgba(var(--color-inst-blanco-rgb), 0.9);
+  line-height: 1.65;
+  max-width: 780px;
+  margin: 0;
+}
+
+.acciones-ciber-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.btn-ciber-solido-azul {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: var(--color-inst-azul);
+  border: 1px solid rgba(var(--color-inst-blanco-rgb), 0.3);
+  color: var(--color-inst-blanco);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.9rem 1.8rem;
+  text-decoration: none;
+  border-radius: 0px;
+  transition: all 0.25s ease;
+}
+
+.btn-ciber-solido-azul:hover {
+  background-color: rgba(var(--color-inst-azul-rgb), 0.8);
+  transform: translateY(-2px);
+}
+
+.btn-ciber-scroll-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(var(--color-inst-blanco-rgb), 0.8);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s ease;
+}
+
+.btn-ciber-scroll-link:hover {
+  color: var(--color-inst-blanco);
+}
+
+/* ─────────────────────────────────────────────
+   SECCIÓN 2: ¿POR QUÉ ESTE PROYECTO? (LAYOUT ASIMÉTRICO)
+───────────────────────────────────────────── */
+.seccion-porque-nosotros {
+  background-color: var(--color-inst-azul);
+  color: var(--color-inst-blanco);
+  padding: 5rem 1.5rem;
+}
+
+.contenedor-porque-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.columna-porque-texto {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.titulo-porque-monumental {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--color-inst-blanco);
+  /* antes amarillo, ahora blanco */
+  letter-spacing: -0.01em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.texto-destacado-subrayado {
+  color: var(--color-inst-blanco);
+}
+
+.linea-decorativa-porque {
+  width: 80px;
+  height: 4px;
+  background-color: var(--color-inst-blanco);
+  /* antes amarillo */
+  margin-bottom: 0.5rem;
+}
+
+.lista-viñetas-porque {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.lista-viñetas-porque li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  font-size: 1.05rem;
+  color: rgba(var(--color-inst-blanco-rgb), 0.9);
+  line-height: 1.5;
+}
+
+.icono-check-porque {
+  color: var(--color-inst-blanco);
+  /* antes amarillo */
+  min-width: 20px;
+  margin-top: 2px;
+}
+
+.cta-porque-bloque {
+  margin-top: 1.5rem;
+}
+
+.btn-porque-aprende {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--color-inst-blanco);
+  color: var(--color-inst-azul);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  padding: 1rem 2.2rem;
+  text-decoration: none;
+  border-radius: 0px;
+  transition: all 0.25s ease;
+}
+
+.btn-porque-aprende:hover {
+  background-color: rgba(var(--color-inst-blanco-rgb), 0.85);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.columna-porque-imagen {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.columna-porque-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ─────────────────────────────────────────────
+   SECCIÓN 3: CAPAS SOLAPADAS
+───────────────────────────────────────────── */
+.seccion-capas-solapadas {
+  background-color: var(--color-inst-fondo);
+  padding: 6rem 1.5rem;
+}
+
+.contenedor-capas-solapadas {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.columna-imagenes-solapadas {
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+}
+
+.imagen-solapada-principal {
+  width: 80%;
+  height: 360px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.imagen-solapada-principal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imagen-solapada-secundaria {
+  width: 65%;
+  height: 280px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border: 4px solid var(--color-inst-blanco);
+  overflow: hidden;
+}
+
+.imagen-solapada-secundaria img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tarjeta-solapada-contenido {
+  background-color: var(--color-inst-blanco);
+  border: 1px solid var(--color-inst-borde);
+  padding: 3.5rem 3rem;
+  box-shadow: 0 12px 35px rgba(var(--color-inst-azul-rgb), 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.titulo-tarjeta-solapada {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: var(--color-inst-texto);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.descripcion-tarjeta-solapada {
+  font-size: 1.05rem;
+  color: var(--color-inst-texto-secundario);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.lista-puntos-solapados {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.lista-puntos-solapados li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--color-inst-texto);
+}
+
+.icono-check-solapado {
+  color: var(--color-inst-azul);
+  /* antes amarillo, ahora azul */
+}
+
+.btn-solapado-contacto {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: var(--color-inst-azul);
+  color: var(--color-inst-blanco);
+  font-weight: 800;
+  font-size: 0.88rem;
+  letter-spacing: 0.05em;
+  padding: 1.1rem 2rem;
+  text-decoration: none;
+  border-radius: 0px;
+  margin-top: 0.5rem;
+  transition: all 0.25s ease;
+}
+
+.btn-solapado-contacto:hover {
+  background-color: rgba(var(--color-inst-azul-rgb), 0.8);
+  transform: translateY(-2px);
+}
+
+/* ─────────────────────────────────────────────
+   SECCIÓN 4: EXPERIENCIA ÚNICA Y MEMORABLE
+───────────────────────────────────────────── */
+.seccion-experiencia-memorable {
+  background-color: var(--color-inst-azul);
+  /* antes #0b1f3f, ahora azul institucional */
+  color: var(--color-inst-blanco);
+  padding: 6rem 1.5rem;
+}
+
+.contenedor-experiencia-grid {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.columna-experiencia-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.texto-experiencia-parrafo {
+  font-size: 1.15rem;
+  color: rgba(var(--color-inst-blanco-rgb), 0.88);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.btn-experiencia-aprende {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--color-inst-blanco);
+  color: var(--color-inst-azul);
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  padding: 1rem 2.2rem;
+  text-decoration: none;
+  border-radius: 0px;
+  transition: all 0.25s ease;
+}
+
+.btn-experiencia-aprende:hover {
+  background-color: rgba(var(--color-inst-blanco-rgb), 0.85);
+  transform: translateY(-2px);
+}
+
+.columna-experiencia-titulo-destacado {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.circulo-acento-experiencia {
+  width: 64px;
+  height: 64px;
+  background-color: var(--color-inst-blanco);
+  /* antes amarillo */
+  border-radius: 50%;
+}
+
+.titulo-experiencia-monumental {
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--color-inst-blanco);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+/* ─────────────────────────────────────────────
+   SECCIÓN 5: COMPONENTES DEL PROYECTO (GRID 2x2)
+───────────────────────────────────────────── */
+.seccion-componentes-grid {
+  background-color: var(--color-inst-fondo);
+  padding: 6rem 1.5rem;
+}
+
+.contenedor-componentes-grid {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.encabezado-componentes {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.encabezado-componentes h2 {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 800;
+  color: var(--color-inst-texto);
+  margin: 0;
+}
+
+.encabezado-componentes p {
+  font-size: 1.05rem;
+  color: var(--color-inst-texto-secundario);
+  margin: 0;
+}
+
+.grid-cuatro-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.75rem;
+}
+
+.tarjeta-componente-box {
+  background-color: var(--color-inst-blanco);
+  border: 1px solid var(--color-inst-borde);
+  padding: 3rem 2rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.tarjeta-componente-box:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-inst-azul);
+  box-shadow: 0 12px 30px rgba(var(--color-inst-azul-rgb), 0.12);
+}
+
+.icono-componente-box {
+  color: var(--color-inst-azul);
+  /* antes amarillo */
+  background-color: var(--color-inst-fondo);
+  /* antes #fffbeb */
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tarjeta-componente-box h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-inst-texto);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.tarjeta-componente-box p {
+  font-size: 0.9rem;
+  color: var(--color-inst-texto-secundario);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE DESIGN
+───────────────────────────────────────────── */
+@media (max-width: 900px) {
+
+  .contenedor-porque-grid,
+  .contenedor-capas-solapadas,
+  .contenedor-experiencia-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .columna-imagenes-solapadas {
+    min-height: 350px;
+  }
+
+  .imagen-solapada-principal {
+    width: 90%;
+    height: 280px;
+  }
+
+  .imagen-solapada-secundaria {
+    width: 70%;
+    height: 220px;
+  }
+}

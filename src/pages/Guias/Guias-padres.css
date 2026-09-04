@@ -1,7 +1,6 @@
 
 .contenedor-principal {
   margin: 0 auto;
-  padding: 2.5rem 1.5rem; /* Espaciado externo ampliado */
   background-color: var(--color-fondo);
   color: var(--color-texto-principal);
   transition: background-color var(--transicion-normal), color var(--transicion-normal);

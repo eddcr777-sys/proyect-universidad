@@ -12,8 +12,6 @@ const Cabecera: React.FC = () => {
   const location = useLocation();
   const [desplazado, setDesplazado] = useState(false);
 
-  const esHome = location.pathname === '/';
-
   useEffect(() => {
     const manejarScroll = () => {
       if (window.scrollY > 40) {
@@ -31,7 +29,8 @@ const Cabecera: React.FC = () => {
     };
   }, []);
 
-  const esTransparente = esHome && !desplazado && !abierto;
+  // Transparente en todas las páginas al inicio, sólida al hacer scroll
+  const esTransparente = !desplazado && !abierto;
 
   return (
     <header

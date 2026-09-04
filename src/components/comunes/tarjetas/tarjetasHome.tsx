@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import '../../../pages/HomePage/HomePage.css';
+import './tarjetasHome.css';
 
-// Definición de la estructura de cada tarjeta
 interface TarjetaItem {
   id: number;
   imagen: string;
@@ -11,58 +10,66 @@ interface TarjetaItem {
   detalle?: string;
 }
 
-// Props del componente
 interface TarjetasDesplegablesProps {
   items: TarjetaItem[];
 }
 
 const TarjetasDesplegables: React.FC<TarjetasDesplegablesProps> = ({ items }) => {
-  const [activa, setActiva] = useState<number | null>(null);
+  const [abiertaId, setAbiertaId] = useState<number | null>(null);
+
+  const toggleCard = (id: number) => {
+    setAbiertaId((prev) => (prev === id ? null : id));
+  };
 
   return (
     <>
       {items.map((item) => {
-        const estaAbierto = activa === item.id;
+        const estaAbierta = abiertaId === item.id;
 
         return (
           <article
             key={item.id}
-            className="tarjeta-harvard-editorial"
-            onClick={() => setActiva(estaAbierto ? null : item.id)}
+            className={`tarjeta-desplegable ${estaAbierta ? 'tarjeta-activa' : ''}`}
+            onClick={() => toggleCard(item.id)}
             role="button"
             tabIndex={0}
+            aria-expanded={estaAbierta}
             onKeyDown={(e) => {
               if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                setActiva(estaAbierto ? null : item.id);
+                toggleCard(item.id);
               }
             }}
           >
-            <div className="marco-imagen-editorial">
-              <img src={item.imagen} alt={item.titulo} loading="lazy" />
+            <div className="marco-imagen">
+              <img src={item.imagen} alt={item.titulo} loading="lazy" decoding="async" />
             </div>
 
-            <div className="cuerpo-editorial">
-              <h3 className={`titulo-card-editorial ${estaAbierto ? 'subrayado' : ''}`}>
-                <span>{item.titulo}</span>
-              </h3>
+            <div className="cuerpo">
+              <h3 className="titulo">{item.titulo}</h3>
+              <p className="resumen">{item.resumen}</p>
 
-              <p className="descripcion-card-editorial">{item.resumen}</p>
-
-              {estaAbierto && item.detalle && (
-                <div className="detalle-expandido-editorial">
-                  <p>{item.detalle}</p>
+              <div
+                className={`contenido-expandible ${estaAbierta ? 'abierto' : ''}`}
+                aria-hidden={!estaAbierta}
+              >
+                <div className="detalle">
+                  {item.detalle && <p>{item.detalle}</p>}
                 </div>
-              )}
+              </div>
 
               <button
                 type="button"
-                className="boton-leer-mas-harvard"
-                aria-expanded={estaAbierto}
+                className="boton-toggle"
+                aria-expanded={estaAbierta}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleCard(item.id);
+                }}
               >
-                <span>{estaAbierto ? 'Leer menos' : 'Saber más'}</span>
+                <span>{estaAbierta ? 'Leer menos' : 'Saber más'}</span>
                 <ChevronDown
-                  className={`chevron-editorial ${estaAbierto ? 'rotado' : ''}`}
+                  className={`chevron ${estaAbierta ? 'rotado' : ''}`}
                   size={16}
                 />
               </button>

@@ -17,8 +17,11 @@ import {
   ChevronDown,
   ExternalLink,
   MessageSquare,
-  Bookmark
+  Bookmark,
+  ArrowRight,
+  ArrowDown
 } from 'lucide-react';
+import HeaderProyecto from '../../components/comunes/HeaderProyecto/HeaderProyecto';
 import './Guias-Docentes.css';
 
 interface EstrategiaAula {
@@ -96,52 +99,38 @@ export const GuiasDocentes: React.FC = () => {
     setFaqAbierta(faqAbierta === idx ? null : idx);
   };
 
+  const enlacesSubNav = [
+    { label: 'Inicio Proyecto', ruta: '/proyectos/ciberseguridad' },
+    { label: 'Catálogo por Grado', ruta: '/proyectos/ciberseguridad/modulos' },
+    { label: 'Justificación', ruta: '/proyectos/ciberseguridad/justificacion' },
+    { label: 'Índices y Temario', ruta: '/proyectos/ciberseguridad/indices' },
+    { label: 'Guía Docentes', ruta: '/proyectos/ciberseguridad/guias/docentes' },
+    { label: 'Guía Padres', ruta: '/proyectos/ciberseguridad/guias/padres' },
+    { label: 'Desarrolladores', ruta: '/proyectos/ciberseguridad/nosotros/sobre-devs' },
+  ];
+
   return (
     <main className="guias-docentes-pagina">
-      {/* 1. HERO DOCENTE */}
-      <section className="hero-docente">
-        <div className="contenedor-docente">
-          <div className="insignia-docente">
-            <School size={18} />
-            <span>Portal Educativo L.B. Antonio Lemus Pérez</span>
-          </div>
-
-          <h1 className="titulo-hero-docente">
-            Guía Pedagógica y Didáctica para <span className="texto-resaltado-docente">Docentes</span>
-          </h1>
-
-          <p className="descripcion-hero-docente">
-            Herramientas metodológicas, planes de lección por año escolar y protocolos institucionales diseñados 
-            para orientar a los profesores en la enseñanza efectiva de la ciberseguridad y la prevención digital.
-          </p>
-
-          <div className="tarjetas-resumen-docente">
-            <div className="tarjeta-resumen-mini">
-              <BookOpen size={24} className="icono-docente-azul" />
-              <div>
-                <strong>5 Niveles Educativos</strong>
-                <span>Estrategias adaptadas de 1ro a 5to año</span>
-              </div>
-            </div>
-
-            <div className="tarjeta-resumen-mini">
-              <Award size={24} className="icono-docente-verde" />
-              <div>
-                <strong>Rúbricas de Evaluación</strong>
-                <span>Criterios pedagógicos claros</span>
-              </div>
-            </div>
-
-            <div className="tarjeta-resumen-mini">
-              <Shield size={24} className="icono-docente-violeta" />
-              <div>
-                <strong>Protocolo Escolar</strong>
-                <span>Atención a incidentes digitales</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Unificado del Proyecto */}
+      <HeaderProyecto
+        categoria="Portal Educativo L.B. Antonio Lemus Pérez"
+        titulo="GUÍA PEDAGÓGICA Y DIDÁCTICA PARA"
+        tituloResaltado="DOCENTES"
+        descripcion="Herramientas metodológicas, planes de lección por año escolar y protocolos institucionales diseñados para orientar a los profesores en la enseñanza efectiva de la ciberseguridad y la prevención digital."
+        enlacesSubNav={enlacesSubNav}
+        acciones={[
+          {
+            label: 'Ver Estrategias por Grado',
+            href: '#estrategias-grado',
+            icono: <ArrowDown size={18} />,
+          },
+          {
+            label: 'Ver Justificación Sociotecnológica',
+            ruta: '/proyectos/ciberseguridad/justificacion',
+            icono: <ArrowRight size={20} />,
+          },
+        ]}
+      />
 
       {/* 2. OBJETIVOS PEDAGÓGICOS E INTEGRACIÓN CON MOODLE */}
       <section className="seccion-objetivos-moodle">
@@ -183,7 +172,7 @@ export const GuiasDocentes: React.FC = () => {
       </section>
 
       {/* 3. ESTRATEGIAS Y MATRIZ POR GRADO ESCOLAR */}
-      <section className="seccion-estrategias-grados">
+      <section id="estrategias-grado" className="seccion-estrategias-grados">
         <div className="contenedor-docente">
           <div className="encabezado-seccion-docente">
             <Layers size={32} className="icono-encabezado" />

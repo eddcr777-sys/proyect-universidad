@@ -61,16 +61,6 @@ const NavegacionEscritorio: React.FC<NavegacionEscritorioProps> = ({ esTranspare
         </div>
       </div>
 
-      {/* Guías */}
-      <div className="dropdown">
-        <button className="dropbtn" aria-expanded="false" aria-haspopup="true">
-          Guías <ChevronIcon />
-        </button>
-        <div className="dropdown-content">
-          <Link to="/proyectos/ciberseguridad/guias/docentes" className="dropdown-item">Guía para Docentes</Link>
-          <Link to="/proyectos/ciberseguridad/guias/padres" className="dropdown-item">Guía para Padres</Link>
-        </div>
-      </div>
 
       {/* Nosotros */}
       <div className="dropdown">
@@ -80,6 +70,16 @@ const NavegacionEscritorio: React.FC<NavegacionEscritorioProps> = ({ esTranspare
         <div className="dropdown-content">
           <Link to="/proyectos/ciberseguridad/nosotros/sobre-ue" className="dropdown-item">Sobre la U.E.</Link>
           <Link to="/proyectos/ciberseguridad/nosotros/sobre-devs" className="dropdown-item">Desarrolladores</Link>
+        </div>
+      </div>
+
+      {/* Proyectos */}
+      <div className="dropdown">
+        <button className="dropbtn" aria-expanded="false" aria-haspopup="true">
+          Proyectos <ChevronIcon />
+        </button>
+        <div className="dropdown-content">
+          <Link to="/proyectos/ciberseguridad" className="dropdown-item">Ciberseguridad</Link>
         </div>
       </div>
     </nav>
