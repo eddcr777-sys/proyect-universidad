@@ -69,7 +69,7 @@ const NavegacionEscritorio: React.FC<NavegacionEscritorioProps> = ({ esTranspare
         </button>
         <div className="dropdown-content">
           <Link to="/proyectos/ciberseguridad/nosotros/sobre-ue" className="dropdown-item">Sobre la U.E.</Link>
-          <Link to="/proyectos/ciberseguridad/nosotros/sobre-devs" className="dropdown-item">Desarrolladores</Link>
+
         </div>
       </div>
 
