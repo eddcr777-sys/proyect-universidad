@@ -265,9 +265,11 @@ export const AuditoriaDigital3ro: React.FC = () => {
             <HelpCircle className="icono-bloque-amarillo" size={24} />
             <h2>5. Evaluación Final</h2>
           </div>
-          <p className="texto-lectura-modulo">
-            Demuestra lo que aprendiste respondiendo estas preguntas.
-          </p>
+          <CajaExplicacionDinamica
+            enQueConsiste="Evaluación sobre Antivirus, Firewall, regla de Backup 3-2-1 e identificación de procesos maliciosos."
+            comoInteractuar="Elige tu respuesta en cada pregunta y presiona 'Enviar respuestas' para ver tu calificación."
+            paraQueSirve="Valida si ya sabes auditar y resguardar sistemas básicos con herramientas de seguridad."
+          />
 
           <div className="quiz-container">
             {preguntasQuiz.map(pregunta => (

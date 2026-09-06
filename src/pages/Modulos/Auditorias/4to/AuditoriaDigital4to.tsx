@@ -264,9 +264,11 @@ export const AuditoriaDigital4to: React.FC = () => {
             <HelpCircle className="icono-bloque-azul" size={24} />
             <h2>5. Evaluación Final</h2>
           </div>
-          <p className="texto-lectura-modulo">
-            Demuestra lo aprendido.
-          </p>
+          <CajaExplicacionDinamica
+            enQueConsiste="Quiz de cierre sobre análisis de tráfico de red, protocolos HTTPS vs HTTP, DNS cifrado y gemelos malvados."
+            comoInteractuar="Responde cada pregunta eligiendo la opción correcta y envía tus respuestas para ver la corrección detallada."
+            paraQueSirve="Acredita si comprendes el recorrido de tus datos por la red y cómo protegerlos."
+          />
 
           <div className="quiz-container">
             {preguntasQuiz.map(pregunta => (

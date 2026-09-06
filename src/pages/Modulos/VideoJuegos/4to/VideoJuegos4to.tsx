@@ -293,9 +293,11 @@ export const Videojuegos4to: React.FC = () => {
             <HelpCircle className="icono-bloque-azul" size={24} />
             <h2>6. Evaluación Final</h2>
           </div>
-          <p className="texto-lectura-modulo">
-            Demuestra lo aprendido.
-          </p>
+          <CajaExplicacionDinamica
+            enQueConsiste="Quiz de cierre sobre detección de phishing en Discord, sorteos falsos y suplantación de streamers."
+            comoInteractuar="Lee cada pregunta, marca tu respuesta y envía al final para ver el resultado y la explicación de cada ítem."
+            paraQueSirve="Certifica si ya tienes las habilidades para navegar de forma segura en comunidades gamer online."
+          />
 
           <div className="quiz-container">
             {preguntasQuiz.map(pregunta => (

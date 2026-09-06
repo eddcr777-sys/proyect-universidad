@@ -290,9 +290,11 @@ export const Videojuegos3ro: React.FC = () => {
             <HelpCircle className="icono-bloque-azul" size={24} />
             <h2>6. Evaluación Final</h2>
           </div>
-          <p className="texto-lectura-modulo">
-            Demuestra lo aprendido.
-          </p>
+          <CajaExplicacionDinamica
+            enQueConsiste="Evaluación de conocimientos sobre análisis de mods, dobles extensiones y herramientas de escaneo antivirus."
+            comoInteractuar="Responde cada pregunta con la opción que consideres correcta y envía todas tus respuestas al terminar."
+            paraQueSirve="Verifica cuánto has aprendido y refuerza los conceptos con retroalimentación contextualizada."
+          />
 
           <div className="quiz-container">
             {preguntasQuiz.map(pregunta => (

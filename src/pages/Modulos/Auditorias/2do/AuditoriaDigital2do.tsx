@@ -218,9 +218,11 @@ export const AuditoriaDigital2do: React.FC = () => {
             <HelpCircle className="icono-bloque-amarillo" size={24} />
             <h2>4. Evaluación Final</h2>
           </div>
-          <p className="texto-lectura-modulo">
-            Demuestra lo que aprendiste respondiendo estas preguntas.
-          </p>
+          <CajaExplicacionDinamica
+            enQueConsiste="Evaluación de cierre con preguntas sobre redes abiertas, Bluetooth, sesiones activas y VPN."
+            comoInteractuar="Selecciona tu respuesta en cada pregunta y presiona 'Enviar respuestas' para ver retroalimentación."
+            paraQueSirve="Comprueba si puedes aplicar los conceptos de seguridad en redes en situaciones cotidianas."
+          />
 
           <div className="quiz-container">
             {preguntasQuiz.map(pregunta => (

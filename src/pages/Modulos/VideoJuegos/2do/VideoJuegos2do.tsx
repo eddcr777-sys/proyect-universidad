@@ -239,9 +239,11 @@ export const Videojuegos2do: React.FC = () => {
             <HelpCircle className="icono-bloque-azul" size={24} />
             <h2>5. Evaluación Final</h2>
           </div>
-          <p className="texto-lectura-modulo">
-            Demuestra lo aprendido.
-          </p>
+          <CajaExplicacionDinamica
+            enQueConsiste="Quiz de 5 preguntas que evalúa tu comprensión sobre 2FA, recuperación de cuentas y protección de plataformas gamer."
+            comoInteractuar="Selecciona la respuesta correcta para cada pregunta y luego presiona 'Enviar respuestas' al final."
+            paraQueSirve="Consolida el conocimiento del módulo y genera retroalimentación individual por cada respuesta."
+          />
 
           <div className="quiz-container">
             {preguntasQuiz.map(pregunta => (
