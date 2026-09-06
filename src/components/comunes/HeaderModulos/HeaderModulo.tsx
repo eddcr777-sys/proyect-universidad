@@ -52,7 +52,7 @@ export const HeaderModulo: React.FC<HeaderModuloProps> = ({
             <span className="etiqueta-grado">{grado} Año</span>
             <span className="etiqueta-modulo">Módulo {modulo}</span>
             <span className="etiqueta-categoria">
-              <ShieldCheck size={14} /> {categoria}
+            {categoria}
             </span>
           </div>
 

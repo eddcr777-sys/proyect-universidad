@@ -56,10 +56,7 @@ export const PresentacionGrado: React.FC = () => {
       {/* BANNER DE BIENVENIDA Y SELECCIÓN DE GRADO */}
       <section className="banner-presentacion-grado">
         <div className="contenedor-presentacion-grado">
-          <div className="etiqueta-bienvenida-grado">
-            <School size={18} />
-            <span>Plan de Estudio Digital • L.B. Antonio Lemus Pérez</span>
-          </div>
+         
 
           <h1 className="titulo-presentacion-grado">
             Presentación de Módulos para <span className="texto-destacado-grado">{nombreGradoLegible}</span>
@@ -96,7 +93,7 @@ export const PresentacionGrado: React.FC = () => {
               </p>
             </div>
             <div className="insignia-conteo-modulos">
-              <BookOpen size={18} />
+      
               <span>{listaModulos.length} Módulos Activos</span>
             </div>
           </div>
@@ -129,10 +126,7 @@ export const PresentacionGrado: React.FC = () => {
                     </div>
 
                     <div className="detalles-rapidos-modulo">
-                      <span className="item-detalle-rapido">
-                        <Clock size={16} />
-                        {modulo.duracionEstimada}
-                      </span>
+                     
                       <span className="item-detalle-rapido">
                         <CheckSquare size={16} />
                         {contenidoDelGrado.temas.length} Lecciones
@@ -148,7 +142,7 @@ export const PresentacionGrado: React.FC = () => {
                       anchoCompleto
                       onClick={() => navigate(`/proyectos/ciberseguridad/info/${modulo.id}/${gradoActual}`)}
                     >
-                      Ingresar al Módulo <ArrowRight size={18} />
+                      Ingresar al Módulo 
                     </Boton>
                   </div>
                 </article>

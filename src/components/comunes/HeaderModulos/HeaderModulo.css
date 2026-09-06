@@ -1,10 +1,11 @@
 /* Contenedor principal del Header del Módulo */
 .header-modulo-contenedor {
   width: 100%;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding-top: 75px; /* Compensación para la cabecera fija de la aplicación */
 }
 
 /* Navegación de retorno al grado */
@@ -40,8 +41,6 @@
   justify-content: space-between;
   gap: 2rem;
   background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-  border: 1px solid var(--color-borde, #e2e8f0);
-  border-left: 6px solid var(--color-ciber-primario, #2563eb);
   padding: 2.25rem 2.5rem;
   border-radius: 16px;
   box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
@@ -78,7 +77,7 @@
   font-weight: 800;
   text-transform: uppercase;
   padding: 0.35rem 0.85rem;
-  border-radius: 20px;
+
   letter-spacing: 0.04em;
   box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
 }
@@ -89,7 +88,7 @@
   font-size: 0.85rem;
   font-weight: 700;
   padding: 0.35rem 0.85rem;
-  border-radius: 20px;
+
 }
 
 .etiqueta-categoria {
@@ -102,7 +101,7 @@
   font-size: 0.825rem;
   font-weight: 600;
   padding: 0.3rem 0.75rem;
-  border-radius: 20px;
+
 }
 
 /* Titular e Ícono */
@@ -181,31 +180,99 @@
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 }
 
-/* Responsividad para tabletas y móviles */
+/* Responsividad para tabletas y móviles (<= 768px) */
 @media (max-width: 768px) {
-  .header-modulo-tarjeta {
-    flex-direction: column-reverse;
-    align-items: flex-start;
-    padding: 1.5rem;
+  .header-modulo-contenedor {
+    padding-top: 68px;
+    margin-bottom: 1rem;
   }
 
+  .header-modulo-tarjeta {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.25rem 1rem;
+    border-radius: 0 !important;
+    margin: 0;
+    gap: 0.85rem;
+  }
+
+  /* Ocultar la imagen decorativa en móvil — consume espacio innecesario */
   .header-modulo-imagen-container {
-    width: 100px;
-    height: 100px;
-    align-self: center;
+    display: none;
+  }
+
+  /* Ocultar el ícono grande del título en móvil */
+  .header-modulo-icono {
+    display: none;
+  }
+
+  /* El título ocupa todo el ancho sin el ícono */
+  .header-modulo-titulo-container {
+    gap: 0;
   }
 
   .header-modulo-titulo {
-    font-size: 1.6rem;
+    font-size: 1.35rem;
+    letter-spacing: -0.01em;
   }
 
   .header-modulo-subtitulo {
-    font-size: 0.975rem;
+    font-size: 0.92rem;
+    line-height: 1.55;
   }
 
+  /* Etiquetas en fila con scroll horizontal — no se rompen en varias líneas */
+  .header-modulo-etiquetas {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+    gap: 0.4rem;
+  }
+
+  .header-modulo-etiquetas::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Metadatos compactos en una sola línea */
   .header-modulo-metadatos {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding-top: 0.5rem;
+    margin-top: 0;
+  }
+
+  /* Botón volver más compacto */
+  .boton-volver-grado {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.6rem;
+  }
+}
+
+/* Pantallas muy pequeñas — (<= 480px) */
+@media (max-width: 480px) {
+  .header-modulo-contenedor {
+    padding-top: 68px;
+  }
+
+  .header-modulo-tarjeta {
+    padding: 1rem 0.85rem;
+  }
+
+  .header-modulo-titulo {
+    font-size: 1.2rem;
+  }
+
+  .etiqueta-grado,
+  .etiqueta-modulo,
+  .etiqueta-categoria {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .item-metadato {
+    font-size: 0.8rem;
   }
 }

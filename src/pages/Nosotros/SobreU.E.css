@@ -322,7 +322,8 @@
   list-style: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  /* minmax(500px) era demasiado grande para móvil — corregido a min(500px, 100%) */
+  grid-template-columns: repeat(auto-fit, minmax(min(500px, 100%), 1fr));
   gap: 0.75rem;
 }
 .lista-organigrama li {
@@ -394,6 +395,39 @@
   .marco-imagen figcaption {
     font-size: 0.75rem;
     padding: 0.2rem 0.4rem;
+  }
+
+  /* Padding lateral del contenedor principal en móvil */
+  .contenedor-nosotros {
+    padding: 2rem 1rem 3.5rem;
+  }
+
+  /* Título principal más compacto */
+  .titulo-seccion-homenaje {
+    font-size: 2rem;
+  }
+
+  .encabezado-historia h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo-seccion-homenaje {
+    font-size: 1.6rem;
+  }
+
+  .encabezado-historia h2 {
+    font-size: 1.5rem;
+  }
+
+  .evento-relato h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Estadísticas en pantallas muy pequeñas */
+  .grid-estadisticas {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

@@ -8,7 +8,9 @@
   left: 0;
   width: 100%;
   z-index: 1000;
- 
+  /* Soporte para el notch (muesca) de iPhone X+ */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 /* Estado 1: Transparente sobre el Hero de Inicio (Estilo Harvard) */
@@ -48,7 +50,8 @@
 }
 
 .cabecera.cabecera-solida .menu-hamburguesa {
-  color: var(--color-inst-azul);
+  /* Corregido: blanco sobre fondo azul — antes era azul sobre azul (invisible) */
+  color: #ffffff;
 }
 
 .cabecera-contenedor {
@@ -127,5 +130,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  /* Reduce padding de la cabecera en móvil para más espacio */
+  .cabecera-contenedor {
+    padding: 10px 16px;
+  }
+
+  /* Oculta el subtítulo en pantallas muy pequeñas para no comprimir el logo */
+  @media (max-width: 380px) {
+    .cabecera-subtitulo {
+      display: none;
+    }
+
+    .cabecera-titulo {
+      font-size: 0.92rem;
+    }
   }
 }

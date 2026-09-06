@@ -100,17 +100,21 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
             Proyectos Estudiantiles
           </Link>
 
-          {/* Sección Ciberseguridad */}
+          {/* Sección Ciberseguridad y Proyecto */}
           <div className="menu-seccion">
             <button className={`btn-seccion ${secciones.ciberseguridad ? 'activo' : ''}`} onClick={() => alternarSeccion('ciberseguridad')}>
-              <span>Ciberseguridad</span>
+              <span>Proyecto Ciberseguridad</span>
               <ChevronIcon abierto={secciones.ciberseguridad} />
             </button>
             {secciones.ciberseguridad && (
               <div className="sub-menu">
-                <Link to="/proyectos/ciberseguridad" onClick={cerrar}>Catálogo por Grado</Link>
+                <Link to="/proyectos/ciberseguridad" onClick={cerrar}>Inicio Proyecto</Link>
+                <Link to="/proyectos/ciberseguridad/modulos" onClick={cerrar}>Catálogo por Grado</Link>
                 <Link to="/proyectos/ciberseguridad/justificacion" onClick={cerrar}>Justificación</Link>
-                <Link to="/proyectos/ciberseguridad/indices" onClick={cerrar}>Acceso e Índices</Link>
+                <Link to="/proyectos/ciberseguridad/indices" onClick={cerrar}>Índices y Temario</Link>
+                <Link to="/proyectos/ciberseguridad/guias/docentes" onClick={cerrar}>Guía Docentes</Link>
+                <Link to="/proyectos/ciberseguridad/guias/padres" onClick={cerrar}>Guía Padres</Link>
+                <Link to="/proyectos/ciberseguridad/nosotros/sobre-devs" onClick={cerrar}>Desarrolladores</Link>
               </div>
             )}
           </div>

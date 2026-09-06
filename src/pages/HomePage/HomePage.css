@@ -306,7 +306,6 @@ p, span, a, button, li, input, select, textarea {
   margin: 0 auto;
   padding: 0 1.5rem;
   box-sizing: border-box;
- 
 }
 
 .encabezado-harvard-simple {
@@ -618,5 +617,40 @@ p, span, a, button, li, input, select, textarea {
   .controles-carrusel button {
     width: 40px;
     height: 40px;
+  }
+
+  /* Padding lateral para que el contenido de labores no toque los bordes */
+  .seccion-labores-harvard {
+    padding: 3rem 1rem;
+  }
+
+  .encabezado-harvard-simple {
+    margin-bottom: 30px;
+  }
+}
+
+/* Pantallas muy pequeñas (iPhone SE, <390px) */
+@media (max-width: 480px) {
+  .texto-cruzado .titulo-apple {
+    font-size: 1.6rem;
+  }
+
+  .titulo-harvard {
+    font-size: 1.75rem;
+  }
+
+  .titulo-seccion-editorial {
+    font-size: 1.8rem;
+  }
+
+  /* El carrusel de imágenes se muestra con altura reducida en pantallas muy pequeñas */
+  .contenedor-carrusel {
+    height: 65vh;
+  }
+
+  /* Controles de carrusel con mayor área táctil */
+  .controles-carrusel button {
+    width: 44px;
+    height: 44px;
   }
 }

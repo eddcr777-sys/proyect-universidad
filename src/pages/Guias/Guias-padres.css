@@ -54,8 +54,9 @@ code {
 
 .cuadricula-2-columnas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 2rem; /* Mayor separación entre tarjetas */
+  /* min(340px, 100%) asegura que en pantallas <340px se use el 100% del ancho disponible */
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+  gap: 2rem;
   margin-top: 1.75rem;
 }
 
@@ -358,11 +359,17 @@ code {
   .tarjeta-pro, 
   .tarjeta-paso, 
   .tarjeta-alerta-critica {
-    padding: 1.5rem; /* Buen espacio interno incluso en teléfonos */
+    padding: 1.25rem; /* Buen espacio interno incluso en teléfonos */
   }
 
   .titulo-seccion {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+  }
+
+  .titulo-seccion,
+  .titulo-seccion-ambar,
+  .titulo-seccion-roja {
+    font-size: 1.4rem;
   }
 
   .texto-pasos, 
@@ -374,5 +381,22 @@ code {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+  }
+
+  /* Wrap del flex-centro en móvil para que los íconos y texto no se compriman */
+  .flex-centro {
+    flex-wrap: wrap;
+  }
+
+  /* Código con fuente más pequeña para caber en pantalla */
+  code {
+    font-size: 0.82rem;
+    word-break: break-all;
+  }
+
+  /* Cajas de video con layout en columna */
+  .caja-video-tutorial {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

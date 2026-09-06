@@ -81,35 +81,18 @@ export const DescripcionModuloUI: React.FC<DescripcionModuloProps> = ({
       <header className="banner-descripcion-modulo">
         <div className="contenedor-descripcion-modulo">
           
-          <nav className="miga-pan-modulo" aria-label="Miga de pan">
-            <Link to={rutaInicio}>Inicio</Link>
-            <span className="separador">/</span>
-            <Link to="/modulos">Módulos</Link>
-            <span className="separador">/</span>
-            <Link to={rutaPresentacion}>{nombreGradoLegible}</Link>
-            <span className="separador">/</span>
-            <span className="miga-activa">{moduloInfo.titulo}</span>
-          </nav>
+        
 
           <div className="bloque-cabecera-modulo">
-            <div className="icono-modulo-gigante">
-              {moduloInfo.icono}
-            </div>
+         
 
             <div className="titulos-cabecera-modulo">
-              <div className="insignias-modulo-grupo">
-                <span className="insignia-categoria-modulo">{moduloInfo.nombreCategoria}</span>
-                <span className="insignia-grado-modulo">{nombreGradoLegible}</span>
-                <span className="insignia-duracion-modulo">⏱ {moduloInfo.duracionEstimada}</span>
-              </div>
+             
               <h1 className="titulo-principal-modulo">{moduloInfo.titulo}</h1>
             </div>
           </div>
 
           <div className="caja-mensaje-bienvenida">
-            <div className="icono-bienvenida-alerta">
-              <ShieldCheck size={32} />
-            </div>
             <div className="texto-bienvenida-contenedor">
               <span className="subtitulo-bienvenida">Mensaje de Bienvenida ({nombreGradoLegible})</span>
               <p className="texto-mensaje-bienvenida">
@@ -273,7 +256,7 @@ export const DescripcionModuloUI: React.FC<DescripcionModuloProps> = ({
   {/* SECCIÓN CTA FINAL: Botón para ir al módulo al final de toda la teoría */}
   <div className="seccion-cta-final">
     <div className="contenedor-cta">
-      <ShieldCheck size={48} className="icono-cta" />
+  
       <h3 className="titulo-cta">¿Listo para poner a prueba tus conocimientos?</h3>
       <p className="texto-cta">
         Accede a la lección práctica e interactiva adaptada para <strong>{nombreGradoLegible}</strong>.
@@ -286,7 +269,7 @@ export const DescripcionModuloUI: React.FC<DescripcionModuloProps> = ({
           anchoCompleto
           onClick={onIniciarModulo}
         >
-          <Play size={20} style={{ marginRight: '8px' }} />
+         
           Iniciar Lección de {gradoActual} Año
         </Boton>
 
@@ -296,8 +279,8 @@ export const DescripcionModuloUI: React.FC<DescripcionModuloProps> = ({
           anchoCompleto
           onClick={onVolver}
         >
-          <ArrowLeft size={20} style={{ marginRight: '8px' }} />
           Volver a Módulos
+          
         </Boton>
       </div>
     </div>

@@ -15,7 +15,8 @@
 .contenedor-descripcion-modulo {
   max-width: var(--ancho-maximo);
   margin: 0 auto;
-  padding: 0 24px;
+  /* Padding lateral proporcional */
+  padding: 0 1.5rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -24,7 +25,7 @@
 .banner-descripcion-modulo {
   background: linear-gradient(135deg, var(--color-inst-azul) 0%, #061833 100%);
   color: #ffffff;
-  padding: 32px 0 40px 0;
+  padding: 85px 0 40px 0;
   border-bottom: 4px solid var(--color-inst-rojo);
   border-radius: 0px !important;
 }
@@ -432,4 +433,99 @@
 
 .texto-tema {
   line-height: 1.4;
+}
+
+/* ============================================================================
+   RESPONSIVE MÓVIL — DescripcionModulo
+   ============================================================================ */
+@media (max-width: 768px) {
+  /* Sin padding lateral excesivo */
+  .contenedor-descripcion-modulo {
+    padding: 0 0.75rem;
+  }
+
+  /* Banner más compacto con espacio superior para la cabecera fija */
+  .banner-descripcion-modulo {
+    padding: 90px 0 24px;
+  }
+
+  /* Ocultar el ícono gigante 72px — consume demasiado espacio en móvil */
+  .icono-modulo-gigante {
+    display: none;
+  }
+
+  /* El bloque de cabecera ya no necesita gap cuando no hay ícono */
+  .bloque-cabecera-modulo {
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .titulo-principal-modulo {
+    font-size: 1.4rem;
+  }
+
+  /* Insignias en fila con scroll */
+  .insignias-modulo-grupo {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 6px;
+  }
+  .insignias-modulo-grupo::-webkit-scrollbar { display: none; }
+
+  /* Caja de bienvenida más compacta */
+  .caja-mensaje-bienvenida {
+    padding: 14px 16px;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  /* Selector de grados con scroll horizontal */
+  .grupo-botones-grados {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Sección cuerpo sin padding excesivo */
+  .seccion-cuerpo-descripcion {
+    padding: 24px 0 40px;
+  }
+
+  /* Panel de acción al 100% en móvil */
+  .tarjeta-panel-accion,
+  .tarjeta-temario-modulo {
+    padding: 16px;
+  }
+
+  /* Bloque de tarjeta descripción compacto */
+  .bloque-tarjeta-descripcion {
+    padding: 18px;
+  }
+
+  .titulo-bloque-descripcion {
+    font-size: 1rem;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenedor-descripcion-modulo {
+    padding: 0 0.5rem;
+  }
+
+  .titulo-principal-modulo {
+    font-size: 1.2rem;
+  }
+
+  .caja-mensaje-bienvenida {
+    padding: 12px;
+  }
+
+  .item-objetivo-grado {
+    font-size: 0.9rem;
+    gap: 8px;
+  }
 }

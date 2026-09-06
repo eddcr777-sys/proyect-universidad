@@ -29,8 +29,9 @@ const Cabecera: React.FC = () => {
     };
   }, []);
 
-  // Transparente en todas las páginas al inicio, sólida al hacer scroll
-  const esTransparente = !desplazado && !abierto;
+  // Transparente únicamente en el Hero de la página de inicio (/), sólida en subpáginas
+  const esPaginaInicio = location.pathname === '/';
+  const esTransparente = esPaginaInicio && !desplazado && !abierto;
 
   return (
     <header

@@ -462,3 +462,78 @@
     align-items: flex-start;
   }
 }
+/* ══ Responsividad Móvil — Sin márgenes, ancho completo ══ */
+@media (max-width: 768px) {
+  /* Contenedor raíz: ocupa toda la pantalla, sin márgenes laterales */
+  [class^="pagina-modulo-"] {
+    max-width: 100%;
+    margin: 0;
+    padding: 1.25rem 0.75rem 3rem 0.75rem;
+  }
+
+  /* Tarjetas del módulo sin border-radius en móvil y padding reducido */
+  .bloque-phishing-tarjeta,
+  .bloque-proteccion-tarjeta,
+  .bloque-redes-tarjeta,
+  .bloque-software-tarjeta,
+  .bloque-videojuegos-tarjeta,
+  .bloque-auditoria-tarjeta {
+    padding: 1rem;
+    border-radius: 0 !important;
+  }
+
+  /* Grids → 1 columna */
+  .grid-senales-phishing,
+  .grid-senales-proteccion,
+  .grid-senales-redes,
+  .grid-senales-software,
+  .grid-senales-videojuegos,
+  .grid-senales-auditoria,
+  [class*="grid-senales-"],
+  [class*="grid-tarjetas-"],
+  [class*="cuadricula-"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Botones de decisión en columna */
+  .acciones-decision-phishing,
+  [class*="acciones-decision-"],
+  .acciones-quiz {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Preguntas de quiz más compactas */
+  [class*="pregunta-quiz"] {
+    padding: 1rem;
+  }
+
+  /* Opciones de quiz a ancho completo */
+  [class*="opcion-quiz-btn"] {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  [class^="pagina-modulo-"] {
+    padding: 1rem 0.5rem 2.5rem 0.5rem;
+  }
+
+  /* Encabezados de bloque más pequeños */
+  [class*="encabezado-bloque-"] h2 {
+    font-size: 1.2rem;
+  }
+
+  /* Texto de lectura más compacto */
+  [class*="texto-lectura-"] {
+    font-size: 0.97rem;
+    line-height: 1.6;
+  }
+
+  /* Cajas de señal menos espaciosas */
+  .caja-senal-item,
+  [class*="caja-senal-item"] {
+    padding: 1rem;
+  }
+}
+

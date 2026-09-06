@@ -1,4 +1,34 @@
+/* ============================================================================
+ * RESET Y BASE GLOBAL — Corrección responsividad móvil (iOS / Android)
+ * ============================================================================ */
 
+/* box-sizing global previene desbordamientos en pantallas pequeñas */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Previene zoom automático en iOS al enfocar inputs (requiere font-size >= 16px) */
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+/* Mejora respuesta táctil en botones y enlaces (elimina delay 300ms iOS) */
+button,
+a,
+[role="button"] {
+  touch-action: manipulation;
+}
+
+/* Previene scroll horizontal global */
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
 
 :root {
   --radio-principal: 0px;
@@ -169,6 +199,13 @@ dialog {
   --color-borde: var(--color-ciber-borde);
 }
 
-html{
+html {
   scroll-behavior: smooth;
+  /* Altura dinámica iOS — previene overflow con barra del navegador */
+  height: -webkit-fill-available;
+}
+
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }

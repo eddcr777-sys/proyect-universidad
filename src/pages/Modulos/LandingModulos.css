@@ -387,3 +387,26 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ── Móvil sin márgenes — ancho completo ── */
+@media (max-width: 768px) {
+  /* Sección de selección sin padding lateral exagerado */
+  .landing-seleccion-grado {
+    padding: 2.5rem 0.75rem 3rem;
+  }
+
+  /* Ocultar etiqueta institucional del hero — menos ruido visual */
+  .landing-etiqueta-inst {
+    display: none;
+  }
+
+  /* Tarjeta de grado más compacta y sin borde redondeado */
+  .tarjeta-grado {
+    padding: 1rem 0.85rem;
+  }
+
+  /* Botón explorar a ancho completo sin margen */
+  .landing-btn-explorar {
+    padding: 0.95rem 1.2rem;
+  }
+}

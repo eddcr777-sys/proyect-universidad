@@ -15,7 +15,8 @@
 .banner-descripcion-modulo {
   background-color: var(--color-inst-azul);
   color: #ffffff;
-  padding: 3rem 1.5rem;
+  /* Padding superior suficiente para que la cabecera transparente descanse sobre el banner azul */
+  padding: 5.5rem 1.5rem 2.5rem 1.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
@@ -97,7 +98,6 @@
 /* Caja de Bienvenida */
 .caja-mensaje-bienvenida {
   background-color: rgba(0, 0, 0, 0.15);
-  border-left: 4px solid var(--color-secundario);
   padding: 1.5rem;
   border-radius: 0 0.5rem 0.5rem 0;
   display: flex;
@@ -187,21 +187,14 @@
 
 /* Tarjetas de teoría con acento lateral */
 .bloque-tarjeta-descripcion.tarjeta-ciberseguridad {
-  border-left: 5px solid var(--color-primario, #0284c7);
-  border-top: none; /* Quitamos el borde superior */
+  border-top: none;
 }
 .bloque-tarjeta-descripcion.tarjeta-ciberseguridad:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(2, 132, 199, 0.15);
 }
 
-/* Variantes especiales */
-.tarjeta-amenazas {
-  border-left-color: #eab308 !important;
-}
-.tarjeta-reglas-oro {
-  border-left-color: #22c55e !important;
-}
+
 
 /* Textos e Iconos Interiores */
 .titulo-bloque-descripcion,
@@ -227,7 +220,7 @@
 /* Caja de Importancia Fundamental */
 .caja-importancia-fundamental {
   background: #f0f9ff;
-  border-left: 4px solid var(--color-primario);
+ 
   padding: 1rem;
   border-radius: 0 8px 8px 0;
 }
@@ -316,7 +309,6 @@
 }
 .ejemplo-termino {
   background-color: #ffffff;
-  border-left: 3px solid var(--color-primario);
   padding: 0.5rem 0.75rem;
   border-radius: 0 6px 6px 0;
   font-size: 0.85rem;
@@ -355,7 +347,6 @@
 }
 .tarjeta-temario-modulo {
   border-top: none;
-  border-left: 5px solid var(--color-primario);
 }
 .titulo-temario-modulo {
   display: flex;
@@ -381,7 +372,7 @@
   padding: 0.75rem;
   background-color: #f8fafc;
   border-radius: 0.5rem;
-  border-left: 3px solid var(--color-primario);
+
 }
 .numero-tema {
   background-color: var(--color-primario);
@@ -451,14 +442,16 @@
 }
 
 /* =========================================
-   RESPONSIVE
+   RESPONSIVE (ESTANDARIZADO)
    ========================================= */
+
+/* Tablets / Pantallas Medianas (<= 992px) */
 @media (max-width: 992px) {
   .cuadricula-detalles-modulo {
     grid-template-columns: 1fr;
   }
   .columna-lateral-modulo {
-    position: static; /* Deja de ser sticky en móvil */
+    position: static;
   }
   .bloque-cabecera-modulo {
     flex-direction: column;
@@ -472,10 +465,112 @@
     text-align: center;
     align-items: center;
   }
-  .seccion-cta-final {
-    padding: 2rem 1rem;
+}
+
+/* Dispositivos Móviles y Tablets Pequeñas (<= 768px) */
+@media (max-width: 768px) {
+  .banner-descripcion-modulo {
+    padding: 6rem 1.25rem 2rem 1.25rem;
   }
+
+  .contenedor-descripcion-modulo {
+    width: 100%;
+    padding: 0;
+  }
+
+  .titulo-principal-modulo {
+    font-size: 1.6rem;
+  }
+
+  .seccion-cuerpo-descripcion {
+    margin: 0;
+    padding: 1.5rem 0.75rem;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .bloque-tarjeta-descripcion,
+  .tarjeta-panel-accion,
+  .tarjeta-temario-modulo {
+    padding: 1.25rem 1rem;
+    margin-bottom: 1.25rem;
+    border-radius: 0.75rem;
+  }
+
+  .titulo-bloque-descripcion,
+  .titulo-temario-modulo {
+    font-size: 1.25rem;
+    gap: 0.5rem;
+  }
+
+  .grid-glosario-terminos,
+  .grid-amenazas-casos {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .selector-grados-descripcion {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .grupo-botones-grados {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    justify-content: flex-start;
+  }
+
+  .boton-grado-selector {
+    flex-shrink: 0;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .seccion-cta-final {
+    margin: 1.5rem 0 0 0;
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+  }
+
   .titulo-cta {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+  }
+
+  .texto-cta {
+    font-size: 0.95rem;
+  }
+}
+
+/* Móviles Pequeños (<= 480px) */
+@media (max-width: 480px) {
+  .banner-descripcion-modulo {
+    padding: 5.5rem 1rem 1.5rem 1rem;
+  }
+
+  .titulo-principal-modulo {
+    font-size: 1.35rem;
+  }
+
+  .texto-mensaje-bienvenida {
+    font-size: 0.95rem;
+  }
+
+  .seccion-cuerpo-descripcion {
+    padding: 1rem 0.5rem;
+  }
+
+  .bloque-tarjeta-descripcion,
+  .tarjeta-temario-modulo {
+    padding: 1rem 0.75rem;
+  }
+
+  .texto-explicacion-breve {
+    font-size: 0.95rem;
+  }
+
+  .item-objetivo-grado {
+    font-size: 0.9rem;
   }
 }

@@ -1,7 +1,14 @@
 .pie-pagina {
   background-color: var(--color-inst-blanco);
-  color:var(--color-inst-azul);
+  color: var(--color-inst-azul);
   padding: 60px 0 20px;
+}
+
+/* Contenedor con ancho máximo y padding lateral */
+.pie-pagina .contenedor {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 .grid-pie {
@@ -57,4 +64,35 @@
   text-align: center;
   font-size: 0.85rem;
   opacity: 0.7;
+}
+
+/* ── Responsividad móvil del footer ── */
+@media (max-width: 768px) {
+  .pie-pagina {
+    padding: 40px 1rem 20px;
+  }
+
+  .grid-pie {
+    /* Apila las columnas en una sola en pantallas pequeñas */
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  /* Ocultar columnas secundarias en móvil — solo se muestra la info principal */
+  .pie-col-enlaces,
+  .pie-col-horario {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .pie-titulo {
+    font-size: 1rem;
+  }
+
+  .pie-texto,
+  .pie-contacto p,
+  .pie-links a {
+    font-size: 0.88rem;
+  }
 }

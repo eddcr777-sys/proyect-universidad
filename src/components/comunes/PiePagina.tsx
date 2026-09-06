@@ -24,7 +24,7 @@ const PiePagina: React.FC = () => {
                         <p><Mail size={16} /> contacto@liceoalps.edu.ve</p>
                       </div>
                     </div>
-                    <div className="pie-col">
+                    <div className="pie-col pie-col-enlaces">
                       <h4 className="pie-titulo">Enlaces Rápidos</h4>
                       <ul className="pie-links">
                         <li><a href="#historia">Historia</a></li>
@@ -34,7 +34,7 @@ const PiePagina: React.FC = () => {
                        
                       </ul>
                     </div>
-                    <div className="pie-col">
+                    <div className="pie-col pie-col-horario">
                       <h4 className="pie-titulo">Horario</h4>
                       <p className="pie-texto">
                         <Clock size={16} /> Lunes a Viernes: 7:00 AM - 4:00 PM

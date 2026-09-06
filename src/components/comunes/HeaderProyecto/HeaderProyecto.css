@@ -31,6 +31,18 @@
   overflow-x: auto;
   padding-top: 4px;
   padding-bottom: 4px;
+  /* Scroll táctil nativo iOS — previene el lag de 300ms */
+  -webkit-overflow-scrolling: touch;
+  /* Permite scroll horizontal con gestos en iOS */
+  touch-action: pan-x;
+  /* Oculta la barra de scroll visualmente en todos los navegadores */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Ocultar scrollbar en Webkit (Chrome, Safari) */
+.subnav-flex::-webkit-scrollbar {
+  display: none;
 }
 
 .header-proyecto-wrapper .subnav-item {
@@ -150,4 +162,60 @@
 .btn-ciber-solido-azul:hover {
   background-color: rgba(15, 44, 89, 0.8);
   transform: translateY(-2px);
+}
+
+/* ── Responsividad móvil del Hero de Proyecto ── */
+@media (max-width: 768px) {
+  /* Ocultar la barra de sub-navegación del proyecto en móvil para evitar sobrecarga */
+  .header-proyecto-wrapper .header-proyecto-contenedor {
+    display: none !important;
+  }
+
+  .seccion-hero-portada {
+    padding: 7rem 1rem 3rem;
+    min-height: auto;
+  }
+
+  .titulo-ciber-gigante {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+
+  .descripcion-ciber-destacada {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* Botones de acción en columna en móvil */
+  .acciones-ciber-hero {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .btn-ciber-solido-azul {
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  .seccion-hero-portada {
+    padding: 6rem 0.75rem 2.5rem;
+  }
+
+  .badge-categoria-hero {
+    font-size: 0.72rem;
+    padding: 4px 10px;
+  }
+
+  .titulo-ciber-gigante {
+    font-size: 1.6rem;
+  }
+
+  .descripcion-ciber-destacada {
+    font-size: 0.9rem;
+  }
 }
