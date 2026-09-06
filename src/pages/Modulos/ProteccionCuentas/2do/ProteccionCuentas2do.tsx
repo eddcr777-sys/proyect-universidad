@@ -14,7 +14,8 @@ import {
   Lock
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
-import { useProteccionCuentas2do, HABITOS_2FA } from '../../../../hooks/HooksProteccionCuentas/useProteccionCuentas2do';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
+import { HABITOS_2FA, useProteccionCuentas2do } from '../../../../hooks/HooksProteccionCuentas/useProteccionCuentas2do';
 import '../1ro/ProteccionCuentas1ro.css';
 import './ProteccionCuentas2do.css';
 
@@ -42,12 +43,12 @@ export const ProteccionCuentas2do: React.FC = () => {
     <main className="pagina-modulo-proteccion-2do">
       <HeaderModulo
         grado="2do"
-        modulo="2: Verificación en Dos Pasos y Gestores"
-        titulo="Blindaje de Cuentas: 2FA y Gestores de Contraseñas"
-        subTitulo="Aprende a activar la verificación en dos pasos, usar gestores de contraseñas y recuperar cuentas hackeadas en 2do Año."
+        modulo="2: Autenticación de Dos Factores (2FA)"
+        titulo="Doble factor de autenticación y gestores"
+        subTitulo="Aprende qué es el 2FA, por qué es tu segundo escudo y cómo usar gestores de contraseñas para 2do Año."
         categoria="Protección de Cuentas y Accesos"
         tiempoEstimado="45 min"
-        icono={<Lock size={36} />}
+        icono={<ShieldCheck size={36} />}
       />
 
       <div className="contenedor-proteccion-contenido">
@@ -55,27 +56,27 @@ export const ProteccionCuentas2do: React.FC = () => {
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. La Segunda Cerradura: Verificación en Dos Pasos (2FA)</h2>
+            <h2>1. Tu segundo escudo: la Autenticación de Dos Factores</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Una contraseña, por muy segura que sea, puede ser robada o filtrada. La <strong>verificación en dos pasos (2FA)</strong> añade una segunda cerradura: además de tu contraseña, necesitas un código temporal que solo tú tienes.
+            Incluso la contraseña más robusta puede filtrarse si una plataforma sufre un hackeo. La <strong>Autenticación de Dos Factores (2FA)</strong> añade un segundo candado: algo que sabes (contraseña) + algo que tienes (tu celular).
           </p>
 
           <div className="grid-pilares-proteccion">
             <div className="caja-pilar-proteccion">
-              <ShieldAlert className="icono-pilar rojo" size={28} />
-              <h3>Métodos de 2FA</h3>
-              <ul className="lista-metodos">
-                <li><strong>SMS:</strong> Código por mensaje de texto. Es el menos seguro.</li>
-                <li><strong>App autenticadora:</strong> Google Authenticator, Authy. Genera códigos sin conexión.</li>
-                <li><strong>Llave física:</strong> Dispositivo USB (YubiKey). El más seguro.</li>
-              </ul>
+              <ShieldCheck className="icono-pilar verde" size={28} />
+              <h3>¿Qué es el 2FA / Verificación en 2 pasos?</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Proceso donde se solicitan dos pruebas de identidad para abrir sesión.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Bloquear a los atacantes aunque descubran tu contraseña.</p>
             </div>
 
             <div className="caja-pilar-proteccion">
-              <Smartphone className="icono-pilar verde" size={28} />
-              <h3>Gestores de Contraseñas</h3>
-              <p>Programas que <strong>generan y guardan contraseñas únicas</strong> por ti. Solo necesitas recordar una contraseña maestra. Recomendado: Bitwarden (gratis).</p>
+              <Smartphone className="icono-pilar azul" size={28} />
+              <h3>Métodos de 2FA</h3>
+              <ul className="lista-metodos-2fa">
+                <li><strong>SMS (Texto):</strong> Código por mensaje. Funciona, pero es vulnerable a duplicados de SIM.</li>
+                <li><strong>App autenticadora:</strong> Google Authenticator, Bitwarden. Genera códigos de 6 dígitos cada 30 segundos.</li>
+              </ul>
             </div>
           </div>
         </section>
@@ -86,6 +87,12 @@ export const ProteccionCuentas2do: React.FC = () => {
             <ShieldCheck className="icono-bloque-verde" size={24} />
             <h2>2. ¿Qué harías? Escenarios de 2FA</h2>
           </div>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Simulador de Decisiones 2FA"
+            enQueConsiste="Resolverás 3 situaciones cotidianas donde recibes códigos inesperados de 2FA o solicitudes sospechosas."
+            comoInteractuar="1. Lee la historia del caso. 2. Presiona la opción (A, B o C) que consideres correcta. 3. Consulta la explicación técnica."
+            paraQueSirve="Evitará que regales códigos temporales recibidos en tu celular a extraños."
+          />
           <p className="subtitulo-bloque">
             Lee cada situación y elige la opción más segura:
           </p>

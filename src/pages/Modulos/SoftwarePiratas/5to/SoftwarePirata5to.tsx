@@ -13,6 +13,7 @@ import {
   FileBarChart2
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useSoftwarePirata5to, HABITOS_SOFTWARE_5TO } from '../../../../hooks/HooksSoftwarePirata/useSoftwarePirata5to';
 import './SoftwarePirata5to.css';
 
@@ -66,20 +67,23 @@ export const SoftwarePirata5to: React.FC = () => {
           <div className="grid-pilares-software">
             <div className="caja-pilar-software">
               <ClipboardList className="icono-pilar azul" size={28} />
-              <h3>Inventario de Software</h3>
-              <p>Primer paso: saber qué está instalado en cada equipo. Se puede hacer manualmente o con herramientas automáticas.</p>
+              <h3>Inventario de Software (SAM)</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Registro de todas las licencias y ejecutables en la red.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Detectar instalaciones clandestinas piratas antes de una inspección oficial.</p>
             </div>
 
             <div className="caja-pilar-software">
               <Building className="icono-pilar rojo" size={28} />
               <h3>Políticas de Software</h3>
-              <p>Documentos que definen qué se puede instalar, quién lo autoriza y cómo se controla. Reducen el riesgo legal y de seguridad.</p>
+              <p><strong>📖 ¿Qué es?:</strong> Reglamento interno de uso y descarga de aplicaciones.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Prohibir la instalación de ejecutables `.exe` no autorizados por el administrador de red.</p>
             </div>
 
             <div className="caja-pilar-software">
               <FileBarChart2 className="icono-pilar verde" size={28} />
-              <h3>ISO 19770</h3>
-              <p>Estándar internacional para la Gestión de Activos de Software (SAM). Ayuda a cumplir con licencias y optimizar costos.</p>
+              <h3>Norma ISO 19770</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Estándar de Gestión de Activos de Software (Software Asset Management).</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Garantizar el uso de Software Libre (FOSS) y auditar el estado de licencias pagadas.</p>
             </div>
           </div>
         </section>
@@ -90,9 +94,12 @@ export const SoftwarePirata5to: React.FC = () => {
             <ShieldCheck className="icono-bloque-verde" size={24} />
             <h2>2. Laboratorio: Clasifica el Estado de Licencias</h2>
           </div>
-          <p className="subtitulo-bloque">
-            Analiza cada activo de software y determina si <strong>cumple</strong>, <strong>excede</strong> o está <strong>subutilizado</strong>:
-          </p>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Clasificador de Licencias e Inventario"
+            enQueConsiste="Evaluarás un inventario de software institucional (número de licencias pagadas vs equipos en donde se ha instalado)."
+            comoInteractuar="Analiza el número de instalaciones y selecciona 'Conforme (Legal)', 'Exceso de Instalaciones (Ilegal/Pirata)' o 'Subutilizado'. Recibirás el diagnóstico de auditoría."
+            paraQueSirve="Permite a los estudiantes de 5to año auditar el cumplimiento de licencias bajo la norma ISO 19770."
+          />
 
           <div className="activos-lista">
             {activos.map(activo => (

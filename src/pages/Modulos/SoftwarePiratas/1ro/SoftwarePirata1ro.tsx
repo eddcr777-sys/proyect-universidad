@@ -14,6 +14,7 @@ import {
   Gamepad2
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useSoftwarePirata1ro, HABITOS_SOFTWARE_1RO } from '../../../../hooks/HooksSoftwarePirata/useSoftwarePirata1ro';
 import './SoftwarePirata1ro.css';
 
@@ -98,9 +99,15 @@ export const SoftwarePirata1ro: React.FC = () => {
         {/* SECCIÓN 2: SIMULADOR DE ACCIONES */}
         <section className="bloque-modulo-tarjeta interactivo-caja">
           <div className="encabezado-bloque">
-            <ShieldCheck className="icono-bloque-verde" size={24} />
-            <h2>2. ¿Es piratería o descarga segura?</h2>
+            <ShieldCheck className="icono-bloque-azul" size={24} />
+            <h2>2. Simulador: ¿Es Seguro o Peligroso?</h2>
           </div>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Clasificador de Fuentes de Software"
+            enQueConsiste="Evaluarás distintas conductas de descarga (sitios oficiales vs ejecutables crackeados) para clasificarlas como 'Segura' o 'Peligrosa'."
+            comoInteractuar="Lee la descripción del caso y selecciona 'Es Seguro / Recomendado' o 'Es Peligroso / Pirata'. Recibirás el análisis didáctico de las consecuencias en tu equipo."
+            paraQueSirve="Evitarás descargar troyanos y mineros de criptomonedas camuflados en juegos 'gratis' o activadores de software comercial."
+          />
           <p className="subtitulo-bloque">
             Analiza cada acción y decide si es <strong>piratería (riesgosa)</strong> o <strong>descarga segura</strong>:
           </p>

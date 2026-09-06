@@ -15,6 +15,7 @@ import {
   FileCheck2
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { HABITOS_CUENTAS_5TO, useProteccionCuentas5to } from '../../../../hooks/HooksProteccionCuentas/useProteccionCuentas5to';
 import './ProteccionCuentas5to.css';
 
@@ -58,20 +59,29 @@ export const ProteccionCuentas5to: React.FC = () => {
             <h2>1. Gestión de Identidades en Organizaciones</h2>
           </div>
           <p className="texto-lectura-modulo">
-            En una organización, la protección de cuentas no es solo individual: requiere <strong>políticas corporativas</strong>, <strong>controles de acceso</strong> y <strong>cumplimiento normativo</strong>. Dos tecnologías clave son <strong>SSO (Single Sign-On)</strong> y <strong>OAuth</strong>.
+            En una organización, la protección de cuentas no es solo individual: requiere <strong>políticas corporativas</strong>, <strong>controles de acceso</strong> y <strong>cumplimiento normativo</strong>. Tres tecnologías y estándares clave son:
           </p>
 
           <div className="grid-pilares-proteccion">
             <div className="caja-pilar-proteccion">
               <UserCheck className="icono-pilar rojo" size={28} />
-              <h3>SSO (Single Sign-On)</h3>
-              <p>Un solo inicio de sesión para acceder a múltiples sistemas. <strong>Ventaja:</strong> comodidad. <strong>Riesgo:</strong> si se compromete, afecta todo. Siempre debe combinarse con MFA.</p>
+              <h3>SSO (Single Sign-On / Inicio Único)</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Sistema donde un solo inicio de sesión da acceso a múltiples aplicaciones corporativas.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Evita memorizar decenas de contraseñas y permite a la empresa revocar accesos de inmediato.</p>
             </div>
 
             <div className="caja-pilar-proteccion">
               <FileCheck2 className="icono-pilar verde" size={28} />
-              <h3>OAuth (Autorización)</h3>
-              <p>Permite que aplicaciones accedan a tus datos <strong>sin compartir contraseña</strong>. Es el estándar para "iniciar sesión con Google/Facebook".</p>
+              <h3>OAuth (Protocolo de Autorización)</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Estándar seguro de autorización entre aplicaciones web y servicios.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Permite "Iniciar sesión con Google/Microsoft" sin revelar tu clave secreta a la app externa.</p>
+            </div>
+
+            <div className="caja-pilar-proteccion">
+              <ShieldCheck className="icono-pilar azul" size={28} />
+              <h3>Norma ISO 27001</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Estándar internacional de gestión de seguridad de la información.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Establece auditorías de accesos para verificar que solo personal autorizado ingrese a datos confidenciales.</p>
             </div>
           </div>
         </section>
@@ -82,9 +92,12 @@ export const ProteccionCuentas5to: React.FC = () => {
             <ShieldCheck className="icono-bloque-verde" size={24} />
             <h2>2. Decisiones de Auditor de Accesos</h2>
           </div>
-          <p className="subtitulo-bloque">
-            Analiza cada situación y elige la respuesta correcta como futuro auditor:
-          </p>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Simulador de Auditoría de Accesos"
+            enQueConsiste="Asumirás el rol de auditor de ciberseguridad evaluando 3 casos de gestión de credenciales y permisos corporativos."
+            comoInteractuar="Lee atentamente la situación. Haz clic en la opción (A, B o C) que aplique el principio de menor privilegio y la norma ISO 27001. Recibirás la explicación técnica inmediata."
+            paraQueSirve="Desarrollará tus competencias profesionales para auditar sistemas, revocar permisos obsoletos y prevenir brechas de seguridad institucionales."
+          />
 
           <div className="escenarios-lista">
             {escenarios.map(escenario => (

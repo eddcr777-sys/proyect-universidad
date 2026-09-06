@@ -14,6 +14,7 @@ import {
   Swords
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useVideojuegos1ro, HABITOS_VIDEOJUEGOS_1RO } from '../../../../hooks/HooksVideoGames/useVideojuegos1ro';
 import './VideoJuegos1ro.css';
 
@@ -86,9 +87,12 @@ export const Videojuegos1ro: React.FC = () => {
             <ShieldCheck className="icono-bloque-verde" size={24} />
             <h2>2. ¿Oferta Real o Estafa?</h2>
           </div>
-          <p className="subtitulo-bloque">
-            Analiza cada oferta y decide si es <strong>Estafa</strong> o <strong>Oferta legítima</strong>:
-          </p>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Detector de Estafas en Videojuegos"
+            enQueConsiste="Revisarás 3 promociones llamativas relacionadas con divisas virtuales (Robux, Diamantes, Skins de armas) en juegos populares."
+            comoInteractuar="Lee la oferta y selecciona 'Es Oferta Legítima' o 'Es Estafa / Fraude'. Al seleccionar una opción se mostrará el análisis detallado del engaño."
+            paraQueSirve="Evitarás entregar tu contraseña o cuenta de Discord / Roblox a bots estafadores que prometen recursos milagrosos."
+          />
 
           <div className="ofertas-lista">
             {ofertas.map(oferta => (

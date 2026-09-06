@@ -15,6 +15,7 @@ import {
   ListChecks
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useRedesSociales1ro, HABITOS_REDES_1RO } from '../../../../hooks/HooksRedesSociales/useRedesSociales1ro';
 import './RedesSociales1ro.css';
 
@@ -116,9 +117,12 @@ export const RedesSociales1ro: React.FC = () => {
             <ShieldCheck className="icono-bloque-azul" size={24} />
             <h2>2. Simulador: Blinda tu Perfil</h2>
           </div>
-          <p className="subtitulo-bloque">
-            Ajusta los interruptores de privacidad. Observa cómo cambia la exposición de tu perfil simulado.
-          </p>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Simulador: Blinda tu Perfil"
+            enQueConsiste="Interactuarás con tres controles clave de seguridad (Cuenta Privada, Ocultar Ubicación GPS y Aprobar Etiquetas) para blindar la visibilidad de tu cuenta."
+            comoInteractuar="Haz clic en cada interruptor deslizable para activar o desactivar la protección. Revisa cómo el medidor de nivel de privacidad cambia de 'Bajo (Público)' a 'Alto (Seguro)'."
+            paraQueSirve="Entenderás la función de cada ajuste de seguridad en redes como Instagram, TikTok y WhatsApp para evitar que extraños rastreen tu domicilio o routine."
+          />
 
           <div className="simulador-privacidad-grid">
             {/* Panel de Configuración */}

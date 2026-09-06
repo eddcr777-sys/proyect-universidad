@@ -14,6 +14,7 @@ import {
   FileCode
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { usePhishing4to } from '../../../../hooks/HooksPhishing/usePhishing4to';
 import './Phishing4to.css';
 
@@ -59,20 +60,23 @@ export const Phishing4to: React.FC = () => {
           <div className="grid-senales-phishing">
             <div className="caja-senal-item">
               <FileCode className="icono-senal rojo" size={28} />
-              <h3>Encabezados SPF, DKIM y DMARC</h3>
-              <p>Son firmas digitales que validan si el correo realmente proviene del dominio que dice ser. Si fallan, es phishing.</p>
+              <h3>Firmas SPF, DKIM y DMARC</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Protocolos criptográficos que certifican la autenticidad del servidor remitente.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Confirmar si el correo proviene verdaderamente del servidor oficial del banco o liceo.</p>
             </div>
 
             <div className="caja-senal-item">
               <LinkIcon className="icono-senal azul" size={28} />
-              <h3>Dominios Homógrafos (Typosquatting)</h3>
-              <p>URLs con errores sutiles: paypal.com-cgi-bin.net en lugar de paypal.com. El dominio real está al final.</p>
+              <h3>Typosquatting (Dominios Engañosos)</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Registro de nombres de dominio con errores tipográficos sutiles.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Confundir a la víctima que lee rápido (ej: `micolegio-oficial.com` vs `micolegio.com`).</p>
             </div>
 
             <div className="caja-senal-item">
               <Search className="icono-senal amarillo" size={28} />
-              <h3>Herramientas de Verificación</h3>
-              <p>VirusTotal, URLVoid y expansores de enlaces cortos te permiten analizar URLs sin arriesgarte.</p>
+              <h3>Analizadores de Enlaces (VirusTotal)</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Herramientas web que escanean URLs sospechosas con 70 antivirus.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Inspeccionar si una dirección web oculta código malicioso sin poner en riesgo tu navegador.</p>
             </div>
           </div>
         </section>
@@ -83,9 +87,12 @@ export const Phishing4to: React.FC = () => {
             <Mail className="icono-bloque-verde" size={24} />
             <h2>2. Laboratorio: Inspecciona los Encabezados</h2>
           </div>
-          <p className="subtitulo-bloque-phishing">
-            Analiza cada correo, sus encabezados SPF/DKIM/DMARC y la URL incluida. Decide si es <strong>Seguro</strong> o <strong>Phishing</strong>:
-          </p>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Laboratorio Técnico de Encabezados"
+            enQueConsiste="Inspeccionarás el código de encabezado (registros SPF/DKIM) y la estructura de la URL de 3 correos dudosos."
+            comoInteractuar="1. Lee la información del remitente y las firmas SPF/DKIM. 2. Presiona 'Es Seguro' o 'Es Phishing / Engaño'. 3. Consulta la explicación técnica del veredicto."
+            paraQueSirve="Aprenderás a auditar técnicamente mensajes institucionales descartando fraudes avanzadas."
+          />
 
           <div className="lista-simuladores-phishing">
             {correos.map((correo) => {

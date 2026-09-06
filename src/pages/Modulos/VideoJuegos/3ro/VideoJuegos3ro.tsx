@@ -15,6 +15,7 @@ import {
   Download
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import { CajaExplicacionDinamica } from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useVideojuegos3ro, HABITOS_VIDEOJUEGOS_3RO } from '../../../../hooks/HooksVideoGames/useVideojuegos3ro';
 import './VideoJuegos3ro.css';
 
@@ -85,16 +86,25 @@ export const Videojuegos3ro: React.FC = () => {
           </div>
 
           <div className="conceptos-clave-grid">
-            <h3 className="titulo-mini-seccion">Conceptos Clave</h3>
+            <h3 className="titulo-mini-seccion">Glosario y Términos Clave</h3>
             <div className="lista-conceptos">
               <div className="item-concepto">
-                <strong>VirusTotal:</strong> Servicio gratuito que escanea archivos con más de 70 antivirus. Ideal para analizar mods y APKs.
+                <strong>📖 ¿Qué es VirusTotal?</strong>
+                <p>Una plataforma en línea gratuita respaldada por Google que analiza archivos e impresiones digitales (hashes) contra más de 70 motores antivirus.</p>
+                <strong>⚙️ ¿Para qué sirve / Qué función cumple?</strong>
+                <p>Permite examinar archivos .apk o .exe descargados para comprobar si contienen spyware antes de ejecutarlos en tu PC o teléfono.</p>
               </div>
               <div className="item-concepto">
-                <strong>Doble extensión:</strong> Archivo que oculta su verdadero tipo (ej: .jpg.exe). Engaña al usuario para que lo ejecute.
+                <strong>📖 ¿Qué es una Doble Extensión?</strong>
+                <p>Una técnica maliciosa de engaño donde el archivo incluye dos puntos (ej: "textura_minecraft.png.exe").</p>
+                <strong>⚙️ ¿Para qué sirve / Qué riesgo representa?</strong>
+                <p>Suele ocultar programas ejecutables maliciosos simulando ser imágenes o documentos inofensivos.</p>
               </div>
               <div className="item-concepto">
-                <strong>Permisos excesivos:</strong> Un mod legítimo no pide acceso a SMS, contactos o micrófono. Es señal de malware.
+                <strong>📖 ¿Qué son los Permisos Excesivos?</strong>
+                <p>Peticiones de acceso solicitadas por una aplicación para ver tus fotos, cámara, SMS o contactos sin justificación real.</p>
+                <strong>⚙️ ¿Para qué sirve / Qué riesgo representa?</strong>
+                <p>Si una app de juegos pide leer tus SMS, es probable que esté intentando robar tus códigos de recuperación 2FA.</p>
               </div>
             </div>
           </div>
@@ -106,9 +116,11 @@ export const Videojuegos3ro: React.FC = () => {
             <ShieldCheck className="icono-bloque-verde" size={24} />
             <h2>2. Laboratorio: ¿Mod Seguro o Malicioso?</h2>
           </div>
-          <p className="subtitulo-bloque">
-            Analiza cada archivo y decide si es <strong>Seguro</strong> o <strong>Malicioso</strong>:
-          </p>
+          <CajaExplicacionDinamica
+            enQueConsiste="Un laboratorio interactivo para evaluar extensiones, firmas y fuentes de descarga de mods y hacks de juegos."
+            comoInteractuar="Examina la ficha técnica de cada archivo descargado y presiona 'Seguro' o 'Malicioso' según tus hallazgos."
+            paraQueSirve="Entrenará tu vista analítica para detectar programas dañinos camuflados antes de instalarlos."
+          />
 
           <div className="mods-lista">
             {archivosMod.map(mod => (
@@ -152,6 +164,11 @@ export const Videojuegos3ro: React.FC = () => {
             <ShieldCheck className="icono-bloque-verde" size={24} />
             <h2>3. Decisiones sobre Mods y APKs</h2>
           </div>
+          <CajaExplicacionDinamica
+            enQueConsiste="Dilemas reales sobre el uso de trampas (hacks), tiendas alternativas no oficiales y APKs pirateadas."
+            comoInteractuar="Lee la situación y selecciona la respuesta más acertada según las normas de ciberseguridad."
+            paraQueSirve="Te prevendrá contra baneos permanentes en juegos en línea y robos de inventario."
+          />
 
           <div className="escenarios-lista">
             {escenarios.map(escenario => (
@@ -190,9 +207,11 @@ export const Videojuegos3ro: React.FC = () => {
             <ListChecks className="icono-bloque-verde" size={24} />
             <h2>4. Checklist de Análisis de Mods</h2>
           </div>
-          <p className="subtitulo-bloque">
-            Marca las prácticas que ya realizas:
-          </p>
+          <CajaExplicacionDinamica
+            enQueConsiste="Lista de verificación preventiva antes de instalar cualquier complemento o archivo de modificación."
+            comoInteractuar="Activa las casillas con los hábitos seguros de inspección técnica que ya apliques."
+            paraQueSirve="Garantizará que no instales ejecutables dañinos por descuido."
+          />
 
           <div className="lista-habitos-interactiva">
             {HABITOS_VIDEOJUEGOS_3RO.map((habito) => (

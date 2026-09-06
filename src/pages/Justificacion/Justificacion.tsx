@@ -145,7 +145,8 @@ export const Justificacion: React.FC = () => {
               <h3>Sinergia Institucional con la UPTOS CR</h3>
               <p>
                 La estructuración de este material en la plataforma Moodle es posible gracias a la
-                colaboración y conocimientos técnicos aportados por los estudiantes de la UPTOS CR.
+                colaboración y conocimientos técnicos aportados por los estudiantes de la UPTOS CR
+                (Universidad Politécnica Territorial del Oeste de Sucre "Clodosbaldo Russian").
               </p>
             </article>
           </div>

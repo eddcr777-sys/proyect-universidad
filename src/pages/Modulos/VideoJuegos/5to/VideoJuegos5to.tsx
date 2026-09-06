@@ -15,6 +15,7 @@ import {
   Flag
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useVideojuegos5to, HABITOS_VIDEOJUEGOS_5TO } from '../../../../hooks/HooksVideoGames/useVideojuegos5to';
 import './VideoJuegos5to.css';
 
@@ -67,20 +68,23 @@ export const Videojuegos5to: React.FC = () => {
           <div className="grid-pilares-videojuegos">
             <div className="caja-pilar-videojuegos">
               <Coins className="icono-pilar rojo" size={28} />
-              <h3>Compra de Cuentas: Prohibida</h3>
-              <p>Comprar o vender cuentas viola los términos de servicio. Es la estafa más común: pierdes el dinero y no recibes la cuenta.</p>
+              <h3>Mercado Negro de Cuentas</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Venta ilegítima de perfiles valiosos en páginas de terceros.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve conocerlo?:</strong> Para entender que comprar cuentas viola los términos de servicio y deriva en bloqueos permanentes o estafas.</p>
             </div>
 
             <div className="caja-pilar-videojuegos">
               <ShieldCheck className="icono-pilar verde" size={28} />
-              <h3>Compras Seguras</h3>
-              <p>Usa métodos de pago oficiales, tarjetas virtuales y supervisión de un adulto. Nunca compartas datos bancarios por mensajes.</p>
+              <h3>Pasarelas de Pago Oficiales</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Canales autorizados (Play Store, App Store, Steam Wallet) para comprar activos virtuales.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Garantizar que los datos de tarjeta de tus padres queden cifrados sin riesgo de clonación.</p>
             </div>
 
             <div className="caja-pilar-videojuegos">
               <Flag className="icono-pilar azul" size={28} />
-              <h3>Denuncias y Reportes</h3>
-              <p>Reporta jugadores tóxicos, hacks, estafas y venta de cuentas. Mantén la comunidad segura y saludable.</p>
+              <h3>Sistemas de Reportes eSports</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Herramientas institucionales de denuncia en salas multijugador.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Reportar trampas (cheats), doxing y jugadores tóxicos para mantener partidas limpias y éticas.</p>
             </div>
           </div>
         </section>
@@ -91,9 +95,12 @@ export const Videojuegos5to: React.FC = () => {
             <ShieldCheck className="icono-bloque-verde" size={24} />
             <h2>2. Decisiones: Protege tu Inversión</h2>
           </div>
-          <p className="subtitulo-bloque">
-            Lee cada situación y elige la opción correcta:
-          </p>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Simulador de Transacciones eSports"
+            enQueConsiste="Analizarás 3 ofertas complejas de compra/venta de cuentas e ítems de juegos profesionales."
+            comoInteractuar="Lee la situación y selecciona la decisión que proteja la cuenta e inversiones digitales. Recibirás la explicación inmediata de la regla violada o protegida."
+            paraQueSirve="Evitará que caigas en estafas de comercio digital o pierdas dinero en mercados no oficiales de videojuegos."
+          />
 
           <div className="escenarios-lista">
             {escenarios.map(escenario => (

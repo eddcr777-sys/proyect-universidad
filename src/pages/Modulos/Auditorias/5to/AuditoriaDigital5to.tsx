@@ -12,6 +12,7 @@ import {
   FileText
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useAuditoria5to, HABITOS_5TO } from '../../../../hooks/HooksAuditoria/useAuditoria5to';
 import '../1ro/AuditoriaDigital1ro.css';
 import './AuditoriaDigital5to.css';
@@ -65,31 +66,26 @@ export const AuditoriaDigital5to: React.FC = () => {
             <div className="caja-pilar-higiene">
               <ClipboardCheck className="icono-pilar azul" size={28} />
               <h3>Levantamiento de Información</h3>
-              <p>Revisión sistemática de credenciales, redes Wi-Fi, copias de seguridad y hábitos del equipo.</p>
+              <p><strong>📖 ¿Qué es?:</strong> Proceso de inspección de redes, equipos y credenciales.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Recopilar datos reales sobre fallas antes de diseñar un plan de defensa.</p>
             </div>
 
             <div className="caja-pilar-higiene">
               <FileSpreadsheet className="icono-pilar rojo" size={28} />
-              <h3>Matriz de Riesgo</h3>
-              <p>Clasificación de fallas según su gravedad (Alta, Media, Baja) para priorizar las acciones.</p>
+              <h3>Matriz de Riesgo Ciber</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Herramienta que pondera la probabilidad y el impacto de un ataque.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Priorizar las fallas más urgentes (Crítico/Alto) que requieren solución inmediata.</p>
             </div>
 
             <div className="caja-pilar-higiene">
               <Award className="icono-pilar verde" size={28} />
               <h3>Plan de Mitigación</h3>
-              <p>Redacción de propuestas prácticas para corregir las vulnerabilidades detectadas.</p>
+              <p><strong>📖 ¿Qué es?:</strong> Estrategia técnica y educativa de respuesta.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Corregir vulnerabilidades de forma estructurada con directivos y docentes.</p>
             </div>
 
             <div className="caja-pilar-higiene">
               <ShieldCheck className="icono-pilar morado" size={28} />
-              <h3>Ética Profesional</h3>
-              <p>La divulgación responsable y la confidencialidad son pilares del auditor digital.</p>
-            </div>
-          </div>
-
-          <div className="conceptos-clave-grid">
-            <h3 className="titulo-mini-seccion">Conceptos Clave</h3>
-            <div className="lista-conceptos">
               <div className="item-concepto">
                 <strong>Matriz de riesgo:</strong> Herramienta visual que cruza probabilidad e impacto para determinar la criticidad de una amenaza.
               </div>

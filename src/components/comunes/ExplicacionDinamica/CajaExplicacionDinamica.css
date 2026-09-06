@@ -1,0 +1,85 @@
+/* Estilos para el componente de explicación de dinámicas interactivas */
+.caja-explicacion-dinamica {
+  background: linear-gradient(135deg, rgba(240, 249, 255, 0.95), rgba(224, 242, 254, 0.9));
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  border-left: 5px solid #0284c7;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.caja-explicacion-dinamica:hover {
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.12);
+}
+
+.cabecera-explicacion-dinamica {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(14, 165, 233, 0.15);
+  padding-bottom: 0.5rem;
+}
+
+.icono-brujula-dinamica {
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+.cabecera-explicacion-dinamica h3 {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.grid-bloques-dinamica {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.bloque-item-dinamica {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.encabezado-item-dinamica {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #0369a1;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-size: 0.92rem;
+}
+
+.icono-item-dinamica {
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+.bloque-item-dinamica p {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #334155;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .caja-explicacion-dinamica {
+    padding: 1rem;
+  }
+
+  .grid-bloques-dinamica {
+    grid-template-columns: 1fr;
+  }
+}

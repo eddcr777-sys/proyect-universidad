@@ -12,6 +12,7 @@ import {
   Megaphone
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import {usePhishing5to} from '../../../../hooks/HooksPhishing/usePhishing5to';
 import './Phishing5to.css';
 
@@ -57,20 +58,23 @@ export const Phishing5to: React.FC = () => {
           <div className="grid-senales-phishing">
             <div className="caja-senal-item">
               <Briefcase className="icono-senal rojo" size={28} />
-              <h3>Pretexting</h3>
-              <p>Crear una historia falsa (pretexto) para ganar confianza y sacar información. Ej: "soy del soporte técnico".</p>
+              <h3>Pretexting (Creación de Pretextos Falsos)</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Elaboración de una historia o escenario ficticio creíble.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Ganar confianza y lograr que un empleado entregue claves o accesos internos.</p>
             </div>
 
             <div className="caja-senal-item">
               <Megaphone className="icono-senal azul" size={28} />
-              <h3>Campañas de Simulación</h3>
-              <p>Envíos controlados de correos falsos para medir cuántos usuarios caen y luego capacitarlos.</p>
+              <h3>Campañas de Simulación Controlada</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Envíos pedagógicos y seguros de correos falsos a los empleados.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Medir el porcentaje de vulnerabilidad de la institución y capacitar a quienes caigan en el señuelo.</p>
             </div>
 
             <div className="caja-senal-item">
               <FileBarChart2 className="icono-senal amarillo" size={28} />
               <h3>Métricas de Concientización</h3>
-              <p>Tasa de clics, tasa de reportes, reducción de incidentes. Permiten medir la mejora.</p>
+              <p><strong>📖 ¿Qué es?:</strong> Indicadores de rendimiento (tasa de clics, tasa de reporte de sospechas).</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Demostrar con números la efectividad del entrenamiento de ciberseguridad.</p>
             </div>
           </div>
         </section>
@@ -81,9 +85,12 @@ export const Phishing5to: React.FC = () => {
             <UserX className="icono-bloque-rojo" size={24} />
             <h2>2. ¿Ataque de Ingeniería Social o Actividad Legítima?</h2>
           </div>
-          <p className="subtitulo-bloque-phishing">
-            Para cada situación, decide si es un <strong>Ataque</strong> o una <strong>Actividad segura</strong>:
-          </p>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Laboratorio de Ingeniería Social Avanzada"
+            enQueConsiste="Evaluarás 3 situaciones corporativas complejas para dictaminar si corresponden a un ataque de pretexting / suplantación o a un procedimiento seguro."
+            comoInteractuar="Analiza el pretexto presentado y presiona 'Es Actividad Segura' o 'Es Ataque / Pretexting'. Obtendrás de inmediato la justificación técnica de la auditoría."
+            paraQueSirve="Capacita a estudiantes de 5to año para auditar el factor humano en empresas e instituciones educativas."
+          />
 
           <div className="lista-simuladores-phishing">
             {escenarios.map((esc) => {

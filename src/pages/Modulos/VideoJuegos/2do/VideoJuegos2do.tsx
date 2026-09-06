@@ -15,6 +15,7 @@ import {
   Smartphone
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import { CajaExplicacionDinamica } from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useVideojuegos2do, HABITOS_VIDEOJUEGOS_2DO } from '../../../../hooks/HooksVideoGames/useVideojuegos2do';
 import './VideoJuegos2do.css';
 
@@ -80,6 +81,30 @@ export const Videojuegos2do: React.FC = () => {
               <p>Cuando activas 2FA, te dan códigos de un solo uso. Guárdalos: son la llave de emergencia si pierdes tu teléfono.</p>
             </div>
           </div>
+
+          <div className="conceptos-clave-grid">
+            <h3 className="titulo-mini-seccion">Glosario y Términos Clave</h3>
+            <div className="lista-conceptos">
+              <div className="item-concepto">
+                <strong>📖 ¿Qué es la Verificación en Dos Pasos (2FA)?</strong>
+                <p>Un método de seguridad que solicita dos pruebas de identidad para acceder a la cuenta (clave + código dinámico).</p>
+                <strong>⚙️ ¿Para qué sirve / Qué función cumple?</strong>
+                <p>Protege la cuenta de Roblox, Steam o Epic Games impidiendo que un atacante entre aunque adivine la contraseña.</p>
+              </div>
+              <div className="item-concepto">
+                <strong>📖 ¿Qué es una App Autenticadora?</strong>
+                <p>Una aplicación móvil (ej: Google Authenticator) que genera códigos temporales de 6 dígitos que cambian cada 30 segundos.</p>
+                <strong>⚙️ ¿Para qué sirve / Qué función cumple?</strong>
+                <p>Proporciona un segundo factor de autenticación mucho más seguro que los SMS, inmune al clonado de SIM.</p>
+              </div>
+              <div className="item-concepto">
+                <strong>📖 ¿Qué son los Códigos de Recuperación?</strong>
+                <p>Una lista de claves numéricas únicas entregadas al activar 2FA para ser usadas en emergencias.</p>
+                <strong>⚙️ ¿Para qué sirve / Qué función cumple?</strong>
+                <p>Permiten recuperar el acceso si pierdes o rompes tu teléfono móvil.</p>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* SECCIÓN 2: ESCENARIOS */}
@@ -88,9 +113,11 @@ export const Videojuegos2do: React.FC = () => {
             <ShieldCheck className="icono-bloque-verde" size={24} />
             <h2>2. Decisiones: Protege y Recupera tu Cuenta</h2>
           </div>
-          <p className="subtitulo-bloque">
-            Lee cada situación y elige la opción correcta:
-          </p>
+          <CajaExplicacionDinamica
+            enQueConsiste="Simulador de toma de decisiones frente a situaciones de robo de cuenta o intentos de suplantación en videojuegos."
+            comoInteractuar="Lee el caso presentado y elige la mejor acción para proteger tus inventarios y partidas."
+            paraQueSirve="Entrenará tu velocidad de respuesta ante intentos de secuestro de cuentas gamer."
+          />
 
           <div className="escenarios-lista">
             {escenarios.map(escenario => (
@@ -129,9 +156,11 @@ export const Videojuegos2do: React.FC = () => {
             <ListChecks className="icono-bloque-verde" size={24} />
             <h2>3. Checklist de Seguridad en Cuentas de Juegos</h2>
           </div>
-          <p className="subtitulo-bloque">
-            Marca las prácticas que ya realizas:
-          </p>
+          <CajaExplicacionDinamica
+            enQueConsiste="Auditoría visual de blindaje en tus plataformas de videojuegos (Steam, Epic, Roblox, PlayStation, Xbox)."
+            comoInteractuar="Marca cada control de seguridad que ya tengas activado en tus cuentas personales de juego."
+            paraQueSirve="Evalúa la invulnerabilidad de tus inventarios y logros comprados contra robos."
+          />
 
           <div className="lista-habitos-interactiva">
             {HABITOS_VIDEOJUEGOS_2DO.map((habito) => (

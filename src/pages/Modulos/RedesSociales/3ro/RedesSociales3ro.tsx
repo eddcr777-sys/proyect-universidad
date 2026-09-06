@@ -15,6 +15,7 @@ import {
   UserX
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useRedesSociales3ro, HABITOS_REDES_3RO } from '../../../../hooks/HooksRedesSociales/useRedesSociales3ro';
 import './RedesSociales3ro.css';
 
@@ -39,15 +40,15 @@ export const RedesSociales3ro: React.FC = () => {
   } = useRedesSociales3ro();
 
   return (
-    <main className="pagina-modulo-redes-3ro">
+    <main className="pagina-modulo-redes">
       <HeaderModulo
         grado="3ro"
-        modulo="3: Ciberacoso y Reputación Digital"
-        titulo="Construye una Convivencia Digital Sana"
-        subTitulo="Aprende a prevenir el ciberacoso, gestionar comentarios negativos y proteger tu reputación en línea."
+        modulo="3: Prevención del Ciberacoso y Grooming"
+        titulo="Prevención activa contra el Ciberbullying"
+        subTitulo="Aprende a responder adecuadamente ante el ciberacoso, detectar señales de grooming y crear redes de apoyo en 3er Año."
         categoria="Redes Sociales e Identidad"
-        tiempoEstimado="55 min"
-        icono={<HeartHandshake size={36} />}
+        tiempoEstimado="50 min"
+        icono={<ShieldAlert size={36} />}
       />
 
       <div className="contenedor-redes-contenido">
@@ -55,29 +56,25 @@ export const RedesSociales3ro: React.FC = () => {
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. Ciberacoso y Reputación Digital</h2>
+            <h2>1. Ciberacoso, Grooming y Convivencia Digital</h2>
           </div>
           <p className="texto-lectura-modulo">
-            El <strong>ciberacoso</strong> es el uso de medios digitales para hostigar, humillar o amenazar a una persona. Tu <strong>reputación digital</strong> es la imagen que proyectas a través de lo que publicas y compartes. Ambos están conectados: una buena gestión de tu privacidad y de tus interacciones te protege.
+            El entorno digital requiere empatía y límites firmes. El <strong>ciberacoso</strong> es la humillación intencionada en redes, mientras que el <strong>grooming</strong> es el acoso perpetrado por adultos que simulan ser menores.
           </p>
 
           <div className="grid-pilares-redes">
             <div className="caja-pilar-redes">
-              <MessageSquareOff className="icono-pilar rojo" size={28} />
-              <h3>Control de Comentarios</h3>
-              <p>Configura quién puede comentar en tus publicaciones. Restringir o silenciar son herramientas discretas para mantener la paz.</p>
+              <ShieldAlert className="icono-pilar rojo" size={28} />
+              <h3>Ciberacoso (Ciberbullying)</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Hostigamiento sistemático mediante chats, memes hirientes o grupos.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve combatirlo?:</strong> Crear comunidades virtuales pacíficas y libres de violencia.</p>
             </div>
 
             <div className="caja-pilar-redes">
               <UserX className="icono-pilar azul" size={28} />
-              <h3>Bloqueo y Denuncia</h3>
-              <p>Si alguien te acosa, bloquea y denuncia. Guarda evidencia (capturas) antes de eliminar.</p>
-            </div>
-
-            <div className="caja-pilar-redes">
-              <HeartHandshake className="icono-pilar verde" size={28} />
-              <h3>Apoyo y Denuncia</h3>
-              <p>Si eres testigo, apoya a la víctima y denuncia ante un adulto. No seas cómplice con el silencio.</p>
+              <h3>Protocolo de Bloqueo y Evidencia</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Captura de pantallas y reporte en la plataforma antes de eliminar.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Respaldar denuncias ante la dirección del liceo o las autoridades.</p>
             </div>
           </div>
         </section>
@@ -88,6 +85,12 @@ export const RedesSociales3ro: React.FC = () => {
             <ShieldCheck className="icono-bloque-verde" size={24} />
             <h2>2. Decisiones ante el Ciberacoso</h2>
           </div>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Simulador de Actuación ante Ciberacoso"
+            enQueConsiste="Evaluarás 3 situaciones de agresión digital en chats de grupo y redes."
+            comoInteractuar="1. Lee la historia del caso. 2. Selecciona la respuesta (A, B o C) ética y segura. 3. Consulta la explicación del protocolo."
+            paraQueSirve="Te dotará de herramientas para cortar cadenas de acoso y proteger a tus compañeros sin exponerte."
+          />
           <p className="subtitulo-bloque">
             Lee cada situación y elige la acción más correcta:
           </p>

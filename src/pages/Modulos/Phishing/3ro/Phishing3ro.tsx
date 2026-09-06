@@ -9,9 +9,11 @@ import {
   Phone,
   FileWarning,
   HelpCircle,
-  Award
+  Award,
+  Fish
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { usePhishing3ro, SENALES_AVANZADAS_3RO } from '../../../../hooks/HooksPhishing/usePhishing3ro';
 import './Phishing3ro.css';
 

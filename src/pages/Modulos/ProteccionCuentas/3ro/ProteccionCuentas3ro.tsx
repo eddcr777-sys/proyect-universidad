@@ -15,6 +15,7 @@ import {
   Lock
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useProteccionCuentas3ro, HABITOS_CUENTAS_3RO } from '../../../../hooks/HooksProteccionCuentas/useProteccionCuentas3ro';
 import '../1ro/ProteccionCuentas1ro.css'
 import './ProteccionCuentas3ro.css';
@@ -43,12 +44,12 @@ export const ProteccionCuentas3ro: React.FC = () => {
     <main className="pagina-modulo-proteccion-3ro">
       <HeaderModulo
         grado="3ro"
-        modulo="3: Políticas del Sistema y Biometría"
-        titulo="Cuentas, Privilegios y Autenticación en el Sistema"
-        subTitulo="Aprende a gestionar cuentas de usuario, configurar políticas de contraseñas y usar biometría de forma segura en Windows y Linux."
+        modulo="3: Permisos de Acceso y Gestión Avanzada"
+        titulo="Control de accesos y biometría"
+        subTitulo="Aprende a gestionar permisos en aplicaciones, el principio de menor privilegio y el uso seguro de biometría en 3er Año."
         categoria="Protección de Cuentas y Accesos"
         tiempoEstimado="50 min"
-        icono={<Fingerprint size={36} />}
+        icono={<ShieldCheck size={36} />}
       />
 
       <div className="contenedor-proteccion-contenido">
@@ -56,23 +57,25 @@ export const ProteccionCuentas3ro: React.FC = () => {
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. El Poder de los Privilegios: Administrador vs Usuario</h2>
+            <h2>1. El Principio de Menor Privilegio y Biometría</h2>
           </div>
           <p className="texto-lectura-modulo">
-            En todo sistema operativo existen <strong>cuentas con diferentes niveles de poder</strong>. La cuenta de administrador (root en Linux) tiene control total: puede instalar programas, modificar archivos del sistema y cambiar cualquier configuración. Una cuenta de usuario normal solo puede ejecutar tareas limitadas. Usar siempre la cuenta de administrador es como caminar por tu casa con todas las llaves, incluida la de la caja fuerte: si te roban, lo pierdes todo.
+            El <strong>Principio de Menor Privilegio</strong> establece que cada usuario o aplicación debe tener <strong>únicamente los accesos indispensables</strong> para cumplir su función.
           </p>
 
           <div className="grid-pilares-proteccion">
             <div className="caja-pilar-proteccion">
-              <UserCog className="icono-pilar rojo" size={28} />
-              <h3>Principio de Mínimo Privilegio</h3>
-              <p>Regla de oro: <strong>cada tarea debe usar el mínimo nivel de permisos necesario</strong>. Para jugar y navegar usa cuenta normal; para instalar, usa administrador temporalmente.</p>
+              <ShieldCheck className="icono-pilar verde" size={28} />
+              <h3>Menor Privilegio</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Otorgar permisos mínimos estricto a apps y usuarios.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Limitar el daño si una cuenta o app es vulnerada.</p>
             </div>
 
             <div className="caja-pilar-proteccion">
-              <Fingerprint className="icono-pilar verde" size={28} />
-              <h3>Biometría: Ventajas y Riesgos</h3>
-              <p>La huella dactilar o el reconocimiento facial son cómodos, pero tienen una gran desventaja: <strong>si tu huella es robada, no la puedes cambiar</strong> como una contraseña. Úsalos combinados con un PIN o contraseña de respaldo.</p>
+              <Fingerprint className="icono-pilar morado" size={28} />
+              <h3>Autenticación Biométrica</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Uso de huella dactilar o reconocimiento facial.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Desbloqueo rápido y cómodo de dispositivos sin tipear claves.</p>
             </div>
           </div>
         </section>
@@ -83,6 +86,12 @@ export const ProteccionCuentas3ro: React.FC = () => {
             <ShieldCheck className="icono-bloque-verde" size={24} />
             <h2>2. ¿Qué harías? Decisiones de Privilegios</h2>
           </div>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Simulador de Control de Privilegios"
+            enQueConsiste="Resolverás 3 situaciones sobre otorgamiento de permisos a aplicaciones y amigos."
+            comoInteractuar="1. Lee la situación. 2. Presiona la opción (A, B o C) más segura. 3. Lee la retroalimentación técnica."
+            paraQueSirve="Evitará que concedas acceso total de administrador a juegos u otras personas."
+          />
           <p className="subtitulo-bloque">
             Lee cada situación y elige la opción más segura:
           </p>

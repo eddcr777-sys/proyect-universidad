@@ -14,6 +14,7 @@ import {
   Eye
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useRedesSociales2do, HABITOS_REDES_2DO } from '../../../../hooks/HooksRedesSociales/useRedesSociales2do';
 import './RedesSociales2do.css';
 
@@ -41,14 +42,14 @@ export const RedesSociales2do: React.FC = () => {
   } = useRedesSociales2do();
 
   return (
-    <main className="pagina-modulo-redes-2do">
+    <main className="pagina-modulo-redes">
       <HeaderModulo
         grado="2do"
         modulo="2: Perfiles Falsos y Suplantación"
-        titulo="Detecta Falsos y Protege tu Identidad"
-        subTitulo="Aprende a identificar cuentas falsas, verificar identidades y denunciar suplantación en redes sociales."
+        titulo="Cómo detectar cuentas impostoras"
+        subTitulo="Aprende a identificar perfiles falsos, sobreexposición de datos y cómo actuar ante el ciberacoso en 2do Año."
         categoria="Redes Sociales e Identidad"
-        tiempoEstimado="50 min"
+        tiempoEstimado="45 min"
         icono={<UserX size={36} />}
       />
 
@@ -57,29 +58,25 @@ export const RedesSociales2do: React.FC = () => {
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. Perfiles Falsos y Suplantación de Identidad</h2>
+            <h2>1. Suplantación de Identidad y Perfiles Impostores</h2>
           </div>
           <p className="texto-lectura-modulo">
-            En 1er año aprendiste a configurar la privacidad. Ahora veamos cómo identificar a quienes intentan engañarte: <strong>perfiles falsos</strong> que se hacen pasar por celebridades, marcas o incluso por tus amigos. La <strong>suplantación de identidad</strong> ocurre cuando alguien usa tu nombre, fotos o información personal sin tu permiso.
+            Cualquiera puede crear un perfil usando tu nombre y fotos. Los <strong>perfiles falsos</strong> se usan para acosar, estafar a tus amigos o dañar tu reputación.
           </p>
 
           <div className="grid-pilares-redes">
             <div className="caja-pilar-redes">
               <UserX className="icono-pilar rojo" size={28} />
-              <h3>Señales de Perfil Falso</h3>
-              <p>Cuenta recién creada, sin foto real, sigue a miles pero tiene pocos seguidores, y envía mensajes pidiendo dinero o datos.</p>
+              <h3>Perfiles Impostores</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Cuentas clonadas que usan fotos robadas.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve detectarlos?:</strong> Evitar que engañen a tus amigos pidiendo transferencias o claves a tu nombre.</p>
             </div>
 
             <div className="caja-pilar-redes">
               <Eye className="icono-pilar azul" size={28} />
               <h3>Badge de Verificación</h3>
-              <p>El check azul confirma que una cuenta es auténtica. Siempre verifica que sea la oficial antes de interactuar con famosos o marcas.</p>
-            </div>
-
-            <div className="caja-pilar-redes">
-              <ShieldCheck className="icono-pilar verde" size={28} />
-              <h3>¿Qué hacer si te suplantan?</h3>
-              <p>Denuncia en la plataforma, avisa a tus contactos, guarda capturas de evidencia y cambia tus contraseñas.</p>
+              <p><strong>📖 ¿Qué es?:</strong> Insignia azul concedida por la plataforma a cuentas oficiales.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Confirmar la identidad de figuras públicas o instituciones escolares.</p>
             </div>
           </div>
         </section>
@@ -90,6 +87,12 @@ export const RedesSociales2do: React.FC = () => {
             <UserX className="icono-bloque-rojo" size={24} />
             <h2>2. Laboratorio: ¿Perfil Falso o Real?</h2>
           </div>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Detector de Perfiles Impostores"
+            enQueConsiste="Analizarás 3 cuentas de Instagram/TikTok sospechosas con distintas métricas de seguidores e imágenes."
+            comoInteractuar="1. Lee la descripción del perfil y sus publicaciones. 2. Selecciona 'Legítimo' o 'Falso / Impostor'. 3. Consulta el dictamen didáctico."
+            paraQueSirve="Desarrollará tu instinto para no aceptar solicitudes de amistad de cuentas clonadas."
+          />
           <p className="subtitulo-bloque">
             Analiza cada perfil y decide si es <strong>Falso</strong> o <strong>Legítimo</strong>:
           </p>

@@ -12,6 +12,7 @@ import {
   Award
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import { CajaExplicacionDinamica } from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useAuditoria2do, HABITOS_2DO } from '../../../../hooks/HooksAuditoria/useAuditoria2do';
 import '../1ro/AuditoriaDigital1ro.css';
 import './AuditoriaDigital2do.css';
@@ -85,16 +86,25 @@ export const AuditoriaDigital2do: React.FC = () => {
           </div>
 
           <div className="conceptos-clave-grid">
-            <h3 className="titulo-mini-seccion">Conceptos Clave</h3>
+            <h3 className="titulo-mini-seccion">Glosario y Términos Clave</h3>
             <div className="lista-conceptos">
               <div className="item-concepto">
-                <strong>Red abierta:</strong> Aquella que no pide contraseña. Todo el tráfico puede ser capturado por otros usuarios.
+                <strong>📖 ¿Qué es una Red abierta?</strong>
+                <p>Una red Wi-Fi sin contraseña ni cifrado que permite conectarse a cualquier persona sin autenticación.</p>
+                <strong>⚙️ ¿Para qué sirve / Qué peligro representa?</strong>
+                <p>Aunque sirve para dar internet gratuito, permite que atacantes en la misma red intercepten contraseñas y mensajes enviados sin cifrar.</p>
               </div>
               <div className="item-concepto">
-                <strong>Dirección MAC:</strong> Identificador único de tu dispositivo. Algunos atacantes pueden rastrear tu ubicación por ella.
+                <strong>📖 ¿Qué es una Dirección MAC?</strong>
+                <p>Un código alfanumérico único grabado en la tarjeta de red de cada celular o computadora.</p>
+                <strong>⚙️ ¿Para qué sirve / Qué peligro representa?</strong>
+                <p>Sirve para identificar dispositivos en la red local. Si se emite abiertamente, atacantes pueden rastrear la presencia del dispositivo.</p>
               </div>
               <div className="item-concepto">
-                <strong>Sesión activa:</strong> Cuando inicias sesión en un servicio, queda una "sesión" guardada en ese dispositivo. Puedes cerrarla a distancia.
+                <strong>📖 ¿Qué es una Sesión Activa?</strong>
+                <p>Un registro guardado en el servidor que mantiene tu cuenta abierta en una computadora o navegador.</p>
+                <strong>⚙️ ¿Para qué sirve / Qué peligro representa?</strong>
+                <p>Permite no tener que escribir la clave cada minuto. Si la dejas abierta en un equipo público, cualquiera puede usar tu cuenta.</p>
               </div>
             </div>
           </div>
@@ -106,9 +116,11 @@ export const AuditoriaDigital2do: React.FC = () => {
             <ShieldAlert className="icono-bloque-rojo" size={24} />
             <h2>2. ¿Qué harías en esta situación?</h2>
           </div>
-          <p className="texto-lectura-modulo">
-            Lee cada escenario y elige la opción más segura. Recibirás retroalimentación inmediata.
-          </p>
+          <CajaExplicacionDinamica
+            enQueConsiste="Pondrás a prueba tu capacidad de tomar decisiones seguras al conectarte a redes Wi-Fi públicas o gestionar dispositivos vinculados."
+            comoInteractuar="Lee con atención el caso simulado y selecciona la opción (A, B o C) que consideres correcta. Recibirás una respuesta explicativa de inmediato."
+            paraQueSirve="Entrenarás tu juicio crítico para evitar ciberataques comunes como 'Man-in-the-Middle' en redes públicas."
+          />
 
           <div className="escenarios-lista">
             {escenarios.map(escenario => (
@@ -152,9 +164,11 @@ export const AuditoriaDigital2do: React.FC = () => {
             <ShieldCheck className="icono-bloque-verde" size={24} />
             <h2>3. Checklist de Conexiones Seguras</h2>
           </div>
-          <p className="subtitulo-bloque">
-            Audita tus hábitos de conexión marcando las prácticas que ya realizas:
-          </p>
+          <CajaExplicacionDinamica
+            enQueConsiste="Una lista de verificación interactiva para diagnosticar la seguridad de tus conexiones habituales (Wi-Fi, Bluetooth, VPN y sesiones activas)."
+            comoInteractuar="Haz clic en cada casilla de verificación que ya apliques en tu rutina diaria. Observa cómo sube la barra de porcentaje de seguridad."
+            paraQueSirve="Te ayuda a tomar conciencia de tus hábitos reales de conexión y medir tu nivel actual de protección en redes."
+          />
 
           <div className="lista-habitos-interactiva">
             {HABITOS_2DO.map((habito) => (

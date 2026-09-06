@@ -15,6 +15,7 @@ import {
   MessageSquareCode
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import { CajaExplicacionDinamica } from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useVideojuegos4to, HABITOS_VIDEOJUEGOS_4TO } from '../../../../hooks/HooksVideoGames/useVideojuegos4to';
 import './VideoJuegos4to.css';
 
@@ -83,6 +84,30 @@ export const Videojuegos4to: React.FC = () => {
               <p>Prometen premios increíbles a cambio de tu contraseña, correo o datos bancarios. Los sorteos reales nunca piden eso.</p>
             </div>
           </div>
+
+          <div className="conceptos-clave-grid">
+            <h3 className="titulo-mini-seccion">Glosario y Términos Clave</h3>
+            <div className="lista-conceptos">
+              <div className="item-concepto">
+                <strong>📖 ¿Qué es un Bot Malicioso en Discord?</strong>
+                <p>Una cuenta automatizada manipulada por ciberdelincuentes para enviar mensajes masivos a miembros de servidores.</p>
+                <strong>⚙️ ¿Para qué sirve / Qué peligro representa?</strong>
+                <p>Spamnea enlaces fraudulentos ofreciendo Nitro gratis para robar los tokens de autenticación de Discord.</p>
+              </div>
+              <div className="item-concepto">
+                <strong>📖 ¿Qué es la Suplantación de Creadores?</strong>
+                <p>Perfiles falsos en Twitch, YouTube o TikTok que clonan el nombre, foto y estilo de streamers famosos.</p>
+                <strong>⚙️ ¿Para qué sirve / Qué peligro representa?</strong>
+                <p>Se ganan la confianza de los fans para solicitar donaciones falsas o enlaces a páginas de robos de cuentas.</p>
+              </div>
+              <div className="item-concepto">
+                <strong>📖 ¿Qué es la Verificación Oficial?</strong>
+                <p>La insignia azul o dorada emitida por plataformas (Twitch, Discord, YouTube) para validar la autenticidad del perfil.</p>
+                <strong>⚙️ ¿Para qué sirve / Qué función cumple?</strong>
+                <p>Garantiza que la persona o bot que se comunica contigo es legítima y no un impostor.</p>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* SECCIÓN 2: LABORATORIO DE MENSAJES */}
@@ -91,9 +116,11 @@ export const Videojuegos4to: React.FC = () => {
             <ShieldCheck className="icono-bloque-verde" size={24} />
             <h2>2. Laboratorio: ¿Mensaje Legítimo o Phishing?</h2>
           </div>
-          <p className="subtitulo-bloque">
-            Analiza cada mensaje y decide si es <strong>Legítimo</strong> o <strong>Phishing</strong>:
-          </p>
+          <CajaExplicacionDinamica
+            enQueConsiste="Laboratorio de simulación de mensajes de chat en plataformas gamer (Discord, Twitch, Steam)."
+            comoInteractuar="Lee cada mensaje, revisa el remitente y haz clic en 'Legítimo' o 'Phishing' según la sospecha de engaño."
+            paraQueSirve="Entrenará tu capacidad para detectar enlaces de suplantación e insignias falsas de verificación."
+          />
 
           <div className="mensajes-lista">
             {mensajes.map(msg => (
@@ -140,6 +167,11 @@ export const Videojuegos4to: React.FC = () => {
             <ShieldCheck className="icono-bloque-verde" size={24} />
             <h2>3. Decisiones en Comunidades Gamer</h2>
           </div>
+          <CajaExplicacionDinamica
+            enQueConsiste="Simulación de interacciones sociales en servidores públicos y salas de juego."
+            comoInteractuar="Analiza el dilema planteado y selecciona la respuesta que resguarde tu privacidad."
+            paraQueSirve="Evita que compartas datos personales o contraseñas en chats grupales o llamadas con desconocidos."
+          />
 
           <div className="escenarios-lista">
             {escenarios.map(escenario => (
@@ -178,9 +210,11 @@ export const Videojuegos4to: React.FC = () => {
             <ListChecks className="icono-bloque-verde" size={24} />
             <h2>4. Checklist de Seguridad en Comunidades</h2>
           </div>
-          <p className="subtitulo-bloque">
-            Marca las prácticas que ya realizas:
-          </p>
+          <CajaExplicacionDinamica
+            enQueConsiste="Lista de comprobación de privacidad en Discord, Steam y plataformas de comunicación gamer."
+            comoInteractuar="Haz clic en las casillas correspondientes a las configuraciones de privacidad que ya mantienes activadas."
+            paraQueSirve="Asegura que tu perfil no reciba mensajes directos no deseados ni solicitudes de bots peligrosos."
+          />
 
           <div className="lista-habitos-interactiva">
             {HABITOS_VIDEOJUEGOS_4TO.map((habito) => (

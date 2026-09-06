@@ -14,6 +14,7 @@ import {
   FileCode
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useSoftwarePirata3ro, HABITOS_SOFTWARE_3RO } from '../../../../hooks/HooksSoftwarePirata/useSoftwarePirata3ro';
 import './SoftwarePirata3ro.css';
 
@@ -41,15 +42,15 @@ export const SoftwarePirata3ro: React.FC = () => {
   } = useSoftwarePirata3ro();
 
   return (
-    <main className="pagina-modulo-software-3ro">
+    <main className="pagina-modulo-software">
       <HeaderModulo
         grado="3ro"
-        modulo="3: Análisis de Archivos y Detección de Malware"
-        titulo="Verifica antes de ejecutar"
-        subTitulo="Aprende a analizar archivos sospechosos usando hashes, firmas digitales y VirusTotal para evitar infecciones."
+        modulo="3: Malware en Descargas e Infecciones"
+        titulo="Detén el malware y secuestro de archivos"
+        subTitulo="Aprende a analizar hashes SHA-256, firmas digitales y prevenir ataques de Ransomware en 3er Año."
         categoria="Software y Descargas"
-        tiempoEstimado="55 min"
-        icono={<FileSearch size={36} />}
+        tiempoEstimado="50 min"
+        icono={<ShieldAlert size={36} />}
       />
 
       <div className="contenedor-software-contenido">
@@ -57,44 +58,25 @@ export const SoftwarePirata3ro: React.FC = () => {
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. Análisis de Archivos Sospechosos</h2>
+            <h2>1. Verificación de Integridad y Malware Oculto</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Antes de ejecutar cualquier archivo descargado, debes <strong>verificar su autenticidad e integridad</strong>. Existen tres herramientas clave: <strong>hashes</strong>, <strong>firmas digitales</strong> y <strong>VirusTotal</strong>.
+            Los atacantes ocultan ejecutable maliciosos en paquetes piratas. Para asegurarte de que un archivo no fue alterado, se utilizan <strong>hashes criptográficos</strong> y <strong>firmas digitales</strong>.
           </p>
 
           <div className="grid-pilares-software">
             <div className="caja-pilar-software">
-              <Hash className="icono-pilar azul" size={28} />
-              <h3>Hash (Integridad)</h3>
-              <p>Una huella digital única del archivo. Si cambia un solo bit, el hash cambia. Compara el hash oficial con el calculado.</p>
+              <ShieldCheck className="icono-pilar azul" size={28} />
+              <h3>Hash de Verificación (SHA-256)</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Código único que representa la huella digital del archivo.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Comprobar si el archivo descargado coincide 100% con el original del fabricante.</p>
             </div>
 
             <div className="caja-pilar-software">
               <FileCode className="icono-pilar verde" size={28} />
-              <h3>Firma Digital</h3>
-              <p>Certifica que el software proviene del desarrollador legítimo y no fue alterado. Verifica en las propiedades del archivo.</p>
-            </div>
-
-            <div className="caja-pilar-software">
-              <FileSearch className="icono-pilar rojo" size={28} />
-              <h3>VirusTotal</h3>
-              <p>Servicio gratuito que escanea archivos con más de 70 antivirus. Ideal para analizar descargas sospechosas.</p>
-            </div>
-          </div>
-
-          <div className="conceptos-clave-grid">
-            <h3 className="titulo-mini-seccion">Conceptos Clave</h3>
-            <div className="lista-conceptos">
-              <div className="item-concepto">
-                <strong>Hash MD5/SHA-256:</strong> Algoritmos que generan una cadena única a partir del contenido. Se usan para verificar que un archivo no fue modificado.
-              </div>
-              <div className="item-concepto">
-                <strong>Doble extensión:</strong> Táctica de malware: "foto.jpg.exe" parece una imagen pero es un ejecutable. Activa la vista de extensiones en tu sistema.
-              </div>
-              <div className="item-concepto">
-                <strong>Puerta trasera (backdoor):</strong> Código oculto que permite a un atacante controlar tu equipo. Frecuente en software pirata.
-              </div>
+              <h3>Firma Digital de Ejecutable</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Certificado criptográfico empaquetado en el archivo `.exe`.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Asegurar que el programa proviene de una empresa registrada y legítima.</p>
             </div>
           </div>
         </section>
@@ -105,9 +87,12 @@ export const SoftwarePirata3ro: React.FC = () => {
             <ShieldCheck className="icono-bloque-verde" size={24} />
             <h2>2. Laboratorio: ¿Archivo Sospechoso o Seguro?</h2>
           </div>
-          <p className="subtitulo-bloque">
-            Analiza cada archivo y decide si es <strong>Sospechoso</strong> o <strong>Seguro</strong>:
-          </p>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Analizador de Integridad de Descargas"
+            enQueConsiste="Inspeccionarás 3 archivos descargados con sus nombres, extensiones dobles y firmas digitales."
+            comoInteractuar="1. Lee la información del ejecutable. 2. Presiona 'Es Seguro' o 'Es Sospechoso / Infectado'. 3. Lee el dictamen de seguridad."
+            paraQueSirve="Evitará que ejecutes troyanos o ransomware disfrazados de documentos PDF o imágenes."
+          />
 
           <div className="archivos-lista">
             {archivos.map(archivo => (

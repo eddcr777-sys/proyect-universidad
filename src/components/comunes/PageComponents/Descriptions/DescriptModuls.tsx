@@ -161,7 +161,14 @@ export const DescripcionModuloUI: React.FC<DescripcionModuloProps> = ({
                   <span className="badge-termino">Término #{idx + 1}</span>
                   <h4>{item.termino}</h4>
                 </div>
-                <p className="definicion-termino">{item.definicion}</p>
+                <p className="definicion-termino">
+                  <strong>📖 ¿Qué es?:</strong> {item.definicion}
+                </p>
+                {item.paraQueSirve && (
+                  <p className="definicion-termino" style={{ color: '#0369a1', marginTop: '0.4rem' }}>
+                    <strong>⚙️ ¿Para qué sirve / qué función cumple?:</strong> {item.paraQueSirve}
+                  </p>
+                )}
                 {item.ejemploPráctico && (
                   <div className="ejemplo-termino">
                     <strong>💡 Ejemplo:</strong> {item.ejemploPráctico}

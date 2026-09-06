@@ -13,6 +13,7 @@ import {
   Lock
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import { CajaExplicacionDinamica } from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useAuditoria3ro, HABITOS_3RO } from '../../../../hooks/HooksAuditoria/useAuditoria3ro';
 import '../1ro/AuditoriaDigital1ro.css'; // Estilos base reutilizados
 import './AuditoriaDigital3ro.css'; // Estilos específicos de 3ro
@@ -89,16 +90,25 @@ export const AuditoriaDigital3ro: React.FC = () => {
           </div>
 
           <div className="conceptos-clave-grid">
-            <h3 className="titulo-mini-seccion">Conceptos Clave</h3>
+            <h3 className="titulo-mini-seccion">Glosario y Términos Clave</h3>
             <div className="lista-conceptos">
               <div className="item-concepto">
-                <strong>Antivirus:</strong> Software que detecta, bloquea y elimina malware. Debe estar actualizado para reconocer amenazas nuevas.
+                <strong>📖 ¿Qué es un Antivirus?</strong>
+                <p>Programa de seguridad que analiza la memoria y discos en busca de firmas de código malicioso.</p>
+                <strong>⚙️ ¿Para qué sirve / Qué función cumple?</strong>
+                <p>Bloquea la ejecución de virus y troyanos antes de que dañen el sistema o roben tus archivos personales.</p>
               </div>
               <div className="item-concepto">
-                <strong>Firewall:</strong> Barrera que controla el tráfico de red entrante y saliente según reglas de seguridad.
+                <strong>📖 ¿Qué es un Firewall (Cortafuegos)?</strong>
+                <p>Una barrera de red que inspecciona todo el tráfico de datos entrante y saliente del sistema.</p>
+                <strong>⚙️ ¿Para qué sirve / Qué función cumple?</strong>
+                <p>Evita que programas no autorizados abran conexiones clandestinas con servidores de hackers externos.</p>
               </div>
               <div className="item-concepto">
-                <strong>Backup:</strong> Copia de seguridad de tus archivos en un lugar distinto al original (nube, disco externo, pendrive).
+                <strong>📖 ¿Qué es la Regla de Backup 3-2-1?</strong>
+                <p>Una estrategia estándar de respaldo: 3 copias de tus datos, en 2 medios distintos, con 1 fuera del sitio original.</p>
+                <strong>⚙️ ¿Para qué sirve / Qué función cumple?</strong>
+                <p>Garantiza que nunca pierdas tus fotos o proyectos ante ataques de Ransomware o averías de disco duro.</p>
               </div>
             </div>
           </div>
@@ -110,9 +120,11 @@ export const AuditoriaDigital3ro: React.FC = () => {
             <AlertTriangle className="icono-bloque-rojo" size={24} />
             <h2>2. ¿Es malware o no? Identifica procesos</h2>
           </div>
-          <p className="texto-lectura-modulo">
-            En el Administrador de tareas verás muchos procesos. Algunos son legítimos del sistema, otros pueden ser malware disfrazado. Para cada proceso, decide si es <strong>Seguro</strong> o <strong>Sospechoso</strong>.
-          </p>
+          <CajaExplicacionDinamica
+            enQueConsiste="Un simulador del Administrador de Tareas para aprender a auditar los programas activos en el sistema operativo."
+            comoInteractuar="Examina el nombre del ejecutable y su descripción. Haz clic en 'Seguro' o 'Sospechoso' para clasificar cada proceso."
+            paraQueSirve="Desarrollarás la destreza técnica para detectar virus camuflados en el fondo de tu sistema."
+          />
 
           <div className="procesos-lista">
             {procesos.map(proceso => (
@@ -156,9 +168,11 @@ export const AuditoriaDigital3ro: React.FC = () => {
             <Lock className="icono-bloque-azul" size={24} />
             <h2>3. Decisiones de Firewall</h2>
           </div>
-          <p className="texto-lectura-modulo">
-            El firewall te pregunta si deseas permitir que ciertos programas se conecten a internet. Elige la opción correcta en cada situación.
-          </p>
+          <CajaExplicacionDinamica
+            enQueConsiste="Simulación de alertas emergentes de un cortafuegos (Firewall) solicitando permiso de red."
+            comoInteractuar="Lee la solicitud de conexión del software y elige entre Bloquear, Permitir o Investigar. Revisa la justificación de seguridad tras responder."
+            paraQueSirve="Aprenderás a evitar autorizar accidentalmente conexiones entrantes o salientes de troyanos."
+          />
 
           <div className="escenarios-lista">
             {escenariosFirewall.map(escenario => (
@@ -197,9 +211,11 @@ export const AuditoriaDigital3ro: React.FC = () => {
             <FileSearch className="icono-bloque-verde" size={24} />
             <h2>4. Checklist Técnico de Resguardo</h2>
           </div>
-          <p className="subtitulo-bloque">
-            Audita el estado de protección técnica de tus dispositivos:
-          </p>
+          <CajaExplicacionDinamica
+            enQueConsiste="Evaluación de controles de resguardo en antivirus, cortafuegos y respaldos periódicos."
+            comoInteractuar="Marca las verificaciones técnicas que ya tengas configuradas en tu computador o dispositivo móvil."
+            paraQueSirve="Permite calcular tu índice de resguardo ante pérdidas accidentales o ataques informáticos."
+          />
 
           <div className="lista-habitos-interactiva">
             {HABITOS_3RO.map((habito) => (

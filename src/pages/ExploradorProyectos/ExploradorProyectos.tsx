@@ -15,14 +15,9 @@ const ExploradorProyectos: React.FC = () => {
     <div className="pagina-explorador">
       <HeroInstitucional
         imagenFondo={fotoFachada}
-        altura="compacto"
-        cintillo={
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-            <Sparkles size={18} />
-            Showcase de Proyectos Estudiantiles
-          </span>
-        }
+        variante="compacto"
         titulo="Proyectos Educativos e Innovación Escolar"
+        subtitulo="Showcase de Proyectos Estudiantiles"
         descripcion="Explora las iniciativas desarrolladas por los estudiantes y la comunidad docente de nuestra institución. Esta plataforma abierta permite sumar nuevos módulos y conocimientos continuamente."
       />
 

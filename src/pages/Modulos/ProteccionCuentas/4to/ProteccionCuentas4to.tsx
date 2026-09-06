@@ -16,24 +16,25 @@ import {
   TerminalSquare
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
-import { useProteccionCuentas4to, HABITOS_CUENTAS_4TO } from '../../../../hooks/HooksProteccionCuentas/useProteccionCuentas4to';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
+import { HABITOS_CUENTAS_4TO, useProteccionCuentas4to } from '../../../../hooks/HooksProteccionCuentas/useProteccionCuentas4to';
 import './ProteccionCuentas4to.css';
 
 export const ProteccionCuentas4to: React.FC = () => {
   const {
+    hashes,
+    respuestasHash,
+    evaluarHash,
+    resultadoHash,
+    escenarios,
+    respuestasEscenario,
+    responderEscenario,
+    resultadoEscenario,
     habitosComprobados,
     toggleHabito,
     totalHabitos,
     habitosCompletados,
     porcentajeHabitos,
-    escenarios,
-    respuestasEscenario,
-    responderEscenario,
-    resultadoEscenario,
-    hashes,
-    respuestasHash,
-    evaluarHash,
-    resultadoHash,
     videos,
     preguntasQuiz,
     respuestasQuiz,
@@ -47,12 +48,12 @@ export const ProteccionCuentas4to: React.FC = () => {
     <main className="pagina-modulo-proteccion-4to">
       <HeaderModulo
         grado="4to"
-        modulo="4: Hash, Salt y Auditoría de Contraseñas"
-        titulo="Almacenamiento Seguro y Ataques de Fuerza Bruta"
-        subTitulo="Aprende cómo se guardan las contraseñas de forma segura (hash y salt), cómo funcionan los ataques de fuerza bruta y cómo auditar éticamente."
+        modulo="4: Criptografía y Almacenamiento Seguro"
+        titulo="Hashes, Salting y Bóvedas Cifradas"
+        subTitulo="Aprende cómo se almacenan las contraseñas en servidores, la función del salting y la criptografía de bóvedas en 4to Año."
         categoria="Protección de Cuentas y Accesos"
         tiempoEstimado="55 min"
-        icono={<Hash size={36} />}
+        icono={<ShieldCheck size={36} />}
       />
 
       <div className="contenedor-proteccion-contenido">
@@ -60,23 +61,25 @@ export const ProteccionCuentas4to: React.FC = () => {
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. ¿Cómo se almacenan las contraseñas de forma segura?</h2>
+            <h2>1. Criptografía de Contraseñas</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Las contraseñas NUNCA deben guardarse en texto plano. En su lugar, se utiliza una <strong>función hash</strong>: un algoritmo que convierte la contraseña en una cadena única e irreversible. Además, se añade un <strong>salt</strong> (cadena aleatoria) para que dos usuarios con la misma contraseña tengan hashes diferentes.
+            Las bases de datos modernas jamás guardan contraseñas en texto plano. En su lugar, utilizan <strong>funciones Hash unidireccionales</strong> (como Bcrypt o Argon2) combinadas con <strong>Salting</strong> (aleatorización de claves).
           </p>
 
           <div className="grid-pilares-proteccion">
             <div className="caja-pilar-proteccion">
-              <Lock className="icono-pilar rojo" size={28} />
-              <h3>Ataques de Fuerza Bruta y Diccionario</h3>
-              <p><strong>Fuerza bruta:</strong> probar todas las combinaciones posibles. <strong>Diccionario:</strong> usar listas de contraseñas comunes. Los hash lentos (bcrypt, Argon2) hacen estos ataques inviables.</p>
+              <ShieldCheck className="icono-pilar verde" size={28} />
+              <h3>Hash Criptográfico</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Algoritmo matemático que convierte cualquier texto en una cadena fija irreversible.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Almacenar claves en servidores sin que ni siquiera los administradores puedan leerlas.</p>
             </div>
 
             <div className="caja-pilar-proteccion">
-              <TerminalSquare className="icono-pilar verde" size={28} />
-              <h3>Herramientas de Auditoría</h3>
-              <p>John the Ripper y Hashcat son las más usadas para probar la fortaleza de contraseñas. <strong>Solo se usan en laboratorios propios o con autorización.</strong></p>
+              <Lock className="icono-pilar azul" size={28} />
+              <h3>Salting (Sal Criptográfica)</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Añadir una cadena de caracteres aleatorios antes de generar el hash.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Inutilizar tablas precalculadas (Rainbow Tables) en ciberataques.</p>
             </div>
           </div>
         </section>
@@ -87,6 +90,12 @@ export const ProteccionCuentas4to: React.FC = () => {
             <Code className="icono-bloque-verde" size={24} />
             <h2>2. Laboratorio: ¿Hash Seguro o Inseguro?</h2>
           </div>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Analizador de Cifrado Criptográfico"
+            enQueConsiste="Analizarás 3 algoritmos de cifrado de contraseñas (MD5, SHA-256, Bcrypt) en formato hash."
+            comoInteractuar="1. Lee la cadena cifrada y el nombre del algoritmo. 2. Selecciona 'Es Seguro' o 'Es Inseguro / Obsoleto'. 3. Consulta la explicación criptográfica."
+            paraQueSirve="Entenderás por qué algoritmos antiguos como MD5 son vulnerables y cuáles protegen las bases de datos en 4to año."
+          />
           <p className="subtitulo-bloque">
             Observa cada hash y su algoritmo. Determina si es seguro para almacenar contraseñas:
           </p>

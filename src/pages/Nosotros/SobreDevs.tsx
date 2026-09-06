@@ -129,10 +129,9 @@ export const TeamSection: React.FC = () => {
       {/* 4. COMPROMISO FINAL (FONDO AZUL) */}
       <section className="seccion-compromiso">
         <div className="contenedor-seccion-ancho">
-          <h2>Compromiso UPTOS con la Comunidad</h2>
+          <h2>Compromiso de la UPTOS CR con la Comunidad</h2>
           <p>
-            Proteger la información y la identidad digital es un derecho de todos, y nuestra misión es hacerlo realidad en cada
-            institución educativa de Cumaná.
+            Proteger la información y la identidad digital es un derecho de todos, y la misión de los estudiantes de la UPTOS CR (Universidad Politécnica Territorial del Oeste de Sucre "Clodosbaldo Russian") es hacerlo realidad en cada institución educativa de Cumaná.
           </p>
           <span className="insignia-compromiso">Moral y Luces</span>
         </div>

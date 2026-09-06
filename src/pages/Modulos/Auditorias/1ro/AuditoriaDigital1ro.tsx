@@ -15,6 +15,7 @@ import {
   XCircle
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useAuditoria1ro, HABITOS_1RO } from '../../../../hooks/HooksAuditoria/useAuditoria1ro';
 import './AuditoriaDigital1ro.css';
 
@@ -112,9 +113,12 @@ export const AuditoriaDigital1ro: React.FC = () => {
             <Lock className="icono-bloque-amarillo" size={24} />
             <h2>2. Simulador: ¿Qué permisos otorgarías?</h2>
           </div>
-          <p className="texto-lectura-modulo">
-            A continuación verás varias aplicaciones. Marca los permisos que <strong>tú</strong> le darías. Luego presiona "Comprobar" para ver si acertaste.
-          </p>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Evaluador de Permisos de Apps"
+            enQueConsiste="Analizarás 3 aplicaciones (Linterna, Calculadora, Editor de Fotos) y sus solicitudes de acceso a la cámara, micrófono, GPS y contactos."
+            comoInteractuar="Haz clic en los permisos que consideres legítimos de otorgar y luego presiona el botón 'Evaluar Mis Respuestas' para comprobar el diagnóstico."
+            paraQueSirve="Detectarás cuándo una aplicación espía solicita permisos excesivos no relacionados con su función básica."
+          />
 
           <div className="apps-permisos-lista">
             {appsEjemplo.map(app => (

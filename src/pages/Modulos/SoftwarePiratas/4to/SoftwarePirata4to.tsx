@@ -14,6 +14,7 @@ import {
   Bell
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useSoftwarePirata4to, HABITOS_SOFTWARE_4TO } from '../../../../hooks/HooksSoftwarePirata/useSoftwarePirata4to';
 import './SoftwarePirata4to.css';
 
@@ -41,14 +42,14 @@ export const SoftwarePirata4to: React.FC = () => {
   } = useSoftwarePirata4to();
 
   return (
-    <main className="pagina-modulo-software-4to">
+    <main className="pagina-modulo-software">
       <HeaderModulo
         grado="4to"
-        modulo="4: Aspectos Legales y Propiedad Intelectual"
-        titulo="Conoce la ley y actúa con responsabilidad"
-        subTitulo="Aprende sobre propiedad intelectual, licencias EULA, consecuencias legales de la piratería y cómo denunciar."
+        modulo="4: Cryptojacking y Marco Legal"
+        titulo="Minería de criptomonedas y propiedad intelectual"
+        subTitulo="Aprende cómo detectar programas que usan tu CPU/GPU para minar criptomonedas y las implicaciones legales en 4to Año."
         categoria="Software y Descargas"
-        tiempoEstimado="60 min"
+        tiempoEstimado="55 min"
         icono={<Scale size={36} />}
       />
 
@@ -57,29 +58,25 @@ export const SoftwarePirata4to: React.FC = () => {
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. Piratería, Propiedad Intelectual y Ley</h2>
+            <h2>1. Cryptojacking y Propiedad Intelectual</h2>
           </div>
           <p className="texto-lectura-modulo">
-            El software está protegido por <strong>leyes de propiedad intelectual</strong>. Usarlo sin licencia no solo es poco ético, sino que puede tener <strong>consecuencias legales graves</strong>: multas, sanciones e incluso penas de cárcel en casos graves. Como ciudadano digital responsable, debes conocer la ley y actuar conforme a ella.
+            Muchos instaladores piratas incluyen mineros ocultos que consumen los recursos de tu hardware. Además, el uso de software pirateado vulnera el derecho de autor.
           </p>
 
           <div className="grid-pilares-software">
             <div className="caja-pilar-software">
               <Scale className="icono-pilar rojo" size={28} />
-              <h3>Propiedad Intelectual</h3>
-              <p>Derecho que protege las creaciones del intelecto: software, música, libros, arte. El autor tiene derechos exclusivos.</p>
+              <h3>Cryptojacking</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Uso no autorizado de tu CPU/GPU para minar criptomonedas.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve detectarlo?:</strong> Prevenir la ralentización extrema y el sobrecalentamiento de tu computadora.</p>
             </div>
 
             <div className="caja-pilar-software">
               <FileText className="icono-pilar azul" size={28} />
-              <h3>Licencia EULA</h3>
-              <p>Contrato que aceptas al instalar un programa. Define qué usos están permitidos y cuáles prohibidos.</p>
-            </div>
-
-            <div className="caja-pilar-software">
-              <Bell className="icono-pilar verde" size={28} />
-              <h3>Denuncia y Cumplimiento</h3>
-              <p>En Venezuela, el SAPI (Servicio Autónomo de Propiedad Intelectual) protege los derechos de autor y recibe denuncias.</p>
+              <h3>Licencia EULA / Contrato de Uso</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Acuerdo legal entre el fabricante del programa y el usuario final.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Conocer los límites de uso permitido y evitar sanciones legales.</p>
             </div>
           </div>
         </section>
@@ -90,9 +87,12 @@ export const SoftwarePirata4to: React.FC = () => {
             <ShieldCheck className="icono-bloque-verde" size={24} />
             <h2>2. ¿Es Delito o Uso Legal?</h2>
           </div>
-          <p className="subtitulo-bloque">
-            Analiza cada caso y decide si constituye <strong>Delito</strong> o <strong>Uso legal</strong>:
-          </p>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Evaluador de Delitos Informáticos y Licencias"
+            enQueConsiste="Analizarás 3 casos sobre uso de instaladores no oficiales y minería de criptomonedas."
+            comoInteractuar="1. Lee el caso. 2. Presiona 'Es Legal' o 'Es Delito / Uso Ilegal'. 3. Revisa la retroalimentación legal del SAPI y leyes informáticas."
+            paraQueSirve="Entenderás el impacto legal y técnico de la piratería en entornos educativos y laborales."
+          />
 
           <div className="casos-lista">
             {casos.map(caso => (

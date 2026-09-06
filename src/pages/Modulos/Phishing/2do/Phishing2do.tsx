@@ -14,6 +14,7 @@ import {
   Eye
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { usePhishing2do, SENALES_AVANZADAS } from '../../../../hooks/HooksPhishing/usePhishing2do';
 import '../1ro/Phishing1ro.css';
 import './Phishing2do.css';

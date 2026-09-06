@@ -12,6 +12,7 @@ import {
   Award
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { usePhishing1ro, SENALES_PHISHING } from '../../../../hooks/HooksPhishing/usePhishing1ro';
 import './Phishing1ro.css';
 
@@ -83,9 +84,12 @@ export const Phishing1ro: React.FC = () => {
             <MessageSquare className="icono-bloque-verde" size={24} />
             <h2>2. Laboratorio Interactivo: Detecta el Anzuelo</h2>
           </div>
-          <p className="subtitulo-bloque-phishing">
-            Analiza cada uno de los siguientes mensajes simulados y decide si es <strong>Seguro</strong> o si se trata de <strong>Phishing</strong>:
-          </p>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Laboratorio: Detecta el Anzuelo"
+            enQueConsiste="Analizarás 3 casos reales simulados de correos y mensajes de texto para determinar si corresponden a comunicaciones legítimas o a intentos de suplantación de identidad (Phishing)."
+            comoInteractuar="Lee atentamente el remitente, asunto y mensaje. Haz clic en 'Es Seguro' si crees que la fuente es confiable, o en 'Es Phishing / Engaño' si detectas peligro. Al seleccionar una opción, verás la explicación detallada de la respuesta correcta."
+            paraQueSirve="Entrenarás tu capacidad crítica para detectar remitentes sospechosos, URLs alteradas y engaños urgentes antes de hacer clic en tu vida cotidiana."
+          />
 
           <div className="lista-simuladores-phishing">
             {mensajes.map((msg) => {

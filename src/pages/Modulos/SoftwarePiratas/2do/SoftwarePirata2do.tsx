@@ -11,9 +11,11 @@ import {
   ListChecks,
   FileCheck,
   Lock,
-  Code2
+  Code2,
+  FileCode
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useSoftwarePirata2do, HABITOS_SOFTWARE_2DO } from '../../../../hooks/HooksSoftwarePirata/useSoftwarePirata2do';
 import './SoftwarePirata2do.css';
 
@@ -42,15 +44,15 @@ export const SoftwarePirata2do: React.FC = () => {
   } = useSoftwarePirata2do();
 
   return (
-    <main className="pagina-modulo-software-2do">
+    <main className="pagina-modulo-software">
       <HeaderModulo
         grado="2do"
-        modulo="2: Licencias y Verificación de Software"
-        titulo="Conoce las licencias y verifica tus descargas"
-        subTitulo="Aprende a diferenciar software libre, propietario, freeware y shareware, y cómo asegurarte de que tus descargas sean legítimas."
+        modulo="2: Licencias de Software y Software Libre (FOSS)"
+        titulo="Tipos de licencias y cultura libre"
+        subTitulo="Aprende la diferencia entre software libre, propietario, freeware y cómo usar alternativas seguras en 2do Año."
         categoria="Software y Descargas"
-        tiempoEstimado="50 min"
-        icono={<FileCheck size={36} />}
+        tiempoEstimado="45 min"
+        icono={<FileCode size={36} />}
       />
 
       <div className="contenedor-software-contenido">
@@ -61,26 +63,22 @@ export const SoftwarePirata2do: React.FC = () => {
             <h2>1. Tipos de Licencias de Software</h2>
           </div>
           <p className="texto-lectura-modulo">
-            No todo software es igual. Entender las <strong>licencias</strong> te permite elegir programas legales, seguros y adecuados para cada necesidad. Existen varios tipos:
+            Una <strong>licencia de software</strong> es el contrato legal que especifica cómo puedes usar un programa. No todo el software gratuito es libre ni todo el software de pago es inaccesible.
           </p>
 
           <div className="grid-pilares-software">
             <div className="caja-pilar-software">
-              <Code2 className="icono-pilar azul" size={28} />
-              <h3>Software Libre / Open Source</h3>
-              <p>Su código fuente está disponible. Puedes usarlo, modificarlo y compartirlo. Ejemplo: LibreOffice, GIMP, Linux.</p>
+              <FileCode className="icono-pilar verde" size={28} />
+              <h3>Software Libre / FOSS</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Programas de código abierto que garantizan las 4 libertades (usar, estudiar, modificar, compartir).</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Usar herramientas profesionales gratuitas sin instalar virus o piratear.</p>
             </div>
 
             <div className="caja-pilar-software">
               <Lock className="icono-pilar rojo" size={28} />
               <h3>Software Propietario</h3>
-              <p>De código cerrado. Requiere comprar una licencia. Ejemplo: Microsoft Office, Adobe Photoshop.</p>
-            </div>
-
-            <div className="caja-pilar-software">
-              <FileCheck className="icono-pilar verde" size={28} />
-              <h3>Freeware y Shareware</h3>
-              <p><strong>Freeware:</strong> gratuito pero de código cerrado. <strong>Shareware:</strong> prueba gratis con pago posterior para uso completo.</p>
+              <p><strong>📖 ¿Qué es?:</strong> Programas de código cerrado protegidos por derechos de autor comercial.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve conocerlo?:</strong> Evitar crackearlos para no infringir leyes de derecho de autor ni infectar tu equipo.</p>
             </div>
           </div>
         </section>
@@ -91,9 +89,12 @@ export const SoftwarePirata2do: React.FC = () => {
             <ShieldCheck className="icono-bloque-verde" size={24} />
             <h2>2. Laboratorio: Clasifica la Licencia</h2>
           </div>
-          <p className="subtitulo-bloque">
-            Para cada software, selecciona el tipo de licencia que le corresponde:
-          </p>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Clasificador de Licencias"
+            enQueConsiste="Analizarás 3 programas conocidos (LibreOffice, Photoshop, VLC) y sus condiciones de uso."
+            comoInteractuar="Haz clic sobre el chip de tipo de licencia (Libre, Propietario, Freeware) que corresponda. Obtendrás retroalimentación inmediata."
+            paraQueSirve="Distinguirás software seguro de código abierto de programas comerciales que requieren compra de licencia."
+          />
 
           <div className="licencias-lista">
             {licencias.map(licencia => (

@@ -14,6 +14,7 @@ import {
   ListChecks
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { HABITOS_CONTRASENA_1RO, useProteccionCuentas1ro } from '../../../../hooks/HooksProteccionCuentas/useProteccionCuentas1ro';
 import './ProteccionCuentas1ro.css';
 
@@ -89,9 +90,12 @@ export const ProteccionCuentas1ro: React.FC = () => {
             <Key className="icono-bloque-azul" size={24} />
             <h2>2. Simulador: Crea tu Contraseña</h2>
           </div>
-          <p className="subtitulo-bloque">
-            Escribe una contraseña de prueba (¡no uses tu contraseña real!) y observa cómo cambia la fortaleza según los caracteres que agregas.
-          </p>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Simulador de Fortaleza de Contraseñas"
+            enQueConsiste="Escribirás una frase o clave de prueba en el campo interactivo para evaluar en tiempo real la complejidad, longitud y resistencia de la contraseña."
+            comoInteractuar="Ingresa texto en la casilla de entrada (¡no uses tu clave personal real!). Observa cómo la barra de nivel cambia de color (Rojo: Débil, Amarillo: Media, Verde: Inexpugnable) y revisa las recomendaciones dinámicas según agregues números, símbolos y mayúsculas."
+            paraQueSirve="Aprenderás a construir claves indescifrables capaces de resistir ataques automatizados de adivinación (fuerza bruta)."
+          />
 
           <div className="input-wrapper">
             <input

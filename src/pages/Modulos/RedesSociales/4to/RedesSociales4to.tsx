@@ -15,6 +15,7 @@ import {
   Database
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useRedesSociales4to, HABITOS_REDES_4TO } from '../../../../hooks/HooksRedesSociales/useRedesSociales4to';
 import './RedesSociales4to.css';
 
@@ -45,12 +46,12 @@ export const RedesSociales4to: React.FC = () => {
     <main className="pagina-modulo-redes-4to">
       <HeaderModulo
         grado="4to"
-        modulo="4: OAuth, APIs y Auditoría de Datos"
-        titulo="Controla quién accede a tus redes"
-        subTitulo="Aprende a revisar permisos de apps conectadas, entender OAuth y auditar los datos que las redes sociales tienen sobre ti."
+        modulo="4: Rastreo, Algoritmos y Aplicaciones Terceras"
+        titulo="Detrás del algoritmo de redes"
+        subTitulo="Aprende cómo funcionan los algoritmos de recolección de datos, auditar aplicaciones conectadas y controlar la publicidad en 4to Año."
         categoria="Redes Sociales e Identidad"
-        tiempoEstimado="60 min"
-        icono={<Database size={36} />}
+        tiempoEstimado="55 min"
+        icono={<ShieldCheck size={36} />}
       />
 
       <div className="contenedor-redes-contenido">
@@ -58,29 +59,25 @@ export const RedesSociales4to: React.FC = () => {
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. OAuth, APIs y Permisos de Aplicaciones</h2>
+            <h2>1. Algoritmos de Recolección y Permisos de Apps Terceras</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Cuando usas "Iniciar sesión con Google o Facebook", estás usando <strong>OAuth</strong>: un protocolo que permite a una app acceder a ciertos datos <strong>sin compartir tu contraseña</strong>. Sin embargo, muchas apps piden <strong>permisos excesivos</strong> que no necesitan. Auditar estas conexiones es clave para proteger tu información.
+            Las redes sociales utilizan <strong>algoritmos de recomendación y rastreo</strong> para mantener tu atención y vender publicidad dirigida. Al conectar juegos o test a tu cuenta, otorgas permisos de lectura a empresas externas.
           </p>
 
           <div className="grid-pilares-redes">
             <div className="caja-pilar-redes">
-              <KeyRound className="icono-pilar rojo" size={28} />
-              <h3>OAuth (Autorización Delegada)</h3>
-              <p>No compartas contraseñas con apps de terceros. OAuth otorga tokens con permisos limitados que puedes revocar.</p>
+              <ShieldCheck className="icono-pilar azul" size={28} />
+              <h3>Tokens OAuth</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Credenciales temporales para conectar juegos a tu cuenta sin dar claves.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Dar permisos específicos y revocables a aplicaciones de terceros.</p>
             </div>
 
             <div className="caja-pilar-redes">
-              <Lock className="icono-pilar azul" size={28} />
-              <h3>Permisos Excesivos</h3>
-              <p>Una app de linterna no necesita acceso a tus contactos. Revisa qué permisos solicitan antes de conectar.</p>
-            </div>
-
-            <div className="caja-pilar-redes">
-              <Database className="icono-pilar verde" size={28} />
-              <h3>Auditoría de Datos</h3>
-              <p>Las redes permiten descargar una copia de tus datos. Revisa qué guardan sobre ti y elimina lo innecesario.</p>
+              <Lock className="icono-pilar rojo" size={28} />
+              <h3>Permisos Excesivos de Apps</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Accesos no justificados a lista de amigos o mensajes.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve identificarlos?:</strong> Evitar que test lúdicos recolecten tus datos de perfil para spammers.</p>
             </div>
           </div>
         </section>
@@ -91,9 +88,12 @@ export const RedesSociales4to: React.FC = () => {
             <Lock className="icono-bloque-verde" size={24} />
             <h2>2. Laboratorio: ¿Permisos Adecuados o Excesivos?</h2>
           </div>
-          <p className="subtitulo-bloque">
-            Analiza cada aplicación conectada y decide si los permisos solicitados son <strong>adecuados</strong> o <strong>excesivos</strong>:
-          </p>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Evaluador de Permisos en Redes"
+            enQueConsiste="Analizarás 3 aplicaciones de terceros (Juegos, Filtros de fotos, Test de personalidad) que piden acceso a tu cuenta."
+            comoInteractuar="Lee la lista de permisos solicitados y presiona 'Adecuados / Justificados' o 'Excesivos / Peligrosos'. Revisa el diagnóstico."
+            paraQueSirve="Aprenderás a revocar accesos invasivos en la pestaña de Seguridad de tus redes sociales."
+          />
 
           <div className="apps-lista">
             {appsConectadas.map(app => (

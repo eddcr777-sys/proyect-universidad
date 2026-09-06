@@ -15,6 +15,7 @@ import {
   Globe
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useRedesSociales5to, HABITOS_REDES_5TO } from '../../../../hooks/HooksRedesSociales/useRedesSociales5to';
 import './RedesSociales5to.css';
 
@@ -68,19 +69,22 @@ export const RedesSociales5to: React.FC = () => {
             <div className="caja-pilar-redes">
               <Briefcase className="icono-pilar azul" size={28} />
               <h3>Marca Personal Profesional</h3>
-              <p>Construye un perfil que destaque tus logros, habilidades y valores. LinkedIn es una herramienta clave para tu futuro.</p>
+              <p><strong>📖 ¿Qué es?:</strong> Imagen y reputación digital proyectada en redes como LinkedIn.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Destacar habilidades académicas y proyectos para postulaciones universitarias o laborales.</p>
             </div>
 
             <div className="caja-pilar-redes">
               <Lock className="icono-pilar rojo" size={28} />
-              <h3>Políticas de Uso</h3>
-              <p>Las organizaciones regulan qué se puede publicar para evitar fugas de información y daños reputacionales.</p>
+              <h3>Políticas de Uso Institucional</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Normas que regulan qué datos institucionales se pueden hacer públicos.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Prevenir la filtración de documentos escolares confidenciales o fotos de estudiantes sin consentimiento.</p>
             </div>
 
             <div className="caja-pilar-redes">
               <Globe className="icono-pilar verde" size={28} />
-              <h3>Cumplimiento Normativo</h3>
-              <p>Normas como ISO 27001 o leyes de protección de datos exigen cuidar la información sensible que se comparte.</p>
+              <h3>Cumplimiento Normativo (LOPNNA/GDPR)</h3>
+              <p><strong>📖 ¿Qué es?:</strong> Leyes que protegen la imagen y los datos personales de menores de edad.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Evitar responsabilidades legales por sobreexposición o difusión ilícita de datos personales.</p>
             </div>
           </div>
         </section>
@@ -91,9 +95,12 @@ export const RedesSociales5to: React.FC = () => {
             <ShieldCheck className="icono-bloque-verde" size={24} />
             <h2>2. Auditoría de Perfiles: ¿Cumple o No Cumple?</h2>
           </div>
-          <p className="subtitulo-bloque">
-            Analiza cada perfil y decide si <strong>cumple</strong> con las políticas de uso responsable o <strong>no cumple</strong>:
-          </p>
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Evaluador de Marca Personal y Políticas"
+            enQueConsiste="Analizarás 3 perfiles profesionales simulados y sus publicaciones en redes sociales."
+            comoInteractuar="Lee la biografía y los contenidos del perfil. Selecciona 'Cumple con la Política' o 'No Cumple / Riesgo Reputacional'. Verás la evaluación del auditor."
+            paraQueSirve="Desarrollará el criterio necesario en 5to año para mantener una reputación intachable en la web profesional."
+          />
 
           <div className="perfiles-auditoria-lista">
             {perfilesAuditoria.map(perfil => (

@@ -12,6 +12,7 @@ import {
   EyeOff
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
+import { CajaExplicacionDinamica } from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
 import { useAuditoria4to, HABITOS_4TO } from '../../../../hooks/HooksAuditoria/useAuditoria4to';
 import '../1ro/AuditoriaDigital1ro.css'; // Estilos base reutilizados
 import './AuditoriaDigital4to.css'; // Estilos específicos de 4to
@@ -88,16 +89,25 @@ export const AuditoriaDigital4to: React.FC = () => {
           </div>
 
           <div className="conceptos-clave-grid">
-            <h3 className="titulo-mini-seccion">Conceptos Clave</h3>
+            <h3 className="titulo-mini-seccion">Glosario y Términos Clave</h3>
             <div className="lista-conceptos">
               <div className="item-concepto">
-                <strong>Sniffer:</strong> Programa que captura paquetes de red. Wireshark es el más usado. Sirve para auditar tu propia red.
+                <strong>📖 ¿Qué es un Sniffer (Analizador de Paquetes)?</strong>
+                <p>Software (como Wireshark) que captura todos los paquetes que viajan por una red Wi-Fi o de cable.</p>
+                <strong>⚙️ ¿Para qué sirve / Qué riesgo implica?</strong>
+                <p>En manos de auditores sirve para diagnosticar fallas de red, pero atacantes lo usan para espiar contraseñas no cifradas.</p>
               </div>
               <div className="item-concepto">
-                <strong>DNS sin cifrar:</strong> Consultas que revelan qué páginas visitas. Pueden ser interceptadas y manipuladas (DNS spoofing).
+                <strong>📖 ¿Qué es DNS sin Cifrar?</strong>
+                <p>Consultas del sistema para traducir nombres de dominio (google.com) a IP en texto claro.</p>
+                <strong>⚙️ ¿Para qué sirve / Qué riesgo implica?</strong>
+                <p>Permite a terceros o proveedores ver exactamente qué sitios web visitas e incluso redireccionarte a sitios falsos (DNS Spoofing).</p>
               </div>
               <div className="item-concepto">
-                <strong>Gemelo malvado (Evil Twin):</strong> Punto de acceso Wi-Fi falso con nombre similar al legítimo, usado para espiar a las víctimas.
+                <strong>📖 ¿Qué es un Gemelo Malvado (Evil Twin)?</strong>
+                <p>Un punto de acceso Wi-Fi falso creado por un atacante con el mismo nombre (SSID) que una red legítima.</p>
+                <strong>⚙️ ¿Para qué sirve / Qué riesgo implica?</strong>
+                <p>Engaña a los celulares para que se conecten automáticamente y pasen todo su tráfico a través del atacante.</p>
               </div>
             </div>
           </div>
@@ -109,9 +119,11 @@ export const AuditoriaDigital4to: React.FC = () => {
             <Lock className="icono-bloque-rojo" size={24} />
             <h2>2. ¿Qué tráfico es seguro?</h2>
           </div>
-          <p className="texto-lectura-modulo">
-            Para cada tipo de conexión, decide si consideras que viaja <strong>cifrada (segura)</strong> o <strong>en texto plano (insegura)</strong>.
-          </p>
+          <CajaExplicacionDinamica
+            enQueConsiste="Simulador interactivo de análisis de protocolos de red (HTTP vs HTTPS, FTP vs SFTP, DNS sin cifrar)."
+            comoInteractuar="Analiza cada tipo de tráfico presentado y presiona 'Seguro' si la conexión está cifrada o 'Inseguro' si viaja en texto plano."
+            paraQueSirve="Aprenderás a distinguir conexiones vulnerables antes de enviar datos confidenciales en la web."
+          />
 
           <div className="traficos-lista">
             {traficos.map(trafico => (
@@ -155,9 +167,11 @@ export const AuditoriaDigital4to: React.FC = () => {
             <WifiOff className="icono-bloque-amarillo" size={24} />
             <h2>3. Decisiones en redes abiertas</h2>
           </div>
-          <p className="texto-lectura-modulo">
-            Lee cada situación y elige la opción más segura.
-          </p>
+          <CajaExplicacionDinamica
+            enQueConsiste="Dilemas tácticos sobre navegación segura al conectarse a redes desconocidas o públicas."
+            comoInteractuar="Lee la situación del escenario y selecciona la respuesta con la mejor práctica de protección."
+            paraQueSirve="Fortalece tu juicio para navegar en cafeterías, plazas y transportes públicos sin exponer tu privacidad."
+          />
 
           <div className="escenarios-lista">
             {escenariosRed.map(escenario => (
@@ -196,9 +210,11 @@ export const AuditoriaDigital4to: React.FC = () => {
             <ShieldCheck className="icono-bloque-verde" size={24} />
             <h2>4. Checklist de Navegación Segura</h2>
           </div>
-          <p className="subtitulo-bloque">
-            Marca las prácticas que ya realizas en tu día a día digital:
-          </p>
+          <CajaExplicacionDinamica
+            enQueConsiste="Lista de autoevaluación de hábitos de cifrado y uso de protocolos de comunicación."
+            comoInteractuar="Haz clic en los hábitos que ya pones en práctica diariamente para calcular tu porcentaje de inmunidad."
+            paraQueSirve="Te brinda una hoja de ruta clara para elevar tus estándares de navegación segura."
+          />
 
           <div className="lista-habitos-interactiva">
             {HABITOS_4TO.map((habito) => (
