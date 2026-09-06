@@ -14,6 +14,7 @@ interface CarruselBaseProps {
   indiceActual: number;
   onAnterior: () => void;
   onSiguiente: () => void;
+  onIrAIndice?: (indice: number) => void;
   titulo?: string;
 }
 
@@ -22,12 +23,13 @@ const CarruselBase: React.FC<CarruselBaseProps> = ({
   indiceActual,
   onAnterior,
   onSiguiente,
+  onIrAIndice,
   titulo,
 }) => {
   return (
     <div className="bloque-carrusel-interno">
       {titulo && (
-        <h3 className="titulo-seccion-editorial" style={{ fontSize: '3rem', marginBottom: '30px', textAlign: 'center'  }}>
+        <h3 className="titulo-seccion-editorial titulo-carrusel-encabezado">
           {titulo}
         </h3>
       )}
@@ -56,6 +58,20 @@ const CarruselBase: React.FC<CarruselBaseProps> = ({
             <ChevronRight size={24} />
           </button>
         </div>
+
+        {slides.length > 1 && (
+          <div className="indicadores-carrusel">
+            {slides.map((slide, index) => (
+              <button
+                key={slide.id}
+                type="button"
+                className={`indicador-punto ${index === indiceActual ? 'activo' : ''}`}
+                onClick={() => onIrAIndice && onIrAIndice(index)}
+                aria-label={`Ir a la diapositiva ${index + 1}`}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

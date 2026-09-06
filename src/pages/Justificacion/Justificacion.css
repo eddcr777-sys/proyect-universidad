@@ -556,7 +556,8 @@
 @media (max-width: 768px) {
   .contenedor,
   .hero-contenido {
-    padding: 0 1rem;
+    padding: 0 0.5rem;
+    width: 100%;
   }
 
   .seccion-justificacion,
@@ -565,27 +566,31 @@
   .seccion-filosofia,
   .seccion-faq,
   .seccion-cta-final {
-    padding: 3rem 0;
+    padding: 2rem 0;
   }
 
   .hero-titulo {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
 
   .encabezado-seccion h2,
   .cta-inner h2,
   .filosofia-contenido h2,
   .seccion-cta-final h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .grid-valores {
     grid-template-columns: 1fr;
-    gap: 1.25rem;
+    gap: 1rem;
   }
 
   .pilar-card {
-    padding: 1.25rem 1rem;
+    padding: 1rem 0.75rem;
+  }
+
+  .tarjeta-valor {
+    padding: 1rem 0.75rem;
   }
 
   .boton-cta {
@@ -599,7 +604,7 @@
 
 @media (max-width: 480px) {
   .contenedor {
-    padding: 0 0.75rem;
+    padding: 0 0.5rem;
   }
 
   .hero-botones {
@@ -615,9 +620,9 @@
   }
 
   .filosofia-contenido blockquote {
-    font-size: 1.1rem;
-    padding-left: 12px;
-    margin: 16px 0;
+    font-size: 1rem;
+    padding-left: 10px;
+    margin: 14px 0;
   }
 
   .filosofia-badges {

@@ -382,15 +382,16 @@
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 768px) {
   .evento-fila {
-    grid-template-columns: 1fr; /* Se apila en móviles: primero el texto, luego la imagen */
-    padding: 1.5rem;
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    padding: 1.25rem 0.5rem;
+    gap: 1.25rem;
   }
   .evento-relato h3 {
     font-size: 1.3rem;
   }
   .imagen-historica {
-    aspect-ratio: 16/9; /* Proporción más panorámica en pantallas pequeñas */
+    aspect-ratio: 16/9;
+    border-radius: 8px;
   }
   .marco-imagen figcaption {
     font-size: 0.75rem;
@@ -399,35 +400,45 @@
 
   /* Padding lateral del contenedor principal en móvil */
   .contenedor-nosotros {
-    padding: 2rem 1rem 3.5rem;
+    padding: 1.5rem 0.5rem 3rem 0.5rem;
+    width: 100%;
   }
 
   /* Título principal más compacto */
   .titulo-seccion-homenaje {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .encabezado-historia h2 {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
+  }
+
+  .seccion-cruzada-padding-40 {
+    padding: 16px 0;
+  }
+
+  .caja-info-destacada {
+    padding: 0.85rem 0.75rem;
+    border-radius: 8px;
   }
 }
 
 @media (max-width: 480px) {
   .titulo-seccion-homenaje {
-    font-size: 1.6rem;
-  }
-
-  .encabezado-historia h2 {
     font-size: 1.5rem;
   }
 
-  .evento-relato h3 {
-    font-size: 1.2rem;
+  .encabezado-historia h2 {
+    font-size: 1.4rem;
   }
 
-  /* Estadísticas en pantallas muy pequeñas */
+  .evento-relato h3 {
+    font-size: 1.15rem;
+  }
+
   .grid-estadisticas {
     grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
 }
 

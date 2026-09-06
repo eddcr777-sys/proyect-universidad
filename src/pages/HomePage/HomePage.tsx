@@ -153,6 +153,7 @@ export const Home: React.FC = () => {
           indiceActual={carruselLabores.indiceActual}
           onAnterior={carruselLabores.anterior}
           onSiguiente={carruselLabores.siguiente}
+          onIrAIndice={carruselLabores.irAIndice}
         />
       </section>
 
@@ -178,6 +179,7 @@ export const Home: React.FC = () => {
           indiceActual={carruselPersonal.indiceActual}
           onAnterior={carruselPersonal.anterior}
           onSiguiente={carruselPersonal.siguiente}
+          onIrAIndice={carruselPersonal.irAIndice}
         />
       </section>
     </main>

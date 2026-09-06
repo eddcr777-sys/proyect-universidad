@@ -207,18 +207,50 @@
 /* Responsive */
 @media (max-width: 768px) {
   .contenedor-liceo {
-    padding: 40px 16px 60px 16px;
+    padding: 24px 0.5rem 48px 0.5rem;
+    width: 100%;
+  }
+
+  .encabezado-seccion-liceo {
+    margin: 0 auto 30px auto;
+    padding: 0 0.5rem;
   }
 
   .titulo-seccion-liceo {
-    font-size: 2.1rem;
+    font-size: 1.8rem;
+  }
+
+  .grid-tarjetas-liceo {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin: 0;
+  }
+
+  .tarjeta-liceo {
+    padding: 20px 14px;
+    border-radius: 10px;
   }
 
   .caja-destacada-liceo {
-    padding: 28px 20px;
+    padding: 24px 14px;
+    margin-bottom: 30px;
+    border-radius: 12px;
   }
 
   .bloque-contenido-liceo {
-    padding: 24px 18px;
+    padding: 20px 14px;
+    margin-bottom: 24px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo-seccion-liceo {
+    font-size: 1.5rem;
+  }
+
+  .caja-destacada-liceo h3,
+  .bloque-contenido-liceo h3 {
+    font-size: 1.35rem;
   }
 }
