@@ -10,6 +10,9 @@
   min-height: 80vh;
   background-color: var(--color-inst-fondo);
   color: var(--color-inst-texto);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
 }
 
 .contenedor-presentacion-grado {
@@ -56,6 +59,7 @@
 }
 
 .titulo-presentacion-grado {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   margin: 0 0 16px 0;
   font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: 800;
@@ -125,6 +129,7 @@
 }
 
 .titulo-seccion-modulos {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   margin: 0 0 8px 0;
   font-size: var(--tamano-texto-2xl);
   font-weight: 800;
@@ -132,6 +137,7 @@
 }
 
 .subtitulo-seccion-modulos {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   margin: 0;
   font-size: var(--tamano-texto-sm);
   color: var(--color-inst-texto-secundario);
@@ -231,6 +237,7 @@
 }
 
 .tarjeta-modulo-titulo {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   margin: 0;
   font-size: var(--tamano-texto-lg);
   font-weight: 700;

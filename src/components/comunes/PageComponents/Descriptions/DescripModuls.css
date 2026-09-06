@@ -5,7 +5,9 @@
   
   background-color: #f8fafc;
   min-height: 100vh;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
   color: #334155;
 }
 
@@ -89,6 +91,7 @@
   background-color: rgba(255, 255, 255, 0.2);
 }
 .titulo-principal-modulo {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 2.5rem;
   font-weight: 800;
   margin: 0;
@@ -199,6 +202,7 @@
 /* Textos e Iconos Interiores */
 .titulo-bloque-descripcion,
 .titulo-temario-modulo {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -296,6 +300,7 @@
   margin-bottom: 0.35rem;
 }
 .cabecera-termino h4 {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 1.1rem;
   font-weight: 700;
   color: #0f172a;
@@ -327,6 +332,7 @@
   padding: 1rem;
 }
 .caja-amenaza-caso h4 {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   color: #0f172a;
   margin: 0 0 0.5rem 0;
   font-size: 1.05rem;
@@ -377,13 +383,12 @@
 .numero-tema {
   background-color: var(--color-primario);
   color: white;
-  font-weight: 700;
-  width: 28px;
-  height: 28px;
+  
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
   font-size: 0.875rem;
 }
 .texto-tema {

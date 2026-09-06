@@ -10,6 +10,9 @@
   min-height: 85vh;
   background-color: var(--color-inst-fondo);
   color: var(--color-inst-texto);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
 }
 
 .contenedor-descripcion-modulo {
@@ -145,6 +148,7 @@
 }
 
 .titulo-principal-modulo {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   margin: 0;
   font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: 800;
@@ -279,6 +283,7 @@
 }
 
 .titulo-bloque-descripcion {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   margin: 0 0 20px 0;
   font-size: var(--tamano-texto-xl);
   font-weight: 700;
@@ -353,6 +358,7 @@
 }
 
 .titulo-panel-accion {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   margin: 0 0 8px 0;
   font-size: var(--tamano-texto-lg);
   font-weight: 800;
@@ -380,6 +386,7 @@
 }
 
 .titulo-temario-modulo {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   margin: 0 0 16px 0;
   font-size: var(--tamano-texto-md);
   font-weight: 700;
@@ -424,16 +431,10 @@
 .numero-tema {
   font-weight: 800;
   color: var(--color-inst-azul);
-  min-width: 18px;
+
 }
 
-.dark .numero-tema {
-  color: var(--color-ciber-primario);
-}
 
-.texto-tema {
-  line-height: 1.4;
-}
 
 /* ============================================================================
    RESPONSIVE MÓVIL — DescripcionModulo

@@ -669,3 +669,28 @@
   }
 }
 
+
+/* ══ Tipografía de Alta Legibilidad para Contenidos de Módulos ══ */
+[class^="pagina-modulo-"] {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+[class^="pagina-modulo-"] h1,
+[class^="pagina-modulo-"] h2,
+[class^="pagina-modulo-"] h3,
+[class^="pagina-modulo-"] h4,
+[class^="pagina-modulo-"] h5,
+[class^="pagina-modulo-"] h6 {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  letter-spacing: -0.02em;
+}
+
+[class^="pagina-modulo-"] p,
+[class^="pagina-modulo-"] li,
+[class^="pagina-modulo-"] button,
+[class^="pagina-modulo-"] input {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
