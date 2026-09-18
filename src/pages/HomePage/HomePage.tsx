@@ -157,6 +157,8 @@ export const Home: React.FC = () => {
         />
       </section>
 
+      
+
       {/* PERSONAL */}
       <section id="personal" className="seccion-labores-harvard">
         <div className="contenedor-harvard-ancho">
