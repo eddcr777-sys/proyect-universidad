@@ -25,11 +25,12 @@ const Members: React.FC<MembersProps> = ({ items }) => {
     <>
       {items.map((item) => {
         const estaAbierta = abiertaId === item.id;
+        const hayAlgunaAbierta = abiertaId !== null;
 
         return (
           <article
             key={item.id}
-            className={`tarjeta-miembro ${estaAbierta ? 'tarjeta-activa' : ''}`}
+            className={`tarjeta-miembro ${estaAbierta ? 'tarjeta-activa' : ''} ${!estaAbierta && hayAlgunaAbierta ? 'restringir-altura' : ''}`}
             onClick={() => toggleCard(item.id)}
             role="button"
             tabIndex={0}

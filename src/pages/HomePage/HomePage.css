@@ -298,6 +298,7 @@ p, span, a, button, li, input, select, textarea {
   padding: 4rem 1.5rem;
   background-color: var(--color-inst-fondo);
   color: var(--color-inst-texto);
+  
 }
 
 .contenedor-harvard-ancho {
@@ -306,6 +307,7 @@ p, span, a, button, li, input, select, textarea {
   margin: 0 auto;
   padding: 0 1.5rem;
   box-sizing: border-box;
+  
 }
 
 .encabezado-harvard-simple {
@@ -335,6 +337,7 @@ p, span, a, button, li, input, select, textarea {
   grid-template-columns: repeat(3, 1fr);
   gap: 36px;
   margin-bottom: 70px;
+
 }
 
 /* Tarjeta desplegable (estilo Members) */
@@ -347,6 +350,7 @@ p, span, a, button, li, input, select, textarea {
   overflow: hidden;
   height: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
 }
 
 .tarjeta-desplegable:hover {
@@ -425,6 +429,7 @@ p, span, a, button, li, input, select, textarea {
   transition: grid-template-rows 0.4s ease, opacity 0.4s ease, margin 0.4s ease;
   opacity: 0;
   margin-bottom: 0;
+
 }
 
 .contenido-expandible.abierto {

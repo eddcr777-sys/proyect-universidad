@@ -6,8 +6,14 @@
   cursor: pointer;
   border-radius: 30px;
   overflow: hidden;
-  height: 100%; /* Asegura que ocupe todo el alto de la celda del grid */
+  height: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  align-items: start;
+}
+
+.tarjeta-desplegable.restringir-altura {
+  height: max-content;
+  align-self: start;
 }
 
 .tarjeta-desplegable:hover {
@@ -24,6 +30,7 @@
   width: 100%;
   height: 200px; /* Altura fija uniforme para la imagen */
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .marco-imagen img {
@@ -44,6 +51,9 @@
   display: flex;
   flex-direction: column;
   flex: 1 1 auto; /* Ocupa todo el alto interno disponible */
+  width: 100%;
+  box-sizing: border-box;
+  align-items: flex-start;
 }
 
 /* Título sin truncado */
@@ -72,6 +82,7 @@
   transition: grid-template-rows 0.4s ease, opacity 0.4s ease, margin 0.4s ease;
   opacity: 0;
   margin-bottom: 0;
+  width: 100%;
 }
 
 .contenido-expandible.abierto {
@@ -90,6 +101,10 @@
   font-size: 0.93rem;
   color: var(--color-inst-blanco);
   line-height: 1.6;
+}
+
+.detalle p {
+  margin: 0;
 }
 
 /* Botón alineado al fondo */
