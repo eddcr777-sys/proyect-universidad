@@ -342,24 +342,7 @@
   margin-bottom: 24px;
 }
 
-.filosofia-badges {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
 
-.filosofia-badges span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background-color: var(--blanco);
-  border: 1px solid var(--borde);
-  padding: 8px 16px;
-  border-radius: 30px;
-  font-size: 0.85rem;
-  color: var(--texto-secundario);
-}
 
 /* ===== FAQ ===== */
 .seccion-faq {

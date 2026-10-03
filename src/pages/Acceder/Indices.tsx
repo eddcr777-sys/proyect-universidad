@@ -176,7 +176,7 @@ const Indices: React.FC = () => {
             ruta: '/proyectos/ciberseguridad/modulos',
           },
           {
-            label: 'Ver Justificación Sociotecnológica',
+            label: 'Ver Justificación',
             ruta: '/proyectos/ciberseguridad/justificacion',
             icono: <ArrowRight size={20} />,
           },

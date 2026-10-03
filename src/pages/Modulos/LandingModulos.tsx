@@ -87,7 +87,7 @@ const LandingModulos: React.FC = () => {
             icono: <ArrowDown size={18} />,
           },
           {
-            label: 'Ver Justificación Sociotecnológica',
+            label: 'Ver Justificación',
             ruta: '/proyectos/ciberseguridad/justificacion',
             icono: <ArrowRight size={20} />,
           },

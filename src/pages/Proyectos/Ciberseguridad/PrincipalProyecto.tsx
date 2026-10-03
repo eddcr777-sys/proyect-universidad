@@ -61,7 +61,7 @@ const PrincipalProyecto: React.FC = () => {
             ruta: '/proyectos/ciberseguridad/modulos',
           },
           {
-            label: 'Ver Justificación Sociotecnológica',
+            label: 'Ver Justificación',
             ruta: '/proyectos/ciberseguridad/justificacion',
             icono: <ArrowRight size={20} />,
           },
@@ -162,7 +162,7 @@ const PrincipalProyecto: React.FC = () => {
             </ul>
 
             <Link to="/proyectos/ciberseguridad/justificacion" className="btn-solapado-contacto">
-              VER JUSTIFICACIÓN SOCIOTECNOLÓGICA <ArrowRight size={18} />
+              VER JUSTIFICACIÓN <ArrowRight size={18} />
             </Link>
           </div>
         </div>

@@ -200,11 +200,7 @@ export const Justificacion: React.FC = () => {
               Nuestra meta es que los estudiantes del L.B. Antonio Lemus Pérez adquieran competencias digitales
               que les permitan protegerse a sí mismos, fomentando un uso de Internet seguro, crítico y enriquecedor.
             </p>
-            <div className="filosofia-badges">
-              <span><BadgeCheck size={16} /> Aprendizaje autónomo</span>
-              <span><BadgeCheck size={16} /> Actualización constante</span>
-              <span><BadgeCheck size={16} /> Comunidad segura</span>
-            </div>
+          
           </div>
         </div>
       </section>
