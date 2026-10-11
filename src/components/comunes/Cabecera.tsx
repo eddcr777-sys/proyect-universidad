@@ -39,12 +39,12 @@ const Cabecera: React.FC = () => {
       aria-label="Encabezado principal"
     >
       <div className="cabecera-contenedor">
-        
+
         {/* Identidad / Logo */}
         <Link to="/" className="cabecera-logo" aria-label="Ir al inicio">
           <GraduationCap size={28} className="cabecera-logo-icono" />
           <div className="cabecera-logo-texto">
-            <span className="cabecera-titulo">L.B. Antonio Lemus Pérez</span>
+            <span className="cabecera-titulo">C.E. Antonio Lemus Pérez</span>
             <span className="cabecera-subtitulo">Plataforma Digital Escolar</span>
           </div>
         </Link>
@@ -55,9 +55,9 @@ const Cabecera: React.FC = () => {
         </div>
 
         {/* Botón Menú Móvil */}
-        <button 
-          className="menu-hamburguesa" 
-          onClick={toggle} 
+        <button
+          className="menu-hamburguesa"
+          onClick={toggle}
           aria-label={abierto ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
           aria-expanded={abierto}
         >

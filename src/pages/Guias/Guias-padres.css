@@ -3,6 +3,7 @@
   margin: 0 auto;
   background-color: var(--color-fondo);
   color: var(--color-texto-principal);
+  font-family: var(--fuente-ciber-cuerpo);
   transition: background-color var(--transicion-normal), color var(--transicion-normal);
 }
 

@@ -7,7 +7,7 @@ export interface MemberItem {
   name: string;
   role: string;
   description?: string;
-  imagen?: string;
+  redesSociales?: Icon[];
 }
 
 interface MembersProps {
@@ -43,11 +43,13 @@ const Members: React.FC<MembersProps> = ({ items }) => {
             }}
           >
             <div className="marco-imagen">
-              {item.imagen ? (
-                <img src={item.imagen} alt={item.name} loading="lazy" decoding="async" />
-              ) : (
-                <div className="placeholder-avatar">
-                  <User size={56} />
+              {item.redesSociales && (
+                <div className="redes-sociales">
+                  {item.redesSociales.map((redSocial) => (
+                    <a key={redSocial.id} href={redSocial.url} target="_blank" rel="noopener noreferrer">
+                      <img src={redSocial.icono} alt={redSocial.nombre} loading="lazy" decoding="async" />
+                    </a>
+                  ))}
                 </div>
               )}
             </div>

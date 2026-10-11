@@ -37,7 +37,7 @@ const NavegacionEscritorio: React.FC<NavegacionEscritorioProps> = ({ esTranspare
       {/* El Liceo */}
       <div className="dropdown">
         <button className="dropbtn" aria-expanded="false" aria-haspopup="true">
-          El Liceo <ChevronIcon />
+          El Complejo Educativo <ChevronIcon />
         </button>
         <div className="dropdown-content">
           <Link to="/el-liceo/historia" className="dropdown-item">Historia</Link>
@@ -47,6 +47,7 @@ const NavegacionEscritorio: React.FC<NavegacionEscritorioProps> = ({ esTranspare
           <Link to="/proyectos/ciberseguridad/nosotros/sobre-ue#Directivos" className="dropdown-item">Directivos</Link>
           <Link to="/el-liceo/simbolos" className="dropdown-item">Símbolos</Link>
           <Link to="/el-liceo/normas" className="dropdown-item">Normas de Convivencia</Link>
+          <Link to="/el-liceo/plan-evacuacion" className="dropdown-item">Plan de Evacuación</Link>
           <Link to="/galeria#instalaciones" className="dropdown-item">Instalaciones</Link>
         </div>
       </div>

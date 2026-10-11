@@ -7,6 +7,8 @@ import SobreDevs from './pages/Nosotros/SobreDevs';
 import SobreUE from './pages/Nosotros/SobreU.E';
 import GuiasDocentes from './pages/Guias/Guias-Docentes';
 import GuiasPadres from './pages/Guias/Guias-Padres';
+import GuiaDefensa from './pages/Guias/GuiasDefensa/GuiaDefensa';
+import ManualCompleto from './pages/Guias/Manuales/ManualCompleto';
 import Galeria from './pages/Galerias/Galeria';
 
 // ── Páginas Institucionales (El Liceo) ──
@@ -16,6 +18,8 @@ import Vision from './pages/ElLiceo/Vision';
 import Valores from './pages/ElLiceo/Valores';
 import Simbolos from './pages/ElLiceo/Simbolos';
 import NormasConvivencia from './pages/ElLiceo/NormasConvivencia';
+import PlanEvacuacion from './pages/ElLiceo/PlanEvacuacion';
+import Requisitos from './pages/Admision/Requisitos';
 
 import ExploradorProyectos from './pages/ExploradorProyectos/ExploradorProyectos';
 
@@ -63,10 +67,11 @@ const App: React.FC = () => {
             <Route path="/el-liceo/valores" element={<Valores />} />
             <Route path="/el-liceo/simbolos" element={<Simbolos />} />
             <Route path="/el-liceo/normas" element={<NormasConvivencia />} />
+            <Route path="/el-liceo/plan-evacuacion" element={<PlanEvacuacion />} />
 
             {/* ── ADMISIÓN ── */}
-            <Route path="/admision/requisitos" element={<NormasConvivencia />} />
-            <Route path="/proyectos/ciberseguridad/admision/requisitos" element={<NormasConvivencia />} />
+            <Route path="/admision/requisitos" element={<Requisitos />} />
+            <Route path="/proyectos/ciberseguridad/admision/requisitos" element={<Requisitos />} />
 
             {/* ── GALERÍAS ── */}
             <Route path="/galeria" element={<Galeria />} />
@@ -86,6 +91,8 @@ const App: React.FC = () => {
             <Route path="/proyectos/ciberseguridad/guias/docentes" element={<GuiasDocentes />} />
             <Route path="/proyectos/ciberseguridad/guias/padres" element={<GuiasPadres />} />
             <Route path="/proyectos/ciberseguridad/guias/alumnos" element={<GuiasPadres />} />
+            <Route path="/proyectos/ciberseguridad/guias/defensa" element={<GuiaDefensa />} />
+            <Route path="/proyectos/ciberseguridad/guias/manual-completo" element={<ManualCompleto />} />
             <Route path="/proyectos/ciberseguridad/grado/:grado" element={<PresentacionGrado />} />
             <Route path="/proyectos/ciberseguridad/info/:moduloId/:grado" element={<DescripcionModulo />} />
             <Route path="/proyectos/ciberseguridad/leccion/:moduloId/:grado" element={<ModuloRouter />} />
@@ -103,6 +110,8 @@ const App: React.FC = () => {
             <Route path="/nosotros/sobre-ue" element={<SobreUE />} />
             <Route path="/guias/docentes" element={<GuiasDocentes />} />
             <Route path="/guias/padres" element={<GuiasPadres />} />
+            <Route path="/guias/defensa" element={<GuiaDefensa />} />
+            <Route path="/guias/manual-completo" element={<ManualCompleto />} />
             <Route path="/justificacion" element={<Justificacion />} />
             <Route path="/indices" element={<Indices />} />
             <Route path="/Indices" element={<Indices />} />

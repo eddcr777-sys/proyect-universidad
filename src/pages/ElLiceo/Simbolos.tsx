@@ -13,7 +13,7 @@ export const Simbolos: React.FC = () => {
         imagenFondo={img5}
         variante="compacto"
         titulo="Símbolos Institucionales"
-        subtitulo="Liceo Bolivariano 'Antonio Lemus Pérez'"
+        subtitulo="Complejo Educativo 'Antonio Lemus Pérez'"
         descripcion="Emblemas de identidad, historia y orgullo escolar de nuestra comunidad educativa."
         acciones={
           <Link to="/" className="boton-hero-principal">
@@ -60,12 +60,17 @@ export const Simbolos: React.FC = () => {
 
           {/* Escudo */}
           <div className="tarjeta-liceo">
-            <div className="icono-tarjeta-liceo">
-              <Shield size={28} />
+            <div className="icono-tarjeta-liceo" style={{ background: 'transparent' }}>
+              <img
+                src="/src/assets/escudo_institucional.jpg"
+                alt="Escudo del Complejo Educativo"
+                style={{ width: '60px', height: '60px', objectFit: 'contain' }}
+                onError={(e) => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/60?text=Escudo'; }}
+              />
             </div>
             <h3 className="titulo-tarjeta-liceo">Escudo Institucional</h3>
             <p className="texto-tarjeta-liceo">
-              Simboliza el libro abierto del conocimiento, la antorcha del saber y el compromiso socio-comunitario de la juventud liceísta.
+              Muestra el nombre COMPLEJO EDUCATIVO "ANTONIO LEMUS PÉREZ", el mapa del estado Sucre resaltando Cumaná, estrellas representativas y un libro abierto con el lema "MORAL Y LUCES" junto a la figura del ilustre educador Antonio Lemus Pérez.
             </p>
           </div>
 

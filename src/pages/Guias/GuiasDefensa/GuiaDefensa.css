@@ -1,0 +1,253 @@
+/* ============================================================================
+   ESTILOS — GuiaDefensa.css
+   ============================================================================ */
+
+.guia-defensa-pagina {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-inst-fondo);
+  color: var(--color-inst-texto);
+  font-family: var(--fuente-ciber-cuerpo);
+  padding-bottom: 5rem;
+}
+
+.contenedor-defensa {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 0;
+}
+
+.encabezado-defensa {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 2.5rem;
+}
+
+.icono-defensa-encabezado {
+  color: #00F0FF;
+  margin-bottom: 0.75rem;
+}
+
+.encabezado-defensa h2 {
+  font-family: var(--fuente-ciber-titulos);
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.encabezado-defensa p {
+  color: var(--color-inst-texto-secundario);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* RECOMENDACIONES */
+.grid-recomendaciones-defensa {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.tarjeta-recomendacion {
+  background: var(--color-inst-tarjeta);
+  border: 1px solid var(--color-inst-borde);
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.tarjeta-recomendacion:hover {
+  border-color: #00F0FF;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 240, 255, 0.12);
+}
+
+.icono-recomendacion-box {
+  width: 48px;
+  height: 48px;
+  background: rgba(0, 240, 255, 0.1);
+  color: #00F0FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.tarjeta-recomendacion h3 {
+  font-family: var(--fuente-ciber-titulos);
+  font-size: 1.2rem;
+  margin: 0 0 0.75rem;
+}
+
+.tarjeta-recomendacion p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-inst-texto-secundario);
+  margin: 0;
+}
+
+/* FASES DE DEFENSA */
+.grid-fases-defensa {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.tarjeta-fase-defensa {
+  background: var(--color-inst-tarjeta);
+  border: 1px solid var(--color-inst-borde);
+  padding: 2rem;
+}
+
+.cabecera-fase {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.numero-fase-badge {
+  font-family: var(--fuente-ciber-titulos);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #00F0FF;
+  background: rgba(0, 240, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+.info-fase-cabecera h3 {
+  font-family: var(--fuente-ciber-titulos);
+  font-size: 1.3rem;
+  margin: 0 0 0.25rem;
+}
+
+.tiempo-fase {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-inst-rojo);
+}
+
+.descripcion-fase {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.puntos-clave-fase h4 {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-inst-texto-secundario);
+  margin: 0 0 0.75rem;
+}
+
+.puntos-clave-fase ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.puntos-clave-fase li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.icono-check-fase {
+  color: #00FF66;
+  flex-shrink: 0;
+}
+
+/* PREGUNTAS DEL JURADO */
+.lista-preguntas-jurado {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.item-pregunta-jurado {
+  background: var(--color-inst-tarjeta);
+  border: 1px solid var(--color-inst-borde);
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.item-pregunta-jurado:hover {
+  border-color: #00F0FF;
+}
+
+.item-pregunta-jurado.abierto {
+  border-color: #00F0FF;
+  box-shadow: 0 4px 16px rgba(0, 240, 255, 0.1);
+}
+
+.cabecera-pregunta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cabecera-pregunta h4 {
+  font-family: var(--fuente-ciber-titulos);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.icono-flecha-pregunta {
+  transition: transform 0.3s ease;
+}
+
+.item-pregunta-jurado.abierto .icono-flecha-pregunta {
+  transform: rotate(180deg);
+}
+
+.cuerpo-respuesta {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-inst-borde);
+}
+
+.cuerpo-respuesta p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--color-inst-texto-secundario);
+}
+
+.pie-defensa-acciones {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-inst-borde);
+}
+
+.btn-defensa-retorno {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--color-inst-azul);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-defensa-retorno:hover {
+  background: #00F0FF;
+  color: #070D19;
+}

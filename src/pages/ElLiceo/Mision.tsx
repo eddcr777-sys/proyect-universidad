@@ -17,7 +17,7 @@ export const Mision: React.FC = () => {
         imagenFondo={img5}
         variante="compacto"
         titulo="Nuestra Misión"
-        subtitulo="Liceo Bolivariano 'Antonio Lemus Pérez'"
+        subtitulo="Complejo Educativo 'Antonio Lemus Pérez'"
         descripcion="El propósito fundamental que orienta cada una de nuestras acciones socioeducativas."
         acciones={
           <Link to="/" className="boton-hero-principal">
@@ -41,13 +41,13 @@ export const Mision: React.FC = () => {
           <div className="mision-contenedor">
             {/* Bloque 1: Declaración de Misión */}
             <div className="mision-imagen">
-              <img src={fotoFachada} alt="Sede del Liceo Bolivariano Antonio Lemus Pérez" loading="lazy" />
+              <img src={fotoFachada} alt="Sede del Complejo Educativo Antonio Lemus Pérez" loading="lazy" />
             </div>
             <div className="mision-texto">
               <span className="mision-badge">Nuestra Razón de Ser</span>
               <h2 className="mision-titulo">Declaración de Misión</h2>
               <p className="mision-subtitulo">
-                "Promover y desarrollar un alto nivel socio-ético-cultural mediante la formación integral de estudiantes capaces de enfrentar los retos de la vida, garantizando el acceso a una educación pública, inclusiva y de calidad respaldada por valores de responsabilidad, solidaridad y pensamiento crítico."
+                "Promover, incentivar e implementar en el Complejo Educativo Antonio Lemus Pérez en concordancia con los lineamientos del Ministerio del Poder Popular para la Educación, un mayor nivel de desarrollo socio-ético-cultural mediante la formación integral de todos los estudiantes capaces de enfrentar la vida, de construir su propio destino, responsables con su núcleo familiar, solidario social y culturalmente con las comunidades, comprometidos con la patria y con la salvaguarda de los valores sociales de la nación venezolana."
               </p>
             </div>
 

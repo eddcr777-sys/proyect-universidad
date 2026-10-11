@@ -4,23 +4,35 @@ import Members from '../../components/comunes/tarjetas/members';
 import { TEAM_MEMBERS } from '../../data/datosPersonal';
 import { Users, ShieldCheck, BookOpen, Code, GraduationCap, Award, Link, ArrowLeft } from 'lucide-react';
 import './SobreDevs.css';
-import HeroInstitucional from '../../components/comunes/HeroInstitucional/HeroInstitucional';
+import HeroCiberseguridad from '../../components/comunes/HeroCiberseguridad/HeroCiberseguridad';
 import img5 from '../../assets/pbk-Hero-3.jpg';
 
 export const TeamSection: React.FC = () => {
-  return (
+  const enlacesSubNav = [
+    { label: 'Inicio Proyecto', ruta: '/proyectos/ciberseguridad' },
+    { label: 'Catálogo por Grado', ruta: '/proyectos/ciberseguridad/modulos' },
+    { label: 'Justificación', ruta: '/proyectos/ciberseguridad/justificacion' },
+    { label: 'Índices y Temario', ruta: '/proyectos/ciberseguridad/indices' },
+    { label: 'Guía Docentes', ruta: '/proyectos/ciberseguridad/guias/docentes' },
+    { label: 'Guía Padres', ruta: '/proyectos/ciberseguridad/guias/padres' },
+    { label: 'Desarrolladores', ruta: '/proyectos/ciberseguridad/nosotros/sobre-devs' },
+  ];
 
-      <>
-    <HeroInstitucional
+  return (
+    <div className="pagina-ciberseguridad">
+      <HeroCiberseguridad
         imagenFondo={img5}
-        titulo="Desarrolladores del proyecto"
-        descripcion="Conoce a quienes han dedicado su labor al servicio de la educación en el Liceo Bolivariano Antonio Lemus Pérez."
-        
+        titulo="Desarrolladores del"
+        tituloResaltado="PROYECTO DE CIBERSEGURIDAD"
+        categoria="EQUIPO DE DESARROLLO PNFI"
+        descripcion="Conoce a los desarrolladores y docentes que han dedicado su labor sociotecnológica a la concientización y prevención de riesgos digitales en el L.B. Antonio Lemus Pérez."
+        enlacesSubNav={enlacesSubNav}
         acciones={[
-          <a href="/" className="boton-hero-principal">
-            <ArrowLeft size={20} />
-            Volver al inicio
-          </a>
+          {
+            label: 'Volver a Ciberseguridad',
+            ruta: '/proyectos/ciberseguridad',
+            icono: <ArrowLeft size={18} />,
+          },
         ]}
       />
     <main className="contenedor-nosotros">
@@ -77,7 +89,7 @@ export const TeamSection: React.FC = () => {
               <div className="stat-icono">
                 <ShieldCheck size={28} />
               </div>
-              <div className="stat-numero">L.B.</div>
+              <div className="stat-numero">+10</div>
               <div className="stat-etiqueta">Seguridad Digital</div>
               <p className="stat-descripcion">
                 Integramos medidas preventivas, educativas y tecnológicas para proteger la información y la identidad digital de todos.
@@ -137,8 +149,7 @@ export const TeamSection: React.FC = () => {
         </div>
       </section>
     </main>
-
-    </>
+    </div>
   );
 };
 

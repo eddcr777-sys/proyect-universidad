@@ -1,8 +1,8 @@
 /* Base y Fallbacks */
 .descripcion-modulo-contenedor {
-  --color-primario: #3b82f6; 
+  --color-primario: #3b82f6;
   --color-secundario: #1e40af;
-  
+
   background-color: #f8fafc;
   min-height: 100vh;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
@@ -35,15 +35,18 @@
   margin-bottom: 2rem;
   opacity: 0.9;
 }
+
 .miga-pan-modulo a {
   color: #ffffff;
   text-decoration: underline;
   text-decoration-color: transparent;
   transition: text-decoration-color 0.2s;
 }
+
 .miga-pan-modulo a:hover {
   text-decoration-color: #ffffff;
 }
+
 .miga-activa {
   font-weight: 600;
 }
@@ -55,6 +58,7 @@
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
+
 .icono-modulo-gigante {
   background-color: rgba(255, 255, 255, 0.2);
   padding: 1.5rem;
@@ -63,12 +67,14 @@
   align-items: center;
   justify-content: center;
 }
+
 .insignias-modulo-grupo {
   display: flex;
   gap: 0.75rem;
   margin-bottom: 0.75rem;
   flex-wrap: wrap;
 }
+
 .insignia-categoria-modulo,
 .insignia-grado-modulo,
 .insignia-duracion-modulo {
@@ -79,17 +85,21 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
 .insignia-categoria-modulo {
   background-color: var(--color-secundario);
   color: white;
 }
+
 .insignia-grado-modulo {
   background-color: white;
   color: var(--color-primario);
 }
+
 .insignia-duracion-modulo {
   background-color: rgba(255, 255, 255, 0.2);
 }
+
 .titulo-principal-modulo {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 2.5rem;
@@ -107,6 +117,7 @@
   gap: 1rem;
   margin-bottom: 2rem;
 }
+
 .subtitulo-bienvenida {
   display: block;
   font-size: 0.875rem;
@@ -115,6 +126,7 @@
   opacity: 0.8;
   margin-bottom: 0.25rem;
 }
+
 .texto-mensaje-bienvenida {
   margin: 0;
   font-size: 1.1rem;
@@ -130,14 +142,17 @@
   padding-top: 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 .texto-selector-grado {
   font-size: 0.9rem;
   font-weight: 500;
 }
+
 .grupo-botones-grados {
   display: flex;
   gap: 0.5rem;
 }
+
 .boton-grado-selector {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.5);
@@ -148,9 +163,11 @@
   font-weight: 600;
   transition: all 0.2s;
 }
+
 .boton-grado-selector:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
+
 .boton-grado-selector.activo {
   background-color: white;
   color: var(--color-primario);
@@ -192,6 +209,7 @@
 .bloque-tarjeta-descripcion.tarjeta-ciberseguridad {
   border-top: none;
 }
+
 .bloque-tarjeta-descripcion.tarjeta-ciberseguridad:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(2, 132, 199, 0.15);
@@ -211,10 +229,12 @@
   margin-top: 0;
   margin-bottom: 1.5rem;
 }
+
 .icono-bloque,
 .icono-temario {
   color: var(--color-primario);
 }
+
 .texto-explicacion-breve {
   font-size: 1.125rem;
   line-height: 1.7;
@@ -224,15 +244,17 @@
 /* Caja de Importancia Fundamental */
 .caja-importancia-fundamental {
   background: #f0f9ff;
- 
+
   padding: 1rem;
   border-radius: 0 8px 8px 0;
 }
+
 .caja-importancia-fundamental strong {
   color: #0369a1;
   display: block;
   margin-bottom: 0.25rem;
 }
+
 .caja-importancia-fundamental p {
   margin: 0;
   color: #334155;
@@ -248,12 +270,14 @@
   flex-direction: column;
   gap: 1rem;
 }
+
 .item-objetivo-grado {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
   font-size: 1.05rem;
 }
+
 .icono-check {
   color: var(--color-primario);
   flex-shrink: 0;
@@ -279,6 +303,7 @@
   justify-content: space-between;
   transition: transform 0.2s, box-shadow 0.2s;
 }
+
 .tarjeta-termino-glosario:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -288,6 +313,7 @@
 .cabecera-termino {
   margin-bottom: 0.5rem;
 }
+
 .badge-termino {
   display: inline-block;
   font-size: 0.7rem;
@@ -299,6 +325,7 @@
   border-radius: 4px;
   margin-bottom: 0.35rem;
 }
+
 .cabecera-termino h4 {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 1.1rem;
@@ -306,12 +333,14 @@
   color: #0f172a;
   margin: 0;
 }
+
 .definicion-termino {
   font-size: 0.92rem;
   color: #475569;
   line-height: 1.5;
   margin: 0 0 0.75rem 0;
 }
+
 .ejemplo-termino {
   background-color: #ffffff;
   padding: 0.5rem 0.75rem;
@@ -325,18 +354,21 @@
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
 }
+
 .caja-amenaza-caso {
   background-color: #fefce8;
   border: 1px solid #fef08a;
   border-radius: 0.5rem;
   padding: 1rem;
 }
+
 .caja-amenaza-caso h4 {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   color: #0f172a;
   margin: 0 0 0.5rem 0;
   font-size: 1.05rem;
 }
+
 .caja-amenaza-caso p {
   color: #475569;
   font-size: 0.95rem;
@@ -351,9 +383,11 @@
   top: 2rem;
   align-self: start;
 }
+
 .tarjeta-temario-modulo {
   border-top: none;
 }
+
 .titulo-temario-modulo {
   display: flex;
   align-items: center;
@@ -363,6 +397,7 @@
   margin-top: 0;
   margin-bottom: 1.5rem;
 }
+
 .lista-temas-grado {
   list-style: none;
   padding: 0;
@@ -371,6 +406,7 @@
   flex-direction: column;
   gap: 1rem;
 }
+
 .item-tema-grado {
   display: flex;
   align-items: center;
@@ -380,10 +416,11 @@
   border-radius: 0.5rem;
 
 }
+
 .numero-tema {
   background-color: var(--color-primario);
   color: white;
-  
+
   width: 30px;
   height: 30px;
   display: flex;
@@ -391,6 +428,7 @@
   justify-content: center;
   font-size: 0.875rem;
 }
+
 .texto-tema {
   font-weight: 500;
   color: #334155;
@@ -400,6 +438,7 @@
    SECCIÓN CTA FINAL (NUEVA)
    ========================================= */
 .seccion-cta-final {
+  
   margin: 3rem 0 0 0;
   background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
   border-radius: 1.5rem;
@@ -409,6 +448,7 @@
   position: relative;
   overflow: hidden;
 }
+
 .seccion-cta-final::before {
   content: "";
   position: absolute;
@@ -419,25 +459,32 @@
   background: radial-gradient(circle at 30% 30%, rgba(2, 132, 199, 0.2) 0%, transparent 60%);
   pointer-events: none;
 }
+
 .contenedor-cta {
   position: relative;
   z-index: 1;
 }
+
 .icono-cta {
   color: #22c55e;
   margin-bottom: 1rem;
 }
+
+
 .titulo-cta {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   color: #f8fafc;
   font-size: 1.8rem;
   margin-bottom: 0.75rem;
 }
+
 .texto-cta {
-  color: #cbd5e1;
+  color: #ffffff;
   font-size: 1.1rem;
   max-width: 600px;
   margin: 0 auto 2rem;
 }
+
 .caja-botones-accion {
   display: flex;
   flex-direction: column;
@@ -455,16 +502,20 @@
   .cuadricula-detalles-modulo {
     grid-template-columns: 1fr;
   }
+
   .columna-lateral-modulo {
     position: static;
   }
+
   .bloque-cabecera-modulo {
     flex-direction: column;
     text-align: center;
   }
+
   .insignias-modulo-grupo {
     justify-content: center;
   }
+
   .caja-mensaje-bienvenida {
     flex-direction: column;
     text-align: center;

@@ -14,7 +14,7 @@ const PiePagina: React.FC = () => {
                 <div className="contenedor">
                   <div className="grid-pie">
                     <div className="pie-col">
-                      <h4 className="pie-titulo">Liceo Bolivariano "Antonio Lemus Pérez"</h4>
+                      <h4 className="pie-titulo">Complejo Educativo "Antonio Lemus Pérez"</h4>
                       <p className="pie-texto">
                         Institución educativa pública dedicada a la formación integral de la juventud sucrense desde 1984.
                       </p>
@@ -37,12 +37,14 @@ const PiePagina: React.FC = () => {
                     <div className="pie-col pie-col-horario">
                       <h4 className="pie-titulo">Horario</h4>
                       <p className="pie-texto">
-                        <Clock size={16} /> Lunes a Viernes: 7:00 AM - 4:00 PM
+                        <Clock size={16} /> Lunes a Viernes:<br />
+                        7:00 am – 12:20 pm<br />
+                        12:40 pm – 5:50 pm
                       </p>
                     </div>
                   </div>
                   <div className="pie-copy">
-                    © 2026 Liceo Bolivariano "Antonio Lemus Pérez". Todos los derechos reservados.
+                    © 2026 Complejo Educativo "Antonio Lemus Pérez". Todos los derechos reservados.
                   </div>
                 </div>
               </footer>

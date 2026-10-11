@@ -17,7 +17,7 @@ export const Vision: React.FC = () => {
         imagenFondo={img5}
         variante="compacto"
         titulo="Nuestra Visión"
-        subtitulo="Liceo Bolivariano 'Antonio Lemus Pérez'"
+        subtitulo="Complejo Educativo 'Antonio Lemus Pérez'"
         descripcion="Hacia dónde caminamos: inspirando el futuro educativo del Estado Sucre."
         acciones={
           <Link to="/" className="boton-hero-principal">
@@ -40,13 +40,13 @@ export const Vision: React.FC = () => {
           <div className="mision-contenedor">
             {/* Bloque 1: Declaración de Visión */}
             <div className="mision-imagen">
-              <img src={fotoFachada} alt="Sede del Liceo Bolivariano Antonio Lemus Pérez" loading="lazy" />
+              <img src={fotoFachada} alt="Sede del Complejo Educativo Antonio Lemus Pérez" loading="lazy" />
             </div>
             <div className="mision-texto">
               <span className="mision-badge">Nuestro Horizonte</span>
               <h2 className="mision-titulo">Declaración de Visión</h2>
               <p className="mision-subtitulo">
-                "Ser una institución educativa de referencia regional y nacional, reconocida por su excelencia académica, innovación pedagógica y formación de ciudadanos íntegros, comprometidos con la transformación social y el desarrollo sostenible de su comunidad."
+                "El Complejo Educativo Antonio Lemus Pérez pretende fomentar un proceso colectivo e integrador, formador de nuevos republicanos (as), socializando y generando relaciones entre la escuela, familia y comunidad, la interculturalidad, práctica del trabajo liberador y contexto histórico, donde el aprendizaje esté en permanente construcción considerando las experiencias que permitan el desarrollo de conocimientos, valores, actitudes, virtudes, habilidades y destrezas del nuevo republicano (a), fomentando la creatividad, convivir, participar, reflexionar para así formar a un ser integral social, solidario, autodidacta donde su participación ante la sociedad sea democrática, protagónica, corresponsable y una conciencia ambientalista para el desarrollo endógeno y sustentable."
               </p>
             </div>
 

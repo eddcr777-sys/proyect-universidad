@@ -6,7 +6,6 @@ import {
   Package,
   ArrowRight,
   ChevronDown,
-  Eye,
   HelpCircle,
   CheckCircle2,
   Activity,
@@ -31,12 +30,9 @@ interface FAQItem {
 const FAQS: FAQItem[] = [
   {
     pregunta: '¿Cuál es el objetivo principal del proyecto?',
-    respuesta: 'Elaborar una plataforma web para concientizar a los estudiantes del L.B. Antonio Lemus Pérez sobre riesgos digitales, dotándolos de herramientas para identificar, prevenir y mitigar amenazas como phishing, ciberacoso y desinformación.'
+    respuesta: 'Elaborar una plataforma web para concientizar a los estudiante sobre riesgos digitales, dotándolos de herramientas para identificar, prevenir y mitigar amenazas como phishing, ciberacoso y desinformación.'
   },
-  {
-    pregunta: '¿A quién va dirigida esta plataforma?',
-    respuesta: 'Está diseñada para los 965 estudiantes de educación media general y técnica del Liceo Bolivariano Antonio Lemus Pérez, así como para sus docentes y representantes, quienes también tienen acceso a contenidos específicos.'
-  },
+
   {
     pregunta: '¿Qué problemática aborda?',
     respuesta: 'Aborda la vulnerabilidad de los jóvenes ante riesgos digitales, la falta de formación en ciberseguridad y la necesidad de una herramienta permanente y accesible que promueva una cultura preventiva en el uso de Internet.'
@@ -49,8 +45,8 @@ const FAQS: FAQItem[] = [
 
 const valores = [
   { icono: ShieldCheck, titulo: 'Seguridad Integral', descripcion: 'Protegemos a nuestros estudiantes en todos los aspectos de su vida digital, desde la privacidad hasta la identidad.' },
-  { icono: BookOpen, titulo: 'Educación Continua', descripcion: 'Fomentamos el aprendizaje autónomo y la actualización permanente ante las amenazas emergentes.' },
-  { icono: HeartHandshake, titulo: 'Colaboración Comunitaria', descripcion: 'Construimos puentes entre la universidad, el liceo y las familias para un impacto real.' },
+  { icono: BookOpen, titulo: 'Educación Continua', descripcion: 'Fomentamos el aprendizaje autónomo.' },
+  { icono: HeartHandshake, titulo: 'Colaboración Comunitaria', descripcion: 'Construimos puentes entre la institución y las familias para un impacto real.' },
   { icono: Lightbulb, titulo: 'Pensamiento Crítico', descripcion: 'Desarrollamos la capacidad de analizar, cuestionar y tomar decisiones informadas en el entorno digital.' },
 ];
 
@@ -82,10 +78,10 @@ export const Justificacion: React.FC = () => {
     <div className="justificacion-pagina">
       {/* Hero Unificado del Proyecto */}
       <HeaderProyecto
-      
-        titulo="JUSTIFICACIÓN SOCIOTECNOLÓGICA Y"
-        tituloResaltado="DIAGNÓSTICO INSTITUCIONAL"
+        titulo="JUSTIFICACIÓN"
+        tituloResaltado=""
         descripcion="Fundamentación académica, diagnóstico de vulnerabilidades digitales e impacto pedagógico en la comunidad del Liceo Bolivariano Antonio Lemus Pérez."
+        imagenFondo="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1600&q=80"
         enlacesSubNav={enlacesSubNav}
         acciones={[
           {
@@ -140,15 +136,7 @@ export const Justificacion: React.FC = () => {
               </p>
             </article>
 
-            <article className="pilar-card">
-              <Users size={28} className="icono-pilar" />
-              <h3>Sinergia Institucional con la UPTOS CR</h3>
-              <p>
-                La estructuración de este material en la plataforma Moodle es posible gracias a la
-                colaboración y conocimientos técnicos aportados por los estudiantes de la UPTOS CR
-                (Universidad Politécnica Territorial del Oeste de Sucre "Clodosbaldo Russian").
-              </p>
-            </article>
+           
           </div>
         </div>
       </section>
@@ -191,13 +179,12 @@ export const Justificacion: React.FC = () => {
       <section className="seccion-filosofia">
         <div className="contenedor">
           <div className="filosofia-contenido">
-            <SparklesIcon />
             <h2>Propósito Educativo</h2>
             <blockquote>
               "Dejar de reaccionar ante los fallos y comenzar a cuidarnos mediante la prevención y el conocimiento."
             </blockquote>
             <p>
-              Nuestra meta es que los estudiantes del L.B. Antonio Lemus Pérez adquieran competencias digitales
+              Nuestra meta es que los estudiantes adquieran competencias digitales
               que les permitan protegerse a sí mismos, fomentando un uso de Internet seguro, crítico y enriquecedor.
             </p>
           
@@ -219,15 +206,7 @@ export const Justificacion: React.FC = () => {
                   que les otorgue los fundamentos técnicos y teóricos para navegar sin exponerse a riesgos innecesarios.
                 </p>
               </div>
-              <div className="caja-contexto">
-                <Eye size={28} className="icono-contexto" />
-                <h3>Un Proyecto de Impacto Real</h3>
-                <p>
-                  La integración de esta plataforma en el entorno Moodle no solo representa la carta de presentación
-                  tecnológica de nuestra institución, sino que evidencia el fruto del trabajo comunitario y
-                  académico entre el liceo y los estudiantes de la UPTOS CR.
-                </p>
-              </div>
+
                                           
               </div>
 

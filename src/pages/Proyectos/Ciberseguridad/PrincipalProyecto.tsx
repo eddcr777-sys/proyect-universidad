@@ -176,9 +176,9 @@ const PrincipalProyecto: React.FC = () => {
           {/* Columna Izquierda: Texto Explicativo y CTA */}
           <div className="columna-experiencia-texto">
             <p className="texto-experiencia-parrafo">
-              El Programa Nacional de Formación en Informática (PNFI) impulsa proyectos que responden a las
-              necesidades reales de nuestras comunidades. Esta plataforma une la técnica informática con la
-              pedagogía escolar para crear un impacto duradero en cada aula del Liceo Bolivariano "Antonio Lemus Pérez".
+              Esta plataforma fusiona la vanguardia tecnológica con estrategias pedagógicas innovadoras, 
+              transformando el aprendizaje en una experiencia inmersiva y segura. Nuestro objetivo es generar 
+              un impacto trascendental que empodere a la comunidad educativa frente a los retos del futuro digital.
             </p>
             <Link to="/proyectos/ciberseguridad/indices" className="btn-experiencia-aprende">
               VER ÍNDICES Y TEMARIO <ArrowRight size={18} />
@@ -222,8 +222,8 @@ const PrincipalProyecto: React.FC = () => {
               <div className="icono-componente-box">
                 <FileText size={32} />
               </div>
-              <h3>JUSTIFICACIÓN PNFI</h3>
-              <p>Fundamentación metodológica, legal y sociotecnológica del proyecto.</p>
+              <h3>JUSTIFICACIÓN</h3>
+              <p>Bases académicas, diagnóstico de vulnerabilidades y el impacto transformador del proyecto.</p>
             </Link>
 
             {/* Tarjeta 3: Índices */}

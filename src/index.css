@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
 /* ============================================================================
  * RESET Y BASE GLOBAL — Corrección responsividad móvil (iOS / Android)
  * ============================================================================ */
@@ -31,6 +33,10 @@ body {
 }
 
 :root {
+  --fuente-ciber-titulos: 'Playfair Display', Georgia, serif;
+  --fuente-ciber-cuerpo: 'Inter', system-ui, -apple-system, sans-serif;
+  --fuente-ciber-codigo: 'JetBrains Mono', monospace;
+
   --radio-principal: 0px;
   --radio-modulo: 0px;
   --radio-boton: 0px;
@@ -197,6 +203,48 @@ dialog {
   --color-fondo-tarjeta: var(--color-ciber-tarjeta);
   --color-texto-principal: var(--color-ciber-texto);
   --color-borde: var(--color-ciber-borde);
+  font-family: var(--fuente-ciber-cuerpo) !important;
+}
+
+/* Aplicación global de la nueva fuente a todas las páginas de ciberseguridad */
+.pagina-ciberseguridad,
+.principal-ciberseguridad-contenedor,
+.landing-modulos-contenedor,
+.justificacion-pagina,
+.indices-pagina,
+.guias-pagina,
+.presentacion-grado-contenedor,
+.hero-ciberseguridad-contenedor,
+.header-proyecto-wrapper {
+  font-family: var(--fuente-ciber-cuerpo);
+}
+
+.pagina-ciberseguridad h1,
+.pagina-ciberseguridad h2,
+.pagina-ciberseguridad h3,
+.pagina-ciberseguridad h4,
+.principal-ciberseguridad-contenedor h1,
+.principal-ciberseguridad-contenedor h2,
+.principal-ciberseguridad-contenedor h3,
+.landing-modulos-contenedor h1,
+.landing-modulos-contenedor h2,
+.landing-modulos-contenedor h3,
+.justificacion-pagina h1,
+.justificacion-pagina h2,
+.justificacion-pagina h3,
+.indices-pagina h1,
+.indices-pagina h2,
+.indices-pagina h3,
+.guias-pagina h1,
+.guias-pagina h2,
+.guias-pagina h3,
+.presentacion-grado-contenedor h1,
+.presentacion-grado-contenedor h2,
+.presentacion-grado-contenedor h3,
+.hero-ciberseguridad-contenedor h1,
+.hero-ciberseguridad-contenedor h2,
+.hero-ciberseguridad-contenedor h3 {
+  font-family: var(--fuente-ciber-titulos);
 }
 
 html {

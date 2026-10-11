@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookCheck, ShieldAlert, Clock, UserCheck, ArrowLeft, HeartHandshake } from 'lucide-react';
+import { ShieldAlert, Clock, ArrowLeft, Shirt } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import HeroInstitucional from '../../components/comunes/HeroInstitucional/HeroInstitucional';
 import img5 from '../../assets/pbk-Hero-3.jpg';
@@ -9,38 +9,43 @@ import './NormasConvivencia.css';
 export const NormasConvivencia: React.FC = () => {
   const seccionesNormas = [
     {
-      categoria: 'Deberes Generales del Estudiante',
-      icono: <UserCheck size={22} />,
+      categoria: 'Horario y Responsabilidad',
+      icono: <Clock size={22} />,
       items: [
-        { num: '01', titulo: 'Asistencia y Puntualidad', desc: 'Asistir puntualmente a las actividades escolares portando el uniforme institucional correspondiente.' },
-        { num: '02', titulo: 'Respeto a la Comunidad', desc: 'Tratar con cortesía, dignidad y respeto a compañeros, docentes, personal administrativo y obrero.' },
-        { num: '03', titulo: 'Cuidado del Entorno', desc: 'Mantener limpias y en perfecto estado las instalaciones, aulas, laboratorios y áreas deportivas del plantel.' }
+        { num: '1', titulo: 'Horario Académico', desc: 'Jornada: 7:00 am – 12:20 pm / 12:40 pm – 5:50 pm.' },
+        { num: '2', titulo: 'Responsabilidad a la salida', desc: 'Los representantes deben estar alerta a la hora de salida de sus representados. Es deber de los padres asegurarse de que no se queden por los alrededores debido a la inseguridad y a la presencia de individuos extraños.' },
+        { num: '3', titulo: 'Fin de Jornada', desc: 'Posterior a la salida, todo el personal se retira, quedando los estudiantes sin protección. En caso de accidente o riesgo, la institución no se hace responsable; la responsabilidad es estrictamente del representante.' }
       ]
     },
     {
-      categoria: 'Convivencia y Disciplina Escolar',
+      categoria: 'Uniforme Reglamentario',
+      icono: <Shirt size={22} />,
+      items: [
+        { num: '4', titulo: 'I Nivel (1ero, 2do, 3er Año)', desc: 'Pantalón de gabardina azul marino (no strech ni tubo), camisa/chemisse azul claro con insignia cosida, zapatos y correa negros o marrones (sin hebillas grandes). Medias blancas (no tobilleras).' },
+        { num: '5', titulo: 'II Nivel (4to y 5to Año)', desc: 'Pantalón de gabardina azul marino (no strech ni tubo), camisa/chemisse beige con insignia cosida, zapatos y correa negros o marrones. Batas blancas para laboratorios con insignia.' },
+        { num: '6', titulo: 'Deportes (1ero, 2do, 3er Año)', desc: 'Mono azul marino, franela azul con insignia o logo, zapatos deportivos negros, blancos o azul marino.' },
+        { num: '7', titulo: 'Deportes (4to y 5to Año)', desc: 'Mono azul marino, franela blanca con insignia o logo, zapatos deportivos negros, blancos o azul marino.' }
+      ]
+    },
+    {
+      categoria: 'Normas Generales de Convivencia',
       icono: <ShieldAlert size={22} />,
       items: [
-        { num: '04', titulo: 'Uso de Dispositivos Electrónicos', desc: 'Los teléfonos y equipos tecnológicos se emplearán exclusivamente con fines pedagógicos autorizados por el docente.' },
-        { num: '05', titulo: 'Cultura de Paz', desc: 'Queda estrictamente prohibida cualquier manifestación de violencia, acoso escolar (bullying) o discriminación.' },
-        { num: '06', titulo: 'Rendimiento Académico', desc: 'Cumplir responsablemente con las tareas, evaluaciones y proyectos asignados en cada área del conocimiento.' }
-      ]
-    },
-    {
-      categoria: 'Derechos y Garantías Estudiantiles',
-      icono: <BookCheck size={22} />,
-      items: [
-        { num: '07', titulo: 'Educación Inclusiva de Calidad', desc: 'Recibir una formación integral en igualdad de condiciones, sin ningún tipo de distinción ni discriminación.' },
-        { num: '08', titulo: 'Orientación y Acompañamiento', desc: 'Contar con el apoyo pedagógico, psicológico y orientativo por parte del cuerpo docente y especialistas.' },
-        { num: '09', titulo: 'Participación y Libre Expresión', desc: 'Expresar libremente sus opiniones e iniciativas de forma respetuosa dentro del ámbito escolar.' }
-      ]
-    },
-    {
-      categoria: 'Compromiso de la Familia',
-      icono: <HeartHandshake size={22} />,
-      items: [
-        { num: '10', titulo: 'Corresponsabilidad Educativa', desc: 'Acompañar y supervisar activamente el proceso educativo, hábitos de estudio y conducta de sus representados.' },
-        { num: '11', titulo: 'Comunicación Institucional', desc: 'Asistir oportunamente a las asambleas, entregas de boletines y convocatorias realizadas por el plantel.' }
+        { num: '8', titulo: 'Control de Ingreso', desc: 'Desde el primer día se chequeará que porten el uniforme reglamentario y la imagen personal acorde a los principios de sana convivencia.' },
+        { num: '9', titulo: 'Interrupciones', desc: 'Está prohibido interrumpir las actividades de aula. En caso necesario, dirigirse a la coordinación pedagógica.' },
+        { num: '10', titulo: 'Objetos No Permitidos', desc: 'No se permite el uso de celulares, iPod, audífonos, ni objetos ajenos a la academia. El docente puede decomisarlos y entregarlos a coordinación, quien lo devolverá al representante. La institución no se responsabiliza por pérdida.' },
+        { num: '11', titulo: 'Salud y Reposos', desc: 'No enviar al estudiante si tiene malestar (gripe, dengue, eruptivas, etc). Deben guardar reposo y reincorporarse con constancia médica a control de estudios.' },
+        { num: '12', titulo: 'Apariencia Varones', desc: 'No usar: gorras, piercings, zarcillos, cabellos largos o teñidos (corte convencional), mechas, maquillajes ni accesorios ostentosos.' },
+        { num: '13', titulo: 'Apariencia Hembras', desc: 'No usar: gorras, piercings, zarcillos ostentosos, mechas, maquillajes. Sin accesorios de colores ajenos al uniforme. Uñas solo naturales.' },
+        { num: '14', titulo: 'Bolsos y Morrales', desc: 'No usar morrales o bolsos a menos que sean transparentes.' },
+        { num: '15', titulo: 'Valores Patrios y Éticos', desc: 'Honrar los símbolos patrios (cantar el himno, izar la bandera). Respetar la moral, buenas costumbres y usar vocabulario adecuado.' },
+        { num: '16', titulo: 'Prohibiciones Severas', desc: 'Abstenerse de fumar, ingerir alcohol o drogas. Prohibido el ingreso con armas de fuego u objetos cortantes (navajas, botellas, etc).' },
+        { num: '17', titulo: 'Instalaciones y Mobiliario', desc: 'Usar adecuadamente el mobiliario y colaborar en la limpieza. El estudiante que intencionalmente dañe equipos o instalaciones estará obligado a su reparación o reposición.' },
+        { num: '18', titulo: 'Alimentos', desc: 'No ingerir alimentos ni chucherías dentro del aula, talleres, laboratorios y pasillos, salvo la del P.A.E.' },
+        { num: '19', titulo: 'Evaluaciones y Permisos', desc: 'En caso de permiso médico, el estudiante debe presentar la prueba pendiente 03 días después de su incorporación.' },
+        { num: '20', titulo: 'Roles Estudiantiles', desc: 'Conocer y cumplir funciones como Semanero, Vocero Integrador, Activista y Contralor.' },
+        { num: '21', titulo: 'Trámites y Colección', desc: 'Actualizar la inscripción en el periodo correspondiente. Notificar cambios de dirección o teléfonos. Es responsabilidad el uso de la Colección Bicentenario.' },
+        { num: '22', titulo: 'Sanciones Disciplinarias', desc: 'Estarán sujetos a sanciones al incurrir en faltas graves reiteradas. Deben respetar este reglamento, los especiales y el ordenamiento jurídico.' }
       ]
     }
   ];
@@ -50,9 +55,9 @@ export const NormasConvivencia: React.FC = () => {
       <HeroInstitucional
         imagenFondo={img5}
         variante="compacto"
-        titulo="Normas de Convivencia"
-        subtitulo="Liceo Bolivariano 'Antonio Lemus Pérez'"
-        descripcion="Lineamientos para garantizar una convivencia armónica, segura y basada en el respeto mutuo."
+        titulo="Acuerdos de Convivencia"
+        subtitulo="Complejo Educativo 'Antonio Lemus Pérez'"
+        descripcion="Principios y normativas que rigen la disciplina escolar para garantizar una educación integral y ciudadana."
         acciones={
           <Link to="/" className="boton-hero-principal">
             <ArrowLeft size={18} />
@@ -63,10 +68,24 @@ export const NormasConvivencia: React.FC = () => {
 
       <main className="contenedor-liceo-ancho">
         <div className="encabezado-seccion-liceo">
-          <h2 className="titulo-seccion-liceo">Acuerdos de Convivencia Escolar</h2>
-          <p className="subtitulo-seccion-liceo">
-            Principios normativos que regulan la vida comunitaria y garantizan el derecho a la educación en un ambiente armónico.
-          </p>
+          <h2 className="titulo-seccion-liceo">Objeto y Base Legal</h2>
+          <div className="subtitulo-seccion-liceo" style={{ textAlign: 'justify', marginBottom: '2rem' }}>
+            <p>
+              Los presentes acuerdos tienen por objeto regular la organización y funcionamiento de todas las personas que integran este centro educativo, con la finalidad de establecer los principios que regirán la disciplina escolar de todos los estudiantes, de modo que estén en condiciones de recibir una educación integral de la más alta calidad, que contribuya a su formación como ciudadanos conscientes de sus derechos y deberes, libres, críticos, responsables y justos, aptos para vivir en una sociedad democrática.
+            </p>
+            <p style={{ marginTop: '1rem', fontWeight: 600, color: 'var(--color-primario)' }}>
+              Parámetros Legales: CONSTITUCIÓN DE LA REPÚBLICA BOLIVARIANA DE VENEZUELA, LEY ORGÁNICA DE PROTECCIÓN DEL NIÑO, NIÑA Y ADOLESCENTE, LEY ORGÁNICA DE EDUCACIÓN Y SUS REGLAMENTOS.
+            </p>
+          </div>
+
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <img 
+              src="/src/assets/normas_convivencia.jpg" 
+              alt="Infografía de Normas de Convivencia" 
+              style={{ maxWidth: '100%', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}
+              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+            />
+          </div>
         </div>
 
         <section className="normas-seccion">

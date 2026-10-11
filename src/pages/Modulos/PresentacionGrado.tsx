@@ -16,6 +16,8 @@ import {
 import { CATALAGO_MODULOS, DICCIONARIO_GRADOS } from '../../data/datosModulos';
 import type { GradoEscolar } from '../../data/datosModulos';
 import Boton from '../../components/comunes/Botones/Boton';
+import HeroCiberseguridad from '../../components/comunes/HeroCiberseguridad/HeroCiberseguridad';
+import imgHero3 from '../../assets/pbk-Hero-3.jpg';
 import './PresentacionGrado.css';
 
 // Mapeo de iconos Lucide por módulo
@@ -51,22 +53,32 @@ export const PresentacionGrado: React.FC = () => {
     navigate(`/proyectos/ciberseguridad/grado/${nuevoGrado}`);
   };
 
+  const enlacesSubNav = [
+    { label: 'Inicio Proyecto', ruta: '/proyectos/ciberseguridad' },
+    { label: 'Catálogo por Grado', ruta: '/proyectos/ciberseguridad/modulos' },
+    { label: 'Justificación', ruta: '/proyectos/ciberseguridad/justificacion' },
+    { label: 'Índices y Temario', ruta: '/proyectos/ciberseguridad/indices' },
+    { label: 'Guía Docentes', ruta: '/proyectos/ciberseguridad/guias/docentes' },
+    { label: 'Guía Padres', ruta: '/proyectos/ciberseguridad/guias/padres' },
+    { label: 'Desarrolladores', ruta: '/proyectos/ciberseguridad/nosotros/sobre-devs' },
+  ];
+
   return (
-    <div className="presentacion-grado-contenedor">
-      {/* BANNER DE BIENVENIDA Y SELECCIÓN DE GRADO */}
-      <section className="banner-presentacion-grado">
+    <div className="presentacion-grado-contenedor pagina-ciberseguridad">
+      {/* HERO DE CIBERSEGURIDAD Y SELECCIÓN DE GRADO */}
+      <HeroCiberseguridad
+        titulo="MÓDULOS DE CIBERSEGURIDAD PARA"
+        tituloResaltado={nombreGradoLegible.toUpperCase()}
+        categoria="CATÁLOGO POR GRADO ESCOLAR"
+        descripcion="¡Bienvenido(a) a tu portal de aprendizaje! A continuación se presentan las lecciones y temas adaptados a tu nivel."
+        imagenFondo={imgHero3}
+        enlacesSubNav={enlacesSubNav}
+      />
+
+      {/* CATÁLOGO DE MÓDULOS DE ESTE GRADO */}
+      <section className="seccion-modulos-grado">
         <div className="contenedor-presentacion-grado">
-         
-
-          <h1 className="titulo-presentacion-grado">
-            Presentación de Módulos para <span className="texto-destacado-grado">{nombreGradoLegible}</span>
-          </h1>
-
-          <p className="descripcion-presentacion-grado">
-            ¡Bienvenido(a) a tu portal de aprendizaje! A continuación se presentan los módulos temáticos de ciberseguridad adaptados a tu año escolar. Selecciona cualquier lección para iniciar tu formación.
-          </p>
-
-          {/* Selector de pestañas por Grado Escolar */}
+          
           <div className="selector-grados-pestanas">
             {(['1ro', '2do', '3ro', '4to', '5to'] as GradoEscolar[]).map((g) => (
               <button
@@ -79,12 +91,7 @@ export const PresentacionGrado: React.FC = () => {
               </button>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* CATÁLOGO DE MÓDULOS DE ESTE GRADO */}
-      <section className="seccion-modulos-grado">
-        <div className="contenedor-presentacion-grado">
           <div className="encabezado-seccion-modulos">
             <div>
               <h2 className="titulo-seccion-modulos">Ruta de Lecciones de {gradoActual} Año</h2>

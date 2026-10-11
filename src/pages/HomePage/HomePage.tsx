@@ -34,7 +34,7 @@ export const Home: React.FC = () => {
       {/* HERO */}
       <HeroInstitucional
         imagenFondo={img5}
-        titulo="Liceo Bolivariano"
+        titulo="Complejo Educativo"
         subtitulo='"Antonio Lemus Pérez"'
         descripcion="Más de 40 años formando ciudadanos integrales con excelencia académica, valores éticos y compromiso social en Cumaná, Estado Sucre."
         acciones={
@@ -87,7 +87,7 @@ export const Home: React.FC = () => {
             <div className="encabezado-harvard">
               <h2 className="titulo-harvard">Nuestra institución de un vistazo</h2>
               <p className="subtitulo-harvard">
-                Durante más de cuatro décadas, la comunidad del Liceo Bolivariano "Antonio Lemus Pérez" ha
+                Durante más de cuatro décadas, la comunidad del Complejo Educativo "Antonio Lemus Pérez" ha
                 cultivado la excelencia educativa y el compromiso social en la juventud sucrense.
               </p>
               <a href="/nosotros/sobre-ue" className="enlace-flecha-harvard">
@@ -97,7 +97,7 @@ export const Home: React.FC = () => {
             </div>
 
             <div className="marco-imagen-harvard">
-              <img src={fotoCancha} alt="Instalaciones del Liceo" loading="lazy" decoding="async" />
+              <img src={fotoCancha} alt="Instalaciones del Complejo Educativo" loading="lazy" decoding="async" />
             </div>
           </div>
 

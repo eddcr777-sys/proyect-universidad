@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, Shield, Award, Users, Scale, Sparkles, ArrowLeft } from 'lucide-react';
+import { Heart, Shield, Award, Users, Scale, Sparkles, ArrowLeft, Target, Globe, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import HeroInstitucional from '../../components/comunes/HeroInstitucional/HeroInstitucional';
 import img5 from '../../assets/pbk-Hero-3.jpg';
@@ -16,45 +16,73 @@ export const Valores: React.FC = () => {
   const listaValores = [
     {
       num: 'Valor 01',
-      icono: <Shield size={26} />,
-      titulo: 'Responsabilidad',
+      icono: <Target size={26} />,
+      titulo: 'Toma de Decisiones',
       imagen: fotoFachada,
-      descripcion: 'Asumimos nuestros compromisos académicos y sociales con dedicación, puntualidad y constante superación personal.'
+      descripcion: 'Demostrar capacidad para tomar decisiones.'
     },
     {
       num: 'Valor 02',
-      icono: <Heart size={26} />,
-      titulo: 'Respeto e Inclusión',
+      icono: <Users size={26} />,
+      titulo: 'Espíritu Cooperativo',
       imagen: fotoEstudiantes,
-      descripcion: 'Valoramos la diversidad, fomentando la convivencia armónica, la empatía y la dignidad de cada integrante escolar.'
+      descripcion: 'Manifestar espíritu cooperativo en la realización de los trabajos en grupo.'
     },
     {
       num: 'Valor 03',
-      icono: <Award size={26} />,
-      titulo: 'Excelencia Académica',
+      icono: <Scale size={26} />,
+      titulo: 'Respeto a Normas y Leyes',
       imagen: fotoAula,
-      descripcion: 'Buscamos la máxima calidad en nuestros procesos de enseñanza y aprendizaje, incentivando la curiosidad y el rigor.'
+      descripcion: 'Respetar las normas sociales, las leyes y las ideas ajenas.'
     },
     {
       num: 'Valor 04',
-      icono: <Users size={26} />,
-      titulo: 'Solidaridad y Compañerismo',
+      icono: <Shield size={26} />,
+      titulo: 'Honradez',
       imagen: fotoComunidad,
-      descripcion: 'Promovemos el trabajo en equipo, la ayuda mutua y la empatía como pilares de una comunidad unida.'
+      descripcion: 'Valorar la honradez como norma de vida.'
     },
     {
       num: 'Valor 05',
-      icono: <Scale size={26} />,
-      titulo: 'Integridad y Ética',
+      icono: <Award size={26} />,
+      titulo: 'Identidad Histórica',
       imagen: fotoCancha,
-      descripcion: 'Actuamos con honestidad, justicia y transparencia en todas las esferas de la vida comunitaria e institucional.'
+      descripcion: 'Reconocer la importancia de los símbolos patrios y nuestros personajes históricos.'
     },
     {
       num: 'Valor 06',
       icono: <Sparkles size={26} />,
-      titulo: 'Pensamiento Crítico',
+      titulo: 'Satisfacción por el Trabajo',
       imagen: img5,
-      descripcion: 'Estimulamos la capacidad de indagar, analizar y proponer soluciones creativas e innovadoras ante los retos.'
+      descripcion: 'Vivenciar la satisfaction del trabajo.'
+    },
+    {
+      num: 'Valor 07',
+      icono: <Globe size={26} />,
+      titulo: 'Identidad Regional y Nacional',
+      imagen: fotoFachada,
+      descripcion: 'Reconocer la identidad nacional como individuo perteneciente a una región.'
+    },
+    {
+      num: 'Valor 08',
+      icono: <Shield size={26} />,
+      titulo: 'Cuidado de Infraestructura',
+      imagen: fotoAula,
+      descripcion: 'Concienciar al colectivo acerca del cuidado de la infraestructura de la institución y sus recursos.'
+    },
+    {
+      num: 'Valor 09',
+      icono: <Heart size={26} />,
+      titulo: 'Valores para la Paz',
+      imagen: fotoEstudiantes,
+      descripcion: 'Fomentar amor, identidad nacional, respeto por la vida, libertad, perseverancia, honestidad, convivencia, comprensión, tolerancia y solidaridad latinoamericana.'
+    },
+    {
+      num: 'Valor 10',
+      icono: <Lightbulb size={26} />,
+      titulo: 'Ejes Integradores',
+      imagen: fotoComunidad,
+      descripcion: 'Desarrollar los ejes integradores del Sistema Educativo Bolivariano: Ambiente y Salud Integral, Interculturalidad, TICS y Trabajo Liberador.'
     }
   ];
 
@@ -64,7 +92,7 @@ export const Valores: React.FC = () => {
         imagenFondo={img5}
         variante="compacto"
         titulo="Valores Institucionales"
-        subtitulo="Liceo Bolivariano 'Antonio Lemus Pérez'"
+        subtitulo="Complejo Educativo 'Antonio Lemus Pérez'"
         descripcion="Los principios éticos y humanos que guían el comportamiento de nuestra comunidad escolar."
         acciones={
           <Link to="/" className="boton-hero-principal">
@@ -77,9 +105,14 @@ export const Valores: React.FC = () => {
       <main className="contenedor-liceo-ancho">
         <div className="encabezado-seccion-liceo">
           <h2 className="titulo-seccion-liceo">Principios que Nos Definen</h2>
-          <p className="subtitulo-seccion-liceo">
-            Fomentamos una base axiológica sólida que orienta el crecimiento personal, académico y ciudadano de cada estudiante.
-          </p>
+          <div className="subtitulo-seccion-liceo" style={{ textAlign: 'justify', marginBottom: '2rem' }}>
+            <p style={{ marginBottom: '1rem' }}>
+              La Educación Bolivariana debe jugar un papel transcendente en la transmisión de valores, ya que ninguna educación puede ser posible hoy sino está centrada en la noción de valor, ella pasa a constituir el papel fundamental de la Educación Bolivariana. Su definición es indispensable en momentos en que el venezolano se prepara para enfrentarse al reto del Socialismo del Siglo XXI, en donde no cabe la menor duda de que ese es el único camino a la redención de nuestro pueblo, a la salvación de nuestra patria y a la construcción de nuestro mundo, el cual debe ser formado con un espíritu crítico y creador que le permita organizar o reordenar su cuadro de valores para lograr una mayor calidad de vida y perfeccionar el sistema democrático basado en la paz, la voluntad y justicia social.
+            </p>
+            <p>
+              Dentro de este contexto y como una alternativa de respuesta a las inquietudes de nuestro Complejo Educativo se insertan los siguientes valores:
+            </p>
+          </div>
         </div>
 
         <section className="valores-seccion">

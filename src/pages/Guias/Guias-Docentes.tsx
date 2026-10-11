@@ -117,6 +117,7 @@ export const GuiasDocentes: React.FC = () => {
         titulo="GUÍA PEDAGÓGICA Y DIDÁCTICA PARA"
         tituloResaltado="DOCENTES"
         descripcion="Herramientas metodológicas, planes de lección por año escolar y protocolos institucionales diseñados para orientar a los profesores en la enseñanza efectiva de la ciberseguridad y la prevención digital."
+        imagenFondo="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1600&q=80"
         enlacesSubNav={enlacesSubNav}
         acciones={[
           {

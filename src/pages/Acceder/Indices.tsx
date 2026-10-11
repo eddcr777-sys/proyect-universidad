@@ -165,10 +165,10 @@ const Indices: React.FC = () => {
     <main className="pagina-indices">
       {/* Hero Unificado del Proyecto */}
       <HeaderProyecto
-    
         titulo="ÍNDICES Y TEMARIO DE"
         tituloResaltado="CIBERSEGURIDAD"
         descripcion="Guía completa e interactiva sobre los temas de seguridad digital abordados en el L.B. Antonio Lemus Pérez. Conoce qué enseña cada módulo y accede directamente a las lecciones de tu año escolar."
+        imagenFondo="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1600&q=80"
         enlacesSubNav={enlacesSubNav}
         acciones={[
           {

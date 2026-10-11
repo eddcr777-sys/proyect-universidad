@@ -153,28 +153,33 @@ export const useProteccionCuentas1ro = () => {
     const tienePalabraComun = /(password|contraseña|admin|123456789)/i.test(p);
 
     // Puntuación base
-    if (tieneMinimo) score += 15;
-    if (tieneLongitudRecomendada) score += 10;
-    if (tieneMayuscula) score += 15;
-    if (tieneMinuscula) score += 10;
-    if (tieneNumero) score += 15;
-    if (tieneSimbolo) score += 20;
+    const puntajePositivo =
+      (tieneMinimo ? 15 : 0) +
+      (tieneLongitudRecomendada ? 10 : 0) +
+      (tieneMayuscula ? 15 : 0) +
+      (tieneMinuscula ? 10 : 0) +
+      (tieneNumero ? 15 : 0) +
+      (tieneSimbolo ? 20 : 0);
 
-    // Penalizaciones
-    if (esSoloNumeros) score -= 20;
-    if (esFecha) score -= 30;
-    if (tieneSecuencia) score -= 25;
-    if (tienePalabraComun) score -= 25;
+    // Máximo positivo posible: 15+10+15+10+15+20 = 85 → escalar a 100
+    score = Math.round((puntajePositivo / 85) * 100);
+
+    // Penalizaciones (porcentuales sobre la escala 0-100)
+    if (esSoloNumeros) score -= 24;
+    if (esFecha) score -= 35;
+    if (tieneSecuencia) score -= 30;
+    if (tienePalabraComun) score -= 30;
 
     // Normalizar
     score = Math.max(0, Math.min(100, score));
 
-    let etiqueta = 'Muy débil';
+    let etiqueta = 'Muy débil ⚠️';
     let color = '#ef4444';
-    if (score >= 80) { etiqueta = 'Excelente 🔒'; color = '#10b981'; }
-    else if (score >= 60) { etiqueta = 'Buena'; color = '#22c55e'; }
-    else if (score >= 40) { etiqueta = 'Aceptable'; color = '#f59e0b'; }
-    else if (score >= 20) { etiqueta = 'Débil'; color = '#f97316'; }
+    if (score > 90) { etiqueta = 'Excelente ✅'; color = '#10b981'; }
+    else if (score > 80) { etiqueta = 'Muy buena ✅'; color = '#10b981'; }
+    else if (score >= 60) { etiqueta = 'Buena ✅'; color = '#20733fff'; }
+    else if (score >= 40) { etiqueta = 'Aceptable 🟡'; color = '#f59e0b'; }
+    else if (score >= 20) { etiqueta = 'Débil 🟠'; color = '#f97316'; }
 
     return { score, etiqueta, color };
   }, [password]);

@@ -51,20 +51,5 @@ export const TEAM_INST_MEMBER: MemberItem[] = [
     role: 'Desarrollador',
     description: 'Desarrollador del proyecto de ciberseguridad en el Liceo Bolivariano Antonio Lemus Pérez.',
     imagen: foto2
-  },
-  {
-    id: 3,
-    name: 'Luis Ruiz',
-    role: 'Desarrollador',
-    description: 'Desarrollador del proyecto de ciberseguridad en el Liceo Bolivariano Antonio Lemus Pérez.',
-    imagen: foto3
-  },
-  {
-    id: 4,
-    name: 'Jesus Giraldo',
-    role: 'Desarrollador',
-    description: 'Desarrollador del proyecto de ciberseguridad en el Liceo Bolivariano Antonio Lemus Pérez.',
-    imagen: foto4
-
   }
 ];
