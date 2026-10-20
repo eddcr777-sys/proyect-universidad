@@ -1,7 +1,7 @@
 /**
  * ============================================================================
  * CATÁLOGO DE DATOS LOCAL ESTÁTICO DE MÓDULOS DE CIBERSEGURIDAD
- * Liceo Bolivariano Antonio Lemus Pérez (LB-LEMUS)
+ * Complejo Educativo Antonio Lemus Pérez (LB-LEMUS)
  * ============================================================================
  */
 

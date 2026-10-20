@@ -80,7 +80,7 @@ export const Justificacion: React.FC = () => {
       <HeaderProyecto
         titulo="JUSTIFICACIÓN"
         tituloResaltado=""
-        descripcion="Fundamentación académica, diagnóstico de vulnerabilidades digitales e impacto pedagógico en la comunidad del Liceo Bolivariano Antonio Lemus Pérez."
+        descripcion="Fundamentación académica, diagnóstico de vulnerabilidades digitales e impacto pedagógico en la comunidad del Complejo Educativo Antonio Lemus Pérez."
         imagenFondo="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1600&q=80"
         enlacesSubNav={enlacesSubNav}
         acciones={[
@@ -136,7 +136,7 @@ export const Justificacion: React.FC = () => {
               </p>
             </article>
 
-           
+
           </div>
         </div>
       </section>
@@ -187,7 +187,7 @@ export const Justificacion: React.FC = () => {
               Nuestra meta es que los estudiantes adquieran competencias digitales
               que les permitan protegerse a sí mismos, fomentando un uso de Internet seguro, crítico y enriquecedor.
             </p>
-          
+
           </div>
         </div>
       </section>
@@ -207,8 +207,8 @@ export const Justificacion: React.FC = () => {
                 </p>
               </div>
 
-                                          
-              </div>
+
+            </div>
 
             <div className="columna-faq">
               <div className="encabezado-faq">

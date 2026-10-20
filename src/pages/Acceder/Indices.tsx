@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ShieldCheck, Lock, Share2, Download, Gamepad2, CheckSquare,
-  ArrowRight, ArrowDown, BookOpen, Clock, GraduationCap, CheckCircle2, HelpCircle,
+  ArrowRight, BookOpen, Clock, GraduationCap, CheckCircle2, HelpCircle,
   FileText, Lightbulb, Target, BookMarked, ChevronDown, ChevronUp,
-  ArrowLeft
+  Sparkles, AlertCircle
 } from "lucide-react";
 import HeaderProyecto from "../../components/comunes/HeaderProyecto/HeaderProyecto";
 import { CATALAGO_MODULOS } from "../../data/datosModulos";
@@ -14,12 +14,12 @@ import "./Indices.css";
 
 // Mapeo de iconos Lucide por ID de módulo
 const ICONOS_MODULOS: Record<string, React.ReactNode> = {
-  'phishing': <ShieldCheck size={32} />,
-  'proteccion-cuentas': <Lock size={32} />,
-  'redes-sociales': <Share2 size={32} />,
-  'software-pirata': <Download size={32} />,
-  'videojuegos': <Gamepad2 size={32} />,
-  'auditorias': <CheckSquare size={32} />,
+  'phishing': <ShieldCheck size={30} />,
+  'proteccion-cuentas': <Lock size={30} />,
+  'redes-sociales': <Share2 size={30} />,
+  'software-pirata': <Download size={30} />,
+  'videojuegos': <Gamepad2 size={30} />,
+  'auditorias': <CheckSquare size={30} />,
 };
 
 const GRADOS: GradoEscolar[] = ['1ro', '2do', '3ro', '4to', '5to'];
@@ -37,24 +37,30 @@ const SeccionModulo: React.FC<{ mod: any }> = ({ mod }) => {
   };
 
   return (
-    <section className="seccion-modulo">
+    <article className={`seccion-modulo ${expandido ? 'modulo-abierto' : ''}`}>
       {/* Cabecera siempre visible */}
       <button
+        type="button"
         className="cabecera-seccion"
         onClick={() => setExpandido(!expandido)}
         aria-expanded={expandido}
       >
-        <span className="icono-seccion">
-          {ICONOS_MODULOS[mod.id] || <ShieldCheck size={32} />}
-        </span>
+        <div className="icono-seccion">
+          {ICONOS_MODULOS[mod.id] || <ShieldCheck size={30} />}
+        </div>
         <div className="info-cabecera">
-          <span className="modulo-categoria">{mod.nombreCategoria}</span>
+          <div className="fila-categoria">
+            <span className="modulo-categoria">{mod.nombreCategoria}</span>
+            <span className="modulo-duracion-badge">
+              <Clock size={13} /> {mod.duracionEstimada}
+            </span>
+          </div>
           <h3>{mod.titulo}</h3>
           <p className="resumen-cabecera">{mod.resumenGeneral}</p>
         </div>
-        <span className={`indicador-expandir ${expandido ? 'abierto' : ''}`}>
-          {expandido ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
-        </span>
+        <div className={`indicador-expandir ${expandido ? 'abierto' : ''}`} aria-hidden="true">
+          {expandido ? <ChevronUp size={22} /> : <ChevronDown size={22} />}
+        </div>
       </button>
 
       {/* Contenido expandible */}
@@ -63,26 +69,26 @@ const SeccionModulo: React.FC<{ mod: any }> = ({ mod }) => {
           <div className="columna-teoria">
             <div className="bloque-detalle">
               <strong className="bloque-titulo">
-                <Lightbulb size={18} /> ¿Qué aprenderás en este tema?
+                <Lightbulb size={18} className="icono-bloque icono-amarillo" /> ¿Qué aprenderás en este tema?
               </strong>
               <p>{detalle.queAprenderas}</p>
             </div>
 
             <div className="bloque-importancia">
               <strong className="bloque-titulo">
-                <Target size={18} /> Importancia en tu vida digital:
+                <Target size={18} className="icono-bloque icono-rojo" /> Importancia en tu vida digital:
               </strong>
               <p>{detalle.porQueEsImportante}</p>
             </div>
 
             <div className="bloque-subtemas">
               <strong className="bloque-titulo">
-                <BookMarked size={18} /> Lecciones y Tópicos Clave:
+                <BookMarked size={18} className="icono-bloque icono-azul" /> Lecciones y Tópicos Clave:
               </strong>
-              <ul>
+              <ul className="lista-subtemas">
                 {detalle.subtemasClave.map((subtema: string, idx: number) => (
-                  <li key={idx}>
-                    <CheckCircle2 size={16} color="#0284c7" />
+                  <li key={idx} className="item-subtema">
+                    <CheckCircle2 size={16} className="icono-check-subtema" />
                     <span>{subtema}</span>
                   </li>
                 ))}
@@ -91,28 +97,35 @@ const SeccionModulo: React.FC<{ mod: any }> = ({ mod }) => {
 
             {detalle.teoriaAdicional && (
               <div className="teoria-adicional">
-                <h4>🔍 Teoría detallada</h4>
+                <h4>
+                  <Sparkles size={16} className="icono-azul" /> Fundamento Teórico
+                </h4>
                 <p>{detalle.teoriaAdicional}</p>
               </div>
             )}
 
-            {detalle.conceptosClave?.length > 0 && (
+            {detalle.conceptosClave && detalle.conceptosClave.length > 0 && (
               <div className="conceptos-clave">
-                <h4>🧠 Conceptos esenciales</h4>
-                <ul>
+                <h4>
+                  <BookOpen size={16} className="icono-azul" /> Conceptos Esenciales
+                </h4>
+                <div className="grid-conceptos">
                   {detalle.conceptosClave.map((concepto: any, idx: number) => (
-                    <li key={idx}>
-                      <strong>{concepto.titulo}:</strong> {concepto.descripcion}
-                    </li>
+                    <div key={idx} className="tarjeta-concepto-mini">
+                      <strong>{concepto.titulo}</strong>
+                      <p>{concepto.descripcion}</p>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             )}
 
-            {detalle.ejemplosReales?.length > 0 && (
+            {detalle.ejemplosReales && detalle.ejemplosReales.length > 0 && (
               <div className="ejemplos-reales">
-                <h4>📌 Ejemplos reales</h4>
-                <ul>
+                <h4>
+                  <AlertCircle size={16} className="icono-rojo" /> Casos y Ejemplos de la Vida Real
+                </h4>
+                <ul className="lista-ejemplos">
                   {detalle.ejemplosReales.map((ejemplo: string, idx: number) => (
                     <li key={idx}>{ejemplo}</li>
                   ))}
@@ -122,29 +135,43 @@ const SeccionModulo: React.FC<{ mod: any }> = ({ mod }) => {
           </div>
 
           <div className="columna-acceso">
-            <div className="selector-grados">
-              <span className="selector-titulo">Ir a este módulo en:</span>
-              <div className="botones-grados">
-                {GRADOS.map((g) => (
-                  <Link key={g} to={`/modulos/info/${mod.id}/${g}`} className="btn-grado">
-                    {g} Año
-                  </Link>
-                ))}
+            <div className="panel-acceso-fijo">
+              <div className="selector-grados">
+                <span className="selector-titulo">Ir a este módulo por año escolar</span>
+                <div className="botones-grados">
+                  {GRADOS.map((g) => (
+                    <Link key={g} to={`/modulos/info/${mod.id}/${g}`} className="btn-grado">
+                      {g} Año
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div className="metadatos">
-              <span><Clock size={16} /> {mod.duracionEstimada}</span>
-              <span><BookOpen size={16} /> 5 Grados Disponibles</span>
-            </div>
+              <div className="metadatos-modulo">
+                <div className="metadato-item">
+                  <Clock size={16} className="icono-meta" />
+                  <div>
+                    <span className="meta-etiqueta">Duración estimada</span>
+                    <strong className="meta-valor">{mod.duracionEstimada}</strong>
+                  </div>
+                </div>
+                <div className="metadato-item">
+                  <GraduationCap size={16} className="icono-meta" />
+                  <div>
+                    <span className="meta-etiqueta">Cobertura escolar</span>
+                    <strong className="meta-valor">1ro a 5to Año</strong>
+                  </div>
+                </div>
+              </div>
 
-            <Link to={`/modulos/info/${mod.id}/1ro`} className="boton-acceso-seccion">
-              Explorar Presentación <ArrowRight size={18} />
-            </Link>
+              <Link to={`/modulos/info/${mod.id}/1ro`} className="boton-acceso-seccion">
+                Explorar Presentación <ArrowRight size={18} />
+              </Link>
+            </div>
           </div>
         </div>
       )}
-    </section>
+    </article>
   );
 };
 
@@ -165,72 +192,79 @@ const Indices: React.FC = () => {
     <main className="pagina-indices">
       {/* Hero Unificado del Proyecto */}
       <HeaderProyecto
+        categoria="Catálogo Temático y Plan Curricular"
         titulo="ÍNDICES Y TEMARIO DE"
         tituloResaltado="CIBERSEGURIDAD"
-        descripcion="Guía completa e interactiva sobre los temas de seguridad digital abordados en el L.B. Antonio Lemus Pérez. Conoce qué enseña cada módulo y accede directamente a las lecciones de tu año escolar."
+        descripcion="Exploración detallada de los 6 ejes temáticos de prevención digital en el C.E. Antonio Lemus Pérez. Conoce qué enseña cada módulo, sus conceptos clave y accede directamente a las lecciones de tu año escolar."
         imagenFondo="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1600&q=80"
         enlacesSubNav={enlacesSubNav}
         acciones={[
           {
-            label: 'Explorar Catálogo por Grado',
-            ruta: '/proyectos/ciberseguridad/modulos',
-          },
-          {
-            label: 'Ver Justificación',
-            ruta: '/proyectos/ciberseguridad/justificacion',
-            icono: <ArrowRight size={20} />,
-          },
-          {
-            label: 'Ver Temáticas',
+            label: 'Explorar Módulos Abajo',
             href: '#seccion-modulos',
-            icono: <ChevronDown size={18} />,
+          },
+          {
+            label: 'Ver Catálogo por Grado',
+            ruta: '/proyectos/ciberseguridad/modulos',
+            icono: <ArrowRight size={18} />,
           },
         ]}
       />
 
-      {/* INTRODUCCIÓN */}
-      <section className="seccion-info ciberseguridad-que-es">
-        <div className="contenedor-seccion">
-          <h2>¿A qué se dedica esta plataforma?</h2>
-          <p className="texto-destacado">
-            Este portal está diseñado para desarrollar una cultura de prevención digital en los estudiantes,
-            docentes y familias del L.B. Antonio Lemus Pérez en Cumaná, Estado Sucre.
-          </p>
-          <p className="texto-secundario">
-            A través de un enfoque pedagógico progresivo, dividimos la formación en <strong>6 áreas fundamentales</strong>.
-            En cada módulo encontrarás lecciones teóricas, análisis de casos reales de Venezuela y el mundo, y actividades
-            prácticas adaptadas exactamente al año escolar en el que estudias.
-          </p>
-          <div className="mini-estadisticas">
-            <div className="estadistica-item">
-              <BookOpen size={22} color="#0284c7" />
-              <strong>6 Módulos</strong>
-              <span>Áreas de ciberseguridad</span>
-            </div>
-            <div className="estadistica-item">
-              <GraduationCap size={22} color="#0284c7" />
-              <strong>5 Grados</strong>
-              <span>Desde 1ro hasta 5to año</span>
-            </div>
-            <div className="estadistica-item">
-              <CheckCircle2 size={22} color="#0284c7" />
-              <strong>30 Lecciones</strong>
-              <span>Adaptadas por nivel</span>
+      <div className="contenedor-indices">
+        {/* INTRODUCCIÓN */}
+        <section className="seccion-info-indices">
+          <div className="tarjeta-presentacion-indices">
+            <span className="insignia-temario">Propósito Pedagógico</span>
+            <h2>¿A qué se dedica esta plataforma?</h2>
+            <p className="texto-destacado-indices">
+              Este portal está diseñado para desarrollar una sólida cultura de prevención y responsabilidad digital en los estudiantes, docentes y familias del C.E. Antonio Lemus Pérez en Cumaná, Estado Sucre.
+            </p>
+            <p className="texto-secundario-indices">
+              A través de un enfoque pedagógico gradual y práctico, estructuramos la formación en <strong>6 áreas fundamentales</strong>. En cada módulo encontrarás explicaciones claras, análisis de casos reales de Venezuela y dinámicas adaptadas exactamente a cada nivel de bachillerato.
+            </p>
+
+            <div className="mini-estadisticas">
+              <div className="estadistica-item">
+                <div className="icono-stat-wrapper icono-azul">
+                  <BookOpen size={24} />
+                </div>
+                <div className="stat-info">
+                  <strong>6 Módulos</strong>
+                  <span>Áreas de Ciberseguridad</span>
+                </div>
+              </div>
+              <div className="estadistica-item">
+                <div className="icono-stat-wrapper icono-rojo">
+                  <GraduationCap size={24} />
+                </div>
+                <div className="stat-info">
+                  <strong>5 Grados</strong>
+                  <span>Desde 1ro a 5to Año</span>
+                </div>
+              </div>
+              <div className="estadistica-item">
+                <div className="icono-stat-wrapper icono-verde">
+                  <CheckCircle2 size={24} />
+                </div>
+                <div className="stat-info">
+                  <strong>30 Lecciones</strong>
+                  <span>Adaptadas por Nivel</span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* LISTA DE MÓDULOS COMO SECCIONES HORIZONTALES */}
-      <section id="seccion-modulos" className="seccion-modulos">
-        <div className="contenedor-seccion">
+        {/* LISTA DE MÓDULOS COMO SECCIONES HORIZONTALES */}
+        <section id="seccion-modulos" className="seccion-modulos">
           <div className="encabezado-modulos">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-              <FileText size={28} color="#0284c7" />
-              <h2 style={{ margin: 0 }}>Índice de Temas y Módulos de Estudio</h2>
+            <div className="titulo-con-icono">
+              <FileText size={28} className="icono-encabezado-indices" />
+              <h2>Índice de Temas y Módulos de Estudio</h2>
             </div>
-            <p style={{ color: '#64748b' }}>
-              Haz clic en cada módulo para expandir su contenido y acceder a las lecciones por año:
+            <p>
+              Haz clic en cualquier módulo para desplegar su fundamentación, tópicos clave, teoría y enlaces directos por año escolar:
             </p>
           </div>
 
@@ -239,22 +273,22 @@ const Indices: React.FC = () => {
               <SeccionModulo key={mod.id} mod={mod} />
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* SECCIÓN FINAL */}
-      <section className="seccion-info ciberseguridad-importancia">
-        <div className="contenedor-seccion" style={{ textAlign: 'center' }}>
-          <HelpCircle size={36} color="#0284c7" style={{ marginBottom: '1rem' }} />
-          <h2>¿Dudas sobre cómo empezar?</h2>
-          <p style={{ maxWidth: '600px', margin: '0 auto 1.5rem auto', color: '#475569' }}>
-            También puedes visitar el portal general de módulos para ver una vista panorámica de todas las tarjetas de grados escolares.
-          </p>
-          <Link to="/proyectos/ciberseguridad/modulos" className="boton-acceso-modulo" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.8rem 1.8rem', fontSize: '1rem' }}>
-            Ir a Selección General de Grado <ArrowRight size={18} />
-          </Link>
-        </div>
-      </section>
+        {/* SECCIÓN FINAL (CTA) */}
+        <section className="seccion-cta-final">
+          <div className="tarjeta-cta-indices">
+            <HelpCircle size={38} className="icono-cta" />
+            <h2>¿Dudas sobre cómo empezar?</h2>
+            <p>
+              También puedes visitar el catálogo general para explorar una vista panorámica de todas las tarjetas por año escolar y nivel de dificultad.
+            </p>
+            <Link to="/proyectos/ciberseguridad/modulos" className="boton-cta-indices">
+              Ir a Selección General de Grado <ArrowRight size={18} />
+            </Link>
+          </div>
+        </section>
+      </div>
     </main>
   );
 };

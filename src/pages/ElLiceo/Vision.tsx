@@ -3,10 +3,10 @@ import { Eye, Lightbulb, ShieldCheck, Globe, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import HeroInstitucional from '../../components/comunes/HeroInstitucional/HeroInstitucional';
 import img5 from '../../assets/pbk-Hero-3.jpg';
-import fotoFachada from '../../assets/lb.jpeg';
-import fotoAula from '../../assets/le.jpeg';
+import fotoHorizonte from '../../assets/vision_horizonte_futuro.jpg';
+import fotoInnovacion from '../../assets/vision_innovacion_edu.jpg';
 import fotoEstudiantes from '../../assets/lem.jpeg';
-import fotoComunidad from '../../assets/images.jpeg';
+import fotoComunidad from '../../assets/mision_vinculacion_comunitaria.jpg';
 import './ElLiceo.css';
 import './Mision.css';
 
@@ -40,7 +40,7 @@ export const Vision: React.FC = () => {
           <div className="mision-contenedor">
             {/* Bloque 1: Declaración de Visión */}
             <div className="mision-imagen">
-              <img src={fotoFachada} alt="Sede del Complejo Educativo Antonio Lemus Pérez" loading="lazy" />
+              <img src={fotoHorizonte} alt="Estudiantes proyectando el futuro - Declaración de Visión" loading="lazy" />
             </div>
             <div className="mision-texto">
               <span className="mision-badge">Nuestro Horizonte</span>
@@ -59,12 +59,12 @@ export const Vision: React.FC = () => {
               </p>
             </div>
             <div className="mision-imagen">
-              <img src={fotoAula} alt="Innovación educativa" loading="lazy" />
+              <img src={fotoInnovacion} alt="Tecnología, robótica e innovación educativa" loading="lazy" />
             </div>
 
             {/* Bloque 3: Compromiso Social */}
             <div className="mision-imagen">
-              <img src={fotoEstudiantes} alt="Compromiso social y ético" loading="lazy" />
+              <img src={fotoEstudiantes} alt="Estudiantes comprometidos social y éticamente" loading="lazy" />
             </div>
             <div className="mision-texto">
               <span className="mision-badge">Pilar II</span>
@@ -83,7 +83,7 @@ export const Vision: React.FC = () => {
               </p>
             </div>
             <div className="mision-imagen">
-              <img src={fotoComunidad} alt="Liderazgo comunitario" loading="lazy" />
+              <img src={fotoComunidad} alt="Liderazgo estudiantil e integración comunitaria" loading="lazy" />
             </div>
           </div>
         </section>

@@ -32,7 +32,7 @@ const FASES_DEFENSA: FaseDefensa[] = [
     numero: '01',
     titulo: 'Introducción y Diagnóstico Comunitario',
     tiempoRecomendado: '4 a 5 Minutos',
-    descripcion: 'Presentación del equipo, contexto del L.B. "Antonio Lemus Pérez" y fundamentación del problema sociotecnológico.',
+    descripcion: 'Presentación del equipo, contexto del C.E. "Antonio Lemus Pérez" y fundamentación del problema sociotecnológico.',
     puntosClave: [
       'Justificación PNFI del proyecto sociotecnológico.',
       'Diagnóstico de vulnerabilidades digitales detectadas en los 965 estudiantes.',
@@ -117,7 +117,7 @@ export const GuiaDefensa: React.FC = () => {
         categoria="MANUAL METODOLÓGICO PNFI"
         titulo="GUÍA PARA LA DEFENSA DEL"
         tituloResaltado="PROYECTO SOCIOTECNOLÓGICO"
-        descripcion="Pautas para la presentación oral, estructura de diapositivas y matriz de respuestas clave ante el jurado evaluador de la UPTOS CR y las autoridades del L.B. Antonio Lemus Pérez."
+        descripcion="Pautas para la presentación oral, estructura de diapositivas y matriz de respuestas clave ante el jurado evaluador de la UPTOS CR y las autoridades del C.E. Antonio Lemus Pérez."
         imagenFondo="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80"
         enlacesSubNav={enlacesSubNav}
         acciones={[

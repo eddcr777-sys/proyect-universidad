@@ -126,7 +126,7 @@ export const ManualCompleto: React.FC = () => {
         categoria="DOCUMENTO OFICIAL DE CIBERSEGURIDAD"
         titulo="MANUAL COMPLETO DE"
         tituloResaltado="SEGURIDAD Y CONCIENCIA DIGITAL"
-        descripcion="Compilación pedagógica integral para el Liceo Bolivariano Antonio Lemus Pérez. Contiene los 6 módulos normativos y guías metodológicas."
+        descripcion="Compilación pedagógica integral para el Complejo Educativo Antonio Lemus Pérez. Contiene los 6 módulos normativos y guías metodológicas."
         imagenFondo="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80"
         enlacesSubNav={enlacesSubNav}
         acciones={[

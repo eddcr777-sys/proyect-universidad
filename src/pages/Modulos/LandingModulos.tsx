@@ -34,37 +34,37 @@ const LandingModulos: React.FC = () => {
     descripcion: string;
     nivel: string;
   }[] = [
-    {
-      grado: '1ro',
-      etiqueta: '1ro Año',
-      descripcion: 'Fundamentos de higiene digital, contraseñas seguras y uso responsable de dispositivos.',
-      nivel: 'Nivel Inicial',
-    },
-    {
-      grado: '2do',
-      etiqueta: '2do Año',
-      descripcion: 'Identificación de phishing, estafas en línea y protección de datos personales.',
-      nivel: 'Nivel Básico',
-    },
-    {
-      grado: '3ro',
-      etiqueta: '3ro Año',
-      descripcion: 'Privacidad en redes sociales, huella digital y prevención del ciberacoso.',
-      nivel: 'Nivel Intermedio',
-    },
-    {
-      grado: '4to',
-      etiqueta: '4to Año',
-      descripcion: 'Seguridad en redes Wi-Fi, descargas responsables y licencias de software.',
-      nivel: 'Nivel Avanzado',
-    },
-    {
-      grado: '5to',
-      etiqueta: '5to Año',
-      descripcion: 'Ciberseguridad experta: análisis forense básico, software pirata y ética digital.',
-      nivel: 'Nivel Experto',
-    },
-  ];
+      {
+        grado: '1ro',
+        etiqueta: '1ro Año',
+        descripcion: 'Fundamentos de higiene digital, contraseñas seguras y uso responsable de dispositivos.',
+        nivel: 'Nivel Inicial',
+      },
+      {
+        grado: '2do',
+        etiqueta: '2do Año',
+        descripcion: 'Identificación de phishing, estafas en línea y protección de datos personales.',
+        nivel: 'Nivel Básico',
+      },
+      {
+        grado: '3ro',
+        etiqueta: '3ro Año',
+        descripcion: 'Privacidad en redes sociales, huella digital y prevención del ciberacoso.',
+        nivel: 'Nivel Intermedio',
+      },
+      {
+        grado: '4to',
+        etiqueta: '4to Año',
+        descripcion: 'Seguridad en redes Wi-Fi, descargas responsables y licencias de software.',
+        nivel: 'Nivel Avanzado',
+      },
+      {
+        grado: '5to',
+        etiqueta: '5to Año',
+        descripcion: 'Ciberseguridad experta: análisis forense básico, software pirata y ética digital.',
+        nivel: 'Nivel Experto',
+      },
+    ];
 
   const irAlCatalogo = () => {
     if (gradoSeleccionado) {
@@ -111,7 +111,7 @@ const LandingModulos: React.FC = () => {
             <ul className="lista-caracteristicas-grado">
               <li>
                 <CheckCircle2 size={20} className="icono-check-inst" />
-                <span>Contenidos adaptados al plan formativo del L.B. "Antonio Lemus Pérez".</span>
+                <span>Contenidos adaptados al plan formativo del C.E. "Antonio Lemus Pérez".</span>
               </li>
               <li>
                 <CheckCircle2 size={20} className="icono-check-inst" />
@@ -140,7 +140,7 @@ const LandingModulos: React.FC = () => {
                   <p className="tarjeta-grado-descripcion">{descripcion}</p>
                   {gradoSeleccionado === grado && (
                     <div className="tarjeta-grado-seleccionado-badge">
-  
+
                       <span>Seleccionado</span>
                     </div>
                   )}
@@ -171,7 +171,7 @@ const LandingModulos: React.FC = () => {
                     ↑ Selecciona una tarjeta arriba para activar el botón
                   </p>
                   <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.85rem' }}>o si lo prefieres</span>
-                  <button 
+                  <button
                     type="button"
                     onClick={() => navigate('/proyectos/ciberseguridad/grado/1ro')}
                     style={{

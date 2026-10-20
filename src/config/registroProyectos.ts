@@ -28,7 +28,7 @@ export const PROYECTOS_REGISTRADOS: ProyectoEstudiantil[] = [
     titulo: 'Ciberseguridad Escolar y Conciencia Digital',
     categoria: 'Ciberseguridad y Privacidad',
     descripcion: 'Módulos interactivos y guías orientadas a la protección de datos, prevención de phishing y seguridad en redes sociales.',
-    autores: 'Equipo de Ciberseguridad L.B. Lemus',
+    autores: 'Equipo de Ciberseguridad C.E. Lemus',
     gradoOComunidad: '1ro a 5to Año y Comunidad Escolar',
     icono: 'ShieldCheck',
     rutaBase: '/proyectos/ciberseguridad',
@@ -36,7 +36,7 @@ export const PROYECTOS_REGISTRADOS: ProyectoEstudiantil[] = [
     fechaCreacion: '2026',
     etiquetas: ['Seguridad', 'Phishing', 'Protección de Datos', 'Redes Sociales']
   }
-  
+
 ];
 
 /**

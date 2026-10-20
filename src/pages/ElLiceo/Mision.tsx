@@ -3,12 +3,12 @@ import { Target, Compass, Users, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import HeroInstitucional from '../../components/comunes/HeroInstitucional/HeroInstitucional';
 import img5 from '../../assets/pbk-Hero-3.jpg';
-import fotoFachada from '../../assets/lb.jpeg';
-import fotoAula from '../../assets/le.jpeg';
-import fotoEstudiantes from '../../assets/lem.jpeg';
-import fotoComunidad from '../../assets/images.jpeg';
+import fotoRazonSer from '../../assets/mision_razon_ser.jpg';
+import fotoFormacion from '../../assets/mision_formacion_integ.jpg';
+import fotoEtica from '../../assets/mision_etica_ciudadana.jpg';
+import fotoComunidad from '../../assets/mision_vinculacion_comunitaria.jpg';
 import './ElLiceo.css';
-import './Mision.css'
+import './Mision.css';
 
 export const Mision: React.FC = () => {
   return (
@@ -41,7 +41,7 @@ export const Mision: React.FC = () => {
           <div className="mision-contenedor">
             {/* Bloque 1: Declaración de Misión */}
             <div className="mision-imagen">
-              <img src={fotoFachada} alt="Sede del Complejo Educativo Antonio Lemus Pérez" loading="lazy" />
+              <img src={fotoRazonSer} alt="Estudiantes en el aula - Razón de Ser Institucional" loading="lazy" />
             </div>
             <div className="mision-texto">
               <span className="mision-badge">Nuestra Razón de Ser</span>
@@ -60,12 +60,12 @@ export const Mision: React.FC = () => {
               </p>
             </div>
             <div className="mision-imagen">
-              <img src={fotoAula} alt="Formación académica e intelectual" loading="lazy" />
+              <img src={fotoFormacion} alt="Formación académica, científica y tecnológica" loading="lazy" />
             </div>
 
             {/* Bloque 3: Orientación Ética */}
             <div className="mision-imagen">
-              <img src={fotoEstudiantes} alt="Orientación ética y ciudadanía" loading="lazy" />
+              <img src={fotoEtica} alt="Orientación ética, diálogo y ciudadanía" loading="lazy" />
             </div>
             <div className="mision-texto">
               <span className="mision-badge">Pilar II</span>

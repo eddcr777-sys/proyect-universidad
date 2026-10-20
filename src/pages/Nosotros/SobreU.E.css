@@ -1,6 +1,6 @@
 /* ==================================================
    HOJA DE ESTILOS PARA LA PÁGINA "SOBRE NOSOTROS"
-   Liceo Bolivariano "Antonio Lemus Pérez"
+   Complejo Educativo "Antonio Lemus Pérez"
    ================================================== */
 
 /* ---------- VARIABLES GLOBALES ---------- */
@@ -50,11 +50,13 @@
 .encabezado-historia {
   text-align: center;
 }
+
 .encabezado-historia h2 {
   font-size: 2.5rem;
   font-weight: 800;
   color: var(--color-inst-azul);
 }
+
 .encabezado-historia p {
   color: var(--color-inst-texto-secundario);
   font-size: 1.15rem;
@@ -63,7 +65,8 @@
 /* --- Fila de evento: texto a la izquierda, imagen a la derecha --- */
 .evento-fila {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+  grid-template-columns: 1fr 1fr;
+  /* Dos columnas iguales */
   gap: 2.5rem;
   align-items: center;
   border-bottom: 1px solid var(--color-inst-borde);
@@ -97,15 +100,15 @@
 .imagen-historica {
   width: 100%;
   aspect-ratio: 4/3;
-  object-fit: cover; 
-  text-align: center;        
+  object-fit: cover;
+  text-align: center;
 }
 
 .parrafo-homenaje {
   color: var(--color-inst-texto-secundario);
-  text-align: center;        
-  max-width: 900px;          
-  margin-left: auto;         
+  text-align: center;
+  max-width: 900px;
+  margin-left: auto;
   margin-right: auto;
   margin-top: 15px;
   margin-bottom: 25px;
@@ -125,6 +128,7 @@
   border-radius: 8px;
   font-style: italic;
 }
+
 .marco-imagen figcaption svg {
   flex-shrink: 0;
   color: #64748b;
@@ -164,7 +168,8 @@
 /* ---------- CAJA DE INFORMACIÓN DESTACADA (sin borde izquierdo) ---------- */
 .caja-info-destacada {
   display: flex;
-  flex-direction: column; /* Apila el título y los párrafos verticalmente */
+  flex-direction: column;
+  /* Apila el título y los párrafos verticalmente */
   gap: 0.5rem;
   background: var(--color-inst-fondo);
   border: 1px solid var(--color-inst-borde);
@@ -172,18 +177,21 @@
   padding: 1rem 1.2rem;
   margin-top: 0.5rem;
 }
+
 .caja-info-destacada h4 {
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--color-inst-blanco);
   margin: 0;
 }
+
 .caja-info-destacada p {
   font-size: 0.9rem;
 
   line-height: 1.5;
   margin: 0;
 }
+
 .caja-info-destacada p.pequeno {
   font-size: 0.85rem;
 }
@@ -220,6 +228,7 @@
 .profesores-lista {
   margin: 1.5rem 0;
 }
+
 .profesores-lista strong {
   display: block;
   margin-bottom: 0.8rem;
@@ -251,6 +260,7 @@
   flex-wrap: wrap;
   gap: 0.5rem;
 }
+
 .etiquetas-grid span {
   background-color: #f3f4f6;
   border: 1px solid #e5e7eb;
@@ -259,6 +269,7 @@
   color: #4b5563;
   transition: all 0.2s;
 }
+
 .etiquetas-grid span:hover {
   background-color: rgba(200, 16, 46, 0.1);
   color: var(--color-inst-rojo);
@@ -283,17 +294,20 @@
   gap: 1rem;
   margin: 1.5rem 0;
 }
+
 .tarjeta-stat-historia {
   background: #fff;
   border: 1px solid var(--color-inst-borde);
   padding: 1.5rem 1rem;
   text-align: center;
 }
+
 .tarjeta-stat-historia h5 {
   font-size: 1rem;
   color: var(--color-inst-texto-secundario);
   margin-bottom: 0.5rem;
 }
+
 .tarjeta-stat-historia .stat-numero-h {
   display: block;
   font-size: 2rem;
@@ -301,18 +315,21 @@
   color: var(--color-inst-azul);
   margin-bottom: 0.5rem;
 }
+
 .tarjeta-stat-historia p {
   font-size: 0.85rem !important;
   margin: 0 !important;
   color: var(--color-inst-texto) !important;
   font-weight: 600;
 }
+
 .tarjeta-stat-historia small {
   display: block;
   margin-top: 0.5rem;
   font-size: 0.75rem;
   color: #6b7280;
 }
+
 .tarjeta-stat-historia.destacado {
   background-color: rgba(16, 25, 200, 0.165);
 }
@@ -326,6 +343,7 @@
   grid-template-columns: repeat(auto-fit, minmax(min(500px, 100%), 1fr));
   gap: 0.75rem;
 }
+
 .lista-organigrama li {
   font-size: 0.95rem;
   color: var(--color-inst-texto-secundario);
@@ -339,6 +357,7 @@
   margin-bottom: 2rem;
   width: 100%;
 }
+
 .scroll-indicador-wrapper.final {
   margin-top: 5rem;
   padding-top: 3rem;
@@ -360,6 +379,7 @@
   box-shadow: 0 4px 6px -1px rgba(15, 44, 89, 0.05), 0 2px 4px -2px rgba(15, 44, 89, 0.05);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .scroll-indicador:hover {
   background-color: var(--color-inst-azul);
   color: #ffffff;
@@ -367,12 +387,14 @@
   transform: translateY(-4px);
   box-shadow: 0 10px 15px -3px rgba(15, 44, 89, 0.2), 0 4px 6px -4px rgba(15, 44, 89, 0.1);
 }
+
 .scroll-indicador.outline {
   background-color: transparent;
   color: var(--color-inst-texto-secundario);
   box-shadow: none;
   border: 2px dashed rgba(15, 44, 89, 0.2);
 }
+
 .scroll-indicador.outline:hover {
   background-color: var(--color-inst-fondo);
   color: var(--color-inst-azul);
@@ -386,13 +408,16 @@
     padding: 1.25rem 0.5rem;
     gap: 1.25rem;
   }
+
   .evento-relato h3 {
     font-size: 1.3rem;
   }
+
   .imagen-historica {
     aspect-ratio: 16/9;
     border-radius: 8px;
   }
+
   .marco-imagen figcaption {
     font-size: 0.75rem;
     padding: 0.2rem 0.4rem;

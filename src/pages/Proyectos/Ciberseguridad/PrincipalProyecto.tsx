@@ -44,13 +44,13 @@ const PrincipalProyecto: React.FC = () => {
     <div className="principal-ciberseguridad-contenedor">
       {/* Header y Hero Principal del Proyecto */}
       <HeaderProyecto
-       
+
         titulo="CIBERSEGURIDAD Y"
         tituloResaltado="CONCIENCIA DIGITAL"
         descripcion={
           <>
             Plataforma pedagógica desarrollada para capacitar a la comunidad educativa del{' '}
-            <strong>Liceo Bolivariano "Antonio Lemus Pérez"</strong> en la prevención de riesgos y la autonomía tecnológica.
+            <strong>Complejo Educativo "Antonio Lemus Pérez"</strong> en la prevención de riesgos y la autonomía tecnológica.
           </>
         }
         imagenFondo={imgHero1}
@@ -176,8 +176,8 @@ const PrincipalProyecto: React.FC = () => {
           {/* Columna Izquierda: Texto Explicativo y CTA */}
           <div className="columna-experiencia-texto">
             <p className="texto-experiencia-parrafo">
-              Esta plataforma fusiona la vanguardia tecnológica con estrategias pedagógicas innovadoras, 
-              transformando el aprendizaje en una experiencia inmersiva y segura. Nuestro objetivo es generar 
+              Esta plataforma fusiona la vanguardia tecnológica con estrategias pedagógicas innovadoras,
+              transformando el aprendizaje en una experiencia inmersiva y segura. Nuestro objetivo es generar
               un impacto trascendental que empodere a la comunidad educativa frente a los retos del futuro digital.
             </p>
             <Link to="/proyectos/ciberseguridad/indices" className="btn-experiencia-aprende">
@@ -187,7 +187,7 @@ const PrincipalProyecto: React.FC = () => {
 
           {/* Columna Derecha: Título Gigante con Círculo Distintivo */}
           <div className="columna-experiencia-titulo-destacado">
-           
+
             <h2 className="titulo-experiencia-monumental">
               Experiencia <br />
               única y <br />

@@ -11,14 +11,22 @@ export interface EscenarioIngenieriaSocial {
   explicacion: string;
 }
 
-export interface CampañaSimulada {
+export interface CasoAuditoriaCampaña {
   id: number;
   nombre: string;
+  subtitulo: string;
   descripcion: string;
-  metrica: string;
-  esEfectiva: boolean;
+  tasaClics: number;
+  nivelRiesgo: 'critico' | 'bajo' | 'advertencia';
+  etiquetaRiesgo: string;
+  preguntaAuditor: string;
+  opciones: string[];
+  respuestaCorrecta: number;
   explicacion: string;
 }
+
+// Alias de retrocompatibilidad
+export type CampañaSimulada = CasoAuditoriaCampaña;
 
 export interface PreguntaPhishing5to {
   id: number;
@@ -65,30 +73,57 @@ export const ESCENARIOS_INGENIERIA: EscenarioIngenieriaSocial[] = [
   }
 ];
 
-export const CAMPAÑAS_SIMULADAS: CampañaSimulada[] = [
+export const CAMPAÑAS_SIMULADAS: CasoAuditoriaCampaña[] = [
   {
     id: 1,
-    nombre: "Campaña de simulación de phishing básica",
-    descripcion: "Se envía un correo falso a los estudiantes con un enlace a una página de inicio de sesión falsa. Se mide cuántos hicieron clic.",
-    metrica: "Tasa de clics: 35%",
-    esEfectiva: false,
-    explicacion: "Una tasa de clics del 35% es ALTA e indica que muchos estudiantes caen en el engaño. Se necesita más concientización."
+    nombre: "Campaña Inicial: Medición de Susceptibilidad",
+    subtitulo: "Prueba de Línea Base sin Capacitación Previa",
+    descripcion: "Se envió un correo señuelo simulando ser el portal de calificaciones del liceo para medir cuántos estudiantes caían en la trampa antes de recibir instrucción. El 35% de los alumnos hizo clic e ingresó sus contraseñas en el sitio falso.",
+    tasaClics: 35,
+    nivelRiesgo: 'critico',
+    etiquetaRiesgo: '35% de clics — Nivel de Riesgo Crítico',
+    preguntaAuditor: "Como auditor de ciberseguridad, ¿cuál es el plan de acción correcto que debes aplicar tras este resultado?",
+    opciones: [
+      "Sancionar y suspender temporalmente las cuentas de los estudiantes que cayeron en el engaño.",
+      "El liceo tiene alta vulnerabilidad: dictar taller práctico obligatorio de detección de phishing y activar verificación en dos pasos (2FA).",
+      "Dar por concluida la auditoría porque el correo falso ya cumplió la meta de engañar a los alumnos."
+    ],
+    respuestaCorrecta: 1,
+    explicacion: "¡Excelente decisión! En ciberseguridad, las pruebas iniciales identifican debilidades para educar a la comunidad y blindar el sistema, nunca para castigar ni culpar al usuario."
   },
   {
     id: 2,
-    nombre: "Taller de seguridad + simulación controlada",
-    descripcion: "Después de un taller sobre phishing, se repite la simulación. Solo el 8% de los estudiantes hizo clic.",
-    metrica: "Tasa de clics: 8%",
-    esEfectiva: true,
-    explicacion: "La reducción del 35% al 8% demuestra que la concientización funcionó. Una tasa baja indica buena preparación."
+    nombre: "Campaña de Control: Evaluación Post-Taller",
+    subtitulo: "Medición de Impacto tras Capacitación Práctica",
+    descripcion: "Dos semanas después de realizar talleres prácticos sobre cómo inspeccionar dominios y verificar remitentes, se repitió la simulación. La tasa de clics disminuyó radicalmente al 8% y más del 70% de los estudiantes reportó el correo sospechoso al profesor.",
+    tasaClics: 8,
+    nivelRiesgo: 'bajo',
+    etiquetaRiesgo: '8% de clics — Excelente Reducción del Riesgo',
+    preguntaAuditor: "¿Qué conclusión profesional debe reflejar tu informe de auditoría ante la directiva del liceo?",
+    opciones: [
+      "El programa fue exitoso: redujo el riesgo en más de un 75% y demostró que los estudiantes adquirieron hábitos activos de defensa.",
+      "El programa fracasó porque cualquier porcentaje superior al 0% indica que el sistema sigue totalmente indefenso.",
+      "Como la tasa es baja, se deben retirar los filtros automáticos de spam para no saturar los servidores."
+    ],
+    respuestaCorrecta: 0,
+    explicacion: "¡Exacto! El factor humano nunca llega a un 0% de error absoluto, pero reducir los clics del 35% al 8% y generar reportes activos demuestra un éxito rotundo en la concientización."
   },
   {
     id: 3,
-    nombre: "Simulación sin retroalimentación",
-    descripcion: "Se envía un correo falso y no se informa a los estudiantes del resultado ni se ofrece capacitación.",
-    metrica: "Tasa de clics: 28%",
-    esEfectiva: false,
-    explicacion: "Aunque la tasa es menor, no se aprovecha la oportunidad para educar. La simulación sin seguimiento no mejora la cultura de seguridad."
+    nombre: "Simulación Encubierta sin Retroalimentación",
+    subtitulo: "Auditoría sin Enfoque Pedagógico",
+    descripcion: "La administración envió correos trampa donde el 28% de los alumnos cayó, pero las autoridades decidieron no compartir los resultados ni brindarles ninguna capacitación o explicación sobre el simulacro.",
+    tasaClics: 28,
+    nivelRiesgo: 'advertencia',
+    etiquetaRiesgo: '28% de clics — Mala Práctica Metodológica',
+    preguntaAuditor: "¿Por qué esta práctica es calificada como ineficaz y contraria a la ética en ciberseguridad?",
+    opciones: [
+      "Porque realizar pruebas sin retroalimentación solo espía y genera desconfianza, sin enseñar a los alumnos cómo reconocer el peligro real.",
+      "Porque las simulaciones de correo están estrictamente prohibidas por leyes internacionales en todos los colegios.",
+      "Porque una tasa del 28% es la meta ideal que toda institución educativa busca alcanzar."
+    ],
+    respuestaCorrecta: 0,
+    explicacion: "¡Muy bien analizado! El phishing ético tiene como único fin educar. Si no hay retroalimentación pedagógica, los alumnos siguen siendo vulnerables ante atacantes reales y se pierde la confianza institucional."
   }
 ];
 
@@ -148,10 +183,10 @@ export const usePhishing5to = () => {
     setRespuestasEscenario(prev => ({ ...prev, [id]: esAtaque }));
   };
 
-  // Evaluación de campañas simuladas
-  const [respuestasCampaña, setRespuestasCampaña] = useState<Record<number, boolean>>({});
-  const evaluarCampaña = (id: number, esEfectiva: boolean) => {
-    setRespuestasCampaña(prev => ({ ...prev, [id]: esEfectiva }));
+  // Auditoría y evaluación de campañas simuladas
+  const [respuestasCampaña, setRespuestasCampaña] = useState<Record<number, number>>({});
+  const evaluarCampaña = (id: number, opcionIdx: number) => {
+    setRespuestasCampaña(prev => ({ ...prev, [id]: opcionIdx }));
   };
 
   // Quiz

@@ -59,7 +59,7 @@ export const AuditoriaDigital5to: React.FC = () => {
             <h2>1. La Auditoría Cibernética en 5to Año</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Como futuro bachiller del Liceo Bolivariano, la auditoría digital pasa de un enfoque personal a un <strong>liderazgo comunitario</strong>. Ya no solo proteges tus dispositivos; ahora eres capaz de evaluar el entorno digital de tu institución y proponer mejoras concretas.
+            Como futuro bachiller del Complejo Educativo, la auditoría digital pasa de un enfoque personal a un <strong>liderazgo comunitario</strong>. Ya no solo proteges tus dispositivos; ahora eres capaz de evaluar el entorno digital de tu institución y proponer mejoras concretas.
           </p>
 
           <div className="grid-pilares-higiene">
@@ -205,7 +205,7 @@ export const AuditoriaDigital5to: React.FC = () => {
                 <input
                   type="checkbox"
                   checked={!!habitosComprobados[habito.id]}
-                  onChange={() => {}}
+                  onChange={() => { }}
                   className="checkbox-custom"
                 />
                 <div className="info-item-habito">

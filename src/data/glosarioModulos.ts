@@ -1,7 +1,7 @@
 /**
  * ============================================================================
  * GLOSARIO Y CONTEXTO EXTENDIDO POR MÓDULO DE CIBERSEGURIDAD
- * Liceo Bolivariano Antonio Lemus Pérez
+ * Complejo Educativo Antonio Lemus Pérez
  * ============================================================================
  */
 
@@ -30,7 +30,7 @@ export const GLOSARIOS_MODULOS: Record<string, ContextoModuloExtendido> = {
   phishing: {
     moduloId: 'phishing',
     queEsElTema: 'El Phishing (Suplantación de Identidad) e Ingeniería Social abarca un conjunto de técnicas cibernéticas fraudulentas donde atacantes se disfrazan de entidades legítimas (bancos, liceos, redes sociales o servicios públicos) para engañar al usuario y lograr que este entregue voluntariamente información sensible como contraseñas, credenciales institucionales o datos financieros.',
-    porQueEsFundamental: 'El 90% de las violaciones de seguridad en internet comienzan con un correo o mensaje engañoso. Entender la psicología del engaño digital es la primera línea de defensa para proteger la identidad del estudiante y la red del Liceo Bolivariano "Antonio Lemus Pérez".',
+    porQueEsFundamental: 'El 90% de las violaciones de seguridad en internet comienzan con un correo o mensaje engañoso. Entender la psicología del engaño digital es la primera línea de defensa para proteger la identidad del estudiante y la red del Complejo Educativo "Antonio Lemus Pérez".',
     glosario: [
       {
         termino: 'Phishing (Suplantación Digital)',

@@ -1,4 +1,4 @@
-# Arquitectura de Navegación - L.B. Antonio Lemus Pérez
+# Arquitectura de Navegación - C.E. Antonio Lemus Pérez
 
 Este documento define la estructura jerárquica de navegación de la aplicación para asegurar una experiencia de usuario coherente y pedagógica, integrando la lógica de personalización por grado académico.
 

@@ -37,19 +37,19 @@ export const TEAM_INST_MEMBER: MemberItem[] = [
   }
 ];
 
- export const TEAM_MEMBERS: MemberItem[] = [
- {
+export const TEAM_MEMBERS: MemberItem[] = [
+  {
     id: 1,
     name: 'Henyer Guipe',
     role: 'Desarrollador',
-    description: 'Desarrollador del proyecto de ciberseguridad en el Liceo Bolivariano Antonio Lemus Pérez.',
+    description: 'Desarrollador del proyecto de ciberseguridad en el Complejo Educativo Antonio Lemus Pérez.',
     imagen: foto1
   },
   {
     id: 2,
     name: 'Elvis Cordova',
     role: 'Desarrollador',
-    description: 'Desarrollador del proyecto de ciberseguridad en el Liceo Bolivariano Antonio Lemus Pérez.',
+    description: 'Desarrollador del proyecto de ciberseguridad en el Complejo Educativo Antonio Lemus Pérez.',
     imagen: foto2
   }
 ];

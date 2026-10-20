@@ -192,6 +192,263 @@
 .icono-acierto { color: #16a34a; flex-shrink: 0; }
 .icono-fallo { color: #dc2626; flex-shrink: 0; }
 
+/* ═══ SECCIÓN 3: TALLER DEL AUDITOR DE CAMPAÑAS ═══ */
+.tarjeta-auditoria-campaña {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s ease;
+}
+
+.tarjeta-auditoria-campaña:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.cabecera-auditoria-campaña {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.datos-principales-auditoria {
+  flex: 1;
+  min-width: 250px;
+}
+
+.etiqueta-caso-auditoria {
+  display: inline-block;
+  background-color: #e0f2fe;
+  color: #0369a1;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+
+.subtitulo-auditoria-caso {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 0.25rem 0 0 0;
+  font-weight: 500;
+}
+
+.badge-nivel-riesgo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.825rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.badge-nivel-riesgo.critico {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+}
+
+.badge-nivel-riesgo.bajo {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #15803d;
+}
+
+.badge-nivel-riesgo.advertencia {
+  background-color: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #b45309;
+}
+
+/* Barra de progreso de métrica de clics */
+.seccion-barra-metrica {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.9rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.etiquetas-barra-metrica {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #334155;
+}
+
+.texto-tasa-alumnos {
+  font-weight: 600;
+}
+
+.valor-porcentaje-tasa {
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.valor-porcentaje-tasa.critico { color: #dc2626; }
+.valor-porcentaje-tasa.bajo { color: #16a34a; }
+.valor-porcentaje-tasa.advertencia { color: #d97706; }
+
+.pista-barra-riesgo {
+  width: 100%;
+  height: 10px;
+  background-color: #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.relleno-barra-riesgo {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.relleno-barra-riesgo.critico {
+  background: linear-gradient(90deg, #f87171, #ef4444);
+}
+
+.relleno-barra-riesgo.bajo {
+  background: linear-gradient(90deg, #4ade80, #16a34a);
+}
+
+.relleno-barra-riesgo.advertencia {
+  background: linear-gradient(90deg, #fbbf24, #d97706);
+}
+
+/* Caja de pregunta y decisiones del auditor */
+.caja-pregunta-auditor {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.encabezado-pregunta-auditor {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  color: #0f172a;
+}
+
+.encabezado-pregunta-auditor h4 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.45;
+  color: #0f172a;
+}
+
+.icono-pregunta-auditor {
+  color: #0284c7;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.opciones-auditoria-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.btn-opcion-auditoria {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background-color: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  color: #1e293b;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-opcion-auditoria:hover {
+  border-color: #0284c7;
+  background-color: #f0f9ff;
+  transform: translateY(-1px);
+}
+
+.btn-opcion-auditoria:active {
+  transform: translateY(0);
+}
+
+.letra-opcion-auditoria {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  background-color: #f1f5f9;
+  color: #475569;
+  font-weight: 800;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.texto-opcion-auditoria {
+  flex: 1;
+  line-height: 1.45;
+}
+
+.btn-opcion-auditoria.acierto-seleccionado {
+  background-color: #f0fdf4 !important;
+  border-color: #22c55e !important;
+  color: #15803d !important;
+  font-weight: 600;
+}
+
+.btn-opcion-auditoria.acierto-seleccionado .letra-opcion-auditoria {
+  background-color: #22c55e;
+  color: #ffffff;
+}
+
+.btn-opcion-auditoria.error-seleccionado {
+  background-color: #fef2f2 !important;
+  border-color: #ef4444 !important;
+  color: #b91c1c !important;
+  font-weight: 600;
+}
+
+.btn-opcion-auditoria.error-seleccionado .letra-opcion-auditoria {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+
+.btn-opcion-auditoria.correcta-sugerida {
+  background-color: #f0fdf4;
+  border-color: #86efac;
+  color: #15803d;
+}
+
+.btn-opcion-auditoria.correcta-sugerida .letra-opcion-auditoria {
+  background-color: #86efac;
+  color: #15803d;
+}
+
 /* Quiz */
 .quiz-container.phishing {
   display: flex;
@@ -402,6 +659,16 @@
   .caja-senal-item,
   [class*="caja-senal-item"] {
     padding: 1rem;
+  }
+
+  /* Tarjeta de auditoría móvil */
+  .tarjeta-auditoria-campaña {
+    padding: 1.1rem;
+  }
+
+  .btn-opcion-auditoria {
+    padding: 0.75rem 0.85rem;
+    font-size: 0.88rem;
   }
 }
 

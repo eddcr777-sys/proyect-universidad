@@ -9,11 +9,12 @@ import {
   Award,
   Briefcase,
   FileBarChart2,
-  Megaphone
+  Megaphone,
+  AlertTriangle
 } from 'lucide-react';
 import HeaderModulo from '../../../../components/comunes/HeaderModulos/HeaderModulo';
 import CajaExplicacionDinamica from '../../../../components/comunes/ExplicacionDinamica/CajaExplicacionDinamica';
-import {usePhishing5to} from '../../../../hooks/HooksPhishing/usePhishing5to';
+import { usePhishing5to } from '../../../../hooks/HooksPhishing/usePhishing5to';
 import './Phishing5to.css';
 
 export const Phishing5to: React.FC = () => {
@@ -118,14 +119,14 @@ export const Phishing5to: React.FC = () => {
                   </div>
 
                   {resEleccion !== undefined && (
-                    <div className={`feedback-decision ${resEleccion === esc.esAtaque ? 'acierto' : 'fallo'}`}>
+                    <div className={`feedback-decision ${resEleccion === esC.EsAtaque ? 'acierto' : 'fallo'}`}>
                       <div className="flex-resultado">
-                        {resEleccion === esc.esAtaque ? (
+                        {resEleccion === esC.EsAtaque ? (
                           <CheckCircle2 size={20} className="icono-acierto" />
                         ) : (
                           <XCircle size={20} className="icono-fallo" />
                         )}
-                        <span>{esc.explicacion}</span>
+                        <span>{esC.Explicacion}</span>
                       </div>
                     </div>
                   )}
@@ -135,50 +136,117 @@ export const Phishing5to: React.FC = () => {
           </div>
         </section>
 
-        {/* SECCIÓN 3: EVALÚA CAMPAÑAS SIMULADAS */}
-        <section className="bloque-phishing-tarjeta">
+        {/* SECCIÓN 3: AUDITORÍA DE CAMPAÑAS Y PLAN DE ACCIÓN */}
+        <section className="bloque-phishing-tarjeta interactivo-caja">
           <div className="encabezado-bloque-phishing">
             <FileBarChart2 className="icono-bloque-verde" size={24} />
-            <h2>3. ¿Campaña Efectiva o No?</h2>
+            <h2>3. Taller del Auditor: Análisis de Campañas y Toma de Decisiones</h2>
           </div>
-          <p className="subtitulo-bloque-phishing">
-            Analiza los resultados de estas campañas de simulación y decide si fueron <strong>efectivas</strong> (lograron reducir el riesgo) o <strong>no efectivas</strong>:
-          </p>
+
+          <CajaExplicacionDinamica
+            tituloDinamica="Instrucciones del Taller de Auditoría — Paso a Paso"
+            enQueConsiste="Asumirás el rol de Auditor de Ciberseguridad del Liceo. Analizarás 3 reportes reales de simulación con sus tasas de clics y conductas de los estudiantes."
+            comoInteractuar="1. Observa el porcentaje de clics y la barra visual de riesgo de cada informe. 2. Lee el contexto de lo ocurrido con los estudiantes y la directiva. 3. Elige la decisión o dictamen profesional de auditoría adecuado entre las 3 opciones. 4. Revisa la justificación técnica inmediata para conocer las mejores prácticas del sector."
+            paraQueSirve="Enseña a interpretar métricas de ciberseguridad, diferenciar simulaciones pedagógicas de malas prácticas y aplicar soluciones formativas en lugar de castigos."
+          />
 
           <div className="lista-simuladores-phishing">
             {campañas.map((camp) => {
               const resEleccion = respuestasCampaña[camp.id];
 
               return (
-                <div key={camp.id} className="tarjeta-campaña">
-                  <h3 className="titulo-campaña">{camp.nombre}</h3>
-                  <p className="descripcion-campaña">{camp.descripcion}</p>
-                  <span className="badge-metrica">{camp.metrica}</span>
+                <div key={camp.id} className="tarjeta-auditoria-campaña">
+                  <div className="cabecera-auditoria-campaña">
+                    <div className="datos-principales-auditoria">
+                      <span className="etiqueta-caso-auditoria">Reporte #{camp.id}</span>
+                      <h3 className="titulo-campaña">{camp.nombre}</h3>
+                      <p className="subtitulo-auditoria-caso">{camp.subtitulo}</p>
+                    </div>
 
-                  <div className="acciones-decision-phishing">
-                    <button
-                      className={`btn-decision seguro ${resEleccion === true ? 'seleccionado' : ''}`}
-                      onClick={() => evaluarCampaña(camp.id, true)}
-                    >
-                      <ShieldCheck size={18} /> Efectiva
-                    </button>
-                    <button
-                      className={`btn-decision phishing ${resEleccion === false ? 'seleccionado' : ''}`}
-                      onClick={() => evaluarCampaña(camp.id, false)}
-                    >
-                      <UserX size={18} /> No efectiva
-                    </button>
+                    <div className={`badge-nivel-riesgo ${camp.nivelRiesgo}`}>
+                      {camp.nivelRiesgo === 'bajo' ? (
+                        <ShieldCheck size={16} />
+                      ) : (
+                        <AlertTriangle size={16} />
+                      )}
+                      <span>{camp.etiquetaRiesgo}</span>
+                    </div>
+                  </div>
+
+                  {/* Barra de progreso visual de tasa de clics */}
+                  <div className="seccion-barra-metrica">
+                    <div className="etiquetas-barra-metrica">
+                      <span className="texto-tasa-alumnos">Tasa de estudiantes que cayeron en la trampa:</span>
+                      <strong className={`valor-porcentaje-tasa ${camp.nivelRiesgo}`}>{camp.tasaClics}%</strong>
+                    </div>
+                    <div className="pista-barra-riesgo">
+                      <div
+                        className={`relleno-barra-riesgo ${camp.nivelRiesgo}`}
+                        style={{ width: `${camp.tasaClics}%` }}
+                      />
+                    </div>
+                  </div>
+
+                  <p className="descripcion-campaña">{camp.descripcion}</p>
+
+                  <div className="caja-pregunta-auditor">
+                    <div className="encabezado-pregunta-auditor">
+                      <Briefcase size={18} className="icono-pregunta-auditor" />
+                      <h4>{camp.preguntaAuditor}</h4>
+                    </div>
+
+                    <div className="opciones-auditoria-lista">
+                      {camp.opciones.map((opcion, idx) => {
+                        const seleccionada = resEleccion === idx;
+                        const respondida = resEleccion !== undefined;
+                        const esCorrecta = idx === camp.respuestaCorrecta;
+
+                        let claseBoton = 'btn-opcion-auditoria';
+                        if (respondida) {
+                          if (seleccionada && esCorrecta) {
+                            claseBoton += ' acierto-seleccionado';
+                          } else if (seleccionada && !esCorrecta) {
+                            claseBoton += ' error-seleccionado';
+                          } else if (esCorrecta) {
+                            claseBoton += ' correcta-sugerida';
+                          }
+                        }
+
+                        return (
+                          <button
+                            key={idx}
+                            type="button"
+                            className={claseBoton}
+                            onClick={() => evaluarCampaña(camp.id, idx)}
+                          >
+                            <span className="letra-opcion-auditoria">
+                              {String.fromCharCode(65 + idx)}
+                            </span>
+                            <span className="texto-opcion-auditoria">{opcion}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
 
                   {resEleccion !== undefined && (
-                    <div className={`feedback-decision ${resEleccion === camp.esEfectiva ? 'acierto' : 'fallo'}`}>
+                    <div className={`feedback-decision ${resEleccion === camp.respuestaCorrecta ? 'acierto' : 'fallo'}`}>
                       <div className="flex-resultado">
-                        {resEleccion === camp.esEfectiva ? (
-                          <CheckCircle2 size={18} className="icono-acierto" />
+                        {resEleccion === camp.respuestaCorrecta ? (
+                          <CheckCircle2 size={22} className="icono-acierto" />
                         ) : (
-                          <XCircle size={18} className="icono-fallo" />
+                          <XCircle size={22} className="icono-fallo" />
                         )}
-                        <span>{camp.explicacion}</span>
+                        <div>
+                          <strong>
+                            {resEleccion === camp.respuestaCorrecta
+                              ? '¡Dictamen Profesional Correcto!'
+                              : 'Revisión de Auditoría Recomendada:'}
+                          </strong>
+                          <p style={{ margin: '0.25rem 0 0 0', lineHeight: 1.5 }}>
+                            {camp.explicacion}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   )}

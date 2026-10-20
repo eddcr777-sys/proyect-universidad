@@ -1,5 +1,6 @@
-/* Módulo Phishing 4to - Estilos coherentes con la serie */
-
+/* ══════════════════════════════════════════════════════════════
+   1) CONTENEDOR RAÍZ
+   ══════════════════════════════════════════════════════════════ */
 .pagina-modulo-phishing-4to {
   max-width: 1100px;
   margin: 0 auto;
@@ -14,6 +15,9 @@
   gap: 2rem;
 }
 
+/* ══════════════════════════════════════════════════════════════
+   2) TARJETAS DE BLOQUE Y ENCABEZADOS
+   ══════════════════════════════════════════════════════════════ */
 .bloque-phishing-tarjeta {
   background: #ffffff;
   border: 1px solid #e2e8f0;
@@ -49,7 +53,9 @@
   margin-bottom: 1.5rem;
 }
 
-/* Grid señales */
+/* ══════════════════════════════════════════════════════════════
+   3) GRID DE SEÑALES / TARJETAS DE CONCEPTO
+   ══════════════════════════════════════════════════════════════ */
 .grid-senales-phishing {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -66,9 +72,9 @@
 .icono-senal {
   margin-bottom: 0.75rem;
 }
-.icono-senal.rojo { color: #ef4444; }
-.icono-senal.azul { color: #2563eb; }
-.icono-senal.amarillo { color: #f59e0b; }
+.icono-senal.rojo    { color: #ef4444; }
+.icono-senal.azul    { color: #2563eb; }
+.icono-senal.amarillo{ color: #f59e0b; }
 
 .caja-senal-item h3 {
   font-size: 1.15rem;
@@ -84,7 +90,133 @@
   line-height: 1.5;
 }
 
-/* Laboratorio de correos */
+/* Lista técnica dentro de las tarjetas de señal */
+.lista-tecnica {
+  padding-left: 1.2rem;
+  margin: 0.6rem 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #475569;
+}
+.lista-tecnica li {
+  margin-bottom: 0.35rem;
+}
+.lista-tecnica code {
+  background: #eef2ff;
+  color: #3730a3;
+  padding: 0.05rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.texto-accion-senal {
+  margin-top: 0.75rem !important;
+  color: #0369a1 !important;
+  font-size: 0.9rem !important;
+}
+
+/* Bloque de ejemplo de encabezado real */
+.bloque-encabezado-ejemplo {
+  background: #0f172a;
+  color: #a5f3fc;
+  font-family: 'Courier New', monospace;
+  font-size: 0.72rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  line-height: 1.5;
+  margin: 0.5rem 0;
+  white-space: pre;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   4) GUÍA DEL LABORATORIO (referencia previa a los correos)
+   ══════════════════════════════════════════════════════════════ */
+.guia-laboratorio {
+  background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+  border: 2px solid #bfdbfe;
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.guia-titulo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  color: #1e40af;
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px dashed #93c5fd;
+}
+
+.guia-url-fila {
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 0.1rem 1rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.guia-columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.guia-columna h4 {
+  font-size: 0.95rem;
+  color: #0f172a;
+  margin: 0 0 0.6rem 0;
+}
+
+.texto-guia {
+  font-size: 0.85rem;
+  color: #475569;
+  margin: 0 0 0.5rem 0;
+}
+.texto-guia code {
+  background: #fef3c7;
+  padding: 0.05rem 0.3rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+/* Leyenda de colores */
+.leyenda-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.leyenda-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+.leyenda-item.leyenda-pass {
+  background: #dcfce7;
+  color: #15803d;
+}
+.leyenda-item.leyenda-fail {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+.leyenda-item.leyenda-neutral {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   5) LABORATORIO DE CORREOS
+   ══════════════════════════════════════════════════════════════ */
 .lista-simuladores-phishing {
   display: flex;
   flex-direction: column;
@@ -102,6 +234,7 @@
   gap: 1rem;
 }
 
+/* Cabecera del correo */
 .cabecera-mensaje-simulado {
   display: flex;
   align-items: center;
@@ -126,6 +259,7 @@
   font-weight: 600;
 }
 
+/* Cuerpo del correo */
 .cuerpo-mensaje-simulado h4 {
   font-size: 1.05rem;
   font-weight: 800;
@@ -144,34 +278,118 @@
   font-style: italic;
 }
 
+/* Pasos numerados dentro de cada correo */
+.paso-analisis {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px dotted #cbd5e1;
+}
+
+.paso-numero {
+  background: #1e40af;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.paso-titulo {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   6) BADGES DE VERIFICACIÓN (v1 y v2)
+   ══════════════════════════════════════════════════════════════ */
 .encabezados-info {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
+/* v1 — badges genéricos (compatibilidad) */
 .badge-encabezado {
   font-size: 0.8rem;
   font-weight: 700;
   padding: 0.3rem 0.6rem;
   border-radius: 6px;
 }
-
 .badge-encabezado.spf {
   background-color: #fef3c7;
   color: #b45309;
 }
-
 .badge-encabezado.dkim {
   background-color: #ede9fe;
   color: #6d28d9;
 }
-
 .badge-encabezado.dmarc {
   background-color: #dbeafe;
   color: #1e40af;
 }
 
+/* v2 — badges con explicación */
+.badge-encabezado-v2 {
+  flex: 1;
+  min-width: 180px;
+  border-radius: 10px;
+  padding: 0.65rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  border: 1.5px solid;
+}
+
+.badge-encabezado-v2.pass {
+  background: #f0fdf4;
+  border-color: #86efac;
+  color: #166534;
+}
+.badge-encabezado-v2.fail {
+  background: #fef2f2;
+  border-color: #fca5a5;
+  color: #991b1b;
+}
+
+.badge-v2-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.badge-v2-text {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: #334155;
+}
+
+/* Aviso de fallo */
+.aviso-fallo-encabezado {
+  margin-top: 0.75rem;
+  padding: 0.7rem 0.9rem;
+  background: #fffbeb;
+  border-left: 4px solid #f59e0b;
+  border-radius: 8px;
+  color: #92400e;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   7) URLS — versión simple y desglosada
+   ══════════════════════════════════════════════════════════════ */
+
+/* v1 — simple */
 .url-incluida {
   background-color: #ffffff;
   padding: 0.6rem;
@@ -194,6 +412,119 @@
   border-left: 4px solid #f59e0b;
 }
 
+/* v2 — URL desglosada */
+.url-incluida-v2 {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px dashed #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.url-completa {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+}
+.url-completa code {
+  font-family: 'Courier New', monospace;
+  color: #b91c1c;
+  font-weight: 700;
+  word-break: break-all;
+  background: #fef2f2;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.url-instruccion {
+  font-size: 0.85rem;
+  color: #475569;
+  margin: 0;
+}
+
+.desglose-url-v2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.6rem;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+.parte-url-v2 {
+  display: flex;
+  flex-direction: column;
+  padding: 0.35rem 0.55rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  border-bottom: 3px solid;
+}
+
+.parte-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 800;
+  opacity: 0.85;
+}
+.parte-valor {
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.parte-url-v2.parte-proto {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  color: #334155;
+}
+.parte-url-v2.parte-sub {
+  background: #fef3c7;
+  border-color: #f59e0b;
+  color: #92400e;
+}
+.parte-url-v2.parte-dom {
+  background: #dbeafe;
+  border-color: #2563eb;
+  color: #1e40af;
+}
+.parte-url-v2.parte-tld {
+  background: #e0e7ff;
+  border-color: #6366f1;
+  color: #3730a3;
+}
+.parte-url-v2.parte-ruta {
+  background: #f3e8ff;
+  border-color: #a855f7;
+  color: #6b21a8;
+}
+
+.url-tip {
+  font-size: 0.83rem;
+  color: #475569;
+  background: #eff6ff;
+  border-left: 4px solid #3b82f6;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  margin: 0;
+  line-height: 1.5;
+}
+.url-tip code {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 0.05rem 0.3rem;
+  border-radius: 4px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   8) BOTONES DE DECISIÓN
+   ══════════════════════════════════════════════════════════════ */
 .acciones-decision-phishing {
   display: flex;
   gap: 1rem;
@@ -228,6 +559,9 @@
   color: #b91c1c;
 }
 
+/* ══════════════════════════════════════════════════════════════
+   9) FEEDBACK DE DECISIÓN
+   ══════════════════════════════════════════════════════════════ */
 .feedback-decision {
   padding: 1rem;
   border-radius: 10px;
@@ -257,7 +591,7 @@
 }
 
 .icono-acierto { color: #16a34a; flex-shrink: 0; }
-.icono-fallo { color: #dc2626; flex-shrink: 0; }
+.icono-fallo   { color: #dc2626; flex-shrink: 0; }
 
 .badge-tipo-phishing {
   align-self: flex-start;
@@ -270,7 +604,9 @@
   text-transform: uppercase;
 }
 
-/* Quiz */
+/* ══════════════════════════════════════════════════════════════
+   10) QUIZ
+   ══════════════════════════════════════════════════════════════ */
 .quiz-container.phishing {
   display: flex;
   flex-direction: column;
@@ -385,39 +721,59 @@
   color: #f59e0b;
 }
 
+/* ══════════════════════════════════════════════════════════════
+   11) ANIMACIONES
+   ══════════════════════════════════════════════════════════════ */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
+/* ══════════════════════════════════════════════════════════════
+   12) RESPONSIVIDAD — Tablet (≤768px)
+   ══════════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
   .bloque-phishing-tarjeta {
     padding: 1.5rem;
   }
+
   .grid-senales-phishing {
     grid-template-columns: 1fr;
   }
-  .info-porcentaje {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
+
   .acciones-quiz {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .guia-columnas {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .badge-encabezado-v2 {
+    min-width: 100%;
+  }
+
+  .desglose-url-v2 {
+    flex-direction: column;
+  }
+
+  .parte-url-v2 {
+    width: 100%;
+  }
 }
-/* ══ Responsividad Móvil — Sin márgenes, ancho completo ══ */
+
+/* ══════════════════════════════════════════════════════════════
+   13) RESPONSIVIDAD MÓVIL — Sin márgenes, ancho completo
+   ══════════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
-  /* Contenedor raíz: ocupa toda la pantalla, sin márgenes laterales */
   [class^="pagina-modulo-"] {
     max-width: 100%;
     margin: 0;
     padding: 1.25rem 0.75rem 3rem 0.75rem;
   }
 
-  /* Tarjetas del módulo sin border-radius en móvil y padding reducido */
   .bloque-phishing-tarjeta,
   .bloque-proteccion-tarjeta,
   .bloque-redes-tarjeta,
@@ -428,7 +784,6 @@
     border-radius: 0 !important;
   }
 
-  /* Grids → 1 columna */
   .grid-senales-phishing,
   .grid-senales-proteccion,
   .grid-senales-redes,
@@ -441,7 +796,6 @@
     grid-template-columns: 1fr !important;
   }
 
-  /* Botones de decisión en columna */
   .acciones-decision-phishing,
   [class*="acciones-decision-"],
   .acciones-quiz {
@@ -449,44 +803,44 @@
     align-items: stretch;
   }
 
-  /* Preguntas de quiz más compactas */
   [class*="pregunta-quiz"] {
     padding: 1rem;
   }
 
-  /* Opciones de quiz a ancho completo */
   [class*="opcion-quiz-btn"] {
     width: 100%;
   }
 }
 
+/* ══════════════════════════════════════════════════════════════
+   14) RESPONSIVIDAD MÓVIL PEQUEÑO (≤480px)
+   ══════════════════════════════════════════════════════════════ */
 @media (max-width: 480px) {
   [class^="pagina-modulo-"] {
     padding: 1rem 0.5rem 2.5rem 0.5rem;
   }
 
-  /* Encabezados de bloque más pequeños */
   [class*="encabezado-bloque-"] h2 {
     font-size: 1.2rem;
   }
 
-  /* Texto de lectura más compacto */
   [class*="texto-lectura-"] {
     font-size: 0.97rem;
     line-height: 1.6;
   }
 
-  /* Cajas de señal menos espaciosas */
   .caja-senal-item,
   [class*="caja-senal-item"] {
     padding: 1rem;
   }
 }
 
-
-/* ══ Tipografía de Alta Legibilidad para Contenidos de Módulos ══ */
+/* ══════════════════════════════════════════════════════════════
+   15) TIPOGRAFÍA DE ALTA LEGIBILIDAD
+   ══════════════════════════════════════════════════════════════ */
 [class^="pagina-modulo-"] {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
   letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
 }
@@ -497,7 +851,8 @@
 [class^="pagina-modulo-"] h4,
 [class^="pagina-modulo-"] h5,
 [class^="pagina-modulo-"] h6 {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif !important;
   letter-spacing: -0.02em;
 }
 
@@ -505,6 +860,6 @@
 [class^="pagina-modulo-"] li,
 [class^="pagina-modulo-"] button,
 [class^="pagina-modulo-"] input {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif !important;
 }
-

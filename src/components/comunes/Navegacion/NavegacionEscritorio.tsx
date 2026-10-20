@@ -48,7 +48,7 @@ const NavegacionEscritorio: React.FC<NavegacionEscritorioProps> = ({ esTranspare
           <Link to="/el-liceo/simbolos" className="dropdown-item">Símbolos</Link>
           <Link to="/el-liceo/normas" className="dropdown-item">Normas de Convivencia</Link>
           <Link to="/el-liceo/plan-evacuacion" className="dropdown-item">Plan de Evacuación</Link>
-          <Link to="/galeria#instalaciones" className="dropdown-item">Instalaciones</Link>
+          <Link to="/el-liceo/instalaciones" className="dropdown-item">Instalaciones y Cartografía</Link>
         </div>
       </div>
 

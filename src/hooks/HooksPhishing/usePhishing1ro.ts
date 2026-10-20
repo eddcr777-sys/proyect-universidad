@@ -41,7 +41,7 @@ export const MENSAJES_1RO: MensajeSimulado[] = [
   },
   {
     id: 2,
-    remitente: "Coordinación L.B. Antonio Lemus Pérez",
+    remitente: "Coordinación C.E. Antonio Lemus Pérez",
     canal: "Moodle Liceo",
     asunto: "Horario de evaluaciones del 2do lapso",
     contenido: "Estimado estudiante, ya se encuentra disponible el cronograma de exámenes en la sección de Avisos del aula virtual Moodle.",

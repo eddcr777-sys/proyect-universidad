@@ -25,7 +25,7 @@ export const TeamSection: React.FC = () => {
         titulo="Desarrolladores del"
         tituloResaltado="PROYECTO DE CIBERSEGURIDAD"
         categoria="EQUIPO DE DESARROLLO PNFI"
-        descripcion="Conoce a los desarrolladores y docentes que han dedicado su labor sociotecnológica a la concientización y prevención de riesgos digitales en el L.B. Antonio Lemus Pérez."
+        descripcion="Conoce a los desarrolladores y docentes que han dedicado su labor sociotecnológica a la concientización y prevención de riesgos digitales en el C.E. Antonio Lemus Pérez."
         enlacesSubNav={enlacesSubNav}
         acciones={[
           {
@@ -35,26 +35,26 @@ export const TeamSection: React.FC = () => {
           },
         ]}
       />
-    <main className="contenedor-nosotros">
-     
-      {/* 1. EQUIPO DE DESARROLLO (FONDO BLANCO) */}
-      <section id="labores" className="seccion-labores-harvard">
-        <div className="contenedor-seccion-ancho">
-          <div className="encabezado-harvard-simple">
-            <h2 className="titulo-seccion-editorial">Conoce a Nuestro equipo de desarrollo</h2>
-            <p className="subtitulo-seccion-editorial">
-              Conoce a quienes han dedicado su labor al desarrollo del proyecto para la concientización, formación y mitigación de riesgos informáticos en el estado Sucre.
-            </p>
-          </div>
-          <div className="grid-labores-harvard">
-            <Members items={TEAM_MEMBERS} />
-          </div>
-        </div>
-      </section>
+      <main className="contenedor-nosotros">
 
-      {/* 2. MÉTRICAS E IMPACTO / FILOSOFÍA (FONDO AZUL) */}
-      <section className="seccion-estadisticas">
-       
+        {/* 1. EQUIPO DE DESARROLLO (FONDO BLANCO) */}
+        <section id="labores" className="seccion-labores-harvard">
+          <div className="contenedor-seccion-ancho">
+            <div className="encabezado-harvard-simple">
+              <h2 className="titulo-seccion-editorial">Conoce a Nuestro equipo de desarrollo</h2>
+              <p className="subtitulo-seccion-editorial">
+                Conoce a quienes han dedicado su labor al desarrollo del proyecto para la concientización, formación y mitigación de riesgos informáticos en el estado Sucre.
+              </p>
+            </div>
+            <div className="grid-labores-harvard">
+              <Members items={TEAM_MEMBERS} />
+            </div>
+          </div>
+        </section>
+
+        {/* 2. MÉTRICAS E IMPACTO / FILOSOFÍA (FONDO AZUL) */}
+        <section className="seccion-estadisticas">
+
           <div className="encabezado-seccion encabezado-seccion-blanco">
             <h2>Nuestra Filosofía</h2>
             <p>
@@ -96,59 +96,59 @@ export const TeamSection: React.FC = () => {
               </p>
             </div>
           </div>
-      
-      </section>
 
-      {/* 3. PILARES DEL PROYECTO (FONDO BLANCO) */}
-      <section className="seccion-pilares">
-        <div className="contenedor-seccion-ancho">
-          <div className="encabezado-seccion">
-            <h2>Nuestros Pilares Tecnológicos</h2>
+        </section>
+
+        {/* 3. PILARES DEL PROYECTO (FONDO BLANCO) */}
+        <section className="seccion-pilares">
+          <div className="contenedor-seccion-ancho">
+            <div className="encabezado-seccion">
+              <h2>Nuestros Pilares Tecnológicos</h2>
+              <p>
+                Estrategias orientadas a la <strong>concienciación, formación y mitigación de riesgos informáticos</strong>, fundamentadas
+                en el uso y promoción del <strong>software libre</strong> como base para una seguridad digital inclusiva.
+              </p>
+            </div>
+
+            <div className="grid-pilares">
+              <div className="tarjeta-pilar">
+                <h3>Prevención Digital</h3>
+                <p>
+                  Proporcionamos herramientas explicativas y <strong>concienciamos</strong> a la comunidad sobre fraudes, phishing y
+                  amenazas comunes en la red, promoviendo hábitos seguros desde la educación básica.
+                </p>
+              </div>
+
+              <div className="tarjeta-pilar">
+                <h3>Alfabetización</h3>
+                <p>
+                  Guías simplificadas y material educativo <strong>accesible y libre</strong> para la formación continua de estudiantes y
+                  docentes, empoderándolos para tomar decisiones responsables en el entorno digital.
+                </p>
+              </div>
+
+              <div className="tarjeta-pilar">
+                <h3>Código Libre</h3>
+                <p>
+                  Desarrollado bajo <strong>estándares abiertos</strong> que garantizan transparencia, adaptabilidad y sostenibilidad
+                  institucional, permitiendo a la comunidad estudiar, modificar y mejorar las herramientas de seguridad digital.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 4. COMPROMISO FINAL (FONDO AZUL) */}
+        <section className="seccion-compromiso">
+          <div className="contenedor-seccion-ancho">
+            <h2>Compromiso de la UPTOS CR con la Comunidad</h2>
             <p>
-              Estrategias orientadas a la <strong>concienciación, formación y mitigación de riesgos informáticos</strong>, fundamentadas
-              en el uso y promoción del <strong>software libre</strong> como base para una seguridad digital inclusiva.
+              Proteger la información y la identidad digital es un derecho de todos, y la misión de los estudiantes de la UPTOS CR (Universidad Politécnica Territorial del Oeste de Sucre "Clodosbaldo Russian") es hacerlo realidad en cada institución educativa de Cumaná.
             </p>
+            <span className="insignia-compromiso">Moral y Luces</span>
           </div>
-
-          <div className="grid-pilares">
-            <div className="tarjeta-pilar">
-              <h3>Prevención Digital</h3>
-              <p>
-                Proporcionamos herramientas explicativas y <strong>concienciamos</strong> a la comunidad sobre fraudes, phishing y
-                amenazas comunes en la red, promoviendo hábitos seguros desde la educación básica.
-              </p>
-            </div>
-
-            <div className="tarjeta-pilar">
-              <h3>Alfabetización</h3>
-              <p>
-                Guías simplificadas y material educativo <strong>accesible y libre</strong> para la formación continua de estudiantes y
-                docentes, empoderándolos para tomar decisiones responsables en el entorno digital.
-              </p>
-            </div>
-
-            <div className="tarjeta-pilar">
-              <h3>Código Libre</h3>
-              <p>
-                Desarrollado bajo <strong>estándares abiertos</strong> que garantizan transparencia, adaptabilidad y sostenibilidad
-                institucional, permitiendo a la comunidad estudiar, modificar y mejorar las herramientas de seguridad digital.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. COMPROMISO FINAL (FONDO AZUL) */}
-      <section className="seccion-compromiso">
-        <div className="contenedor-seccion-ancho">
-          <h2>Compromiso de la UPTOS CR con la Comunidad</h2>
-          <p>
-            Proteger la información y la identidad digital es un derecho de todos, y la misión de los estudiantes de la UPTOS CR (Universidad Politécnica Territorial del Oeste de Sucre "Clodosbaldo Russian") es hacerlo realidad en cada institución educativa de Cumaná.
-          </p>
-          <span className="insignia-compromiso">Moral y Luces</span>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
     </div>
   );
 };

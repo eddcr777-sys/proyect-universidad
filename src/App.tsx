@@ -19,6 +19,7 @@ import Valores from './pages/ElLiceo/Valores';
 import Simbolos from './pages/ElLiceo/Simbolos';
 import NormasConvivencia from './pages/ElLiceo/NormasConvivencia';
 import PlanEvacuacion from './pages/ElLiceo/PlanEvacuacion';
+import Instalaciones from './pages/ElLiceo/Instalaciones';
 import Requisitos from './pages/Admision/Requisitos';
 
 import ExploradorProyectos from './pages/ExploradorProyectos/ExploradorProyectos';
@@ -68,6 +69,7 @@ const App: React.FC = () => {
             <Route path="/el-liceo/simbolos" element={<Simbolos />} />
             <Route path="/el-liceo/normas" element={<NormasConvivencia />} />
             <Route path="/el-liceo/plan-evacuacion" element={<PlanEvacuacion />} />
+            <Route path="/el-liceo/instalaciones" element={<Instalaciones />} />
 
             {/* ── ADMISIÓN ── */}
             <Route path="/admision/requisitos" element={<Requisitos />} />
@@ -104,10 +106,12 @@ const App: React.FC = () => {
             <Route path="/proyectos/ciberseguridad/el-liceo/valores" element={<Valores />} />
             <Route path="/proyectos/ciberseguridad/el-liceo/simbolos" element={<Simbolos />} />
             <Route path="/proyectos/ciberseguridad/el-liceo/normas" element={<NormasConvivencia />} />
+            <Route path="/proyectos/ciberseguridad/el-liceo/instalaciones" element={<Instalaciones />} />
             
             {/* ── RUTAS DIRECTAS Y RETROCOMPATIBILIDAD ── */}
             <Route path="/nosotros/sobre-devs" element={<SobreDevs />} />
             <Route path="/nosotros/sobre-ue" element={<SobreUE />} />
+            <Route path="/instalaciones" element={<Instalaciones />} />
             <Route path="/guias/docentes" element={<GuiasDocentes />} />
             <Route path="/guias/padres" element={<GuiasPadres />} />
             <Route path="/guias/defensa" element={<GuiaDefensa />} />
