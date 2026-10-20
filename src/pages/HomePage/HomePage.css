@@ -1,11 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
 
+/* ==========================================
+   RESET UNIVERSAL (evita desbordes móviles)
+   ========================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   --color-inst-azul: #0F2C59;
   --color-inst-azul-hover: #081B3A;
   --color-inst-dorado: #D4AF37;
   --color-inst-celeste: #0284C7;
   --color-inst-blanco: #FFFFFF;
+  --color-inst-rojo: #B91C1C; /* ✅ FALTABA: usada en hover del carrusel */
   --color-inst-texto: #111827;
   --color-inst-texto-secundario: #4B5563;
   --color-inst-fondo: #F8FAFC;
@@ -17,6 +27,12 @@
   --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.05);
   --sombra-media: 0 8px 24px rgba(0, 0, 0, 0.08);
   --radio-principal: 0px;
+
+  /* Safe areas iPhone (notch / dynamic island) */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
 }
 
 body {
@@ -24,6 +40,7 @@ body {
   font-family: var(--fuente-cuerpo);
   color: var(--color-inst-texto);
   background-color: var(--color-inst-fondo);
+  -webkit-font-smoothing: antialiased;
 }
 
 .inicio-pagina {
@@ -47,6 +64,7 @@ h1, h2, h3, h4, h5, h6,
 .titulo-temario-modulo {
   font-family: var(--fuente-titulos);
   font-weight: 600;
+  margin: 0 0 0.5em 0; /* evita márgenes por defecto gigantes */
 }
 
 p, span, a, button, li, input, select, textarea {
@@ -63,7 +81,7 @@ p, span, a, button, li, input, select, textarea {
 }
 
 /* ==========================================
-   MISIÓN Y VISIÓN (CRUZADO)
+   MISIÓN Y VISIÓN
    ========================================== */
 .seccion-mision-vision {
   padding: 100px 20px;
@@ -73,7 +91,6 @@ p, span, a, button, li, input, select, textarea {
 .contenedor-cruzado {
   max-width: 1280px;
   width: 100%;
-  box-sizing: border-box;
   padding: 0 1.5rem;
   margin: 0 auto;
   display: grid;
@@ -125,37 +142,15 @@ p, span, a, button, li, input, select, textarea {
 }
 
 .texto-cruzado .titulo-apple {
-  font-size: 2.2rem;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
   font-weight: 600;
   margin-bottom: 16px;
 }
 
 .texto-cruzado .subtitulo-apple {
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
   line-height: 1.6;
   opacity: 0.9;
-}
-
-@media (max-width: 992px) {
-  .contenedor-cruzado {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .bloque-cruzado {
-    grid-template-columns: 1fr;
-  }
-
-  .bloque-cruzado.mision .imagen-cruzada,
-  .bloque-cruzado.mision .texto-cruzado,
-  .bloque-cruzado.vision .imagen-cruzada,
-  .bloque-cruzado.vision .texto-cruzado {
-    order: initial;
-  }
-
-  .imagen-cruzada {
-    min-height: 250px;
-  }
 }
 
 /* ==========================================
@@ -175,10 +170,7 @@ p, span, a, button, li, input, select, textarea {
 .seccion-historia-harvard::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: linear-gradient(
     to bottom,
     rgba(15, 44, 89, 0.9) 0%,
@@ -193,7 +185,6 @@ p, span, a, button, li, input, select, textarea {
   z-index: 1;
   max-width: 1280px;
   width: 100%;
-  box-sizing: border-box;
   padding: 0 1.5rem;
   margin: 0 auto;
   display: grid;
@@ -203,14 +194,14 @@ p, span, a, button, li, input, select, textarea {
 }
 
 .titulo-harvard {
-  font-size: 3.2rem;
+  font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 400;
   line-height: 1.15;
   margin-bottom: 20px;
 }
 
 .subtitulo-harvard {
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
   line-height: 1.6;
   color: #d1d5db;
   margin-bottom: 25px;
@@ -227,6 +218,7 @@ p, span, a, button, li, input, select, textarea {
   font-size: 1.05rem;
   margin-bottom: 40px;
   transition: opacity 0.2s ease;
+  min-height: 44px; /* touch target iOS */
 }
 
 .enlace-flecha-harvard:hover {
@@ -244,6 +236,7 @@ p, span, a, button, li, input, select, textarea {
   justify-content: center;
   font-size: 1.2rem;
   font-weight: bold;
+  flex-shrink: 0;
 }
 
 .marco-imagen-harvard {
@@ -277,17 +270,16 @@ p, span, a, button, li, input, select, textarea {
 
 .numero-stat-harvard {
   display: block;
-  font-size: 3rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1;
   color: var(--color-inst-blanco);
   margin-bottom: 8px;
 }
 
 .etiqueta-stat-harvard {
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
   font-weight: 700;
   line-height: 1.4;
-  text-underline-offset: 4px;
   margin: 0;
 }
 
@@ -298,7 +290,6 @@ p, span, a, button, li, input, select, textarea {
   padding: 4rem 1.5rem;
   background-color: var(--color-inst-fondo);
   color: var(--color-inst-texto);
-  
 }
 
 .contenedor-harvard-ancho {
@@ -306,8 +297,6 @@ p, span, a, button, li, input, select, textarea {
   width: 100%;
   margin: 0 auto;
   padding: 0 1.5rem;
-  box-sizing: border-box;
-  
 }
 
 .encabezado-harvard-simple {
@@ -319,7 +308,7 @@ p, span, a, button, li, input, select, textarea {
 }
 
 .titulo-seccion-editorial {
-  font-size: 3rem;
+  font-size: clamp(1.9rem, 4vw, 3rem);
   color: var(--color-inst-azul);
   line-height: 1.15;
   margin-bottom: 16px;
@@ -327,7 +316,7 @@ p, span, a, button, li, input, select, textarea {
 }
 
 .subtitulo-seccion-editorial {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.6vw, 1.1rem);
   color: var(--color-inst-texto-secundario);
   line-height: 1.6;
 }
@@ -337,10 +326,8 @@ p, span, a, button, li, input, select, textarea {
   grid-template-columns: repeat(3, 1fr);
   gap: 36px;
   margin-bottom: 70px;
-
 }
 
-/* Tarjeta desplegable (estilo Members) */
 .tarjeta-desplegable {
   background-color: var(--color-inst-azul);
   display: flex;
@@ -350,7 +337,7 @@ p, span, a, button, li, input, select, textarea {
   overflow: hidden;
   height: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
+  -webkit-tap-highlight-color: transparent;
 }
 
 .tarjeta-desplegable:hover {
@@ -362,7 +349,6 @@ p, span, a, button, li, input, select, textarea {
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Imagen */
 .marco-imagen {
   width: 100%;
   height: 250px;
@@ -381,7 +367,6 @@ p, span, a, button, li, input, select, textarea {
   transform: scale(1.03);
 }
 
-/* Cuerpo */
 .cuerpo {
   padding: 24px 20px 28px 20px;
   display: flex;
@@ -404,10 +389,12 @@ p, span, a, button, li, input, select, textarea {
   align-self: flex-start;
   text-decoration: underline;
   text-underline-offset: 3px;
+  min-height: 44px; /* touch target */
+  touch-action: manipulation;
 }
 
 .titulo {
-  font-size: 1.65rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.65rem);
   color: var(--color-inst-blanco);
   margin-bottom: 0.5rem;
   line-height: 1.25;
@@ -422,14 +409,12 @@ p, span, a, button, li, input, select, textarea {
   font-weight: 500;
 }
 
-/* Contenedor expandible con animación de grid */
 .contenido-expandible {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows 0.4s ease, opacity 0.4s ease, margin 0.4s ease;
   opacity: 0;
   margin-bottom: 0;
-
 }
 
 .contenido-expandible.abierto {
@@ -450,8 +435,6 @@ p, span, a, button, li, input, select, textarea {
   line-height: 1.6;
 }
 
-
-
 /* ==========================================
    CARRUSEL
    ========================================== */
@@ -460,7 +443,6 @@ p, span, a, button, li, input, select, textarea {
   max-width: 1540px;
   margin: 0 auto;
   padding: 0 1.5rem;
-  box-sizing: border-box;
 }
 
 .titulo-carrusel-encabezado {
@@ -474,7 +456,9 @@ p, span, a, button, li, input, select, textarea {
   position: relative;
   width: 100%;
   height: 480px;
-  max-height: 65vh;
+  max-height: 65vh;     /* fallback */
+  max-height: 65svh;    /* ✅ Safari iOS */
+  max-height: 65dvh;    /* ✅ recomendado */
   overflow: hidden;
   background-color: var(--color-inst-azul);
   border-radius: 16px;
@@ -513,7 +497,7 @@ p, span, a, button, li, input, select, textarea {
 }
 
 .overlay-carrusel h3 {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
   font-family: var(--fuente-titulos);
   font-weight: 600;
   margin-bottom: 0.4rem;
@@ -521,7 +505,7 @@ p, span, a, button, li, input, select, textarea {
 }
 
 .overlay-carrusel p {
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 1.4vw, 0.95rem);
   opacity: 0.92;
   max-width: 750px;
   line-height: 1.5;
@@ -550,6 +534,8 @@ p, span, a, button, li, input, select, textarea {
   border: 1px solid rgba(255, 255, 255, 0.8);
   width: 46px;
   height: 46px;
+  min-width: 44px; /* touch target */
+  min-height: 44px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -557,17 +543,26 @@ p, span, a, button, li, input, select, textarea {
   justify-content: center;
   transition: all 0.25s ease;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.controles-carrusel button:hover,
+/* Hover solo en dispositivos con puntero fino (no móvil) */
+@media (hover: hover) and (pointer: fine) {
+  .controles-carrusel button:hover {
+    background-color: #ffffff;
+    color: var(--color-inst-rojo);
+    transform: scale(1.1);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  }
+}
+
 .controles-carrusel button:active {
   background-color: #ffffff;
   color: var(--color-inst-rojo);
-  transform: scale(1.1);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  transform: scale(0.95);
 }
 
-/* Indicadores / Puntos del carrusel */
 .indicadores-carrusel {
   position: absolute;
   bottom: 12px;
@@ -589,10 +584,7 @@ p, span, a, button, li, input, select, textarea {
   cursor: pointer;
   padding: 0;
   transition: all 0.3s ease;
-}
-
-.indicador-punto:hover {
-  background: rgba(255, 255, 255, 0.75);
+  touch-action: manipulation;
 }
 
 .indicador-punto.activo {
@@ -603,7 +595,7 @@ p, span, a, button, li, input, select, textarea {
 }
 
 /* ==========================================
-   RESPONSIVE
+   RESPONSIVE — TABLET (≤1024px)
    ========================================== */
 @media (max-width: 1024px) {
   .contenedor-harvard {
@@ -611,12 +603,8 @@ p, span, a, button, li, input, select, textarea {
     gap: 40px;
   }
 
-  .titulo-harvard {
-    font-size: 2.5rem;
-  }
-
   .marco-imagen-harvard {
-    height: 350px;
+    height: 380px;
   }
 
   .grid-labores-harvard {
@@ -625,6 +613,40 @@ p, span, a, button, li, input, select, textarea {
   }
 }
 
+/* ==========================================
+   RESPONSIVE — TABLET PEQUEÑA / MÓVIL GRANDE (≤992px)
+   ========================================== */
+@media (max-width: 992px) {
+  .contenedor-cruzado {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .bloque-cruzado {
+    grid-template-columns: 1fr;
+  }
+
+  .bloque-cruzado.mision .imagen-cruzada,
+  .bloque-cruzado.mision .texto-cruzado,
+  .bloque-cruzado.vision .imagen-cruzada,
+  .bloque-cruzado.vision .texto-cruzado {
+    order: initial;
+  }
+
+  .imagen-cruzada {
+    min-height: 280px;
+    height: 280px;
+    border-radius: 12px;
+  }
+
+  .texto-cruzado {
+    border-radius: 12px;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE — MÓVIL (≤768px)
+   ========================================== */
 @media (max-width: 768px) {
   .hero-acciones {
     flex-direction: column;
@@ -635,25 +657,24 @@ p, span, a, button, li, input, select, textarea {
   .boton-hero-principal,
   .boton-hero-secundario {
     width: 100%;
+    min-height: 44px;
+    touch-action: manipulation;
   }
 
+  /* Misión y visión */
   .seccion-mision-vision {
-    padding: 30px 0;
+    padding: 2.5rem 1rem;
   }
 
   .contenedor-cruzado {
-    padding: 0 0.5rem;
+    padding: 0 1rem; /* ✅ antes 0.5rem */
     width: 100%;
     gap: 16px;
   }
 
   .texto-cruzado {
-    padding: 20px 14px;
+    padding: 24px 18px;
     border-radius: 12px;
-  }
-
-  .texto-cruzado .titulo-apple {
-    font-size: 1.5rem;
   }
 
   .imagen-cruzada {
@@ -662,33 +683,36 @@ p, span, a, button, li, input, select, textarea {
     border-radius: 12px;
   }
 
+  /* Historia */
   .seccion-historia-harvard {
-    padding: 40px 0;
+    padding: 3rem 1rem;
   }
 
   .contenedor-harvard {
-    padding: 0 0.5rem;
+    padding: 0 1rem; /* ✅ antes 0.5rem */
     width: 100%;
+    gap: 28px;
   }
 
-  .titulo-harvard {
-    font-size: 1.8rem;
+  .marco-imagen-harvard {
+    height: 260px; /* ✅ nueva reducción en móvil */
   }
 
   .columna-derecha-harvard {
-    gap: 20px;
+    gap: 22px;
   }
 
-  .numero-stat-harvard {
-    font-size: 2.2rem;
+  .enlace-flecha-harvard {
+    margin-bottom: 20px;
   }
 
+  /* Labores */
   .seccion-labores-harvard {
-    padding: 2.5rem 0;
+    padding: 2.5rem 1rem;
   }
 
   .contenedor-harvard-ancho {
-    padding: 0 0.5rem;
+    padding: 0 1rem; /* ✅ antes 0.5rem */
     width: 100%;
   }
 
@@ -696,10 +720,6 @@ p, span, a, button, li, input, select, textarea {
     grid-template-columns: 1fr;
     gap: 16px;
     margin-bottom: 36px;
-  }
-
-  .titulo-seccion-editorial {
-    font-size: 2rem;
   }
 
   .marco-imagen {
@@ -714,29 +734,29 @@ p, span, a, button, li, input, select, textarea {
     padding: 16px 14px 20px 14px;
   }
 
+  .encabezado-harvard-simple {
+    margin-bottom: 30px;
+    padding: 0 1rem; /* ✅ antes 0.5rem */
+  }
+
+  /* Carrusel */
   .bloque-carrusel-interno {
-    padding: 0 0.5rem;
+    padding: 0 1rem; /* ✅ antes 0.5rem */
   }
 
   .contenedor-carrusel {
-    height: 350px;
+    height: 340px;
     border-radius: 12px;
   }
 
   .overlay-carrusel {
-    padding: 24px 50px 24px 14px;
-  }
-
-  .overlay-carrusel h3 {
-    font-size: 1.15rem;
-    margin-bottom: 0.2rem;
+    padding: 20px 14px 20px 14px; /* ✅ ya no choca con flechas */
   }
 
   .overlay-carrusel p {
-    font-size: 0.85rem;
-    line-height: 1.35;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2; /* ✅ estándar */
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -748,47 +768,186 @@ p, span, a, button, li, input, select, textarea {
   .controles-carrusel button {
     width: 40px;
     height: 40px;
-  }
-
-  .encabezado-harvard-simple {
-    margin-bottom: 30px;
-    padding: 0 0.5rem;
+    min-width: 40px;
+    min-height: 40px;
   }
 }
 
-/* Pantallas muy pequeñas (<480px) */
+/* ==========================================
+   RESPONSIVE — MÓVIL PEQUEÑO (≤480px)
+   ========================================== */
 @media (max-width: 480px) {
-  .texto-cruzado .titulo-apple {
-    font-size: 1.35rem;
+  .seccion-mision-vision {
+    padding: 2rem 0.75rem;
   }
 
-  .titulo-harvard {
-    font-size: 1.6rem;
+  .contenedor-cruzado {
+    padding: 0 0.75rem;
   }
 
-  .titulo-seccion-editorial {
-    font-size: 1.65rem;
+  .texto-cruzado {
+    padding: 20px 14px;
+  }
+
+  .seccion-historia-harvard {
+    padding: 2.5rem 0.75rem;
+  }
+
+  .contenedor-harvard {
+    padding: 0 0.75rem;
+  }
+
+  .marco-imagen-harvard {
+    height: 220px;
+  }
+
+  .seccion-labores-harvard {
+    padding: 2rem 0.75rem;
+  }
+
+  .contenedor-harvard-ancho {
+    padding: 0 0.75rem;
+  }
+
+  .encabezado-harvard-simple {
+    padding: 0 0.75rem;
+  }
+
+  .bloque-carrusel-interno {
+    padding: 0 0.75rem;
   }
 
   .contenedor-carrusel {
-    height: 300px;
+    height: 280px;
     border-radius: 10px;
   }
 
   .overlay-carrusel {
-    padding: 18px 44px 22px 12px;
+    padding: 16px 12px 16px 12px;
   }
 
   .overlay-carrusel h3 {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .overlay-carrusel p {
     font-size: 0.78rem;
+    line-height: 1.35;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 
   .controles-carrusel button {
     width: 36px;
     height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+  }
+
+  .indicadores-carrusel {
+    bottom: 8px;
+    gap: 6px;
+  }
+
+  .indicador-punto {
+    width: 8px;
+    height: 8px;
+  }
+
+  .indicador-punto.activo {
+    width: 20px;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE — MÓVIL MUY PEQUEÑO (≤360px)
+   ========================================== */
+@media (max-width: 360px) {
+  .seccion-mision-vision,
+  .seccion-historia-harvard,
+  .seccion-labores-harvard {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .contenedor-cruzado,
+  .contenedor-harvard,
+  .contenedor-harvard-ancho,
+  .bloque-carrusel-interno {
+    padding: 0 0.5rem;
+  }
+
+  .encabezado-harvard-simple {
+    padding: 0 0.5rem;
+  }
+
+  .marco-imagen-harvard {
+    height: 190px;
+  }
+
+  .marco-imagen {
+    height: 170px;
+  }
+
+  .contenedor-carrusel {
+    height: 240px;
+  }
+
+  .controles-carrusel button {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    min-height: 34px;
+  }
+}
+
+/* ==========================================
+   LANDSCAPE MÓVIL (poca altura)
+   ========================================== */
+@media (max-height: 500px) and (orientation: landscape) {
+  .seccion-mision-vision,
+  .seccion-historia-harvard,
+  .seccion-labores-harvard {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .contenedor-carrusel {
+    height: 70svh;
+    max-height: 320px;
+  }
+
+  .marco-imagen-harvard {
+    height: 200px;
+  }
+
+  .overlay-carrusel {
+    padding: 12px 50px 14px 14px;
+  }
+
+  .overlay-carrusel p {
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  }
+}
+
+/* ==========================================
+   ACCESIBILIDAD — prefers-reduced-motion
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+  .tarjeta-desplegable,
+  .tarjeta-desplegable:hover .marco-imagen img,
+  .pista-carrusel,
+  .controles-carrusel button,
+  .contenido-expandible {
+    transition: none !important;
+  }
+
+  .tarjeta-desplegable:hover {
+    transform: none;
+  }
+
+  .tarjeta-desplegable:hover .marco-imagen img {
+    transform: none;
   }
 }

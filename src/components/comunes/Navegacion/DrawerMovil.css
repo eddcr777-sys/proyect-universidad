@@ -41,7 +41,7 @@
   /* Altura dinámica: 100dvh funciona en iOS Safari moderno, 100vh como fallback */
   height: 100vh;
   height: 100dvh;
-  background-color: #ffffff;
+  background-color: var(--color-inst-azul);
   box-shadow: -5px 0 25px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
@@ -64,22 +64,22 @@
   align-items: center;
   justify-content: space-between;
   padding: 1.25rem 1rem;
-  border-bottom: 1px solid #e5e7eb; 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15); 
 }
 
 .drawer-titulo {
   font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-inst-azul);
+  font-weight: 700;
+  color: #ffffff;
   letter-spacing: 0.3px;
 }
 
 .btn-cerrar {
-  background: #f3f4f6;
-  border: none;
-  color: #6b7280;
-  width: 30px;
-  height: 30px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -89,17 +89,18 @@
 }
 
 .btn-cerrar:hover {
-  background-color: #e5e7eb;
-  color: #111827;
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  transform: scale(1.05);
 }
 
 .drawer-body {
   padding: 1rem 0.75rem;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.3rem;
   overflow-y: auto;
-  /* Scroll táctil nativo en iOS (inerìia) */
+  /* Scroll táctil nativo en iOS (inercia) */
   -webkit-overflow-scrolling: touch;
   /* Evita que el scroll del drawer propague al body (efecto de "fondo bloqueado") */
   overscroll-behavior: contain;
@@ -115,55 +116,54 @@
   text-decoration: none;
   background: transparent;
   border: none;
-  color: var(--color-inst-azul);
+  color: #ffffff;
   font-size: 0.95rem;
   font-weight: 600;
   padding: 0.7rem 0.85rem;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.15s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .drawer-item-directo:hover,
 .btn-seccion:hover,
 .btn-seccion.activo {
-  background-color: #f8fafc;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
 }
 
-
 .drawer-chevron {
-  color: #9ca3af;
+  color: rgba(255, 255, 255, 0.75);
   transition: transform 0.25s ease, color 0.25s ease;
 }
 
 .drawer-chevron.rotado {
   transform: rotate(180deg);
-  color: var(--color-inst-azul);
+  color: #ffffff;
 }
-
 
 .sub-menu {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
+  gap: 0.2rem;
   margin-left: 0.85rem;
   padding-left: 0.85rem;
-  border-left: 1px solid #e5e7eb; 
-  margin-top: 0.2rem;
-  margin-bottom: 0.4rem;
+  border-left: 2px solid rgba(255, 255, 255, 0.25); 
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .sub-menu a {
   text-decoration: none;
-  color: #4b5563; 
-  font-size: 0.88rem;
-  font-weight: 400;
-  padding: 0.5rem 0.75rem;
+  color: rgba(255, 255, 255, 0.9); 
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.55rem 0.8rem;
   border-radius: 6px;
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .sub-menu a:hover {
-  background-color: #f3f4f6; 
-  color: #111827; 
+  background-color: rgba(255, 255, 255, 0.18); 
+  color: #ffffff; 
 }

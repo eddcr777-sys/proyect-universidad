@@ -97,11 +97,6 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
             )}
           </div>
 
-          {/* Sección Proyectos */}
-          <Link to="/proyectos" className="drawer-item-directo" onClick={cerrar}>
-            Proyectos Estudiantiles
-          </Link>
-
           {/* Sección Ciberseguridad y Proyecto */}
           <div className="menu-seccion">
             <button className={`btn-seccion ${secciones.ciberseguridad ? 'activo' : ''}`} onClick={() => alternarSeccion('ciberseguridad')}>
@@ -132,7 +127,6 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
             {secciones.nosotros && (
               <div className="sub-menu">
                 <Link to="/proyectos/ciberseguridad/nosotros/sobre-ue" onClick={cerrar}>Sobre la U.E.</Link>
-                <Link to="/proyectos/ciberseguridad/nosotros/sobre-devs" onClick={cerrar}>Desarrolladores</Link>
               </div>
             )}
           </div>

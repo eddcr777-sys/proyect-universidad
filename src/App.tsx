@@ -33,6 +33,7 @@ import ModuloRouter from './pages/Modulos/ModuloRouter';           // Nivel 4 �
 
 import Cabecera from './components/comunes/Cabecera';
 import PiePagina from './components/comunes/PiePagina';
+import BannerDescargaOffline from './components/comunes/BannerDescargaOffline/BannerDescargaOffline';
 import './App.css';
 
 /** Redirecciones dinámicas con parámetros */
@@ -128,6 +129,7 @@ const App: React.FC = () => {
           </Routes>
         </main>
         <PiePagina />
+        <BannerDescargaOffline />
       </div>
     </Router>
   );

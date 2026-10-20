@@ -21,7 +21,7 @@ export const Vision: React.FC = () => {
         descripcion="Hacia dónde caminamos: inspirando el futuro educativo del Estado Sucre."
         acciones={
           <Link to="/" className="boton-hero-principal">
-            <ArrowLeft size={18} />
+             <ArrowLeft size={18} />
             Volver al Inicio
           </Link>
         }

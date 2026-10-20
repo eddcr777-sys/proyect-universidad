@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gradFondo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F2C59" />
+      <stop offset="100%" stop-color="#1E3A8A" />
+    </linearGradient>
+    <linearGradient id="gradEscudo" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+  </defs>
+
+  <!-- Fondo redondeado estilo App Icon -->
+  <rect width="512" height="512" rx="112" fill="url(#gradFondo)" />
+
+  <!-- Escudo de Seguridad / Institucional -->
+  <path d="M256 96 L376 144 V264 C376 348 256 416 256 416 C256 416 136 348 136 264 V144 Z" 
+        fill="url(#gradEscudo)" 
+        stroke="#ffffff" 
+        stroke-width="12" 
+        stroke-linejoin="round" />
+
+  <!-- Detalle interior: Candado / Circuito -->
+  <rect x="220" y="248" width="72" height="60" rx="10" fill="#ffffff" />
+  <path d="M234 248 V218 C234 206 244 196 256 196 C268 196 278 206 278 218 V248" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="12" 
+        stroke-linecap="round" />
+  <circle cx="256" cy="274" r="8" fill="#0F2C59" />
+  <path d="M256 282 V294" stroke="#0F2C59" stroke-width="6" stroke-linecap="round" />
+</svg>
