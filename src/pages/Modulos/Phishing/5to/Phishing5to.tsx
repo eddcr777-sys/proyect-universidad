@@ -20,6 +20,7 @@ import './Phishing5to.css';
 export const Phishing5to: React.FC = () => {
   const {
     escenarios,
+    
     respuestasEscenario,
     evaluarEscenario,
     campañas,
