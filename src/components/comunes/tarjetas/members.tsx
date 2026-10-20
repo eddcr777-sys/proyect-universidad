@@ -2,12 +2,20 @@ import React, { useState } from 'react';
 import { ChevronDown, User } from 'lucide-react';
 import './members.css';
 
+export interface RedSocialItem {
+  id: number;
+  nombre: string;
+  url: string;
+  icono: string;
+}
+
 export interface MemberItem {
   id: number;
   name: string;
   role: string;
   description?: string;
-  redesSociales?: Icon[];
+  imagen?: string;
+  redesSociales?: RedSocialItem[];
 }
 
 interface MembersProps {
@@ -43,6 +51,9 @@ const Members: React.FC<MembersProps> = ({ items }) => {
             }}
           >
             <div className="marco-imagen">
+              {item.imagen && (
+                <img src={item.imagen} alt={item.name} loading="lazy" decoding="async" />
+              )}
               {item.redesSociales && (
                 <div className="redes-sociales">
                   {item.redesSociales.map((redSocial) => (

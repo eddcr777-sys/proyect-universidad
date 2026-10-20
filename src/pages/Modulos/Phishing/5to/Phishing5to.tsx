@@ -119,14 +119,14 @@ export const Phishing5to: React.FC = () => {
                   </div>
 
                   {resEleccion !== undefined && (
-                    <div className={`feedback-decision ${resEleccion === esC.EsAtaque ? 'acierto' : 'fallo'}`}>
+                    <div className={`feedback-decision ${resEleccion === esc.esAtaque ? 'acierto' : 'fallo'}`}>
                       <div className="flex-resultado">
-                        {resEleccion === esC.EsAtaque ? (
+                        {resEleccion === esc.esAtaque ? (
                           <CheckCircle2 size={20} className="icono-acierto" />
                         ) : (
                           <XCircle size={20} className="icono-fallo" />
                         )}
-                        <span>{esC.Explicacion}</span>
+                        <span>{esc.explicacion}</span>
                       </div>
                     </div>
                   )}
