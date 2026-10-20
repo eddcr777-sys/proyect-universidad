@@ -30,7 +30,9 @@ export const BannerDescargaOffline: React.FC = () => {
   const [descargando, setDescargando] = useState<boolean>(false);
   const [progreso, setProgreso] = useState<number>(0);
   const [descargadoExitoso, setDescargadoExitoso] = useState<boolean>(false);
-  const [enLinea, setEnLinea] = useState<boolean>(true);
+  const [enLinea, setEnLinea] = useState<boolean>(() => {
+    return typeof navigator !== 'undefined' ? navigator.onLine : true;
+  });
   const [instalable, setInstalable] = useState<boolean>(false);
   const [recursoActual, setRecursoActual] = useState<string>('');
 
@@ -46,6 +48,27 @@ export const BannerDescargaOffline: React.FC = () => {
     // Monitorear estado de conexión a internet
     const desuscribirRed = suscribirEstadoConexion((online) => {
       setEnLinea(online);
+
+      if (online) {
+        // Al recuperar la conexión a internet, reiniciar el descarte del modo offline
+        try {
+          sessionStorage.removeItem('banner_modo_offline_descartado');
+        } catch {
+          // Modo privado móvil
+        }
+      } else {
+        // Al perder la conexión, mostrar aviso si el usuario no lo ha descartado en esta sesión
+        let fueDescartadoOffline = false;
+        try {
+          fueDescartadoOffline = sessionStorage.getItem('banner_modo_offline_descartado') === 'true';
+        } catch {
+          // Modo privado móvil
+        }
+
+        if (!fueDescartadoOffline) {
+          setVisible(true);
+        }
+      }
     });
 
     // Escuchar si la PWA se vuelve instalable
@@ -55,20 +78,29 @@ export const BannerDescargaOffline: React.FC = () => {
 
     // Revisar de forma segura si ya está descargado o si fue descartado en esta sesión
     let yaDescargado = false;
-    let fueDescartado = false;
+    let fueDescartadoDescarga = false;
+    let fueDescartadoOffline = false;
     try {
       yaDescargado = estaProyectoDescargado();
-      fueDescartado = sessionStorage.getItem('banner_offline_descartado') === 'true';
+      fueDescartadoDescarga = sessionStorage.getItem('banner_offline_descartado') === 'true';
+      fueDescartadoOffline = sessionStorage.getItem('banner_modo_offline_descartado') === 'true';
     } catch {
       // En modo privado o restricciones móviles
     }
 
-    if (esRutaCiberseguridad && !yaDescargado && !fueDescartado) {
-      // Pequeño retardo para que la página cargue primero de forma fluida
-      const timer = setTimeout(() => {
+    if (esRutaCiberseguridad) {
+      const estaSinInternet = typeof navigator !== 'undefined' && !navigator.onLine;
+
+      if (estaSinInternet && !fueDescartadoOffline) {
+        // Si inicia la sesión ya sin conexión y no lo ha cerrado, mostrar aviso
         setVisible(true);
-      }, 1200);
-      return () => clearTimeout(timer);
+      } else if (!estaSinInternet && !yaDescargado && !fueDescartadoDescarga) {
+        // En línea: pequeño retardo para que la página cargue primero de forma fluida
+        const timer = setTimeout(() => {
+          setVisible(true);
+        }, 1200);
+        return () => clearTimeout(timer);
+      }
     }
 
     return () => {
@@ -81,14 +113,18 @@ export const BannerDescargaOffline: React.FC = () => {
   const handleCerrar = () => {
     setVisible(false);
     try {
-      sessionStorage.setItem('banner_offline_descartado', 'true');
+      if (!enLinea) {
+        sessionStorage.setItem('banner_modo_offline_descartado', 'true');
+      } else {
+        sessionStorage.setItem('banner_offline_descartado', 'true');
+      }
     } catch {
       // Modo privado móvil
     }
   };
 
-  // Si no está en ruta de ciberseguridad o no es visible, no renderizar
-  if (!esRutaCiberseguridad || (!visible && enLinea)) {
+  // Si no está en ruta de ciberseguridad o no está visible, no renderizar
+  if (!esRutaCiberseguridad || !visible) {
     return null;
   }
 
@@ -239,6 +275,19 @@ export const BannerDescargaOffline: React.FC = () => {
                 disabled={descargando}
               >
                 Quizás luego
+              </button>
+            </div>
+          )}
+
+          {/* Botón de acción rápido al estar sin conexión */}
+          {!enLinea && (
+            <div className="banner-offline-acciones">
+              <button 
+                className="btn-banner-secundario" 
+                onClick={handleCerrar}
+                style={{ width: '100%', justifyContent: 'center' }}
+              >
+                Entendido
               </button>
             </div>
           )}
