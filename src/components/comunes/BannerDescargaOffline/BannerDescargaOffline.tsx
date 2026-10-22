@@ -54,9 +54,13 @@ export const BannerDescargaOffline: React.FC = () => {
         try {
           sessionStorage.removeItem('banner_modo_offline_descartado');
         } catch {
+
+          
           // Modo privado móvil
         }
       } else {
+
+
         // Al perder la conexión, mostrar aviso si el usuario no lo ha descartado en esta sesión
         let fueDescartadoOffline = false;
         try {

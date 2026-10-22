@@ -27,6 +27,7 @@ import {
   Bookmark
 } from 'lucide-react';
 import HeaderProyecto from '../../components/comunes/HeaderProyecto/HeaderProyecto';
+import imgHeroCiber from '../../assets/photo_2_2026-10-21_23-11-48.jpg';
 import './Guias-padres.css';
 import './Guias-Docentes.css';
 
@@ -129,7 +130,7 @@ export const GuiasDocentes: React.FC = () => {
         titulo="MANUAL DOCENTE DE"
         tituloResaltado="CIBERSEGURIDAD"
         descripcion="Estrategias metodológicas, articulación curricular escolar, protocolos de actuación inmediata y recursos didácticos para orientar la formación digital en el C.E. Antonio Lemus Pérez."
-        imagenFondo="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1600&q=80"
+        imagenFondo={imgHeroCiber}
         enlacesSubNav={enlacesSubNav}
         acciones={[
           {

@@ -5,7 +5,7 @@ import { TEAM_MEMBERS } from '../../data/datosPersonal';
 import { Users, ShieldCheck, BookOpen, Code, GraduationCap, Award, Link, ArrowLeft } from 'lucide-react';
 import './SobreDevs.css';
 import HeroCiberseguridad from '../../components/comunes/HeroCiberseguridad/HeroCiberseguridad';
-import img5 from '../../assets/pbk-Hero-3.jpg';
+import imgHeroCiber from '../../assets/photo_2_2026-10-21_23-11-48.jpg';
 
 export const TeamSection: React.FC = () => {
   const enlacesSubNav = [
@@ -21,7 +21,7 @@ export const TeamSection: React.FC = () => {
   return (
     <div className="pagina-ciberseguridad">
       <HeroCiberseguridad
-        imagenFondo={img5}
+        imagenFondo={imgHeroCiber}
         titulo="Desarrolladores del"
         tituloResaltado="PROYECTO DE CIBERSEGURIDAD"
         categoria="EQUIPO DE DESARROLLO PNFI"

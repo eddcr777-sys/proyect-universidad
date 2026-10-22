@@ -16,6 +16,7 @@ import {
   Link
 } from 'lucide-react';
 import HeaderProyecto from '../../components/comunes/HeaderProyecto/HeaderProyecto';
+import imgHeroCiber from '../../assets/photo_2_2026-10-21_23-11-48.jpg';
 import './Guias-padres.css';
 
 const GuiaPadres: React.FC = () => {
@@ -37,7 +38,7 @@ const GuiaPadres: React.FC = () => {
         titulo="ESCUDO FAMILIAR"
         tituloResaltado="DIGITAL"
         descripcion="Orientaciones fundamentales, glosario de términos y protocolos prácticos de protección en el hogar para padres, madres y representantes del Complejo Educativo Antonio Lemus Pérez."
-        imagenFondo="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=80"
+        imagenFondo={imgHeroCiber}
         enlacesSubNav={enlacesSubNav}
         acciones={[
           {

@@ -7,6 +7,7 @@ import {
   Sparkles, AlertCircle
 } from "lucide-react";
 import HeaderProyecto from "../../components/comunes/HeaderProyecto/HeaderProyecto";
+import imgHeroCiber from '../../assets/photo_2_2026-10-21_23-11-48.jpg';
 import { CATALAGO_MODULOS } from "../../data/datosModulos";
 import type { GradoEscolar } from "../../data/datosModulos";
 import DETALLES_CONTEXTUALES from "../../data/datosIndices";
@@ -196,7 +197,7 @@ const Indices: React.FC = () => {
         titulo="ÍNDICES Y TEMARIO DE"
         tituloResaltado="CIBERSEGURIDAD"
         descripcion="Exploración detallada de los 6 ejes temáticos de prevención digital en el C.E. Antonio Lemus Pérez. Conoce qué enseña cada módulo, sus conceptos clave y accede directamente a las lecciones de tu año escolar."
-        imagenFondo="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1600&q=80"
+        imagenFondo={imgHeroCiber}
         enlacesSubNav={enlacesSubNav}
         acciones={[
           {

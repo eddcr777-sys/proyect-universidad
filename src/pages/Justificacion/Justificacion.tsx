@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import HeaderProyecto from '../../components/comunes/HeaderProyecto/HeaderProyecto';
+import imgHeroCiber from '../../assets/photo_2_2026-10-21_23-11-48.jpg';
 import './Justificacion.css';
 
 interface FAQItem {
@@ -81,7 +82,7 @@ export const Justificacion: React.FC = () => {
         titulo="JUSTIFICACIÓN"
         tituloResaltado=""
         descripcion="Fundamentación académica, diagnóstico de vulnerabilidades digitales e impacto pedagógico en la comunidad del Complejo Educativo Antonio Lemus Pérez."
-        imagenFondo="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1600&q=80"
+        imagenFondo={imgHeroCiber}
         enlacesSubNav={enlacesSubNav}
         acciones={[
           {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ShieldCheck, Lock, Sparkles, Terminal } from 'lucide-react';
-import imgHeroPredeterminado from '../../../assets/pbk-Hero-3.jpg';
+import imgHeroPredeterminado from '../../../assets/photo_2_2026-10-21_23-11-48.jpg';
 import './HeroCiberseguridad.css';
 
 /** Interfaz para acciones/botones del Hero */

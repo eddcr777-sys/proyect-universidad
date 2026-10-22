@@ -11,6 +11,7 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import HeaderProyecto from '../../components/comunes/HeaderProyecto/HeaderProyecto';
+import imgHeroCiber from '../../assets/photo_2_2026-10-21_23-11-48.jpg';
 import type { GradoEscolar } from '../../data/datosModulos';
 import './LandingModulos.css';
 
@@ -79,7 +80,7 @@ const LandingModulos: React.FC = () => {
         titulo="APRENDE A PROTEGERTE EN EL"
         tituloResaltado="MUNDO DIGITAL"
         descripcion="Módulos pedagógicos, lecciones interactivas y guías didácticas adaptadas nivel a nivel desde 1ro hasta 5to año para la comunidad educativa."
-        imagenFondo="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1600&q=80"
+        imagenFondo={imgHeroCiber}
         enlacesSubNav={enlacesSubNav}
         acciones={[
           {

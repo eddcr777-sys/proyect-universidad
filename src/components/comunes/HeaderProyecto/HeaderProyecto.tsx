@@ -1,7 +1,7 @@
 import React from 'react';
 import HeroCiberseguridad from '../HeroCiberseguridad/HeroCiberseguridad';
 import type { AccionHeroCiber, EnlaceSubNavegacionCiber } from '../HeroCiberseguridad/HeroCiberseguridad';
-import imgHeroPredeterminado from '../../../assets/pbk-Hero-3.jpg';
+import imgHeroPredeterminado from '../../../assets/photo_2_2026-10-21_23-11-48.jpg';
 import './HeaderProyecto.css';
 
 export interface AccionHero extends AccionHeroCiber {}

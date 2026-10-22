@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import HeroCiberseguridad from '../../../components/comunes/HeroCiberseguridad/HeroCiberseguridad';
+import imgHeroCiber from '../../../assets/photo_2_2026-10-21_23-11-48.jpg';
 import './GuiaDefensa.css';
 
 interface FaseDefensa {
@@ -118,7 +119,7 @@ export const GuiaDefensa: React.FC = () => {
         titulo="GUÍA PARA LA DEFENSA DEL"
         tituloResaltado="PROYECTO SOCIOTECNOLÓGICO"
         descripcion="Pautas para la presentación oral, estructura de diapositivas y matriz de respuestas clave ante el jurado evaluador de la UPTOS CR y las autoridades del C.E. Antonio Lemus Pérez."
-        imagenFondo="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80"
+        imagenFondo={imgHeroCiber}
         enlacesSubNav={enlacesSubNav}
         acciones={[
           {

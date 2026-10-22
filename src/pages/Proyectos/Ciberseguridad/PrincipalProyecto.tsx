@@ -19,10 +19,10 @@ import HeaderProyecto from '../../../components/comunes/HeaderProyecto/HeaderPro
 import './PrincipalProyecto.css';
 
 // Imágenes institucionales para el diseño editorial de la portada
-import imgHero1 from '../../../assets/pbk-Hero-3.jpg';
-import imgLemu from '../../../assets/lemu.jpeg';
-import imgLem from '../../../assets/lem.jpeg';
-import imgLe from '../../../assets/le.jpeg';
+import imgHeroCiber from '../../../assets/photo_4_2026-10-21_23-11-48.jpg';
+import imgLemu from '../../../assets/photo_1ciber.jpg';
+import imgLem from '../../../assets/photo_2ciber.jpg';
+import imgLe from '../../../assets/photo_4_ciber.jpg';
 
 /**
  * Página Principal de Portada del Proyecto de Ciberseguridad.
@@ -53,7 +53,7 @@ const PrincipalProyecto: React.FC = () => {
             <strong>Complejo Educativo "Antonio Lemus Pérez"</strong> en la prevención de riesgos y la autonomía tecnológica.
           </>
         }
-        imagenFondo={imgHero1}
+        imagenFondo={imgHeroCiber}
         enlacesSubNav={enlacesSubNav}
         acciones={[
           {

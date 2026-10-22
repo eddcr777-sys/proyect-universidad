@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import HeroCiberseguridad from '../../../components/comunes/HeroCiberseguridad/HeroCiberseguridad';
+import imgHeroCiber from '../../../assets/photo_2_2026-10-21_23-11-48.jpg';
 import './ManualCompleto.css';
 
 interface ModuloManual {
@@ -127,7 +128,7 @@ export const ManualCompleto: React.FC = () => {
         titulo="MANUAL COMPLETO DE"
         tituloResaltado="SEGURIDAD Y CONCIENCIA DIGITAL"
         descripcion="Compilación pedagógica integral para el Complejo Educativo Antonio Lemus Pérez. Contiene los 6 módulos normativos y guías metodológicas."
-        imagenFondo="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80"
+        imagenFondo={imgHeroCiber}
         enlacesSubNav={enlacesSubNav}
         acciones={[
           {

@@ -17,7 +17,7 @@ import { CATALAGO_MODULOS, DICCIONARIO_GRADOS } from '../../data/datosModulos';
 import type { GradoEscolar } from '../../data/datosModulos';
 import Boton from '../../components/comunes/Botones/Boton';
 import HeroCiberseguridad from '../../components/comunes/HeroCiberseguridad/HeroCiberseguridad';
-import imgHero3 from '../../assets/pbk-Hero-3.jpg';
+import imgHeroCiber from '../../assets/photo_2_2026-10-21_23-11-48.jpg';
 import './PresentacionGrado.css';
 
 // Mapeo de iconos Lucide por módulo
@@ -71,7 +71,7 @@ export const PresentacionGrado: React.FC = () => {
         tituloResaltado={nombreGradoLegible.toUpperCase()}
         categoria="CATÁLOGO POR GRADO ESCOLAR"
         descripcion="¡Bienvenido(a) a tu portal de aprendizaje! A continuación se presentan las lecciones y temas adaptados a tu nivel."
-        imagenFondo={imgHero3}
+        imagenFondo={imgHeroCiber}
         enlacesSubNav={enlacesSubNav}
       />
 
