@@ -74,6 +74,11 @@ p, span, a, button, li, input, select, textarea {
 /* ==========================================
    CARRUSELES
    ========================================== */
+
+.carruseles {
+  background-color: var(--color-inst-fondo);
+  padding: 100px 20px;
+}
 .encabezado-carrusel {
   text-align: center;
   color: var(--color-inst-blanco);
@@ -162,7 +167,7 @@ p, span, a, button, li, input, select, textarea {
   color: #ffffff;
   padding: 100px 20px;
   overflow: hidden;
-  background-image: url('../../assets/lb.jpeg');
+  background-image: url('../../assets/lb.png');
   background-size: cover;
   background-repeat: no-repeat;
 }

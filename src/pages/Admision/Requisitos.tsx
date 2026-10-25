@@ -64,7 +64,7 @@ export const Requisitos: React.FC = () => {
 
       <main className="contenedor-liceo-ancho">
         <div className="encabezado-seccion-liceo">
-          <h2 className="titulo-seccion-liceo">Proceso de Admisión 2026-2027</h2>
+          <h2 className="titulo-seccion-liceo">Proceso de Admisión</h2>
           <p className="subtitulo-seccion-liceo">
             A continuación se detallan los recaudos exigidos para formalizar la inscripción en nuestra institución.
           </p>

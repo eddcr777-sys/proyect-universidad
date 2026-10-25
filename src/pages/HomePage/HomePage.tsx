@@ -14,8 +14,8 @@ import HeroInstitucional from '../../components/comunes/HeroInstitucional/HeroIn
 import TarjetasDesplegables from '../../components/comunes/tarjetas/tarjetasHome'; // Ajusta si tienes otro archivo
 import CarruselBase from '../../components/comunes/Extras/carrusel';
 
-import fotoCancha from '../../assets/lemu.jpeg';
-import img5 from '../../assets/pbk-Hero-3.jpg';
+import fotoCancha from '../../assets/12.jpg';
+import img5 from '../../assets/lb.png';
 
 export const Home: React.FC = () => {
   const carruselLabores = useCarrusel(CARRUSEL_LABORES_DATA.length);
@@ -160,19 +160,7 @@ export const Home: React.FC = () => {
       
 
       {/* PERSONAL */}
-      <section id="personal" className="seccion-labores-harvard">
-        <div className="contenedor-harvard-ancho">
-          <div className="encabezado-harvard-simple">
-            <h2 className="titulo-seccion-editorial">Conoce a Nuestro Equipo</h2>
-            <p className="subtitulo-seccion-editorial">
-              Profesionales dedicados a la excelencia educativa.
-            </p>
-          </div>
-          <div className="grid-labores-harvard">
-            <TarjetasDesplegables items={personalAdaptado} />
-          </div>
-        </div>
-      </section>
+   
 
       <section className="carruseles">
         <CarruselBase

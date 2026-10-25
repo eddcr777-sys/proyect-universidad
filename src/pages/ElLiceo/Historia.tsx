@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import HeroInstitucional from '../../components/comunes/HeroInstitucional/HeroInstitucional';
 import img5 from '../../assets/pbk-Hero-3.jpg';
 import fotoFachada from '../../assets/lb.jpeg';
+import fotoOrigenA from '../../assets/Gemini_Generated_Image_2p4dkt2p4dkt2p4d.jpeg';
+import fotoBautizoA from '../../assets/Gemini_Generated_Image_qrp9miqrp9miqrp9.jpeg';
+import fotoOrigenB from '../../assets/Gemini_Generated_Image_ng5qr7ng5qr7ng5q.jpeg';
 import './ElLiceo.css';
 import '../Nosotros/SobreU.E.css';
 import '../../components/comunes/HeroInstitucional/HeroInstitucional.css';
@@ -47,7 +50,7 @@ export const Historia: React.FC = () => {
             {/* Fila 1: Imagen 1 + Texto Completo 1 */}
             <div className="imagen-cruzada">
               <img
-                src="https://picsum.photos/seed/1984a/800/600"
+                src={fotoOrigenA}
                 alt="Fundación 1984"
                 loading="lazy"
               />
@@ -110,7 +113,7 @@ export const Historia: React.FC = () => {
             </div>
             <div className="imagen-cruzada">
               <img
-                src="https://picsum.photos/seed/1984b/800/600"
+                src={fotoOrigenB}
                 alt="Primeros grupos de estudio 1984"
                 loading="lazy"
               />
@@ -124,7 +127,7 @@ export const Historia: React.FC = () => {
             {/* Fila 1: Imagen 1 + Texto Completo 1 */}
             <div className="imagen-cruzada">
               <img
-                src="https://picsum.photos/seed/1988a/800/600"
+                src={fotoBautizoA}
                 alt="Epónimo Antonio Lemus Pérez 1988"
                 loading="lazy"
               />

@@ -3,10 +3,10 @@ import { Target, Compass, Users, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import HeroInstitucional from '../../components/comunes/HeroInstitucional/HeroInstitucional';
 import img5 from '../../assets/pbk-Hero-3.jpg';
-import fotoRazonSer from '../../assets/mision_razon_ser.jpg';
-import fotoFormacion from '../../assets/mision_formacion_integ.jpg';
-import fotoEtica from '../../assets/mision_etica_ciudadana.jpg';
-import fotoComunidad from '../../assets/mision_vinculacion_comunitaria.jpg';
+import fotoRazonSer from '../../assets/mision.png';
+import fotoFormacion from '../../assets/fi.jpeg';
+import fotoEtica from '../../assets/etic.jpeg';
+import fotoComunidad from '../../assets/handshake.jpg';
 import './ElLiceo.css';
 import './Mision.css';
 

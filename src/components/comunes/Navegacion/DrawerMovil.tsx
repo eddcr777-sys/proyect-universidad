@@ -75,7 +75,7 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
                 <Link to="/el-liceo/mision" onClick={cerrar}>Misión</Link>
                 <Link to="/el-liceo/vision" onClick={cerrar}>Visión</Link>
                 <Link to="/el-liceo/valores" onClick={cerrar}>Valores</Link>
-                <Link to="/proyectos/ciberseguridad/nosotros/sobre-ue#Directivos" onClick={cerrar}>Directivos</Link>
+            
                 <Link to="/el-liceo/simbolos" onClick={cerrar}>Símbolos</Link>
                 <Link to="/el-liceo/normas" onClick={cerrar}>Normas de Convivencia</Link>
                 <Link to="/el-liceo/plan-evacuacion" onClick={cerrar}>Plan de Evacuación</Link>
