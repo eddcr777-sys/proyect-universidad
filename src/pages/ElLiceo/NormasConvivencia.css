@@ -1,114 +1,358 @@
 /* ==========================================
-   HOJA DE ESTILOS PROPIA - NORMAS DE CONVIVENCIA
-   Complejo Educativo "Antonio Lemus Pérez"
+   NORMAS DE CONVIVENCIA — MINIMALISTA FULL-WIDTH
    ========================================== */
 
-.normas-seccion {
-  padding: 20px 0 60px 0;
+.normas-main {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 48px 32px 80px 32px;
 }
 
-.normas-categoria-bloque {
-  border-radius: 16px;
-  padding: 36px 32px;
-  margin-bottom: 40px;
-
+/* ── Intro ───────────────────────────────── */
+.normas-intro {
+  margin-bottom: 48px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--color-inst-borde);
 }
 
+.normas-intro-kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-inst-rojo);
+  margin-bottom: 12px;
+}
 
-.normas-categoria-titulo {
+.normas-intro-titulo {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   color: var(--color-inst-azul);
-  margin-bottom: 24px;
+  margin: 0 0 22px 0;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.normas-intro-texto {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-inst-texto);
+  margin: 0 0 24px 0;
+  max-width: 900px;
+  text-align: justify;
+}
+
+.normas-intro-legal {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--color-inst-texto-secundario);
+  margin: 0;
+  max-width: 900px;
+}
+
+.normas-intro-legal-label {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-inst-azul);
+  margin-right: 10px;
+}
+
+/* ── Índice ──────────────────────────────── */
+.normas-indice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  padding: 20px 0;
+  margin-bottom: 56px;
+  border-top: 1px solid var(--color-inst-borde);
+  border-bottom: 1px solid var(--color-inst-borde);
+}
+
+.normas-indice-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--color-inst-azul);
+  text-decoration: none;
+  padding: 2px 0;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.normas-indice-link:hover {
+  border-bottom-color: var(--color-inst-azul);
+}
+
+.normas-indice-count {
+  font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+  font-size: 0.72rem;
+  color: var(--color-inst-texto-secundario);
+  opacity: 0.7;
+}
+
+.normas-indice-sep {
+  color: var(--color-inst-borde);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* ── Grupos ──────────────────────────────── */
+.normas-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.normas-grupo {
+  scroll-margin-top: 24px;
+}
+
+.normas-grupo-header {
   display: flex;
   align-items: center;
   gap: 14px;
+  margin-bottom: 8px;
   padding-bottom: 16px;
-  border-bottom: 2px solid rgba(15, 44, 89, 0.08);
+  position: relative;
 }
 
-.normas-icono-categoria {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background-color: rgba(15, 44, 89, 0.06);
+.normas-grupo-header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 56px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-inst-azul),
+    var(--color-inst-rojo)
+  );
+  border-radius: 2px;
+}
+
+.normas-grupo-icono {
   color: var(--color-inst-azul);
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
-.normas-grid-items {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 20px;
-}
-
-.norma-tarjeta-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
-  padding: 20px 22px;
-
-  border-radius: 12px;
-  border-left: 4px solid var(--color-inst-azul);
-  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
-}
-
-.norma-tarjeta-item:hover {
-  transform: translateX(4px);
-  background-color: #ffffff;
-  border-color: rgba(15, 44, 89, 0.25);
-  border-left-color: var(--color-inst-rojo);
-}
-
-.norma-numero-badge {
-  font-weight: 800;
-  font-size: 1.1rem;
-  color: var(--color-inst-azul);
-  background-color: rgba(15, 44, 89, 0.08);
-  padding: 6px 12px;
-  border-radius: 8px;
-  min-width: 42px;
-  text-align: center;
-  line-height: 1;
-}
-
-.norma-tarjeta-item:hover .norma-numero-badge {
-  background-color: var(--color-inst-rojo);
-  color: var(--color-inst-blanco);
-}
-
-.norma-contenido-texto h4 {
-  font-size: 1.08rem;
+.normas-grupo-titulo {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.85rem;
   font-weight: 600;
   color: var(--color-inst-azul);
-  margin-bottom: 6px;
-  line-height: 1.3;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
 }
 
-.norma-contenido-texto p {
-  font-size: 0.95rem;
+/* ── Items ───────────────────────────────── */
+.normas-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--color-inst-borde);
+}
+
+.norma-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--color-inst-borde);
+  transition: padding-left 0.25s ease;
+}
+
+.norma-item:hover {
+  padding-left: 8px;
+}
+
+.norma-item-num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-inst-azul);
+  min-width: 44px;
+  line-height: 1;
+  padding-top: 2px;
+  text-align: left;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+  letter-spacing: -0.5px;
+}
+
+.norma-item:hover .norma-item-num {
+  color: var(--color-inst-rojo);
+}
+
+.norma-item-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.norma-item-titulo {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-inst-texto);
+  margin: 0 0 6px 0;
+  line-height: 1.4;
+}
+
+.norma-item-desc {
+  font-size: 0.96rem;
   color: var(--color-inst-texto-secundario);
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .normas-categoria-bloque {
-    padding: 24px 18px;
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 900px) {
+  .normas-main {
+    padding: 32px 20px 60px 20px;
   }
 
-  .normas-categoria-titulo {
+  .normas-intro-titulo {
+    font-size: 2rem;
+  }
+
+  .normas-intro-texto {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .normas-grupo-titulo {
+    font-size: 1.55rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .normas-main {
+    padding: 24px 16px 48px 16px;
+  }
+
+  .normas-intro {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+  }
+
+  .normas-intro-kicker {
+    font-size: 0.68rem;
+    letter-spacing: 1.5px;
+  }
+
+  .normas-intro-titulo {
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+  }
+
+  .normas-intro-texto {
+    font-size: 0.96rem;
+    text-align: left;
+    margin-bottom: 18px;
+  }
+
+  .normas-intro-legal {
+    font-size: 0.8rem;
+  }
+
+  .normas-intro-legal-label {
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .normas-indice {
+    padding: 14px 0;
+    margin-bottom: 36px;
+    gap: 4px 6px;
+  }
+
+  .normas-indice-link {
+    font-size: 0.84rem;
+  }
+
+  .normas-indice-sep {
+    display: none;
+  }
+
+  .normas-indice-link {
+    padding: 6px 10px;
+    background: rgba(15, 44, 89, 0.05);
+    border-radius: 20px;
+    border-bottom: none;
+  }
+
+  .normas-lista {
+    gap: 40px;
+  }
+
+  .normas-grupo-header {
+    gap: 10px;
+    padding-bottom: 12px;
+    margin-bottom: 4px;
+  }
+
+  .normas-grupo-header::after {
+    width: 44px;
+    height: 2px;
+  }
+
+  .normas-grupo-titulo {
+    font-size: 1.3rem;
+  }
+
+  .norma-item {
+    gap: 16px;
+    padding: 16px 0;
+  }
+
+  .norma-item:hover {
+    padding-left: 0;
+  }
+
+  .norma-item-num {
+    font-size: 1.2rem;
+    min-width: 30px;
+  }
+
+  .norma-item-titulo {
+    font-size: 0.98rem;
+  }
+
+  .norma-item-desc {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+}
+
+@media (max-width: 400px) {
+  .normas-main {
+    padding: 20px 12px 40px 12px;
+  }
+
+  .normas-intro-titulo {
     font-size: 1.4rem;
   }
 
-  .normas-grid-items {
-    grid-template-columns: 1fr;
+  .normas-grupo-titulo {
+    font-size: 1.15rem;
   }
 
-  .norma-tarjeta-item {
-    padding: 16px;
+  .norma-item {
+    gap: 12px;
+  }
+
+  .norma-item-num {
+    font-size: 1.05rem;
+    min-width: 26px;
   }
 }

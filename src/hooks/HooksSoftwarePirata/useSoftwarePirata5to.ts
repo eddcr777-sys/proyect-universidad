@@ -44,198 +44,203 @@ export interface PreguntaSoftware5to {
 
 // ========== DATOS ==========
 
+// Hábitos de software responsable para el bachiller de 5to año
 export const HABITOS_SOFTWARE_5TO: HabitoSoftware5to[] = [
   {
     id: '1',
-    texto: 'Sé realizar un inventario básico de software instalado en mi liceo u organización.',
-    categoria: 'Inventario',
-    enfoque: 'El primer paso de una auditoría de software es saber qué está instalado y dónde.'
+    texto: 'Conozco y uso alternativas de software libre para las tareas cotidianas: LibreOffice en lugar de Office, GIMP en lugar de Photoshop.',
+    categoria: 'Alternativas Libres',
+    enfoque: 'El software libre es legal, gratuito y de calidad. Conocerlo evita recurrir a programas piratas.'
   },
   {
     id: '2',
-    texto: 'Entiendo la norma ISO 19770 y su importancia para la gestión de activos de software.',
-    categoria: 'Normativa',
-    enfoque: 'ISO 19770 establece buenas prácticas para gestionar licencias y evitar sanciones.'
+    texto: 'Oriento a mis compañeros y familiares sobre las consecuencias de usar software pirata y les sugiero alternativas gratuitas.',
+    categoria: 'Liderazgo',
+    enfoque: 'Como bachiller, tienes la formación para ayudar a otros a tomar decisiones digitales responsables.'
   },
   {
     id: '3',
-    texto: 'Puedo detectar cuándo una organización tiene más instalaciones que licencias (exceso de uso).',
-    categoria: 'Cumplimiento',
-    enfoque: 'El exceso de licencias es un hallazgo crítico en auditorías y puede generar multas.'
+    texto: 'Antes de instalar cualquier programa, reviso si existe una versión libre o gratuita oficial antes de buscar versiones "crackeadas".',
+    categoria: 'Hábitos Seguros',
+    enfoque: 'El software pirata suele venir cargado con virus y malware. Las alternativas oficiales gratuitas son mucho más seguras.'
   },
   {
     id: '4',
-    texto: 'Sé proponer políticas de software claras: qué se puede instalar, quién lo autoriza y cómo se registra.',
-    categoria: 'Políticas',
-    enfoque: 'Las políticas evitan la instalación de software no autorizado y reducen riesgos legales.'
+    texto: 'Sé qué es una licencia Creative Commons y la diferencia entre software libre, freeware y software de código abierto.',
+    categoria: 'Licencias',
+    enfoque: 'Conocer los tipos de licencia te ayuda a usar software de forma legal y a respetar el trabajo de los creadores.'
   },
   {
     id: '5',
-    texto: 'Puedo redactar un informe ejecutivo sobre el estado de licencias de software de una institución.',
-    categoria: 'Informes',
-    enfoque: 'Comunicar los hallazgos de forma clara es esencial para que la dirección tome decisiones.'
+    texto: 'Denuncio o reporto a un adulto cuando detecto que el liceo o un familiar tiene software pirata instalado en sus equipos.',
+    categoria: 'Responsabilidad',
+    enfoque: 'Reportar es un acto de responsabilidad ciudadana que protege a la institución y a las familias de consecuencias legales.'
   }
 ];
 
+// Escenarios de uso responsable de software para el bachiller de 5to año
 export const ESCENARIOS_AUDITORIA_SOFTWARE: EscenarioAuditoria[] = [
   {
     id: 'esc1',
-    titulo: 'Exceso de instalaciones',
-    descripcion: 'Durante una auditoría, descubres que la escuela tiene 50 computadoras con un programa de diseño, pero solo compró 30 licencias. ¿Qué haces?',
+    titulo: 'Tu familiar te pide que le instales un programa crackeado',
+    descripcion: 'Un familiar mayor te pide que le instales un programa de diseño "crackeado" porque le parece caro. ¿Qué haces?',
     opciones: [
-      'Ignorarlo, no es importante',
-      'Documentar el exceso y recomendar comprar 20 licencias adicionales o desinstalar el software',
-      'Eliminar el programa de las computadoras sin avisar'
+      'Lo instalo sin pensarlo, es mi familia',
+      'Le explico que el software pirata puede tener virus y le sugiero alternativas gratuitas como GIMP o LibreOffice',
+      'Busco el crack en internet y lo instalo con cuidado'
     ],
     opcionCorrecta: 1,
-    explicacion: 'El exceso de instalaciones es un incumplimiento legal. El auditor debe reportarlo y recomendar regularizar las licencias.'
+    explicacion: 'El software pirata puede contener malware que roba datos o daña el equipo. Es mejor orientar a la familia hacia alternativas gratuitas y legales.'
   },
   {
     id: 'esc2',
-    titulo: 'Software no autorizado',
-    descripcion: 'Encuentras juegos y programas piratas instalados en las computadoras del laboratorio. ¿Cuál es la acción correcta?',
+    titulo: 'Software no autorizado en el laboratorio del liceo',
+    descripcion: 'Detectas que hay juegos y programas piratas instalados en las computadoras del laboratorio. ¿Cuál es la acción correcta?',
     opciones: [
-      'Avisar de inmediato al responsable y documentar el hallazgo',
-      'Dejarlos, no es mi problema',
-      'Jugar un rato'
+      'Avisar al docente encargado del laboratorio para que tome acción',
+      'Dejarlo, total no me perjudica',
+      'Jugar un rato mientras nadie ve'
     ],
     opcionCorrecta: 0,
-    explicacion: 'El software no autorizado es un riesgo legal y de seguridad. Debe reportarse de inmediato a la dirección.'
+    explicacion: 'El software no autorizado en equipos del liceo representa un riesgo legal y de seguridad para toda la institución. Reportarlo es la decisión responsable.'
   },
   {
     id: 'esc3',
-    titulo: 'Política de instalación de software',
-    descripcion: 'La dirección te pide que propongas una política para evitar la instalación de software pirata. ¿Qué incluyes?',
+    titulo: 'Elegir herramientas para un proyecto escolar',
+    descripcion: 'Para un proyecto necesitas editar imágenes y crear una presentación. No tienes dinero para pagar software. ¿Qué haces?',
     opciones: [
-      'Prohibir instalar cualquier programa',
-      'Definir un proceso de autorización, una lista blanca de software permitido y controles de inventario',
-      'Permitir que cada quien instale lo que quiera'
+      'Busco versiones crackeadas en internet',
+      'Uso Canva (diseño, gratis), GIMP (fotos, gratis) y LibreOffice Impress (presentaciones, gratis)',
+      'No hago el proyecto'
     ],
     opcionCorrecta: 1,
-    explicacion: 'Una política efectiva incluye autorización clara, inventario periódico y restricciones para usuarios estándar.'
+    explicacion: 'Existen excelentes herramientas gratuitas y legales para todas las necesidades escolares. No es necesario recurrir a software pirata.'
   },
   {
     id: 'esc4',
-    titulo: 'Subutilización de licencias',
-    descripcion: 'Detectas que hay 20 licencias compradas de un programa, pero solo 5 se están usando. ¿Qué recomiendas?',
+    titulo: 'Compañero que comparte software pirata por WhatsApp',
+    descripcion: 'Un compañero envía por el grupo del salón un enlace para descargar una suite de programas "gratis y completos". ¿Qué haces?',
     opciones: [
-      'Comprar más licencias',
-      'Mantener las licencias sin cambios',
-      'Reasignar las licencias sobrantes o cancelar el mantenimiento para ahorrar costos'
+      'Lo descargo, si mi compañero lo envía será confiable',
+      'No lo descargo y le explico en privado que distribuir software pirata es ilegal y puede tener virus',
+      'Lo reenvío a otros grupos'
     ],
-    opcionCorrecta: 2,
-    explicacion: 'La subutilización es una ineficiencia. El auditor puede recomendar reasignar o no renovar licencias innecesarias.'
+    opcionCorrecta: 1,
+    explicacion: 'Distribuir software pirata es un delito más grave que usarlo. Además, los enlaces en grupos de WhatsApp son frecuentemente fuentes de malware.'
   }
 ];
 
+// Ejemplos de software: legal vs. ilegal para clasificar
 export const ACTIVOS_SOFTWARE: ActivoSoftware[] = [
   {
     id: 'act1',
-    nombre: 'Microsoft Office',
-    licencias: 30,
+    nombre: 'LibreOffice (descargado de libreoffice.org)',
+    licencias: 0,
     instalaciones: 30,
     estadoCorrecto: 'cumple',
-    explicacion: 'Cumple: hay 30 licencias y 30 instalaciones. No hay exceso ni subutilización.'
+    explicacion: 'LibreOffice es software libre y gratuito. No requiere licencia de pago. Su uso es completamente legal.'
   },
   {
     id: 'act2',
-    nombre: 'Adobe Photoshop',
-    licencias: 10,
+    nombre: 'Adobe Photoshop crackeado',
+    licencias: 0,
     instalaciones: 25,
     estadoCorrecto: 'excede',
-    explicacion: 'Excede: hay 25 instalaciones pero solo 10 licencias. Se deben regularizar 15 licencias o desinstalar.'
+    explicacion: 'Una copia crackeada no tiene licencia válida. Usarla es ilegal y puede contener malware. Alternativa gratuita: GIMP.'
   },
   {
     id: 'act3',
-    nombre: 'Antivirus corporativo',
-    licencias: 50,
-    instalaciones: 40,
-    estadoCorrecto: 'subutilizado',
-    explicacion: 'Subutilizado: se pagaron 50 licencias pero solo se usan 40. Se pueden reasignar o reducir el contrato.'
+    nombre: 'Windows original con licencia',
+    licencias: 30,
+    instalaciones: 30,
+    estadoCorrecto: 'cumple',
+    explicacion: 'El número de licencias coincide con las instalaciones. Todo está en regla.'
   },
   {
     id: 'act4',
-    nombre: 'LibreOffice',
+    nombre: 'Canva (plan gratuito)',
     licencias: 0,
     instalaciones: 35,
     estadoCorrecto: 'cumple',
-    explicacion: 'Cumple: LibreOffice es software libre (gratuito), no requiere licencias de pago.'
+    explicacion: 'Canva ofrece un plan gratuito con acceso desde el navegador. No requiere licencias de pago para uso educativo básico.'
   },
   {
     id: 'act5',
-    nombre: 'Software de diseño 3D',
+    nombre: 'Microsoft Office sin activar',
     licencias: 5,
-    instalaciones: 5,
-    estadoCorrecto: 'cumple',
-    explicacion: 'Cumple: número de licencias coincide con instalaciones.'
+    instalaciones: 40,
+    estadoCorrecto: 'excede',
+    explicacion: 'Solo hay 5 licencias pero está instalado en 40 equipos. Las 35 instalaciones extras son ilegales. LibreOffice es una alternativa gratuita equivalente.'
   }
 ];
 
+// Videos educativos apropiados para 5to año
 export const VIDEOS_SOFTWARE_5TO: VideoSoftware5to[] = [
   {
     id: 'v1',
-    titulo: 'ISO 19770: Gestión de activos de software',
-    url: 'https://www.youtube.com/embed/iso19770-5to1',
-    descripcion: 'Qué es la norma ISO 19770 y cómo ayuda a las organizaciones a controlar sus licencias.'
+    titulo: 'Software libre vs. software pirata: ¿cuál es la diferencia?',
+    url: 'https://www.youtube.com/embed/9hZP6DVqP7o',
+    descripcion: 'Explicación clara de qué es el software libre, el freeware y el software pirata, y por qué importa la diferencia.'
   },
   {
     id: 'v2',
-    titulo: 'Cómo hacer un inventario de software',
-    url: 'https://www.youtube.com/embed/inventario5to2',
-    descripcion: 'Métodos y herramientas para saber qué software está instalado en una red.'
+    titulo: 'Las mejores alternativas gratuitas a programas de pago',
+    url: 'https://www.youtube.com/embed/PMCm_6ufWEk',
+    descripcion: 'Conoce GIMP, LibreOffice, Canva, Audacity y más: programas gratuitos y legales para todas tus necesidades.'
   },
   {
     id: 'v3',
-    titulo: 'Auditoría de licencias: pasos y recomendaciones',
-    url: 'https://www.youtube.com/embed/auditoria5to3',
-    descripcion: 'Guía práctica para realizar una auditoría de licencias en una organización.'
+    titulo: 'Por qué el software pirata es peligroso para tu computadora',
+    url: 'https://www.youtube.com/embed/R7wQMEqXxJM',
+    descripcion: 'Cómo el software crackeado suele venir con malware, ransomware y troyanos que dañan tu equipo y roban tus datos.'
   }
 ];
 
+// Quiz adaptado para 5to año: uso responsable de software
 export const PREGUNTAS_SOFTWARE_5TO: PreguntaSoftware5to[] = [
   {
     id: 1,
-    pregunta: '¿Qué es la norma ISO 19770?',
+    pregunta: '¿Qué tipo de software puedes usar legalmente sin pagar?',
     opciones: [
-      'Un estándar para la gestión de activos de software (SAM)',
-      'Un tipo de licencia',
-      'Un programa antivirus'
+      'Solo el software pirata si nadie te ve',
+      'El software libre y de código abierto como LibreOffice, GIMP y Audacity',
+      'Cualquier software si solo lo usas para estudiar'
     ],
-    respuestaCorrecta: 0,
-    explicacion: 'ISO 19770 es el estándar internacional para la Gestión de Activos de Software, que ayuda a controlar licencias y evitar riesgos.'
+    respuestaCorrecta: 1,
+    explicacion: 'El software libre es legal, gratuito y de calidad. Puedes usarlo sin restricciones para estudio, trabajo o cualquier fin.'
   },
   {
     id: 2,
-    pregunta: '¿Qué significa "exceso de licencias" en una auditoría?',
+    pregunta: '¿Cuál es el riesgo más común de instalar software pirata?',
     opciones: [
-      'Que hay más licencias que instalaciones',
-      'Que hay más instalaciones que licencias compradas',
-      'Que no hay licencias'
+      'Que el programa funcione lento',
+      'Que el instalador contenga virus, malware o ransomware que daña tu equipo o roba tus datos',
+      'Que el fabricante te envíe un correo'
     ],
     respuestaCorrecta: 1,
-    explicacion: 'El exceso ocurre cuando se instala un programa en más equipos de los permitidos por las licencias adquiridas.'
+    explicacion: 'Los instaladores piratas suelen incluir malware disfrazado. Es una de las formas más comunes de infectar un equipo.'
   },
   {
     id: 3,
-    pregunta: '¿Cuál es el primer paso de una auditoría de software?',
+    pregunta: 'Necesitas editar fotos para un proyecto. No tienes dinero para Photoshop. ¿Qué haces?',
     opciones: [
-      'Comprar licencias',
-      'Realizar un inventario de software instalado',
-      'Formatear las computadoras'
+      'Busco una versión crackeada de Photoshop',
+      'Uso GIMP, que es gratuito, legal y tiene funciones similares',
+      'No hago el trabajo'
     ],
     respuestaCorrecta: 1,
-    explicacion: 'Sin inventario no se puede comparar instalaciones contra licencias. Es el punto de partida.'
+    explicacion: 'GIMP es un editor de fotos profesional completamente gratuito y legal. Siempre busca la alternativa libre antes de recurrir a software pirata.'
   },
   {
     id: 4,
-    pregunta: '¿Qué beneficio tiene reasignar licencias subutilizadas?',
+    pregunta: '¿Qué debes hacer si ves software pirata instalado en los equipos del liceo?',
     opciones: [
-      'Ninguno',
-      'Ahorra costos y mejora el cumplimiento',
-      'Aumenta el riesgo legal'
+      'Usarlo sin decir nada',
+      'Reportarlo al docente responsable del laboratorio o a la dirección',
+      'Desinstalarlo por cuenta propia'
     ],
     respuestaCorrecta: 1,
-    explicacion: 'Reasignar licencias a equipos que las necesitan optimiza la inversión y evita pagar licencias innecesarias.'
+    explicacion: 'Reportar el software pirata es la acción responsable. La desinstalación sin autorización no es tu responsabilidad; la del aviso, sí.'
   }
 ];
 

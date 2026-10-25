@@ -38,161 +38,164 @@ export interface PreguntaQuiz5to {
 
 // ========== DATOS ==========
 
+// Hábitos de uso responsable de la red para estudiantes de 5to año (líderes del liceo)
 export const HABITOS_5TO: Habito5to[] = [
   {
     id: '1',
-    texto: 'Sé elaborar una matriz simple de riesgos para identificar vulnerabilidades en mi liceo u hogar.',
-    categoria: 'Diagnóstico',
-    enfoque: 'Clasifica los riesgos por probabilidad e impacto antes de que ocurran fallas.'
+    texto: 'Antes de compartir una noticia o imagen en redes, verifico si la fuente es confiable para no difundir desinformación.',
+    categoria: 'Verificación de Información',
+    enfoque: 'Compartir noticias falsas tiene consecuencias reales. Un click mal dado puede dañar la reputación de personas o sembrar pánico.'
   },
   {
     id: '2',
-    texto: 'Compruebo que los equipos compartidos cumplan con políticas de contraseñas y privacidad básicas.',
-    categoria: 'Políticas',
-    enfoque: 'Asegura que el grupo siga pautas colectivas de protección digital.'
+    texto: 'Oriento a estudiantes de años menores sobre el uso seguro de internet y las redes sociales.',
+    categoria: 'Liderazgo Digital',
+    enfoque: 'Como futuro bachiller, tu ejemplo y orientación pueden proteger a estudiantes más jóvenes de riesgos en línea.'
   },
   {
     id: '3',
-    texto: 'Sé redactar un informe breve de hallazgos con recomendaciones claras de corrección.',
-    categoria: 'Informes Técnicos',
-    enfoque: 'Sintetiza la auditoría en un documento accesible para autoridades y profesores.'
+    texto: 'Reconozco cuándo alguien está siendo acosado en línea (ciberacoso) y sé cómo apoyarle o reportarlo.',
+    categoria: 'Protección Comunitaria',
+    enfoque: 'El ciberacoso daña la salud mental. Reconocer las señales y actuar es un acto de responsabilidad social.'
   },
   {
     id: '4',
-    texto: 'Oriento a estudiantes de grados menores sobre el uso ético y seguro de la red.',
-    categoria: 'Liderazgo Digital',
-    enfoque: 'Fomenta el rol de mentor cibernético como futuro graduando del liceo.'
+    texto: 'Cuido mi tiempo de pantalla y mantengo un equilibrio saludable entre mi vida digital y la presencial.',
+    categoria: 'Bienestar Digital',
+    enfoque: 'El uso excesivo de pantallas afecta el sueño, el estado de ánimo y el rendimiento académico. Ponerse límites es un hábito inteligente.'
   },
   {
     id: '5',
-    texto: 'He participado en una actividad de divulgación responsable sobre un fallo detectado en un entorno controlado.',
-    categoria: 'Ética Profesional',
-    enfoque: 'Aplica el protocolo de notificar en privado antes de hacer pública una vulnerabilidad.'
+    texto: 'Ayudo a la dirección del liceo o a mis docentes cuando detecto situaciones de riesgo digital en mi entorno escolar.',
+    categoria: 'Responsabilidad Institucional',
+    enfoque: 'Reportar situaciones de riesgo (acoso, contenido inapropiado, estafas) a un adulto de confianza es la acción correcta y valiente.'
   }
 ];
 
+// Situaciones cotidianas para analizar y tomar decisiones responsables
 export const RIESGOS_EJEMPLO: RiesgoEjemplo[] = [
   {
     id: 'riesgo1',
-    titulo: 'Contraseñas débiles en cuentas del personal',
-    descripcion: 'Varios profesores usan la misma contraseña sencilla para el correo y la plataforma de notas.',
+    titulo: 'Grupo de WhatsApp con rumores sobre un compañero',
+    descripcion: 'Un grupo del salón comparte mensajes burlando a un estudiante con fotos editadas y apodos ofensivos.',
     probabilidad: 'Alta',
     impacto: 'Alto',
     criticidadCorrecta: 'Crítico',
-    explicacion: 'Probabilidad alta + impacto alto = Riesgo crítico. Un atacante podría acceder a toda la información académica.'
+    explicacion: 'El ciberacoso tiene un impacto emocional grave y puede derivar en consecuencias serias para la víctima. Es una situación crítica que debe reportarse de inmediato a un docente o representante.'
   },
   {
     id: 'riesgo2',
-    titulo: 'Wi-Fi del liceo sin contraseña para invitados',
-    descripcion: 'La red de invitados del liceo está abierta y no aísla los equipos administrativos.',
+    titulo: 'Uso del Wi-Fi del liceo para descargar contenido inapropiado',
+    descripcion: 'Varios estudiantes usan la red del liceo para ver contenido que viola las normas de convivencia de la institución.',
     probabilidad: 'Media',
     impacto: 'Alto',
     criticidadCorrecta: 'Alto',
-    explicacion: 'Probabilidad media pero impacto alto (acceso a datos sensibles) → riesgo alto.'
+    explicacion: 'Esto compromete la reputación del liceo y expone a los estudiantes a riesgos legales. Es un riesgo alto que debe atenderse con normas claras de uso de la red.'
   },
   {
     id: 'riesgo3',
-    titulo: 'No se realizan copias de seguridad de las notas',
-    descripcion: 'El servidor de calificaciones no tiene backups automáticos.',
+    titulo: 'Publicar la ubicación del liceo en redes en tiempo real',
+    descripcion: 'Estudiantes publican en tiempo real desde dónde están durante actividades fuera del plantel.',
     probabilidad: 'Baja',
     impacto: 'Alto',
     criticidadCorrecta: 'Alto',
-    explicacion: 'Impacto alto (pérdida total de notas) aunque probabilidad baja → riesgo alto.'
+    explicacion: 'Compartir ubicación en tiempo real puede poner en riesgo la seguridad física de los estudiantes, aunque sucede pocas veces. El impacto potencial es alto.'
   },
   {
     id: 'riesgo4',
-    titulo: 'Estudiantes comparten claves de Wi-Fi en grupos de WhatsApp',
-    descripcion: 'La clave de la red principal circula en chats estudiantiles.',
+    titulo: 'Compartir examen o actividades por chat antes de la prueba',
+    descripcion: 'Estudiantes fotografian el examen y lo envían a compañeros de otros turnos.',
     probabilidad: 'Alta',
     impacto: 'Medio',
     criticidadCorrecta: 'Alto',
-    explicacion: 'Alta probabilidad y impacto medio → riesgo alto. Debe cambiarse la clave y segmentar la red.'
+    explicacion: 'La deshonestidad académica en digital tiene alta probabilidad y daña la integridad del proceso educativo. Merece atención preventiva con normas claras.'
   }
 ];
 
 export const HALLAZGOS_SIMULADOS: HallazgoSimulado[] = [
   {
     id: 'hallazgo1',
-    contexto: 'Encontraste que varios equipos del laboratorio no tienen antivirus actualizado.',
-    problema: '¿Cómo redactarías el hallazgo en un informe?',
+    contexto: 'Descubriste que un compañero recibe mensajes ofensivos repetidos en un grupo de WhatsApp del liceo.',
+    problema: '¿Cuál es la mejor forma de actuar?',
     opcionesInforme: [
-      '“Los computadores están viejos y no sirven.”',
-      '“Se detectó que 5 de 8 equipos del laboratorio de informática no tienen actualizado el antivirus (Windows Defender desactualizado desde hace 3 meses). Esto aumenta el riesgo de infección por malware.”',
-      '“Hay que comprar antivirus nuevos.”'
+      'No meterme, es problema de ellos.',
+      'Apoyar al compañero afectado, guardar evidencia y reportar la situación a un docente o al departamento de orientación.',
+      'Compartir los mensajes en otro grupo para que todos se enteren.'
     ],
     opcionCorrecta: 1,
-    explicacion: 'Un informe profesional debe ser específico, medible y describir el problema técnico con claridad.'
+    explicacion: 'El ciberacoso requiere intervención. Apoyar a la víctima y reportar a un adulto de confianza es la acción correcta. Difundir los mensajes empeora la situación.'
   },
   {
     id: 'hallazgo2',
-    contexto: 'Detectaste que la red Wi-Fi del liceo usa cifrado WEP, obsoleto y vulnerable.',
-    problema: '¿Cómo lo reportarías?',
+    contexto: 'Llega al grupo familiar una noticia alarmante sin fuente: dicen que el agua del barrio está contaminada.',
+    problema: '¿Qué haces antes de compartirla?',
     opcionesInforme: [
-      '“El Wi-Fi es malo.”',
-      '“La red inalámbrica utiliza WEP, un protocolo de cifrado roto que puede ser descifrado en minutos. Se recomienda migrar a WPA3 o WPA2-AES.”',
-      '“Deben cambiar el router.”'
+      'La reenvío de inmediato porque parece urgente.',
+      'Busco la noticia en medios oficiales. Si no tiene fuente confiable, no la comparto.',
+      'La ignoro y no hago nada.'
     ],
     opcionCorrecta: 1,
-    explicacion: 'Incluir la evidencia (WEP) y la recomendación (WPA3) es esencial para que la dirección tome acción.'
+    explicacion: 'Verificar antes de compartir es una responsabilidad digital básica. Las noticias falsas se propagan por quienes las reenvían sin chequear.'
   },
   {
     id: 'hallazgo3',
-    contexto: 'Notaste que no hay una política de copias de seguridad de las calificaciones.',
-    problema: '¿Qué redacción es más adecuada para un directivo?',
+    contexto: 'Un compañero más joven te pregunta si puede darle su contraseña a un sitio que promete cuentas premium gratis.',
+    problema: '¿Qué le aconsejas?',
     opcionesInforme: [
-      '“Se pueden perder las notas.”',
-      '“No se evidencia un procedimiento de respaldo automático de la base de datos de calificaciones. Se recomienda implementar copias diarias a la nube con la regla 3-2-1.”',
-      '“Deberían guardar las notas en un pendrive.”'
+      'Sí, parece confiable si tiene buenas reseñas.',
+      'Nunca des tu contraseña a sitios de terceros. Ninguna plataforma legítima te la pedirá para darte algo gratis. Es probablemente una estafa.',
+      'Lo intento primero con mi cuenta para ver si funciona.'
     ],
     opcionCorrecta: 1,
-    explicacion: 'La recomendación debe ser concreta, accionable y alineada con estándares (regla 3-2-1).'
+    explicacion: 'Los sitios que piden credenciales a cambio de regalos casi siempre son estafas (phishing). Nunca compartas tus claves.'
   }
 ];
 
+// Quiz de uso responsable de internet y liderazgo digital para 5to año
 export const PREGUNTAS_QUIZ_5TO: PreguntaQuiz5to[] = [
   {
     id: 1,
-    pregunta: '¿Qué es una matriz de riesgo?',
+    pregunta: '¿Qué deberías hacer antes de compartir una noticia en redes sociales?',
     opciones: [
-      'Una tabla donde se clasifican amenazas según probabilidad e impacto para priorizar acciones',
-      'Un programa para hacer gráficos',
-      'Una lista de contraseñas seguras'
+      'Compartirla si muchas personas ya la han reenviado',
+      'Verificar la fuente en medios confiables antes de difundirla',
+      'Compartirla solo si tiene muchos "me gusta"'
     ],
-    respuestaCorrecta: 0,
-    explicacion: 'La matriz de riesgo cruza probabilidad e impacto para determinar la criticidad de cada amenaza.'
+    respuestaCorrecta: 1,
+    explicacion: 'La desinformación se propaga cuando la gente comparte sin verificar. Siempre busca la fuente original y contrasta en medios confiables.'
   },
   {
     id: 2,
-    pregunta: '¿Cuál es la estructura básica de un hallazgo en un informe de auditoría?',
+    pregunta: '¿Qué es el ciberacoso (cyberbullying)?',
     opciones: [
-      'Descripción del problema, evidencia, impacto y recomendación',
-      'Solo la opinión personal',
-      'Un listado de quejas'
+      'Jugar videojuegos en línea con extranjeros',
+      'Hostigar, insultar o humillar a una persona de forma repetida a través de medios digitales',
+      'Ver contenido violento en internet'
     ],
-    respuestaCorrecta: 0,
-    explicacion: 'Un hallazgo profesional debe incluir qué se encontró, cómo se verificó, qué impacto tiene y cómo corregirlo.'
+    respuestaCorrecta: 1,
+    explicacion: 'El ciberacoso incluye mensajes ofensivos, difusión de rumores, exclusión digital y suplantación. Es tan dañino como el acoso presencial.'
   },
   {
     id: 3,
-    pregunta: '¿Qué significa divulgación responsable?',
+    pregunta: 'Un sitio web te ofrece una cuenta premium gratis si ingresas tu correo y contraseña. ¿Qué haces?',
     opciones: [
-      'Publicar la vulnerabilidad en redes sociales inmediatamente',
-      'Notificar en privado al afectado, dar un plazo para corregir y luego (si se desea) publicar',
-      'No contarle a nadie'
+      'Ingreso mis datos, suena a una buena oferta',
+      'No lo hago; los sitios legítimos no piden tu contraseña para darte algo gratis. Puede ser phishing.',
+      'Lo intento con la contraseña de un amigo primero'
     ],
     respuestaCorrecta: 1,
-    explicacion: 'La divulgación responsable es el estándar ético: aviso privado, plazo razonable, y solo después publicación.'
+    explicacion: 'Pedir tu contraseña a cambio de algo "gratis" es una señal clásica de phishing. Ninguna plataforma legítima necesita tu clave para darte un beneficio.'
   },
   {
     id: 4,
-    pregunta: 'Si encontraras una vulnerabilidad en la página del liceo, ¿qué harías primero?',
+    pregunta: 'Ves que un compañero más joven está recibiendo mensajes ofensivos en un chat del liceo. ¿Qué haces como líer?',
     opciones: [
-      'Explotarla para demostrar que existe',
-      'Notificar al profesor o directivo encargado con un informe detallado',
-      'Contárselo a tus amigos'
+      'Ignoro la situación, no es mi problema',
+      'Apoyo al compañero y reporto la situación a un docente o al departamento de orientación',
+      'Me uno al chat para ver qué pasa'
     ],
     respuestaCorrecta: 1,
-    explicacion: 'La vía ética es informar al responsable, sin explotar la falla ni divulgarla abiertamente.'
+    explicacion: 'El liderazgo digital implica actuar cuando alguien está en riesgo. Reportar a un adulto de confianza es la acción correcta y responsable.'
   }
 ];
 

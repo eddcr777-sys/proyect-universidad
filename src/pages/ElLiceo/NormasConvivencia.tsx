@@ -10,7 +10,7 @@ export const NormasConvivencia: React.FC = () => {
   const seccionesNormas = [
     {
       categoria: 'Horario y Responsabilidad',
-      icono: <Clock size={22} />,
+      icono: <Clock size={20} />,
       items: [
         { num: '1', titulo: 'Horario Académico', desc: 'Jornada: 7:00 am – 12:20 pm / 12:40 pm – 5:50 pm.' },
         { num: '2', titulo: 'Responsabilidad a la salida', desc: 'Los representantes deben estar alerta a la hora de salida de sus representados. Es deber de los padres asegurarse de que no se queden por los alrededores debido a la inseguridad y a la presencia de individuos extraños.' },
@@ -19,7 +19,7 @@ export const NormasConvivencia: React.FC = () => {
     },
     {
       categoria: 'Uniforme Reglamentario',
-      icono: <Shirt size={22} />,
+      icono: <Shirt size={20} />,
       items: [
         { num: '4', titulo: 'I Nivel (1ero, 2do, 3er Año)', desc: 'Pantalón de gabardina azul marino (no strech ni tubo), camisa/chemisse azul claro con insignia cosida, zapatos y correa negros o marrones (sin hebillas grandes). Medias blancas (no tobilleras).' },
         { num: '5', titulo: 'II Nivel (4to y 5to Año)', desc: 'Pantalón de gabardina azul marino (no strech ni tubo), camisa/chemisse beige con insignia cosida, zapatos y correa negros o marrones. Batas blancas para laboratorios con insignia.' },
@@ -29,7 +29,7 @@ export const NormasConvivencia: React.FC = () => {
     },
     {
       categoria: 'Normas Generales de Convivencia',
-      icono: <ShieldAlert size={22} />,
+      icono: <ShieldAlert size={20} />,
       items: [
         { num: '8', titulo: 'Control de Ingreso', desc: 'Desde el primer día se chequeará que porten el uniforme reglamentario y la imagen personal acorde a los principios de sana convivencia.' },
         { num: '9', titulo: 'Interrupciones', desc: 'Está prohibido interrumpir las actividades de aula. En caso necesario, dirigirse a la coordinación pedagógica.' },
@@ -66,52 +66,68 @@ export const NormasConvivencia: React.FC = () => {
         }
       />
 
-      <main className="contenedor-liceo-ancho">
-        <div className="encabezado-seccion-liceo">
-          <h2 className="titulo-seccion-liceo">Objeto y Base Legal</h2>
-          <div className="subtitulo-seccion-liceo" style={{ textAlign: 'justify', marginBottom: '2rem' }}>
-            <p>
-              Los presentes acuerdos tienen por objeto regular la organización y funcionamiento de todas las personas que integran este centro educativo, con la finalidad de establecer los principios que regirán la disciplina escolar de todos los estudiantes, de modo que estén en condiciones de recibir una educación integral de la más alta calidad, que contribuya a su formación como ciudadanos conscientes de sus derechos y deberes, libres, críticos, responsables y justos, aptos para vivir en una sociedad democrática.
-            </p>
-            <p style={{ marginTop: '1rem', fontWeight: 600, color: 'var(--color-primario)' }}>
-              Parámetros Legales: CONSTITUCIÓN DE LA REPÚBLICA BOLIVARIANA DE VENEZUELA, LEY ORGÁNICA DE PROTECCIÓN DEL NIÑO, NIÑA Y ADOLESCENTE, LEY ORGÁNICA DE EDUCACIÓN Y SUS REGLAMENTOS.
-            </p>
-          </div>
+      <main className="normas-main">
+        {/* ── Intro ─────────────────────── */}
+        <header className="normas-intro">
+          <span className="normas-intro-kicker">Reglamento Oficial</span>
+          <h2 className="normas-intro-titulo">Objeto y Base Legal</h2>
+          <p className="normas-intro-texto">
+            Los presentes acuerdos tienen por objeto regular la organización y
+            funcionamiento de todas las personas que integran este centro educativo, con
+            la finalidad de establecer los principios que regirán la disciplina escolar
+            de todos los estudiantes, de modo que estén en condiciones de recibir una
+            educación integral de la más alta calidad, que contribuya a su formación como
+            ciudadanos conscientes de sus derechos y deberes, libres, críticos,
+            responsables y justos, aptos para vivir en una sociedad democrática.
+          </p>
+          <p className="normas-intro-legal">
+            <span className="normas-intro-legal-label">Base legal</span>
+            Constitución de la República Bolivariana de Venezuela · Ley Orgánica de
+            Protección del Niño, Niña y Adolescente · Ley Orgánica de Educación y sus
+            Reglamentos.
+          </p>
+        </header>
 
-          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <img 
-              src="/src/assets/normas_convivencia.jpg" 
-              alt="Infografía de Normas de Convivencia" 
-              style={{ maxWidth: '100%', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}
-              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-            />
-          </div>
-        </div>
-
-        <section className="normas-seccion">
+        {/* ── Índice ────────────────────── */}
+        <nav className="normas-indice" aria-label="Índice de normas">
           {seccionesNormas.map((sec, idx) => (
-            <div key={idx} className="normas-categoria-bloque">
-              <h3 className="normas-categoria-titulo">
-                <span className="normas-icono-categoria">
-                  {sec.icono}
-                </span>
+            <React.Fragment key={idx}>
+              {idx > 0 && <span className="normas-indice-sep">·</span>}
+              <a href={`#normas-grupo-${idx}`} className="normas-indice-link">
                 {sec.categoria}
-              </h3>
-
-              <div className="normas-grid-items">
-                {sec.items.map((item, iIdx) => (
-                  <div key={iIdx} className="norma-tarjeta-item">
-                    <span className="norma-numero-badge">{item.num}</span>
-                    <div className="norma-contenido-texto">
-                      <h4>{item.titulo}</h4>
-                      <p>{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+                <span className="normas-indice-count">{sec.items.length}</span>
+              </a>
+            </React.Fragment>
           ))}
-        </section>
+        </nav>
+
+        {/* ── Grupos ────────────────────── */}
+        <div className="normas-lista">
+          {seccionesNormas.map((sec, idx) => (
+            <section
+              key={idx}
+              id={`normas-grupo-${idx}`}
+              className="normas-grupo"
+            >
+              <header className="normas-grupo-header">
+                <span className="normas-grupo-icono">{sec.icono}</span>
+                <h3 className="normas-grupo-titulo">{sec.categoria}</h3>
+              </header>
+
+              <ol className="normas-items">
+                {sec.items.map((item, iIdx) => (
+                  <li key={iIdx} className="norma-item">
+                    <span className="norma-item-num">{item.num}</span>
+                    <div className="norma-item-body">
+                      <h4 className="norma-item-titulo">{item.titulo}</h4>
+                      <p className="norma-item-desc">{item.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </section>
+          ))}
+        </div>
       </main>
     </div>
   );

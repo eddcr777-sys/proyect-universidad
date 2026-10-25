@@ -43,174 +43,179 @@ export interface PreguntaCuentas4to {
 
 // ========== DATOS ==========
 
+// Hábitos de protección de cuentas para estudiantes de 4to año (14-15 años)
 export const HABITOS_CUENTAS_4TO: HabitoCuentas4to[] = [
   {
     id: '1',
-    texto: 'Entiendo qué es un hash y por qué las contraseñas nunca deben guardarse en texto plano.',
-    categoria: 'Conocimiento',
-    enfoque: 'Un hash es una huella digital irreversible de la contraseña. Si alguien roba la base de datos, no puede leerla directamente.'
+    texto: 'Uso contraseñas diferentes para cada cuenta que tengo (correo, redes sociales, plataformas educativas).',
+    categoria: 'Contraseñas',
+    enfoque: 'Reutilizar la misma contraseña en todo es peligroso: si alguien la descubre, puede entrar a todas tus cuentas.'
   },
   {
     id: '2',
-    texto: 'Sé qué es un "salt" y por qué se añade antes de calcular el hash.',
-    categoria: 'Cifrado',
-    enfoque: 'El salt es una cadena aleatoria que impide ataques de diccionario precomputados (tablas rainbow).'
+    texto: 'Mis contraseñas tienen al menos 8 caracteres, mezclan letras, números y símbolos.',
+    categoria: 'Contraseñas Seguras',
+    enfoque: 'Una contraseña larga y variada es mucho más difícil de adivinar que una corta o simple.'
   },
   {
     id: '3',
-    texto: 'Reconozco algoritmos de hash seguros (bcrypt, Argon2) frente a obsoletos (MD5, SHA1).',
-    categoria: 'Algoritmos',
-    enfoque: 'Los algoritmos modernos son lentos a propósito para dificultar la fuerza bruta.'
+    texto: 'Tengo activada la verificación en dos pasos (2FA) en mis cuentas más importantes.',
+    categoria: 'Doble Verificación',
+    enfoque: 'El 2FA agrega una segunda barrera: aunque alguien sepa tu contraseña, necesita también tu teléfono.'
   },
   {
     id: '4',
-    texto: 'Sé que usar herramientas como John the Ripper o Hashcat fuera de un laboratorio propio es ilegal.',
-    categoria: 'Ética',
-    enfoque: 'Solo se prueban contraseñas en entornos controlados y autorizados.'
+    texto: 'Nunca comparto mis contraseñas con nadie, ni siquiera con amigos o familiares.',
+    categoria: 'Privacidad',
+    enfoque: 'Tu contraseña es como la llave de tu casa. Compartirla puede costarte muy caro.'
   },
   {
     id: '5',
-    texto: 'Puedo explicar la diferencia entre ataque de fuerza bruta y ataque de diccionario.',
-    categoria: 'Ataques',
-    enfoque: 'La fuerza bruta prueba todas las combinaciones; el diccionario usa listas de contraseñas comunes.'
+    texto: 'Cierro sesión en mis cuentas cuando uso una computadora que no es la mía.',
+    categoria: 'Hábitos Seguros',
+    enfoque: 'Dejar la sesión abierta en un equipo compartido permite que otros accedan a tus datos y cuentas.'
   }
 ];
 
+// Escenarios cotidianos de protección de cuentas
 export const ESCENARIOS_HASH: EscenarioHash[] = [
   {
     id: 'esc1',
-    titulo: 'Base de datos de contraseñas robada',
-    descripcion: 'Un atacante roba la base de datos de un sitio web. Si las contraseñas están guardadas con un hash seguro y salt, ¿qué puede hacer?',
+    titulo: 'Contraseña olvidada de tu correo',
+    descripcion: 'Olvidaste la contraseña de tu correo. Tu amigo dice que puede "recuperarla" si le das tu número de teléfono. ¿Qué haces?',
     opciones: [
-      'Leerlas directamente',
-      'No puede leerlas fácilmente, pero puede intentar descifrarlas con fuerza bruta',
-      'Nada, son imposibles de descifrar'
+      'Le doy mi número y dejo que él lo haga',
+      'Uso la opción oficial de "Olvidé mi contraseña" directamente en la página',
+      'Creo una cuenta nueva y abandono la vieja'
     ],
     opcionCorrecta: 1,
-    explicacion: 'Un hash seguro dificulta la lectura directa, pero con tiempo y poder de cómputo el atacante puede intentar crackearlas. Por eso se usan algoritmos lentos como bcrypt.'
+    explicacion: 'Siempre usa los canales oficiales de recuperación. Compartir tu número con alguien para que recupere tu cuenta puede comprometer tu privacidad.'
   },
   {
     id: 'esc2',
-    titulo: 'Elección de algoritmo',
-    descripcion: 'Estás desarrollando un sistema de login para el liceo. ¿Qué algoritmo de hash deberías usar?',
+    titulo: 'Elegir una contraseña segura',
+    descripcion: 'Quieres crear una contraseña que sea segura pero también fácil de recordar. ¿Cuál eliges?',
     opciones: [
-      'MD5, porque es rápido',
-      'SHA1, porque es conocido',
-      'bcrypt o Argon2, porque son lentos y seguros'
+      '12345 (fácil de recordar)',
+      'TuNombre+AñoNacimiento (ej. Ana2010)',
+      'Lunes#Cometas!37 (frase con números y símbolos)'
     ],
     opcionCorrecta: 2,
-    explicacion: 'bcrypt y Argon2 están diseñados para ser lentos, lo que dificulta los ataques de fuerza bruta. MD5 y SHA1 son obsoletos para contraseñas.'
+    explicacion: 'Las contraseñas basadas en frases con números y símbolos son las más seguras y también fáciles de memorizar. Evita datos personales obvios como tu nombre o fecha de nacimiento.'
   },
   {
     id: 'esc3',
-    titulo: 'Uso de herramientas de cracking',
-    descripcion: 'Quieres probar la seguridad de tus propias contraseñas. ¿Cómo lo harías de forma ética?',
+    titulo: 'Alerta de inicio de sesión sospechoso',
+    descripcion: 'Recibes un correo que dice: "Detectamos un inicio de sesión desde otro país. Haz clic aquí para proteger tu cuenta." ¿Qué haces?',
     opciones: [
-      'Uso John the Ripper en mis propios hashes en un laboratorio aislado',
-      'Intento crackear las contraseñas de mis compañeros',
-      'Descargo una lista de contraseñas de internet'
+      'Hago clic en el enlace inmediatamente',
+      'No hago clic; entro directamente a la página oficial y cambio mi contraseña desde allí',
+      'Borro el correo y no hago nada'
     ],
-    opcionCorrecta: 0,
-    explicacion: 'Solo debes probar en tus propios sistemas o con permiso explícito. Nunca contra cuentas ajenas o sin autorización.'
+    opcionCorrecta: 1,
+    explicacion: 'Este tipo de correos pueden ser ataques de phishing. Nunca hagas clic en enlaces de correos sospechosos. Ve directamente a la página oficial.'
   }
 ];
 
+// Ejemplos de contraseñas: seguras vs. inseguras (reemplaza los hashes técnicos)
 export const HASHES_EJEMPLO: HashEjemplo[] = [
   {
     id: 'hash1',
-    tipo: 'MD5',
-    hash: '5f4dcc3b5aa765d61d8327deb882cf99',
+    tipo: 'Muy débil',
+    hash: '123456',
     esSeguro: false,
-    explicacion: 'MD5 es obsoleto y muy rápido de crackear. Este hash corresponde a "password".'
+    explicacion: '"123456" es la contraseña más usada del mundo y la primera que cualquiera intentaría. Nunca la uses.'
   },
   {
     id: 'hash2',
-    tipo: 'SHA1',
-    hash: '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8',
+    tipo: 'Débil',
+    hash: 'juan1998',
     esSeguro: false,
-    explicacion: 'SHA1 también es vulnerable a colisiones y ataques rápidos. No debe usarse para contraseñas.'
+    explicacion: 'Nombre + año de nacimiento es predecible. Cualquier persona que te conozca podría adivinarla fácilmente.'
   },
   {
     id: 'hash3',
-    tipo: 'bcrypt',
-    hash: '$2a$12$R9h/cIPz0gi.URNNX3kh2OPST9/PgBkqquzi.Ss7KIUgO2t0jWMUW',
+    tipo: 'Aceptable',
+    hash: 'Gato$Azul99',
     esSeguro: true,
-    explicacion: 'bcrypt incluye salt y es lento. Este es un ejemplo de hash seguro.'
+    explicacion: 'Combina mayúsculas, minúsculas, un símbolo y números. Es mucho más segura que las anteriores.'
   },
   {
     id: 'hash4',
-    tipo: 'Argon2',
-    hash: '$argon2id$v=19$m=65536,t=3,p=4$c29tZXNhbHQ$RdescudvJCsgt3ub+b+dWRWJTmaaJObG',
+    tipo: 'Muy segura',
+    hash: 'Lluvia#Nube!Sol42&Mar',
     esSeguro: true,
-    explicacion: 'Argon2 es el estándar moderno recomendado. Incluye parámetros de memoria y tiempo.'
+    explicacion: 'Frase larga con símbolos y números. Es prácticamente imposible adivinarla y aún así fácil de recordar.'
   }
 ];
 
+// Videos educativos apropiados para 4to año
 export const VIDEOS_CUENTAS_4TO: VideoEducativo4to[] = [
   {
     id: 'v1',
-    titulo: '¿Qué es un hash y cómo protege contraseñas?',
-    url: 'https://www.youtube.com/embed/cczlpiiu42M',
-    descripcion: 'Explicación visual de cómo funcionan las funciones hash y por qué son irreversibles.'
+    titulo: 'Cómo crear contraseñas seguras',
+    url: 'https://www.youtube.com/embed/aEmXedj93EQ',
+    descripcion: 'Consejos prácticos para crear contraseñas que protejan tus cuentas en internet.'
   },
   {
     id: 'v2',
-    titulo: 'Salt y seguridad de contraseñas',
-    url: 'https://www.youtube.com/embed/8ZtInClXe1Q',
-    descripcion: 'Cómo el salt previene ataques con tablas rainbow y hace más seguro el almacenamiento.'
+    titulo: 'Qué es la verificación en dos pasos',
+    url: 'https://www.youtube.com/embed/hGRii5f_uSc',
+    descripcion: 'Aprende qué es el 2FA y por qué deberías activarlo en tus cuentas más importantes.'
   },
   {
     id: 'v3',
-    titulo: 'Introducción a John the Ripper (uso ético)',
-    url: 'https://www.youtube.com/embed/riQPNnLP4m0',
-    descripcion: 'Demostración en laboratorio de cómo se auditan contraseñas con esta herramienta.'
+    titulo: 'Cómo reconocer un correo de phishing',
+    url: 'https://www.youtube.com/embed/XBkzBrXlle0',
+    descripcion: 'Identifica correos falsos que intentan robar tus contraseñas haciéndose pasar por empresas reales.'
   }
 ];
 
+// Quiz adaptado al nivel de 4to año
 export const PREGUNTAS_CUENTAS_4TO: PreguntaCuentas4to[] = [
   {
     id: 1,
-    pregunta: '¿Qué es un hash?',
+    pregunta: '¿Cuál de estas contraseñas es la más segura?',
     opciones: [
-      'Una contraseña cifrada reversible',
-      'Una huella digital irreversible de la contraseña',
-      'Un tipo de malware'
+      'password123',
+      '2010juan',
+      'Rio#Nube!88&Luna'
     ],
-    respuestaCorrecta: 1,
-    explicacion: 'Un hash es una función unidireccional: a partir del hash no se puede obtener la contraseña original, solo comparar si coincide.'
+    respuestaCorrecta: 2,
+    explicacion: 'Una contraseña larga que mezcla palabras sin relación, símbolos y números es la más difícil de adivinar.'
   },
   {
     id: 2,
-    pregunta: '¿Por qué se añade un "salt" antes de calcular el hash?',
+    pregunta: '¿Qué es la verificación en dos pasos (2FA)?',
     opciones: [
-      'Para hacer la contraseña más corta',
-      'Para evitar que dos contraseñas iguales tengan el mismo hash y prevenir tablas rainbow',
-      'Para que el sistema sea más rápido'
+      'Escribir la contraseña dos veces para confirmarla',
+      'Un segundo método de verificación (como un código en tu teléfono) además de la contraseña',
+      'Tener dos contraseñas distintas para una misma cuenta'
     ],
     respuestaCorrecta: 1,
-    explicacion: 'El salt es una cadena aleatoria única por usuario. Hace que contraseñas idénticas tengan hashes distintos y elimina la utilidad de tablas precalculadas.'
+    explicacion: 'El 2FA pide un segundo factor (un código enviado a tu teléfono o correo) además de tu contraseña. Así, aunque roben tu clave, no pueden entrar.'
   },
   {
     id: 3,
-    pregunta: '¿Cuál de los siguientes algoritmos es el más seguro para almacenar contraseñas?',
+    pregunta: '¿Qué debes hacer si recibes un correo pidiéndote tu contraseña?',
     opciones: [
-      'MD5',
-      'SHA1',
-      'bcrypt'
+      'Responder con la contraseña si el correo parece oficial',
+      'Nunca compartir tu contraseña por correo; ninguna empresa legítima te la pedirá así',
+      'Compartirla solo si es urgente'
     ],
-    respuestaCorrecta: 2,
-    explicacion: 'bcrypt está diseñado para ser lento y costoso computacionalmente, dificultando la fuerza bruta. MD5 y SHA1 son rápidos y obsoletos.'
+    respuestaCorrecta: 1,
+    explicacion: 'Ninguna empresa real te pedirá tu contraseña por correo. Si lo hace, es una estafa (phishing). Ignóralo y reporta el correo.'
   },
   {
     id: 4,
-    pregunta: '¿Cuándo es ético usar herramientas como John the Ripper o Hashcat?',
+    pregunta: '¿Por qué es peligroso usar la misma contraseña en todas tus cuentas?',
     opciones: [
-      'Para crackear la contraseña de un amigo',
-      'Solo en laboratorios propios o con autorización explícita para auditoría',
-      'Nunca, son ilegales'
+      'Porque es difícil recordarla',
+      'Porque si descubren una contraseña, pueden acceder a todas tus cuentas',
+      'Porque las páginas no lo permiten'
     ],
     respuestaCorrecta: 1,
-    explicacion: 'Estas herramientas son legales y útiles para auditorías de seguridad, pero solo en entornos controlados y con permiso.'
+    explicacion: 'Si alguien obtiene tu contraseña de un sitio, lo primero que hará es probarla en tu correo, redes sociales y banca. Usa contraseñas distintas para cada lugar.'
   }
 ];
 
