@@ -1,6 +1,6 @@
 import type { MemberItem } from '../components/comunes/tarjetas/members';
 
-import foto1 from '../assets/guipe.jpeg';
+import foto1 from '../assets/guipe.png';
 import foto2 from '../assets/elvis.png';
 import foto3 from '../assets/le.jpeg';
 import foto4 from '../assets/pbk-Hero-3.jpg';

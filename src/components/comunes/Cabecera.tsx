@@ -25,6 +25,7 @@ const Cabecera: React.FC = () => {
         {/* Identidad / Logo estilo Los Arcos */}
         <Link to="/" className="cabecera-logo" aria-label="Ir al inicio">
         
+        
           <div className="cabecera-logo-texto">
             <span className="cabecera-titulo">C.E. Antonio Lemus Pérez</span>
           </div>
