@@ -1,0 +1,276 @@
+/* ============================================================================
+   ESTILOS — CabeceraCiberseguridad.css
+   Cabecera propia de Ciberseguridad con pestañas planas y referencia al Liceo
+   Diseño: Blanco nítido, 74px de altura, línea indicadora verde #059669
+   ============================================================================ */
+
+.cabecera-ciberseguridad {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
+}
+
+.cabecera-ciber-contenedor {
+  max-width: 1240px;
+  height: 84px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 3vw, 32px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  box-sizing: border-box;
+}
+
+/* Identidad con referencia al Liceo a la izquierda */
+.cabecera-ciber-identidad {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.cabecera-ciber-textos {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cabecera-ciber-liceo-ref {
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cabecera-ciber-nombre-proyecto {
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Pestañas de navegación centrales (Estilo idéntico a la captura) */
+.cabecera-ciber-nav-escritorio {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.cabecera-ciber-lista-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.cabecera-ciber-item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.cabecera-ciber-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 0.95rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #475569;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+  box-sizing: border-box;
+}
+
+.cabecera-ciber-link:hover {
+  color: #0f172a;
+}
+
+/* Estado Activo con la línea verde inferior exacta */
+.cabecera-ciber-link.activo {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.cabecera-ciber-link.activo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0.95rem;
+  right: 0.95rem;
+  height: 3px;
+  background-color: #059669;
+  border-radius: 2px 2px 0 0;
+}
+
+/* Acciones a la derecha (Botón para salir a la institucional) */
+.cabecera-ciber-acciones-derecha {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-shrink: 0;
+}
+
+.cabecera-ciber-btn-institucional {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 9999px;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.cabecera-ciber-btn-institucional:hover {
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+  color: #0f172a;
+  transform: translateY(-1px);
+}
+
+/* Botón Hamburguesa Móvil */
+.cabecera-ciber-boton-hamburguesa {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #0f172a;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.cabecera-ciber-boton-hamburguesa:hover {
+  background-color: #f1f5f9;
+}
+
+/* Menú Desplegable Móvil */
+.cabecera-ciber-menu-movil {
+  display: none;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 1rem clamp(16px, 4vw, 24px) 1.5rem;
+  animation: deslizarAbajo 0.2s ease-out;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+}
+
+@keyframes deslizarAbajo {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cabecera-ciber-lista-movil {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.cabecera-ciber-link-movil {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 14px;
+  border-radius: 8px;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #475569;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.cabecera-ciber-link-movil:hover {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+.cabecera-ciber-link-movil.activo {
+  background-color: #ecfdf5;
+  color: #059669;
+  font-weight: 700;
+}
+
+.cabecera-ciber-separador-movil {
+  height: 1px;
+  background-color: #e2e8f0;
+  margin: 0.5rem 0;
+}
+
+.enlace-destacado-liceo {
+  color: #0f172a;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  font-weight: 600;
+}
+
+/* Responsividad */
+@media (max-width: 1080px) {
+  .cabecera-ciber-nav-escritorio {
+    display: none;
+  }
+
+  .cabecera-ciber-boton-hamburguesa {
+    display: flex;
+  }
+
+  .cabecera-ciber-menu-movil {
+    display: block;
+  }
+}
+
+@media (max-width: 520px) {
+  .cabecera-ciber-contenedor {
+    height: 66px;
+  }
+
+  .cabecera-ciber-btn-institucional span {
+    display: none;
+  }
+
+  .cabecera-ciber-btn-institucional {
+    padding: 7px 10px;
+  }
+
+  .cabecera-ciber-nombre-proyecto {
+    font-size: 0.92rem;
+  }
+
+  .cabecera-ciber-liceo-ref {
+    font-size: 0.65rem;
+  }
+}

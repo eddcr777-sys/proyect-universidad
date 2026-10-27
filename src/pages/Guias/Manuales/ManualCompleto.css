@@ -1,20 +1,24 @@
 /* ============================================================================
    ESTILOS — ManualCompleto.css
+   Manual Completo de Seguridad y Conciencia Digital
+   Inspiración: Fortinet Threat Intelligence / Cloudflare Enterprise
+   Paleta: Blanco #ffffff, bordes 1px #e2e8f0, acento verde #059669
    ============================================================================ */
 
 .manual-completo-pagina {
   width: 100%;
   min-height: 100vh;
-  background-color: var(--color-inst-fondo);
-  color: var(--color-inst-texto);
-  font-family: var(--fuente-ciber-cuerpo);
+  background-color: #ffffff;
+  color: #0f172a;
+  font-family: var(--fuente-ciber-cuerpo, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
   padding-bottom: 5rem;
 }
 
 .contenedor-manual {
-  max-width: 1140px;
+  max-width: 1180px;
   margin: 0 auto;
-  padding: 3rem 1.5rem 0;
+  padding: 3.5rem clamp(20px, 4vw, 40px) 0;
+  box-sizing: border-box;
 }
 
 .seccion-manual-barra {
@@ -25,18 +29,20 @@
   flex-wrap: wrap;
   margin-bottom: 2.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--color-inst-borde);
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .info-manual-encabezado h2 {
-  font-family: var(--fuente-ciber-titulos);
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
   font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 700;
+  font-weight: 800;
+  color: #0f172a;
   margin: 0 0 0.4rem;
+  letter-spacing: -0.02em;
 }
 
 .info-manual-encabezado p {
-  color: var(--color-inst-texto-secundario);
+  color: #64748b;
   font-size: 1rem;
   margin: 0;
 }
@@ -45,20 +51,23 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.8rem 1.5rem;
-  background: var(--color-inst-azul);
-  color: #FFFFFF;
-  border: 1px solid transparent;
-  font-family: var(--fuente-ciber-titulos);
+  padding: 0.75rem 1.6rem;
+  background-color: #f8fafc;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  border-radius: 9999px;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
   font-weight: 600;
+  font-size: 0.88rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .btn-imprimir-manual:hover {
-  background: #00F0FF;
-  color: #070D19;
-  box-shadow: 0 4px 18px rgba(0, 240, 255, 0.3);
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+  color: #0f172a;
+  transform: translateY(-1px);
 }
 
 /* GRID SELECTOR DE MÓDULOS */
@@ -74,28 +83,32 @@
   align-items: center;
   gap: 1rem;
   padding: 1.25rem;
-  background: var(--color-inst-tarjeta);
-  border: 1px solid var(--color-inst-borde);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
 .item-selector-manual:hover {
-  border-color: #00F0FF;
+  border-color: #94a3b8;
   transform: translateY(-2px);
 }
 
 .item-selector-manual.activo {
-  border-color: #00F0FF;
-  background: rgba(0, 240, 255, 0.06);
-  box-shadow: 0 4px 16px rgba(0, 240, 255, 0.12);
+  border-color: #059669;
+  background: #f8fafc;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.08);
 }
 
 .icono-mod-manual {
-  color: #00F0FF;
+  color: #059669;
   width: 44px;
   height: 44px;
-  background: rgba(0, 240, 255, 0.1);
+  background: #ecfdf5;
+  border: 1px solid #d1fae5;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,26 +116,31 @@
 }
 
 .num-mod-manual {
-  font-size: 0.8rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.75rem;
   font-weight: 700;
-  color: var(--color-inst-texto-secundario);
+  color: #059669;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   display: block;
 }
 
 .textos-mod-manual h4 {
-  font-family: var(--fuente-ciber-titulos);
-  font-size: 1.05rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #0f172a;
   margin: 0.2rem 0 0;
 }
 
 /* TARJETA DE DETALLE DEL MÓDULO */
 .tarjeta-detalle-manual {
-  background: var(--color-inst-tarjeta);
-  border: 1px solid var(--color-inst-borde);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
   padding: 2.5rem;
   margin-bottom: 4rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
 .cabecera-detalle-manual {
@@ -133,24 +151,30 @@
 }
 
 .badge-num-manual {
-  font-family: var(--fuente-ciber-titulos);
-  font-size: 0.9rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.8rem;
   font-weight: 700;
-  background: #00F0FF;
-  color: #070D19;
-  padding: 0.4rem 0.8rem;
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #d1fae5;
+  border-radius: 6px;
+  padding: 0.35rem 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .cabecera-detalle-manual h3 {
-  font-family: var(--fuente-ciber-titulos);
-  font-size: 1.6rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
   margin: 0;
 }
 
 .resumen-detalle-manual {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.65;
-  color: var(--color-inst-texto-secundario);
+  color: #475569;
   margin-bottom: 2rem;
 }
 
@@ -158,8 +182,10 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--fuente-ciber-titulos);
-  font-size: 1.15rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
   margin-bottom: 1rem;
 }
 
@@ -176,35 +202,40 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 1.02rem;
+  font-size: 0.95rem;
+  color: #334155;
 }
 
 .icono-check-manual {
-  color: #00FF66;
+  color: #059669;
   flex-shrink: 0;
 }
 
 .cta-modulo-manual {
   padding-top: 1.5rem;
-  border-top: 1px solid var(--color-inst-borde);
+  border-top: 1px solid #e2e8f0;
 }
 
 .btn-acceder-modulo-manual {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.8rem 1.6rem;
-  background: var(--color-inst-azul);
-  color: #FFFFFF;
+  padding: 0.75rem 1.6rem;
+  background-color: #059669;
+  color: #ffffff;
+  border: 1px solid #059669;
+  border-radius: 9999px;
   text-decoration: none;
-  font-family: var(--fuente-ciber-titulos);
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
   font-weight: 600;
-  transition: all 0.3s ease;
+  font-size: 0.88rem;
+  transition: all 0.2s ease;
 }
 
 .btn-acceder-modulo-manual:hover {
-  background: #00F0FF;
-  color: #070D19;
+  background-color: #047857;
+  border-color: #047857;
+  transform: translateY(-1px);
 }
 
 .pie-manual-acciones {
@@ -214,22 +245,28 @@
   gap: 1rem;
   flex-wrap: wrap;
   padding-top: 2rem;
-  border-top: 1px solid var(--color-inst-borde);
+  border-top: 1px solid #e2e8f0;
 }
 
 .btn-manual-retorno {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.8rem 1.5rem;
-  background: var(--color-inst-azul);
-  color: #FFFFFF;
+  padding: 0.75rem 1.6rem;
+  background-color: #f8fafc;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  border-radius: 9999px;
   text-decoration: none;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.88rem;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .btn-manual-retorno:hover {
-  background: #00F0FF;
-  color: #070D19;
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+  color: #0f172a;
+  transform: translateY(-1px);
 }

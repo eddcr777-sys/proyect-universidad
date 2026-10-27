@@ -246,6 +246,63 @@ const PrincipalProyecto: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* ─────────────────────────────────────────────
+         SECCIÓN 6: VÍNCULO INSTITUCIONAL Y CONVOCATORIA DE PROYECTOS
+      ───────────────────────────────────────────── */}
+      <section className="seccion-vinculo-institucional">
+        <div className="contenedor-vinculo-institucional">
+          <div className="tarjeta-vinculo-principal">
+            <div className="columna-vinculo-info">
+              <span className="badge-vinculo-liceo">PROYECTO SOCIOTECNOLÓGICO VINCULADO</span>
+              <h2 className="titulo-vinculo-institucional">
+                Una Plataforma Educativa Especializada para el C.E. Antonio Lemus Pérez
+              </h2>
+              <p className="texto-vinculo-explicacion">
+                A diferencia del portal institucional general del liceo (enfocado en la vida comunitaria, admisión e historia del plantel),
+                este entorno fue concebido con una interfaz técnica y especializada de <strong>ciberseguridad</strong> para ofrecer
+                una experiencia interactiva, formativa y adaptada a los retos informáticos cotidianos de los estudiantes.
+              </p>
+              <p className="texto-vinculo-explicacion">
+                Este proyecto fue desarrollado bajo la filosofía del <strong>Software Libre</strong> por estudiantes del PNFI de la
+                Universidad Politécnica Territorial del Oeste de Sucre (<strong>UPTOS "Clodosbaldo Russián"</strong>), en estrecha
+                articulación con los docentes y el equipo directivo del Complejo Educativo.
+              </p>
+            </div>
+
+            <div className="columna-vinculo-convocatoria">
+              <div className="caja-convocatoria-proyectos">
+                <h3 className="titulo-caja-convocatoria">
+                  ¿Deseas proponer o desarrollar un proyecto educativo para el liceo?
+                </h3>
+                <p className="texto-caja-convocatoria">
+                  Si eres estudiante universitario, docente, investigador o institución aliada y deseas aportar nuevos módulos,
+                  herramientas pedagógicas o plataformas sociotecnológicas para el <strong>C.E. Antonio Lemus Pérez</strong>,
+                  puedes contactar directamente con el equipo de desarrollo y las autoridades del plantel para coordinar nuevas iniciativas de aprendizaje.
+                </p>
+
+                <div className="acciones-vinculo-botones">
+                  <Link
+                    to="/proyectos/ciberseguridad/nosotros/sobre-devs"
+                    className="btn-vinculo-contacto"
+                  >
+                    <span>Contactar a Desarrolladores</span>
+                    <ArrowRight size={16} />
+                  </Link>
+
+                  <Link
+                    to="/el-liceo"
+                    className="btn-vinculo-portal-liceo"
+                  >
+                    <span>Ir al Portal del Liceo</span>
+                    <ArrowRight size={16} />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

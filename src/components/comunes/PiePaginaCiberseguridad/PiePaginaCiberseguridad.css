@@ -1,0 +1,215 @@
+/* ============================================================================
+   ESTILOS — PiePaginaCiberseguridad.css
+   Pie de página exclusivo de Ciberseguridad (Inspiración Fortinet Enterprise)
+   ============================================================================ */
+
+.pie-ciberseguridad {
+  width: 100%;
+  background-color: #13171d;
+  color: #cbd5e1;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--fuente-ciber-cuerpo, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
+  box-sizing: border-box;
+}
+
+.pie-ciber-contenedor {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 64px clamp(20px, 4vw, 40px) 48px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.1fr;
+  gap: 40px;
+  box-sizing: border-box;
+}
+
+/* Columna de Marca */
+.pie-ciber-columna-marca {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pie-ciber-marca-box {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.pie-ciber-escudo {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background-color: rgba(5, 150, 105, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pie-ciber-institucion {
+  display: block;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pie-ciber-titulo-proyecto {
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.pie-ciber-descripcion {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.pie-ciber-badge-software {
+  display: inline-flex;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a7f3d0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  width: fit-content;
+}
+
+/* Columnas de Enlaces */
+.pie-ciber-columna {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pie-ciber-columna-titulo {
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.pie-ciber-subtexto-inst {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.pie-ciber-lista-enlaces {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.pie-ciber-lista-enlaces li a {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.pie-ciber-lista-enlaces li a:hover {
+  color: #10b981;
+  transform: translateX(2px);
+}
+
+.pie-ciber-link-liceo {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 5px;
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.pie-ciber-link-liceo:hover {
+  color: #10b981 !important;
+}
+
+/* Barra inferior */
+.pie-ciber-barra-inferior {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 24px 0;
+}
+
+.pie-ciber-barra-contenido {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.pie-ciber-copyright-texto {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.pie-ciber-enlaces-legales {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.pie-ciber-enlaces-legales a {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.pie-ciber-enlaces-legales a:hover {
+  color: #ffffff;
+}
+
+.pie-ciber-separador {
+  color: #475569;
+  font-size: 0.75rem;
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+  .pie-ciber-contenedor {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+    padding-top: 50px;
+  }
+}
+
+@media (max-width: 640px) {
+  .pie-ciber-contenedor {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 44px 20px 36px;
+  }
+
+  .pie-ciber-barra-contenido {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}

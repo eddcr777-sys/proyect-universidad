@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useParams, useLocation } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 import Justificacion from './pages/Justificacion/Justificacion';
 import Indices from './pages/Acceder/Indices';
@@ -25,6 +25,8 @@ import ModuloRouter from './pages/Modulos/ModuloRouter';           // Nivel 4 �
 
 import Cabecera from './components/comunes/Cabecera';
 import PiePagina from './components/comunes/PiePagina';
+import CabeceraCiberseguridad from './components/comunes/CabeceraCiberseguridad/CabeceraCiberseguridad';
+import PiePaginaCiberseguridad from './components/comunes/PiePaginaCiberseguridad/PiePaginaCiberseguridad';
 import BannerDescargaOffline from './components/comunes/BannerDescargaOffline/BannerDescargaOffline';
 import './App.css';
 
@@ -44,13 +46,36 @@ const RedireccionLeccion: React.FC = () => {
   return <Navigate to={`/proyectos/ciberseguridad/leccion/${moduloId}/${grado}`} replace />;
 };
 
+/** Layout condicional: header y footer de ciberseguridad vs institucional */
+const LayoutEstructura: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const location = useLocation();
+
+  const esRutaCiber =
+    location.pathname.startsWith('/proyectos/ciberseguridad') ||
+    location.pathname.startsWith('/modulos') ||
+    location.pathname.startsWith('/guias') ||
+    location.pathname.startsWith('/justificacion') ||
+    location.pathname.startsWith('/indices') ||
+    location.pathname.startsWith('/Indices') ||
+    location.pathname === '/nosotros/sobre-devs';
+
+  return (
+    <div className={`app-container ${esRutaCiber ? 'layout-ciberseguridad' : 'layout-institucional'}`}>
+      {esRutaCiber ? <CabeceraCiberseguridad /> : <Cabecera />}
+      <main>
+        {children}
+      </main>
+      {esRutaCiber ? <PiePaginaCiberseguridad /> : <PiePagina />}
+      <BannerDescargaOffline />
+    </div>
+  );
+};
+
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="app-container">
-        <Cabecera />
-        <main>
-          <Routes>
+      <LayoutEstructura>
+        <Routes>
             {/* ── PORTAL DE LA ESCUELA ── */}
             <Route path="/" element={<HomePage />} />
 
@@ -121,10 +146,7 @@ const App: React.FC = () => {
             <Route path="/presentacion/:grado" element={<RedireccionPresentacion />} />
             <Route path="/dashboard/:grado" element={<Navigate to="/proyectos/ciberseguridad" replace />} />
           </Routes>
-        </main>
-        <PiePagina />
-        <BannerDescargaOffline />
-      </div>
+      </LayoutEstructura>
     </Router>
   );
 };

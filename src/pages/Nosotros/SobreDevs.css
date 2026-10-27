@@ -1,156 +1,210 @@
-/* src/pages/SobreDevs.css */
+/* src/pages/SobreDevs.css
+   Inspiración: Fortinet Threat Intelligence / Cloudflare Enterprise
+   ========================================================================== */
 
 .contenedor-nosotros {
-
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, sans-serif;
-  background-color: var(--color-inst-fondo);
-  color: var(--color-inst-texto);
+  font-family: var(--fuente-ciber-cuerpo, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
+  background-color: #ffffff;
+  color: #0f172a;
   overflow-x: hidden;
-
 }
 
-
+.contenedor-seccion-ancho {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+  box-sizing: border-box;
+}
 
 /* --------------------------------------------------------------------------
    1. SECCIÓN DE LABORES / EQUIPO (FONDO BLANCO)
    -------------------------------------------------------------------------- */
 .seccion-labores-harvard {
   background-color: #ffffff;
-  padding: 5rem 0;
+  padding: 72px 0 85px 0;
   width: 100%;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .encabezado-harvard-simple {
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
 .titulo-seccion-editorial {
-  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
   font-weight: 800;
-  color: var(--color-inst-azul);
+  color: #0f172a;
   margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
 }
 
 .subtitulo-seccion-editorial {
-  color: var(--color-inst-texto-secundario);
-  font-size: 1.05rem;
+  color: #64748b;
+  font-size: 1rem;
   line-height: 1.6;
-  max-width: 800px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
 .grid-labores-harvard {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
 }
 
-@media (min-width: 640px) {
-  .grid-labores-harvard {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* Modificadores para tarjeta-miembro dentro de ciberseguridad */
+.seccion-labores-harvard .tarjeta-miembro {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
 }
 
-@media (min-width: 1024px) {
-  .grid-labores-harvard {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.seccion-labores-harvard .tarjeta-miembro:hover {
+  border-color: #059669;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+}
+
+.seccion-labores-harvard .cuerpo {
+  background-color: #ffffff;
+  padding: 20px 20px 24px 20px;
+}
+
+.seccion-labores-harvard .titulo {
+  color: #0f172a;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.seccion-labores-harvard .rol {
+  color: #059669;
+  font-weight: 600;
+  font-size: 0.85rem;
+  opacity: 1;
+  margin-bottom: 12px;
+}
+
+.seccion-labores-harvard .descripcion {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 14px;
+}
+
+.seccion-labores-harvard .descripcion p {
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.seccion-labores-harvard .boton-toggle {
+  color: #059669;
+  font-weight: 600;
 }
 
 /* --------------------------------------------------------------------------
-   2. MÉTRICAS Y ESTADÍSTICAS / FILOSOFÍA (FONDO AZUL)
+   2. MÉTRICAS Y FILOSOFÍA (FONDO SUAVE O SOBRIO)
    -------------------------------------------------------------------------- */
 .seccion-estadisticas {
-  background-color: var(--color-inst-azul);
-  color: #ffffff;
-  padding: 5rem 1rem;
-
-
-  
+  background-color: #f8fafc;
+  color: #0f172a;
+  padding: 80px 0;
+  border-bottom: 1px solid #e2e8f0;
 }
-
-
 
 .seccion-estadisticas .encabezado-seccion {
   text-align: center;
-  margin-bottom: 3rem;
+  max-width: 720px;
+  margin: 0 auto 3rem auto;
 }
 
 .seccion-estadisticas .encabezado-seccion h2,
 .encabezado-seccion-blanco h2 {
-  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(1.8rem, 3.4vw, 2.4rem);
   font-weight: 800;
-  color: #ffffff !important;
-  margin-bottom: 0.75rem;
+  color: #0f172a !important;
+  margin-bottom: 0.65rem;
+  letter-spacing: -0.02em;
 }
 
 .seccion-estadisticas .encabezado-seccion p,
 .encabezado-seccion-blanco p {
-  color: rgba(255, 255, 255, 0.9) !important;
-  font-size: 1.05rem;
-  max-width: 700px;
-  margin: 0 auto;
+  color: #64748b !important;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .grid-estadisticas {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 1.75rem;
-}
-
-@media (min-width: 768px) {
-  .grid-estadisticas {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+  box-sizing: border-box;
 }
 
 .tarjeta-stat {
   background-color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 0px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
   padding: 2.25rem 1.75rem;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: all 0.2s ease;
 }
 
 .tarjeta-stat:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+  transform: translateY(-3px);
+  border-color: #059669;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
 }
 
 .stat-icono {
-  color: var(--color-inst-azul);
-  margin-bottom: 0.75rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #059669;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
 }
 
 .stat-numero {
-  font-size: 2.5rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 2.4rem;
   font-weight: 900;
-  color: var(--color-inst-azul);
+  color: #0f172a;
   margin-bottom: 0.25rem;
   line-height: 1;
 }
 
 .stat-etiqueta {
-  font-size: 0.95rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.88rem;
   font-weight: 700;
-  color: var(--color-inst-texto);
+  color: #059669;
   margin-bottom: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
 }
 
 .stat-descripcion {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   line-height: 1.6;
-  color: var(--color-inst-texto-secundario);
+  color: #475569;
   margin: 0;
 }
 
@@ -159,105 +213,124 @@
    -------------------------------------------------------------------------- */
 .seccion-pilares {
   background-color: #ffffff;
-  padding: 5rem 0;
+  padding: 80px 0;
   width: 100%;
+  border-bottom: 1px solid #e2e8f0;
 }
 
-.encabezado-seccion {
+.seccion-pilares .encabezado-seccion {
   text-align: center;
-  margin-bottom: 3rem;
-}
-
-.encabezado-seccion h2 {
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 800;
-  color: var(--color-inst-azul);
-  margin-bottom: 0.75rem;
-}
-
-.encabezado-seccion p {
-  color: var(--color-inst-texto-secundario);
-  font-size: 1.05rem;
   max-width: 760px;
-  margin: 0 auto;
+  margin: 0 auto 3rem auto;
+}
+
+.seccion-pilares .encabezado-seccion h2 {
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.seccion-pilares .encabezado-seccion p {
+  color: #64748b;
+  font-size: 1rem;
   line-height: 1.65;
 }
 
 .grid-pilares {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 1.75rem;
-}
-
-@media (min-width: 768px) {
-  .grid-pilares {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .tarjeta-pilar {
-  background: var(--color-inst-fondo);
-  border: 1px solid var(--color-inst-borde);
-  border-radius: 0px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
   padding: 2.25rem 1.75rem;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .tarjeta-pilar:hover {
-  border-color: var(--color-inst-azul);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 25px rgba(15, 44, 89, 0.1);
+  border-color: #059669;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
 }
 
 .tarjeta-pilar h3 {
-  font-size: 1.3rem;
-  font-weight: 800;
-  color: var(--color-inst-azul);
-  margin-bottom: 0.85rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
 }
 
 .tarjeta-pilar p {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   line-height: 1.65;
-  color: var(--color-inst-texto-secundario);
+  color: #475569;
   margin: 0;
 }
 
 /* --------------------------------------------------------------------------
-   4. COMPROMISO INSTITUCIONAL (FONDO AZUL)
+   4. COMPROMISO INSTITUCIONAL (FONDO ANTRACITA CON MARGEN INFERIOR AMPLIO)
    -------------------------------------------------------------------------- */
 .seccion-compromiso {
-  background-color: var(--color-inst-azul);
+  background-color: #1a1e24;
   color: #ffffff;
-  padding: 5rem 0;
+  padding: 70px 0;
   width: 100%;
   text-align: center;
+  margin-bottom: 50px;
 }
 
 .seccion-compromiso h2 {
-  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(1.6rem, 3.2vw, 2.3rem);
   font-weight: 800;
   margin-bottom: 1rem;
   color: #ffffff;
+  letter-spacing: -0.02em;
 }
 
 .seccion-compromiso p {
-  max-width: 760px;
+  max-width: 740px;
   margin: 0 auto 2rem auto;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.9);
+  color: #cbd5e1;
 }
 
 .insignia-compromiso {
   display: inline-block;
-  padding: 0.7rem 1.8rem;
-  background-color: #ffffff;
-  color: var(--color-inst-azul);
-  font-weight: 800;
-  font-size: 0.9rem;
-  border-radius: 0px;
+  padding: 0.55rem 1.75rem;
+  background-color: #059669;
+  color: #ffffff;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 9999px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVIDAD MÓVIL
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .grid-estadisticas,
+  .grid-pilares {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .seccion-labores-harvard,
+  .seccion-estadisticas,
+  .seccion-pilares,
+  .seccion-compromiso {
+    padding: 56px 0;
+  }
 }

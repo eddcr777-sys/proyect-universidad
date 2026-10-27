@@ -141,7 +141,7 @@ const SeccionModulo: React.FC<{ mod: any }> = ({ mod }) => {
                 <span className="selector-titulo">Ir a este módulo por año escolar</span>
                 <div className="botones-grados">
                   {GRADOS.map((g) => (
-                    <Link key={g} to={`/modulos/info/${mod.id}/${g}`} className="btn-grado">
+                    <Link key={g} to={`/proyectos/ciberseguridad/info/${mod.id}/${g}`} className="btn-grado">
                       {g} Año
                     </Link>
                   ))}
@@ -165,7 +165,7 @@ const SeccionModulo: React.FC<{ mod: any }> = ({ mod }) => {
                 </div>
               </div>
 
-              <Link to={`/modulos/info/${mod.id}/1ro`} className="boton-acceso-seccion">
+              <Link to={`/proyectos/ciberseguridad/info/${mod.id}/1ro`} className="boton-acceso-seccion">
                 Explorar Presentación <ArrowRight size={18} />
               </Link>
             </div>

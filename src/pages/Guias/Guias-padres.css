@@ -1,41 +1,49 @@
+/* ============================================================================
+   ESTILOS — Guias-padres.css
+   Guías Didácticas para Padres y Familias (Inspiración Fortinet Threat Intelligence)
+   Paleta: Blanco #ffffff, fondo sutil #f8fafc, bordes 1px #e2e8f0, acento #059669
+   ============================================================================ */
 
 .contenedor-principal {
+  max-width: 1180px;
   margin: 0 auto;
-  background-color: var(--color-fondo);
-  color: var(--color-texto-principal);
-  font-family: var(--fuente-ciber-cuerpo);
-  transition: background-color var(--transicion-normal), color var(--transicion-normal);
+  padding: 0 clamp(20px, 4vw, 40px);
+  background-color: #ffffff;
+  color: #0f172a;
+  font-family: var(--fuente-ciber-cuerpo, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
+  margin-bottom: 70px;
+  box-sizing: border-box;
 }
 
 .etiqueta-superior {
-  font-family: var(--fuente-codigo);
-  font-size: 0.95rem; /* Aumentado (antes era sm) */
-  font-weight: 800;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--color-ciber-primario);
-  margin-bottom: 0.75rem;
+  letter-spacing: 0.08em;
+  color: #059669;
+  margin-bottom: 0.5rem;
 }
 
 .titulo-principal {
-  font-size: clamp(2.25rem, 6vw, 3.8rem); /* Titular mucho más grande y legible */
-  font-weight: 900;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
   line-height: 1.15;
-  color: var(--color-texto-principal);
+  color: #0f172a;
   margin-top: 0;
-  margin-bottom: 2.5rem;
-
-  padding-left: 1.25rem;
+  margin-bottom: 2rem;
+  letter-spacing: -0.025em;
 }
 
 .seccion-espaciada {
-  margin-bottom: 3.5rem; /* Más aire entre secciones */
+  margin-bottom: 3.5rem;
 }
 
 .flex-centro {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.75rem;
 }
 
 .mt-2 {
@@ -43,180 +51,204 @@
 }
 
 code {
-  font-family: var(--fuente-codigo);
-  background-color: var(--color-fondo-variante);
-  color: var(--color-ciber-primario);
-  padding: 0.3rem 0.6rem; /* Más espacio dentro del texto de código */
-  border: 1px solid var(--color-borde);
-  font-size: 0.95rem; /* Texto de código más grande */
+  font-family: 'Consolas', 'Courier New', monospace;
+  background-color: #f1f5f9;
+  color: #059669;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid #e2e8f0;
+  font-size: 0.88rem;
   border-radius: 4px;
 }
 
-
 .cuadricula-2-columnas {
   display: grid;
-  /* min(340px, 100%) asegura que en pantallas <340px se use el 100% del ancho disponible */
   grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
-  gap: 2rem;
-  margin-top: 1.75rem;
+  gap: 20px;
+  margin-top: 1.5rem;
 }
-
 
 .titulo-seccion,
 .titulo-seccion-ambar,
 .titulo-seccion-roja {
-  font-size: 1.85rem; /* Titulares de sección ampliados */
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.6rem;
   font-weight: 800;
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.6rem;
+  margin-bottom: 0.65rem;
+  padding-bottom: 0.5rem;
   line-height: 1.25;
+  letter-spacing: -0.02em;
 }
 
 .titulo-seccion {
-  color: var(--color-texto-principal);
-  border-bottom: 3px solid var(--color-borde);
+  color: #0f172a;
+  border-bottom: 2px solid #e2e8f0;
 }
 
 .titulo-seccion-ambar {
-  color: var(--color-inst-azul);
+  color: #0f172a;
+  border-bottom: 2px solid #e2e8f0;
 }
 
 .titulo-seccion-roja {
-  color: var(--color-ciber-alerta);
+  color: #0f172a;
+  border-bottom: 2px solid #e2e8f0;
 }
 
 .texto-informativo-ambar,
 .texto-informativo-rojo,
 .texto-descriptivo {
-  font-size: 1.15rem; /* Texto descriptivo más grande y fácil de leer */
-  color: var(--color-texto-secundario);
-  line-height: 1.7; /* Mayor espacio entre líneas */
-  margin-bottom: 1.75rem;
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
 }
 
-
 .tarjeta-pro {
-  background-color: var(--color-fondo-tarjeta);
-  border: 1px solid var(--color-borde);
-  padding: 2.25rem; /* Tarjetas más espaciosas */
-  box-shadow: var(--sombra-md);
-  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.tarjeta-pro:hover {
+  border-color: #94a3b8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
 .tarjeta-pro.border-rojo {
-  border: 3px solid var(--color-ciber-alerta);
+  border: 1px solid #e2e8f0;
 }
 
-/* Tarjetas de Avisos Premium con acentos laterales */
-.tarjeta-aviso-premium {
-  background-color: var(--color-fondo-variante);
-  padding: 1.5rem; /* Relleno interno ampliado */
-  border-radius: 6px;
+.tarjeta-pro.border-rojo:hover {
+  border-color: #059669;
+}
 
+/* Tarjetas de Avisos */
+.tarjeta-aviso-premium {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 1.5rem;
+  border-radius: 10px;
+  transition: all 0.2s ease;
 }
 
 .tarjeta-aviso-premium:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--sombra-md);
+  transform: translateY(-2px);
+  border-color: #059669;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 }
 
 .tarjeta-aviso-premium h4 {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  font-size: 1.3rem; /* Título del aviso más grande */
+  gap: 0.65rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.15rem;
   font-weight: 700;
   margin-top: 0;
-  margin-bottom: 0.6rem;
-  color: var(--color-texto-principal);
+  margin-bottom: 0.5rem;
+  color: #0f172a;
 }
 
 .tarjeta-aviso-premium p {
-  font-size: 1.05rem; /* Texto interior del aviso agrandado */
-  color: var(--color-texto-secundario);
+  font-size: 0.95rem;
+  color: #475569;
   line-height: 1.6;
   margin: 0;
 }
 
-/* Variantes de Color para Tarjetas */
-.alerta-ambar { border-left-color: var(--color-inst-amarillo); }
-.alerta-azul { border-left-color: var(--color-inst-azul); }
-.alerta-esmeralda { border-left-color: var(--color-ciber-secundario); }
-.alerta-naranja { border-left-color: var(--color-inst-rojo); }
+/* Variantes neutralizadas sin bordes chillones */
+.alerta-ambar,
+.alerta-azul,
+.alerta-esmeralda,
+.alerta-naranja {
+  border: 1px solid #e2e8f0;
+}
 
-/* Tarjetas Criticas (Vectores de Ataque) */
+/* Tarjetas de Alerta */
 .tarjeta-alerta-critica {
-  background-color: var(--color-ciber-tarjeta);
-
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
   padding: 1.75rem;
-  border-radius: 8px;
+  border-radius: 10px;
   position: relative;
   display: flex;
   flex-direction: column;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.tarjeta-alerta-critica:hover {
+  border-color: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
 .etiqueta-critica,
 .etiqueta-verde,
 .etiqueta-rosa {
   align-self: flex-start;
-  color: #ffffff;
-  font-size: 0.85rem; /* Etiquetas superiores más legibles */
-  font-weight: 800;
+  color: #059669;
+  background-color: #ecfdf5;
+  border: 1px solid #d1fae5;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
-  padding: 0.35rem 0.75rem;
-  margin-bottom: 1rem;
-  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  margin-bottom: 0.85rem;
+  letter-spacing: 0.06em;
   border-radius: 4px;
 }
 
-.etiqueta-critica { background-color: var(--color-ciber-alerta); }
-.etiqueta-verde { background-color: var(--color-ciber-secundario); }
-.etiqueta-rosa { background-color: var(--color-ciber-primario); }
-
 .titulo-tarjeta {
-  font-size: 1.4rem; /* Titulares de tarjetas significativamente más grandes */
-  font-weight: 800;
-  color: var(--color-texto-principal);
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
   margin-top: 0;
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.65rem;
   line-height: 1.3;
 }
 
 .texto-pasos {
-  font-size: 1.05rem; /* Cuerpo del texto más cómodo para lectura */
-  color: var(--color-texto-secundario);
+  font-size: 0.95rem;
+  color: #475569;
   line-height: 1.65;
   margin: 0;
 }
 
-
 .lista-protocolo {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin-top: 1.75rem;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
 }
 
 .paso-protocolo {
   display: flex;
   align-items: flex-start;
-  gap: 1.5rem;
-  background-color: var(--color-fondo-variante);
+  gap: 1.25rem;
+  background-color: #ffffff;
   padding: 1.5rem;
-  border: 1px solid var(--color-borde);
-  border-radius: 8px;
-  color: var(--color-texto-principal);
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  color: #334155;
   line-height: 1.6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .numero-critico {
-  background-color: var(--color-ciber-alerta);
+  background-color: #0f172a;
   color: #ffffff;
-  font-family: var(--fuente-codigo);
-  font-weight: 900;
-  font-size: 1.35rem; /* Número de paso más grande */
-  min-width: 3rem; /* Círculo/bloque más grande */
-  height: 3rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-weight: 800;
+  font-size: 1.15rem;
+  min-width: 2.5rem;
+  height: 2.5rem;
   border-radius: 6px;
   display: flex;
   align-items: center;
@@ -225,177 +257,57 @@ code {
 }
 
 .tarjeta-paso {
-  background-color: var(--color-fondo-tarjeta);
-  border: 1px solid var(--color-borde);
-  padding: 1.75rem;
-  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 1.5rem;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .lista-pasos {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 0.85rem;
+  margin-top: 0.85rem;
 }
 
 .paso-item {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.85rem;
 }
 
 .icono-numero {
-  background-color: var(--color-fondo-variante);
-  color: var(--color-ciber-primario);
-  border: 2px solid var(--color-ciber-borde);
-  font-family: var(--fuente-codigo);
-  font-weight: 800;
-  font-size: 1rem;
-  width: 2.25rem; /* Indicadores numéricos más grandes */
-  height: 2.25rem;
+  background-color: #f1f5f9;
+  color: #0f172a;
+  font-weight: 700;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  font-size: 0.85rem;
 }
 
-.paso-item p {
-  margin: 0;
-  font-size: 1.05rem;
-  color: var(--color-texto-secundario);
-}
-
-
-.tarjeta-triage {
-  background-color: var(--color-ciber-fondo);
-  border: 2px dashed var(--color-ciber-primario);
-  padding: 2.25rem;
-  margin-top: 2.25rem;
-  border-radius: 8px;
-}
-
-.titulo-triage {
-  font-size: 1.5rem;
-  font-weight: 900;
-  color: var(--color-ciber-primario);
-  margin-top: 0;
-  margin-bottom: 1.25rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.lista-triage {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.lista-triage li {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  font-size: 1.1rem;
-  color: var(--color-ciber-texto);
-  line-height: 1.6;
-}
-
-
-.material-symbols-outlined {
-  font-family: 'Material Symbols Outlined', sans-serif;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 30px; /* Íconos generales ampliados a 30px */
-  line-height: 1;
-  display: inline-block;
-  white-space: nowrap;
-  -webkit-font-smoothing: antialiased;
-}
-
-.caja-video-tutorial {
-  background-color: var(--color-fondo-variante);
-  border-left: 5px solid var(--color-ciber-alerta);
-  padding: 0.85rem 1.1rem; /* Caja de video más alta y ancha */
-  font-size: 0.95rem; /* Texto de la caja más grande */
-  color: var(--color-texto-principal);
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-top: 1.1rem;
-  border-radius: 0 6px 6px 0;
-}
-
-.caja-video-tutorial code {
-  background-color: var(--color-fondo-tarjeta);
-  color: var(--color-ciber-primario);
-  padding: 0.25rem 0.5rem;
-  border: 1px solid var(--color-borde);
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
-.icono-ambar { color: var(--color-inst-amarillo); flex-shrink: 0; }
-.icono-azul { color: var(--color-inst-azul); flex-shrink: 0; }
-.icono-verde { color: var(--color-ciber-secundario); flex-shrink: 0; }
-.icono-rojo { color: var(--color-ciber-alerta); flex-shrink: 0; }
-
-
-@media (max-width: 640px) {
+/* Responsividad */
+@media (max-width: 768px) {
   .contenedor-principal {
-    padding: 1.25rem 1rem;
+    margin-bottom: 50px;
   }
 
   .cuadricula-2-columnas {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 16px;
   }
 
-  .tarjeta-pro, 
-  .tarjeta-paso, 
-  .tarjeta-alerta-critica {
-    padding: 1.25rem; /* Buen espacio interno incluso en teléfonos */
-  }
-
-  .titulo-seccion {
-    font-size: 1.4rem;
-  }
-
-  .titulo-seccion,
-  .titulo-seccion-ambar,
-  .titulo-seccion-roja {
-    font-size: 1.4rem;
-  }
-
-  .texto-pasos, 
-  .tarjeta-aviso-premium p {
-    font-size: 1rem; /* Mantener texto mínimo en 16px para evitar zoom forzado en móviles */
-  }
-
+  .tarjeta-pro,
+  .tarjeta-aviso-premium,
+  .tarjeta-alerta-critica,
   .paso-protocolo {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  /* Wrap del flex-centro en móvil para que los íconos y texto no se compriman */
-  .flex-centro {
-    flex-wrap: wrap;
-  }
-
-  /* Código con fuente más pequeña para caber en pantalla */
-  code {
-    font-size: 0.82rem;
-    word-break: break-all;
-  }
-
-  /* Cajas de video con layout en columna */
-  .caja-video-tutorial {
-    flex-direction: column;
-    align-items: flex-start;
+    padding: 1.25rem;
   }
 }

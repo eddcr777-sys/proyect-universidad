@@ -14,15 +14,10 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   SUB-NAVEGACIÓN PLANA EDITORIAL (ESTILO TABS FORTINET)
+   SUB-NAVEGACIÓN PLANA (Delegada a CabeceraCiberseguridad)
 ───────────────────────────────────────────────────────────── */
 .hero-ciber-subnav-contenedor {
-  position: relative;
-  width: 100%;
-  z-index: 20;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  display: none;
 }
 
 .hero-ciber-subnav {

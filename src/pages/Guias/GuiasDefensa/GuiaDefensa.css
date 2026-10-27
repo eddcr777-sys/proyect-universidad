@@ -1,72 +1,82 @@
 /* ============================================================================
    ESTILOS — GuiaDefensa.css
+   Guía para la Defensa del Proyecto Sociotecnológico
+   Inspiración: Fortinet Threat Intelligence / Cloudflare Enterprise
+   Paleta: Blanco #ffffff, bordes 1px #e2e8f0, acento verde #059669
    ============================================================================ */
 
 .guia-defensa-pagina {
   width: 100%;
   min-height: 100vh;
-  background-color: var(--color-inst-fondo);
-  color: var(--color-inst-texto);
-  font-family: var(--fuente-ciber-cuerpo);
+  background-color: #ffffff;
+  color: #0f172a;
+  font-family: var(--fuente-ciber-cuerpo, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
   padding-bottom: 5rem;
 }
 
 .contenedor-defensa {
-  max-width: 1140px;
+  max-width: 1180px;
   margin: 0 auto;
-  padding: 3rem 1.5rem 0;
+  padding: 3.5rem clamp(20px, 4vw, 40px) 0;
+  box-sizing: border-box;
 }
 
 .encabezado-defensa {
   text-align: center;
   max-width: 760px;
-  margin: 0 auto 2.5rem;
+  margin: 0 auto 3rem;
 }
 
 .icono-defensa-encabezado {
-  color: #00F0FF;
+  color: #059669;
   margin-bottom: 0.75rem;
 }
 
 .encabezado-defensa h2 {
-  font-family: var(--fuente-ciber-titulos);
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
   font-size: clamp(1.8rem, 3.5vw, 2.4rem);
-  font-weight: 700;
+  font-weight: 800;
+  color: #0f172a;
   margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
 }
 
 .encabezado-defensa p {
-  color: var(--color-inst-texto-secundario);
-  font-size: 1.05rem;
+  color: #64748b;
+  font-size: 1rem;
   line-height: 1.6;
 }
 
 /* RECOMENDACIONES */
 .grid-recomendaciones-defensa {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   margin-bottom: 4rem;
 }
 
 .tarjeta-recomendacion {
-  background: var(--color-inst-tarjeta);
-  border: 1px solid var(--color-inst-borde);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
   padding: 2rem;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
 .tarjeta-recomendacion:hover {
-  border-color: #00F0FF;
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 240, 255, 0.12);
+  border-color: #059669;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
 }
 
 .icono-recomendacion-box {
-  width: 48px;
-  height: 48px;
-  background: rgba(0, 240, 255, 0.1);
-  color: #00F0FF;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #d1fae5;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,15 +84,17 @@
 }
 
 .tarjeta-recomendacion h3 {
-  font-family: var(--fuente-ciber-titulos);
-  font-size: 1.2rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
   margin: 0 0 0.75rem;
 }
 
 .tarjeta-recomendacion p {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   line-height: 1.6;
-  color: var(--color-inst-texto-secundario);
+  color: #475569;
   margin: 0;
 }
 
@@ -95,9 +107,16 @@
 }
 
 .tarjeta-fase-defensa {
-  background: var(--color-inst-tarjeta);
-  border: 1px solid var(--color-inst-borde);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
   padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.tarjeta-fase-defensa:hover {
+  border-color: #94a3b8;
 }
 
 .cabecera-fase {
@@ -108,18 +127,21 @@
 }
 
 .numero-fase-badge {
-  font-family: var(--fuente-ciber-titulos);
-  font-size: 1.5rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.25rem;
   font-weight: 800;
-  color: #00F0FF;
-  background: rgba(0, 240, 255, 0.1);
-  padding: 0.5rem 1rem;
-  border: 1px solid rgba(0, 240, 255, 0.3);
+  color: #059669;
+  background: #ecfdf5;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid #d1fae5;
+  border-radius: 6px;
 }
 
 .info-fase-cabecera h3 {
-  font-family: var(--fuente-ciber-titulos);
-  font-size: 1.3rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
   margin: 0 0 0.25rem;
 }
 
@@ -127,22 +149,25 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  color: var(--color-inst-rojo);
+  color: #64748b;
 }
 
 .descripcion-fase {
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   line-height: 1.6;
+  color: #334155;
   margin-bottom: 1.25rem;
 }
 
 .puntos-clave-fase h4 {
-  font-size: 0.95rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.88rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--color-inst-texto-secundario);
+  color: #0f172a;
   margin: 0 0 0.75rem;
 }
 
@@ -152,18 +177,19 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .puntos-clave-fase li {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  font-size: 0.95rem;
+  gap: 0.65rem;
+  font-size: 0.92rem;
+  color: #475569;
 }
 
 .icono-check-fase {
-  color: #00FF66;
+  color: #059669;
   flex-shrink: 0;
 }
 
@@ -171,41 +197,49 @@
 .lista-preguntas-jurado {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.85rem;
   margin-bottom: 4rem;
 }
 
 .item-pregunta-jurado {
-  background: var(--color-inst-tarjeta);
-  border: 1px solid var(--color-inst-borde);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
   padding: 1.25rem 1.5rem;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
 .item-pregunta-jurado:hover {
-  border-color: #00F0FF;
+  border-color: #94a3b8;
+  transform: translateY(-1px);
 }
 
 .item-pregunta-jurado.abierto {
-  border-color: #00F0FF;
-  box-shadow: 0 4px 16px rgba(0, 240, 255, 0.1);
+  border-color: #059669;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.08);
 }
 
 .cabecera-pregunta {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
 }
 
 .cabecera-pregunta h4 {
-  font-family: var(--fuente-ciber-titulos);
-  font-size: 1.1rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
   margin: 0;
 }
 
 .icono-flecha-pregunta {
-  transition: transform 0.3s ease;
+  color: #059669;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
 }
 
 .item-pregunta-jurado.abierto .icono-flecha-pregunta {
@@ -215,14 +249,14 @@
 .cuerpo-respuesta {
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid var(--color-inst-borde);
+  border-top: 1px solid #f1f5f9;
 }
 
 .cuerpo-respuesta p {
   margin: 0;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   line-height: 1.65;
-  color: var(--color-inst-texto-secundario);
+  color: #475569;
 }
 
 .pie-defensa-acciones {
@@ -232,22 +266,28 @@
   gap: 1rem;
   flex-wrap: wrap;
   padding-top: 2rem;
-  border-top: 1px solid var(--color-inst-borde);
+  border-top: 1px solid #e2e8f0;
 }
 
 .btn-defensa-retorno {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.8rem 1.5rem;
-  background: var(--color-inst-azul);
-  color: #FFFFFF;
+  padding: 0.75rem 1.6rem;
+  background-color: #f8fafc;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  border-radius: 9999px;
   text-decoration: none;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.88rem;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .btn-defensa-retorno:hover {
-  background: #00F0FF;
-  color: #070D19;
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+  color: #0f172a;
+  transform: translateY(-1px);
 }
