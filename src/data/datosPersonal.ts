@@ -1,7 +1,7 @@
 import type { MemberItem } from '../components/comunes/tarjetas/members';
 
-import foto1 from '../assets/lb.jpeg';
-import foto2 from '../assets/lemu.jpeg';
+import foto1 from '../assets/guipe.jpeg';
+import foto2 from '../assets/elvis.png';
 import foto3 from '../assets/le.jpeg';
 import foto4 from '../assets/pbk-Hero-3.jpg';
 
@@ -43,13 +43,25 @@ export const TEAM_MEMBERS: MemberItem[] = [
     name: 'Henyer Guipe',
     role: 'Desarrollador',
     description: 'Desarrollador del proyecto de ciberseguridad en el Complejo Educativo Antonio Lemus Pérez.',
-    imagen: foto1
+    imagen: foto1,
+    redesSociales: [
+      { id: 1, nombre: 'GitHub', tipo: 'github', url: 'https://github.com' },
+      { id: 2, nombre: 'LinkedIn', tipo: 'linkedin', url: 'https://linkedin.com' },
+      { id: 3, nombre: 'Instagram', tipo: 'instagram', url: 'https://instagram.com' },
+      { id: 4, nombre: 'Facebook', tipo: 'facebook', url: 'https://facebook.com' }
+    ]
   },
   {
     id: 2,
     name: 'Elvis Cordova',
     role: 'Desarrollador',
     description: 'Desarrollador del proyecto de ciberseguridad en el Complejo Educativo Antonio Lemus Pérez.',
-    imagen: foto2
+    imagen: foto2,
+    redesSociales: [
+      { id: 1, nombre: 'GitHub', tipo: 'github', url: 'https://github.com' },
+      { id: 2, nombre: 'LinkedIn', tipo: 'linkedin', url: 'https://linkedin.com' },
+      { id: 3, nombre: 'Instagram', tipo: 'instagram', url: 'https://instagram.com' },
+      { id: 4, nombre: 'Facebook', tipo: 'facebook', url: 'https://facebook.com' }
+    ]
   }
 ];

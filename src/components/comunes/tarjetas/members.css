@@ -77,6 +77,31 @@
   font-weight: 500;
 }
 
+.redes-sociales {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.enlace-red-social {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-inst-blanco);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.enlace-red-social:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
 /* Contenedor expandible con animación de grid */
 .contenido-expandible {
   display: grid;

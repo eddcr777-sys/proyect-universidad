@@ -51,8 +51,9 @@
 }
 
 .grid-labores-harvard {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
 }
 
@@ -63,6 +64,9 @@
   border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   overflow: hidden;
+  max-width: 290px;
+  width: 100%;
+  transition: all 0.25s ease;
 }
 
 .seccion-labores-harvard .tarjeta-miembro:hover {
@@ -70,41 +74,93 @@
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
 }
 
+.seccion-labores-harvard .marco-imagen {
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  background-color: #f1f5f9;
+}
+
+.seccion-labores-harvard .marco-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.35s ease;
+}
+
+.seccion-labores-harvard .tarjeta-miembro:hover .marco-imagen img {
+  transform: scale(1.04);
+}
+
 .seccion-labores-harvard .cuerpo {
   background-color: #ffffff;
-  padding: 20px 20px 24px 20px;
+  padding: 16px 18px 20px 18px;
 }
 
 .seccion-labores-harvard .titulo {
   color: #0f172a;
   font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.25rem;
 }
 
 .seccion-labores-harvard .rol {
   color: #059669;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   opacity: 1;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
+}
+
+/* Fila de logos de redes sociales de los desarrolladores */
+.seccion-labores-harvard .redes-sociales {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0 12px 0;
+}
+
+.seccion-labores-harvard .enlace-red-social {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.seccion-labores-harvard .enlace-red-social:hover {
+  background-color: #ecfdf5;
+  border-color: #059669;
+  color: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(5, 150, 105, 0.12);
 }
 
 .seccion-labores-harvard .descripcion {
   border-top: 1px solid #e2e8f0;
-  padding-top: 14px;
+  padding-top: 12px;
 }
 
 .seccion-labores-harvard .descripcion p {
   color: #475569;
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin: 0;
 }
 
 .seccion-labores-harvard .boton-toggle {
   color: #059669;
   font-weight: 600;
+  font-size: 0.85rem;
+  margin-top: 10px;
 }
 
 /* --------------------------------------------------------------------------

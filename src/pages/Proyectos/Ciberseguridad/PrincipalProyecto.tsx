@@ -20,9 +20,9 @@ import './PrincipalProyecto.css';
 
 // Imágenes institucionales para el diseño editorial de la portada
 import imgHeroCiber from '../../../assets/photo_4_2026-10-21_23-11-48.jpg';
-import imgLemu from '../../../assets/photo_1ciber.jpg';
-import imgLem from '../../../assets/photo_2ciber.jpg';
-import imgLe from '../../../assets/photo_4_ciber.jpg';
+import imgLemu from '../../../assets/secure.jpg';
+import imgLem from '../../../assets/OIP.jpeg';
+import imgLe from '../../../assets/ciberseguridad-sostenible.jpg';
 
 /**
  * Página Principal de Portada del Proyecto de Ciberseguridad.
