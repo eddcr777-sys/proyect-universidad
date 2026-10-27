@@ -1,5 +1,7 @@
 /* ==========================================================
    BANNER DE DESCARGA OFFLINE - PROYECTO DE CIBERSEGURIDAD
+   Paleta editorial: blanco #ffffff, fondo #f8fafc,
+   bordes #e2e8f0, texto #0f172a / #64748b, acento #059669
    ========================================================== */
 
 .banner-offline-flotante {
@@ -9,12 +11,12 @@
   max-width: 460px;
   width: calc(100% - 32px);
   z-index: 99999;
-  background: var(--color-inst-azul);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: 16px;
-  padding: 18px 22px;
-  color: #ffffff;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px 22px;
+  color: #0f172a;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.12);
 }
 
 @keyframes deslizarSubirBanner {
@@ -31,19 +33,19 @@
 .banner-offline-contenido {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 14px;
 }
 
 .banner-offline-icono-wrap {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background-color: var(--color-inst-azul);
-  border: 1px solid var(--color-inst-azul);
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #ecfdf5;
+  border: 1px solid #d1fae5;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-blanco);
+  color: #059669;
   flex-shrink: 0;
 }
 
@@ -57,63 +59,67 @@
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .banner-offline-titulo {
-  font: 1em sans-serif;
-  font-size: 1.08rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #0f172a;
   margin: 0;
   display: flex;
   align-items: center;
   gap: 8px;
+  line-height: 1.3;
 }
 
 .badge-red-estado {
-  font-size: 0.72rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.68rem;
   font-weight: 700;
   padding: 2px 8px;
-  border-radius: 12px;
+  border-radius: 4px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.06em;
 }
 
 .badge-red-estado.online {
-  background: rgba(34, 197, 94, 0.2);
-  color: #4ade80;
-  border: 1px solid rgba(74, 222, 128, 0.3);
+  background-color: #ecfdf5;
+  color: #059669;
+  border: 1px solid #d1fae5;
 }
 
 .badge-red-estado.offline {
-  background: rgba(239, 68, 68, 0.2);
-  color: #f87171;
-  border: 1px solid rgba(248, 113, 113, 0.3);
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
 }
 
 .banner-offline-cerrar {
   background: transparent;
-  border: none;
-  color: rgba(255, 255, 255, 0.6);
+  border: 1px solid transparent;
+  color: #64748b;
   cursor: pointer;
   padding: 4px;
-  border-radius: 6px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.2s ease, background 0.2s ease;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  flex-shrink: 0;
 }
 
 .banner-offline-cerrar:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.1);
+  color: #0f172a;
+  background-color: #f8fafc;
+  border-color: #e2e8f0;
 }
 
 .banner-offline-descripcion {
   font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.45;
+  color: #64748b;
+  line-height: 1.55;
   margin: 0 0 14px 0;
 }
 
@@ -126,7 +132,7 @@
   display: flex;
   justify-content: space-between;
   font-size: 0.78rem;
-  color: #38bdf8;
+  color: #475569;
   margin-bottom: 6px;
   font-weight: 600;
 }
@@ -134,17 +140,17 @@
 .banner-offline-progreso-pista {
   width: 100%;
   height: 6px;
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
   overflow: hidden;
 }
 
 .banner-offline-progreso-barra {
   height: 100%;
-  background: linear-gradient(90deg, #0284c7, #38bdf8);
-  border-radius: 8px;
+  background-color: #059669;
+  border-radius: 9999px;
   transition: width 0.3s ease;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
 }
 
 /* Botones de acción */
@@ -158,51 +164,48 @@
 .btn-banner-descargar {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  background: #ffffff;
-  color: var(--color-inst-azul, #0F2C59);
-  border: 1px solid #ffffff;
+  background-color: #0f172a;
+  color: #ffffff;
+  border: 1px solid #0f172a;
   padding: 10px 18px;
-  border-radius: 8px;
-  font-size: 0.9rem;
+  border-radius: 6px;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.88rem;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
 
 .btn-banner-descargar:hover:not(:disabled) {
-  transform: translateY(-1px);
-  background: #f1f5f9;
-  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.25);
-}
-
-.btn-banner-descargar:active {
-  transform: scale(0.96);
-  background: #e2e8f0;
+  background-color: #1e293b;
+  border-color: #1e293b;
 }
 
 .btn-banner-descargar:disabled {
-  opacity: 0.65;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
 .btn-banner-secundario {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.85);
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-size: 0.85rem;
-  font-weight: 500;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.84rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .btn-banner-secundario:hover {
-  background: rgba(255, 255, 255, 0.16);
-  color: #ffffff;
+  background-color: #f8fafc;
+  border-color: #94a3b8;
 }
 
 /* Estado de completado con éxito */
@@ -210,10 +213,11 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(34, 197, 94, 0.12);
-  padding: 10px 10px;
-  border-radius: 8px;
-  color: #4ade80;
+  background-color: #ecfdf5;
+  border: 1px solid #d1fae5;
+  padding: 10px 12px;
+  border-radius: 6px;
+  color: #059669;
   font-size: 0.86rem;
   font-weight: 600;
   margin-top: 6px;
@@ -227,7 +231,7 @@
     left: 12px;
     width: auto;
     max-width: none;
-    padding: 14px 16px;
+    padding: 16px 18px;
   }
 
   .banner-offline-acciones {
