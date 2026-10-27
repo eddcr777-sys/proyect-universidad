@@ -45,9 +45,7 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
       <aside className={`drawer-panel ${abierto ? 'activo' : ''}`}>
         <div className="drawer-header">
           <div className="drawer-logo-caja">
-            <div className="drawer-escudo-icono">
-              <Shield size={20} />
-            </div>
+          
             <div className="drawer-textos-header">
               <span className="drawer-titulo">Antonio Lemus Pérez</span>
               <span className="drawer-subtitulo">Complejo Educativo · Cumaná</span>
@@ -61,7 +59,7 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
         <nav className="drawer-body">
           <Link to="/" className="drawer-item-directo" onClick={cerrar}>
             <span className="drawer-item-label">
-              <Home size={18} className="drawer-icono-nav" />
+             
               <span>Inicio</span>
             </span>
           </Link>
@@ -70,7 +68,7 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
           <div className="menu-seccion">
             <button className={`btn-seccion ${secciones.elLiceo ? 'activo' : ''}`} onClick={() => alternarSeccion('elLiceo')}>
               <span className="drawer-item-label">
-                <Building2 size={18} className="drawer-icono-nav" />
+             
                 <span>El Complejo</span>
               </span>
               <ChevronIcon abierto={secciones.elLiceo} />
@@ -94,7 +92,7 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
           <div className="menu-seccion">
             <button className={`btn-seccion ${secciones.admision ? 'activo' : ''}`} onClick={() => alternarSeccion('admision')}>
               <span className="drawer-item-label">
-                <UserPlus size={18} className="drawer-icono-nav" />
+             
                 <span>Admisión</span>
               </span>
               <ChevronIcon abierto={secciones.admision} />
@@ -111,7 +109,7 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
           <div className="menu-seccion">
             <button className={`btn-seccion ${secciones.proyectos ? 'activo' : ''}`} onClick={() => alternarSeccion('proyectos')}>
               <span className="drawer-item-label">
-                <Code2 size={18} className="drawer-icono-nav" />
+             
                 <span>Proyectos</span>
               </span>
               <ChevronIcon abierto={secciones.proyectos} />
@@ -126,7 +124,7 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
 
           <Link to="/galeria" className="drawer-item-directo" onClick={cerrar}>
             <span className="drawer-item-label">
-              <ImageIcon size={18} className="drawer-icono-nav" />
+             
               <span>Galería de Fotos</span>
             </span>
           </Link>

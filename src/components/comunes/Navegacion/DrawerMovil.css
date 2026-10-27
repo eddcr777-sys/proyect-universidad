@@ -1,38 +1,28 @@
-/* ==========================================================================
-   DRAWER MÓVIL - ESTILOS MATES INSTITUCIONALES (SIN DEGRADADOS)
-   Complejo Educativo Antonio Lemus Pérez
-   ========================================================================== */
-
+/* Botón hamburguesa (en header oscuro) */
 .btn-hamburguesa {
   background: transparent;
   border: none;
   color: #ffffff;
   padding: 0.6rem;
-  border-radius: 8px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s ease, transform 0.15s ease;
+  transition: opacity 0.2s ease;
 }
 
 .btn-hamburguesa:hover {
-  background-color: rgba(255, 255, 255, 0.12);
+  opacity: 0.75;
 }
 
-.btn-hamburguesa:active {
-  transform: scale(0.96);
-}
-
-/* Fondo oscuro semi-transparente sólido mate */
+/* Overlay */
 .drawer-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(5, 24, 51, 0.65);
-  backdrop-filter: blur(4px);
+  background-color: rgba(15, 23, 42, 0.5);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
   z-index: 1050;
 }
 
@@ -41,39 +31,37 @@
   visibility: visible;
 }
 
-/* Panel Lateral Deslizable */
+/* Panel lateral */
 .drawer-panel {
   position: fixed;
   top: 0;
   right: 0;
-  width: 330px;
+  width: 320px;
   max-width: 86vw;
   height: 100vh;
   height: 100dvh;
-  background-color: #051833;
-  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.25);
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   z-index: 1100;
   transform: translateX(100%);
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-left: 1px solid #e2e8f0;
   padding-bottom: env(safe-area-inset-bottom, 0px);
-  will-change: transform;
-  border-left: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .drawer-panel.activo {
   transform: translateX(0);
 }
 
-/* Encabezado del Drawer */
+/* Header */
 .drawer-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.25rem 1.25rem 1.1rem 1.25rem;
-  background-color: #051833;
-  border-bottom: 2px solid #8B1E2F;
+  padding: 1.25rem;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #ffffff;
 }
 
 .drawer-logo-caja {
@@ -83,10 +71,9 @@
 }
 
 .drawer-escudo-icono {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background-color: #8B1E2F;
+  width: 36px;
+  height: 36px;
+  background-color: #0f172a;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -100,49 +87,49 @@
 }
 
 .drawer-titulo {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.98rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 14px;
   font-weight: 700;
-  color: #ffffff;
-  letter-spacing: -0.2px;
+  color: #0f172a;
   line-height: 1.2;
 }
 
 .drawer-subtitulo {
-  font-size: 0.75rem;
-  color: #d8b671;
-  font-weight: 500;
-  letter-spacing: 0.2px;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   margin-top: 2px;
 }
 
 .btn-cerrar {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  background: transparent;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
   flex-shrink: 0;
 }
 
 .btn-cerrar:hover {
-  background-color: #8B1E2F;
-  border-color: #8B1E2F;
-  color: #ffffff;
+  background-color: #f8fafc;
+  border-color: #94a3b8;
 }
 
-/* Cuerpo / Navegación */
+/* Cuerpo */
 .drawer-body {
-  padding: 1.1rem 1rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  gap: 2px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
@@ -156,17 +143,29 @@
   align-items: center;
   justify-content: space-between;
   text-decoration: none;
-  background-color: transparent;
+  background: transparent;
   border: none;
-  color: #e2e8f0;
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.98rem;
+  border-left: 2px solid transparent;
+  color: #334155;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 14px;
   font-weight: 600;
-  padding: 0.78rem 0.95rem;
-  border-radius: 10px;
+  padding: 12px 14px;
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
-  box-sizing: border-box;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  text-align: left;
+}
+
+.drawer-item-directo:hover,
+.btn-seccion:hover {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+.btn-seccion.activo {
+  background-color: #f8fafc;
+  color: #0f172a;
+  border-left-color: var(--color-inst-azul);
 }
 
 .drawer-item-label {
@@ -176,98 +175,81 @@
 }
 
 .drawer-icono-nav {
-  color: #d8b671;
+  color: #64748b;
   flex-shrink: 0;
 }
 
-.drawer-item-directo:hover,
-.btn-seccion:hover {
-  background-color: #0d264f;
-  color: #ffffff;
-}
-
-.btn-seccion.activo {
-  background-color: #0c2752;
-  color: #ffffff;
+.btn-seccion.activo .drawer-icono-nav {
+  color:var(--color-inst-azul);
 }
 
 .drawer-chevron {
   color: #94a3b8;
-  transition: transform 0.25s ease, color 0.25s ease;
+  transition: transform 0.25s ease;
   flex-shrink: 0;
 }
 
 .drawer-chevron.rotado {
   transform: rotate(180deg);
-  color: #d8b671;
+  color: var(--color-inst-azul);
 }
 
-/* Submenús Desplegables */
+/* Submenú */
 .sub-menu {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  margin-left: 1rem;
-  padding-left: 0.95rem;
-  border-left: 2px solid #8B1E2F;
-  margin-top: 0.35rem;
-  margin-bottom: 0.6rem;
+  margin: 4px 0 8px 0;
+  padding-left: 16px;
+  border-left: 1px solid #e2e8f0;
 }
 
 .sub-menu a {
   text-decoration: none;
-  color: #cbd5e1;
-  font-size: 0.88rem;
+  color: #64748b;
+  font-size: 13px;
   font-weight: 500;
-  padding: 0.58rem 0.85rem;
-  border-radius: 8px;
+  padding: 9px 14px;
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .sub-menu a:hover {
-  background-color: #0f2c5a;
-  color: #ffffff;
+  background-color: #f8fafc;
+  color: #0f172a;
 }
 
-/* Pie del Drawer */
+/* Footer */
 .drawer-footer {
-  padding: 1.1rem 1.25rem 1.25rem 1.25rem;
-  background-color: #031126;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1rem 1.25rem 1.25rem 1.25rem;
+  border-top: 1px solid #e2e8f0;
+  background-color: #f8fafc;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.75rem;
 }
 
 .drawer-boton-cta {
   display: block;
   text-align: center;
   text-decoration: none;
-  background-color: #8B1E2F;
+  background-color: #0f172a;
   color: #ffffff;
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.92rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  padding: 0.85rem 1rem;
-  border-radius: 10px;
-  transition: background-color 0.2s ease, transform 0.15s ease;
-  box-shadow: 0 4px 14px rgba(139, 30, 47, 0.35);
+  padding: 13px 16px;
+  transition: background-color 0.2s ease;
 }
 
 .drawer-boton-cta:hover {
-  background-color: #a32236;
-}
-
-.drawer-boton-cta:active {
-  transform: scale(0.98);
+  background-color: #1e293b;
 }
 
 .drawer-footer-nota {
   margin: 0;
-  font-size: 0.74rem;
+  font-size: 11px;
   color: #94a3b8;
   text-align: center;
-  line-height: 1.3;
+  line-height: 1.4;
 }

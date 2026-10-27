@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Shield } from 'lucide-react';
 import './PiePagina.css';
 
 /**
@@ -19,7 +18,6 @@ const PiePagina: React.FC = () => {
         {/* COLUMNA 1: LOGO, EMBLEMA Y COPYRIGHT */}
         <div className="losarcos-columna losarcos-columna-logo">
           <div className="losarcos-logo-caja">
-            <Shield size={44} className="losarcos-escudo-icono" />
             <h3 className="losarcos-nombre-liceo">
               Complejo Educativo<br />
               Antonio Lemus Pérez

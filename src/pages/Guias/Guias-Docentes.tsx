@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
-import {
-  BookOpen, School, CheckCircle2, AlertTriangle, Users, ShieldCheck,
-  Sparkles, Target, Clock, Layers, ChevronDown, ArrowRight, ArrowDown,
-  Scale, Gavel, Lock, HelpCircle
-} from 'lucide-react';
+import { ArrowRight, ArrowDown } from 'lucide-react';
 import HeaderProyecto from '../../components/comunes/HeaderProyecto/HeaderProyecto';
 import imgHeroCiber from '../../assets/photo_2_2026-10-21_23-11-48.jpg';
 import './Guias-padres.css';
-import './Guias-Docentes.css';
 
 interface EstrategiaAula {
   grado: string;
@@ -19,61 +14,189 @@ interface EstrategiaAula {
 
 const ESTRATEGIAS_POR_GRADO: EstrategiaAula[] = [
   {
-    grado: "1er Año",
-    moduloTema: "Redes Sociales e Identidad Digital",
-    objetivoPedagogico: "Reconocer la huella digital y el valor de la privacidad en redes y plataformas.",
-    actividadSugerida: "Taller 'Mitos vs Realidades': análisis de capturas simuladas e identificación de sobreexposición de datos.",
-    evaluacion: "Infografía colectiva sobre netiqueta y privacidad en WhatsApp/Instagram."
+    grado: '1er Año',
+    moduloTema: 'Redes Sociales e Identidad Digital',
+    objetivoPedagogico:
+      'Reconocer la huella digital y el valor de la privacidad en redes y plataformas.',
+    actividadSugerida:
+      "Taller 'Mitos vs Realidades': análisis de capturas simuladas e identificación de sobreexposición de datos.",
+    evaluacion:
+      'Infografía colectiva sobre netiqueta y privacidad en WhatsApp / Instagram.',
   },
   {
-    grado: "2do Año",
-    moduloTema: "Protección de Cuentas y Contraseñas",
-    objetivoPedagogico: "Desarrollar destrezas para crear credenciales robustas y adoptar la autenticación en dos pasos (2FA).",
-    actividadSugerida: "Laboratorio práctico: comparar tiempo de descifrado entre claves comunes y frases de paso complejas.",
-    evaluacion: "Checklist individual de fortalecimiento de cuentas académicas, correo institucional y redes personales."
+    grado: '2do Año',
+    moduloTema: 'Protección de Cuentas y Contraseñas',
+    objetivoPedagogico:
+      'Desarrollar destrezas para crear credenciales robustas y adoptar la autenticación en dos pasos (2FA).',
+    actividadSugerida:
+      'Laboratorio práctico: comparar tiempo de descifrado entre claves comunes y frases de paso complejas.',
+    evaluacion:
+      'Checklist individual de fortalecimiento de cuentas académicas, correo institucional y redes personales.',
   },
   {
-    grado: "3er Año",
-    moduloTema: "Phishing, Smishing y Ciberdelincuencia",
-    objetivoPedagogico: "Identificar técnicas de ingeniería social, suplantación de identidad y estafas bancarias.",
-    actividadSugerida: "Simulacro 'Detectives Digitales': analizar 5 correos y SMS señalando indicadores de fraude.",
-    evaluacion: "Informe de diagnóstico de riesgo por equipos sobre vectores de ataque comunes en Venezuela."
+    grado: '3er Año',
+    moduloTema: 'Phishing, Smishing y Ciberdelincuencia',
+    objetivoPedagogico:
+      'Identificar técnicas de ingeniería social, suplantación de identidad y estafas bancarias.',
+    actividadSugerida:
+      "Simulacro 'Detectives Digitales': analizar 5 correos y SMS señalando indicadores de fraude.",
+    evaluacion:
+      'Informe de diagnóstico de riesgo por equipos sobre vectores de ataque comunes en Venezuela.',
   },
   {
-    grado: "4to Año",
-    moduloTema: "Software Pirata, Malware y Responsabilidad Legal",
-    objetivoPedagogico: "Comprender los riesgos técnicos y legales de descargas no oficiales, troyanos y spyware.",
-    actividadSugerida: "Debate: Software Libre vs Software Pirata, con estudio de caso sobre troyanos en activadores.",
-    evaluacion: "Cuadro comparativo de licencias y guía de alternativas de software libre y seguro."
+    grado: '4to Año',
+    moduloTema: 'Software Pirata, Malware y Responsabilidad Legal',
+    objetivoPedagogico:
+      'Comprender los riesgos técnicos y legales de descargas no oficiales, troyanos y spyware.',
+    actividadSugerida:
+      'Debate: Software Libre vs Software Pirata, con estudio de caso sobre troyanos en activadores.',
+    evaluacion:
+      'Cuadro comparativo de licencias y guía de alternativas de software libre y seguro.',
   },
   {
-    grado: "5to Año",
-    moduloTema: "Auditorías Digitales y Ciudadanía Ética",
-    objetivoPedagogico: "Capacitar en autoevaluación cibernética institucional, protección comunitaria y ética profesional en TI.",
-    actividadSugerida: "Proyecto Integrador: auditoría simulada de seguridad escolar o familiar con propuesta de mitigación.",
-    evaluacion: "Defensa oral del informe de auditoría con recomendaciones para la comunidad educativa."
-  }
+    grado: '5to Año',
+    moduloTema: 'Auditorías Digitales y Ciudadanía Ética',
+    objetivoPedagogico:
+      'Capacitar en autoevaluación cibernética institucional, protección comunitaria y ética profesional en TI.',
+    actividadSugerida:
+      'Proyecto Integrador: auditoría simulada de seguridad escolar o familiar con propuesta de mitigación.',
+    evaluacion:
+      'Defensa oral del informe de auditoría con recomendaciones para la comunidad educativa.',
+  },
+];
+
+const OBJETIVOS_GUIA = [
+  {
+    titulo: 'Estudiantes que detectan engaños',
+    texto:
+      'Que reconozcan un phishing, un SMS falso o una estafa de WhatsApp antes de caer.',
+  },
+  {
+    titulo: 'Cuentas académicas blindadas',
+    texto:
+      'Que usen contraseñas fuertes y 2FA en correo institucional, redes y banca.',
+  },
+  {
+    titulo: 'Un salón con protocolo claro',
+    texto:
+      'Que sepas qué hacer, a quién avisar y cómo preservar evidencias si surge un caso.',
+  },
+  {
+    titulo: 'Familias alineadas con la escuela',
+    texto:
+      'Que los representantes manejen las mismas reglas y refuercen lo aprendido en casa.',
+  },
+];
+
+const PASOS_USO = [
+  {
+    titulo: 'Ubica tu año escolar',
+    detalle:
+      'En la sección "Estrategias" selecciona el año que enseñas. Cada grado tiene un módulo asignado con enfoque propio.',
+  },
+  {
+    titulo: 'Toma la actividad propuesta',
+    detalle:
+      'Cada módulo incluye una dinámica lista para aula con un objetivo claro. Puedes adaptarla a tu estilo y tiempo disponible.',
+  },
+  {
+    titulo: 'Usa el criterio de evaluación',
+    detalle:
+      'El criterio sugerido puede integrarse a tu planilla de evaluación existente, sin modificar la planificación oficial.',
+  },
+  {
+    titulo: 'Aplica el protocolo si aparece un caso real',
+    detalle:
+      'Si un incidente ocurre en tu salón, la ruta institucional te indica paso a paso qué hacer y a quién notificar.',
+  },
+];
+
+const PROTOCOLO = [
+  {
+    titulo: 'Detección temprana y contención',
+    detalle:
+      'Identifica el hecho (ciberbullying, filtración de claves, suplantación) sin juzgar al alumno afectado. Brinda seguridad emocional inmediata y garantiza un espacio libre de burlas.',
+  },
+  {
+    titulo: 'Preservación de evidencias',
+    detalle:
+      'Indica que bajo ningún concepto se borren mensajes o chats. Toma capturas completas donde se aprecien números de teléfono, usuarios, enlaces, fecha y hora exactos.',
+  },
+  {
+    titulo: 'Notificación a instancias directivas',
+    detalle:
+      'Remite el caso con máxima discreción al Departamento de Orientación y a la Coordinación Pedagógica para coordinar la citación de representantes y el acompañamiento psicosocial.',
+  },
+  {
+    titulo: 'Intervención didáctica restaurativa',
+    detalle:
+      'Desarrolla una sesión reflexiva con la sección estudiantil involucrada usando los módulos del proyecto, reforzando la empatía, el marco legal y las consecuencias éticas.',
+  },
+];
+
+const MARCO_LEGAL = [
+  {
+    titulo: 'LOPNNA — Protección de la Privacidad',
+    descripcion:
+      'Garantiza el derecho de los menores a ser protegidos contra la difusión no autorizada de informaciones o imágenes que menoscaben su dignidad o privacidad. El personal docente tiene la obligación de intervenir ante cualquier divulgación que vulnere este principio.',
+  },
+  {
+    titulo: 'Ley Especial contra Delitos Informáticos',
+    descripcion:
+      'Tipifica y castiga el acceso indebido a sistemas, la violación de privacidad de datos y la difusión indebida de imágenes íntimas. Los docentes deben instruir que los actos digitales conllevan consecuencias penales reales.',
+  },
+  {
+    titulo: 'Deber de Confidencialidad',
+    descripcion:
+      'Todo docente que reciba una denuncia o evidencia de riesgo digital debe mantener estricta reserva, evitando reenviar el material o comentarlo en pasillos, entregándolo únicamente a las autoridades designadas del plantel.',
+  },
+  {
+    titulo: 'Ley Orgánica de Educación (LOE)',
+    descripcion:
+      'Establece el deber del sistema educativo de formar en valores cívicos, uso responsable de las tecnologías de la información y construir un clima de paz y respeto en toda la comunidad escolar.',
+  },
 ];
 
 const FAQ_DOCENTES = [
   {
-    pregunta: "¿Cómo se articula el manual con el pensum de bachillerato?",
-    respuesta: "El proyecto funciona como eje transversal: puede integrarse en Informática, Convivencia y Orientación, o Ciencias Sociales sin modificar la planificación oficial."
+    pregunta: '¿Cómo se articula el manual con el pensum de bachillerato?',
+    respuesta:
+      'El proyecto funciona como eje transversal: puede integrarse en Informática, Convivencia y Orientación, o Ciencias Sociales sin modificar la planificación oficial.',
   },
   {
-    pregunta: "¿Cómo evalúo el progreso del estudiante con estos módulos?",
-    respuesta: "Cada módulo incluye cuestionarios interactivos y retos de identificación de amenazas. Los puntajes pueden ponderarse dentro del plan de evaluación del docente."
+    pregunta: '¿Cómo evalúo el progreso del estudiante con estos módulos?',
+    respuesta:
+      'Cada módulo incluye cuestionarios interactivos y retos de identificación de amenazas. Los puntajes pueden ponderarse dentro del plan de evaluación del docente.',
   },
   {
-    pregunta: "¿Qué hago si un estudiante reporta sextorsión o ciberacoso fuera del liceo?",
-    respuesta: "Aplique el Protocolo Institucional: contención emocional, no borrar evidencias digitales, y elevar el caso con total confidencialidad a la Dirección y al Departamento de Orientación."
-  }
+    pregunta: '¿Qué hago si un estudiante reporta sextorsión o ciberacoso fuera del liceo?',
+    respuesta:
+      'Aplique el Protocolo Institucional: contención emocional, no borrar evidencias digitales, y elevar el caso con total confidencialidad a la Dirección y al Departamento de Orientación.',
+  },
 ];
 
-export const GuiasDocentes: React.FC = () => {
+const SECCIONES_NAV = [
+  { id: 'proposito', label: 'Propósito' },
+  { id: 'como-usar', label: 'Cómo usar' },
+  { id: 'estrategias-grado', label: 'Estrategias' },
+  { id: 'protocolo-institucional', label: 'Protocolo' },
+  { id: 'marco-legal-docente', label: 'Marco legal' },
+  { id: 'faq-docentes', label: 'FAQ' },
+];
+
+const GuiasDocentes: React.FC = () => {
   const [gradoSeleccionado, setGradoSeleccionado] = useState<number>(0);
-  const [faqAbierta, setFaqAbierta] = useState<number | null>(null);
-  const toggleFaq = (idx: number) => setFaqAbierta(faqAbierta === idx ? null : idx);
+  const [seccionActiva, setSeccionActiva] = useState<string>('proposito');
+  const estrategiaActual = ESTRATEGIAS_POR_GRADO[gradoSeleccionado];
+
+  const scrollASeccion = (id: string) => {
+    setSeccionActiva(id);
+    const el = document.getElementById(id);
+    if (el) {
+      const y = el.getBoundingClientRect().top + window.scrollY - 120;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
 
   const enlacesSubNav = [
     { label: 'Inicio Proyecto', ruta: '/proyectos/ciberseguridad' },
@@ -86,219 +209,297 @@ export const GuiasDocentes: React.FC = () => {
   ];
 
   return (
-    <main className="contenedor-principal">
+    <main className="portal-modulo-editorial">
       <HeaderProyecto
         categoria="Portal Pedagógico para el Docente"
         titulo="MANUAL DOCENTE DE"
         tituloResaltado="CIBERSEGURIDAD"
-        descripcion="Estrategias metodológicas, protocolos de actuación y recursos didácticos para orientar la formación digital en el C.E. Antonio Lemus Pérez."
+        descripcion="Una guía práctica para que tus estudiantes reconozcan engaños digitales antes de caer, y sepas qué hacer si un caso real aparece en tu salón."
         imagenFondo={imgHeroCiber}
         enlacesSubNav={enlacesSubNav}
         acciones={[
-          { label: 'Explorar Estrategias por Grado', href: '#estrategias-grado', icono: <ArrowDown size={18} /> },
-          { label: 'Ver Guía para Padres', ruta: '/proyectos/ciberseguridad/guias/padres', icono: <ArrowRight size={20} /> },
+          {
+            label: 'Ver Estrategia de mi Grado',
+            href: '#estrategias-grado',
+            icono: <ArrowDown size={16} />,
+          },
+          {
+            label: 'Ver Guía para Padres',
+            ruta: '/proyectos/ciberseguridad/guias/padres',
+            icono: <ArrowRight size={16} />,
+          },
         ]}
       />
 
-      {/* 1. EJES PEDAGÓGICOS */}
-      <section id="ejes-pedagogicos" className="tarjeta-pro seccion-espaciada">
-        <h2 className="titulo-seccion flex-centro">
-          <Target size={28} /> Ejes Pedagógicos y Articulación Curricular
-        </h2>
-        <p className="texto-descriptivo">
-          El manual está concebido como eje transversal en las áreas de Informática, Orientación y Convivencia, y Ciencias Sociales del Complejo Educativo Antonio Lemus Pérez.
-        </p>
-
-        <div className="cuadricula-2-columnas">
-          <div className="tarjeta-paso">
-            <span className="etiqueta-verde">Eje 01</span>
-            <h3 className="titulo-tarjeta flex-centro"><ShieldCheck size={18} /> Enfoque Formativo y Preventivo</h3>
-            <p className="texto-pasos">
-              Trasladar el aprendizaje hacia la vivencia cotidiana, capacitando a los jóvenes para identificar enlaces fraudulentos, contraseñas frágiles y engaños digitales antes de ser víctimas. Los estudiantes se convierten en multiplicadores de buenas prácticas en sus hogares y salones.
-            </p>
-          </div>
-
-          <div className="tarjeta-paso">
-            <span className="etiqueta-rosa">Eje 02</span>
-            <h3 className="titulo-tarjeta flex-centro"><BookOpen size={18} /> Transversalidad y Netiqueta</h3>
-            <p className="texto-pasos">
-              Vincular la seguridad informática con los derechos humanos en internet, la prevención del acoso escolar y la responsabilidad ciudadana al comunicarse en redes y grupos escolares. Esto reduce los conflictos virtuales mediante acuerdos claros de convivencia.
-            </p>
-          </div>
-
-          <div className="tarjeta-paso">
-            <span className="etiqueta-verde">Eje 03</span>
-            <h3 className="titulo-tarjeta flex-centro"><Users size={18} /> Autonomía y Evaluación Continua</h3>
-            <p className="texto-pasos">
-              Promover el autoaprendizaje guiado a través de módulos interactivos con diagnósticos y retroalimentación inmediata. Cada estudiante avanza según su ritmo, facilitando el seguimiento individual y grupal.
-            </p>
-          </div>
-
-          <div className="tarjeta-paso">
-            <span className="etiqueta-rosa">Eje 04</span>
-            <h3 className="titulo-tarjeta flex-centro"><Sparkles size={18} /> Articulación Escuela - Familia</h3>
-            <p className="texto-pasos">
-              Tender un puente pedagógico con los representantes mediante la Guía Familiar, asegurando coherencia entre las normas escolares y el uso doméstico de los dispositivos. Los padres manejan las mismas recomendaciones de protección digital.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. ESTRATEGIAS POR GRADO */}
-      <section id="estrategias-grado" className="tarjeta-pro seccion-espaciada">
-        <h2 className="titulo-seccion flex-centro">
-          <Layers size={28} /> Estrategias Didácticas por Año Escolar
-        </h2>
-        <p className="texto-descriptivo">
-          Seleccione el año de bachillerato para consultar orientaciones de clase, actividades prácticas y criterios de evaluación:
-        </p>
-
-        <div className="pestanas-grados-docente">
-          {ESTRATEGIAS_POR_GRADO.map((est, idx) => (
-            <button
-              key={idx}
-              type="button"
-              className={`btn-pestana-docente ${gradoSeleccionado === idx ? 'activa' : ''}`}
-              onClick={() => setGradoSeleccionado(idx)}
-            >
-              {est.grado}
-            </button>
-          ))}
-        </div>
-
-        <div className="tarjeta-aviso-premium alerta-azul mt-2">
-          <div className="cabecera-estrategia">
-            <span className="badge-grado-docente">{ESTRATEGIAS_POR_GRADO[gradoSeleccionado].grado}</span>
-            <h3 className="titulo-tarjeta">Módulo: {ESTRATEGIAS_POR_GRADO[gradoSeleccionado].moduloTema}</h3>
-          </div>
-
-          <div className="cuadricula-2-columnas mt-2">
-            <div className="tarjeta-paso">
-              <span className="etiqueta-verde">Objetivo Pedagógico</span>
-              <h4 className="flex-centro"><Sparkles size={18} /> Propósito Formativo</h4>
-              <p className="texto-pasos">{ESTRATEGIAS_POR_GRADO[gradoSeleccionado].objetivoPedagogico}</p>
-            </div>
-
-            <div className="tarjeta-paso">
-              <span className="etiqueta-rosa">Dinámica de Aula</span>
-              <h4 className="flex-centro"><Clock size={18} /> Actividad Práctica</h4>
-              <p className="texto-pasos">{ESTRATEGIAS_POR_GRADO[gradoSeleccionado].actividadSugerida}</p>
-            </div>
-          </div>
-
-          <div className="bloque-estrategia-evaluacion mt-2">
-            <h4 className="flex-centro"><CheckCircle2 size={18} /> Criterio de Evaluación:</h4>
-            <p className="texto-pasos">{ESTRATEGIAS_POR_GRADO[gradoSeleccionado].evaluacion}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. PROTOCOLO INSTITUCIONAL */}
-      <section id="protocolo-institucional" className="tarjeta-pro border-rojo seccion-espaciada">
-        <h2 className="titulo-seccion-roja flex-centro">
-          <AlertTriangle size={28} /> Protocolo Institucional de Atención Rápida
-        </h2>
-        <p className="texto-informativo-rojo">
-          Ruta de actuación obligatoria e inmediata ante incidentes cibernéticos detectados en la institución:
-        </p>
-
-        <div className="lista-protocolo">
-          <div className="paso-protocolo">
-            <span className="numero-critico">1</span>
-            <div>
-              <strong>Detección Temprana y Contención:</strong> Identificar el hecho (ciberbullying, filtración de claves, suplantación) sin juzgar al alumno afectado. Brindar seguridad emocional inmediata y garantizar un espacio libre de burlas.
-            </div>
-          </div>
-          <div className="paso-protocolo">
-            <span className="numero-critico">2</span>
-            <div>
-              <strong>Preservación de Evidencias:</strong> Instruir que bajo ningún concepto se borren mensajes o chats. Tomar capturas completas donde se aprecien números de teléfono, usuarios, enlaces, fecha y hora exactos.
-            </div>
-          </div>
-          <div className="paso-protocolo">
-            <span className="numero-critico">3</span>
-            <div>
-              <strong>Notificación a Instancias Directivas:</strong> Remitir el caso con máxima discreción al Departamento de Orientación y a la Coordinación Pedagógica para coordinar la citación de representantes y el acompañamiento psicosocial.
-            </div>
-          </div>
-          <div className="paso-protocolo">
-            <span className="numero-critico">4</span>
-            <div>
-              <strong>Intervención Didáctica Restaurativa:</strong> Desarrollar una sesión reflexiva con la sección estudiantil involucrada usando los módulos del proyecto, reforzando la empatía, el marco legal y las consecuencias éticas.
+      {/* SUB-BARRA DE NAVEGACIÓN POR SECCIONES */}
+      <div className="subnav-grados-editorial">
+        <div className="contenedor-editorial">
+          <div className="subnav-grados-inner">
+            <span className="subnav-titulo">Secciones</span>
+            <div className="subnav-pestanas">
+              {SECCIONES_NAV.map((s) => (
+                <button
+                  key={s.id}
+                  type="button"
+                  className={`subnav-pestana-item ${
+                    seccionActiva === s.id ? 'activa' : ''
+                  }`}
+                  onClick={() => scrollASeccion(s.id)}
+                >
+                  {s.label}
+                </button>
+              ))}
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* 4. MARCO JURÍDICO */}
-      <section id="marco-legal-docente" className="tarjeta-pro seccion-espaciada">
-        <h2 className="titulo-seccion flex-centro">
-          <Scale size={28} /> Marco Jurídico y Deberes Legales en Venezuela
-        </h2>
-        <p className="texto-descriptivo">
-          Fundamentos legales vigentes que regulan la responsabilidad y el amparo de niños, niñas y adolescentes en entornos escolares y digitales:
-        </p>
+      {/* CUERPO EDITORIAL */}
+      <div className="cuerpo-editorial-fondo">
+        <div className="contenedor-editorial">
+          <div className="cuerpo-editorial-layout">
+            <article className="articulo-editorial-principal">
+              {/* 01 — PROPÓSITO */}
+              <section id="proposito" className="seccion-editorial-articulo">
+                <span className="seccion-rotulo">01 — Propósito</span>
+                <h2 className="seccion-titulo-editorial">
+                  ¿Para qué sirve esta guía?
+                </h2>
 
-        <div className="cuadricula-2-columnas">
-          <div className="tarjeta-aviso-premium alerta-azul">
-            <h4><Gavel size={20} /> LOPNNA — Protección de la Privacidad</h4>
-            <p>
-              Garantiza el derecho de los menores a ser protegidos contra la difusión no autorizada de informaciones o imágenes que menoscaben su dignidad o privacidad. El personal docente tiene la obligación de intervenir ante cualquier divulgación que vulnere este principio.
-            </p>
-          </div>
-
-          <div className="tarjeta-aviso-premium alerta-naranja">
-            <h4><Lock size={20} /> Ley Especial contra Delitos Informáticos</h4>
-            <p>
-              Tipifica y castiga el acceso indebido a sistemas, la violación de privacidad de datos y la difusión indebida de imágenes íntimas. Los docentes deben instruir que los actos digitales conllevan consecuencias penales reales.
-            </p>
-          </div>
-
-          <div className="tarjeta-aviso-premium alerta-esmeralda">
-            <h4><ShieldCheck size={20} /> Deber de Confidencialidad</h4>
-            <p>
-              Todo docente que reciba una denuncia o evidencia de riesgo digital debe mantener estricta reserva, evitando reenviar el material o comentarlo en pasillos, entregándolo únicamente a las autoridades designadas del plantel.
-            </p>
-          </div>
-
-          <div className="tarjeta-aviso-premium alerta-ambar">
-            <h4><School size={20} /> Ley Orgánica de Educación (LOE)</h4>
-            <p>
-              Establece el deber del sistema educativo de formar en valores cívicos, uso responsable de las tecnologías de la información y construir un clima de paz y respeto en toda la comunidad escolar.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. PREGUNTAS FRECUENTES */}
-      <section id="faq-docentes" className="tarjeta-pro seccion-espaciada">
-        <h2 className="titulo-seccion flex-centro">
-          <HelpCircle size={28} /> Preguntas Frecuentes de Educadores
-        </h2>
-        <p className="texto-descriptivo">
-          Orientaciones para resolver las inquietudes más comunes al enseñar ciberseguridad escolar:
-        </p>
-
-        <div className="lista-faq-docentes">
-          {FAQ_DOCENTES.map((faq, idx) => (
-            <div
-              key={idx}
-              className={`item-faq-docente ${faqAbierta === idx ? 'activo' : ''}`}
-              onClick={() => toggleFaq(idx)}
-            >
-              <div className="pregunta-faq-docente">
-                <h4>{faq.pregunta}</h4>
-                <ChevronDown size={20} className="flecha-faq-docente" />
-              </div>
-              {faqAbierta === idx && (
-                <div className="respuesta-faq-docente">
-                  <p>{faq.respuesta}</p>
+                <div className="bloque-lede">
+                  <p>
+                    Esta guía no busca convertirte en experto en ciberseguridad.
+                    Busca darte tres cosas concretas: que tus estudiantes
+                    reconozcan un engaño digital antes de caer en él, que sepas
+                    cómo enseñarlo en clase sin salir del pensum, y que tengas
+                    un protocolo claro si un caso real aparece en tu salón.
+                  </p>
                 </div>
-              )}
-            </div>
-          ))}
+
+                <h3 className="subtitulo-editorial-medio">
+                  Qué lograrás con tus estudiantes
+                </h3>
+                <div className="bloque-objetivos">
+                  {OBJETIVOS_GUIA.map((obj, idx) => (
+                    <div key={idx} className="objetivo-card">
+                      <span className="objetivo-card-num">
+                        {String(idx + 1).padStart(2, '0')}
+                      </span>
+                      <h4 className="objetivo-card-titulo">{obj.titulo}</h4>
+                      <p className="objetivo-card-texto">{obj.texto}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* 02 — CÓMO USAR */}
+              <section id="como-usar" className="seccion-editorial-articulo">
+                <span className="seccion-rotulo">02 — Puesta en marcha</span>
+                <h2 className="seccion-titulo-editorial">
+                  Cómo usar esta guía en 4 pasos
+                </h2>
+                <p className="parrafo-editorial">
+                  No necesitas capacitación técnica previa. La guía está pensada
+                  para que cualquier docente pueda llevarla al aula desde la
+                  primera sesión.
+                </p>
+                <ol className="lista-protocolos-editorial">
+                  {PASOS_USO.map((paso, idx) => (
+                    <li key={idx} className="item-protocolo-editorial">
+                      <span className="protocolo-numero">{idx + 1}</span>
+                      <div className="protocolo-texto">
+                        <strong>{paso.titulo}.</strong> {paso.detalle}
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+
+              {/* 03 — ESTRATEGIAS POR AÑO */}
+              <section id="estrategias-grado" className="seccion-editorial-articulo">
+                <span className="seccion-rotulo">03 — Contenido por año</span>
+                <h2 className="seccion-titulo-editorial">
+                  Estrategia didáctica de tu año escolar
+                </h2>
+                <p className="parrafo-editorial">
+                  Selecciona el año que enseñas para ver el módulo asignado, la
+                  actividad práctica sugerida y el criterio de evaluación.
+                </p>
+
+                <div className="pestanas-grado-inline">
+                  {ESTRATEGIAS_POR_GRADO.map((est, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      className={`btn-grado-inline ${
+                        gradoSeleccionado === idx ? 'activa' : ''
+                      }`}
+                      onClick={() => setGradoSeleccionado(idx)}
+                    >
+                      {est.grado}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="tarjeta-estrategia-activa">
+                  <h3 className="subtitulo-editorial-medio" style={{ marginTop: 0 }}>
+                    {estrategiaActual.moduloTema}
+                  </h3>
+
+                  <div className="bloque-cita-editorial">
+                    <h4 className="bloque-cita-titulo">Objetivo pedagógico</h4>
+                    <p className="bloque-cita-texto">
+                      {estrategiaActual.objetivoPedagogico}
+                    </p>
+                  </div>
+
+                  <h4 className="subtitulo-editorial-medio">Actividad práctica</h4>
+                  <p className="parrafo-editorial">
+                    {estrategiaActual.actividadSugerida}
+                  </p>
+
+                  <h4 className="subtitulo-editorial-medio">
+                    Criterio de evaluación
+                  </h4>
+                  <p className="parrafo-editorial" style={{ marginBottom: 0 }}>
+                    {estrategiaActual.evaluacion}
+                  </p>
+                </div>
+              </section>
+
+              {/* 04 — PROTOCOLO */}
+              <section id="protocolo-institucional" className="seccion-editorial-articulo">
+                <span className="seccion-rotulo">04 — Si algo pasa</span>
+                <h2 className="seccion-titulo-editorial">
+                  Protocolo institucional ante un incidente real
+                </h2>
+                <p className="parrafo-editorial">
+                  Si detectas un caso de ciberacoso, filtración de claves o
+                  suplantación en tu salón, esta es la ruta obligatoria e
+                  inmediata. Aplica en todos los años escolares.
+                </p>
+                <ol className="lista-protocolos-editorial">
+                  {PROTOCOLO.map((paso, idx) => (
+                    <li key={idx} className="item-protocolo-editorial">
+                      <span className="protocolo-numero">{idx + 1}</span>
+                      <div className="protocolo-texto">
+                        <strong>{paso.titulo}:</strong> {paso.detalle}
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+
+              {/* 05 — MARCO LEGAL */}
+              <section id="marco-legal-docente" className="seccion-editorial-articulo">
+                <span className="seccion-rotulo">05 — Respaldo legal</span>
+                <h2 className="seccion-titulo-editorial">
+                  Marco jurídico que respalda tu actuación
+                </h2>
+                <p className="parrafo-editorial">
+                  Cuatro instrumentos legales vigentes en Venezuela que regulan
+                  la protección de menores, la responsabilidad docente y las
+                  consecuencias penales de los delitos digitales.
+                </p>
+                <div className="lista-glosario-editorial">
+                  {MARCO_LEGAL.map((item, idx) => (
+                    <div key={idx} className="termino-editorial-item">
+                      <div className="termino-editorial-encabezado">
+                        <span className="termino-editorial-nombre">
+                          {item.titulo}
+                        </span>
+                      </div>
+                      <p className="termino-editorial-def">{item.descripcion}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* 06 — FAQ */}
+              <section id="faq-docentes" className="seccion-editorial-articulo">
+                <span className="seccion-rotulo">06 — Consultas frecuentes</span>
+                <h2 className="seccion-titulo-editorial">
+                  Preguntas frecuentes de educadores
+                </h2>
+                <p className="parrafo-editorial">
+                  Las dudas más comunes al momento de implementar el manual en
+                  el aula.
+                </p>
+                <div className="lista-glosario-editorial">
+                  {FAQ_DOCENTES.map((faq, idx) => (
+                    <div key={idx} className="termino-editorial-item">
+                      <div className="termino-editorial-encabezado">
+                        <span className="termino-editorial-nombre">
+                          {faq.pregunta}
+                        </span>
+                      </div>
+                      <p className="termino-editorial-def">{faq.respuesta}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* CIERRE */}
+              <div className="caja-cierre-editorial">
+                <h3 className="cierre-editorial-titulo">
+                  La ciberseguridad se enseña con el ejemplo
+                </h3>
+                <p className="cierre-editorial-descripcion">
+                  Cada sesión que dediques a este tema no solo protege a tus
+                  estudiantes: multiplica el mensaje hacia sus familias y su
+                  comunidad. Coordina con la Guía Familiar para reforzar las
+                  mismas reglas en casa.
+                </p>
+                <div className="cierre-editorial-botones">
+                  <a
+                    href="/proyectos/ciberseguridad/guias/padres"
+                    className="boton-editorial-enlace1"
+                  >
+                    Ver Guía para Padres
+                  </a>
+                  <button
+                    type="button"
+                    className="boton-editorial-enlace1"
+                    onClick={() => scrollASeccion('estrategias-grado')}
+                  >
+                    Volver a mi estrategia
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            {/* FICHA TÉCNICA LATERAL */}
+            <aside className="aside-editorial-resumen">
+              <div className="card-resumen-editorial">
+                <h3 className="card-resumen-titulo">Ficha Técnica</h3>
+                <dl className="resumen-lista-definiciones">
+                  <div className="resumen-fila">
+                    <dt>Dirigido a</dt>
+                    <dd>Docentes de bachillerato</dd>
+                  </div>
+                  <div className="resumen-fila">
+                    <dt>Cobertura</dt>
+                    <dd>1er a 5to año</dd>
+                  </div>
+                  <div className="resumen-fila">
+                    <dt>Duración por sesión</dt>
+                    <dd>45 – 90 minutos</dd>
+                  </div>
+                  <div className="resumen-fila">
+                    <dt>Áreas vinculadas</dt>
+                    <dd>Informática · Orientación · Ciencias Sociales</dd>
+                  </div>
+                  <div className="resumen-fila">
+                    <dt>Marco normativo</dt>
+                    <dd>LOPNNA · LOE · Ley Delitos Informáticos</dd>
+                  </div>
+                </dl>
+               
+              </div>
+            </aside>
+          </div>
         </div>
-      </section>
+      </div>
     </main>
   );
 };
