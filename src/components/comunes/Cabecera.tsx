@@ -24,9 +24,7 @@ const Cabecera: React.FC = () => {
       <div className="cabecera-contenedor">
         {/* Identidad / Logo estilo Los Arcos */}
         <Link to="/" className="cabecera-logo" aria-label="Ir al inicio">
-          <div className="cabecera-escudo-caja">
-            <Shield size={24} className="cabecera-escudo-icono" />
-          </div>
+        
           <div className="cabecera-logo-texto">
             <span className="cabecera-titulo">C.E. Antonio Lemus Pérez</span>
           </div>
