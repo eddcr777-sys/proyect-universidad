@@ -60,9 +60,7 @@
 .texto-destacado-indices {
   font-size: 1.15rem;
   font-weight: 600;
-  color: var(--color-inst-azul, #0f2c59);
-  border-left: 4px solid var(--color-inst-rojo, #c8102e);
-  padding-left: 1.25rem;
+  color: #0f172a;
   margin: 0 0 1.25rem 0;
   line-height: 1.6;
 }
@@ -182,21 +180,21 @@
 /* Tarjeta individual del módulo */
 .seccion-modulo {
   background: #ffffff;
-  border: 1px solid var(--color-inst-borde, #e2e8f0);
-  border-left: 6px solid var(--color-inst-azul, #0f2c59);
-  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(15, 44, 89, 0.04);
-  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
 }
 
 .seccion-modulo:hover {
-  box-shadow: 0 8px 25px rgba(15, 44, 89, 0.09);
+  border-color: #059669;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
 }
 
 .seccion-modulo.modulo-abierto {
-  border-left-color: var(--color-inst-rojo, #c8102e);
-  box-shadow: 0 8px 25px rgba(15, 44, 89, 0.08);
+  border-color: #059669;
+  box-shadow: 0 8px 25px rgba(5, 150, 105, 0.08);
 }
 
 /* Botón cabecera siempre visible */
@@ -337,28 +335,20 @@
 .bloque-detalle,
 .bloque-importancia {
   background: #ffffff;
-  border: 1px solid var(--color-inst-borde, #e2e8f0);
-  border-radius: 12px;
-  padding: 1.35rem 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-}
-
-.bloque-detalle {
-  border-left: 5px solid var(--color-inst-azul, #0f2c59);
-}
-
-.bloque-importancia {
-  border-left: 5px solid var(--color-inst-rojo, #c8102e);
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.25rem 1.35rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 .bloque-titulo {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  font-size: 1.025rem;
-  font-weight: 800;
-  color: var(--color-inst-azul, #0f2c59);
-  margin-bottom: 0.6rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
 }
 
 .icono-bloque {
@@ -366,32 +356,31 @@
 }
 
 .icono-amarillo {
-  color: #f59e0b;
+  color: #059669;
 }
 
 .icono-rojo {
-  color: var(--color-inst-rojo, #c8102e);
+  color: #059669;
 }
 
 .icono-azul {
-  color: var(--color-inst-azul, #0f2c59);
+  color: #059669;
 }
 
 .bloque-detalle p,
 .bloque-importancia p {
-  font-size: 0.95rem;
-  color: var(--color-inst-texto-secundario, #4b5563);
+  font-size: 0.92rem;
+  color: #475569;
   margin: 0;
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 /* Bloque subtemas */
 .bloque-subtemas {
   background: #ffffff;
-  border: 1px solid var(--color-inst-borde, #e2e8f0);
-  border-left: 5px solid #047857;
-  border-radius: 12px;
-  padding: 1.35rem 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.25rem 1.35rem;
 }
 
 .lista-subtemas {
@@ -621,31 +610,33 @@
    5. SECCIÓN FINAL (CALL TO ACTION)
    ========================================================================== */
 .seccion-cta-final {
-  margin-top: 4rem;
+  margin-top: 3.5rem;
+  margin-bottom: 5rem;
 }
 
 .tarjeta-cta-indices {
-  background-color: var(--color-inst-azul);
-  border-radius: 20px;
-  padding: 3.5rem 2rem;
+  background-color: #1a1e24;
+  border-radius: 12px;
+  padding: 3rem 2rem;
   text-align: center;
 }
 
 .icono-cta {
-  color: var(--color-inst-blanco, #ffffff);
+  color: #10b981;
   margin-bottom: 1rem;
 }
 
 .tarjeta-cta-indices h2 {
-  font-size: 2rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
   font-weight: 800;
-  color: var(--color-inst-blanco, #ffffff);
+  color: #ffffff;
   margin: 0 0 0.85rem 0;
 }
 
 .tarjeta-cta-indices p {
-  font-size: 1.05rem;
-  color: var(--color-inst-blanco);
+  font-size: 1rem;
+  color: #cbd5e1;
   max-width: 620px;
   margin: 0 auto 1.75rem auto;
   line-height: 1.6;
@@ -655,19 +646,21 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: var(--color-inst-rojo, #0f2c59);
+  background-color: #059669;
   color: #ffffff;
   padding: 0.85rem 2rem;
-  border-radius: 8px;
+  border-radius: 9999px;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 1rem;
-
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  border: 1px solid #059669;
 }
 
 .boton-cta-indices:hover {
-  background-color: var(--color-inst-azul-hover, #081b3a);
-
+  background-color: #047857;
+  border-color: #047857;
+  transform: translateY(-1px);
 }
 
 /* ==========================================================================

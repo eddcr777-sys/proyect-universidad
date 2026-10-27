@@ -1,429 +1,557 @@
-.pagina-modulo-phishing-2do {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem 5rem 1.5rem;
-  font-family: system-ui, -apple-system, sans-serif;
-  color: #0f172a;
+/* ============================================================================
+   ESTILOS — Phishing2do.css (Laboratorio de Ciberseguridad 2do Año)
+   Paleta SOC/Threat Intelligence: terminal oscuro (#0A0E1A), superficie (#111827),
+   cian (#22D3EE), verde terminal (#00FF9C), alertas (#FF3B3B).
+   Enfoque: mobile-first unificado con tokens de espaciado.
+   Los breakpoints SOLO recalculan tokens; los selectores no se duplican.
+   ============================================================================ */
+
+/* ===== RESET SCOPED (defensivo) ===== */
+.pagina-modulo-phishing-2do,
+.pagina-modulo-phishing-2do *,
+.pagina-modulo-phishing-2do *::before,
+.pagina-modulo-phishing-2do *::after {
+  box-sizing: border-box;
 }
 
+/* ===== CONTENEDOR RAÍZ (define los tokens de toda la sección) ===== */
+.pagina-modulo-phishing-2do {
+  /* Escala base mobile — recalibrada por breakpoint */
+  --ciber-space-xs: 4px;
+  --ciber-space-sm: 8px;
+  --ciber-space-md: 16px;
+  --ciber-space-lg: 24px;
+  --ciber-space-xl: 32px;
+  --ciber-space-2xl: 48px;
+
+  /* Paddings contextuales reutilizables */
+  --pad-page: 16px;
+  --pad-card: 16px;
+
+  width: 100%;
+  max-width: 1140px;
+  margin-inline: auto;
+  padding-inline: var(--pad-page);
+  padding-block: var(--ciber-space-md) var(--ciber-space-2xl);
+  font-family: var(--ciber-font-ui, 'Outfit', sans-serif);
+  color: var(--ciber-text-primary, #0f2c59);
+  background-color: var(--ciber-bg-base, #ffffff);
+  min-height: 100vh;
+}
+
+/* Breakpoints: SOLO recalibran tokens */
+@media (min-width: 640px) {
+  .pagina-modulo-phishing-2do {
+    --ciber-space-lg: 28px;
+    --ciber-space-2xl: 56px;
+    --pad-page: 24px;
+    --pad-card: 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  .pagina-modulo-phishing-2do {
+    --ciber-space-lg: 32px;
+    --ciber-space-2xl: 64px;
+    --pad-page: 32px;
+    --pad-card: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pagina-modulo-phishing-2do {
+    --pad-page: 40px;
+    --pad-card: 32px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .pagina-modulo-phishing-2do {
+    --pad-page: 48px;
+  }
+}
+
+/* ===== CONTENEDOR DE CONTENIDO ===== */
 .contenedor-phishing-contenido {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: var(--ciber-space-lg);
 }
 
+/* ===== TARJETAS / BLOQUES ===== */
 .bloque-phishing-tarjeta {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 2.25rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  background-color: var(--ciber-bg-surface, #ffffff);
+  border: 1px solid var(--ciber-border-subtle, #d1e7dd);
+  border-radius: var(--ciber-radius-md, 16px);
+  padding: var(--pad-card);
+  box-shadow: 0 4px 16px rgba(5, 150, 105, 0.05);
 }
 
 .encabezado-bloque-phishing {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  gap: var(--ciber-space-sm);
+  margin-bottom: var(--ciber-space-md);
 }
 
 .encabezado-bloque-phishing h2 {
-  font-size: 1.5rem;
+  font-family: var(--ciber-font-ui, 'Outfit', sans-serif);
+  font-size: clamp(1.25rem, 2.5vw + 0.6rem, 1.55rem);
   font-weight: 800;
-  color: #0f172a;
+  color: var(--ciber-text-primary, #0f2c59);
   margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.icono-bloque-azul,
+.icono-bloque-verde {
+  color: var(--ciber-accent-green, #059669);
+  flex-shrink: 0;
 }
 
 .texto-lectura-phishing {
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.65;
-  color: #334155;
-  margin: 0 0 1.5rem 0;
+  color: var(--ciber-text-secondary, #334155);
+  margin: 0 0 var(--ciber-space-md) 0;
+}
+
+.texto-lectura-phishing strong {
+  color: var(--ciber-accent-green, #059669);
 }
 
 .subtitulo-bloque-phishing {
-  font-size: 1rem;
-  color: #64748b;
-  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--ciber-text-secondary, #334155);
+  margin-bottom: var(--ciber-space-md);
 }
 
-/* Grid señales */
+/* ===== GRID SEÑALES (auto-adaptativo) ===== */
 .grid-senales-phishing {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.25rem;
+  gap: var(--ciber-space-md);
 }
 
 .caja-senal-item {
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 1.5rem;
+  background-color: var(--ciber-bg-fondo, #f4fbf7);
+  border: 1px solid var(--ciber-border-subtle, #d1e7dd);
+  border-radius: var(--ciber-radius-md, 12px);
+  padding: var(--ciber-space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ciber-space-xs);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.icono-senal {
-  margin-bottom: 0.75rem;
+.caja-senal-item:hover {
+  border-color: var(--ciber-border-strong, #059669);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.08);
 }
-.icono-senal.rojo { color: #ef4444; }
-.icono-senal.azul { color: #2563eb; }
-.icono-senal.amarillo { color: #f59e0b; }
 
 .caja-senal-item h3 {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: #0f172a;
-  margin: 0 0 0.5rem 0;
+  font-family: var(--ciber-font-ui, 'Outfit', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ciber-text-primary, #0f2c59);
+  margin: 0;
 }
 
 .caja-senal-item p {
-  font-size: 0.925rem;
-  color: #475569;
+  font-size: 0.88rem;
+  color: var(--ciber-text-secondary, #334155);
   margin: 0;
   line-height: 1.5;
 }
 
-/* Laboratorio */
+.caja-senal-item code {
+  font-family: var(--ciber-font-mono, monospace);
+  color: var(--ciber-accent-green, #059669);
+  background-color: #f0fdf4;
+  border: 1px solid #d1e7dd;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.icono-senal { margin-bottom: var(--ciber-space-xs); }
+.icono-senal.rojo    { color: #dc2626; }
+.icono-senal.azul    { color: var(--ciber-accent-green, #059669); }
+.icono-senal.amarillo { color: #d97706; }
+
+/* ===== LABORATORIO DE SIMULADORES ===== */
 .lista-simuladores-phishing {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--ciber-space-md);
 }
 
 .tarjeta-mensaje-simulado {
-  background-color: #f8fafc;
-  border: 1px solid #cbd5e1;
-  border-radius: 14px;
-  padding: 1.5rem;
+  background-color: var(--ciber-bg-fondo, #f4fbf7);
+  border: 1px solid var(--ciber-border-subtle, #d1e7dd);
+  border-radius: var(--ciber-radius-md, 14px);
+  padding: var(--ciber-space-md);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--ciber-space-md);
 }
 
 .cabecera-mensaje-simulado {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  border-bottom: 1px solid #e2e8f0;
-  padding-bottom: 0.75rem;
-  min-width: 0;
+  justify-content: space-between;
+  gap: var(--ciber-space-sm);
+  border-bottom: 1px solid var(--ciber-border-subtle, #d1e7dd);
+  padding-bottom: var(--ciber-space-sm);
   flex-wrap: wrap;
 }
 
 .badge-canal {
-  background-color: #2563eb;
-  color: #ffffff;
-  font-size: 0.75rem;
-  font-weight: 800;
-  padding: 0.25rem 0.65rem;
-  border-radius: 20px;
+  background-color: #f0fdf4;
+  color: var(--ciber-accent-green, #059669);
+  border: 1px solid var(--ciber-border-subtle, #d1e7dd);
+  font-family: var(--ciber-font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--ciber-radius-sm, 6px);
   text-transform: uppercase;
 }
 
 .remitente-texto {
-  font-size: 0.875rem;
-  color: #475569;
-  font-weight: 600;
-  overflow-wrap: anywhere;
-  word-break: break-word;
-  max-width: 100%;
+  font-family: var(--ciber-font-mono, monospace);
+  font-size: 0.8rem;
+  color: var(--ciber-text-secondary, #334155);
+  word-break: break-all;
 }
 
 .cuerpo-mensaje-simulado h4 {
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: #0f172a;
-  margin: 0 0 0.5rem 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ciber-text-primary, #0f2c59);
+  margin: 0 0 var(--ciber-space-xs) 0;
 }
 
 .cuerpo-mensaje-simulado p {
-  font-size: 0.975rem;
-  color: #334155;
+  font-family: var(--ciber-font-mono, monospace);
+  font-size: 0.88rem;
+  color: var(--ciber-text-primary, #0f2c59);
   margin: 0;
-  background: #ffffff;
-  padding: 0.85rem;
-  border-radius: 8px;
-  border-left: 4px solid #3b82f6;
-  font-style: italic;
+  background-color: #ffffff;
+  padding: 12px 14px;
+  border-radius: var(--ciber-radius-sm, 8px);
+  border: 1px solid var(--ciber-border-subtle, #d1e7dd);
+  line-height: 1.5;
 }
 
+/* Acciones de decisión — auto-adaptativo (1 col móvil → 2 col tablet+) */
 .acciones-decision-phishing {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--ciber-space-sm);
 }
 
 .btn-decision {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  padding: 0.65rem 1.25rem;
-  border-radius: 10px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border-radius: var(--ciber-radius-sm, 8px);
+  font-family: var(--ciber-font-ui, 'Outfit', sans-serif);
   font-size: 0.9rem;
   font-weight: 700;
-  border: 1px solid #cbd5e1;
-  background-color: #ffffff;
   cursor: pointer;
   transition: all 0.2s ease;
+  border: 1px solid transparent;
+  width: 100%;
+}
+
+.btn-decision.seguro {
+  background-color: #f0fdf4;
+  color: var(--ciber-accent-green, #059669);
+  border-color: #a7f3d0;
 }
 
 .btn-decision.seguro:hover,
 .btn-decision.seguro.seleccionado {
-  background-color: #dcfce7;
-  border-color: #22c55e;
-  color: #15803d;
+  background-color: var(--ciber-accent-green, #059669);
+  color: #ffffff;
+}
+
+.btn-decision.phishing {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border-color: #fecaca;
 }
 
 .btn-decision.phishing:hover,
 .btn-decision.phishing.seleccionado {
-  background-color: #fee2e2;
-  border-color: #ef4444;
-  color: #b91c1c;
+  background-color: #dc2626;
+  color: #ffffff;
 }
 
 .feedback-decision {
-  padding: 1rem;
-  border-radius: 10px;
-  font-size: 0.925rem;
-  animation: fadeIn 0.3s ease-out;
+  padding: 12px 14px;
+  border-radius: var(--ciber-radius-sm, 6px);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  animation: fadeIn 0.25s ease-out;
 }
 
 .feedback-decision.acierto {
   background-color: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  color: #166534;
+  border: 1px solid #a7f3d0;
+  color: #059669;
 }
 
 .feedback-decision.fallo {
   background-color: #fef2f2;
   border: 1px solid #fecaca;
-  color: #991b1b;
+  color: #dc2626;
 }
 
 .flex-resultado {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.6rem;
 }
 
-.icono-acierto { color: #16a34a; flex-shrink: 0; }
-.icono-fallo { color: #dc2626; flex-shrink: 0; }
+.icono-acierto { color: var(--ciber-accent-green, #059669); flex-shrink: 0; margin-top: 2px; }
+.icono-fallo   { color: #dc2626; flex-shrink: 0; margin-top: 2px; }
 
-/* Checklist */
+/* ===== CHECKLIST DE SEÑALES ===== */
 .lista-senales-interactiva {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: var(--ciber-space-sm);
+  margin-bottom: var(--ciber-space-md);
 }
 
 .item-senal-check {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
-  background-color: #f8fafc;
-  border: 1px solid #cbd5e1;
-  padding: 1rem;
-  border-radius: 12px;
+  gap: var(--ciber-space-sm);
+  background-color: var(--ciber-bg-fondo, #f4fbf7);
+  border: 1px solid var(--ciber-border-subtle, #d1e7dd);
+  padding: 12px 14px;
+  border-radius: var(--ciber-radius-sm, 8px);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .item-senal-check:hover {
-  background-color: #f1f5f9;
-  border-color: #2563eb;
+  border-color: var(--ciber-accent-green, #059669);
 }
 
 .item-senal-check.activo {
-  background-color: #eff6ff;
-  border-color: #2563eb;
+  background-color: #f0fdf4;
+  border-color: var(--ciber-accent-green, #059669);
 }
 
 .checkbox-phishing {
-  margin-top: 0.2rem;
-  width: 1.25rem;
-  height: 1.25rem;
+  margin-top: 3px;
+  width: 1.15rem;
+  height: 1.15rem;
   cursor: pointer;
-  accent-color: #2563eb;
+  accent-color: var(--ciber-accent-green, #059669);
+  flex-shrink: 0;
 }
 
 .info-item-senal {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: var(--ciber-space-xs);
+  min-width: 0;
 }
 
 .categoria-badge-phishing {
   align-self: flex-start;
-  background-color: #ef4444;
-  color: #fff;
-  font-size: 0.7rem;
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  font-family: var(--ciber-font-mono, monospace);
+  font-size: 0.68rem;
   font-weight: 700;
-  padding: 0.2rem 0.5rem;
-  border-radius: 20px;
+  padding: 2px 6px;
+  border-radius: 4px;
   text-transform: uppercase;
 }
 
 .texto-senal {
-  font-size: 0.95rem;
-  color: #0f172a;
+  font-size: 0.92rem;
+  color: var(--ciber-text-primary, #0f2c59);
   font-weight: 600;
   margin: 0;
 }
 
 .ejemplo-senal {
-  font-size: 0.85rem;
-  color: #64748b;
+  font-size: 0.82rem;
+  color: var(--ciber-text-secondary, #334155);
+  line-height: 1.45;
 }
 
-/* Barra de progreso */
+/* ===== DIAGNÓSTICO ===== */
 .resultado-diagnostico-bar.phishing {
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
-  padding: 1.5rem;
-  border-radius: 12px;
+  background-color: var(--ciber-bg-fondo, #f4fbf7);
+  border: 1px solid var(--ciber-border-subtle, #d1e7dd);
+  padding: var(--ciber-space-md);
+  border-radius: var(--ciber-radius-md, 12px);
 }
 
 .info-porcentaje {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.75rem;
-  font-size: 0.95rem;
-  color: #0f172a;
+  gap: var(--ciber-space-sm);
+  margin-bottom: var(--ciber-space-sm);
+  font-family: var(--ciber-font-mono, monospace);
+  font-size: 0.88rem;
+  color: var(--ciber-text-primary, #0f2c59);
 }
 
 .barra-fondo-diagnostico.phishing {
   width: 100%;
-  height: 10px;
+  height: 8px;
   background-color: #e2e8f0;
-  border-radius: 10px;
+  border-radius: var(--ciber-radius-full, 9999px);
   overflow: hidden;
-  margin-bottom: 1rem;
+  margin-bottom: var(--ciber-space-md);
 }
 
 .barra-relleno-diagnostico.phishing {
   height: 100%;
-  background-color: #2563eb;
-  transition: width 0.5s ease-out;
+  background-color: var(--ciber-accent-green, #059669);
+  transition: width 0.4s ease-out;
 }
 
 .mensaje-resultado {
-  padding: 0.75rem;
-  border-radius: 10px;
-  font-size: 0.9rem;
+  padding: 10px 14px;
+  border-radius: var(--ciber-radius-sm, 8px);
+  font-size: 0.88rem;
   font-weight: 600;
   text-align: center;
 }
 
 .mensaje-resultado.excelente {
   background-color: #f0fdf4;
-  color: #166534;
-  border: 1px solid #bbf7d0;
+  color: #059669;
+  border: 1px solid #a7f3d0;
 }
 
 .mensaje-resultado.inicial {
-  background-color: #eff6ff;
-  color: #1e40af;
-  border: 1px solid #bfdbfe;
+  background-color: #f0fdf4;
+  color: #059669;
+  border: 1px solid #d1e7dd;
 }
 
-/* Quiz */
+/* ===== QUIZ ===== */
 .quiz-container.phishing {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: var(--ciber-space-md);
 }
 
 .pregunta-quiz.phishing {
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 1.25rem;
+  background-color: var(--ciber-bg-fondo, #f4fbf7);
+  border: 1px solid var(--ciber-border-subtle, #d1e7dd);
+  border-radius: var(--ciber-radius-md, 12px);
+  padding: var(--ciber-space-md);
 }
 
 .pregunta-titulo {
-  font-size: 1.1rem;
+  font-family: var(--ciber-font-ui, 'Outfit', sans-serif);
+  font-size: 1.05rem;
   font-weight: 700;
-  margin: 0 0 1rem 0;
-  color: #0f172a;
+  margin: 0 0 var(--ciber-space-md) 0;
+  color: var(--ciber-text-primary, #0f2c59);
+  line-height: 1.35;
 }
 
 .opciones-quiz-phishing {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--ciber-space-sm);
 }
 
 .opcion-quiz-btn {
   text-align: left;
   background-color: #ffffff;
-  border: 1px solid #cbd5e1;
-  padding: 0.8rem 1rem;
-  border-radius: 10px;
-  font-size: 0.95rem;
-  color: #1e293b;
+  border: 1px solid var(--ciber-border-subtle, #d1e7dd);
+  padding: 12px 14px;
+  border-radius: var(--ciber-radius-sm, 8px);
+  font-family: var(--ciber-font-ui, 'Outfit', sans-serif);
+  font-size: 0.92rem;
+  color: var(--ciber-text-primary, #0f2c59);
   cursor: pointer;
   transition: all 0.2s ease;
+  min-height: 44px;
+  width: 100%;
 }
 
 .opcion-quiz-btn:hover {
-  border-color: #2563eb;
-  background-color: #eff6ff;
+  border-color: var(--ciber-accent-green, #059669);
+  background-color: #f0fdf4;
 }
 
 .opcion-quiz-btn.seleccionada {
-  background-color: #eff6ff;
-  border-color: #2563eb;
-  font-weight: 600;
+  background-color: #f0fdf4;
+  border-color: var(--ciber-accent-green, #059669);
+  font-weight: 700;
 }
 
 .feedback-quiz-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-top: 0.75rem;
-  padding: 0.75rem;
-  border-radius: 10px;
-  font-size: 0.9rem;
+  margin-top: var(--ciber-space-sm);
+  padding: 10px 12px;
+  border-radius: var(--ciber-radius-sm, 6px);
+  font-size: 0.88rem;
 }
 
 .feedback-quiz-item.correcto {
   background-color: #f0fdf4;
-  color: #166534;
-  border: 1px solid #bbf7d0;
+  color: #059669;
+  border: 1px solid #a7f3d0;
 }
 
 .feedback-quiz-item.incorrecto {
   background-color: #fef2f2;
-  color: #991b1b;
+  color: #dc2626;
   border: 1px solid #fecaca;
 }
 
 .acciones-quiz {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: var(--ciber-space-md);
   flex-wrap: wrap;
 }
 
 .boton-enviar-quiz.phishing {
-  padding: 0.75rem 2rem;
-  background-color: #ef4444;
-  color: white;
+  padding: 12px 28px;
+  background-color: var(--ciber-accent-green, #059669);
+  color: #ffffff;
   border: none;
-  border-radius: 10px;
+  border-radius: var(--ciber-radius-sm, 8px);
+  font-family: var(--ciber-font-ui, 'Outfit', sans-serif);
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.95rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  min-height: 44px;
+  width: 100%;
+  max-width: 320px;
 }
 
 .boton-enviar-quiz.phishing:hover {
-  background-color: #dc2626;
+  background-color: #047857;
 }
 
 .boton-enviar-quiz.phishing:disabled {
-  opacity: 0.6;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
@@ -431,137 +559,28 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background-color: #f8fafc;
-  padding: 0.75rem 1.5rem;
-  border-radius: 10px;
-  font-size: 1rem;
-  font-weight: 600;
+  background-color: #ffffff;
+  border: 1px solid var(--ciber-border-subtle, #d1e7dd);
+  padding: 10px 18px;
+  border-radius: var(--ciber-radius-sm, 8px);
+  font-family: var(--ciber-font-mono, monospace);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ciber-text-primary, #0f2c59);
+  flex-wrap: wrap;
 }
 
-.icono-premio {
-  color: #f59e0b;
-}
+.icono-premio { color: #d97706; }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .bloque-phishing-tarjeta {
-    padding: 1.5rem;
-  }
-  .grid-senales-phishing {
-    grid-template-columns: 1fr;
-  }
-  .info-porcentaje {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-  .acciones-quiz {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-/* ══ Responsividad Móvil — Sin márgenes, ancho completo ══ */
-@media (max-width: 768px) {
-  /* Contenedor raíz: ocupa toda la pantalla, sin márgenes laterales */
-  [class^="pagina-modulo-"] {
-    max-width: 100%;
-    margin: 0;
-    padding: 1.25rem 0.75rem 3rem 0.75rem;
-  }
-
-  /* Tarjetas del módulo sin border-radius en móvil y padding reducido */
-  .bloque-phishing-tarjeta,
-  .bloque-proteccion-tarjeta,
-  .bloque-redes-tarjeta,
-  .bloque-software-tarjeta,
-  .bloque-videojuegos-tarjeta,
-  .bloque-auditoria-tarjeta {
-    padding: 1rem;
-    border-radius: 0 !important;
-  }
-
-  /* Grids → 1 columna */
-  .grid-senales-phishing,
-  .grid-senales-proteccion,
-  .grid-senales-redes,
-  .grid-senales-software,
-  .grid-senales-videojuegos,
-  .grid-senales-auditoria,
-  [class*="grid-senales-"],
-  [class*="grid-tarjetas-"],
-  [class*="cuadricula-"] {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Botones de decisión en columna */
-  .acciones-decision-phishing,
-  [class*="acciones-decision-"],
-  .acciones-quiz {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  /* Preguntas de quiz más compactas */
-  [class*="pregunta-quiz"] {
-    padding: 1rem;
-  }
-
-  /* Opciones de quiz a ancho completo */
-  [class*="opcion-quiz-btn"] {
-    width: 100%;
-  }
-}
-
+/* En pantallas muy pequeñas el botón del quiz ocupa todo el ancho */
 @media (max-width: 480px) {
-  [class^="pagina-modulo-"] {
-    padding: 1rem 0.5rem 2.5rem 0.5rem;
-  }
-
-  /* Encabezados de bloque más pequeños */
-  [class*="encabezado-bloque-"] h2 {
-    font-size: 1.2rem;
-  }
-
-  /* Texto de lectura más compacto */
-  [class*="texto-lectura-"] {
-    font-size: 0.97rem;
-    line-height: 1.6;
-  }
-
-  /* Cajas de señal menos espaciosas */
-  .caja-senal-item,
-  [class*="caja-senal-item"] {
-    padding: 1rem;
+  .boton-enviar-quiz.phishing {
+    max-width: none;
   }
 }
 
-
-/* ══ Tipografía de Alta Legibilidad para Contenidos de Módulos ══ */
-[class^="pagina-modulo-"] {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-  letter-spacing: -0.01em;
-  -webkit-font-smoothing: antialiased;
+/* ===== ANIMACIÓN ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-
-[class^="pagina-modulo-"] h1,
-[class^="pagina-modulo-"] h2,
-[class^="pagina-modulo-"] h3,
-[class^="pagina-modulo-"] h4,
-[class^="pagina-modulo-"] h5,
-[class^="pagina-modulo-"] h6 {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-  letter-spacing: -0.02em;
-}
-
-[class^="pagina-modulo-"] p,
-[class^="pagina-modulo-"] li,
-[class^="pagina-modulo-"] button,
-[class^="pagina-modulo-"] input {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-}
-

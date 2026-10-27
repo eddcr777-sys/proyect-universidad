@@ -1,120 +1,90 @@
-/* Estilos para el componente de explicación de dinámicas interactivas */
+/* ============================================================================
+   ESTILOS — CajaExplicacionDinamica.css
+   Instrucciones del Laboratorio con Estética de Ciberseguridad / SOC
+   Colores mates, borde cian, fondo de superficie y mobile-first
+   ============================================================================ */
+
 .caja-explicacion-dinamica {
-  background: linear-gradient(135deg, rgba(240, 249, 255, 0.95), rgba(224, 242, 254, 0.9));
-  border: 1px solid rgba(14, 165, 233, 0.3);
-  border-left: 5px solid #0284c7;
-  border-radius: 12px;
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 1.75rem;
-  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: var(--ciber-bg-fondo, #f4fbf7);
+  border: 1px solid var(--ciber-border-subtle, #d1e7dd);
+  border-radius: var(--ciber-radius-md, 16px);
+  padding: var(--ciber-space-md, 18px);
+  margin-bottom: var(--ciber-space-lg, 24px);
+  box-shadow: 0 4px 16px rgba(5, 150, 105, 0.05);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .caja-explicacion-dinamica:hover {
-  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.12);
+  border-color: var(--ciber-border-strong, #059669);
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.1);
 }
 
 .cabecera-explicacion-dinamica {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid rgba(14, 165, 233, 0.15);
-  padding-bottom: 0.5rem;
+  gap: var(--ciber-space-sm, 8px);
+  margin-bottom: var(--ciber-space-md, 16px);
+  border-bottom: 1px solid var(--ciber-border-subtle, #d1e7dd);
+  padding-bottom: var(--ciber-space-sm, 10px);
 }
 
 .icono-brujula-dinamica {
-  color: #0284c7;
+  color: var(--ciber-accent-green, #059669);
   flex-shrink: 0;
 }
 
 .cabecera-explicacion-dinamica h3 {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
-  font-size: 1.1rem;
+  font-family: var(--ciber-font-ui, 'Outfit', sans-serif) !important;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--ciber-text-primary, #0f2c59);
   margin: 0;
+  letter-spacing: -0.2px;
 }
 
 .grid-bloques-dinamica {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
+  grid-template-columns: 1fr;
+  gap: var(--ciber-space-sm, 12px);
 }
 
 .bloque-item-dinamica {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 0.85rem 1rem;
+  background-color: #ffffff;
+  border: 1px solid var(--ciber-border-subtle, #d1e7dd);
+  border-radius: var(--ciber-radius-sm, 10px);
+  padding: 14px 16px;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: var(--ciber-space-xs, 4px);
 }
 
 .encabezado-item-dinamica {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  color: #0369a1;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
-  font-size: 0.92rem;
-}
-
-.icono-item-dinamica {
-  color: #0284c7;
-  flex-shrink: 0;
+  gap: var(--ciber-space-xs, 4px);
+  color: var(--ciber-accent-green, #059669);
+  font-family: var(--ciber-font-ui, 'Outfit', sans-serif) !important;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
 }
 
 .bloque-item-dinamica p {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
-  font-size: 0.88rem;
-  line-height: 1.45;
-  color: #334155;
   margin: 0;
-}
-
-@media (max-width: 768px) {
-  .caja-explicacion-dinamica {
-    padding: 1rem;
-  }
-
-  .grid-bloques-dinamica {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Lista de pasos numerados en el bloque ¿Cómo participar? */
-.pasos-interaccion {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-}
-
-.pasos-interaccion li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.65rem;
-  font-size: 0.88rem;
-  color: #334155;
+  font-size: 0.9rem;
+  color: var(--ciber-text-secondary, #334155);
   line-height: 1.5;
 }
 
-.num-paso {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  min-width: 22px;
-  background-color: #0284c7;
-  color: #ffffff;
-  font-size: 0.75rem;
-  font-weight: 800;
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-top: 1px;
+/* Tablet y Desktop */
+@media (min-width: 768px) {
+  .caja-explicacion-dinamica {
+    padding: var(--ciber-space-lg, 24px);
+  }
+
+  .grid-bloques-dinamica {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--ciber-space-md, 16px);
+  }
 }

@@ -167,30 +167,15 @@ const LandingModulos: React.FC = () => {
               </button>
 
               {!gradoSeleccionado && (
-                <div style={{ marginTop: '1.5rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
+                <div className="landing-atajo-contenedor">
                   <p className="landing-hint-seleccion">
-                    ↑ Selecciona una tarjeta arriba para activar el botón
+                    Selecciona una tarjeta arriba para activar el botón
                   </p>
-                  <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.85rem' }}>o si lo prefieres</span>
+                  <span className="landing-separador-texto">o si lo prefieres</span>
                   <button
                     type="button"
                     onClick={() => navigate('/proyectos/ciberseguridad/grado/1ro')}
-                    style={{
-                      background: 'rgba(255,255,255,0.05)',
-                      border: '1px solid rgba(255,255,255,0.2)',
-                      color: '#fff',
-                      padding: '10px 24px',
-                      borderRadius: '30px',
-                      cursor: 'pointer',
-                      fontSize: '0.9rem',
-                      fontWeight: 600,
-                      transition: 'all 0.3s ease',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '8px'
-                    }}
-                    onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.15)'}
-                    onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.05)'}
+                    className="landing-btn-ruta-completa"
                   >
                     Comenzar Ruta Completa (1ro a 5to) <ArrowRight size={16} />
                   </button>

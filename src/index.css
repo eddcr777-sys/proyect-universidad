@@ -64,15 +64,60 @@ body {
   --color-inst-tarjeta: #FFFFFF;
   --color-inst-borde: #E2E8F0;
 
-  --color-ciber-primario: #1D4ED8;
-  --color-ciber-primario-hover: #1E3A8A;
-  --color-ciber-secundario: #047857;
-  --color-ciber-alerta: #B91C1C;
-  --color-ciber-fondo: #F8FAFC;
-  --color-ciber-tarjeta: #FFFFFF;
-  --color-ciber-texto: #1E293B;
-  --color-ciber-borde: #CBD5E1;
-  --color-ciber-resplandor: transparent;
+  /* Tokens de Ciberseguridad (Paleta Clara, Verdes Mates, Alto Contraste) */
+  --ciber-bg-base: #FFFFFF;
+  --ciber-bg-fondo: #F4FBF7;
+  --ciber-bg-surface: #FFFFFF;
+  --ciber-bg-surface-elevated: #F0FDF4;
+  --ciber-bg-subtle: #E6F4EA;
+
+  --ciber-border-subtle: #D1E7DD;
+  --ciber-border-strong: #A7F3D0;
+  --ciber-border-green: #059669;
+  --ciber-border-amber: #D97706;
+  --ciber-border-red: #DC2626;
+
+  --ciber-accent-green: #0e502c;
+  --ciber-accent-green-hover: #047857;
+  --ciber-accent-mint: #07654c;
+  --ciber-accent-blue: #0F2C59;
+  --ciber-accent-amber: #D97706;
+  --ciber-accent-red: #8B1E2F;
+
+  --ciber-glow-green: 0 4px 14px rgba(5, 150, 105, 0.25);
+  --ciber-glow-subtle: 0 4px 20px rgba(15, 44, 89, 0.06);
+
+  --ciber-text-primary: #0F172A;
+  --ciber-text-titles: #0F2C59;
+  --ciber-text-secondary: #475569;
+  --ciber-text-muted: #64748B;
+  --ciber-text-inverse: #FFFFFF;
+
+  --ciber-font-ui: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  --ciber-font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+
+  --ciber-radius-sm: 8px;
+  --ciber-radius-md: 14px;
+  --ciber-radius-lg: 24px;
+  --ciber-radius-full: 9999px;
+
+  --ciber-space-xs: 4px;
+  --ciber-space-sm: 8px;
+  --ciber-space-md: 16px;
+  --ciber-space-lg: 24px;
+  --ciber-space-xl: 36px;
+  --ciber-space-2xl: 56px;
+
+  /* Mapeo de compatibilidad */
+  --color-ciber-primario: var(--ciber-accent-green);
+  --color-ciber-primario-hover: var(--ciber-accent-green-hover);
+  --color-ciber-secundario: #135c47;
+  --color-ciber-alerta: var(--ciber-accent-red);
+  --color-ciber-fondo: var(--ciber-bg-fondo);
+  --color-ciber-tarjeta: var(--ciber-bg-surface);
+  --color-ciber-texto: var(--ciber-text-primary);
+  --color-ciber-borde: var(--ciber-border-subtle);
+  --color-ciber-resplandor: var(--ciber-glow-green);
   /* --------------------------------------------------------------------------
    * 4. ALIAS DE COMPATIBILIDAD CON EL CÓDIGO EXISTENTE (MODO CLARO)
    * -------------------------------------------------------------------------- */

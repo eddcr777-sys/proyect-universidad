@@ -1,271 +1,205 @@
-/* ===== VARIABLES ===== */
-:root {
-  --azul-oscuro: #0F2C59;
-  --azul-medio: #1E3A6E;
-  --azul-suave: #E8EFF9;
-  --rojo: #CF142B;
-  --amarillo: #FFCC00;
-  --blanco: #FFFFFF;
-  --gris-fondo: #F5F7FA;
-  --gris-claro: #EDF1F5;
-  --texto-principal: #1A1A2E;
-  --texto-secundario: #5A6A7E;
-  --borde: #D9E2EC;
+/* ============================================================================
+   ESTILOS — Justificacion.css (Justificación del Proyecto de Ciberseguridad)
+   Inspiración: Fortinet Threat Intelligence / Cloudflare Enterprise
+   Paleta: Blanco #ffffff, fondo sutil #f8fafc, bordes 1px #e2e8f0, acento #059669
+   ============================================================================ */
+
+/* ===== RESET SCOPED ===== */
+.justificacion-pagina,
+.justificacion-pagina *,
+.justificacion-pagina *::before,
+.justificacion-pagina *::after {
+  box-sizing: border-box;
 }
 
-/* ===== BASE ===== */
 .justificacion-pagina {
   width: 100%;
-  color: var(--texto-principal);
-  background-color: var(--blanco);
-  font-family: var(--fuente-ciber-cuerpo);
+  color: #0f172a;
+  background-color: #ffffff;
+  font-family: var(--fuente-ciber-cuerpo, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
+  overflow-x: hidden;
 }
 
+/* ===== CONTENEDOR ===== */
 .contenedor {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
-/* ===== HERO ===== */
-.hero {
-  background-color: var(--azul-oscuro);
-  color: var(--blanco);
-  padding: 60px 0;
-}
-
-.hero-contenido {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.hero-insignia {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background-color: rgba(255,255,255,0.12);
-  padding: 6px 16px;
-  border-radius: 30px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-.hero-titulo {
-  font-size: 2.8rem;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 20px;
-}
-
-.texto-azul {
-  color: var(--amarillo);
-}
-
-.hero-descripcion {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 30px;
-}
-
-.hero-botones {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-}
-
-.boton-primario {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background-color: var(--blanco);
-  color: var(--azul-oscuro);
-  padding: 12px 28px;
-  border-radius: 6px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-}
-
-.boton-primario:hover {
-  background-color: var(--gris-claro);
-}
-
-.boton-secundario {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background-color: transparent;
-  color: var(--blanco);
-  padding: 12px 24px;
-  border: 1px solid rgba(255,255,255,0.4);
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.boton-secundario:hover {
-  background-color: rgba(255,255,255,0.1);
-}
-
-.hero-datos {
-  display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.hero-datos span {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.8);
-}
-
-.hero-imagen {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-}
-
-.hero-imagen img {
   width: 100%;
-  height: auto;
-  display: block;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 40px);
+  box-sizing: border-box;
 }
 
-/* ===== JUSTIFICACIÓN (PILARES) ===== */
+/* ===== PILARES DE JUSTIFICACIÓN ===== */
 .seccion-justificacion {
-  background-color: var(--gris-fondo);
+  background-color: #ffffff;
   padding: 80px 0;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .encabezado-seccion {
   text-align: center;
-  max-width: 700px;
-  margin: 0 auto 50px;
+  max-width: 720px;
+  margin: 0 auto 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
 }
 
 .encabezado-seccion h2 {
-  font-size: 2.2rem;
-  color: var(--texto-principal);
-  margin-bottom: 10px;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.02em;
 }
 
 .encabezado-seccion p {
-  color: var(--texto-secundario);
-  font-size: 1.05rem;
+  color: #64748b;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
 }
 
 .grid-pilares {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .grid-pilares {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .pilar-ancho {
+    grid-column: span 2;
+  }
 }
 
 .pilar-card {
-  background-color: var(--blanco);
-  border: 1px solid var(--borde);
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 10px;
-  padding: 30px;
+  padding: 32px 28px;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.pilar-card:hover {
+  border-color: #059669;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
 }
 
 .pilar-card h3 {
-  font-size: 1.3rem;
-  color: var(--azul-oscuro);
-  margin-bottom: 12px;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 12px;
+  line-height: 1.3;
 }
 
 .pilar-card p {
-  color: var(--texto-secundario);
+  color: #475569;
   font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.pilar-ancho {
-  grid-column: span 2;
+  line-height: 1.65;
+  margin: 0;
 }
 
 .icono-pilar {
-  color: var(--azul-oscuro);
+  color: #059669;
   margin-bottom: 16px;
 }
 
 .lista-beneficios {
   list-style: none;
   padding: 0;
-  margin-top: 16px;
+  margin: 1.25rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .lista-beneficios li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
-  margin-bottom: 8px;
-  color: var(--texto-secundario);
-  font-size: 0.95rem;
+  color: #334155;
+  font-size: 0.92rem;
+  line-height: 1.5;
 }
 
 .lista-beneficios svg {
-  color: var(--amarillo);
+  color: #059669;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 /* ===== VALORES ===== */
 .seccion-valores {
-  background-color: var(--blanco);
+  background-color: #f8fafc;
   padding: 80px 0;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .etiqueta-seccion {
-  font-size: 0.8rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.75rem;
   font-weight: 700;
-  color: var(--azul-oscuro);
+  color: #059669;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.08em;
   display: inline-block;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 }
 
 .grid-valores {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
 }
 
 .tarjeta-valor {
-  background-color: var(--gris-fondo);
-  border: 1px solid var(--borde);
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 10px;
-  padding: 28px;
+  padding: 30px 22px;
   text-align: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.tarjeta-valor:hover {
+  border-color: #94a3b8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 }
 
 .tarjeta-valor h3 {
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
   font-size: 1.1rem;
-  color: var(--azul-oscuro);
-  margin: 12px 0 8px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 14px 0 8px;
 }
 
 .tarjeta-valor p {
   font-size: 0.9rem;
-  color: var(--texto-secundario);
-  line-height: 1.5;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0;
 }
 
 .icono-valor {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background-color: var(--azul-suave);
-  color: var(--azul-oscuro);
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #059669;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -274,346 +208,303 @@
 
 /* ===== CTA MÓDULOS ===== */
 .seccion-cta {
-  background-color: var(--azul-oscuro);
-  padding: 60px 0;
+  background-color: #1a1e24;
+  padding: 70px 0;
+  color: #ffffff;
 }
 
 .cta-inner {
   text-align: center;
-  color: var(--blanco);
+  max-width: 680px;
+  margin: 0 auto;
 }
 
 .icono-cta {
-  color: var(--amarillo);
-  margin-bottom: 16px;
+  color: #10b981;
+  margin-bottom: 14px;
 }
 
 .cta-inner h2 {
-  font-size: 2rem;
-  margin-bottom: 12px;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 12px;
+  line-height: 1.2;
 }
 
 .cta-inner p {
-  color: rgba(255,255,255,0.85);
+  color: #cbd5e1;
   font-size: 1rem;
-  margin-bottom: 24px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
+  line-height: 1.6;
+  margin: 0 auto 24px;
 }
 
 .cta-inner .boton-primario {
-  background-color: var(--amarillo);
-  color: var(--azul-oscuro);
+  background-color: #059669;
+  color: #ffffff;
+  border: 1px solid #059669;
+  border-radius: 9999px;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-weight: 600;
+  padding: 11px 26px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.cta-inner .boton-primario:hover {
+  background-color: #047857;
+  border-color: #047857;
+  transform: translateY(-1px);
 }
 
 /* ===== FILOSOFÍA ===== */
 .seccion-filosofia {
-  background-color: var(--gris-fondo);
+  background-color: #ffffff;
   padding: 80px 0;
   text-align: center;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .filosofia-contenido {
-  max-width: 700px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
 .filosofia-contenido h2 {
-  font-size: 2.2rem;
-  margin-bottom: 24px;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 20px;
+  line-height: 1.2;
 }
 
 .filosofia-contenido blockquote {
-  font-size: 1.4rem;
+  font-size: clamp(1.05rem, 1.2vw, 1.25rem);
   font-style: italic;
-  color: var(--azul-oscuro);
-  border-left: 4px solid var(--amarillo);
+  color: #1e293b;
+  border-left: 3px solid #059669;
   padding-left: 20px;
   margin: 24px 0;
   text-align: left;
+  line-height: 1.6;
 }
 
 .filosofia-contenido p {
-  color: var(--texto-secundario);
-  font-size: 1rem;
+  color: #475569;
+  font-size: 0.98rem;
   line-height: 1.7;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
-
-
 
 /* ===== FAQ ===== */
 .seccion-faq {
-  background-color: var(--blanco);
-  padding: 80px 0;
+  background-color: #f8fafc;
+  padding: 80px 0 100px 0;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .grid-faq {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1fr;
+  gap: 36px;
+}
+
+@media (min-width: 768px) {
+  .grid-faq {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
 }
 
 .caja-contexto {
-  background-color: var(--gris-fondo);
-  border: 1px solid var(--borde);
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 10px;
   padding: 24px;
   margin-bottom: 20px;
 }
 
 .caja-contexto h3 {
-  font-size: 1.2rem;
-  color: var(--azul-oscuro);
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
   margin: 12px 0 8px;
 }
 
 .caja-contexto p {
   font-size: 0.9rem;
-  color: var(--texto-secundario);
+  color: #475569;
   line-height: 1.6;
+  margin: 0;
 }
 
 .icono-contexto {
-  color: var(--azul-oscuro);
+  color: #059669;
 }
 
 .encabezado-faq {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .encabezado-faq h3 {
-  font-size: 1.4rem;
-  color: var(--texto-principal);
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
 }
 
 .icono-faq {
-  color: var(--azul-oscuro);
+  color: #059669;
+  flex-shrink: 0;
 }
 
 .item-faq {
-  border: 1px solid var(--borde);
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
+  background-color: #ffffff;
   padding: 16px 20px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .item-faq.activo {
-  border-color: var(--azul-oscuro);
-  background-color: var(--azul-suave);
+  border-color: #059669;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.08);
 }
 
 .pregunta-faq {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
 }
 
 .pregunta-faq h4 {
-  font-size: 1rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.95rem;
   font-weight: 600;
+  color: #0f172a;
   margin: 0;
 }
 
 .icono-flecha {
-  color: var(--texto-secundario);
+  color: #64748b;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
 }
 
 .item-faq.activo .icono-flecha {
   transform: rotate(180deg);
-  color: var(--azul-oscuro);
+  color: #059669;
 }
 
 .respuesta-faq {
   margin-top: 12px;
   padding-top: 12px;
-  border-top: 1px solid var(--borde);
+  border-top: 1px solid #f1f5f9;
 }
 
 .respuesta-faq p {
   font-size: 0.9rem;
-  color: var(--texto-secundario);
-  line-height: 1.5;
+  color: #475569;
+  line-height: 1.6;
   margin: 0;
 }
 
-/* ===== CTA FINAL ===== */
-.seccion-cta-final {
-  background-color: var(--gris-fondo);
-  padding: 80px 0;
+/* ===== CTA FINAL Y SEPARACIÓN GENEROSA CON EL FOOTER ===== */
+.justificacion-pagina .seccion-cta-final {
+  background-color: #1a1e24;
+  padding: 50px 0;
   text-align: center;
+  margin-bottom: 60px;
 }
 
-.seccion-cta-final h2 {
-  font-size: 2.2rem;
-  margin-bottom: 12px;
-  color: var(--blanco);
+.justificacion-pagina .seccion-cta-final h2 {
+  color: #ffffff;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  margin: 0 0 8px;
 }
 
-.seccion-cta-final p {
-  color: var(--texto-secundario);
-  margin-bottom: 32px;
+.justificacion-pagina .seccion-cta-final p {
+  color: #cbd5e1;
+  margin: 0 auto 20px;
+  font-size: 0.95rem;
+  max-width: 480px;
+  line-height: 1.5;
 }
 
-.boton-cta {
+.justificacion-pagina .seccion-cta-final .boton-cta {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  background-color: var(--azul-oscuro);
-  color: white;
-  border: none;
-  padding: 16px 40px;
-  border-radius: 6px;
-  font-size: 1.1rem;
-  font-weight: 700;
+  justify-content: center;
+  gap: 8px;
+  background-color: #059669;
+  color: #ffffff;
+  border: 1px solid #059669;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  font-size: 0.92rem;
+  font-weight: 600;
   cursor: pointer;
+  min-height: 40px;
+  transition: all 0.2s ease;
 }
 
-.boton-cta:hover {
-  background-color: var(--azul-medio);
+.justificacion-pagina .seccion-cta-final .boton-cta:hover {
+  background-color: #047857;
+  border-color: #047857;
+  transform: translateY(-1px);
 }
 
-.cta-enlaces {
-  margin-top: 24px;
+.justificacion-pagina .seccion-cta-final .cta-enlaces {
+  margin-top: 20px;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 18px;
   flex-wrap: wrap;
 }
 
-.cta-enlaces a {
-  color: var(--texto-secundario);
+.justificacion-pagina .seccion-cta-final .cta-enlaces a {
+  color: #94a3b8;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  transition: color 0.2s ease;
 }
 
-.cta-enlaces a:hover {
-  color: var(--azul-oscuro);
-  text-decoration: underline;
+.justificacion-pagina .seccion-cta-final .cta-enlaces a:hover {
+  color: #ffffff;
 }
 
-.scroll-top {
+.justificacion-pagina .seccion-cta-final .scroll-top {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-top: 30px;
-  padding: 8px 20px;
-  background-color: white;
-  border: 1px solid var(--borde);
-  border-radius: 30px;
-  color: var(--azul-oscuro);
-  font-weight: 600;
-  font-size: 0.9rem;
+  margin-top: 20px;
+  padding: 6px 16px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  color: #cbd5e1;
+  font-size: 0.82rem;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 1024px) {
-  .hero-contenido {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .hero-botones {
-    justify-content: center;
-  }
-  .hero-datos {
-    justify-content: center;
-  }
-  .grid-pilares {
-    grid-template-columns: 1fr;
-  }
-  .pilar-ancho {
-    grid-column: auto;
-  }
-  .grid-faq {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-}
-
-@media (max-width: 768px) {
-  .contenedor,
-  .hero-contenido {
-    padding: 0 0.5rem;
-    width: 100%;
-  }
-
-  .seccion-justificacion,
-  .seccion-valores,
-  .seccion-cta,
-  .seccion-filosofia,
-  .seccion-faq,
-  .seccion-cta-final {
-    padding: 2rem 0;
-  }
-
-  .hero-titulo {
-    font-size: 1.7rem;
-  }
-
-  .encabezado-seccion h2,
-  .cta-inner h2,
-  .filosofia-contenido h2,
-  .seccion-cta-final h2 {
-    font-size: 1.4rem;
-  }
-
-  .grid-valores {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .pilar-card {
-    padding: 1rem 0.75rem;
-  }
-
-  .tarjeta-valor {
-    padding: 1rem 0.75rem;
-  }
-
-  .boton-cta {
-    width: 100%;
-    box-sizing: border-box;
-    justify-content: center;
-    font-size: 0.95rem;
-    padding: 12px 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .contenedor {
-    padding: 0 0.5rem;
-  }
-
-  .hero-botones {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .boton-primario,
-  .boton-secundario {
-    width: 100%;
-    justify-content: center;
-    box-sizing: border-box;
-  }
-
-  .filosofia-contenido blockquote {
-    font-size: 1rem;
-    padding-left: 10px;
-    margin: 14px 0;
-  }
-
-  .filosofia-badges {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .filosofia-badges span {
-    justify-content: center;
-  }
+.justificacion-pagina .seccion-cta-final .scroll-top:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }

@@ -1,18 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { 
-  ShieldCheck, 
-  Lightbulb, 
-  Target, 
-  CheckCircle, 
-  Play, 
-  ArrowLeft, 
-  ListOrdered,
-  BookOpenCheck,
-  BookMarked,
-  AlertTriangle,
-  Award
-} from 'lucide-react';
 import type { ContextoModuloExtendido } from '../../../../data/glosarioModulos';
 import Boton from '../../Botones/Boton';
 import './DescripModuls.css';
@@ -32,23 +18,16 @@ export interface ModuloInfoBasica {
 }
 
 export interface DescripcionModuloProps {
-  // Datos
   moduloInfo: ModuloInfoBasica;
   contenidoGrado: ContenidoGradoInfo;
   contextoExtendido?: ContextoModuloExtendido;
   gradoActual: string;
   nombreGradoLegible: string;
   gradosDisponibles?: string[];
-  
-  // Colores dinámicos para CSS Variables
   colorPrimario?: string;
   colorSecundario?: string;
-  
-  // Rutas
   rutaInicio?: string;
   rutaPresentacion?: string;
-
-  // Acciones
   onCambiarGrado: (nuevoGrado: string) => void;
   onIniciarModulo: () => void;
   onVolver: () => void;
@@ -61,243 +40,269 @@ export const DescripcionModuloUI: React.FC<DescripcionModuloProps> = ({
   gradoActual,
   nombreGradoLegible,
   gradosDisponibles = ['1ro', '2do', '3ro', '4to', '5to'],
-  colorPrimario = '#0284c7',     // Azul Ciberseguridad
-  colorSecundario = '#0369a1',   // Azul Oscuro
-  rutaInicio = '/',
-  rutaPresentacion = `/modulos/grado/${gradoActual}`,
   onCambiarGrado,
   onIniciarModulo,
   onVolver,
 }) => {
-
-  const estilosTematica = {
-    '--color-primario': colorPrimario,
-    '--color-secundario': colorSecundario,
-  } as React.CSSProperties;
-
   return (
-    <div className="descripcion-modulo-contenedor" style={estilosTematica}>
+    <div className="portal-modulo-editorial">
 
-      <header className="banner-descripcion-modulo">
-        <div className="contenedor-descripcion-modulo">
+      {/* ====================================================================
+          1. HEADER CORPORATIVO (ESTILO FORTINET THREAT INTELLIGENCE)
+          ==================================================================== */}
+      <section className="hero-editorial-ciber">
+        <div className="contenedor-editorial">
           
-        
-
-          <div className="bloque-cabecera-modulo">
-         
-
-            <div className="titulos-cabecera-modulo">
-             
-              <h1 className="titulo-principal-modulo">{moduloInfo.titulo}</h1>
-            </div>
+          <div className="hero-editorial-meta">
+            <span className="categoria-ticker">DOCUMENTO TÉCNICO DE SEGURIDAD</span>
+            <span className="separador-ticker">/</span>
+            <span className="categoria-ticker">{nombreGradoLegible}</span>
           </div>
 
-          <div className="caja-mensaje-bienvenida">
-            <div className="texto-bienvenida-contenedor">
-              <span className="subtitulo-bienvenida">Mensaje de Bienvenida ({nombreGradoLegible})</span>
-              <p className="texto-mensaje-bienvenida">
-                {contenidoGrado.mensajeBienvenida}
-              </p>
-            </div>
+          <h1 className="hero-editorial-titulo">
+            {moduloInfo.titulo}
+          </h1>
+
+          <p className="hero-editorial-bajada">
+            {contenidoGrado.mensajeBienvenida}
+          </p>
+
+          <div className="hero-editorial-acciones">
+            <button
+              type="button"
+              className="boton-editorial-primario"
+              onClick={onIniciarModulo}
+            >
+              Iniciar Módulo Práctico ({gradoActual} Año)
+            </button>
+            <button
+              type="button"
+              className="boton-editorial-enlace"
+              onClick={onVolver}
+            >
+              Volver al catálogo de módulos
+            </button>
           </div>
 
-          {/* Selector de Grados */}
-          <div className="selector-grados-descripcion">
-            <span className="texto-selector-grado">Cambiar explicación según tu año escolar:</span>
-            <div className="grupo-botones-grados">
-              {gradosDisponibles.map((g) => (
-                <button
-                  key={g}
-                  type="button"
-                  className={`boton-grado-selector ${g === gradoActual ? 'activo' : ''}`}
-                  onClick={() => onCambiarGrado(g)}
-                >
-                  {g} Año
-                </button>
-              ))}
-            </div>
+        </div>
+      </section>
+
+      {/* ====================================================================
+          2. SUB-BARRA DE NAVEGACIÓN Y SELECTOR DE GRADO (TABS LIMPIOS)
+          ==================================================================== */}
+      <nav className="subnav-grados-editorial" aria-label="Selección de grado escolar">
+        <div className="contenedor-editorial subnav-grados-inner">
+          <span className="subnav-titulo">Plan de estudio según año:</span>
+          <div className="subnav-pestanas">
+            {gradosDisponibles.map((g) => (
+              <button
+                key={g}
+                type="button"
+                className={`subnav-pestana-item ${g === gradoActual ? 'activa' : ''}`}
+                onClick={() => onCambiarGrado(g)}
+              >
+                {g} Año
+              </button>
+            ))}
           </div>
         </div>
-      </header>
+      </nav>
 
-      {/* CONTENIDO PRINCIPAL EXTENDIDO */}
-     <main className="seccion-cuerpo-descripcion estilo-ciberseguridad">
-  <div className="contenedor-descripcion-modulo cuadricula-detalles-modulo">
-    
-    {/* COLUMNA IZQUIERDA: Toda la teoría */}
-    <div className="columna-principal-modulo">
-      
-      {/* 1. ¿De qué se trata este módulo? */}
-      {contextoExtendido && (
-        <article className="bloque-tarjeta-descripcion tarjeta-ciberseguridad">
-          <h2 className="titulo-bloque-descripcion">
-            <BookOpenCheck className="icono-bloque" size={28} color="#0284c7" />
-            ¿De qué trata este tema?
-          </h2>
-          <p className="texto-explicacion-breve" style={{ marginBottom: '1.25rem' }}>
-            {contextoExtendido.queEsElTema}
-          </p>
-          <div className="caja-importancia-fundamental">
-            <strong>🎯 Por qué es fundamental aprenderlo:</strong>
-            <p>{contextoExtendido.porQueEsFundamental}</p>
-          </div>
-        </article>
-      )}
+      {/* ====================================================================
+          3. CONTENIDO EDITORIAL WHITEPAPER (DOS COLUMNAS O LINEAL ESTRUCTURADO)
+          ==================================================================== */}
+      <div className="cuerpo-editorial-fondo">
+        <div className="contenedor-editorial cuerpo-editorial-layout">
 
-      {/* 2. GLOSARIO */}
-      {contextoExtendido && contextoExtendido.glosario.length > 0 && (
-        <article className="bloque-tarjeta-descripcion tarjeta-ciberseguridad">
-          <h2 className="titulo-bloque-descripcion">
-            <BookMarked className="icono-bloque" size={28} color="#0284c7" />
-            Glosario de Términos Clave
-          </h2>
-          <p className="subtitulo-bloque">
-            Domina el vocabulario técnico de este módulo para comprender los conceptos en el entorno digital:
-          </p>
-          <div className="grid-glosario-terminos">
-            {contextoExtendido.glosario.map((item, idx) => (
-              <div key={idx} className="tarjeta-termino-glosario">
-                <div className="cabecera-termino">
-                  <span className="badge-termino">Término #{idx + 1}</span>
-                  <h4>{item.termino}</h4>
-                </div>
-                <p className="definicion-termino">
-                  <strong>📖 ¿Qué es?:</strong> {item.definicion}
+          {/* Columna Principal de Lectura */}
+          <main className="articulo-editorial-principal">
+
+            {/* SECCIÓN A: Definición y concepto */}
+            {contextoExtendido && (
+              <article className="seccion-editorial-articulo">
+                <span className="seccion-rotulo">01. Fundamentos del tema</span>
+                <h2 className="seccion-titulo-editorial">Definición conceptual y propósito</h2>
+                <p className="parrafo-editorial">
+                  {contextoExtendido.queEsElTema}
                 </p>
-                {item.paraQueSirve && (
-                  <p className="definicion-termino" style={{ color: '#0369a1', marginTop: '0.4rem' }}>
-                    <strong>⚙️ ¿Para qué sirve / qué función cumple?:</strong> {item.paraQueSirve}
+
+                <div className="bloque-cita-editorial">
+                  <h3 className="bloque-cita-titulo">Importancia estratégica</h3>
+                  <p className="bloque-cita-texto">
+                    {contextoExtendido.porQueEsFundamental}
                   </p>
-                )}
-                {item.ejemploPráctico && (
-                  <div className="ejemplo-termino">
-                    <strong>💡 Ejemplo:</strong> {item.ejemploPráctico}
+                </div>
+              </article>
+            )}
+
+            {/* SECCIÓN B: Objetivos específicos del grado */}
+            <article className="seccion-editorial-articulo">
+              <span className="seccion-rotulo">02. Nivel formativo</span>
+              <h2 className="seccion-titulo-editorial">Enfoque pedagógico para {nombreGradoLegible}</h2>
+              <p className="parrafo-editorial">
+                {contenidoGrado.explicacionBreve}
+              </p>
+
+              <h3 className="subtitulo-editorial-medio">Competencias a desarrollar</h3>
+              <ul className="lista-competencias-editorial">
+                {contenidoGrado.objetivos.map((objetivo, idx) => (
+                  <li key={idx} className="item-competencia-editorial">
+                    <span className="indice-competencia">{String(idx + 1).padStart(2, '0')}.</span>
+                    <span>{objetivo}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+
+            {/* SECCIÓN C: Temario del grado */}
+            <article className="seccion-editorial-articulo">
+              <span className="seccion-rotulo">03. Contenido programático</span>
+              <h2 className="seccion-titulo-editorial">Temario oficial de {gradoActual} Año</h2>
+              
+              <div className="tabla-temario-editorial">
+                {contenidoGrado.temas.map((tema, idx) => (
+                  <div key={idx} className="fila-temario-editorial">
+                    <span className="col-modulo-idx">Módulo {String(idx + 1).padStart(2, '0')}</span>
+                    <span className="col-modulo-nombre">{tema}</span>
                   </div>
-                )}
+                ))}
               </div>
-            ))}
-          </div>
-        </article>
-      )}
+            </article>
 
-      {/* 3. Amenazas Comunes y Casos Reales */}
-      {contextoExtendido && contextoExtendido.amenazasYCasos.length > 0 && (
-        <article className="bloque-tarjeta-descripcion tarjeta-ciberseguridad tarjeta-amenazas">
-          <h2 className="titulo-bloque-descripcion">
-            <AlertTriangle className="icono-bloque" size={28} style={{ color: '#eab308' }} />
-            Amenazas Frecuentes y Casos Reales
-          </h2>
-          <div className="grid-amenazas-casos">
-            {contextoExtendido.amenazasYCasos.map((caso, idx) => (
-              <div key={idx} className="caja-amenaza-caso">
-                <h4>⚠️ {caso.titulo}</h4>
-                <p>{caso.descripcion}</p>
+            {/* SECCIÓN D: Glosario Técnico */}
+            {contextoExtendido && contextoExtendido.glosario.length > 0 && (
+              <article className="seccion-editorial-articulo">
+                <span className="seccion-rotulo">04. Terminología de seguridad</span>
+                <h2 className="seccion-titulo-editorial">Glosario de conceptos técnicos</h2>
+                <p className="parrafo-editorial-guia">
+                  Definiciones estándar utilizadas en la industria de ciberseguridad para este dominio:
+                </p>
+
+                <div className="lista-glosario-editorial">
+                  {contextoExtendido.glosario.map((item, idx) => (
+                    <div key={idx} className="termino-editorial-item">
+                      <div className="termino-editorial-encabezado">
+                        <span className="termino-editorial-nombre">{item.termino}</span>
+                      </div>
+                      <p className="termino-editorial-def">
+                        <strong>Definición:</strong> {item.definicion}
+                      </p>
+                      {item.paraQueSirve && (
+                        <p className="termino-editorial-funcion">
+                          <strong>Aplicación técnica:</strong> {item.paraQueSirve}
+                        </p>
+                      )}
+                      {item.ejemploPráctico && (
+                        <p className="termino-editorial-ejemplo">
+                          <strong>Escenario real:</strong> {item.ejemploPráctico}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </article>
+            )}
+
+            {/* SECCIÓN E: Amenazas frecuentes y casos reales */}
+            {contextoExtendido && contextoExtendido.amenazasYCasos.length > 0 && (
+              <article className="seccion-editorial-articulo">
+                <span className="seccion-rotulo">05. Vectores de ataque</span>
+                <h2 className="seccion-titulo-editorial">Amenazas detectadas y casos reales</h2>
+                
+                <div className="reporte-amenazas-editorial">
+                  {contextoExtendido.amenazasYCasos.map((caso, idx) => (
+                    <div key={idx} className="caso-amenaza-item">
+                      <h4 className="caso-amenaza-titulo">{caso.titulo}</h4>
+                      <p className="caso-amenaza-descripcion">{caso.descripcion}</p>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            )}
+
+            {/* SECCIÓN F: Protocolos de protección */}
+            {contextoExtendido && contextoExtendido.reglasDeOro.length > 0 && (
+              <article className="seccion-editorial-articulo">
+                <span className="seccion-rotulo">06. Controles defensivos</span>
+                <h2 className="seccion-titulo-editorial">Protocolos y mejores prácticas de protección</h2>
+                
+                <ol className="lista-protocolos-editorial">
+                  {contextoExtendido.reglasDeOro.map((regla, idx) => (
+                    <li key={idx} className="item-protocolo-editorial">
+                      <span className="protocolo-numero">{idx + 1}</span>
+                      <span className="protocolo-texto">{regla}</span>
+                    </li>
+                  ))}
+                </ol>
+              </article>
+            )}
+
+            {/* ==================================================================
+                CTA DE CIERRE (WHITEPAPER ACTION BOX)
+                ================================================================== */}
+            <div className="caja-cierre-editorial">
+              <h3 className="cierre-editorial-titulo">
+                Evaluación práctica de {nombreGradoLegible}
+              </h3>
+              <p className="cierre-editorial-descripcion">
+                Ponga a prueba los conocimientos adquiridos mediante los ejercicios interactivos y simuladores del laboratorio.
+              </p>
+              <div className="cierre-editorial-botones">
+                <Boton
+                  variante="ciberseguridad"
+                  tamano="grande"
+                  onClick={onIniciarModulo}
+                >
+                  Iniciar Laboratorio Práctico
+                </Boton>
               </div>
-            ))}
-          </div>
-        </article>
-      )}
+            </div>
 
-      {/* 4. Enfoque y Objetivos para el Grado Seleccionado */}
-      <article className="bloque-tarjeta-descripcion tarjeta-ciberseguridad">
-        <h2 className="titulo-bloque-descripcion">
-          <Lightbulb className="icono-bloque" size={28} color="#0284c7" />
-          Enfoque de Aprendizaje para {nombreGradoLegible}
-        </h2>
-        <p className="texto-explicacion-breve" style={{ marginBottom: '1.5rem' }}>
-          <strong>Enfoque {gradoActual} Año:</strong> {contenidoGrado.explicacionBreve}
-        </p>
+          </main>
 
-        <h3 className="subtitulo-objetivos">
-          <Target size={22} color="#0284c7" /> Lo que aprenderás en {gradoActual} Año:
-        </h3>
-        <ul className="lista-objetivos-grado">
-          {contenidoGrado.objetivos.map((objetivo, index) => (
-            <li key={index} className="item-objetivo-grado">
-              <CheckCircle className="icono-check" size={22} />
-              <span>{objetivo}</span>
-            </li>
-          ))}
-        </ul>
-      </article>
+          {/* Columna Lateral de Resumen Técnico */}
+          <aside className="aside-editorial-resumen">
+            <div className="card-resumen-editorial">
+              <h4 className="card-resumen-titulo">Ficha del Módulo</h4>
+              <dl className="resumen-lista-definiciones">
+                <div className="resumen-fila">
+                  <dt>Materia</dt>
+                  <dd>{moduloInfo.titulo}</dd>
+                </div>
+                <div className="resumen-fila">
+                  <dt>Nivel Escolar</dt>
+                  <dd>{nombreGradoLegible}</dd>
+                </div>
+                <div className="resumen-fila">
+                  <dt>Duración Estimada</dt>
+                  <dd>{moduloInfo.duracionEstimada || '45 minutos'}</dd>
+                </div>
+                <div className="resumen-fila">
+                  <dt>Total de Lecciones</dt>
+                  <dd>{contenidoGrado.temas.length} lecciones prácticas</dd>
+                </div>
+                <div className="resumen-fila">
+                  <dt>Modalidad</dt>
+                  <dd>Simulación de amenazas interactiva</dd>
+                </div>
+              </dl>
 
-      {/* 5. Reglas de Oro de Ciberseguridad */}
-      {contextoExtendido && contextoExtendido.reglasDeOro.length > 0 && (
-        <article className="bloque-tarjeta-descripcion tarjeta-ciberseguridad tarjeta-reglas-oro">
-          <h2 className="titulo-bloque-descripcion" style={{ color: '#15803d' }}>
-            <Award className="icono-bloque" size={28} style={{ color: '#22c55e' }} />
-            Reglas de Oro para tu Protección
-          </h2>
-          <ul className="lista-objetivos-grado">
-            {contextoExtendido.reglasDeOro.map((regla, idx) => (
-              <li key={idx} className="item-objetivo-grado">
-                <ShieldCheck size={22} color="#22c55e" style={{ flexShrink: 0 }} />
-                <span style={{ fontWeight: 500, color: '#1e293b' }}>{regla}</span>
-              </li>
-            ))}
-          </ul>
-        </article>
-      )}
+              <div className="resumen-boton-wrapper">
+                <button
+                  type="button"
+                  className="boton-resumen-accion"
+                  onClick={onIniciarModulo}
+                >
+                  Ir al simulador
+                </button>
+              </div>
+            </div>
+          </aside>
+
+        </div>
+      </div>
 
     </div>
-
-    {/* COLUMNA DERECHA: Solo Temario (sticky) */}
-    <aside className="columna-lateral-modulo">
-      <div className="tarjeta-temario-modulo">
-        <h3 className="titulo-temario-modulo">
-          <ListOrdered className="icono-temario" size={24} />
-          Temario de {gradoActual} Año
-        </h3>
-        <ol className="lista-temas-grado">
-          {contenidoGrado.temas.map((tema, idx) => (
-            <li key={idx} className="item-tema-grado">
-              <span className="numero-tema">{idx + 1}</span>
-              <span className="texto-tema">{tema}</span>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </aside>
-  </div>
-
-  {/* SECCIÓN CTA FINAL: Botón para ir al módulo al final de toda la teoría */}
-  <div className="seccion-cta-final">
-    <div className="contenedor-cta">
-  
-      <h3 className="titulo-cta">¿Listo para poner a prueba tus conocimientos?</h3>
-      <p className="texto-cta">
-        Accede a la lección práctica e interactiva adaptada para <strong>{nombreGradoLegible}</strong>.
-        ¡Comienza ahora y conviértete en un experto en ciberseguridad!
-      </p>
-      <div className="caja-botones-accion">
-        <Boton
-          variante="ciberseguridad"
-          tamano="grande"
-          anchoCompleto
-          onClick={onIniciarModulo}
-        >
-         
-          Iniciar Lección de {gradoActual} Año
-        </Boton>
-
-        <Boton
-          variante="secundario"
-          tamano="mediano"
-          anchoCompleto
-          onClick={onVolver}
-        >
-          Volver a Módulos
-          
-        </Boton>
-      </div>
-    </div>
-  </div>
-</main>
-
-</div>
-
-
-
   );
 };
 

@@ -1,206 +1,66 @@
 /* ============================================================================
-   ESTILOS — PrincipalProyecto.tsx (Diseño Editorial Asimétrico con Paleta Institucional)
+   ESTILOS — PrincipalProyecto.css (Ciberseguridad y Conciencia Digital)
+   Inspiración: Fortinet Threat Intelligence / Cloudflare Enterprise
+   Paleta: Blanco #ffffff, fondo sutil #f8fafc, bordes 1px #e2e8f0, acento #059669
    ============================================================================ */
-
-:root {
-  --color-inst-azul: #0F2C59;
-  --color-inst-blanco: #FFFFFF;
-  --color-inst-texto: #111827;
-  --color-inst-texto-secundario: #4B5563;
-  --color-inst-fondo: #F8FAFC;
-  --color-inst-borde: #E2E8F0;
-
-  /* Versiones RGB para usar con rgba() */
-  --color-inst-azul-rgb: 15, 44, 89;
-  --color-inst-blanco-rgb: 255, 255, 255;
-}
 
 .principal-ciberseguridad-contenedor {
   width: 100%;
   overflow-x: hidden;
-  background-color: var(--color-inst-fondo);
-  color: var(--color-inst-texto);
-  font-family: var(--fuente-ciber-cuerpo);
+  background-color: #ffffff;
+  color: #0f172a;
+  font-family: var(--fuente-ciber-cuerpo, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
 }
 
 /* ─────────────────────────────────────────────
-   SUBNAVEGACIÓN TRANSPARENTE FUSIONADA CON EL HERO
-───────────────────────────────────────────── */
-.principal-ciberseguridad-contenedor .header-proyecto-contenedor {
-  background: transparent !important;
-  position: absolute !important;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 90;
-  padding-top: 68px;
-}
-
-.principal-ciberseguridad-contenedor .subnav-item {
-  color: rgba(var(--color-inst-blanco-rgb), 0.88) !important;
-  font-weight: 600;
-  border-bottom: 2px solid transparent !important;
-}
-
-.principal-ciberseguridad-contenedor .subnav-item:hover {
-  color: var(--color-inst-blanco) !important;
-  background: rgba(var(--color-inst-blanco-rgb), 0.15) !important;
-}
-
-.principal-ciberseguridad-contenedor .subnav-item.activo {
-  color: var(--color-inst-blanco) !important;
-  border-bottom-color: var(--color-inst-blanco) !important;
-  background: rgba(var(--color-inst-blanco-rgb), 0.15) !important;
-}
-
-/* ─────────────────────────────────────────────
-   SECCIÓN 1: HERO PRINCIPAL (PORTADA)
-───────────────────────────────────────────── */
-.seccion-hero-portada {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8rem 1.5rem 5rem;
-  box-sizing: border-box;
-}
-
-.hero-overlay-oscuro {
-  position: absolute;
-  inset: 0;
-  background: rgba(var(--color-inst-azul-rgb), 0.85);
-  z-index: 1;
-}
-
-.hero-zindex {
-  position: relative;
-  z-index: 2;
-  max-width: 960px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.titulo-ciber-gigante {
-  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
-  font-weight: 900;
-  line-height: 1.12;
-  color: var(--color-inst-blanco);
-  margin: 0;
-  letter-spacing: -0.02em;
-}
-
-.texto-resaltado-inst {
-  color: var(--color-inst-blanco);
-  /* antes amarillo, ahora blanco */
-}
-
-.descripcion-ciber-destacada {
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
-  color: rgba(var(--color-inst-blanco-rgb), 0.9);
-  line-height: 1.65;
-  max-width: 780px;
-  margin: 0;
-}
-
-.acciones-ciber-hero {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 1.25rem;
-  margin-top: 1rem;
-}
-
-.btn-ciber-solido-azul {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  background-color: var(--color-inst-azul);
-  border: 1px solid rgba(var(--color-inst-blanco-rgb), 0.3);
-  color: var(--color-inst-blanco);
-  font-weight: 700;
-  font-size: 1rem;
-  padding: 0.9rem 1.8rem;
-  text-decoration: none;
-  border-radius: 0px;
-  transition: all 0.25s ease;
-}
-
-.btn-ciber-solido-azul:hover {
-  background-color: rgba(var(--color-inst-azul-rgb), 0.8);
-  transform: translateY(-2px);
-}
-
-.btn-ciber-scroll-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: rgba(var(--color-inst-blanco-rgb), 0.8);
-  font-size: 0.92rem;
-  font-weight: 600;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  transition: color 0.2s ease;
-}
-
-.btn-ciber-scroll-link:hover {
-  color: var(--color-inst-blanco);
-}
-
-/* ─────────────────────────────────────────────
-   SECCIÓN 2: ¿POR QUÉ ESTE PROYECTO? (LAYOUT ASIMÉTRICO)
+   SECCIÓN 2: ¿POR QUÉ ESTE PROYECTO?
 ───────────────────────────────────────────── */
 .seccion-porque-nosotros {
-  background-color: var(--color-inst-azul);
-  color: var(--color-inst-blanco);
-  padding: 5rem 1.5rem;
+  background-color: #ffffff;
+  color: #0f172a;
+  padding: 80px 0;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .contenedor-porque-grid {
-  max-width: 1200px;
+  max-width: 1180px;
   margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 3.5rem;
+  gap: 48px;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .columna-porque-texto {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.2rem;
+  gap: 1.5rem;
 }
 
 .titulo-porque-monumental {
-  font-size: clamp(2.4rem, 5vw, 3.8rem);
-  font-weight: 900;
-  line-height: 1.1;
-  color: var(--color-inst-blanco);
-  /* antes amarillo, ahora blanco */
-  letter-spacing: -0.01em;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #0f172a;
+  letter-spacing: -0.025em;
   margin: 0;
   text-transform: uppercase;
 }
 
 .texto-destacado-subrayado {
-  color: var(--color-inst-blanco);
+  color: #059669;
 }
 
 .linea-decorativa-porque {
-  width: 80px;
-  height: 4px;
-  background-color: var(--color-inst-blanco);
-  /* antes amarillo */
-  margin-bottom: 0.5rem;
+  width: 48px;
+  height: 3px;
+  background-color: #059669;
+  border-radius: 2px;
+  margin-bottom: 0.25rem;
 }
 
 .lista-viñetas-porque {
@@ -209,56 +69,65 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.1rem;
 }
 
 .lista-viñetas-porque li {
   display: flex;
   align-items: flex-start;
-  gap: 0.8rem;
-  font-size: 1.05rem;
-  color: rgba(var(--color-inst-blanco-rgb), 0.9);
-  line-height: 1.5;
+  gap: 0.85rem;
+  font-size: 1rem;
+  color: #334155;
+  line-height: 1.6;
 }
 
 .icono-check-porque {
-  color: var(--color-inst-blanco);
-  /* antes amarillo */
-  min-width: 20px;
+  color: #059669;
+  background-color: #ecfdf5;
+  border: 1px solid #d1fae5;
+  border-radius: 6px;
+  padding: 3px;
+  min-width: 22px;
+  height: 22px;
   margin-top: 2px;
+  flex-shrink: 0;
 }
 
 .cta-porque-bloque {
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
 }
 
 .btn-porque-aprende {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  background-color: var(--color-inst-blanco);
-  color: var(--color-inst-azul);
-  font-weight: 800;
-  font-size: 0.95rem;
-  letter-spacing: 0.05em;
-  padding: 1rem 2.2rem;
+  gap: 0.65rem;
+  background-color: #059669;
+  color: #ffffff;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  padding: 0.75rem 1.65rem;
   text-decoration: none;
-  border-radius: 0px;
-  transition: all 0.25s ease;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+  border: 1px solid #059669;
 }
 
 .btn-porque-aprende:hover {
-  background-color: rgba(var(--color-inst-blanco-rgb), 0.85);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  background-color: #047857;
+  border-color: #047857;
+  transform: translateY(-1px);
+  color: #ffffff;
 }
 
 .columna-porque-imagen {
   width: 100%;
-  height: 100%;
-  min-height: 420px;
+  height: 380px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
 }
 
 .columna-porque-imagen img {
@@ -266,55 +135,67 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.4s ease;
+}
+
+.columna-porque-imagen:hover img {
+  transform: scale(1.02);
 }
 
 /* ─────────────────────────────────────────────
-   SECCIÓN 3: CAPAS SOLAPADAS
+   SECCIÓN 3: CAPAS SOLAPADAS / PLATAFORMA FORMATIVA
 ───────────────────────────────────────────── */
 .seccion-capas-solapadas {
-  background-color: var(--color-inst-fondo);
-  padding: 6rem 1.5rem;
+  background-color: #f8fafc;
+  padding: 85px 0;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .contenedor-capas-solapadas {
-  max-width: 1140px;
+  max-width: 1180px;
   margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: 48px;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .columna-imagenes-solapadas {
   position: relative;
   width: 100%;
-  min-height: 480px;
+  min-height: 420px;
 }
 
 .imagen-solapada-principal {
-  width: 80%;
-  height: 360px;
+  width: 82%;
+  height: 320px;
   position: absolute;
   top: 0;
   left: 0;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
   overflow: hidden;
+  border: 1px solid #e2e8f0;
 }
 
 .imagen-solapada-principal img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .imagen-solapada-secundaria {
-  width: 65%;
-  height: 280px;
+  width: 68%;
+  height: 250px;
   position: absolute;
   bottom: 0;
   right: 0;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-  border: 4px solid var(--color-inst-blanco);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 3px solid #ffffff;
   overflow: hidden;
 }
 
@@ -322,29 +203,33 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .tarjeta-solapada-contenido {
-  background-color: var(--color-inst-blanco);
-  border: 1px solid var(--color-inst-borde);
-  padding: 3.5rem 3rem;
-  box-shadow: 0 12px 35px rgba(var(--color-inst-azul-rgb), 0.08);
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 40px 36px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.35rem;
 }
 
 .titulo-tarjeta-solapada {
-  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(1.7rem, 3.2vw, 2.2rem);
   font-weight: 800;
-  color: var(--color-inst-texto);
+  color: #0f172a;
   line-height: 1.2;
   margin: 0;
+  letter-spacing: -0.02em;
 }
 
 .descripcion-tarjeta-solapada {
-  font-size: 1.05rem;
-  color: var(--color-inst-texto-secundario);
+  font-size: 1rem;
+  color: #475569;
   line-height: 1.65;
   margin: 0;
 }
@@ -355,74 +240,81 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.85rem;
 }
 
 .lista-puntos-solapados li {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 0.98rem;
-  font-weight: 600;
-  color: var(--color-inst-texto);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #334155;
 }
 
 .icono-check-solapado {
-  color: var(--color-inst-azul);
-  /* antes amarillo, ahora azul */
+  color: #059669;
+  flex-shrink: 0;
 }
 
 .btn-solapado-contacto {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  background-color: var(--color-inst-azul);
-  color: var(--color-inst-blanco);
-  font-weight: 800;
-  font-size: 0.88rem;
-  letter-spacing: 0.05em;
-  padding: 1.1rem 2rem;
+  gap: 0.65rem;
+  background-color: #059669;
+  color: #ffffff;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  padding: 0.75rem 1.65rem;
   text-decoration: none;
-  border-radius: 0px;
-  margin-top: 0.5rem;
-  transition: all 0.25s ease;
+  border-radius: 9999px;
+  margin-top: 0.4rem;
+  transition: all 0.2s ease;
+  width: fit-content;
+  border: 1px solid #059669;
 }
 
 .btn-solapado-contacto:hover {
-  background-color: rgba(var(--color-inst-azul-rgb), 0.8);
-  transform: translateY(-2px);
+  background-color: #047857;
+  border-color: #047857;
+  transform: translateY(-1px);
+  color: #ffffff;
 }
 
 /* ─────────────────────────────────────────────
    SECCIÓN 4: EXPERIENCIA ÚNICA Y MEMORABLE
 ───────────────────────────────────────────── */
 .seccion-experiencia-memorable {
-  background-color: var(--color-inst-azul);
-  /* antes #0b1f3f, ahora azul institucional */
-  color: var(--color-inst-blanco);
-  padding: 6rem 1.5rem;
+  background-color: #ffffff;
+  color: #0f172a;
+  padding: 85px 0;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .contenedor-experiencia-grid {
-  max-width: 1140px;
+  max-width: 1180px;
   margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .columna-experiencia-texto {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: flex-start;
 }
 
 .texto-experiencia-parrafo {
-  font-size: 1.15rem;
-  color: rgba(var(--color-inst-blanco-rgb), 0.88);
+  font-size: 1.05rem;
+  color: #334155;
   line-height: 1.7;
   margin: 0;
 }
@@ -430,173 +322,191 @@
 .btn-experiencia-aprende {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  background-color: var(--color-inst-blanco);
-  color: var(--color-inst-azul);
-  font-weight: 800;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  padding: 1rem 2.2rem;
+  gap: 0.65rem;
+  background-color: #059669;
+  color: #ffffff;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  padding: 0.75rem 1.65rem;
   text-decoration: none;
-  border-radius: 0px;
-  transition: all 0.25s ease;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+  border: 1px solid #059669;
 }
 
 .btn-experiencia-aprende:hover {
-  background-color: rgba(var(--color-inst-blanco-rgb), 0.85);
-  transform: translateY(-2px);
+  background-color: #047857;
+  border-color: #047857;
+  transform: translateY(-1px);
+  color: #ffffff;
 }
 
 .columna-experiencia-titulo-destacado {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.5rem;
-}
-
-.circulo-acento-experiencia {
-  width: 64px;
-  height: 64px;
-  background-color: var(--color-inst-blanco);
-  /* antes amarillo */
-  border-radius: 50%;
+  gap: 1.25rem;
 }
 
 .titulo-experiencia-monumental {
-  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
-  font-weight: 900;
-  line-height: 1.05;
-  color: var(--color-inst-blanco);
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #0f172a;
   margin: 0;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 /* ─────────────────────────────────────────────
-   SECCIÓN 5: COMPONENTES DEL PROYECTO (GRID 2x2)
+   SECCIÓN 5: COMPONENTES DEL PROYECTO (GRID DE 4 TARJETAS WHITE-PAPER)
 ───────────────────────────────────────────── */
 .seccion-componentes-grid {
-  background-color: var(--color-inst-fondo);
-  padding: 6rem 1.5rem;
+  background-color: #f8fafc;
+  padding: 85px 0 110px 0;
 }
 
 .contenedor-componentes-grid {
-  max-width: 1140px;
+  max-width: 1180px;
   margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  box-sizing: border-box;
 }
 
 .encabezado-componentes {
   text-align: center;
-  max-width: 700px;
+  max-width: 720px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.65rem;
 }
 
 .encabezado-componentes h2 {
-  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(1.8rem, 3.4vw, 2.4rem);
   font-weight: 800;
-  color: var(--color-inst-texto);
+  color: #0f172a;
   margin: 0;
+  letter-spacing: -0.02em;
 }
 
 .encabezado-componentes p {
-  font-size: 1.05rem;
-  color: var(--color-inst-texto-secundario);
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.6;
   margin: 0;
 }
 
 .grid-cuatro-tarjetas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.75rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .tarjeta-componente-box {
-  background-color: var(--color-inst-blanco);
-  border: 1px solid var(--color-inst-borde);
-  padding: 3rem 2rem;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 32px 22px;
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 1.2rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  align-items: flex-start;
+  text-align: left;
+  gap: 0.95rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .tarjeta-componente-box:hover {
-  transform: translateY(-5px);
-  border-color: var(--color-inst-azul);
-  box-shadow: 0 12px 30px rgba(var(--color-inst-azul-rgb), 0.12);
+  transform: translateY(-3px);
+  border-color: #059669;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
 }
 
 .icono-componente-box {
-  color: var(--color-inst-azul);
-  /* antes amarillo */
-  background-color: var(--color-inst-fondo);
-  /* antes #fffbeb */
-  width: 64px;
-  height: 64px;
+  color: #059669;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.tarjeta-componente-box:hover .icono-componente-box {
+  background-color: #059669;
+  border-color: #059669;
+  color: #ffffff;
 }
 
 .tarjeta-componente-box h3 {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--color-inst-texto);
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
   letter-spacing: 0.04em;
   margin: 0;
+  text-transform: uppercase;
 }
 
 .tarjeta-componente-box p {
-  font-size: 0.9rem;
-  color: var(--color-inst-texto-secundario);
+  font-size: 0.88rem;
+  color: #64748b;
   line-height: 1.55;
   margin: 0;
 }
 
 /* ─────────────────────────────────────────────
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN (MÓVILES Y TABLETS)
 ───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .grid-cuatro-tarjetas {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
 @media (max-width: 768px) {
   .seccion-porque-nosotros,
   .seccion-capas-solapadas,
   .seccion-experiencia-memorable,
   .seccion-componentes-grid {
-    padding: 3rem 1rem;
+    padding: 56px 0;
   }
 
   .contenedor-porque-grid,
   .contenedor-capas-solapadas,
   .contenedor-experiencia-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 32px;
   }
 
   .titulo-porque-monumental,
   .titulo-experiencia-monumental {
-    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    font-size: clamp(1.8rem, 5.5vw, 2.4rem);
   }
 
   .columna-porque-imagen {
-    min-height: 250px;
     height: 260px;
+    border-radius: 10px;
   }
 
-  /* Deshabilita la superposición compleja de imágenes en móvil para mejor legibilidad */
   .columna-imagenes-solapadas {
     position: static;
     min-height: auto;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 14px;
   }
 
   .imagen-solapada-principal,
@@ -604,51 +514,35 @@
     position: static;
     width: 100%;
     height: 220px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
   }
 
   .imagen-solapada-secundaria {
-    border: none;
+    border: 1px solid #e2e8f0;
   }
 
   .tarjeta-solapada-contenido {
-    padding: 1.75rem 1.25rem;
+    padding: 26px 20px;
+    border-radius: 10px;
   }
 
   .btn-porque-aprende,
   .btn-solapado-contacto,
-  .btn-experiencia-aprende,
-  .btn-ciber-solido-azul,
-  .btn-ciber-scroll-link {
+  .btn-experiencia-aprende {
     width: 100%;
     justify-content: center;
     text-align: center;
     box-sizing: border-box;
-    font-size: 0.9rem;
-    padding: 0.85rem 1rem;
+    min-height: 44px;
   }
 
   .grid-cuatro-tarjetas {
     grid-template-columns: 1fr;
-    gap: 1.25rem;
+    gap: 16px;
   }
 
   .tarjeta-componente-box {
-    padding: 2rem 1.25rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .seccion-hero-portada {
-    padding: 6rem 0.75rem 2.5rem;
-  }
-
-  .tarjeta-solapada-contenido {
-    padding: 1.5rem 1rem;
-  }
-
-  .imagen-solapada-principal,
-  .imagen-solapada-secundaria {
-    height: 180px;
+    padding: 24px 18px;
+    border-radius: 10px;
   }
 }

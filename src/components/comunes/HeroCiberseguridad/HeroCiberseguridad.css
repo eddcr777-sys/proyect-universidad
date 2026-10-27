@@ -1,44 +1,45 @@
 /* ============================================================================
  * ESTILOS — HeroCiberseguridad.css
- * Hero especializado para las páginas de Ciberseguridad
- * Diseño alineado estrictamente con la estética sobria e institucional.
+ * Hero sobrio para Ciberseguridad (Inspiración Fortinet / Cloudflare Threat Intelligence)
+ * Paleta: Fondo carbón #1a1e24, acento esmeralda #059669, subnav plana con indicador inferior
  * ============================================================================ */
 
 .hero-ciberseguridad-contenedor {
   position: relative;
   width: 100%;
-  background-color: var(--color-inst-azul, #0F2C59);
+  background-color: #1a1e24;
   color: #ffffff;
   overflow: hidden;
   box-sizing: border-box;
 }
 
 /* ─────────────────────────────────────────────────────────────
-   SUB-NAVEGACIÓN ELEGANTE E INSTITUCIONAL DEL PROYECTO
+   SUB-NAVEGACIÓN PLANA EDITORIAL (ESTILO TABS FORTINET)
 ───────────────────────────────────────────────────────────── */
 .hero-ciber-subnav-contenedor {
   position: relative;
-  margin-top: 72px; /* Espaciado libre tras el encabezado global fijo */
   width: 100%;
   z-index: 20;
-  background: #0A2246; /* Azul profundo institucional */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .hero-ciber-subnav {
-  max-width: 1200px;
+  max-width: 1180px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 clamp(16px, 4vw, 32px);
+  box-sizing: border-box;
 }
 
 .hero-ciber-subnav-scroll {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
+  justify-content: flex-start;
+  gap: 0.25rem;
   overflow-x: auto;
-  padding: 0.65rem 0;
+  padding: 0;
+  margin: 0;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 }
@@ -48,140 +49,145 @@
 }
 
 .item-subnav-ciber {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1.1rem;
-  font-family: var(--fuente-cuerpo, 'Inter', sans-serif);
+  gap: 0.45rem;
+  padding: 1rem 1.15rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
   font-size: 0.88rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.88);
+  color: #64748b;
   text-decoration: none;
-  border-radius: 0px;
   white-space: nowrap;
-  transition: all 0.25s ease;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  transition: color 0.2s ease;
 }
 
 .item-subnav-ciber:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: translateY(-1px);
+  color: #0f172a;
 }
 
 .item-subnav-ciber.subnav-activo {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.25);
-  border-color: #ffffff;
+  color: #0f172a;
   font-weight: 700;
 }
 
+.item-subnav-ciber.subnav-activo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  right: 1rem;
+  height: 2.5px;
+  background-color: #059669;
+  border-radius: 2px 2px 0 0;
+}
+
 /* ─────────────────────────────────────────────────────────────
-   PORTADA Y SUPERPOSICIÓN INSTITUCIONAL
+   PORTADA Y SUPERPOSICIÓN ANTRACITA SOBRIA
 ───────────────────────────────────────────────────────────── */
 .hero-ciber-portada {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 380px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #1a1e24;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   box-sizing: border-box;
+  padding: 72px 24px 64px 24px;
 }
 
 /* Variantes de tamaño */
 .hero-ciberseguridad-contenedor.variante-pantalla-completa .hero-ciber-portada {
-  min-height: calc(100vh - 120px);
-  padding: 5rem 1.5rem 4rem;
+  min-height: 460px;
+  padding: 85px 24px 75px 24px;
 }
 
 .hero-ciberseguridad-contenedor.variante-compacto .hero-ciber-portada {
-  min-height: 40vh;
-  padding: 3.5rem 1.5rem 3rem;
+  min-height: 300px;
+  padding: 48px 20px 42px 20px;
 }
 
 .hero-ciberseguridad-contenedor.variante-normal .hero-ciber-portada {
-  min-height: 60vh;
-  padding: 4.5rem 1.5rem 4rem;
+  min-height: 380px;
+  padding: 72px 24px 64px 24px;
 }
 
-/* Capa de degradado azul institucional */
+/* Capa de overlay técnico sobrio */
 .hero-ciber-capa-overlay {
   position: absolute;
   inset: 0;
-  height: 100vh;
-  background: linear-gradient(
-    180deg,
-    rgba(15, 44, 89, 0.88) 0%,
-    rgba(15, 44, 89, 0.78) 50%,
-    rgba(15, 44, 89, 0.68) 100%
-  );
+  background-color: rgba(26, 30, 36, 0.88);
   z-index: 1;
 }
 
 /* ─────────────────────────────────────────────────────────────
-   CONTENIDO CENTRAL
+   CONTENIDO CENTRAL DEL HERO
 ───────────────────────────────────────────────────────────── */
 .hero-ciber-contenido {
   position: relative;
   z-index: 2;
-  max-width: 900px;
+  max-width: 920px;
   width: 100%;
   margin: 0 auto;
-  transform: translateY(-12vh);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 1.25rem;
+  gap: 1.15rem;
 }
 
-
-.badge-icono-ciber {
-  color: #ffffff;
-}
-
-/* Título con la fuente institucional Playfair Display */
+/* Título técnico nítido */
 .hero-ciber-titulo {
-  font-family: var(--fuente-titulos, 'Playfair Display', Georgia, serif);
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
-  font-weight: 700;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-weight: 800;
   line-height: 1.15;
   margin: 0;
   color: #ffffff;
-  letter-spacing: -0.01em;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.025em;
 }
 
 .texto-resaltado-ciber {
   display: block;
   color: #ffffff;
-  font-weight: 700;
+  font-weight: 800;
   opacity: 0.95;
 }
 
 .hero-ciber-subtitulo {
-  font-size: clamp(1.1rem, 2vw, 1.3rem);
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.95);
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #10b981;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .hero-ciber-descripcion {
-  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  font-family: var(--fuente-ciber-cuerpo, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(0.98rem, 1.6vw, 1.1rem);
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.92);
-  max-width: 700px;
+  color: #cbd5e1;
+  max-width: 740px;
   margin: 0 auto;
   font-weight: 400;
 }
 
+.hero-ciber-descripcion strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
 /* ─────────────────────────────────────────────────────────────
-   BOTONES DE ACCIÓN (ESTILO INSTITUCIONAL)
+   BOTONES DE ACCIÓN (ESTILO PÍLDORA MINIMALISTA FORTINET)
 ───────────────────────────────────────────────────────────── */
 .hero-ciber-acciones {
   display: flex;
@@ -189,7 +195,7 @@
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
 }
 
 .boton-ciber-principal,
@@ -197,68 +203,73 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 0.85rem 1.75rem;
+  gap: 8px;
+  padding: 0.75rem 1.65rem;
+  font-family: var(--fuente-ciber-titulos, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.92rem;
   text-decoration: none;
-  transition: all 0.3s ease;
-  border-radius: 0px;
+  transition: all 0.2s ease;
+  border-radius: 9999px;
   cursor: pointer;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 .boton-ciber-principal {
-  background-color: transparent;
+  background-color: #059669;
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 1px solid #059669;
 }
 
 .boton-ciber-principal:hover {
-  background-color: rgba(255, 255, 255, 0.18);
-  border-color: #ffffff;
-  transform: translateY(-2px);
+  background-color: #047857;
+  border-color: #047857;
+  transform: translateY(-1px);
 }
 
 .boton-ciber-secundario {
-  color: #ffffff;
-  background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: #f1f5f9;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .boton-ciber-secundario:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  border-color: #ffffff;
-  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
 .hero-ciber-extra {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   width: 100%;
 }
 
 @media (max-width: 768px) {
-  .hero-ciber-subnav-contenedor {
-    margin-top: 64px;
-  }
-
-  .hero-ciber-subnav-scroll {
-    justify-content: flex-start;
-    padding: 0.5rem;
+  .hero-ciber-subnav {
+    padding: 0 12px;
   }
 
   .item-subnav-ciber {
-    padding: 0.45rem 0.85rem;
+    padding: 0.85rem 0.9rem;
     font-size: 0.82rem;
+  }
+
+  .hero-ciber-portada {
+    min-height: 320px;
+    padding: 50px 18px 45px 18px;
   }
 
   .hero-ciber-acciones {
     flex-direction: column;
     width: 100%;
+    gap: 0.75rem;
   }
 
   .boton-ciber-principal,
   .boton-ciber-secundario {
     width: 100%;
+    min-height: 44px;
   }
 }

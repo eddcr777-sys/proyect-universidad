@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border-radius: 0px !important; /* Estricto: Sin bordes redondeados */
+  border-radius: var(--ciber-space-md);
   border: 1px solid transparent;
   font-weight: 600;
   cursor: pointer;
@@ -22,7 +22,7 @@
               color var(--transicion-rapida),
               box-shadow var(--transicion-rapida),
               transform 0.1s ease;
-  box-shadow: var(--sombra-sm);
+  box-shadow: var(--sombra-sm); 
   outline: none;
 }
 

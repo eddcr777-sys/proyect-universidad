@@ -491,7 +491,7 @@
   .bloque-videojuegos-tarjeta,
   .bloque-auditoria-tarjeta {
     padding: 1rem;
-    border-radius: 0 !important;
+    border-radius: 12px;
   }
 
   /* Grids → 1 columna */

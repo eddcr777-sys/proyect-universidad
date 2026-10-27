@@ -1,29 +1,85 @@
-/* ══════════════════════════════════════════════════════════════
-   1) CONTENEDOR RAÍZ
-   ══════════════════════════════════════════════════════════════ */
+/* ============================================================================
+   ESTILOS — Phishing4to.css (Laboratorio de Ciberseguridad 4to Año)
+   Paleta clara con verdes mates (#059669, #0e502c, #f4fbf7), sin fondos oscuros.
+   Enfoque: mobile-first unificado con tokens de espaciado.
+   Los breakpoints SOLO recalculan tokens; los selectores no se duplican.
+   ============================================================================ */
+
+/* ===== RESET SCOPED (defensivo) ===== */
+.pagina-modulo-phishing-4to,
+.pagina-modulo-phishing-4to *,
+.pagina-modulo-phishing-4to *::before,
+.pagina-modulo-phishing-4to *::after {
+  box-sizing: border-box;
+}
+
+/* ===== CONTENEDOR RAÍZ ===== */
 .pagina-modulo-phishing-4to {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem 5rem 1.5rem;
-  font-family: system-ui, -apple-system, sans-serif;
-  color: #0f172a;
+  --ciber-space-xs: 4px;
+  --ciber-space-sm: 8px;
+  --ciber-space-md: 16px;
+  --ciber-space-lg: 24px;
+  --ciber-space-xl: 32px;
+  --ciber-space-2xl: 48px;
+
+  --pad-page: 16px;
+  --pad-card: 16px;
+
+  width: 100%;
+  max-width: 1140px;
+  margin-inline: auto;
+  padding-inline: var(--pad-page);
+  padding-block: var(--ciber-space-md) var(--ciber-space-2xl);
+  font-family: var(--ciber-font-ui, 'Outfit', sans-serif);
+  color: var(--ciber-text-primary, #0f2c59);
+  background-color: var(--ciber-bg-base, #ffffff);
+  min-height: 100vh;
+}
+
+/* Breakpoints: SOLO recalibran tokens */
+@media (min-width: 640px) {
+  .pagina-modulo-phishing-4to {
+    --ciber-space-lg: 28px;
+    --ciber-space-2xl: 56px;
+    --pad-page: 24px;
+    --pad-card: 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  .pagina-modulo-phishing-4to {
+    --ciber-space-lg: 32px;
+    --ciber-space-2xl: 64px;
+    --pad-page: 32px;
+    --pad-card: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pagina-modulo-phishing-4to {
+    --pad-page: 40px;
+    --pad-card: 32px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .pagina-modulo-phishing-4to {
+    --pad-page: 48px;
+  }
 }
 
 .contenedor-phishing-contenido {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: var(--ciber-space-lg);
 }
 
-/* ══════════════════════════════════════════════════════════════
-   2) TARJETAS DE BLOQUE Y ENCABEZADOS
-   ══════════════════════════════════════════════════════════════ */
 .bloque-phishing-tarjeta {
   background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 2.25rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--ciber-border-subtle, #d1e7dd);
+  border-radius: var(--ciber-radius-md, 14px);
+  padding: var(--pad-card);
+  box-shadow: 0 4px 16px rgba(5, 150, 105, 0.05);
 }
 
 .encabezado-bloque-phishing {
@@ -274,7 +330,7 @@
   background: #ffffff;
   padding: 0.85rem;
   border-radius: 8px;
-  border-left: 4px solid #3b82f6;
+  border: 1px solid var(--ciber-border-subtle, #d1e7dd);
   font-style: italic;
 }
 
@@ -377,7 +433,7 @@
   margin-top: 0.75rem;
   padding: 0.7rem 0.9rem;
   background: #fffbeb;
-  border-left: 4px solid #f59e0b;
+  border: 1px solid #fde68a;
   border-radius: 8px;
   color: #92400e;
   font-size: 0.85rem;
@@ -409,7 +465,7 @@
   background-color: #ffffff;
   padding: 0.75rem;
   border-radius: 8px;
-  border-left: 4px solid #f59e0b;
+  border: 1px solid #fde68a;
 }
 
 /* v2 — URL desglosada */
@@ -508,8 +564,8 @@
 .url-tip {
   font-size: 0.83rem;
   color: #475569;
-  background: #eff6ff;
-  border-left: 4px solid #3b82f6;
+  background: #f0fdf4;
+  border: 1px solid #d1e7dd;
   padding: 0.6rem 0.8rem;
   border-radius: 6px;
   margin: 0;
@@ -764,102 +820,32 @@
   }
 }
 
+
 /* ══════════════════════════════════════════════════════════════
-   13) RESPONSIVIDAD MÓVIL — Sin márgenes, ancho completo
+   13) RESPONSIVIDAD MÓVIL ESPECÍFICA
    ══════════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
-  [class^="pagina-modulo-"] {
-    max-width: 100%;
-    margin: 0;
-    padding: 1.25rem 0.75rem 3rem 0.75rem;
+  .grid-senales-phishing {
+    grid-template-columns: 1fr;
   }
-
-  .bloque-phishing-tarjeta,
-  .bloque-proteccion-tarjeta,
-  .bloque-redes-tarjeta,
-  .bloque-software-tarjeta,
-  .bloque-videojuegos-tarjeta,
-  .bloque-auditoria-tarjeta {
-    padding: 1rem;
-    border-radius: 0 !important;
-  }
-
-  .grid-senales-phishing,
-  .grid-senales-proteccion,
-  .grid-senales-redes,
-  .grid-senales-software,
-  .grid-senales-videojuegos,
-  .grid-senales-auditoria,
-  [class*="grid-senales-"],
-  [class*="grid-tarjetas-"],
-  [class*="cuadricula-"] {
-    grid-template-columns: 1fr !important;
-  }
-
   .acciones-decision-phishing,
-  [class*="acciones-decision-"],
   .acciones-quiz {
     flex-direction: column;
     align-items: stretch;
   }
-
-  [class*="pregunta-quiz"] {
-    padding: 1rem;
-  }
-
-  [class*="opcion-quiz-btn"] {
+  .opcion-quiz-btn {
     width: 100%;
   }
 }
 
-/* ══════════════════════════════════════════════════════════════
-   14) RESPONSIVIDAD MÓVIL PEQUEÑO (≤480px)
-   ══════════════════════════════════════════════════════════════ */
 @media (max-width: 480px) {
-  [class^="pagina-modulo-"] {
-    padding: 1rem 0.5rem 2.5rem 0.5rem;
+  .encabezado-bloque-phishing h2 {
+    font-size: 1.25rem;
   }
-
-  [class*="encabezado-bloque-"] h2 {
-    font-size: 1.2rem;
+  .texto-lectura-phishing {
+    font-size: 0.95rem;
   }
-
-  [class*="texto-lectura-"] {
-    font-size: 0.97rem;
-    line-height: 1.6;
+  .boton-enviar-quiz.phishing {
+    width: 100%;
   }
-
-  .caja-senal-item,
-  [class*="caja-senal-item"] {
-    padding: 1rem;
-  }
-}
-
-/* ══════════════════════════════════════════════════════════════
-   15) TIPOGRAFÍA DE ALTA LEGIBILIDAD
-   ══════════════════════════════════════════════════════════════ */
-[class^="pagina-modulo-"] {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-  letter-spacing: -0.01em;
-  -webkit-font-smoothing: antialiased;
-}
-
-[class^="pagina-modulo-"] h1,
-[class^="pagina-modulo-"] h2,
-[class^="pagina-modulo-"] h3,
-[class^="pagina-modulo-"] h4,
-[class^="pagina-modulo-"] h5,
-[class^="pagina-modulo-"] h6 {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, sans-serif !important;
-  letter-spacing: -0.02em;
-}
-
-[class^="pagina-modulo-"] p,
-[class^="pagina-modulo-"] li,
-[class^="pagina-modulo-"] button,
-[class^="pagina-modulo-"] input {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, sans-serif !important;
 }

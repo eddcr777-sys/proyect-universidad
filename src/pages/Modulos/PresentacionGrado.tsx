@@ -1,17 +1,17 @@
 import React from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { 
-  School, 
-  Clock, 
-  CheckSquare, 
-  ArrowRight, 
-  ArrowLeft, 
-  ShieldCheck, 
+import {
+  School,
+  Clock,
+  CheckSquare,
+  ArrowRight,
+  ArrowLeft,
+  ShieldCheck,
   Lock,
   Share2,
   Download,
   Gamepad2,
-  BookOpen
+  BookOpen,
 } from 'lucide-react';
 import { CATALAGO_MODULOS, DICCIONARIO_GRADOS } from '../../data/datosModulos';
 import type { GradoEscolar } from '../../data/datosModulos';
@@ -40,8 +40,8 @@ export const PresentacionGrado: React.FC = () => {
 
   // Validar y normalizar el grado escolar desde los parámetros de la URL
   const gradoActual: GradoEscolar = (
-    grado && ['1ro', '2do', '3ro', '4to', '5to'].includes(grado) 
-      ? grado 
+    grado && ['1ro', '2do', '3ro', '4to', '5to'].includes(grado)
+      ? grado
       : '1ro'
   ) as GradoEscolar;
 
@@ -78,19 +78,23 @@ export const PresentacionGrado: React.FC = () => {
       {/* CATÁLOGO DE MÓDULOS DE ESTE GRADO */}
       <section className="seccion-modulos-grado">
         <div className="contenedor-presentacion-grado">
-          
-          <div className="selector-grados-pestanas">
+
+          <nav
+            className="selector-grados-pestanas"
+            aria-label="Seleccionar año escolar"
+          >
             {(['1ro', '2do', '3ro', '4to', '5to'] as GradoEscolar[]).map((g) => (
               <button
                 key={g}
                 type="button"
                 className={`pestana-grado ${g === gradoActual ? 'pestana-grado-activa' : ''}`}
                 onClick={() => cambiarGrado(g)}
+                aria-current={g === gradoActual ? 'page' : undefined}
               >
                 {g} Año
               </button>
             ))}
-          </div>
+          </nav>
 
           <div className="encabezado-seccion-modulos">
             <div>
@@ -100,7 +104,6 @@ export const PresentacionGrado: React.FC = () => {
               </p>
             </div>
             <div className="insignia-conteo-modulos">
-      
               <span>{listaModulos.length} Módulos Activos</span>
             </div>
           </div>
@@ -112,7 +115,6 @@ export const PresentacionGrado: React.FC = () => {
 
               return (
                 <article key={modulo.id} className="tarjeta-modulo-grado">
-                  {/* Cabecera con Categoría */}
                   <div className="tarjeta-modulo-cabecera">
                     <div className="tarjeta-modulo-icono">
                       {ICONOS_MODULOS[modulo.id] || <ShieldCheck size={28} />}
@@ -122,10 +124,9 @@ export const PresentacionGrado: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Cuerpo con Título y Breve Explicación */}
                   <div className="tarjeta-modulo-cuerpo">
                     <h3 className="tarjeta-modulo-titulo">{modulo.titulo}</h3>
-                    
+
                     <div className="caja-bienvenida-corta">
                       <p className="texto-bienvenida-corta">
                         <strong>Enfoque {gradoActual} Año:</strong> {contenidoDelGrado.explicacionBreve}
@@ -133,7 +134,6 @@ export const PresentacionGrado: React.FC = () => {
                     </div>
 
                     <div className="detalles-rapidos-modulo">
-                     
                       <span className="item-detalle-rapido">
                         <CheckSquare size={16} />
                         {contenidoDelGrado.temas.length} Lecciones
@@ -141,7 +141,6 @@ export const PresentacionGrado: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Pie con Acción */}
                   <div className="tarjeta-modulo-pie">
                     <Boton
                       variante="ciberseguridad"
@@ -149,7 +148,7 @@ export const PresentacionGrado: React.FC = () => {
                       anchoCompleto
                       onClick={() => navigate(`/proyectos/ciberseguridad/info/${modulo.id}/${gradoActual}`)}
                     >
-                      Ingresar al Módulo 
+                      Ingresar al Módulo
                     </Boton>
                   </div>
                 </article>
@@ -157,7 +156,6 @@ export const PresentacionGrado: React.FC = () => {
             })}
           </div>
 
-          {/* Enlace de Retorno */}
           <div className="caja-pie-retorno">
             <Link to="/proyectos/ciberseguridad" className="enlace-volver-inicio">
               <ArrowLeft size={18} />

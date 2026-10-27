@@ -1,25 +1,85 @@
-/* Módulo Phishing 5to - Estilos coherentes con la serie */
+/* ============================================================================
+   ESTILOS — Phishing5to.css (Laboratorio de Ciberseguridad 5to Año)
+   Paleta clara con verdes mates (#059669, #0e502c, #f4fbf7), sin fondos oscuros.
+   Enfoque: mobile-first unificado con tokens de espaciado.
+   Los breakpoints SOLO recalculan tokens; los selectores no se duplican.
+   ============================================================================ */
 
+/* ===== RESET SCOPED (defensivo) ===== */
+.pagina-modulo-phishing-5to,
+.pagina-modulo-phishing-5to *,
+.pagina-modulo-phishing-5to *::before,
+.pagina-modulo-phishing-5to *::after {
+  box-sizing: border-box;
+}
+
+/* ===== CONTENEDOR RAÍZ ===== */
 .pagina-modulo-phishing-5to {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem 5rem 1.5rem;
-  font-family: system-ui, -apple-system, sans-serif;
-  color: #0f172a;
+  --ciber-space-xs: 4px;
+  --ciber-space-sm: 8px;
+  --ciber-space-md: 16px;
+  --ciber-space-lg: 24px;
+  --ciber-space-xl: 32px;
+  --ciber-space-2xl: 48px;
+
+  --pad-page: 16px;
+  --pad-card: 16px;
+
+  width: 100%;
+  max-width: 1140px;
+  margin-inline: auto;
+  padding-inline: var(--pad-page);
+  padding-block: var(--ciber-space-md) var(--ciber-space-2xl);
+  font-family: var(--ciber-font-ui, 'Outfit', sans-serif);
+  color: var(--ciber-text-primary, #0f2c59);
+  background-color: var(--ciber-bg-base, #ffffff);
+  min-height: 100vh;
+}
+
+/* Breakpoints: SOLO recalibran tokens */
+@media (min-width: 640px) {
+  .pagina-modulo-phishing-5to {
+    --ciber-space-lg: 28px;
+    --ciber-space-2xl: 56px;
+    --pad-page: 24px;
+    --pad-card: 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  .pagina-modulo-phishing-5to {
+    --ciber-space-lg: 32px;
+    --ciber-space-2xl: 64px;
+    --pad-page: 32px;
+    --pad-card: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pagina-modulo-phishing-5to {
+    --pad-page: 40px;
+    --pad-card: 32px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .pagina-modulo-phishing-5to {
+    --pad-page: 48px;
+  }
 }
 
 .contenedor-phishing-contenido {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: var(--ciber-space-lg);
 }
 
 .bloque-phishing-tarjeta {
   background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 2.25rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--ciber-border-subtle, #d1e7dd);
+  border-radius: var(--ciber-radius-md, 14px);
+  padding: var(--pad-card);
+  box-shadow: 0 4px 16px rgba(5, 150, 105, 0.05);
 }
 
 .encabezado-bloque-phishing {
@@ -57,18 +117,24 @@
 }
 
 .caja-senal-item {
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background-color: #f4fbf7;
+  border: 1px solid #d1e7dd;
   border-radius: 14px;
-  padding: 1.5rem;
+  padding: 1.25rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.caja-senal-item:hover {
+  border-color: #059669;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.08);
 }
 
 .icono-senal {
   margin-bottom: 0.75rem;
 }
-.icono-senal.rojo { color: #ef4444; }
-.icono-senal.azul { color: #2563eb; }
-.icono-senal.amarillo { color: #f59e0b; }
+.icono-senal.rojo { color: #dc2626; }
+.icono-senal.azul { color: #059669; }
+.icono-senal.amarillo { color: #d97706; }
 
 .caja-senal-item h3 {
   font-size: 1.15rem;
@@ -152,16 +218,16 @@
 
 .btn-decision.seguro:hover,
 .btn-decision.seguro.seleccionado {
-  background-color: #dcfce7;
-  border-color: #22c55e;
-  color: #15803d;
+  background-color: #f0fdf4;
+  border-color: #059669;
+  color: #059669;
 }
 
 .btn-decision.phishing:hover,
 .btn-decision.phishing.seleccionado {
-  background-color: #fee2e2;
-  border-color: #ef4444;
-  color: #b91c1c;
+  background-color: #fef2f2;
+  border-color: #dc2626;
+  color: #dc2626;
 }
 
 .feedback-decision {
@@ -357,7 +423,7 @@
 }
 
 .icono-pregunta-auditor {
-  color: #0284c7;
+  color: #059669;
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -385,8 +451,8 @@
 }
 
 .btn-opcion-auditoria:hover {
-  border-color: #0284c7;
-  background-color: #f0f9ff;
+  border-color: #059669;
+  background-color: #f0fdf4;
   transform: translateY(-1px);
 }
 
@@ -489,13 +555,13 @@
 }
 
 .opcion-quiz-btn:hover {
-  border-color: #2563eb;
-  background-color: #eff6ff;
+  border-color: #059669;
+  background-color: #f0fdf4;
 }
 
 .opcion-quiz-btn.seleccionada {
-  background-color: #eff6ff;
-  border-color: #2563eb;
+  background-color: #f0fdf4;
+  border-color: #059669;
   font-weight: 600;
 }
 
@@ -530,7 +596,7 @@
 
 .boton-enviar-quiz.phishing {
   padding: 0.75rem 2rem;
-  background-color: #ef4444;
+  background-color: #059669;
   color: white;
   border: none;
   border-radius: 10px;
@@ -541,7 +607,7 @@
 }
 
 .boton-enviar-quiz.phishing:hover {
-  background-color: #dc2626;
+  background-color: #047857;
 }
 
 .boton-enviar-quiz.phishing:disabled {
@@ -587,113 +653,40 @@
     align-items: flex-start;
   }
 }
-/* ══ Responsividad Móvil — Sin márgenes, ancho completo ══ */
+
+/* ══ Responsividad Móvil y Adaptabilidad ══ */
 @media (max-width: 768px) {
-  /* Contenedor raíz: ocupa toda la pantalla, sin márgenes laterales */
-  [class^="pagina-modulo-"] {
-    max-width: 100%;
-    margin: 0;
-    padding: 1.25rem 0.75rem 3rem 0.75rem;
+  .grid-senales-phishing {
+    grid-template-columns: 1fr;
   }
-
-  /* Tarjetas del módulo sin border-radius en móvil y padding reducido */
-  .bloque-phishing-tarjeta,
-  .bloque-proteccion-tarjeta,
-  .bloque-redes-tarjeta,
-  .bloque-software-tarjeta,
-  .bloque-videojuegos-tarjeta,
-  .bloque-auditoria-tarjeta {
-    padding: 1rem;
-    border-radius: 0 !important;
-  }
-
-  /* Grids → 1 columna */
-  .grid-senales-phishing,
-  .grid-senales-proteccion,
-  .grid-senales-redes,
-  .grid-senales-software,
-  .grid-senales-videojuegos,
-  .grid-senales-auditoria,
-  [class*="grid-senales-"],
-  [class*="grid-tarjetas-"],
-  [class*="cuadricula-"] {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Botones de decisión en columna */
   .acciones-decision-phishing,
-  [class*="acciones-decision-"],
   .acciones-quiz {
     flex-direction: column;
     align-items: stretch;
   }
-
-  /* Preguntas de quiz más compactas */
-  [class*="pregunta-quiz"] {
-    padding: 1rem;
-  }
-
-  /* Opciones de quiz a ancho completo */
-  [class*="opcion-quiz-btn"] {
+  .opcion-quiz-btn {
     width: 100%;
+  }
+  .cabecera-auditoria-campaña {
+    flex-direction: column;
   }
 }
 
 @media (max-width: 480px) {
-  [class^="pagina-modulo-"] {
-    padding: 1rem 0.5rem 2.5rem 0.5rem;
+  .encabezado-bloque-phishing h2 {
+    font-size: 1.25rem;
   }
-
-  /* Encabezados de bloque más pequeños */
-  [class*="encabezado-bloque-"] h2 {
-    font-size: 1.2rem;
+  .texto-lectura-phishing {
+    font-size: 0.95rem;
   }
-
-  /* Texto de lectura más compacto */
-  [class*="texto-lectura-"] {
-    font-size: 0.97rem;
-    line-height: 1.6;
-  }
-
-  /* Cajas de señal menos espaciosas */
-  .caja-senal-item,
-  [class*="caja-senal-item"] {
-    padding: 1rem;
-  }
-
-  /* Tarjeta de auditoría móvil */
   .tarjeta-auditoria-campaña {
     padding: 1.1rem;
   }
-
   .btn-opcion-auditoria {
     padding: 0.75rem 0.85rem;
     font-size: 0.88rem;
   }
+  .boton-enviar-quiz.phishing {
+    width: 100%;
+  }
 }
-
-
-/* ══ Tipografía de Alta Legibilidad para Contenidos de Módulos ══ */
-[class^="pagina-modulo-"] {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-  letter-spacing: -0.01em;
-  -webkit-font-smoothing: antialiased;
-}
-
-[class^="pagina-modulo-"] h1,
-[class^="pagina-modulo-"] h2,
-[class^="pagina-modulo-"] h3,
-[class^="pagina-modulo-"] h4,
-[class^="pagina-modulo-"] h5,
-[class^="pagina-modulo-"] h6 {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-  letter-spacing: -0.02em;
-}
-
-[class^="pagina-modulo-"] p,
-[class^="pagina-modulo-"] li,
-[class^="pagina-modulo-"] button,
-[class^="pagina-modulo-"] input {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-}
-

@@ -115,9 +115,9 @@
 
 .item-concepto {
   background-color: var(--color-fondo-variante);
-  border-left: 4px solid var(--color-ciber-primario);
+  border: 1px solid var(--ciber-border-subtle, #d1e7dd);
   padding: 0.75rem 1rem;
-  border-radius: 0 var(--radio-principal) var(--radio-principal) 0;
+  border-radius: 10px;
   font-size: 0.95rem;
   line-height: 1.5;
 }
@@ -621,7 +621,7 @@
   .bloque-videojuegos-tarjeta,
   .bloque-auditoria-tarjeta {
     padding: 1rem;
-    border-radius: 0 !important;
+    border-radius: 12px;
   }
 
   /* Grids → 1 columna */
