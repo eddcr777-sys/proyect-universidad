@@ -18,8 +18,8 @@ export default defineConfig({
         name: 'Complejo Educativo Antonio Lemus Pérez',
         short_name: 'C.E. Antonio Lemus Pérez',
         description: 'Plataforma pedagógica integral con enfoque en ciberseguridad, concientización y colaboración.',
-        theme_color: '#0F2C59',
-        background_color: '#0F2C59',
+        theme_color: '#ffffffff',
+        background_color: '#ffffffff',
         display: 'standalone',
         start_url: '/',
         icons: [
