@@ -1,178 +1,255 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowDown, BookOpen } from 'lucide-react';
-import '../HomePage/HomePage.css';
-import { useCarrusel } from '../../hooks/useCarrusel';
-import {
-  LABORES_DATA,
-  PERSONAL_DATA,
-  CARRUSEL_LABORES_DATA,
-  CARRUSEL_PERSONAL_DATA,
-} from '../../data/HomeData';
+import { 
+  ArrowRight, 
+  Shield, 
+  Cpu, 
+  GraduationCap, 
+  FileText, 
+  Image as ImageIcon,
+  CheckCircle2,
+  ChevronRight,
+  BookOpen
+} from 'lucide-react';
+import './HomePage.css';
 
-import HeroInstitucional from '../../components/comunes/HeroInstitucional/HeroInstitucional';
-import TarjetasDesplegables from '../../components/comunes/tarjetas/tarjetasHome'; // Ajusta si tienes otro archivo
-import CarruselBase from '../../components/comunes/Extras/carrusel';
+import fotoHero from '../../assets/pbk-Hero-3.jpg';
+import fotoFachada from '../../assets/lb.jpeg';
+import fotoAula from '../../assets/le.jpeg';
+import fotoDeportes from '../../assets/lemu.jpeg';
+import fotoEtica from '../../assets/etic.jpeg';
 
-import fotoCancha from '../../assets/12.jpg';
-import img5 from '../../assets/lb.png';
-
+/**
+ * Portada Principal (Home) — Portal Institucional
+ * - Enfoque de portal dinámico: accesos rápidos, proyecto insignia, estadísticas, vida escolar y admisión.
+ * - Sin duplicar el contenido institucional profundo de ¿Quiénes Somos? (misión, visión, historia y normas).
+ * - Totalmente adaptado a móviles y pantallas grandes sin márgenes ni desbordamientos laterales.
+ */
 export const Home: React.FC = () => {
-  const carruselLabores = useCarrusel(CARRUSEL_LABORES_DATA.length);
-  const carruselPersonal = useCarrusel(CARRUSEL_PERSONAL_DATA.length);
-
-  const personalAdaptado = PERSONAL_DATA.map((p) => ({
-    id: p.id,
-    imagen: p.imagen,
-    titulo: p.cargo,
-    resumen: p.resumen,
-    detalle: p.detalle,
-  }));
-
   return (
-    <main className="inicio-pagina">
-      {/* HERO */}
-      <HeroInstitucional
-        imagenFondo={img5}
-        titulo="Complejo Educativo"
-        subtitulo='"Antonio Lemus Pérez"'
-        descripcion="Más de 40 años formando ciudadanos integrales con excelencia académica, valores éticos y compromiso social en Cumaná, Estado Sucre."
-        acciones={
-          <>
-            <Link to="/proyectos" className="boton-hero-principal">
-              <BookOpen size={18} />
-              Explorar Proyectos
+    <div className="portal-home">
+      {/* ───── 1. HERO BANNER PRINCIPAL ───── */}
+      <section 
+        className="portal-hero"
+        style={{ backgroundImage: `url(${fotoHero})` }}
+      >
+        <div className="portal-hero-overlay" />
+        <div className="portal-hero-contenedor">
+          <div className="portal-hero-tarjeta-flotante">
+            <span className="portal-hero-etiqueta">Desde 1984 · Cumaná, Estado Sucre</span>
+            <h1 className="portal-hero-titulo">
+              Complejo Educativo<br />
+              «Antonio Lemus Pérez»
+            </h1>
+            <p className="portal-hero-subtitulo">
+              Más de 40 años formando bachilleres en Ciencias con sólida formación académica, 
+              valores éticos, patriotismo y vocación de servicio a la comunidad.
+            </p>
+            <div className="portal-hero-botones">
+              <Link to="/admision/requisitos" className="portal-btn-rojo">
+                Proceso de Admisión
+                <ArrowRight size={16} />
+              </Link>
+              <Link to="/el-liceo" className="portal-btn-borde">
+                Conoce el Liceo
+                <ChevronRight size={16} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="portal-cuerpo">
+        {/* ───── 2. ACCESOS RÁPIDOS A LAS ÁREAS DEL COMPLEJO ───── */}
+        <section className="portal-seccion-accesos">
+          <div className="portal-accesos-encabezado">
+            <h2>Nuestra Comunidad Educativa</h2>
+            <p>Accede directamente a las diferentes áreas, servicios y proyectos del complejo escolar.</p>
+          </div>
+
+          <div className="portal-grid-cuatro-accesos">
+            {/* 1. El Liceo */}
+            <Link to="/el-liceo" className="portal-tarjeta-acceso">
+              
+              <h3>El Complejo Educativo</h3>
+              <p>Misión, visión, historia fundacional, estudios y manual de convivencia escolar.</p>
+              <span className="portal-acceso-flecha">
+                Conocer más <ArrowRight size={16} />
+              </span>
             </Link>
-            <a href="#historia" className="boton-hero-secundario">
-              Conocer Nuestra Historia
-              <ArrowDown size={16} />
-            </a>
-          </>
-        }
-      />
 
-      {/* MISIÓN Y VISIÓN */}
-      <section className="seccion-mision-vision">
-        <div className="contenedor-cruzado">
-          <div className="imagen-cruzada">
-            <img src={fotoCancha} alt="Nuestra Misión" loading="lazy" decoding="async" />
+            {/* 2. Ciberseguridad */}
+            <Link to="/proyectos/ciberseguridad" className="portal-tarjeta-acceso">
+              
+              <h3>Proyecto de Ciberseguridad</h3>
+              <p>Módulos interactivos de protección digital y navegación segura de 1ro a 5to año.</p>
+              <span className="portal-acceso-flecha">
+                Explorar plataforma <ArrowRight size={16} />
+              </span>
+            </Link>
+
+            {/* 3. Admisión */}
+            <Link to="/admision/requisitos" className="portal-tarjeta-acceso">
+              
+              <h3>Proceso de Admisión</h3>
+              <p>Requisitos de inscripción, recaudos y calendario escolar para nuevos ingresos.</p>
+              <span className="portal-acceso-flecha">
+                Ver requisitos <ArrowRight size={16} />
+              </span>
+            </Link>
+
+            {/* 4. Galería */}
+            <Link to="/galeria" className="portal-tarjeta-acceso">
+                
+              <h3>Galería de Espacios</h3>
+              <p>Fotografías de pabellones, canchas deportivas, laboratorios y vida estudiantil.</p>
+              <span className="portal-acceso-flecha">
+                Ver galería <ArrowRight size={16} />
+              </span>
+            </Link>
           </div>
-          <div className="texto-cruzado">
-            <span className="badge-apple">Desde 1984</span>
-            <h2 className="titulo-apple">Nuestra Misión</h2>
-            <p className="subtitulo-apple">
-              Promover y desarrollar un alto nivel socio-ético-cultural mediante la formación integral de
-              estudiantes capaces de enfrentar los retos de la vida.
+        </section>
+
+        {/* ───── 3. CIFRAS DE IMPACTO INSTITUCIONAL ───── */}
+        <section className="portal-seccion-stats">
+          <div className="portal-grid-stats">
+            <div className="portal-stat-item">
+              <span className="portal-stat-numero">1984</span>
+              <p className="portal-stat-texto">Año fundacional como E.B. "Creación Bolivariana"</p>
+            </div>
+            <div className="portal-stat-item">
+              <span className="portal-stat-numero">900+</span>
+              <p className="portal-stat-texto">Estudiantes activos cursando educación media general</p>
+            </div>
+            <div className="portal-stat-item">
+              <span className="portal-stat-numero">64</span>
+              <p className="portal-stat-texto">Docentes especialistas y orientadores comprometidos</p>
+            </div>
+            <div className="portal-stat-item">
+              <span className="portal-stat-numero">40+</span>
+              <p className="portal-stat-texto">Años de excelencia y servicio a la comunidad de Cumaná</p>
+            </div>
+          </div>
+        </section>
+
+
+        {/* ───── 4. DESTACADOS DE LA VIDA ESCOLAR ───── */}
+        <section className="portal-seccion-vida">
+          <div className="portal-vida-encabezado">
+            <h2>Vida Estudiantil y Formación Activa</h2>
+            <p>Espacios donde nuestros estudiantes potencian sus habilidades deportivas, científicas y sociales.</p>
+          </div>
+
+          <div className="portal-grid-tres-vida">
+            <Link to="/galeria" className="portal-tarjeta-vida">
+              <img src={fotoDeportes} alt="Actividades deportivas" loading="lazy" />
+              <div className="portal-tarjeta-vida-overlay">
+                <h4>Deporte y Salud Escolar</h4>
+                <p>Canchas deportivas múltiples y torneos de fútbol sala, voleibol y atletismo.</p>
+              </div>
+            </Link>
+
+            <Link to="/galeria" className="portal-tarjeta-vida">
+              <img src={fotoAula} alt="Laboratorio de computación" loading="lazy" />
+              <div className="portal-tarjeta-vida-overlay">
+                <h4>Laboratorios y Tecnología</h4>
+                <p>Espacios de informática y ciencias experimentales para el aprendizaje práctico.</p>
+              </div>
+            </Link>
+
+            <Link to="/galeria" className="portal-tarjeta-vida">
+              <img src={fotoEtica} alt="Convivencia y civismo" loading="lazy" />
+              <div className="portal-tarjeta-vida-overlay">
+                <h4>Convivencia y Valores Cívicos</h4>
+                <p>Cultura de paz, respeto mutuo y brigadas ecológicas en pro del ambiente.</p>
+              </div>
+            </Link>
+          </div>
+        </section>
+
+        {/* ───── 5. BANNER DE ADMISIÓN CTA ───── */}
+        <section className="portal-seccion-cta">
+          <div className="portal-cta-texto">
+            <h2>¿Deseas Inscribirte en el Complejo Educativo?</h2>
+            <p>
+              Consulta el cronograma de inscripciones, planillas descargables y requisitos indispensables 
+              para nuevos ingresos de 1er año y traslados de educación media general.
             </p>
           </div>
+          <div className="portal-cta-boton-caja">
+            <Link to="/admision/requisitos" className="portal-btn-rojo">
+              Consultar Requisitos de Admisión
+              <ArrowRight size={18} />
+            </Link>
+          </div>
+        </section>
 
-          <div className="texto-cruzado">
-            <span className="badge-apple">Futuro</span>
-            <h2 className="titulo-apple">Nuestra Visión</h2>
-            <p className="subtitulo-apple">
-              Ser un referente colectivo e integrador que forme ciudadanos integrales, socializando la
-              relación entre escuela, familia y comunidad.
+        {/* ───── 4. SHOWCASE PROYECTO INSIGNIA: CIBERSEGURIDAD ───── */}
+        <section className="portal-seccion-ciber-destacado">
+          <div className="portal-ciber-info">
+            <span className="portal-ciber-badge">Iniciativa Estudiantil y Docente</span>
+            <h2 className="portal-ciber-titulo">
+              Plataforma de Ciberseguridad y Convivencia Digital
+            </h2>
+            <p className="portal-ciber-desc">
+              Un proyecto educativo diseñado para fortalecer la conciencia digital en los adolescentes, 
+              enseñando prácticas seguras para proteger datos personales, prevenir el ciberacoso escolar 
+              y navegar responsablemente en redes sociales e internet.
             </p>
-          </div>
-          <div className="imagen-cruzada">
-            <img src={fotoCancha} alt="Nuestra Visión" loading="lazy" decoding="async" />
-          </div>
-        </div>
-      </section>
 
-      {/* HISTORIA */}
-      <section id="historia" className="seccion-historia-harvard">
-        <div className="contenedor-harvard">
-          <div className="columna-izquierda-harvard">
-            <div className="encabezado-harvard">
-              <h2 className="titulo-harvard">Nuestra institución de un vistazo</h2>
-              <p className="subtitulo-harvard">
-                Durante más de cuatro décadas, la comunidad del Complejo Educativo "Antonio Lemus Pérez" ha
-                cultivado la excelencia educativa y el compromiso social en la juventud sucrense.
-              </p>
-              <a href="/nosotros/sobre-ue" className="enlace-flecha-harvard">
-                <span className="icono-circulo-flecha">→</span>
-                <span>Conozca más sobre nuestra historia</span>
-              </a>
+            <div className="portal-ciber-features">
+              <div className="portal-feature-item">
+            
+                <span>Protección de Cuentas y Claves</span>
+              </div>
+              <div className="portal-feature-item">
+               
+                <span>Prevención de Phishing y Estafas</span>
+              </div>
+              <div className="portal-feature-item">
+              
+                <span>Privacidad en Redes Sociales</span>
+              </div>
+              <div className="portal-feature-item">
+             
+                <span>Uso Ético de la Tecnología</span>
+              </div>
             </div>
 
-            <div className="marco-imagen-harvard">
-              <img src={fotoCancha} alt="Instalaciones del Complejo Educativo" loading="lazy" decoding="async" />
+            <div>
+              <Link to="/proyectos/ciberseguridad" className="portal-btn-rojo">
+                
+                Ingresar a la Plataforma de Ciberseguridad
+              </Link>
             </div>
           </div>
 
-          <div className="columna-derecha-harvard">
-            <div className="item-stat-harvard">
-              <span className="numero-stat-harvard">1984</span>
-              <p className="etiqueta-stat-harvard">
-                El año en que se fundó la institución como E.B. "Creación Bolivariana"
-              </p>
+          <div className="portal-ciber-card-visual">
+            <h4>Módulos Adaptados por Grado</h4>
+            <p>Contenido interactivo con evaluaciones prácticas y situaciones cotidianas adaptadas al nivel escolar:</p>
+            
+            <div className="portal-ciber-grados-chips">
+              <span className="portal-grado-chip">1er Año · Fundamentos</span>
+              <span className="portal-grado-chip">2do Año · Navegación</span>
+              <span className="portal-grado-chip">3er Año · Antiphishing</span>
+              <span className="portal-grado-chip">4to Año · Redes y Privacidad</span>
+              <span className="portal-grado-chip">5to Año · Seguridad Avanzada</span>
             </div>
-            <div className="item-stat-harvard">
-              <span className="numero-stat-harvard">907+</span>
-              <p className="etiqueta-stat-harvard">
-                Estudiantes matriculados activamente en el período académico actual
-              </p>
-            </div>
-            <div className="item-stat-harvard">
-              <span className="numero-stat-harvard">Más de 40</span>
-              <p className="etiqueta-stat-harvard">
-                Años de servicio ininterrumpido dedicados a la educación pública de calidad
-              </p>
-            </div>
-            <div className="item-stat-harvard">
-              <span className="numero-stat-harvard">64</span>
-              <p className="etiqueta-stat-harvard">
-                Docentes especialistas orientados a la formación integral y proyectos socioproductivos
-              </p>
-            </div>
+
+            <Link 
+              to="/proyectos/ciberseguridad/modulos" 
+              className="portal-btn-borde1"
+              style={{ alignSelf: 'flex-start', background: 'transparent', color: '#ffffff', borderColor: 'rgba(255,255,255,0.4)' }}
+            >
+              Ver Catálogo de Módulos
+              <ArrowRight size={16} />
+            </Link>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
+    </div>
 
-      {/* LABORES */}
-      <section id="labores" className="seccion-labores-harvard">
-        <div className="contenedor-harvard-ancho">
-          <div className="encabezado-harvard-simple">
-            <h2 className="titulo-seccion-editorial">Nuestras Labores e Iniciativas</h2>
-            <p className="subtitulo-seccion-editorial">
-              Programas y proyectos que enriquecen la formación integral y el compromiso social de nuestra
-              comunidad.
-            </p>
-          </div>
-          <div className="grid-labores-harvard">
-            <TarjetasDesplegables items={LABORES_DATA} />
-          </div>
-        </div>
-      </section>
 
-      <section className="carruseles">
-        <CarruselBase
-          titulo="Galería de Iniciativas en Acción"
-          slides={CARRUSEL_LABORES_DATA}
-          indiceActual={carruselLabores.indiceActual}
-          onAnterior={carruselLabores.anterior}
-          onSiguiente={carruselLabores.siguiente}
-          onIrAIndice={carruselLabores.irAIndice}
-        />
-      </section>
-
-      
-
-      {/* PERSONAL */}
-   
-
-      <section className="carruseles">
-        <CarruselBase
-          titulo="Galería de Nuestro Equipo"
-          slides={CARRUSEL_PERSONAL_DATA}
-          indiceActual={carruselPersonal.indiceActual}
-          onAnterior={carruselPersonal.anterior}
-          onSiguiente={carruselPersonal.siguiente}
-          onIrAIndice={carruselPersonal.irAIndice}
-        />
-      </section>
-    </main>
   );
 };
 

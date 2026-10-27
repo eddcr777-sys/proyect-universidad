@@ -1,98 +1,176 @@
-.pie-pagina {
-  background-color: var(--color-inst-blanco);
-  color: var(--color-inst-azul);
-  padding: 60px 0 20px;
+/* ==========================================================================
+   FOOTER INSTITUCIONAL — ESTILO COLEGIO LOS ARCOS (Captura 3)
+   Fondo azul marino profundo (#051833), 4 columnas separadas por líneas sutiles
+   ========================================================================== */
+
+footer.losarcos-footer {
+  background-color: #051833 !important;
+  color: #ffffff !important;
+  padding: 70px 24px 50px 24px !important;
+  border-top: 3.5px solid #8B1E2F !important;
+  font-family: var(--fuente-ciber-cuerpo, 'Inter', sans-serif) !important;
+  width: 100% !important;
+  display: block !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  z-index: 100 !important;
 }
 
-/* Contenedor con ancho máximo y padding lateral */
-.pie-pagina .contenedor {
-  max-width: 1380px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+.losarcos-footer-contenedor {
+  max-width: 1320px !important;
+  margin: 0 auto !important;
+  display: grid !important;
+  grid-template-columns: 1.2fr 1fr 1fr 0.9fr !important;
+  gap: 40px !important;
 }
 
-.grid-pie {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 40px;
+/* Columnas individuales con divisores verticales */
+.losarcos-columna {
+  padding-right: 32px !important;
+  border-right: 1px solid rgba(216, 182, 113, 0.45) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
 }
 
-.pie-titulo {
-  color:var(--color-inst-azul);
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+.losarcos-columna:last-child {
+  border-right: none !important;
+  padding-right: 0 !important;
 }
 
-.pie-texto {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  opacity: 0.8;
+/* Columna 1: Logo y Copyright */
+.losarcos-logo-caja {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  margin-bottom: 24px !important;
 }
 
-.pie-contacto p {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-  opacity: 0.8;
+.losarcos-escudo-icono {
+  color: #ffffff !important;
+  flex-shrink: 0 !important;
 }
 
-.pie-links {
-  list-style: none;
-  padding: 0;
+.losarcos-nombre-liceo {
+  font-family: var(--fuente-ciber-titulos, 'Outfit', sans-serif) !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  color: #ffffff !important;
+  margin: 0 !important;
 }
 
-.pie-links li {
-  margin-bottom: 0.5rem;
+.losarcos-copyright {
+  font-size: 0.88rem !important;
+  line-height: 1.6 !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  margin-top: auto !important;
 }
 
-.pie-links a {
-  color: var(--color-inst-azul);
-  text-decoration: none;
-  transition: color 0.2s;
+/* Títulos de columnas */
+.losarcos-columna-titulo {
+  font-family: var(--fuente-ciber-titulos, 'Outfit', sans-serif) !important;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin: 0 0 18px 0 !important;
+  letter-spacing: 0.3px !important;
+  text-transform: none !important;
 }
 
-.pie-links a:hover {
-  color: var(--color-inst-azul-hover);
+/* Listas de enlaces */
+.losarcos-lista-enlaces {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
 }
 
-.pie-copy {
-  border-top: 1px solid var(--color-inst-borde);
-  padding-top: 20px;
-  text-align: center;
-  font-size: 0.85rem;
-  opacity: 0.7;
+.losarcos-lista-enlaces li {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
 }
 
-/* ── Responsividad móvil del footer ── */
-@media (max-width: 768px) {
-  .pie-pagina {
-    padding: 40px 1rem 20px;
+.losarcos-lista-enlaces li a {
+  color: rgba(255, 255, 255, 0.78) !important;
+  text-decoration: none !important;
+  font-size: 0.93rem !important;
+  transition: color 0.2s ease, padding-left 0.2s ease !important;
+  display: inline-block !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.losarcos-lista-enlaces li a:hover {
+  color: #ffffff !important;
+  padding-left: 5px !important;
+}
+
+/* Redes sociales circulares al estilo Los Arcos (doradas con icono oscuro) */
+.losarcos-redes-caja {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-top: 36px !important;
+}
+
+.red-social-icono {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  background-color: #d8b671 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #051833 !important;
+  text-decoration: none !important;
+  transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease !important;
+}
+
+.red-social-icono:hover {
+  background-color: #ffffff !important;
+  color: #051833 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .losarcos-footer-contenedor {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 36px !important;
   }
 
-  .grid-pie {
-    /* Apila las columnas en una sola en pantallas pequeñas */
-    grid-template-columns: 1fr;
-    gap: 28px;
+  .losarcos-columna {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
+    padding-bottom: 30px !important;
+    padding-right: 0 !important;
   }
 
-  /* Ocultar columnas secundarias en móvil — solo se muestra la info principal */
-  .pie-col-enlaces,
-  .pie-col-horario {
-    display: none;
+  .losarcos-columna:nth-last-child(-n+2) {
+    border-bottom: none !important;
   }
 }
 
-@media (max-width: 480px) {
-  .pie-titulo {
-    font-size: 1rem;
+@media (max-width: 600px) {
+  footer.losarcos-footer {
+    padding: 44px 18px 32px 18px !important;
   }
 
-  .pie-texto,
-  .pie-contacto p,
-  .pie-links a {
-    font-size: 0.88rem;
+  .losarcos-footer-contenedor {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .losarcos-columna {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
+    padding-bottom: 24px !important;
+  }
+
+  .losarcos-columna:last-child {
+    border-bottom: none !important;
   }
 }

@@ -1,71 +1,218 @@
-.requisitos-seccion {
-  padding: 2rem 0;
+/* ==========================================================================
+   ESTILOS — PROCESO DE ADMISIÓN (C.E. ANTONIO LEMUS PÉREZ)
+   Diagramación inspirada fielmente en la Captura 1 (Colegio Los Arcos)
+   Paleta: Azul #0F2C59, Rojo #C8102E, Bordes y tipografía limpias
+   ========================================================================== */
+
+.pagina-admision-proceso {
+  background-color: #ffffff;
+  min-height: 100vh;
+  padding: 50px 20px 80px 20px;
+}
+
+.admision-contenedor-ancho {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+/* ── ENCABEZADO PRINCIPAL (Captura 1) ── */
+.admision-encabezado-editorial {
+  margin-bottom: 40px;
+}
+
+.admision-titulo-principal {
+  font-family: var(--fuente-ciber-titulos, 'Outfit', sans-serif);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--color-inst-azul, #0F2C59);
+  line-height: 1.2;
+  margin: 0 0 16px 0;
+}
+
+.admision-descripcion-intro {
+  font-size: 1.08rem;
+  line-height: 1.6;
+  color: #4b5563;
+  margin: 0;
+}
+
+/* ── TARJETAS POR PASOS (Captura 1) ── */
+.admision-pasos-lista {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 28px;
 }
 
-.requisitos-categoria-bloque {
-  background: var(--color-superficie, #ffffff);
-  border: 1px solid var(--color-borde, #e5e7eb);
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-}
-
-.requisitos-categoria-titulo {
+.admision-paso-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  padding: 32px 36px;
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 1.5rem;
-  color: var(--color-texto-principal, #111827);
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid var(--color-primario-suave, #dbeafe);
+  gap: 24px;
+  align-items: flex-start;
+  box-shadow: 0 4px 16px rgba(15, 44, 89, 0.04);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.requisitos-icono-categoria {
+.admision-paso-card:hover {
+  box-shadow: 0 8px 24px rgba(15, 44, 89, 0.08);
+  border-color: #cbd5e1;
+}
+
+/* ── INSIGNIA NUMÉRICA CIRCULAR ── */
+.admision-paso-numero {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-inst-rojo, #8B1E2F);
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  background: var(--color-primario-suave, #dbeafe);
-  color: var(--color-primario, #2563eb);
-  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(139, 30, 47, 0.25);
 }
 
-.requisitos-grid-items {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+.admision-paso-contenido {
+  flex-grow: 1;
 }
 
-.requisito-tarjeta-item {
+.admision-paso-texto {
+  font-size: 1.05rem;
+  color: #1f2937;
+  margin: 6px 0 16px 0;
+  font-weight: 500;
+}
+
+/* ── BOTÓN PILL DE SOLICITUD (Captura 1) ── */
+.boton-solicitud-admision {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--color-inst-rojo, #8B1E2F);
+  color: #ffffff;
+  padding: 13px 28px;
+  border-radius: 50px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(139, 30, 47, 0.3);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.boton-solicitud-admision:hover {
+  background-color: var(--color-inst-rojo-hover, #701624);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(139, 30, 47, 0.4);
+  color: #ffffff;
+}
+
+/* ── SELECTOR DE MODALIDAD (NUEVOS INGRESOS VS REGULARES) ── */
+.admision-tabs-contenedor {
+  display: flex;
+  gap: 12px;
+  margin: 18px 0 24px 0;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 8px;
+}
+
+.admision-tab-boton {
+  background: transparent;
+  border: none;
+  padding: 8px 18px;
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.admision-tab-boton.activo {
+  color: var(--color-inst-azul, #0F2C59);
+  background: #f1f5f9;
+}
+
+.admision-tab-boton.activo::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-inst-azul, #0F2C59);
+  border-radius: 3px 3px 0 0;
+}
+
+/* ── LISTA DE RECAUDOS ORDENADA NUMÉRICAMENTE (Captura 1) ── */
+.admision-lista-recaudos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.admision-item-recaudo {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
-  padding: 1.25rem;
-  background: var(--color-fondo, #f9fafb);
-  border-radius: 0.75rem;
-  border-left: 4px solid var(--color-primario, #2563eb);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  gap: 10px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #374151;
 }
 
-.requisito-tarjeta-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-.requisito-icono-check {
-  color: var(--color-primario, #2563eb);
+.admision-numero-orden {
+  font-weight: 800;
+  color: #111827;
+  min-width: 24px;
   flex-shrink: 0;
-  margin-top: 0.1rem;
 }
 
-.requisito-contenido-texto p {
-  margin: 0;
-  color: var(--color-texto-secundario, #4b5563);
-  line-height: 1.5;
-  font-size: 0.95rem;
+.admision-nota-adicional {
+  margin-top: 24px;
+  padding: 16px 20px;
+  background-color: #f8fafc;
+  border-radius: 6px;
+  font-size: 0.92rem;
+  color: #475569;
+  line-height: 1.55;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .admision-titulo-principal {
+    font-size: 2.1rem;
+  }
+
+  .admision-paso-card {
+    padding: 24px 20px;
+    gap: 16px;
+  }
+
+  .admision-paso-numero {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+
+  .boton-solicitud-admision {
+    width: 100%;
+    text-align: center;
+  }
+
+  .admision-tabs-contenedor {
+    flex-direction: column;
+    gap: 6px;
+  }
 }

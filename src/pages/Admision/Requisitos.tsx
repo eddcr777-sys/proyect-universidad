@@ -1,99 +1,128 @@
-import React from 'react';
-import { ArrowLeft, UserPlus, Users, CheckCircle2 } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowLeft, Download, ExternalLink, HelpCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import HeroInstitucional from '../../components/comunes/HeroInstitucional/HeroInstitucional';
-import img5 from '../../assets/pbk-Hero-3.jpg';
-import '../ElLiceo/ElLiceo.css';
 import './Requisitos.css';
 
+/**
+ * Página: Proceso de Admisión — Complejo Educativo "Antonio Lemus Pérez"
+ * Estructura tomada de la Captura 1 (Colegio Los Arcos):
+ * - Título del proceso de admisión
+ * - Párrafo descriptivo introductorio
+ * - Paso 1: Enlace y botón con forma de píldora para solicitud de admisión / formatos
+ * - Paso 2: Recaudos necesarios ordenados numéricamente con alta legibilidad
+ */
 export const Requisitos: React.FC = () => {
-  const seccionesRequisitos = [
-    {
-      categoria: 'Requisitos para Estudiantes Nuevos Ingresos',
-      icono: <UserPlus size={24} />,
-      items: [
-        'Partida de Nacimiento Original y 2 copias.',
-        '2 copias de Cédula de Identidad del estudiante.',
-        '2 copias de Cédula de Identidad del representante.',
-        '4 Fotos del estudiante con la camisa del uniforme.',
-        '2 fotos del representante.',
-        'Papeles de 6to grado.',
-        'Copia de Informe médico en caso de que el o la estudiante tenga alguna patología.',
-        'Talla y Peso del o de la estudiante.',
-        'Compra de formatos (acta compromiso, inscripción) en la misma institución.',
-        'Correo Electrónico del estudiante y representante.',
-        '1 Carpeta Marrón tipo oficio con gancho.',
-        '1 Sobre de Manila tipo oficio.',
-        'El estudiante debe estar presente para la inscripción.'
-      ]
-    },
-    {
-      categoria: 'Requisitos para Inscripción de Estudiantes Regulares',
-      icono: <Users size={24} />,
-      items: [
-        'Consignar cualquier documento pendiente de su representado al momento de inscribir.',
-        'Boletín del año escolar culminado.',
-        'Talla y Peso del o de la estudiante.',
-        'Correo Electrónico del o de la estudiante.',
-        'Al momento de la inscripción el estudiante debe estar presente.',
-        'Solvencia de la colaboración voluntaria del año escolar 2025-2026.',
-        'Correo Electrónico del representante.',
-        '1 Carpeta marrón tipo oficio con gancho.',
-        '1 Sobre de manila tipo oficio (aplica para los estudiantes promovidos a 4to año).',
-        'Las fotos de los estudiantes deben ser con la camisa del año escolar a cursar (Marrón o Azul).',
-        'Compra de formato de acta de compromiso.'
-      ]
-    }
+  const [pestañaActiva, setPestañaActiva] = useState<'nuevos' | 'regulares'>('nuevos');
+
+  const recaudosNuevosIngresos = [
+    'Foto del grupo familiar o constancia de convivencia.',
+    '4 fotos tipo carnet del estudiante con la camisa del uniforme escolar.',
+    '2 fotos tipo carnet del representante legal.',
+    'Partida de Nacimiento original y 2 copias legibles.',
+    '2 copias de la Cédula de Identidad del estudiante (o comprobante en trámite).',
+    '2 copias de la Cédula de Identidad del representante.',
+    'Copia de calificaciones o certificado de promoción de 6to grado de Educación Primaria.',
+    'En el caso de aspirantes a Educación Media General procedentes de otros planteles, consignar notas certificadas y constancia de buena conducta.',
+    'Todo aspirante que presente cualquier tipo de condición o diagnóstico médico debe entregar el informe correspondiente emitido por el especialista.',
+    'Constancia de niño sano o control pediátrico actualizado (talla y peso del estudiante).',
+    'Correo electrónico activo tanto del estudiante como del representante para notificaciones académicas.',
+    '1 carpeta marrón tipo oficio con gancho y 1 sobre de manila tipo oficio.',
+    'Presencia obligatoria del estudiante al momento de la formalización de la inscripción.'
   ];
 
+  const recaudosRegulares = [
+    'Boletín o registro de calificaciones del año escolar culminado.',
+    'Consignar cualquier documento pendiente en el expediente de su representado.',
+    '2 fotos del estudiante con la camisa del año escolar a cursar (marrón para ciclo diversificado, azul para ciclo básico).',
+    'Actualización de datos médicos, talla, peso y correos electrónicos del estudiante y representante.',
+    'Solvencia o comprobante de la colaboración voluntaria institucional.',
+    '1 carpeta marrón tipo oficio con gancho y 1 sobre de manila tipo oficio (aplica para estudiantes promovidos a 4to año).',
+    'Adquisición y firma del acta de compromiso institucional en secretaría.',
+    'Presencia obligatoria del estudiante y representante al momento del proceso.'
+  ];
+
+  const recaudosAMostrar = pestañaActiva === 'nuevos' ? recaudosNuevosIngresos : recaudosRegulares;
+
   return (
-    <div className="pagina-liceo">
-      <HeroInstitucional
-        imagenFondo={img5}
-        variante="compacto"
-        titulo="Requisitos de Inscripción"
-        subtitulo="Complejo Educativo 'Antonio Lemus Pérez'"
-        descripcion="Información y documentación necesaria para el proceso de admisión y regularización estudiantil (Año Escolar: 2026-2027)."
-        acciones={
-          <Link to="/" className="boton-hero-principal">
-            <ArrowLeft size={18} />
+    <div className="pagina-admision-proceso">
+      <div className="admision-contenedor-ancho">
+        {/* ── ENLACE DE RETORNO DISCRETO ── */}
+        <div style={{ marginBottom: '24px' }}>
+          <Link
+            to="/"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              color: '#64748b',
+              fontSize: '0.9rem',
+              textDecoration: 'none',
+              fontWeight: 500
+            }}
+          >
+            <ArrowLeft size={16} />
             Volver al Inicio
           </Link>
-        }
-      />
-
-      <main className="contenedor-liceo-ancho">
-        <div className="encabezado-seccion-liceo">
-          <h2 className="titulo-seccion-liceo">Proceso de Admisión</h2>
-          <p className="subtitulo-seccion-liceo">
-            A continuación se detallan los recaudos exigidos para formalizar la inscripción en nuestra institución.
-          </p>
         </div>
 
-        <section className="requisitos-seccion">
-          {seccionesRequisitos.map((sec, idx) => (
-            <div key={idx} className="requisitos-categoria-bloque">
-              <h3 className="requisitos-categoria-titulo">
-                <span className="requisitos-icono-categoria">
-                  {sec.icono}
-                </span>
-                {sec.categoria}
-              </h3>
+        {/* ── ENCABEZADO PRINCIPAL (Captura 1) ── */}
+        <header className="admision-encabezado-editorial">
+          <h1 className="admision-titulo-principal">
+            Proceso de Admisión del Complejo Educativo "Antonio Lemus Pérez"
+          </h1>
+          <p className="admision-descripcion-intro">
+            Para iniciar el proceso de admisión, debe ingresar al enlace y consignar los siguientes recaudos:
+          </p>
+        </header>
 
-              <div className="requisitos-grid-items">
-                {sec.items.map((item, iIdx) => (
-                  <div key={iIdx} className="requisito-tarjeta-item">
-                    <CheckCircle2 size={20} className="requisito-icono-check" />
-                    <div className="requisito-contenido-texto">
-                      <p>{item}</p>
-                    </div>
-                  </div>
+        {/* ── LISTA DE PASOS ── */}
+        <div className="admision-pasos-lista">
+
+          {/* PASO 2: RECAUDOS NECESARIOS (Captura 1) */}
+          <article className="admision-paso-card">
+            <div className="admision-paso-numero">1</div>
+            <div className="admision-paso-contenido">
+              <p className="admision-paso-texto" style={{ fontWeight: 700, fontSize: '1.1rem' }}>
+                Recaudos necesarios:
+              </p>
+
+              {/* Selector de categoría */}
+              <div className="admision-tabs-contenedor">
+                <button
+                  type="button"
+                  className={`admision-tab-boton ${pestañaActiva === 'nuevos' ? 'activo' : ''}`}
+                  onClick={() => setPestañaActiva('nuevos')}
+                >
+                  Estudiantes Nuevos Ingresos (1er Año / Traslados)
+                </button>
+                <button
+                  type="button"
+                  className={`admision-tab-boton ${pestañaActiva === 'regulares' ? 'activo' : ''}`}
+                  onClick={() => setPestañaActiva('regulares')}
+                >
+                  Estudiantes Regulares (Prosecución 2do a 5to Año)
+                </button>
+              </div>
+
+              {/* Lista numerada */}
+              <ol className="admision-lista-recaudos">
+                {recaudosAMostrar.map((recaudo, indice) => (
+                  <li key={indice} className="admision-item-recaudo">
+                    <span className="admision-numero-orden">{indice + 1}.</span>
+                    <span>{recaudo}</span>
+                  </li>
                 ))}
+              </ol>
+
+              <div className="admision-nota-adicional">
+                <strong>Importante:</strong> Los formatos institucionales (acta de compromiso y planilla oficial) 
+                se adquieren en la sede del liceo. Todo trámite administrativo es presencial y debe ser formalizado por el 
+                padre, madre o representante legal junto con el estudiante.
               </div>
             </div>
-          ))}
-        </section>
-      </main>
+          </article>
+        </div>
+      </div>
     </div>
   );
 };

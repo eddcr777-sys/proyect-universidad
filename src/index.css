@@ -25,15 +25,19 @@ a,
   touch-action: manipulation;
 }
 
-/* Previene scroll horizontal global */
+/* Previene scroll horizontal global y elimina márgenes del navegador */
 html,
 body {
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
   width: 100%;
+  max-width: 100vw;
+  background-color: #ffffff;
 }
 
 :root {
-  --fuente-ciber-titulos: 'Playfair Display', Georgia, serif;
+  --fuente-ciber-titulos: 'Outfit', 'Space Grotesk', system-ui, sans-serif;
   --fuente-ciber-cuerpo: 'Inter', system-ui, -apple-system, sans-serif;
   --fuente-ciber-codigo: 'JetBrains Mono', monospace;
 
@@ -178,20 +182,11 @@ body {
  * ============================================================================ */
 
 
-/* Forzar esquinas rectar en elementos comunes de formulario y estructura */
-button,
+/* Normalización de elementos interactivos base */
 input,
 select,
-textarea,
-div,
-section,
-header,
-footer,
-nav,
-article,
-aside,
-dialog {
-  border-radius: var(--radio-principal) !important;
+textarea {
+  border-radius: var(--radio-insumo, 8px);
 }
 
 /* Clases utilitarias de tema */

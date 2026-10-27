@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Shield, Home, Building2, UserPlus, Code2, Image as ImageIcon, X } from 'lucide-react';
 import './DrawerMovil.css';
 
 interface Props {
@@ -10,8 +11,8 @@ interface Props {
 const ChevronIcon = ({ abierto }: { abierto: boolean }) => (
   <svg 
     className={`drawer-chevron ${abierto ? 'rotado' : ''}`} 
-    width="16" 
-    height="16" 
+    width="18" 
+    height="18" 
     viewBox="0 0 24 24" 
     fill="none" 
     stroke="currentColor" 
@@ -27,9 +28,7 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
   const [secciones, setSecciones] = useState({
     elLiceo: false,
     admision: false,
-    ciberseguridad: false,
-    guias: false,
-    nosotros: false
+    proyectos: false
   });
 
   const alternarSeccion = (seccion: keyof typeof secciones) => {
@@ -45,41 +44,48 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
 
       <aside className={`drawer-panel ${abierto ? 'activo' : ''}`}>
         <div className="drawer-header">
-          <span className="drawer-titulo">Navegación Escolar</span>
+          <div className="drawer-logo-caja">
+            <div className="drawer-escudo-icono">
+              <Shield size={20} />
+            </div>
+            <div className="drawer-textos-header">
+              <span className="drawer-titulo">Antonio Lemus Pérez</span>
+              <span className="drawer-subtitulo">Complejo Educativo · Cumaná</span>
+            </div>
+          </div>
           <button className="btn-cerrar" onClick={cerrar} aria-label="Cerrar menú">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
+            <X size={20} />
           </button>
         </div>
 
         <nav className="drawer-body">
           <Link to="/" className="drawer-item-directo" onClick={cerrar}>
-            Inicio
+            <span className="drawer-item-label">
+              <Home size={18} className="drawer-icono-nav" />
+              <span>Inicio</span>
+            </span>
           </Link>
 
-          <Link to="/galeria" className="drawer-item-directo" onClick={cerrar}>
-            Galerías
-          </Link>
-
-          {/* Sección El Liceo */}
+          {/* Sección El Liceo / El Complejo */}
           <div className="menu-seccion">
             <button className={`btn-seccion ${secciones.elLiceo ? 'activo' : ''}`} onClick={() => alternarSeccion('elLiceo')}>
-              <span>El Complejo Educativo</span>
+              <span className="drawer-item-label">
+                <Building2 size={18} className="drawer-icono-nav" />
+                <span>El Complejo</span>
+              </span>
               <ChevronIcon abierto={secciones.elLiceo} />
             </button>
             {secciones.elLiceo && (
               <div className="sub-menu">
-                <Link to="/el-liceo/historia" onClick={cerrar}>Historia</Link>
-                <Link to="/el-liceo/mision" onClick={cerrar}>Misión</Link>
-                <Link to="/el-liceo/vision" onClick={cerrar}>Visión</Link>
-                <Link to="/el-liceo/valores" onClick={cerrar}>Valores</Link>
-            
-                <Link to="/el-liceo/simbolos" onClick={cerrar}>Símbolos</Link>
-                <Link to="/el-liceo/normas" onClick={cerrar}>Normas de Convivencia</Link>
-                <Link to="/el-liceo/plan-evacuacion" onClick={cerrar}>Plan de Evacuación</Link>
-                <Link to="/el-liceo/instalaciones" onClick={cerrar}>Instalaciones y Cartografía</Link>
+                <Link to="/el-liceo#quienes-somos" onClick={cerrar}>¿Quiénes somos?</Link>
+                <Link to="/el-liceo#conoce-el-complejo" onClick={cerrar}>Conoce el complejo</Link>
+                <Link to="/el-liceo#mision-vision" onClick={cerrar}>Misión y Visión</Link>
+                <Link to="/el-liceo#estudios" onClick={cerrar}>Estudios y Niveles</Link>
+                <Link to="/el-liceo#historia" onClick={cerrar}>Historia Institucional</Link>
+                <Link to="/el-liceo#razones" onClick={cerrar}>Pilares de Excelencia</Link>
+                <Link to="/el-liceo#vida-estudiantil" onClick={cerrar}>Vida Estudiantil y Clubes</Link>
+                <Link to="/el-liceo#instalaciones" onClick={cerrar}>Instalaciones</Link>
+                <Link to="/el-liceo#manual-convivencia" onClick={cerrar}>Manual de Convivencia</Link>
               </div>
             )}
           </div>
@@ -87,50 +93,46 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
           {/* Sección Admisión */}
           <div className="menu-seccion">
             <button className={`btn-seccion ${secciones.admision ? 'activo' : ''}`} onClick={() => alternarSeccion('admision')}>
-              <span>Admisión</span>
+              <span className="drawer-item-label">
+                <UserPlus size={18} className="drawer-icono-nav" />
+                <span>Admisión</span>
+              </span>
               <ChevronIcon abierto={secciones.admision} />
             </button>
             {secciones.admision && (
               <div className="sub-menu">
-                <Link to="/admision/requisitos" onClick={cerrar}>Requisitos</Link>
+                <Link to="/admision/requisitos" onClick={cerrar}>Proceso de Admisión</Link>
+         
               </div>
             )}
           </div>
 
-          {/* Sección Ciberseguridad y Proyecto */}
+          {/* Sección Proyectos */}
           <div className="menu-seccion">
-            <button className={`btn-seccion ${secciones.ciberseguridad ? 'activo' : ''}`} onClick={() => alternarSeccion('ciberseguridad')}>
-              <span>Proyecto Ciberseguridad</span>
-              <ChevronIcon abierto={secciones.ciberseguridad} />
+            <button className={`btn-seccion ${secciones.proyectos ? 'activo' : ''}`} onClick={() => alternarSeccion('proyectos')}>
+              <span className="drawer-item-label">
+                <Code2 size={18} className="drawer-icono-nav" />
+                <span>Proyectos</span>
+              </span>
+              <ChevronIcon abierto={secciones.proyectos} />
             </button>
-            {secciones.ciberseguridad && (
+            {secciones.proyectos && (
               <div className="sub-menu">
-                <Link to="/proyectos/ciberseguridad" onClick={cerrar}>Inicio Proyecto</Link>
-                <Link to="/proyectos/ciberseguridad/modulos" onClick={cerrar}>Catálogo por Grado</Link>
-                <Link to="/proyectos/ciberseguridad/justificacion" onClick={cerrar}>Justificación</Link>
-                <Link to="/proyectos/ciberseguridad/indices" onClick={cerrar}>Índices y Temario</Link>
-                <Link to="/proyectos/ciberseguridad/guias/docentes" onClick={cerrar}>Guía Docentes</Link>
-                <Link to="/proyectos/ciberseguridad/guias/padres" onClick={cerrar}>Guía Padres</Link>
-                <Link to="/proyectos/ciberseguridad/nosotros/sobre-devs" onClick={cerrar}>Desarrolladores</Link>
+                <Link to="/proyectos/ciberseguridad" onClick={cerrar}>Ciberseguridad Escolar</Link>
+                <Link to="/proyectos/ciberseguridad/modulos" onClick={cerrar}>Módulos por Grado</Link>
               </div>
             )}
           </div>
 
-
-
-          {/* Sección Nosotros */}
-          <div className="menu-seccion">
-            <button className={`btn-seccion ${secciones.nosotros ? 'activo' : ''}`} onClick={() => alternarSeccion('nosotros')}>
-              <span>Nosotros</span>
-              <ChevronIcon abierto={secciones.nosotros} />
-            </button>
-            {secciones.nosotros && (
-              <div className="sub-menu">
-                <Link to="/proyectos/ciberseguridad/nosotros/sobre-ue" onClick={cerrar}>Sobre la U.E.</Link>
-              </div>
-            )}
-          </div>
+          <Link to="/galeria" className="drawer-item-directo" onClick={cerrar}>
+            <span className="drawer-item-label">
+              <ImageIcon size={18} className="drawer-icono-nav" />
+              <span>Galería de Fotos</span>
+            </span>
+          </Link>
         </nav>
+
+      
       </aside>
     </>
   );

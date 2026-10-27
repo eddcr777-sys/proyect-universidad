@@ -1,69 +1,54 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, GraduationCap } from 'lucide-react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Menu, X, Shield } from 'lucide-react';
 import { useMenuMovil } from '../../hooks/useMenuMovil';
 import NavegacionEscritorio from './Navegacion/NavegacionEscritorio';
 import DrawerMovil from './Navegacion/DrawerMovil';
 import './Cabecera.css';
 
-
+/**
+ * Cabecera institucional con diseño idéntico al estándar de Colegio Los Arcos:
+ * - Fondo blanco limpio con línea de acento rojo institucional inferior
+ * - Logo con escudo a la izquierda
+ * - Navegación en mayúsculas sans-serif
+ * - Ícono de usuario en el extremo derecho
+ */
 const Cabecera: React.FC = () => {
   const { abierto, toggle } = useMenuMovil();
-  const location = useLocation();
-  const [desplazado, setDesplazado] = useState(false);
-
-  useEffect(() => {
-    const manejarScroll = () => {
-      if (window.scrollY > 40) {
-        setDesplazado(true);
-      } else {
-        setDesplazado(false);
-      }
-    };
-
-    window.addEventListener('scroll', manejarScroll, { passive: true });
-    manejarScroll(); // Verificar estado inicial
-
-    return () => {
-      window.removeEventListener('scroll', manejarScroll);
-    };
-  }, []);
-
-  // Transparente únicamente en el Hero de la página de inicio (/), sólida en subpáginas
-  const esPaginaInicio = location.pathname === '/';
-  const esTransparente = esPaginaInicio && !desplazado && !abierto;
 
   return (
     <header
-      className={`cabecera ${esTransparente ? 'cabecera-transparente' : 'cabecera-solida'}`}
+      className="cabecera cabecera-solida"
       aria-label="Encabezado principal"
     >
       <div className="cabecera-contenedor">
-
-        {/* Identidad / Logo */}
+        {/* Identidad / Logo estilo Los Arcos */}
         <Link to="/" className="cabecera-logo" aria-label="Ir al inicio">
-          <GraduationCap size={28} className="cabecera-logo-icono" />
+          <div className="cabecera-escudo-caja">
+            <Shield size={24} className="cabecera-escudo-icono" />
+          </div>
           <div className="cabecera-logo-texto">
             <span className="cabecera-titulo">C.E. Antonio Lemus Pérez</span>
-            <span className="cabecera-subtitulo">Plataforma Digital Escolar</span>
           </div>
         </Link>
 
         {/* Navegación Escritorio */}
         <div className="nav-wrapper">
-          <NavegacionEscritorio esTransparente={esTransparente} />
+          <NavegacionEscritorio esTransparente={false} />
         </div>
 
-        {/* Botón Menú Móvil */}
-        <button
-          className="menu-hamburguesa"
-          onClick={toggle}
-          aria-label={abierto ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
-          aria-expanded={abierto}
-        >
-          {abierto ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
+        {/* Acciones derecha / Botón Móvil */}
+        <div className="cabecera-derecha-acciones">
+          {/* Botón Menú Móvil */}
+          <button
+            className="menu-hamburguesa"
+            onClick={toggle}
+            aria-label={abierto ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
+            aria-expanded={abierto}
+          >
+            {abierto ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Menú Desplegable Móvil */}

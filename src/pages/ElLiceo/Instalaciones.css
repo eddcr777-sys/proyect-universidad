@@ -20,7 +20,7 @@
   text-align: center;
   margin: 28px 0;
   position: relative;
-  background: linear-gradient(135deg, rgba(15, 44, 89, 0.03), rgba(15, 44, 89, 0.07));
+  background-color: #f8fafc;
   border-radius: 16px;
   padding: 16px;
   border: 1px dashed var(--color-inst-borde, #dbeafe);
@@ -162,7 +162,7 @@
 
 /* Call to action de evacuación / galería */
 .acciones-instalaciones-banner {
-  background: linear-gradient(135deg, #0F2C59 0%, #1E3A8A 100%);
+  background-color: #051833;
   border-radius: 16px;
   padding: 36px 40px;
   color: #ffffff;

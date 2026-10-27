@@ -83,7 +83,7 @@
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, var(--color-inst-azul), var(--color-inst-rojo));
+  background-color: #8B1E2F;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -126,11 +126,11 @@
 
 /* Caja Destacada (Misión / Visión / Extractos) */
 .caja-destacada-liceo {
-  background: linear-gradient(135deg, #0F2C59 0%, #1E3A8A 100%);
+  background-color: #051833;
   color: var(--color-inst-blanco);
   border-radius: 16px;
   padding: 40px 32px;
-  box-shadow: 0 12px 32px rgba(15, 44, 89, 0.2);
+  box-shadow: 0 8px 24px rgba(5, 24, 51, 0.15);
   margin-bottom: 40px;
   position: relative;
   overflow: hidden;

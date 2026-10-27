@@ -130,11 +130,7 @@
   bottom: 0;
   width: 56px;
   height: 3px;
-  background: linear-gradient(
-    90deg,
-    var(--color-inst-azul),
-    var(--color-inst-rojo)
-  );
+  background-color: #8B1E2F;
   border-radius: 2px;
 }
 
