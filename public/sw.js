@@ -9,7 +9,6 @@ const RECURSOS_ESTATICOS = [
   '/',
   '/index.html',
   '/manifest.webmanifest',
-  '/favicon.svg',
   '/proyectos/ciberseguridad',
   '/proyectos/ciberseguridad/modulos',
   '/proyectos/ciberseguridad/justificacion',
@@ -128,7 +127,7 @@ self.addEventListener('fetch', (evento) => {
         .catch(() => {
           // Si falla y es una imagen, devolver fallback si existe
           if (solicitud.destination === 'image') {
-            return caches.match('/favicon.svg');
+            return caches.match('');
           }
         });
     })

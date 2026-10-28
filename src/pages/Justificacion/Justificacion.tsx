@@ -129,7 +129,7 @@ export const Justificacion: React.FC = () => {
           <div className="grid-pilares">
             <article className="pilar-card pilar-ancho">
               <div className="pilar-contenido">
-                <ShieldCheck size={32} className="icono-pilar" />
+                
                 <h3>Educación Temprana y Cultura Preventiva</h3>
                 <p>
                   El enfoque principal es transformar la manera en que los estudiantes
@@ -152,7 +152,7 @@ export const Justificacion: React.FC = () => {
             </article>
 
             <article className="pilar-card">
-              <Siren size={28} className="icono-pilar" />
+           
               <h3>El Uso Correcto de la Red</h3>
               <p>
                 Internet es una herramienta fundamental en la educación actual. Este manual
@@ -190,7 +190,6 @@ export const Justificacion: React.FC = () => {
       <section id="registro-estudiante" className="seccion-cta">
         <div className="contenedor">
           <div className="cta-inner">
-            <GraduationCap size={36} className="icono-cta" />
             <h2>Accede a los Módulos de tu Grado</h2>
             <p>
               Selecciona tu año escolar y explora los módulos interactivos de ciberseguridad

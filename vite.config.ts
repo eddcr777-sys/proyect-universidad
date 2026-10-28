@@ -24,12 +24,12 @@ export default defineConfig({
         start_url: '/',
         icons: [
           {
-            src: '/favicon.svg',
+            src: '',
             sizes: '192x192',
             type: 'image/svg+xml'
           },
           {
-            src: '/favicon.svg',
+            src: '',
             sizes: '512x512',
             type: 'image/svg+xml',
             purpose: 'any maskable'

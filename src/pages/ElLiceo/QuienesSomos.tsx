@@ -13,12 +13,12 @@ import {
   Trophy,
   HeartHandshake
 } from 'lucide-react';
-import fotoFachada from '../../assets/lb.jpeg';
+import fotoFachada from '../../assets/ins.jpeg';
 import fotoHero from '../../assets/pbk-Hero-3.jpg';
 import fotoMision from '../../assets/handshake.jpg';
-import fotoVision from '../../assets/lem.jpeg';
-import fotoAula from '../../assets/le.jpeg';
-import fotoDeportes from '../../assets/lemu.jpeg';
+import fotoVision from '../../assets/equip.jpg';
+import fotoAula from '../../assets/formacion.jpg';
+import fotoDeportes from '../../assets/c.jpg';
 import fotoOrigenA from '../../assets/Gemini_Generated_Image_2p4dkt2p4dkt2p4d.jpeg';
 import fotoOrigenB from '../../assets/Gemini_Generated_Image_qrp9miqrp9miqrp9.jpeg';
 import fotoEtica from '../../assets/etic.jpeg';

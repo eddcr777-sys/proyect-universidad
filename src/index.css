@@ -72,13 +72,13 @@ body {
   --ciber-bg-subtle: #E6F4EA;
 
   --ciber-border-subtle: #D1E7DD;
-  --ciber-border-strong: #A7F3D0;
-  --ciber-border-green: #059669;
+  --ciber-border-strong: #0a4b2d;
+  --ciber-border-green: #0c4a36;
   --ciber-border-amber: #D97706;
   --ciber-border-red: #DC2626;
 
   --ciber-accent-green: #0e502c;
-  --ciber-accent-green-hover: #047857;
+  --ciber-accent-green-hover: #125240;
   --ciber-accent-mint: #07654c;
   --ciber-accent-blue: #0F2C59;
   --ciber-accent-amber: #D97706;
