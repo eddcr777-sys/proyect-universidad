@@ -26,7 +26,7 @@
 /* Modo Sólido (Fondo blanco limpio de la cabecera Los Arcos) */
 .nav-desktop.nav-solida .nav-link,
 .nav-desktop.nav-solida .dropbtn {
-  color: #111827;
+  color: var(--color-inst-blanco);
 }
 
 .nav-desktop.nav-solida .nav-link:hover,

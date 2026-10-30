@@ -1,8 +1,3 @@
-/* ==========================================
-   CABECERA INSTITUCIONAL — ESTILO COLEGIO LOS ARCOS
-   Fondo blanco, tipografía limpia Outfit/Inter, borde rojo inferior
-   ========================================== */
-
 .cabecera {
   position: sticky;
   top: 0;
@@ -11,7 +6,7 @@
   box-sizing: border-box;
   margin: 0;
   z-index: 1000;
-  background-color: #ffffff;
+  background-color:#051833;
   border-bottom: 3.5px solid var(--color-inst-rojo, #8B1E2F);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
 }
@@ -39,17 +34,17 @@
 
 /* Estado 2: Sólido — Fondo blanco limpio con línea roja inferior (Capturas Los Arcos) */
 .cabecera.cabecera-solida {
-  background-color: #ffffff;
+  background-color:#051833;
   border-bottom: 3.5px solid var(--color-inst-rojo, #8B1E2F);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .cabecera.cabecera-solida .cabecera-titulo {
-  color: var(--color-inst-azul, #0F2C59);
+  color: var(--color-inst-blanco, #0F2C59);
 }
 
 .cabecera.cabecera-solida .cabecera-escudo-caja {
-  background-color: var(--color-inst-azul, #0F2C59);
+  background-color: var(--color-inst-blanco, #0F2C59);
   color: #ffffff;
 }
 
@@ -58,7 +53,7 @@
 }
 
 .cabecera.cabecera-solida .cabecera-boton-usuario:hover {
-  color: var(--color-inst-rojo, #8B1E2F);
+  color: var(--color-inst-blanco, #8B1E2F);
 }
 
 .cabecera.cabecera-solida .menu-hamburguesa {

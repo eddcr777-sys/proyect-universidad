@@ -17,7 +17,7 @@
 }
 
 .cabecera-ciber-contenedor {
-  max-width: 1240px;
+  max-width: 1340px;
   height: 84px;
   margin: 0 auto;
   padding: 0 clamp(16px, 3vw, 32px);

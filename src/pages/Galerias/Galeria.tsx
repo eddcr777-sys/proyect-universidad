@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import fotoHero from '../../assets/pbk-Hero-3.jpg';
+import fotoHero from '../../assets/12.jpg';
 import foto1 from '../../assets/lb.jpeg';
 import foto2 from '../../assets/lemu.jpeg';
 import foto3 from '../../assets/le.jpeg';

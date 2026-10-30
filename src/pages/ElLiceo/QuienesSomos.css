@@ -55,13 +55,15 @@
 }
 
 .quienes-hero-caja-flotante {
-  background-color: #ffffff;
-  padding: 38px 46px;
+ background: #ffffff;
+  padding: 34px 44px;
   border-radius: 26px;
-  max-width: 680px;
-  box-shadow: 0 18px 42px rgba(5, 24, 51, 0.22);
+  max-width: 660px;
+  box-shadow: 0 20px 48px rgba(5, 24, 51, 0.22);
   border: 1px solid #e2e8f0;
+  transform: translateY(35px);
   box-sizing: border-box;
+
 }
 
 .quienes-hero-etiqueta {
@@ -114,6 +116,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+
 }
 
 .intro-texto-col p {
@@ -376,7 +379,6 @@
 /* ── SECCIÓN 4: ESTUDIOS ── */
 .seccion-estudios-losarcos {
   background-color: #fbf7ee;
-  border-radius: 36px;
   padding: 75px 50px;
   margin-bottom: 110px;
   border: 1px solid #f0e8d6;
@@ -582,10 +584,8 @@
   margin-bottom: 110px;
   background-color: #051833;
   color: #ffffff;
-  border-radius: 36px;
   padding: 75px 50px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 50px rgba(5, 24, 51, 0.22);
+
 }
 
 .razones-encabezado {
@@ -1002,12 +1002,15 @@
 
   .intro-texto-col {
     gap: 18px;
+      margin: 0.5rem;
+
   }
 
   .intro-texto-col p {
     font-size: 1.02rem;
     line-height: 1.75;
     text-align: left;
+    margin: 0.5rem;
   }
 
   .intro-enlace-historia {

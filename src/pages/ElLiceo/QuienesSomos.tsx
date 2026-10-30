@@ -14,7 +14,7 @@ import {
   HeartHandshake
 } from 'lucide-react';
 import fotoFachada from '../../assets/ins.jpeg';
-import fotoHero from '../../assets/pbk-Hero-3.jpg';
+import fotoHero from '../../assets/12.jpg';
 import fotoMision from '../../assets/handshake.jpg';
 import fotoVision from '../../assets/equip.jpg';
 import fotoAula from '../../assets/formacion.jpg';
@@ -25,13 +25,6 @@ import fotoEtica from '../../assets/etic.jpeg';
 import fotoFormacion from '../../assets/fi.jpeg';
 import './QuienesSomos.css';
 
-/**
- * Página Principal Unificada: El Complejo Educativo (C.E. Antonio Lemus Pérez)
- * Estructura completa inspirada en las capturas de Colegio Los Arcos:
- * - Tipografía geométrica sans-serif (Outfit / Inter)
- * - Redondeo pronunciado en imágenes y contenedores (~28px)
- * - Misión, Visión, Estudios, Historia Expandida, Razones de Excelencia, Vida Estudiantil, Instalaciones y Normas
- */
 export const QuienesSomos: React.FC = () => {
   const location = useLocation();
 

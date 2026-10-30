@@ -1,10 +1,5 @@
-/* ==========================================================================
-   FOOTER INSTITUCIONAL — ESTILO COLEGIO LOS ARCOS (Captura 3)
-   Fondo azul marino profundo (#051833), 4 columnas separadas por líneas sutiles
-   ========================================================================== */
-
 footer.losarcos-footer {
-  background-color: #051833 !important;
+  background-color: #051833 ;
   color: #ffffff !important;
   padding: 70px 24px 50px 24px !important;
   border-top: 3.5px solid #8B1E2F !important;

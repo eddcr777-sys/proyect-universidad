@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import './HomePage.css';
 
-import fotoHero from '../../assets/pbk-Hero-3.jpg';
+import fotoHero from '../../assets/12.jpg';
 import fotoFachada from '../../assets/lb.jpeg';
 import fotoAula from '../../assets/le.jpeg';
 import fotoDeportes from '../../assets/lemu.jpeg';

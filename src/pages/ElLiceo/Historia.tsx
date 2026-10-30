@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import HeroInstitucional from '../../components/comunes/HeroInstitucional/HeroInstitucional';
-import img5 from '../../assets/pbk-Hero-3.jpg';
+import img5 from '../../assets/12.jpg';
 import fotoFachada from '../../assets/lb.jpeg';
 import fotoOrigenA from '../../assets/Gemini_Generated_Image_2p4dkt2p4dkt2p4d.jpeg';
 import fotoBautizoA from '../../assets/Gemini_Generated_Image_qrp9miqrp9miqrp9.jpeg';
