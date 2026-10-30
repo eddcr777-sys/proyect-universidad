@@ -19,6 +19,8 @@
   box-sizing: border-box;
 }
 
+
+
 /* ── HERO BANNER: GALERÍA (MATE PURO, CENTRADO) ── */
 .galeria-hero-losarcos {
   position: relative;
@@ -34,6 +36,11 @@
   overflow: hidden;
   box-sizing: border-box;
   margin-bottom: 30px;
+}
+
+.btn-cerrarfoto:hover {
+  background-color: rgba(255, 255, 255, 1);
+  border-color: #94a3b8;
 }
 
 /* Overlay en color mate sólido sin degradados */

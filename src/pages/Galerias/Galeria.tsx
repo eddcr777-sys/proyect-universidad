@@ -9,11 +9,19 @@ import foto6 from '../../assets/fi.jpeg';
 import foto7 from '../../assets/etic.jpeg';
 import foto8 from '../../assets/Gemini_Generated_Image_2p4dkt2p4dkt2p4d.jpeg';
 import './Galeria.css';
+import { X } from 'lucide-react';
 
 interface ItemGaleria {
   id: number;
   src: string;
   titulo: string;
+}
+
+
+const cerrar : React.MouseEventHandler<HTMLButtonElement> = (setFotoModal:any) => {
+  setFotoModal(null);
+  
+
 }
 
 const ITEMS_GALERIA: ItemGaleria[] = [
@@ -101,7 +109,30 @@ export const Galeria: React.FC = () => {
               boxShadow: '0 20px 50px rgba(0, 0, 0, 0.5)'
             }}
           />
+
+          <button className="btn-cerrarfoto" 
+          onClick={cerrar}
+           aria-label="Cerrar menú" 
+           style={{
+            position: 'fixed',
+            top: '20px',
+            right: '20px',
+            zIndex: 2001,
+            cursor: 'pointer',
+            backgroundColor: 'rgba(255, 255, 255, 1)',
+            border: '1px solid #ffffff',
+            color: '#0F2C59',
+            width: '32px',
+            height: '32px',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+           }}>
+            <X size={20} />
+          </button>
         </div>
+       
       )}
     </div>
   );
