@@ -15,22 +15,24 @@
 .cabecera.cabecera-transparente {
   background-color: transparent;
   border-bottom: 3px solid transparent;
+  color: #051833;
 }
 
 .cabecera.cabecera-transparente .cabecera-titulo {
-  color: #ffffff;
+  color:#051833;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .cabecera.cabecera-transparente .cabecera-escudo-caja {
   background: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  color: #051833;
+  
 }
 
 .cabecera.cabecera-transparente .cabecera-boton-usuario,
 .cabecera.cabecera-transparente {
 
-  color: #ffffff;
+  color: #051833;
   
 }
 
@@ -40,26 +42,26 @@
 
 /* Estado 2: Sólido — Fondo blanco limpio con línea roja inferior (Capturas Los Arcos) */
 .cabecera.cabecera-solida {
-  background-color:#051833;
+  background-color:var(--color-inst-blanco);
   border-bottom: 3.5px solid var(--color-inst-rojo, #8B1E2F);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .cabecera.cabecera-solida .cabecera-titulo {
-  color: var(--color-inst-blanco, #0F2C59);
+  color: var(--color-inst-azul, #0F2C59);
 }
 
 .cabecera.cabecera-solida .cabecera-escudo-caja {
-  background-color: var(--color-inst-blanco, #0F2C59);
+  background-color: var(--color-inst-azul, #0F2C59);
   color: #ffffff;
 }
 
 .cabecera.cabecera-solida .cabecera-boton-usuario {
-  color: #1f2937;
+  color: var(--color-inst-azul, #0F2C59);
 }
 
 .cabecera.cabecera-solida .cabecera-boton-usuario:hover {
-  color: var(--color-inst-blanco, #8B1E2F);
+  color: var(--color-inst-azul, #0F2C59);
 }
 
 .cabecera.cabecera-solida {

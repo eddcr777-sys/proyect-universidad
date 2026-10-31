@@ -13,20 +13,20 @@
 /* Modo Transparente (Hero de Inicio) */
 .nav-desktop.nav-transparente .nav-link,
 .nav-desktop.nav-transparente .dropbtn {
-  color: #ffffff;
+  color:#051833; 
 }
 
 .nav-desktop.nav-transparente .nav-link:hover,
 .nav-desktop.nav-transparente .dropbtn:hover,
 .nav-desktop.nav-transparente .dropdown:hover .dropbtn {
   background-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  color: #051833;
 }
 
 /* Modo Sólido (Fondo blanco limpio de la cabecera Los Arcos) */
 .nav-desktop.nav-solida .nav-link,
 .nav-desktop.nav-solida .dropbtn {
-  color: var(--color-inst-blanco);
+  color: var(--color-inst-azul);
 }
 
 .nav-desktop.nav-solida .nav-link:hover,

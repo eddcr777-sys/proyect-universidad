@@ -233,7 +233,7 @@ export const QuienesSomos: React.FC = () => {
               </div>
               <h3>3. Deporte y Salud Integral</h3>
               <p>
-                Canchas deportivas múltiples y programas de fútbol sala, voleibol y atletismo, promoviendo el trabajo en equipo, la disciplina y el bienestar físico.
+                Canchas deportivas múltiples, promoviendo el trabajo en equipo, la disciplina y el bienestar físico.
               </p>
             </div>
 

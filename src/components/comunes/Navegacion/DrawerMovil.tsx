@@ -117,7 +117,6 @@ const DrawerMovil: React.FC<Props> = ({ abierto, cerrar }) => {
             {secciones.proyectos && (
               <div className="sub-menu">
                 <Link to="/proyectos/ciberseguridad" onClick={cerrar}>Ciberseguridad Escolar</Link>
-                <Link to="/proyectos/ciberseguridad/modulos" onClick={cerrar}>Módulos por Grado</Link>
               </div>
             )}
           </div>

@@ -1,9 +1,3 @@
-/* ============================================================================
-   ESTILOS — LandingModulos.css (Catálogo por Grado de Ciberseguridad)
-   Inspiración: Fortinet Threat Intelligence / Cloudflare Enterprise
-   Paleta: Blanco #ffffff, fondo sutil #f8fafc, bordes 1px #e2e8f0, acento #059669
-   ============================================================================ */
-
 .landing-modulos-contenedor {
   min-height: 100vh;
   background-color: #ffffff;
@@ -13,9 +7,6 @@
   overflow-x: hidden;
 }
 
-/* ─────────────────────────────────────────────
-   SECCIÓN DE SELECCIÓN DE GRADO (2 COLUMNAS)
-───────────────────────────────────────────── */
 .landing-seleccion-grado {
   padding: 72px 0 100px 0;
   background-color: #ffffff;

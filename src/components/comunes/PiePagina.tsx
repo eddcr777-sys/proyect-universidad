@@ -58,7 +58,6 @@ const PiePagina: React.FC = () => {
           </h4>
           <ul className="losarcos-lista-enlaces">
             <li><Link to="/proyectos/ciberseguridad">Ciberseguridad y Convivencia</Link></li>
-            <li><Link to="/proyectos/ciberseguridad/modulos">Catálogo por Grado</Link></li>
           </ul>
         </div>
 
