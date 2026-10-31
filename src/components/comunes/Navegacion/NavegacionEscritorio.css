@@ -6,8 +6,8 @@
 .nav-desktop {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.1rem 0.5rem;
+  gap: 1.1rem;
+  padding: 0.2rem 0.5rem;
 }
 
 /* Modo Transparente (Hero de Inicio) */
@@ -36,28 +36,30 @@
   color: var(--color-inst-rojo, #8B1E2F);
 }
 
-/* Enlaces y botones principales (Mayúsculas estilizadas) */
+/* Enlaces y botones principales (Mayúsculas estilizadas con mayor tamaño) */
 .nav-link,
 .dropbtn {
   background: transparent;
   border: none;
   font-family: var(--fuente-ciber-titulos, 'Outfit', sans-serif);
-  font-size: 0.84rem;
-  font-weight: 700;
-  letter-spacing: 0.8px;
+  font-size: 0.98rem;
+  font-weight: 900;
+  letter-spacing: 0.9px;
   text-transform: uppercase;
-  padding: 0.55rem 0.85rem;
+  padding: 0.35rem 0.2rem;
   cursor: pointer;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
   border-radius: 6px;
   transition: all 0.2s ease;
 }
 
 /* Ícono de flechita (Chevron) */
 .chevron-icon {
+  width: 14px;
+  height: 14px;
   transition: transform 0.25s ease;
 }
 
@@ -114,13 +116,13 @@
 /* Elementos del menú */
 .dropdown-item {
   color: #1e293b;
-  padding: 0.7rem 1.4rem;
+  padding: 0.8rem 1.5rem;
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-family: var(--fuente-ciber-cuerpo, 'Inter', sans-serif);
-  font-size: 0.94rem;
+  font-size: 0.96rem;
   font-weight: 500;
   line-height: 1.4;
   text-transform: none;

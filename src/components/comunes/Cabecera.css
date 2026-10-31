@@ -1,144 +1,191 @@
-.cabecera {
+/* ============================================================================
+   CINTILLO TRICOLOR VENEZOLANO
+   Franja fina de 5px con los colores de la bandera nacional
+   ============================================================================ */
+
+.cintillo-tricolor {
+  width: 100%;
+  display: flex;
+  height: 5px;
   position: sticky;
   top: 0;
+  z-index: 1001;
+}
+
+.cintillo-franja {
+  flex: 1;
+  display: block;
+}
+
+.cintillo-amarillo { background-color: #CF9B22; }
+.cintillo-azul     { background-color: #00247D; }
+.cintillo-rojo     { background-color: #CF142B; }
+
+/* ============================================================================
+   CABECERA PRINCIPAL
+   ============================================================================ */
+
+.cabecera {
+  position: sticky;
+  top: 5px; /* justo debajo del cintillo */
   left: 0;
   width: 100%;
   box-sizing: border-box;
   margin: 0;
   z-index: 1000;
-  background-color:#051833;
-  border-bottom: 3.5px solid var(--color-inst-rojo, #8B1E2F);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  background-color: #051833;
+  border-bottom: 3.5px solid var(--color-inst-rojo, #C8102E);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
 }
 
-/* Estado 1: Transparente únicamente sobre el Hero de Inicio */
+/* Estado 1: Transparente sobre Hero de Inicio */
 .cabecera.cabecera-transparente {
   background-color: transparent;
   border-bottom: 3px solid transparent;
-  color: #051833;
 }
 
 .cabecera.cabecera-transparente .cabecera-titulo {
-  color:#051833;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+.cabecera.cabecera-transparente .cabecera-subtitulo {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .cabecera.cabecera-transparente .cabecera-escudo-caja {
-  background: rgba(255, 255, 255, 0.2);
-  color: #051833;
-  
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .cabecera.cabecera-transparente .cabecera-boton-usuario,
 .cabecera.cabecera-transparente {
-
-  color: #051833;
-  
+  color: #ffffff;
 }
 
- .menu-hamburguesa{
+.menu-hamburguesa {
   color: #ffffff;
- }
+}
 
-/* Estado 2: Sólido — Fondo blanco limpio con línea roja inferior (Capturas Los Arcos) */
+/* Estado 2: Sólido — Fondo azul marino institucional */
 .cabecera.cabecera-solida {
-  background-color:var(--color-inst-blanco);
-  border-bottom: 3.5px solid var(--color-inst-rojo, #8B1E2F);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  background-color: var(--color-inst-blanco, #ffffff);
+  border-bottom: 3.5px solid var(--color-inst-rojo, #C8102E);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
 }
 
 .cabecera.cabecera-solida .cabecera-titulo {
-  color: var(--color-inst-azul, #0F2C59);
+  color: var(--color-inst-azul);
+}
+
+.cabecera.cabecera-solida .cabecera-subtitulo {
+  color: var(--color-inst-azul);
 }
 
 .cabecera.cabecera-solida .cabecera-escudo-caja {
-  background-color: var(--color-inst-azul, #0F2C59);
+  background-color: var(--color-inst-azul, #051833);
   color: #ffffff;
+  border-color: transparent;
 }
 
-.cabecera.cabecera-solida .cabecera-boton-usuario {
-  color: var(--color-inst-azul, #0F2C59);
+.cabecera.cabecera-solida .menu-hamburguesa {
+  color: var(--color-inst-azul, #051833);
 }
 
-.cabecera.cabecera-solida .cabecera-boton-usuario:hover {
-  color: var(--color-inst-azul, #0F2C59);
-}
+/* ============================================================================
+   CONTENEDOR CENTRAL — Altura espaciosa y distribución limpia
+   ============================================================================ */
 
-.cabecera.cabecera-solida {
-  color: #1f2937;
-}
-
-/* Contenedor central */
 .cabecera-contenedor {
-  max-width: 1360px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 20px 24px;
+  padding: 26px 32px;
+  min-height: 96px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 40px;
 }
 
-/* Marca / Logo */
+/* ============================================================================
+   MARCA / LOGO — Identidad a la izquierda con separación
+   ============================================================================ */
+
 .cabecera-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  transition: opacity 0.25s ease;
 }
 
 .cabecera-logo:hover {
-  opacity: 0.9;
+  opacity: 0.88;
 }
 
+/* Caja del ícono de escuela */
 .cabecera-escudo-caja {
   width: 40px;
   height: 40px;
   border-radius: 8px;
+  border: 1px solid;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Texto del logo */
 .cabecera-logo-texto {
   display: flex;
   flex-direction: column;
+  gap: 2px;
 }
 
+/* Nombre principal con fuente Outfit */
 .cabecera-titulo {
   font-family: var(--fuente-ciber-titulos, 'Outfit', sans-serif);
   font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: -0.2px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   line-height: 1.2;
+  white-space: nowrap;
   transition: color 0.3s ease;
 }
 
-/* Acciones en el extremo derecho */
+/* Subtítulo con fuente Inter */
+.cabecera-subtitulo {
+  font-family: var(--fuente-ciber-cuerpo, 'Inter', sans-serif);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+/* Envoltura de navegación separada del logo */
+.nav-wrapper {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
 .cabecera-derecha-acciones {
   display: flex;
   align-items: center;
-  gap: 16px;
 }
 
-.cabecera-boton-usuario {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  transition: color 0.2s ease, background-color 0.2s ease;
-  text-decoration: none;
-}
+/* ============================================================================
+   BOTÓN MENÚ MÓVIL (HAMBURGUESA)
+   ============================================================================ */
 
-.cabecera-boton-usuario:hover {
-  background-color: #f1f5f9;
-}
-
-/* Botón menú móvil (Hamburguesa) */
 .menu-hamburguesa {
   display: none;
   background: transparent;
@@ -146,16 +193,24 @@
   cursor: pointer;
   padding: 8px;
   border-radius: 8px;
+  color: #ffffff;
   transition: background-color 0.2s ease;
 }
 
 .menu-hamburguesa:hover {
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Responsive */
+/* ============================================================================
+   RESPONSIVE
+   ============================================================================ */
+
 @media (max-width: 992px) {
   .nav-wrapper {
+    display: none;
+  }
+
+  .cabecera-icono-escolar {
     display: none;
   }
 
@@ -163,6 +218,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .cabecera-contenedor {
+    padding: 16px 20px;
+    min-height: 70px;
+  }
+
+  .cabecera-logo {
+    justify-content: flex-start;
   }
 }
 
@@ -172,7 +236,12 @@
   }
 
   .cabecera-titulo {
-    font-size: 1rem;
+    font-size: 0.88rem;
+    letter-spacing: 0.04em;
+  }
+
+  .cabecera-subtitulo {
+    display: none;
   }
 
   .cabecera-escudo-caja {
