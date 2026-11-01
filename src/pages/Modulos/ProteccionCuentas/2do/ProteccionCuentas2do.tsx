@@ -66,8 +66,8 @@ export const ProteccionCuentas2do: React.FC = () => {
             <div className="caja-pilar-proteccion">
               <ShieldCheck className="icono-pilar verde" size={28} />
               <h3>¿Qué es el 2FA / Verificación en 2 pasos?</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Proceso donde se solicitan dos pruebas de identidad para abrir sesión.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Bloquear a los atacantes aunque descubran tu contraseña.</p>
+              <p><strong>¿Qué es?:</strong> Proceso donde se solicitan dos pruebas de identidad para abrir sesión.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Para qué sirve?:</strong> Bloquear a los atacantes aunque descubran tu contraseña.</p>
             </div>
 
             <div className="caja-pilar-proteccion">
@@ -154,7 +154,7 @@ export const ProteccionCuentas2do: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -170,11 +170,11 @@ export const ProteccionCuentas2do: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Excelente! Tienes tus cuentas blindadas con 2FA y gestores.
+                ¡Excelente! Tienes tus cuentas blindadas con 2FA y gestores.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Activa 2FA y prueba un gestor de contraseñas para elevar tu seguridad.
+                Activa 2FA y prueba un gestor de contraseñas para elevar tu seguridad.
               </div>
             )}
           </div>
@@ -260,7 +260,7 @@ export const ProteccionCuentas2do: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

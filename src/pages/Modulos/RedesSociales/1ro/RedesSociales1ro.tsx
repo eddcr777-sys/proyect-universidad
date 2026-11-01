@@ -128,7 +128,7 @@ export const RedesSociales1ro: React.FC = () => {
             {/* Panel de Configuración */}
             <div className="panel-configuracion">
               <div className="panel-configuracion-header">
-                <h3>⚙️ Configuración</h3>
+                <h3>Configuración</h3>
               </div>
 
               <div className="toggle-row" onClick={() => setCuentaPrivada(!cuentaPrivada)}>
@@ -173,7 +173,7 @@ export const RedesSociales1ro: React.FC = () => {
                   <h4>
                     Estudiante123 {cuentaPrivada && <Lock size={16} color="#64748b" style={{ display: 'inline', marginLeft: '0.25rem' }} />}
                   </h4>
-                  <p>Liceo Dr. Carlos Lemus 🎓</p>
+                  <p>Liceo Dr. Carlos Lemus </p>
 
                   <div className="perfil-contenido">
                     {cuentaPrivada ? (
@@ -188,14 +188,14 @@ export const RedesSociales1ro: React.FC = () => {
                           <div className="avatar-miniatura"></div>
                           <div>
                             <p style={{ fontWeight: 'bold', fontSize: '0.9rem', color: '#334155' }}>Foto en el recreo</p>
-                            {!ocultarUbicacion && <p style={{ fontSize: '0.75rem', color: '#ef4444' }}>📍 Patio del Liceo Lemus (Público)</p>}
+                            {!ocultarUbicacion && <p style={{ fontSize: '0.75rem', color: '#ef4444' }}>Patio del Liceo Lemus (Público)</p>}
                           </div>
                         </div>
                         <div className="imagen-simulada"></div>
 
                         {!aprobarEtiquetas && (
                           <div className="etiqueta-simulada">
-                            <p style={{ fontSize: '0.85rem', color: '#64748b' }}>📌 Etiquetado en: "Fiesta de anoche" (Subida por UsuarioX)</p>
+                            <p style={{ fontSize: '0.85rem', color: '#64748b' }}>Etiquetado en: "Fiesta de anoche" (Subida por UsuarioX)</p>
                           </div>
                         )}
                       </div>
@@ -238,7 +238,7 @@ export const RedesSociales1ro: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -254,11 +254,11 @@ export const RedesSociales1ro: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Excelente! Tu privacidad en redes está blindada.
+                ¡Excelente! Tu privacidad en redes está blindada.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Completa todas las prácticas para tener un perfil seguro.
+                Completa todas las prácticas para tener un perfil seguro.
               </div>
             )}
           </div>
@@ -344,7 +344,7 @@ export const RedesSociales1ro: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

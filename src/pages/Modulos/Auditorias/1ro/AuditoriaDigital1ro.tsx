@@ -199,7 +199,7 @@ export const AuditoriaDigital1ro: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -215,11 +215,11 @@ export const AuditoriaDigital1ro: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Excelente! Tu dispositivo está limpio, organizado y seguro.
+                ¡Excelente! Tu dispositivo está limpio, organizado y seguro.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Intenta completar todas las tareas para mantener tu equipo al 100%.
+                Intenta completar todas las tareas para mantener tu equipo al 100%.
               </div>
             )}
           </div>
@@ -258,7 +258,7 @@ export const AuditoriaDigital1ro: React.FC = () => {
                   {fortalezaPassword.etiqueta}
                 </span>
                 <div className="sugerencias-password">
-                  <p>💡 Consejos para mejorarla:</p>
+                  <p>Consejos para mejorarla:</p>
                   <ul>
                     <li>Usa al menos 12 caracteres</li>
                     <li>Mezcla mayúsculas, minúsculas, números y símbolos</li>
@@ -322,7 +322,7 @@ export const AuditoriaDigital1ro: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

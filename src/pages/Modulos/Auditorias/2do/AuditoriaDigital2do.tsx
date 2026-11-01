@@ -89,21 +89,21 @@ export const AuditoriaDigital2do: React.FC = () => {
             <h3 className="titulo-mini-seccion">Glosario y Términos Clave</h3>
             <div className="lista-conceptos">
               <div className="item-concepto">
-                <strong>📖 ¿Qué es una Red abierta?</strong>
+                <strong>¿Qué es una Red abierta?</strong>
                 <p>Una red Wi-Fi sin contraseña ni cifrado que permite conectarse a cualquier persona sin autenticación.</p>
-                <strong>⚙️ ¿Para qué sirve / Qué peligro representa?</strong>
+                <strong>¿Para qué sirve / Qué peligro representa?</strong>
                 <p>Aunque sirve para dar internet gratuito, permite que atacantes en la misma red intercepten contraseñas y mensajes enviados sin cifrar.</p>
               </div>
               <div className="item-concepto">
-                <strong>📖 ¿Qué es una Dirección MAC?</strong>
+                <strong>¿Qué es una Dirección MAC?</strong>
                 <p>Un código alfanumérico único grabado en la tarjeta de red de cada celular o computadora.</p>
-                <strong>⚙️ ¿Para qué sirve / Qué peligro representa?</strong>
+                <strong>¿Para qué sirve / Qué peligro representa?</strong>
                 <p>Sirve para identificar dispositivos en la red local. Si se emite abiertamente, atacantes pueden rastrear la presencia del dispositivo.</p>
               </div>
               <div className="item-concepto">
-                <strong>📖 ¿Qué es una Sesión Activa?</strong>
+                <strong>¿Qué es una Sesión Activa?</strong>
                 <p>Un registro guardado en el servidor que mantiene tu cuenta abierta en una computadora o navegador.</p>
-                <strong>⚙️ ¿Para qué sirve / Qué peligro representa?</strong>
+                <strong>¿Para qué sirve / Qué peligro representa?</strong>
                 <p>Permite no tener que escribir la clave cada minuto. Si la dejas abierta en un equipo público, cualquiera puede usar tu cuenta.</p>
               </div>
             </div>
@@ -186,7 +186,7 @@ export const AuditoriaDigital2do: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -202,11 +202,11 @@ export const AuditoriaDigital2do: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Genial! Tus conexiones están bien controladas.
+                ¡Genial! Tus conexiones están bien controladas.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Completa todas las prácticas para maximizar tu seguridad en redes.
+                Completa todas las prácticas para maximizar tu seguridad en redes.
               </div>
             )}
           </div>
@@ -265,7 +265,7 @@ export const AuditoriaDigital2do: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

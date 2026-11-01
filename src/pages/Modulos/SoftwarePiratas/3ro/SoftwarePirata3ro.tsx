@@ -68,15 +68,15 @@ export const SoftwarePirata3ro: React.FC = () => {
             <div className="caja-pilar-software">
               <ShieldCheck className="icono-pilar azul" size={28} />
               <h3>Hash de Verificación (SHA-256)</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Código único que representa la huella digital del archivo.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Comprobar si el archivo descargado coincide 100% con el original del fabricante.</p>
+              <p><strong>¿Qué es?:</strong> Código único que representa la huella digital del archivo.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Para qué sirve?:</strong> Comprobar si el archivo descargado coincide 100% con el original del fabricante.</p>
             </div>
 
             <div className="caja-pilar-software">
               <FileCode className="icono-pilar verde" size={28} />
               <h3>Firma Digital de Ejecutable</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Certificado criptográfico empaquetado en el archivo `.exe`.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Asegurar que el programa proviene de una empresa registrada y legítima.</p>
+              <p><strong>¿Qué es?:</strong> Certificado criptográfico empaquetado en el archivo `.exe`.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Para qué sirve?:</strong> Asegurar que el programa proviene de una empresa registrada y legítima.</p>
             </div>
           </div>
         </section>
@@ -194,7 +194,7 @@ export const SoftwarePirata3ro: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -210,11 +210,11 @@ export const SoftwarePirata3ro: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Excelente! Analizas y verificas cada archivo antes de ejecutarlo.
+                ¡Excelente! Analizas y verificas cada archivo antes de ejecutarlo.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Completa todas las prácticas para ser un experto en detección de malware.
+                Completa todas las prácticas para ser un experto en detección de malware.
               </div>
             )}
           </div>
@@ -300,7 +300,7 @@ export const SoftwarePirata3ro: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

@@ -43,12 +43,12 @@ export const ProteccionCuentas5to: React.FC = () => {
     <main className="pagina-modulo-proteccion-5to">
       <HeaderModulo
         grado="5to"
-        modulo="5: Identidad Corporativa y Cumplimiento"
-        titulo="SSO, OAuth y Auditoría de Accesos"
-        subTitulo="Aprende a gestionar identidades en organizaciones, implementar SSO y OAuth, y auditar accesos cumpliendo ISO 27001."
+        modulo="5: Aplicaciones Modificadas (APKs) y Secuestro de Sesiones"
+        titulo="APKs no oficiales, permisos abusivos y secuestro de cuentas"
+        subTitulo="Aprende a identificar los peligros de instalar archivos .apk modificados (WhatsApp Plus, mods móviles), auditar permisos en el teléfono y revocar accesos en 5to Año."
         categoria="Protección de Cuentas y Accesos"
-        tiempoEstimado="60 min"
-        icono={<Building2 size={36} />}
+        tiempoEstimado="55 min"
+        icono={<ShieldCheck size={36} />}
       />
 
       <div className="contenedor-proteccion-contenido">
@@ -56,32 +56,32 @@ export const ProteccionCuentas5to: React.FC = () => {
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. Gestión de Identidades en Organizaciones</h2>
+            <h2>1. Riesgos de Instaladores Móviles (.apk) y Permisos Abusivos</h2>
           </div>
           <p className="texto-lectura-modulo">
-            En una organización, la protección de cuentas no es solo individual: requiere <strong>políticas corporativas</strong>, <strong>controles de acceso</strong> y <strong>cumplimiento normativo</strong>. Tres tecnologías y estándares clave son:
+            En dispositivos móviles, instalar archivos <strong>.apk descargados fuera de las tiendas oficiales</strong> es la principal causa de robo de cuentas de WhatsApp, redes sociales y datos personales.
           </p>
 
           <div className="grid-pilares-proteccion">
             <div className="caja-pilar-proteccion">
               <UserCheck className="icono-pilar rojo" size={28} />
-              <h3>SSO (Single Sign-On / Inicio Único)</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Sistema donde un solo inicio de sesión da acceso a múltiples aplicaciones corporativas.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Evita memorizar decenas de contraseñas y permite a la empresa revocar accesos de inmediato.</p>
+              <h3>APKs Modificadas (Apps Clonadas)</h3>
+              <p><strong>¿Qué son?:</strong> Versiones alteradas de aplicaciones populares (ej. "WhatsApp Plus") que prometen funciones extras.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Por qué son peligrosas?:</strong> Incluyen código espía que envía tus conversaciones, contactos y claves de sesión a servidores externos.</p>
             </div>
 
             <div className="caja-pilar-proteccion">
               <FileCheck2 className="icono-pilar verde" size={28} />
-              <h3>OAuth (Protocolo de Autorización)</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Estándar seguro de autorización entre aplicaciones web y servicios.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Permite "Iniciar sesión con Google/Microsoft" sin revelar tu clave secreta a la app externa.</p>
+              <h3>Auditoría de Permisos Críticos</h3>
+              <p><strong>¿Qué es?:</strong> Revisar en los ajustes del teléfono qué aplicaciones tienen acceso a leer SMS, contactos o cámara.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Para qué sirve?:</strong> Si una app sospechosa tiene permiso para "Leer SMS", puede interceptar tus códigos 2FA y secuestrar tus cuentas.</p>
             </div>
 
             <div className="caja-pilar-proteccion">
               <ShieldCheck className="icono-pilar azul" size={28} />
-              <h3>Norma ISO 27001</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Estándar internacional de gestión de seguridad de la información.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Establece auditorías de accesos para verificar que solo personal autorizado ingrese a datos confidenciales.</p>
+              <h3>Revocación y Cierre de Sesiones</h3>
+              <p><strong>¿Qué es?:</strong> Función en Google, WhatsApp e Instagram que muestra los dispositivos vinculados.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Para qué sirve?:</strong> Si sospechas que entraron a tu cuenta, puedes cerrar sesión en todos los demás dispositivos con un solo toque.</p>
             </div>
           </div>
         </section>
@@ -156,7 +156,7 @@ export const ProteccionCuentas5to: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -172,11 +172,11 @@ export const ProteccionCuentas5to: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Excelente! Estás listo para auditar accesos en una organización.
+                ¡Excelente! Estás listo para auditar accesos en una organización.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Completa todas las competencias para convertirte en un auditor profesional.
+                Completa todas las competencias para convertirte en un auditor profesional.
               </div>
             )}
           </div>
@@ -262,7 +262,7 @@ export const ProteccionCuentas5to: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

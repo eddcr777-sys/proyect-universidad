@@ -45,12 +45,12 @@ export const SoftwarePirata5to: React.FC = () => {
     <main className="pagina-modulo-software-5to">
       <HeaderModulo
         grado="5to"
-        modulo="5: Auditoría de Licencias y Políticas Organizacionales"
-        titulo="Gestiona el software de tu institución"
-        subTitulo="Aprende a realizar inventarios, auditar licencias y proponer políticas de software cumpliendo ISO 19770."
+        modulo="5: Verificación de Descargas, VirusTotal e Integridad"
+        titulo="Verificación de descargas y análisis con VirusTotal"
+        subTitulo="Aprende a analizar archivos con VirusTotal antes de abrirlos, verificar firmas digitales y comprobar la autenticidad de programas en 5to Año."
         categoria="Software y Descargas"
-        tiempoEstimado="65 min"
-        icono={<ClipboardList size={36} />}
+        tiempoEstimado="55 min"
+        icono={<ShieldCheck size={36} />}
       />
 
       <div className="contenedor-software-contenido">
@@ -58,32 +58,32 @@ export const SoftwarePirata5to: React.FC = () => {
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. Auditoría de Software y Cumplimiento ISO 19770</h2>
+            <h2>1. Verificación de Integridad y Reputación de Descargas</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Las organizaciones deben <strong>gestionar sus licencias de software</strong> para evitar sanciones legales y optimizar costos. La <strong>auditoría de software</strong> consiste en inventariar programas instalados, compararlos con las licencias adquiridas y proponer acciones correctivas. La norma <strong>ISO 19770</strong> establece las buenas prácticas para esta gestión.
+            Antes de abrir cualquier programa o archivo descargado de internet, un bachiller debe aplicar herramientas de verificación para comprobar que el archivo esté limpio y que provenga de una fuente auténtica y segura.
           </p>
 
           <div className="grid-pilares-software">
             <div className="caja-pilar-software">
-              <ClipboardList className="icono-pilar azul" size={28} />
-              <h3>Inventario de Software (SAM)</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Registro de todas las licencias y ejecutables en la red.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Detectar instalaciones clandestinas piratas antes de una inspección oficial.</p>
+              <ShieldCheck className="icono-pilar azul" size={28} />
+              <h3>VirusTotal (Escáner Multivirus)</h3>
+              <p><strong>¿Qué es?:</strong> Plataforma web gratuita que analiza archivos con más de 70 antivirus simultáneos.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Para qué sirve?:</strong> Inspeccionar descargas dudosas sin ejecutar nada en tu computadora.</p>
             </div>
 
             <div className="caja-pilar-software">
-              <Building className="icono-pilar rojo" size={28} />
-              <h3>Políticas de Software</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Reglamento interno de uso y descarga de aplicaciones.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Prohibir la instalación de ejecutables `.exe` no autorizados por el administrador de red.</p>
+              <ClipboardList className="icono-pilar rojo" size={28} />
+              <h3>Firmas Digitales y SmartScreen</h3>
+              <p><strong>¿Qué es?:</strong> Certificado digital que valida quién creó el programa ejecutable.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Para qué sirve?:</strong> Distinguir instaladores de editores oficiales frente a advertencias de "Editor Desconocido".</p>
             </div>
 
             <div className="caja-pilar-software">
               <FileBarChart2 className="icono-pilar verde" size={28} />
-              <h3>Norma ISO 19770</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Estándar de Gestión de Activos de Software (Software Asset Management).</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Garantizar el uso de Software Libre (FOSS) y auditar el estado de licencias pagadas.</p>
+              <h3>Integridad y Fuentes Oficiales</h3>
+              <p><strong>¿Qué es?:</strong> Descarga directa desde páginas oficiales o verificación de Hash SHA-256.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Para qué sirve?:</strong> Garantizar que el instalador no fue modificado para incluir troyanos o ransomware.</p>
             </div>
           </div>
         </section>
@@ -92,13 +92,13 @@ export const SoftwarePirata5to: React.FC = () => {
         <section className="bloque-modulo-tarjeta interactivo-caja">
           <div className="encabezado-bloque">
             <ShieldCheck className="icono-bloque-verde" size={24} />
-            <h2>2. Laboratorio: Clasifica el Estado de Licencias</h2>
+            <h2>2. Clasificador de Seguridad y Fuentes de Software</h2>
           </div>
           <CajaExplicacionDinamica
-            tituloDinamica="Instrucciones del Clasificador de Licencias e Inventario"
-            enQueConsiste="Evaluarás un inventario de software institucional (número de licencias pagadas vs equipos en donde se ha instalado)."
-            comoInteractuar="Analiza el número de instalaciones y selecciona 'Conforme (Legal)', 'Exceso de Instalaciones (Ilegal/Pirata)' o 'Subutilizado'. Recibirás el diagnóstico de auditoría."
-            paraQueSirve="Permite a los estudiantes de 5to año auditar el cumplimiento de licencias bajo la norma ISO 19770."
+            tituloDinamica="Instrucciones del Clasificador de Software Seguro"
+            enQueConsiste="Evaluarás distintos programas, su origen y su estado para determinar si cumplen los estándares de seguridad y legalidad."
+            comoInteractuar="Analiza el programa y selecciona 'Conforme (Legal / Seguro)' o 'Riesgo / No Conforme'. Recibirás la explicación técnica."
+            paraQueSirve="Desarrolla criterio para decidir qué software es seguro instalar en computadoras escolares o personales."
           />
 
           <div className="activos-lista">
@@ -200,7 +200,7 @@ export const SoftwarePirata5to: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -216,11 +216,11 @@ export const SoftwarePirata5to: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Excelente! Estás preparado para auditar licencias de software.
+                ¡Excelente! Estás preparado para auditar licencias de software.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Completa todas las competencias para ser un auditor profesional.
+                Completa todas las competencias para ser un auditor profesional.
               </div>
             )}
           </div>
@@ -306,7 +306,7 @@ export const SoftwarePirata5to: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

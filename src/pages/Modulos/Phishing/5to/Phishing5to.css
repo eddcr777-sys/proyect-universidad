@@ -112,7 +112,7 @@
 /* Grid señales */
 .grid-senales-phishing {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.25rem;
 }
 
@@ -635,11 +635,6 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .bloque-phishing-tarjeta {
-    padding: 1.5rem;
-  }
   .grid-senales-phishing {
     grid-template-columns: 1fr;
   }
@@ -689,4 +684,3 @@
   .boton-enviar-quiz.phishing {
     width: 100%;
   }
-}

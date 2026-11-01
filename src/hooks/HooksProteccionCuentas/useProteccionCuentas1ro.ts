@@ -173,13 +173,13 @@ export const useProteccionCuentas1ro = () => {
     // Normalizar
     score = Math.max(0, Math.min(100, score));
 
-    let etiqueta = 'Muy débil ⚠️';
+    let etiqueta = 'Muy débil';
     let color = '#ef4444';
-    if (score > 90) { etiqueta = 'Excelente ✅'; color = '#10b981'; }
-    else if (score > 80) { etiqueta = 'Muy buena ✅'; color = '#10b981'; }
-    else if (score >= 60) { etiqueta = 'Buena ✅'; color = '#20733fff'; }
-    else if (score >= 40) { etiqueta = 'Aceptable 🟡'; color = '#f59e0b'; }
-    else if (score >= 20) { etiqueta = 'Débil 🟠'; color = '#f97316'; }
+    if (score > 90) { etiqueta = 'Excelente'; color = '#10b981'; }
+    else if (score > 80) { etiqueta = 'Muy buena'; color = '#10b981'; }
+    else if (score >= 60) { etiqueta = 'Buena'; color = '#20733fff'; }
+    else if (score >= 40) { etiqueta = 'Aceptable'; color = '#f59e0b'; }
+    else if (score >= 20) { etiqueta = 'Débil'; color = '#f97316'; }
 
     return { score, etiqueta, color };
   }, [password]);

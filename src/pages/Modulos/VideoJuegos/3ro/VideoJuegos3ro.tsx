@@ -89,21 +89,21 @@ export const Videojuegos3ro: React.FC = () => {
             <h3 className="titulo-mini-seccion">Glosario y Términos Clave</h3>
             <div className="lista-conceptos">
               <div className="item-concepto">
-                <strong>📖 ¿Qué es VirusTotal?</strong>
+                <strong>¿Qué es VirusTotal?</strong>
                 <p>Una plataforma en línea gratuita respaldada por Google que analiza archivos e impresiones digitales (hashes) contra más de 70 motores antivirus.</p>
-                <strong>⚙️ ¿Para qué sirve / Qué función cumple?</strong>
+                <strong>¿Para qué sirve / Qué función cumple?</strong>
                 <p>Permite examinar archivos .apk o .exe descargados para comprobar si contienen spyware antes de ejecutarlos en tu PC o teléfono.</p>
               </div>
               <div className="item-concepto">
-                <strong>📖 ¿Qué es una Doble Extensión?</strong>
+                <strong>¿Qué es una Doble Extensión?</strong>
                 <p>Una técnica maliciosa de engaño donde el archivo incluye dos puntos (ej: "textura_minecraft.png.exe").</p>
-                <strong>⚙️ ¿Para qué sirve / Qué riesgo representa?</strong>
+                <strong>¿Para qué sirve / Qué riesgo representa?</strong>
                 <p>Suele ocultar programas ejecutables maliciosos simulando ser imágenes o documentos inofensivos.</p>
               </div>
               <div className="item-concepto">
-                <strong>📖 ¿Qué son los Permisos Excesivos?</strong>
+                <strong>¿Qué son los Permisos Excesivos?</strong>
                 <p>Peticiones de acceso solicitadas por una aplicación para ver tus fotos, cámara, SMS o contactos sin justificación real.</p>
-                <strong>⚙️ ¿Para qué sirve / Qué riesgo representa?</strong>
+                <strong>¿Para qué sirve / Qué riesgo representa?</strong>
                 <p>Si una app de juegos pide leer tus SMS, es probable que esté intentando robar tus códigos de recuperación 2FA.</p>
               </div>
             </div>
@@ -229,7 +229,7 @@ export const Videojuegos3ro: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -245,11 +245,11 @@ export const Videojuegos3ro: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Excelente! Analizas cada mod antes de ejecutarlo.
+                ¡Excelente! Analizas cada mod antes de ejecutarlo.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Completa todas las prácticas para no caer en malware disfrazado.
+                Completa todas las prácticas para no caer en malware disfrazado.
               </div>
             )}
           </div>
@@ -337,7 +337,7 @@ export const Videojuegos3ro: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

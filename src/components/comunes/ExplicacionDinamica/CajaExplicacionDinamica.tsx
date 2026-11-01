@@ -1,5 +1,5 @@
 import React from 'react';
-import { Compass, Target, PlayCircle, HelpCircle } from 'lucide-react';
+import { Info } from 'lucide-react';
 import './CajaExplicacionDinamica.css';
 
 export interface CajaExplicacionDinamicaProps {
@@ -15,16 +15,15 @@ export interface CajaExplicacionDinamicaProps {
  */
 const parsearPasos = (texto: string): string[] => {
   const partes = texto.split(/\s*\d+\.\s+/).filter(Boolean);
-  // Si solo hay un elemento no había pasos numerados → devolver el texto completo
   return partes.length > 1 ? partes : [texto];
 };
 
 /**
- * Componente reutilizable para explicar la dinámica, instrucciones e interactividad
- * de cada recurso interactivo presente en los módulos pedagógicos.
+ * Componente de instrucciones para las dinámicas interactivas.
+ * Diseño limpio, sobrio y optimizado para móviles y escritorio, sin anidamiento pesado de tarjetas.
  */
 export const CajaExplicacionDinamica: React.FC<CajaExplicacionDinamicaProps> = ({
-  tituloDinamica = 'Guía de la Dinámica e Instrucciones de Uso',
+  tituloDinamica = 'Instrucciones del Laboratorio Práctico',
   enQueConsiste,
   comoInteractuar,
   paraQueSirve,
@@ -35,24 +34,18 @@ export const CajaExplicacionDinamica: React.FC<CajaExplicacionDinamicaProps> = (
   return (
     <div className="caja-explicacion-dinamica">
       <div className="cabecera-explicacion-dinamica">
-        <Compass className="icono-brujula-dinamica" size={22} />
+        <Info className="icono-info-dinamica" size={18} />
         <h3>{tituloDinamica}</h3>
       </div>
 
       <div className="grid-bloques-dinamica">
         <div className="bloque-item-dinamica consiste">
-          <div className="encabezado-item-dinamica">
-            <Target size={18} className="icono-item-dinamica" />
-            <strong>¿En qué consiste?</strong>
-          </div>
+          <span className="etiqueta-item-dinamica">¿En qué consiste?</span>
           <p>{enQueConsiste}</p>
         </div>
 
         <div className="bloque-item-dinamica interactuar">
-          <div className="encabezado-item-dinamica">
-            <PlayCircle size={18} className="icono-item-dinamica" />
-            <strong>¿Cómo participar? — Pasos a seguir</strong>
-          </div>
+          <span className="etiqueta-item-dinamica">¿Cómo participar?</span>
           {tienePasos ? (
             <ol className="pasos-interaccion">
               {pasos.map((paso, idx) => (
@@ -68,10 +61,7 @@ export const CajaExplicacionDinamica: React.FC<CajaExplicacionDinamicaProps> = (
         </div>
 
         <div className="bloque-item-dinamica sirve">
-          <div className="encabezado-item-dinamica">
-            <HelpCircle size={18} className="icono-item-dinamica" />
-            <strong>¿Para qué sirve practicar esto?</strong>
-          </div>
+          <span className="etiqueta-item-dinamica">¿Para qué sirve?</span>
           <p>{paraQueSirve}</p>
         </div>
       </div>
@@ -80,3 +70,4 @@ export const CajaExplicacionDinamica: React.FC<CajaExplicacionDinamicaProps> = (
 };
 
 export default CajaExplicacionDinamica;
+

@@ -45,12 +45,12 @@ export const SoftwarePirata4to: React.FC = () => {
     <main className="pagina-modulo-software">
       <HeaderModulo
         grado="4to"
-        modulo="4: Cryptojacking y Marco Legal"
-        titulo="Minería de criptomonedas y propiedad intelectual"
-        subTitulo="Aprende cómo detectar programas que usan tu CPU/GPU para minar criptomonedas y las implicaciones legales en 4to Año."
+        modulo="4: Formatos de Archivo y Detección de Ejecutables"
+        titulo="Formatos seguros y detección de ejecutables camuflados"
+        subTitulo="Aprende a diferenciar extensiones de datos (.pdf, .docx, .png) de ejecutables maliciosos (.exe, .bat, .vbs) y a activar extensiones visibles en 4to Año."
         categoria="Software y Descargas"
-        tiempoEstimado="55 min"
-        icono={<Scale size={36} />}
+        tiempoEstimado="50 min"
+        icono={<FileText size={36} />}
       />
 
       <div className="contenedor-software-contenido">
@@ -58,40 +58,40 @@ export const SoftwarePirata4to: React.FC = () => {
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. Cryptojacking y Propiedad Intelectual</h2>
+            <h2>1. Anatomía de Archivos: Datos vs. Ejecutables</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Muchos instaladores piratas incluyen mineros ocultos que consumen los recursos de tu hardware. Además, el uso de software pirateado vulnera el derecho de autor.
+            Al descargar un archivo en internet, su extensión final revela lo que realmente es. Muchos virus se disfrazan con iconos de documentos inocentes aprovechando que Windows oculta las extensiones por defecto.
           </p>
 
           <div className="grid-pilares-software">
             <div className="caja-pilar-software">
-              <Scale className="icono-pilar rojo" size={28} />
-              <h3>Cryptojacking</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Uso no autorizado de tu CPU/GPU para minar criptomonedas.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve detectarlo?:</strong> Prevenir la ralentización extrema y el sobrecalentamiento de tu computadora.</p>
+              <FileText className="icono-pilar azul" size={28} />
+              <h3>Formatos de Datos Seguros</h3>
+              <p><strong>Extensiones:</strong> .pdf, .docx, .xlsx, .png, .jpg, .mp3, .epub</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>Comportamiento:</strong> Contienen información pasiva (texto, imágenes o sonido). No ejecutan código directo en la computadora.</p>
             </div>
 
             <div className="caja-pilar-software">
-              <FileText className="icono-pilar azul" size={28} />
-              <h3>Licencia EULA / Contrato de Uso</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Acuerdo legal entre el fabricante del programa y el usuario final.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Conocer los límites de uso permitido y evitar sanciones legales.</p>
+              <ShieldAlert className="icono-pilar rojo" size={28} />
+              <h3>Formatos Ejecutables y Scripts</h3>
+              <p><strong>Extensiones:</strong> .exe, .msi, .bat, .cmd, .vbs, .scr, .iso</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>Comportamiento:</strong> Ejecutan instrucciones directas en tu procesador. Si provienen de sitios dudosos, pueden infectar tu equipo de inmediato.</p>
             </div>
           </div>
         </section>
 
-        {/* SECCIÓN 2: LABORATORIO DE CASOS LEGALES */}
+        {/* SECCIÓN 2: LABORATORIO DE CASOS */}
         <section className="bloque-modulo-tarjeta interactivo-caja">
           <div className="encabezado-bloque">
             <ShieldCheck className="icono-bloque-verde" size={24} />
-            <h2>2. ¿Es Delito o Uso Legal?</h2>
+            <h2>2. Evaluador de Archivos: ¿Es Formato Seguro o Ejecutable Trampa?</h2>
           </div>
           <CajaExplicacionDinamica
-            tituloDinamica="Instrucciones del Evaluador de Delitos Informáticos y Licencias"
-            enQueConsiste="Analizarás 3 casos sobre uso de instaladores no oficiales y minería de criptomonedas."
-            comoInteractuar="1. Lee el caso. 2. Presiona 'Es Legal' o 'Es Delito / Uso Ilegal'. 3. Revisa la retroalimentación legal del SAPI y leyes informáticas."
-            paraQueSirve="Entenderás el impacto legal y técnico de la piratería en entornos educativos y laborales."
+            tituloDinamica="Instrucciones del Inspector de Formatos y Extensiones"
+            enQueConsiste="Analizarás 5 archivos descargados para determinar si su formato es seguro o si se trata de un ejecutable peligroso camuflado."
+            comoInteractuar="1. Lee el nombre, extensión y origen del archivo. 2. Presiona 'Formato Seguro' o 'Ejecutable Trampa'. 3. Comprueba la explicación técnica del formato."
+            paraQueSirve="Entrenarás tu visión crítica para jamás hacer doble clic a ciegas en descargas dudosas."
           />
 
           <div className="casos-lista">
@@ -104,13 +104,13 @@ export const SoftwarePirata4to: React.FC = () => {
                     className={`btn-decision seguro ${respuestasCaso[caso.id] === false ? 'seleccionado' : ''}`}
                     onClick={() => evaluarCaso(caso.id, false)}
                   >
-                    <ShieldCheck size={18} /> Legal
+                    <ShieldCheck size={18} /> Formato Seguro
                   </button>
                   <button
                     className={`btn-decision phishing ${respuestasCaso[caso.id] === true ? 'seleccionado' : ''}`}
                     onClick={() => evaluarCaso(caso.id, true)}
                   >
-                    <Scale size={18} /> Delito
+                    <ShieldAlert size={18} /> Ejecutable Trampa
                   </button>
                 </div>
                 {respuestasCaso[caso.id] !== undefined && (
@@ -130,11 +130,11 @@ export const SoftwarePirata4to: React.FC = () => {
           </div>
         </section>
 
-        {/* SECCIÓN 3: ESCENARIOS LEGALES */}
+        {/* SECCIÓN 3: ESCENARIOS */}
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <ShieldCheck className="icono-bloque-verde" size={24} />
-            <h2>3. Decisiones Legales</h2>
+            <h2>3. Decisiones de Descarga Segura</h2>
           </div>
 
           <div className="escenarios-lista">
@@ -194,7 +194,7 @@ export const SoftwarePirata4to: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -210,11 +210,11 @@ export const SoftwarePirata4to: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Excelente! Conoces la ley y actúas con responsabilidad.
+                ¡Excelente! Conoces la ley y actúas con responsabilidad.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Completa todas las competencias para ser un ciudadano digital ejemplar.
+                Completa todas las competencias para ser un ciudadano digital ejemplar.
               </div>
             )}
           </div>
@@ -300,7 +300,7 @@ export const SoftwarePirata4to: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

@@ -67,15 +67,15 @@ export const ProteccionCuentas3ro: React.FC = () => {
             <div className="caja-pilar-proteccion">
               <ShieldCheck className="icono-pilar verde" size={28} />
               <h3>Menor Privilegio</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Otorgar permisos mínimos estricto a apps y usuarios.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Limitar el daño si una cuenta o app es vulnerada.</p>
+              <p><strong>¿Qué es?:</strong> Otorgar permisos mínimos estricto a apps y usuarios.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Para qué sirve?:</strong> Limitar el daño si una cuenta o app es vulnerada.</p>
             </div>
 
             <div className="caja-pilar-proteccion">
               <Fingerprint className="icono-pilar morado" size={28} />
               <h3>Autenticación Biométrica</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Uso de huella dactilar o reconocimiento facial.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Desbloqueo rápido y cómodo de dispositivos sin tipear claves.</p>
+              <p><strong>¿Qué es?:</strong> Uso de huella dactilar o reconocimiento facial.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Para qué sirve?:</strong> Desbloqueo rápido y cómodo de dispositivos sin tipear claves.</p>
             </div>
           </div>
         </section>
@@ -153,7 +153,7 @@ export const ProteccionCuentas3ro: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -169,11 +169,11 @@ export const ProteccionCuentas3ro: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Excelente! Gestionas correctamente tus privilegios y biometría.
+                ¡Excelente! Gestionas correctamente tus privilegios y biometría.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Completa todas las prácticas para tener un sistema blindado.
+                Completa todas las prácticas para tener un sistema blindado.
               </div>
             )}
           </div>
@@ -259,7 +259,7 @@ export const ProteccionCuentas3ro: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

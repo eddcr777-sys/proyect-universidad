@@ -169,7 +169,7 @@ export const Phishing2do: React.FC = () => {
                 <div className="info-item-senal">
                   <span className="categoria-badge-phishing">{senal.categoria}</span>
                   <p className="texto-senal">{senal.texto}</p>
-                  <span className="ejemplo-senal">📌 Ejemplo: {senal.ejemplo}</span>
+                  <span className="ejemplo-senal">Ejemplo: {senal.ejemplo}</span>
                 </div>
               </div>
             ))}
@@ -185,11 +185,11 @@ export const Phishing2do: React.FC = () => {
             </div>
             {porcentajeSenales === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Dominas las señales de phishing en redes sociales!
+                ¡Dominas las señales de phishing en redes sociales!
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Completa el checklist para estar preparado ante engaños avanzados.
+                Completa el checklist para estar preparado ante engaños avanzados.
               </div>
             )}
           </div>
@@ -243,7 +243,7 @@ export const Phishing2do: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

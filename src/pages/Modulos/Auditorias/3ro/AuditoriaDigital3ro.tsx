@@ -93,21 +93,21 @@ export const AuditoriaDigital3ro: React.FC = () => {
             <h3 className="titulo-mini-seccion">Glosario y Términos Clave</h3>
             <div className="lista-conceptos">
               <div className="item-concepto">
-                <strong>📖 ¿Qué es un Antivirus?</strong>
+                <strong>¿Qué es un Antivirus?</strong>
                 <p>Programa de seguridad que analiza la memoria y discos en busca de firmas de código malicioso.</p>
-                <strong>⚙️ ¿Para qué sirve / Qué función cumple?</strong>
+                <strong>¿Para qué sirve / Qué función cumple?</strong>
                 <p>Bloquea la ejecución de virus y troyanos antes de que dañen el sistema o roben tus archivos personales.</p>
               </div>
               <div className="item-concepto">
-                <strong>📖 ¿Qué es un Firewall (Cortafuegos)?</strong>
+                <strong>¿Qué es un Firewall (Cortafuegos)?</strong>
                 <p>Una barrera de red que inspecciona todo el tráfico de datos entrante y saliente del sistema.</p>
-                <strong>⚙️ ¿Para qué sirve / Qué función cumple?</strong>
+                <strong>¿Para qué sirve / Qué función cumple?</strong>
                 <p>Evita que programas no autorizados abran conexiones clandestinas con servidores de hackers externos.</p>
               </div>
               <div className="item-concepto">
-                <strong>📖 ¿Qué es la Regla de Backup 3-2-1?</strong>
+                <strong>¿Qué es la Regla de Backup 3-2-1?</strong>
                 <p>Una estrategia estándar de respaldo: 3 copias de tus datos, en 2 medios distintos, con 1 fuera del sitio original.</p>
-                <strong>⚙️ ¿Para qué sirve / Qué función cumple?</strong>
+                <strong>¿Para qué sirve / Qué función cumple?</strong>
                 <p>Garantiza que nunca pierdas tus fotos o proyectos ante ataques de Ransomware o averías de disco duro.</p>
               </div>
             </div>
@@ -233,7 +233,7 @@ export const AuditoriaDigital3ro: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -249,11 +249,11 @@ export const AuditoriaDigital3ro: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Estupendo! Tu información y sistemas están debidamente respaldados.
+                ¡Estupendo! Tu información y sistemas están debidamente respaldados.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Asegúrate de realizar tu copia de seguridad esta misma semana.
+                Asegúrate de realizar tu copia de seguridad esta misma semana.
               </div>
             )}
           </div>
@@ -312,7 +312,7 @@ export const AuditoriaDigital3ro: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

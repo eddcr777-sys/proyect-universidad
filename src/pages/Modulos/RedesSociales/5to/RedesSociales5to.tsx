@@ -57,12 +57,12 @@ export const RedesSociales5to: React.FC = () => {
     <main className="pagina-modulo-redes-5to">
       <HeaderModulo
         grado="5to"
-        modulo="5: Marca Personal y Liderazgo Digital"
-        titulo="Redes Sociales como Herramienta Profesional"
-        subTitulo="Aprende a construir una marca personal sólida, respetar políticas organizacionales y liderar buenas prácticas digitales."
+        modulo="5: Extensiones Falsas, Cadenas Virales y Liderazgo Digital"
+        titulo="Extensiones maliciosas de navegador y prevención de estafas virales"
+        subTitulo="Aprende a identificar complementos (.crx) fraudulentos, evitar cadenas de descarga engañosas en redes y liderar la ciudadanía digital en 5to Año."
         categoria="Redes Sociales e Identidad"
-        tiempoEstimado="65 min"
-        icono={<Briefcase size={36} />}
+        tiempoEstimado="55 min"
+        icono={<Share2 size={36} />}
       />
 
       <div className="contenedor-redes-contenido">
@@ -72,32 +72,33 @@ export const RedesSociales5to: React.FC = () => {
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. Marca Personal, Políticas y Cumplimiento</h2>
+            <h2>1. Extensiones Fraudulentas, Cadenas y Liderazgo Digital</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Tus redes sociales ya no son solo para amigos: son tu <strong>carta de presentación</strong>. Universidades, becas y empleadores revisan tu huella digital. Además, cuando formas parte de una organización (liceo, trabajo), debes cumplir <strong>políticas de uso</strong> que protegen la imagen institucional y los datos de todos.
+            En 5to año combatimos los engaños virales que circulan en redes: supuestos enlaces que ofrecen funciones mágicas a cambio de{' '}
+            <strong>instalar extensiones de navegador (.crx)</strong> o reenviar mensajes a grupos escolares.
           </p>
 
           <div className="grid-pilares-redes">
             <div className="caja-pilar-redes">
               <Briefcase className="icono-pilar azul" size={28} />
-              <h3>Marca Personal Profesional</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Imagen y reputación digital proyectada en redes como LinkedIn.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Destacar habilidades académicas y proyectos para postulaciones universitarias o laborales.</p>
+              <h3>Extensiones de Navegador Maliciosas</h3>
+              <p><strong>¿Qué son?:</strong> Complementos (.crx) descargados fuera de Chrome Web Store que prometen "saber quién visita tu perfil".</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Por qué son peligrosas?:</strong> Leen todo lo que escribes en cualquier pestaña, roban contraseñas e inyectan publicidad invasiva.</p>
             </div>
 
             <div className="caja-pilar-redes">
               <Lock className="icono-pilar rojo" size={28} />
-              <h3>Políticas de Uso Institucional</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Normas que regulan qué datos institucionales se pueden hacer públicos.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Prevenir la filtración de documentos escolares confidenciales o fotos de estudiantes sin consentimiento.</p>
+              <h3>Cadenas Virales de Falsa Descarga</h3>
+              <p><strong>¿Qué es?:</strong> Mensajes que condicionan premios o bonos a "reenviar a 10 contactos" y luego te obligan a descargar un ejecutable.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>Regla de oro:</strong> Ninguna promoción escolar legítima exige reenviar cadenas para entregar beneficios.</p>
             </div>
 
             <div className="caja-pilar-redes">
               <Globe className="icono-pilar verde" size={28} />
-              <h3>Cumplimiento Normativo (LOPNNA/GDPR)</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Leyes que protegen la imagen y los datos personales de menores de edad.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Evitar responsabilidades legales por sobreexposición o difusión ilícita de datos personales.</p>
+              <h3>Liderazgo y Verificación Comunitaria</h3>
+              <p><strong>¿Qué es?:</strong> Actuar como filtro ético en los grupos escolares de WhatsApp y Telegram.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Para qué sirve?:</strong> Advertir a compañeros y representantes antes de que caigan en estafas masivas.</p>
             </div>
           </div>
         </section>
@@ -115,7 +116,7 @@ export const RedesSociales5to: React.FC = () => {
           <div className="auditoria-instrucciones">
             <div className="auditoria-instrucciones-header">
               <Briefcase size={20} />
-              <strong>🎭 Tu rol: Auditor de Marca Personal</strong>
+              <strong>Tu rol: Auditor de Marca Personal</strong>
             </div>
             <p className="auditoria-intro">
               Eres el encargado de revisar los perfiles de estudiantes que quieren
@@ -126,22 +127,22 @@ export const RedesSociales5to: React.FC = () => {
 
             <div className="auditoria-criterios">
               <p className="auditoria-criterios-titulo">
-                📋 Aplica estos 4 criterios a cada perfil:
+                Aplica estos 4 criterios a cada perfil:
               </p>
               <ul className="auditoria-criterios-lista">
                 <li>
-                  <strong>🔒 Datos sensibles:</strong> ¿publica documentos, notas o
+                  <strong>Datos sensibles:</strong> ¿publica documentos, notas o
                   información interna del liceo?
                 </li>
                 <li>
-                  <strong>👥 Menores identificables:</strong> ¿comparte fotos de
+                  <strong>Menores identificables:</strong> ¿comparte fotos de
                   compañeros sin consentimiento?
                 </li>
                 <li>
-                  <strong>💬 Lenguaje:</strong> ¿usa un tono respetuoso y profesional?
+                  <strong>Lenguaje:</strong> ¿usa un tono respetuoso y profesional?
                 </li>
                 <li>
-                  <strong>🏫 Imagen institucional:</strong> ¿lo que publica representa
+                  <strong>Imagen institucional:</strong> ¿lo que publica representa
                   bien al liceo?
                 </li>
               </ul>
@@ -155,7 +156,7 @@ export const RedesSociales5to: React.FC = () => {
               const esCorrecta = respuestasPerfil[perfil.id] === perfil.cumplePoliticas;
 
               // Valores por defecto si el hook aún no los provee
-              const avatar = (perfil as any).avatar ?? '👤';
+              const avatar = (perfil as any).avatar ?? '';
               const handle = (perfil as any).handle ?? '@usuario';
               const rol = (perfil as any).rol ?? 'Estudiante';
               const portadaColor = (perfil as any).portadaColor ?? '#1e40af';
@@ -167,7 +168,7 @@ export const RedesSociales5to: React.FC = () => {
                 <div key={perfil.id} className="perfil-card-v2">
                   {/* Cabecera del caso */}
                   <div className="perfil-caso-header">
-                    <span className="perfil-caso-badge">🔍 Caso #{idx + 1}</span>
+                    <span className="perfil-caso-badge">Caso #{idx + 1}</span>
                     <span className="perfil-caso-instruccion">
                       Audita este perfil y decide si <strong>cumple o no</strong> con
                       las políticas del liceo.
@@ -195,7 +196,7 @@ export const RedesSociales5to: React.FC = () => {
                     {/* Publicaciones simuladas */}
                     <div className="perfil-publicaciones">
                       <p className="perfil-publicaciones-titulo">
-                        📝 Últimas publicaciones:
+                        Últimas publicaciones:
                       </p>
                       <ul className="perfil-publicaciones-lista">
                         {publicaciones.map((pub, i) => (
@@ -211,7 +212,7 @@ export const RedesSociales5to: React.FC = () => {
                   {/* Checklist de auditoría */}
                   <div className="perfil-checklist">
                     <p className="perfil-checklist-titulo">
-                      ✅ Antes de decidir, revisa estos criterios:
+                      Antes de decidir, revisa estos criterios:
                     </p>
                     <div className="perfil-checklist-items">
                       <label className="perfil-checklist-item">
@@ -235,7 +236,7 @@ export const RedesSociales5to: React.FC = () => {
 
                   {/* Decisión */}
                   <p className="perfil-pregunta-final">
-                    🤔 <strong>Según tu análisis, ¿este perfil…?</strong>
+                    <strong>Según tu análisis, ¿este perfil…?</strong>
                   </p>
                   <div className="acciones-decision">
                     <button
@@ -244,7 +245,7 @@ export const RedesSociales5to: React.FC = () => {
                       }`}
                       onClick={() => evaluarPerfil(perfil.id, true)}
                     >
-                      <ShieldCheck size={18} /> ✅ Cumple la política
+                      <ShieldCheck size={18} /> Cumple la política
                     </button>
                     <button
                       className={`btn-decision phishing ${
@@ -252,7 +253,7 @@ export const RedesSociales5to: React.FC = () => {
                       }`}
                       onClick={() => evaluarPerfil(perfil.id, false)}
                     >
-                      <ShieldAlert size={18} /> 🚨 No cumple / Riesgo
+                      <ShieldAlert size={18} /> No cumple / Riesgo
                     </button>
                   </div>
 
@@ -285,7 +286,7 @@ export const RedesSociales5to: React.FC = () => {
                       <p className="feedback-detalle">{perfil.explicacion}</p>
                       {categoriaRiesgo && !perfil.cumplePoliticas && (
                         <span className="badge-tipo-phishing">
-                          🚩 Riesgo: {categoriaRiesgo}
+                          Riesgo: {categoriaRiesgo}
                         </span>
                       )}
                     </div>
@@ -364,7 +365,7 @@ export const RedesSociales5to: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -380,11 +381,11 @@ export const RedesSociales5to: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Excelente! Eres un líder digital preparado para el futuro.
+                ¡Excelente! Eres un líder digital preparado para el futuro.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Completa todas las competencias para maximizar tu impacto positivo.
+                Completa todas las competencias para maximizar tu impacto positivo.
               </div>
             )}
           </div>
@@ -458,7 +459,7 @@ export const RedesSociales5to: React.FC = () => {
           <div className="quiz-progreso">
             <div className="quiz-progreso-header">
               <span className="quiz-progreso-texto">
-                📊 Progreso: <strong>{preguntasRespondidas}</strong> de{' '}
+                Progreso: <strong>{preguntasRespondidas}</strong> de{' '}
                 <strong>{totalPreguntas}</strong> preguntas respondidas
               </span>
               {!quizCompleto && !quizEnviado && (
@@ -467,7 +468,7 @@ export const RedesSociales5to: React.FC = () => {
                 </span>
               )}
               {quizCompleto && !quizEnviado && (
-                <span className="quiz-progreso-listo">✅ ¡Listo para enviar!</span>
+                <span className="quiz-progreso-listo">¡Listo para enviar!</span>
               )}
             </div>
             <div className="quiz-barra-fondo">
@@ -592,10 +593,10 @@ export const RedesSociales5to: React.FC = () => {
               }
             >
               {quizEnviado
-                ? '✅ Respuestas enviadas'
+                ? 'Respuestas enviadas'
                 : !quizCompleto
                 ? `Faltan ${preguntasFaltantes} pregunta${preguntasFaltantes !== 1 ? 's' : ''}`
-                : '📨 Enviar respuestas'}
+                : 'Enviar respuestas'}
             </button>
 
             {!quizCompleto && !quizEnviado && (
@@ -615,10 +616,10 @@ export const RedesSociales5to: React.FC = () => {
                 <div>
                   <p className="resultado-titulo">
                     {puntajeQuiz.correctas === puntajeQuiz.total
-                      ? '🏆 ¡Perfecto!'
+                      ? '¡Perfecto!'
                       : puntajeQuiz.correctas >= puntajeQuiz.total / 2
-                      ? '👍 ¡Buen trabajo!'
-                      : '💪 Sigue practicando'}
+                      ? '¡Buen trabajo!'
+                      : 'Sigue practicando'}
                   </p>
                   <p className="resultado-detalle">
                     Obtuviste <strong>{puntajeQuiz.correctas}</strong> de{' '}

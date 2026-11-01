@@ -68,15 +68,15 @@ export const RedesSociales2do: React.FC = () => {
             <div className="caja-pilar-redes">
               <UserX className="icono-pilar rojo" size={28} />
               <h3>Perfiles Impostores</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Cuentas clonadas que usan fotos robadas.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve detectarlos?:</strong> Evitar que engañen a tus amigos pidiendo transferencias o claves a tu nombre.</p>
+              <p><strong>¿Qué es?:</strong> Cuentas clonadas que usan fotos robadas.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Para qué sirve detectarlos?:</strong> Evitar que engañen a tus amigos pidiendo transferencias o claves a tu nombre.</p>
             </div>
 
             <div className="caja-pilar-redes">
               <Eye className="icono-pilar azul" size={28} />
               <h3>Badge de Verificación</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Insignia azul concedida por la plataforma a cuentas oficiales.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Confirmar la identidad de figuras públicas o instituciones escolares.</p>
+              <p><strong>¿Qué es?:</strong> Insignia azul concedida por la plataforma a cuentas oficiales.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Para qué sirve?:</strong> Confirmar la identidad de figuras públicas o instituciones escolares.</p>
             </div>
           </div>
         </section>
@@ -199,7 +199,7 @@ export const RedesSociales2do: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -215,11 +215,11 @@ export const RedesSociales2do: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Excelente! Estás protegido contra la suplantación.
+                ¡Excelente! Estás protegido contra la suplantación.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Completa todas las prácticas para blindar tu identidad digital.
+                Completa todas las prácticas para blindar tu identidad digital.
               </div>
             )}
           </div>
@@ -305,7 +305,7 @@ export const RedesSociales2do: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

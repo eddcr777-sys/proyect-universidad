@@ -46,12 +46,12 @@ export const RedesSociales4to: React.FC = () => {
     <main className="pagina-modulo-redes-4to">
       <HeaderModulo
         grado="4to"
-        modulo="4: Rastreo, Algoritmos y Aplicaciones Terceras"
-        titulo="Detrás del algoritmo de redes"
-        subTitulo="Aprende cómo funcionan los algoritmos de recolección de datos, auditar aplicaciones conectadas y controlar la publicidad en 4to Año."
+        modulo="4: Archivos Trampa en Mensajería y Redes Sociales"
+        titulo="Formatos multimedia vs. ejecutables y scripts en chats"
+        subTitulo="Aprende a diferenciar archivos multimedia genuinos (fotos, videos) de scripts camuflados, la trampa de 'mira esta foto' y la configuración de descargas en 4to Año."
         categoria="Redes Sociales e Identidad"
-        tiempoEstimado="55 min"
-        icono={<ShieldCheck size={36} />}
+        tiempoEstimado="50 min"
+        icono={<Share2 size={36} />}
       />
 
       <div className="contenedor-redes-contenido">
@@ -59,25 +59,26 @@ export const RedesSociales4to: React.FC = () => {
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. Algoritmos de Recolección y Permisos de Apps Terceras</h2>
+            <h2>1. Formatos Multimedia Genuinos vs. Archivos Trampa en Chats</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Las redes sociales utilizan <strong>algoritmos de recomendación y rastreo</strong> para mantener tu atención y vender publicidad dirigida. Al conectar juegos o test a tu cuenta, otorgas permisos de lectura a empresas externas.
+            En WhatsApp, Telegram o Discord, los atacantes envían supuestas "fotos", "stickers" o "videos" que en realidad son{' '}
+            <strong>archivos comprimidos (.zip) o scripts ejecutables (.scr, .bat)</strong> diseñados para robar tus cuentas al abrirlos.
           </p>
 
           <div className="grid-pilares-redes">
             <div className="caja-pilar-redes">
               <ShieldCheck className="icono-pilar azul" size={28} />
-              <h3>Tokens OAuth</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Credenciales temporales para conectar juegos a tu cuenta sin dar claves.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Dar permisos específicos y revocables a aplicaciones de terceros.</p>
+              <h3>Formatos Multimedia Genuinos</h3>
+              <p><strong>Extensiones:</strong> .jpg, .jpeg, .png, .mp4, .webp</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>Comportamiento:</strong> Se previsualizan directamente dentro del chat. Nunca te pedirán "ejecutar como administrador".</p>
             </div>
 
             <div className="caja-pilar-redes">
               <Lock className="icono-pilar rojo" size={28} />
-              <h3>Permisos Excesivos de Apps</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Accesos no justificados a lista de amigos o mensajes.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve identificarlos?:</strong> Evitar que test lúdicos recolecten tus datos de perfil para spammers.</p>
+              <h3>La Trampa de "Mira esta foto"</h3>
+              <p><strong>Señal de alerta:</strong> Mensajes de contactos o desconocidos que dicen "mira esta foto tuya" enviando un archivo <code>.zip</code> o <code>.bat</code>.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>Regla de oro:</strong> Si esperabas una foto, debe llegar como imagen visible, jamás como un archivo comprimido o ejecutable.</p>
             </div>
           </div>
         </section>
@@ -199,7 +200,7 @@ export const RedesSociales4to: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -215,11 +216,11 @@ export const RedesSociales4to: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Excelente! Controlas quién accede a tus datos y revisas tu información periódicamente.
+                ¡Excelente! Controlas quién accede a tus datos y revisas tu información periódicamente.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Completa todas las prácticas para una auditoría completa.
+                Completa todas las prácticas para una auditoría completa.
               </div>
             )}
           </div>
@@ -305,7 +306,7 @@ export const RedesSociales4to: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

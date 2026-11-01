@@ -86,21 +86,21 @@ export const Videojuegos2do: React.FC = () => {
             <h3 className="titulo-mini-seccion">Glosario y Términos Clave</h3>
             <div className="lista-conceptos">
               <div className="item-concepto">
-                <strong>📖 ¿Qué es la Verificación en Dos Pasos (2FA)?</strong>
+                <strong>¿Qué es la Verificación en Dos Pasos (2FA)?</strong>
                 <p>Un método de seguridad que solicita dos pruebas de identidad para acceder a la cuenta (clave + código dinámico).</p>
-                <strong>⚙️ ¿Para qué sirve / Qué función cumple?</strong>
+                <strong>¿Para qué sirve / Qué función cumple?</strong>
                 <p>Protege la cuenta de Roblox, Steam o Epic Games impidiendo que un atacante entre aunque adivine la contraseña.</p>
               </div>
               <div className="item-concepto">
-                <strong>📖 ¿Qué es una App Autenticadora?</strong>
+                <strong>¿Qué es una App Autenticadora?</strong>
                 <p>Una aplicación móvil (ej: Google Authenticator) que genera códigos temporales de 6 dígitos que cambian cada 30 segundos.</p>
-                <strong>⚙️ ¿Para qué sirve / Qué función cumple?</strong>
+                <strong>¿Para qué sirve / Qué función cumple?</strong>
                 <p>Proporciona un segundo factor de autenticación mucho más seguro que los SMS, inmune al clonado de SIM.</p>
               </div>
               <div className="item-concepto">
-                <strong>📖 ¿Qué son los Códigos de Recuperación?</strong>
+                <strong>¿Qué son los Códigos de Recuperación?</strong>
                 <p>Una lista de claves numéricas únicas entregadas al activar 2FA para ser usadas en emergencias.</p>
-                <strong>⚙️ ¿Para qué sirve / Qué función cumple?</strong>
+                <strong>¿Para qué sirve / Qué función cumple?</strong>
                 <p>Permiten recuperar el acceso si pierdes o rompes tu teléfono móvil.</p>
               </div>
             </div>
@@ -178,7 +178,7 @@ export const Videojuegos2do: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -194,11 +194,11 @@ export const Videojuegos2do: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Excelente! Tus cuentas están blindadas y sabes recuperarlas.
+                ¡Excelente! Tus cuentas están blindadas y sabes recuperarlas.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Completa todas las prácticas para maximizar la seguridad.
+                Completa todas las prácticas para maximizar la seguridad.
               </div>
             )}
           </div>
@@ -286,7 +286,7 @@ export const Videojuegos2do: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

@@ -69,11 +69,11 @@ export const Phishing4to: React.FC = () => {
     <main className="pagina-modulo-phishing-4to">
       <HeaderModulo
         grado="4to"
-        modulo="4: Análisis Técnico de Phishing"
-        titulo="Inspección de Encabezados, URLs y Dominios"
-        subTitulo="Aprende a verificar técnicamente un correo sospechoso: SPF, DKIM, DMARC, dominios homógrafos y herramientas de análisis como VirusTotal."
+        modulo="4: Detección de Phishing y Adjuntos Trampa"
+        titulo="Inspección de Enlaces, Dominios y Archivos Adjuntos"
+        subTitulo="Aprende a detectar correos engañosos, dominios falsos, archivos con doble extensión (.pdf.exe) y a verificar enlaces sospechosos en 4to Año."
         categoria="Defensa Digital y Privacidad"
-        tiempoEstimado="55 min"
+        tiempoEstimado="50 min"
         icono={<Search size={36} />}
       />
 
@@ -84,65 +84,61 @@ export const Phishing4to: React.FC = () => {
         <section className="bloque-phishing-tarjeta">
           <div className="encabezado-bloque-phishing">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. ¿Cómo se verifica un correo por dentro?</h2>
+            <h2>1. ¿Cómo se inspecciona un correo sospechoso?</h2>
           </div>
 
           <p className="texto-lectura-phishing">
-            En 4to año pasamos de la identificación visual a la{' '}
-            <strong>inspección técnica</strong>. Aprenderás a leer los encabezados de
-            un correo (SPF, DKIM, DMARC), analizar URLs sospechosas y usar
-            herramientas como <strong>VirusTotal</strong> y <strong>URLVoid</strong>{' '}
-            para verificar enlaces sin hacer clic.
+            En 4to año aprendemos a ir más allá del texto del mensaje: inspeccionamos la{' '}
+            <strong>dirección real del remitente, los enlaces ocultos y los archivos adjuntos trampa</strong>.
+            Aprenderás a detectar archivos ejecutables disfrazados de documentos y a usar herramientas gratuitas
+            como <strong>VirusTotal</strong> para revisar enlaces sin correr riesgos.
           </p>
 
           <div className="grid-senales-phishing">
-            {/* ── Tarjeta 1: SPF / DKIM / DMARC ── */}
+            {/* ── Tarjeta 1: Adjuntos Trampa y Doble Extensión ── */}
             <div className="caja-senal-item">
               <FileCode className="icono-senal rojo" size={28} />
-              <h3>SPF, DKIM y DMARC</h3>
+              <h3>Adjuntos Trampa y Doble Extensión</h3>
               <p>
-                <strong>📖 ¿Qué son?:</strong> Son 3 estándares que viajan ocultos en
-                la cabecera de cada correo, como un "sello de autenticidad".
+                <strong>¿Qué es?:</strong> Correos que adjuntan archivos nombrados con dos extensiones, como{' '}
+                <code>tarea_matematica.pdf.exe</code> o <code>comunicado.docx.iso</code>.
               </p>
               <ul className="lista-tecnica">
                 <li>
-                  <strong>SPF:</strong> verifica si el servidor que envió el correo
-                  tiene permiso del dominio. <em>No usa criptografía.</em>
+                  <strong>La trampa:</strong> Si Windows tiene extensiones ocultas, el usuario solo lee <code>tarea_matematica.pdf</code>.
                 </li>
                 <li>
-                  <strong>DKIM:</strong> firma digital que garantiza que el mensaje
-                  no fue alterado. <em>Sí usa criptografía.</em>
+                  <strong>El riesgo:</strong> Al hacer doble clic no se abre un documento, sino un programa malicioso que infecta la PC.
                 </li>
                 <li>
-                  <strong>DMARC:</strong> regla que decide qué hacer si SPF o DKIM
-                  fallan (<code>rechazar</code>, <code>marcar spam</code> o{' '}
-                  <code>no hacer nada</code>).
+                  <strong>Regla clave:</strong> Ningún documento escolar genuino termina en <code>.exe</code>, <code>.bat</code> o <code>.vbs</code>.
                 </li>
               </ul>
               <p className="texto-accion-senal">
-                <strong>⚙️ ¿Para qué sirve?:</strong> Bloquear automáticamente correos
-                que suplantan a tu banco, al liceo o a cualquier empresa.
+                <strong>¿Para qué sirve?:</strong> Evitar ejecutar troyanos que roban tus claves bajo la apariencia de una tarea o factura.
               </p>
             </div>
 
-            {/* ── Tarjeta 2: Encabezado real ── */}
+            {/* ── Tarjeta 2: Archivos comprimidos sospechosos ── */}
             <div className="caja-senal-item">
               <Eye className="icono-senal azul" size={28} />
-              <h3>¿Cómo se ve un encabezado real?</h3>
+              <h3>Archivos Comprimidos (.zip / .rar)</h3>
               <p>
-                <strong>📖 ¿Qué es?:</strong> Cada correo trae una cabecera técnica
-                invisible para el usuario común. Así se ve:
+                <strong>¿Qué es?:</strong> Muchos correos fraudulentos adjuntan archivos comprimidos para ocultar su contenido real:
               </p>
-              <pre className="bloque-encabezado-ejemplo">
-{`Authentication-Results: mx.google.com;
-   spf=pass smtp.mailfrom=banco.com
-   dkim=pass header.d=banco.com
-   dmarc=pass header.from=banco.com`}
-              </pre>
+              <ul className="lista-tecnica">
+                <li>
+                  <strong>Evasión de filtros:</strong> Los atacantes comprimen ejecutables maliciosos para burlar el antivirus del correo.
+                </li>
+                <li>
+                  <strong>Inspección previa:</strong> Abre el archivo comprimido sin ejecutar nada y verifica la columna "Tipo de archivo".
+                </li>
+                <li>
+                  <strong>Alerta roja:</strong> Si dentro del <code>.zip</code> hay un archivo de tipo "Aplicación" o script, bórralo de inmediato.
+                </li>
+              </ul>
               <p className="texto-accion-senal">
-                <strong>⚙️ ¿Para qué sirve?:</strong> Si los 3 dicen{' '}
-                <code>pass</code>, es muy probable que el correo sea legítimo. Si
-                alguno dice <code>fail</code>, hay que sospechar.
+                <strong>¿Para qué sirve?:</strong> No caer en el truco de descomprimir y ejecutar ciegamente archivos enviados por desconocidos.
               </p>
             </div>
 
@@ -151,7 +147,7 @@ export const Phishing4to: React.FC = () => {
               <LinkIcon className="icono-senal amarillo" size={28} />
               <h3>Typosquatting (Dominios Engañosos)</h3>
               <p>
-                <strong>📖 ¿Qué es?:</strong> Dominios que imitan a otro legítimo
+                <strong>¿Qué es?:</strong> Dominios que imitan a otro legítimo
                 usando errores tipográficos o visuales parecidos.
               </p>
               <ul className="lista-tecnica">
@@ -162,7 +158,7 @@ export const Phishing4to: React.FC = () => {
                 <li>Homoglifos: <code>rn</code> en lugar de <code>m</code></li>
               </ul>
               <p className="texto-accion-senal">
-                <strong>⚙️ ¿Para qué sirve?:</strong> Engañar a quien lee rápido y
+                <strong>¿Para qué sirve?:</strong> Engañar a quien lee rápido y
                 hacerle creer que está en el sitio oficial.
               </p>
             </div>
@@ -172,7 +168,7 @@ export const Phishing4to: React.FC = () => {
               <Search className="icono-senal rojo" size={28} />
               <h3>Analizadores de Enlaces (VirusTotal)</h3>
               <p>
-                <strong>📖 ¿Qué es?:</strong> Herramientas web (VirusTotal, URLVoid)
+                <strong>¿Qué es?:</strong> Herramientas web (VirusTotal, URLVoid)
                 que escanean URLs sospechosas con ~70 motores antivirus, listas
                 negras y sandboxes, <strong>sin abrir el enlace</strong>.
               </p>
@@ -182,7 +178,7 @@ export const Phishing4to: React.FC = () => {
                 <li>Revela redirecciones y scripts ocultos.</li>
               </ul>
               <p className="texto-accion-senal">
-                <strong>⚙️ ¿Para qué sirve?:</strong> Inspeccionar un enlace sin
+                <strong>¿Para qué sirve?:</strong> Inspeccionar un enlace sin
                 arriesgar tu equipo. Si tiene muchas detecciones o es un dominio
                 recién creado, <strong>no lo abras</strong>.
               </p>
@@ -216,7 +212,7 @@ export const Phishing4to: React.FC = () => {
             <div className="guia-columnas">
               {/* ── Columna izquierda: indicadores ── */}
               <div className="guia-columna">
-                <h4>🚦 ¿Cómo leer los 3 indicadores?</h4>
+                <h4>¿Cómo leer los 3 indicadores?</h4>
                 <div className="leyenda-items">
                   <span className="leyenda-item leyenda-pass">
                     <CheckCircle2 size={14} /> Verde = la verificación pasó (buena señal)
@@ -244,7 +240,7 @@ export const Phishing4to: React.FC = () => {
 
               {/* ── Columna derecha: cómo leer una URL ── */}
               <div className="guia-columna">
-                <h4>🔍 ¿Cómo leer una URL?</h4>
+                <h4>¿Cómo leer una URL?</h4>
                 <p className="texto-guia">
                   Toda URL se puede partir en pedazos. Mira este ejemplo
                   (<code>https://login.banco-seguro.xyz/pay</code>):
@@ -320,7 +316,7 @@ export const Phishing4to: React.FC = () => {
                 <div key={correo.id} className="tarjeta-mensaje-simulado">
                   {/* Encabezado del correo */}
                   <div className="cabecera-mensaje-simulado">
-                    <span className="badge-canal">✉ Correo #{idx + 1}</span>
+                    <span className="badge-canal">Correo #{idx + 1}</span>
                     <span className="remitente-texto">
                       De: <strong>{correo.remitente}</strong>
                     </span>
@@ -385,7 +381,7 @@ export const Phishing4to: React.FC = () => {
 
                     {alertasRojas > 0 && (
                       <p className="aviso-fallo-encabezado">
-                        ⚠️{' '}
+                        {' '}
                         {alertasRojas === 3
                           ? 'Los 3 indicadores fallaron. Este correo es casi con certeza falso.'
                           : `${alertasRojas} indicador${alertasRojas > 1 ? 'es fallaron' : ' falló'}. Analiza la URL con cuidado antes de decidir.`}
@@ -403,14 +399,14 @@ export const Phishing4to: React.FC = () => {
 
                   <div className="url-incluida-v2">
                     <div className="url-completa">
-                      <strong>🔗 URL incluida:</strong>
+                      <strong>URL incluida:</strong>
                       <code>{correo.urlIncluida}</code>
                     </div>
 
                     {partesUrl && (
                       <>
                         <p className="url-instruccion">
-                          👉 Así se descompone esa URL. Fíjate especialmente en el{' '}
+                          Así se descompone esa URL. Fíjate especialmente en el{' '}
                           <strong>dominio principal</strong>:
                         </p>
                         <div className="desglose-url-v2">
@@ -438,7 +434,7 @@ export const Phishing4to: React.FC = () => {
                           </div>
                         </div>
                         <p className="url-tip">
-                          💡 <strong>Pregunta clave:</strong> ¿El dominio principal
+                          <strong>Pregunta clave:</strong> ¿El dominio principal
                           coincide con la empresa o institución que dice enviar el
                           correo? Si el correo dice ser de <code>micolegio.edu</code>{' '}
                           pero el dominio es otro, <strong>es phishing</strong>.
@@ -656,7 +652,7 @@ export const Phishing4to: React.FC = () => {
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
                     {puntajeQuiz.correctas === puntajeQuiz.total
-                      ? ' 🏆 ¡Perfecto!'
+                      ? ' ¡Perfecto!'
                       : ' ¡Sigue practicando!'}
                   </p>
                 </div>

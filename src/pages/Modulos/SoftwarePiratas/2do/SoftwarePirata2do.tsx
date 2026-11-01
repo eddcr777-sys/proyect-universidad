@@ -70,15 +70,15 @@ export const SoftwarePirata2do: React.FC = () => {
             <div className="caja-pilar-software">
               <FileCode className="icono-pilar verde" size={28} />
               <h3>Software Libre / FOSS</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Programas de código abierto que garantizan las 4 libertades (usar, estudiar, modificar, compartir).</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Usar herramientas profesionales gratuitas sin instalar virus o piratear.</p>
+              <p><strong>¿Qué es?:</strong> Programas de código abierto que garantizan las 4 libertades (usar, estudiar, modificar, compartir).</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Para qué sirve?:</strong> Usar herramientas profesionales gratuitas sin instalar virus o piratear.</p>
             </div>
 
             <div className="caja-pilar-software">
               <Lock className="icono-pilar rojo" size={28} />
               <h3>Software Propietario</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Programas de código cerrado protegidos por derechos de autor comercial.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve conocerlo?:</strong> Evitar crackearlos para no infringir leyes de derecho de autor ni infectar tu equipo.</p>
+              <p><strong>¿Qué es?:</strong> Programas de código cerrado protegidos por derechos de autor comercial.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Para qué sirve conocerlo?:</strong> Evitar crackearlos para no infringir leyes de derecho de autor ni infectar tu equipo.</p>
             </div>
           </div>
         </section>
@@ -193,7 +193,7 @@ export const SoftwarePirata2do: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -209,11 +209,11 @@ export const SoftwarePirata2do: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Excelente! Verificas y usas software de forma segura y legal.
+                ¡Excelente! Verificas y usas software de forma segura y legal.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Completa todas las prácticas para ser un experto en licencias.
+                Completa todas las prácticas para ser un experto en licencias.
               </div>
             )}
           </div>
@@ -299,7 +299,7 @@ export const SoftwarePirata2do: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

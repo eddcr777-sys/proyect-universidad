@@ -1,90 +1,119 @@
 /* ============================================================================
    ESTILOS — CajaExplicacionDinamica.css
-   Instrucciones del Laboratorio con Estética de Ciberseguridad / SOC
-   Colores mates, borde cian, fondo de superficie y mobile-first
+   Guía de instrucciones limpia, sobria y plana para laboratorios y dinámicas.
+   Sin tarjetas pesadas anidadas, optimizada para móvil y PC.
    ============================================================================ */
 
 .caja-explicacion-dinamica {
-  background-color: var(--ciber-bg-fondo, #f4fbf7);
-  border: 1px solid var(--ciber-border-subtle, #d1e7dd);
-  border-radius: var(--ciber-radius-md, 16px);
-  padding: var(--ciber-space-md, 18px);
-  margin-bottom: var(--ciber-space-lg, 24px);
-  box-shadow: 0 4px 16px rgba(5, 150, 105, 0.05);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.caja-explicacion-dinamica:hover {
-  border-color: var(--ciber-border-strong, #059669);
-  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.1);
+  background-color: var(--ciber-bg-fondo, #f8fafc);
+  border: 1px solid var(--ciber-border-subtle, #e2e8f0);
+  border-left: 3px solid var(--ciber-accent-green, #059669);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .cabecera-explicacion-dinamica {
   display: flex;
   align-items: center;
-  gap: var(--ciber-space-sm, 8px);
-  margin-bottom: var(--ciber-space-md, 16px);
-  border-bottom: 1px solid var(--ciber-border-subtle, #d1e7dd);
-  padding-bottom: var(--ciber-space-sm, 10px);
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--ciber-border-subtle, #e2e8f0);
 }
 
-.icono-brujula-dinamica {
+.icono-info-dinamica {
   color: var(--ciber-accent-green, #059669);
   flex-shrink: 0;
 }
 
 .cabecera-explicacion-dinamica h3 {
   font-family: var(--ciber-font-ui, 'Outfit', sans-serif) !important;
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   font-weight: 700;
   color: var(--ciber-text-primary, #0f2c59);
   margin: 0;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.01em;
 }
 
 .grid-bloques-dinamica {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--ciber-space-sm, 12px);
+  gap: 0.75rem;
 }
 
+/* Bloques interiores limpios y planos, sin tarjetas anidadas */
 .bloque-item-dinamica {
-  background-color: #ffffff;
-  border: 1px solid var(--ciber-border-subtle, #d1e7dd);
-  border-radius: var(--ciber-radius-sm, 10px);
-  padding: 14px 16px;
+  background: transparent;
+  border: none;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--ciber-space-xs, 4px);
+  gap: 0.25rem;
 }
 
-.encabezado-item-dinamica {
-  display: flex;
-  align-items: center;
-  gap: var(--ciber-space-xs, 4px);
-  color: var(--ciber-accent-green, #059669);
-  font-family: var(--ciber-font-ui, 'Outfit', sans-serif) !important;
+.etiqueta-item-dinamica {
+  font-size: 0.8rem;
   font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.3px;
+  color: var(--ciber-accent-green, #059669);
   text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .bloque-item-dinamica p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--ciber-text-secondary, #334155);
   line-height: 1.5;
 }
 
-/* Tablet y Desktop */
+.pasos-interaccion {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.pasos-interaccion li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--ciber-text-secondary, #334155);
+  line-height: 1.45;
+}
+
+.pasos-interaccion .num-paso {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: rgba(5, 150, 105, 0.12);
+  color: var(--ciber-accent-green, #059669);
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Tablet y Desktop: 3 columnas ordenadas */
 @media (min-width: 768px) {
   .caja-explicacion-dinamica {
-    padding: var(--ciber-space-lg, 24px);
+    padding: 1.15rem 1.5rem;
   }
 
   .grid-bloques-dinamica {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: var(--ciber-space-md, 16px);
+    grid-template-columns: 1fr 1.25fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .bloque-item-dinamica + .bloque-item-dinamica {
+    border-left: 1px solid var(--ciber-border-subtle, #e2e8f0);
+    padding-left: 1.25rem;
   }
 }
+

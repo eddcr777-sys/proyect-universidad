@@ -48,11 +48,11 @@ export const ProteccionCuentas4to: React.FC = () => {
     <main className="pagina-modulo-proteccion-4to">
       <HeaderModulo
         grado="4to"
-        modulo="4: Criptografía y Almacenamiento Seguro"
-        titulo="Hashes, Salting y Bóvedas Cifradas"
-        subTitulo="Aprende cómo se almacenan las contraseñas en servidores, la función del salting y la criptografía de bóvedas en 4to Año."
+        modulo="4: Malware Robacuentas (Infostealers) y Autenticación 2FA"
+        titulo="Protege tus cuentas ante ejecutables espías e Infostealers"
+        subTitulo="Aprende cómo un archivo malicioso descargado por error puede extraer las contraseñas guardadas en tu navegador y por qué el 2FA es tu escudo en 4to Año."
         categoria="Protección de Cuentas y Accesos"
-        tiempoEstimado="55 min"
+        tiempoEstimado="50 min"
         icono={<ShieldCheck size={36} />}
       />
 
@@ -61,25 +61,26 @@ export const ProteccionCuentas4to: React.FC = () => {
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. Criptografía de Contraseñas</h2>
+            <h2>1. Malware Robacuentas (Infostealers) y Almacenamiento Seguro</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Las bases de datos modernas jamás guardan contraseñas en texto plano. En su lugar, utilizan <strong>funciones Hash unidireccionales</strong> (como Bcrypt o Argon2) combinadas con <strong>Salting</strong> (aleatorización de claves).
+            Hoy en día, el mayor peligro para tus cuentas no es que adivinen tu contraseña, sino descargar sin darte cuenta un{' '}
+            <strong>archivo ejecutable malicioso (Infostealer)</strong> que extrae automáticamente las claves guardadas en tu navegador en segundos.
           </p>
 
           <div className="grid-pilares-proteccion">
             <div className="caja-pilar-proteccion">
               <ShieldCheck className="icono-pilar verde" size={28} />
-              <h3>Hash Criptográfico</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Algoritmo matemático que convierte cualquier texto en una cadena fija irreversible.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Almacenar claves en servidores sin que ni siquiera los administradores puedan leerlas.</p>
+              <h3>Troyanos Infostealers</h3>
+              <p><strong>¿Qué son?:</strong> Ejecutables camuflados en falsos cracks o juegos que buscan la carpeta de contraseñas de Chrome, Edge o Firefox.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Para qué sirve detectarlos?:</strong> Evitar ejecutar archivos desconocidos que copien tus credenciales y cookies de sesión.</p>
             </div>
 
             <div className="caja-pilar-proteccion">
               <Lock className="icono-pilar azul" size={28} />
-              <h3>Salting (Sal Criptográfica)</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Añadir una cadena de caracteres aleatorios antes de generar el hash.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Inutilizar tablas precalculadas (Rainbow Tables) en ciberataques.</p>
+              <h3>El 2FA como Escudo Infranqueable</h3>
+              <p><strong>¿Qué es?:</strong> Verificación en dos pasos mediante aplicación autenticadora en tu teléfono.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Para qué sirve?:</strong> Incluso si un troyano roba tu contraseña, el ciberdelincuente no podrá ingresar a tu cuenta sin el código temporal.</p>
             </div>
           </div>
         </section>
@@ -202,7 +203,7 @@ export const ProteccionCuentas4to: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -218,11 +219,11 @@ export const ProteccionCuentas4to: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Excelente! Tienes una comprensión sólida de la seguridad de contraseñas.
+                ¡Excelente! Tienes una comprensión sólida de la seguridad de contraseñas.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Repasa los conceptos para completar tu formación.
+                Repasa los conceptos para completar tu formación.
               </div>
             )}
           </div>
@@ -302,7 +303,7 @@ export const ProteccionCuentas4to: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

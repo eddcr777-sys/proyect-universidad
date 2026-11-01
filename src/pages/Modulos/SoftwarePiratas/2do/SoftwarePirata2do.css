@@ -1,9 +1,9 @@
 /* Módulo Software Pirata 2do - Estilos coherentes con la serie */
 
 .pagina-modulo-software-2do {
-  max-width: 1100px;
+  max-width: 1060px;
   margin: 0 auto;
-  padding: 2rem 1.5rem 5rem 1.5rem;
+  padding: 1.5rem 1.5rem 4rem 1.5rem;
   font-family: var(--fuente-principal);
   color: var(--color-texto-principal);
 }
@@ -18,7 +18,7 @@
   background: var(--color-fondo-tarjeta);
   border: 1px solid var(--color-borde);
   border-radius: var(--radio-principal);
-  padding: 2.25rem;
+  padding: 1.75rem 2rem;
   box-shadow: var(--sombra-md);
   transition: transform var(--transicion-rapida), box-shadow var(--transicion-rapida);
 }
@@ -57,7 +57,7 @@
 /* Grid pilares */
 .grid-pilares-software {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.25rem;
 }
 
@@ -69,9 +69,11 @@
   transition: transform var(--transicion-rapida);
 }
 
-.caja-pilar-software:hover {
-  transform: translateY(-2px);
-  border-color: var(--color-ciber-primario);
+@media (hover: hover) {
+  .caja-pilar-software:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-ciber-primario);
+  }
 }
 
 .icono-pilar {
@@ -546,11 +548,6 @@
 .icono-bloque-amarillo { color: #f59e0b; }
 .icono-bloque-rojo { color: var(--color-ciber-alerta); }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .bloque-modulo-tarjeta {
-    padding: 1.5rem;
-  }
   .grid-pilares-software,
   .videos-grid {
     grid-template-columns: 1fr;
@@ -564,104 +561,3 @@
     flex-direction: column;
     align-items: flex-start;
   }
-}
-/* ══ Responsividad Móvil — Sin márgenes, ancho completo ══ */
-@media (max-width: 768px) {
-  /* Contenedor raíz: ocupa toda la pantalla, sin márgenes laterales */
-  [class^="pagina-modulo-"] {
-    max-width: 100%;
-    margin: 0;
-    padding: 1.25rem 0.75rem 3rem 0.75rem;
-  }
-
-  /* Tarjetas del módulo sin border-radius en móvil y padding reducido */
-  .bloque-phishing-tarjeta,
-  .bloque-proteccion-tarjeta,
-  .bloque-redes-tarjeta,
-  .bloque-software-tarjeta,
-  .bloque-videojuegos-tarjeta,
-  .bloque-auditoria-tarjeta {
-    padding: 1rem;
-    border-radius: 12px;
-  }
-
-  /* Grids → 1 columna */
-  .grid-senales-phishing,
-  .grid-senales-proteccion,
-  .grid-senales-redes,
-  .grid-senales-software,
-  .grid-senales-videojuegos,
-  .grid-senales-auditoria,
-  [class*="grid-senales-"],
-  [class*="grid-tarjetas-"],
-  [class*="cuadricula-"] {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Botones de decisión en columna */
-  .acciones-decision-phishing,
-  [class*="acciones-decision-"],
-  .acciones-quiz {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  /* Preguntas de quiz más compactas */
-  [class*="pregunta-quiz"] {
-    padding: 1rem;
-  }
-
-  /* Opciones de quiz a ancho completo */
-  [class*="opcion-quiz-btn"] {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  [class^="pagina-modulo-"] {
-    padding: 1rem 0.5rem 2.5rem 0.5rem;
-  }
-
-  /* Encabezados de bloque más pequeños */
-  [class*="encabezado-bloque-"] h2 {
-    font-size: 1.2rem;
-  }
-
-  /* Texto de lectura más compacto */
-  [class*="texto-lectura-"] {
-    font-size: 0.97rem;
-    line-height: 1.6;
-  }
-
-  /* Cajas de señal menos espaciosas */
-  .caja-senal-item,
-  [class*="caja-senal-item"] {
-    padding: 1rem;
-  }
-}
-
-
-/* ══ Tipografía de Alta Legibilidad para Contenidos de Módulos ══ */
-[class^="pagina-modulo-"] {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-  letter-spacing: -0.01em;
-  -webkit-font-smoothing: antialiased;
-}
-
-[class^="pagina-modulo-"] h1,
-[class^="pagina-modulo-"] h2,
-[class^="pagina-modulo-"] h3,
-[class^="pagina-modulo-"] h4,
-[class^="pagina-modulo-"] h5,
-[class^="pagina-modulo-"] h6 {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-  letter-spacing: -0.02em;
-}
-
-[class^="pagina-modulo-"] p,
-[class^="pagina-modulo-"] li,
-[class^="pagina-modulo-"] button,
-[class^="pagina-modulo-"] input {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-}
-

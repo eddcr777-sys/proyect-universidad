@@ -43,12 +43,12 @@ export const AuditoriaDigital4to: React.FC = () => {
     <main className="pagina-modulo-auditoria">
       <HeaderModulo
         grado="4to"
-        modulo="4: Análisis de Tráfico"
-        titulo="Auditoría de Tráfico de Red y Protocolos"
-        subTitulo="Cada vez que navegas, tus datos viajan en paquetes. Aprende a distinguir entre comunicaciones seguras (HTTPS, VPN) e inseguras (HTTP, FTP) para protegerte de miradas indiscretas."
-        categoria="Auditoría Avanzada"
-        tiempoEstimado="55 min"
-        icono={<Globe size={36} />}
+        modulo="4: Auditoría de Descargas y Configuración del Sistema"
+        titulo="Higiene en Descargas y Auditoría del Almacenamiento"
+        subTitulo="Aprende a auditar tu carpeta de descargas, eliminar archivos residuales peligrosos, activar extensiones visibles y configurar el navegador en 4to Año."
+        categoria="Auditoría e Higiene Digital"
+        tiempoEstimado="50 min"
+        icono={<ShieldCheck size={36} />}
       />
 
       <div className="contenedor-auditoria-contenido">
@@ -56,35 +56,36 @@ export const AuditoriaDigital4to: React.FC = () => {
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. El viaje de tus datos</h2>
+            <h2>1. Auditoría de Descargas e Higiene del Sistema</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Cuando envías un mensaje, una foto o una contraseña, todo se divide en <strong>paquetes</strong> que viajan por la red. Si esos paquetes no van cifrados, cualquier persona conectada a la misma red (Wi-Fi público, por ejemplo) puede capturarlos con un sniffer y leer su contenido.
+            Muchos incidentes de ciberseguridad ocurren porque dejamos archivos descargados sin revisar en nuestra computadora o teléfono. Una{' '}
+            <strong>auditoría de descargas</strong> consiste en inspeccionar extensiones, limpiar archivos temporales y configurar el navegador para evitar descargas silenciosas.
           </p>
 
           <div className="grid-pilares-higiene">
             <div className="caja-pilar-higiene">
               <Lock className="icono-pilar verde" size={28} />
-              <h3>HTTPS = Candado</h3>
-              <p>El protocolo HTTPS cifra los datos entre tu navegador y el servidor. Así, aunque capturen los paquetes, no podrán entenderlos.</p>
+              <h3>Confirmación de Descarga</h3>
+              <p>Configura tu navegador para que siempre te pregunte <em>"¿Dónde deseas guardar este archivo?"</em>. Así ninguna web podrá descargar ejecutables silenciosamente.</p>
             </div>
 
             <div className="caja-pilar-higiene">
               <WifiOff className="icono-pilar rojo" size={28} />
-              <h3>HTTP = Texto plano</h3>
-              <p>HTTP no cifra nada. Tus contraseñas, cookies y mensajes viajan en claro, legibles para cualquiera que espíe la red.</p>
+              <h3>Auditoría de Descargas Viejas</h3>
+              <p>Revisa periódicamente la carpeta "Descargas". Elimina instaladores (.exe, .msi) y archivos comprimidos viejos que ya no necesitas.</p>
             </div>
 
             <div className="caja-pilar-higiene">
               <EyeOff className="icono-pilar azul" size={28} />
-              <h3>VPN = Túnel blindado</h3>
-              <p>Una VPN cifra todo tu tráfico, incluso las consultas DNS, protegiéndote en redes abiertas.</p>
+              <h3>Extensiones de Archivo Visibles</h3>
+              <p>Mantén siempre marcada la opción "Extensiones de nombre de archivo" en Windows para descubrir ejecutables camuflados como documentos.</p>
             </div>
 
             <div className="caja-pilar-higiene">
               <ShieldCheck className="icono-pilar morado" size={28} />
-              <h3>Cifrado de extremo a extremo</h3>
-              <p>En apps de mensajería como WhatsApp o Signal, ni siquiera la empresa puede leer tus conversaciones.</p>
+              <h3>Inspección de Archivos Residuales</h3>
+              <p>Identifica extensiones raras o desconocidas (.scr, .vbs, .bat) que hayan quedado guardadas en tu almacenamiento sin tu autorización.</p>
             </div>
           </div>
 
@@ -92,21 +93,21 @@ export const AuditoriaDigital4to: React.FC = () => {
             <h3 className="titulo-mini-seccion">Glosario y Términos Clave</h3>
             <div className="lista-conceptos">
               <div className="item-concepto">
-                <strong>📖 ¿Qué es un Sniffer (Analizador de Paquetes)?</strong>
+                <strong>¿Qué es un Sniffer (Analizador de Paquetes)?</strong>
                 <p>Software (como Wireshark) que captura todos los paquetes que viajan por una red Wi-Fi o de cable.</p>
-                <strong>⚙️ ¿Para qué sirve / Qué riesgo implica?</strong>
+                <strong>¿Para qué sirve / Qué riesgo implica?</strong>
                 <p>En manos de auditores sirve para diagnosticar fallas de red, pero atacantes lo usan para espiar contraseñas no cifradas.</p>
               </div>
               <div className="item-concepto">
-                <strong>📖 ¿Qué es DNS sin Cifrar?</strong>
+                <strong>¿Qué es DNS sin Cifrar?</strong>
                 <p>Consultas del sistema para traducir nombres de dominio (google.com) a IP en texto claro.</p>
-                <strong>⚙️ ¿Para qué sirve / Qué riesgo implica?</strong>
+                <strong>¿Para qué sirve / Qué riesgo implica?</strong>
                 <p>Permite a terceros o proveedores ver exactamente qué sitios web visitas e incluso redireccionarte a sitios falsos (DNS Spoofing).</p>
               </div>
               <div className="item-concepto">
-                <strong>📖 ¿Qué es un Gemelo Malvado (Evil Twin)?</strong>
+                <strong>¿Qué es un Gemelo Malvado (Evil Twin)?</strong>
                 <p>Un punto de acceso Wi-Fi falso creado por un atacante con el mismo nombre (SSID) que una red legítima.</p>
-                <strong>⚙️ ¿Para qué sirve / Qué riesgo implica?</strong>
+                <strong>¿Para qué sirve / Qué riesgo implica?</strong>
                 <p>Engaña a los celulares para que se conecten automáticamente y pasen todo su tráfico a través del atacante.</p>
               </div>
             </div>
@@ -232,7 +233,7 @@ export const AuditoriaDigital4to: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -248,11 +249,11 @@ export const AuditoriaDigital4to: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Perfecto! Eres un navegante consciente y protegido.
+                ¡Perfecto! Eres un navegante consciente y protegido.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Completa todas las prácticas para reducir los riesgos al navegar.
+                Completa todas las prácticas para reducir los riesgos al navegar.
               </div>
             )}
           </div>
@@ -311,7 +312,7 @@ export const AuditoriaDigital4to: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

@@ -130,7 +130,7 @@
 /* ===== GRID SEÑALES (auto-adaptativo) ===== */
 .grid-senales-phishing {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: var(--ciber-space-md);
 }
 

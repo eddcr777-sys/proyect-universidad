@@ -38,12 +38,12 @@ export const Phishing5to: React.FC = () => {
     <main className="pagina-modulo-phishing-5to">
       <HeaderModulo
         grado="5to"
-        modulo="5: Ingeniería Social y Concientización"
-        titulo="Phishing Ético, Simulación y Auditoría del Factor Humano"
-        subTitulo="Aprende a evaluar campañas de simulación de phishing, analizar técnicas de ingeniería social y redactar informes de concientización organizacional."
+        modulo="5: Documentos con Macros y Enlaces en la Nube"
+        titulo="Documentos con Macros, Nubes Falsas y Liderazgo Escolar"
+        subTitulo="Aprende a neutralizar documentos maliciosos (.docm, .xlsm), identificar páginas falsas de Google Drive o OneDrive y orientar a la comunidad escolar en 5to Año."
         categoria="Defensa Digital y Privacidad"
-        tiempoEstimado="60 min"
-        icono={<UserX size={36} />}
+        tiempoEstimado="55 min"
+        icono={<ShieldCheck size={36} />}
       />
 
       <div className="contenedor-phishing-contenido">
@@ -51,32 +51,34 @@ export const Phishing5to: React.FC = () => {
         <section className="bloque-phishing-tarjeta">
           <div className="encabezado-bloque-phishing">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. Ingeniería Social y Auditoría del Factor Humano</h2>
+            <h2>1. Amenazas Sofisticadas: Macros y Enlaces en la Nube</h2>
           </div>
           <p className="texto-lectura-phishing">
-            El phishing no solo es técnico: explota la <strong>psicología humana</strong>. Como auditor, tu misión es evaluar qué tan preparada está una organización ante estas manipulaciones y proponer mejoras. Esto incluye analizar <strong>campañas de simulación</strong> y educar a los usuarios.
+            En 5to año neutralizamos ataques avanzados dirigidos a estudiantes y docentes: documentos que solicitan{' '}
+            <strong>"Habilitar contenido / Habilitar macros"</strong> para descargar virus en segundo plano, y falsos enlaces a{' '}
+            <strong>Google Drive o OneDrive</strong> que descargan ejecutables en lugar de archivos escolares.
           </p>
 
           <div className="grid-senales-phishing">
             <div className="caja-senal-item">
               <Briefcase className="icono-senal rojo" size={28} />
-              <h3>Pretexting (Creación de Pretextos Falsos)</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Elaboración de una historia o escenario ficticio creíble.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Ganar confianza y lograr que un empleado entregue claves o accesos internos.</p>
+              <h3>Documentos con Macros (.docm, .xlsm)</h3>
+              <p><strong>¿Qué es?:</strong> Documentos de Word o Excel que incluyen scripts internos (VBA).</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>Regla de oro:</strong> Si abres un documento y te sale una barra amarilla pidiendo "Habilitar contenido", recházala. Es la vía clásica de infección por ransomware.</p>
             </div>
 
             <div className="caja-senal-item">
               <Megaphone className="icono-senal azul" size={28} />
-              <h3>Campañas de Simulación Controlada</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Envíos pedagógicos y seguros de correos falsos a los empleados.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Medir el porcentaje de vulnerabilidad de la institución y capacitar a quienes caigan en el señuelo.</p>
+              <h3>Enlaces Trampa a la Nube (Drive/OneDrive)</h3>
+              <p><strong>¿Qué es?:</strong> Sitios que imitan a Google Drive pero al hacer clic descargan archivos <code>.exe</code> o <code>.iso</code>.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>Regla de oro:</strong> Un documento legítimo de Drive se previsualiza en el navegador web; nunca exige descargar un instalador para abrirse.</p>
             </div>
 
             <div className="caja-senal-item">
               <FileBarChart2 className="icono-senal amarillo" size={28} />
-              <h3>Métricas de Concientización</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Indicadores de rendimiento (tasa de clics, tasa de reporte de sospechas).</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Demostrar con números la efectividad del entrenamiento de ciberseguridad.</p>
+              <h3>Liderazgo y Orientación Comunitaria</h3>
+              <p><strong>¿Qué es?:</strong> Capacidad del graduando para guiar a compañeros, profesores y familiares ante ciberestafas.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>Regla de oro:</strong> Promover la verificación telefónica o presencial con el remitente antes de interactuar con correos extraños.</p>
             </div>
           </div>
         </section>
@@ -305,7 +307,7 @@ export const Phishing5to: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

@@ -43,11 +43,11 @@ export const AuditoriaDigital5to: React.FC = () => {
     <main className="pagina-modulo-auditoria">
       <HeaderModulo
         grado="5to"
-        modulo="5: Auditoría Institucional"
-        titulo="Auditoría e Informe Digital Comunitario"
-        subTitulo="Conviértete en un líder digital capaz de realizar diagnósticos cibernéticos, diseñar matrices de riesgo y presentar recomendaciones al Liceo."
+        modulo="5: Reacción ante Malware Descargado y Checklist Escolar"
+        titulo="Respuesta ante descargas maliciosas y Checklist Escolar"
+        subTitulo="Aprende qué hacer si descargaste o ejecutaste un archivo sospechoso por error y diseña listas de verificación (Checklist) para tu comunidad escolar en 5to Año."
         categoria="Auditoría e Higiene"
-        tiempoEstimado="60 min"
+        tiempoEstimado="55 min"
         icono={<ClipboardCheck size={36} />}
       />
 
@@ -56,44 +56,45 @@ export const AuditoriaDigital5to: React.FC = () => {
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. La Auditoría Cibernética en 5to Año</h2>
+            <h2>1. Protocolo de Reacción ante Descargas Sospechosas</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Como futuro bachiller del Complejo Educativo, la auditoría digital pasa de un enfoque personal a un <strong>liderazgo comunitario</strong>. Ya no solo proteges tus dispositivos; ahora eres capaz de evaluar el entorno digital de tu institución y proponer mejoras concretas.
+            Como futuro bachiller, debes saber actuar con rapidez si tú o alguien en el liceo ejecutó un archivo malicioso por accidente. La{' '}
+            <strong>contención inmediata</strong> y el <strong>liderazgo preventivo</strong> marcan la diferencia entre un susto y la pérdida total de datos.
           </p>
 
           <div className="grid-pilares-higiene">
             <div className="caja-pilar-higiene">
               <ClipboardCheck className="icono-pilar azul" size={28} />
-              <h3>Levantamiento de Información</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Proceso de inspección de redes, equipos y credenciales.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Recopilar datos reales sobre fallas antes de diseñar un plan de defensa.</p>
+              <h3>Paso 1: Desconectar la Red</h3>
+              <p><strong>Acción:</strong> Apaga el Wi-Fi o desconecta el cable de red de inmediato.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Por qué?:</strong> Impide que el malware robe tus datos o reciba órdenes de su servidor remoto.</p>
             </div>
 
             <div className="caja-pilar-higiene">
               <FileSpreadsheet className="icono-pilar rojo" size={28} />
-              <h3>Matriz de Riesgo Ciber</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Herramienta que pondera la probabilidad y el impacto de un ataque.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Priorizar las fallas más urgentes (Crítico/Alto) que requieren solución inmediata.</p>
+              <h3>Paso 2: Análisis Antivirus y VirusTotal</h3>
+              <p><strong>Acción:</strong> Corre un escaneo completo y analiza el archivo desde otro equipo.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Por qué?:</strong> Identifica qué tipo de amenaza se ejecutó para saber qué archivos o claves se vieron expuestas.</p>
             </div>
 
             <div className="caja-pilar-higiene">
               <Award className="icono-pilar verde" size={28} />
-              <h3>Plan de Mitigación</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Estrategia técnica y educativa de respuesta.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Corregir vulnerabilidades de forma estructurada con directivos y docentes.</p>
+              <h3>Paso 3: Cambiar Claves desde Otro Equipo</h3>
+              <p><strong>Acción:</strong> Cambia tus contraseñas importantes desde tu teléfono celular, no desde el equipo infectado.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Por qué?:</strong> Si la PC tiene un keylogger activo, registraría las nuevas contraseñas al escribirlas.</p>
             </div>
 
             <div className="caja-pilar-higiene">
               <ShieldCheck className="icono-pilar morado" size={28} />
               <div className="item-concepto">
-                <strong>Matriz de riesgo:</strong> Herramienta visual que cruza probabilidad e impacto para determinar la criticidad de una amenaza.
+                <strong>Checklist Escolar:</strong> Lista de verificación comunitaria para educar a familiares y compañeros en la regla de oro: <em>"Verificar antes de abrir"</em>.
               </div>
               <div className="item-concepto">
-                <strong>Hallazgo:</strong> Descripción estructurada de un problema detectado, incluyendo evidencia, impacto y recomendación.
+                <strong>Copia de Respaldo:</strong> Mantener tus tareas en una memoria USB desconectada para no perderlas ante ransomware.
               </div>
               <div className="item-concepto">
-                <strong>Divulgación responsable:</strong> Protocolo ético que consiste en notificar privadamente al afectado antes de publicar una vulnerabilidad.
+                <strong>Divulgación responsable:</strong> Avisar discretamente a docentes o administradores si un equipo escolar se infectó.
               </div>
             </div>
           </div>
@@ -211,7 +212,7 @@ export const AuditoriaDigital5to: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Enfoque: {habito.enfoque}</span>
+                  <span className="importancia-habito">Enfoque: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -227,11 +228,11 @@ export const AuditoriaDigital5to: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Nivel Experto Alcanzado! Estás capacitado para elaborar informes de auditoría cibernética comunitarios.
+                ¡Nivel Experto Alcanzado! Estás capacitado para elaborar informes de auditoría cibernética comunitarios.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Completa la revisión de cada pilar para graduarte como mentor de ciberseguridad en el liceo.
+                Completa la revisión de cada pilar para graduarte como mentor de ciberseguridad en el liceo.
               </div>
             )}
           </div>
@@ -288,7 +289,7 @@ export const AuditoriaDigital5to: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

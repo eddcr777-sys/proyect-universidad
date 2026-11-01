@@ -46,12 +46,12 @@ export const Videojuegos4to: React.FC = () => {
     <main className="pagina-modulo-videojuegos">
       <HeaderModulo
         grado="4to"
-        modulo="4: Phishing en Comunidades Gamer"
-        titulo="Discord, Twitch y YouTube: detecta el engaño"
-        subTitulo="Aprende a identificar phishing, sorteos falsos y suplantación de streamers en plataformas gamer."
+        modulo="4: Falsos Hacks, Cheats y Generadores de Monedas"
+        titulo="La verdad sobre generadores de monedas, cheats y skins falsos"
+        subTitulo="Aprende a reconocer cómo supuestos programas de ventajas (aimbots, generadores de Robux o Pavos) son ejecutables troyanos creados para robarte en 4to Año."
         categoria="Videojuegos y Seguridad"
-        tiempoEstimado="55 min"
-        icono={<MessagesSquare size={36} />}
+        tiempoEstimado="50 min"
+        icono={<Gamepad2 size={36} />}
       />
 
       <div className="contenedor-videojuegos-contenido">
@@ -59,29 +59,30 @@ export const Videojuegos4to: React.FC = () => {
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. Phishing en Discord, Twitch y YouTube</h2>
+            <h2>1. Falsos Hacks, Generadores y Troyanos en Videojuegos</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Las comunidades gamer son un objetivo favorito de los estafadores. Utilizan <strong>bots falsos</strong>, <strong>canales suplantados</strong> y <strong>sorteos fraudulentos</strong> para robar cuentas y datos personales. Aprender a detectar estos engaños es tu mejor defensa.
+            En el mundo del gaming, los ciberdelincuentes se aprovechan del deseo de ganar partidas o conseguir skins caras para engañarte con{' '}
+            <strong>falsos instaladores y programas ejecutables (.exe)</strong> que en realidad contienen software espía y keyloggers.
           </p>
 
           <div className="grid-pilares-videojuegos">
             <div className="caja-pilar-videojuegos">
               <MessagesSquare className="icono-pilar rojo" size={28} />
-              <h3>Bots Maliciosos en Discord</h3>
-              <p>Mensajes automáticos que ofrecen Nitro gratis, skins o premios. Siempre piden hacer clic en enlaces sospechosos.</p>
+              <h3>Generadores de Monedas Gratis (Robux / Pavos)</h3>
+              <p>Prometen recargas gratuitas a cambio de descargar un archivo. Es una farsa matemática: las monedas oficiales solo existen en los servidores del juego, nunca en un instalador descargado.</p>
             </div>
 
             <div className="caja-pilar-videojuegos">
               <MessageSquareWarning className="icono-pilar azul" size={28} />
-              <h3>Suplantación de Streamers</h3>
-              <p>Cuentas falsas que imitan a creadores famosos para pedir datos o dinero. Verifica siempre el check de verificación.</p>
+              <h3>Aimbots y Cheats Ejecutables</h3>
+              <p>Supuestos programas para no fallar tiros o ver a través de paredes. El 99% de ellos vienen empaquetados con troyanos que roban tus claves de Steam, Discord y Google.</p>
             </div>
 
             <div className="caja-pilar-videojuegos">
               <MessageSquareCode className="icono-pilar verde" size={28} />
-              <h3>Sorteos Falsos</h3>
-              <p>Prometen premios increíbles a cambio de tu contraseña, correo o datos bancarios. Los sorteos reales nunca piden eso.</p>
+              <h3>Inspección de Archivos Comprimidos de Mods</h3>
+              <p>Un mod de texturas o sonidos genuino solo contiene archivos de recursos, jamás ejecutables sospechosos (.exe, .bat o .scr). Si ves ejecutables, no lo abras.</p>
             </div>
           </div>
 
@@ -89,21 +90,21 @@ export const Videojuegos4to: React.FC = () => {
             <h3 className="titulo-mini-seccion">Glosario y Términos Clave</h3>
             <div className="lista-conceptos">
               <div className="item-concepto">
-                <strong>📖 ¿Qué es un Bot Malicioso en Discord?</strong>
+                <strong>¿Qué es un Bot Malicioso en Discord?</strong>
                 <p>Una cuenta automatizada manipulada por ciberdelincuentes para enviar mensajes masivos a miembros de servidores.</p>
-                <strong>⚙️ ¿Para qué sirve / Qué peligro representa?</strong>
+                <strong>¿Para qué sirve / Qué peligro representa?</strong>
                 <p>Spamnea enlaces fraudulentos ofreciendo Nitro gratis para robar los tokens de autenticación de Discord.</p>
               </div>
               <div className="item-concepto">
-                <strong>📖 ¿Qué es la Suplantación de Creadores?</strong>
+                <strong>¿Qué es la Suplantación de Creadores?</strong>
                 <p>Perfiles falsos en Twitch, YouTube o TikTok que clonan el nombre, foto y estilo de streamers famosos.</p>
-                <strong>⚙️ ¿Para qué sirve / Qué peligro representa?</strong>
+                <strong>¿Para qué sirve / Qué peligro representa?</strong>
                 <p>Se ganan la confianza de los fans para solicitar donaciones falsas o enlaces a páginas de robos de cuentas.</p>
               </div>
               <div className="item-concepto">
-                <strong>📖 ¿Qué es la Verificación Oficial?</strong>
+                <strong>¿Qué es la Verificación Oficial?</strong>
                 <p>La insignia azul o dorada emitida por plataformas (Twitch, Discord, YouTube) para validar la autenticidad del perfil.</p>
-                <strong>⚙️ ¿Para qué sirve / Qué función cumple?</strong>
+                <strong>¿Para qué sirve / Qué función cumple?</strong>
                 <p>Garantiza que la persona o bot que se comunica contigo es legítima y no un impostor.</p>
               </div>
             </div>
@@ -232,7 +233,7 @@ export const Videojuegos4to: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -248,11 +249,11 @@ export const Videojuegos4to: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Excelente! Detectas phishing y suplantación en comunidades gamer.
+                ¡Excelente! Detectas phishing y suplantación en comunidades gamer.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Completa todas las prácticas para protegerte en Discord, Twitch y YouTube.
+                Completa todas las prácticas para protegerte en Discord, Twitch y YouTube.
               </div>
             )}
           </div>
@@ -340,7 +341,7 @@ export const Videojuegos4to: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

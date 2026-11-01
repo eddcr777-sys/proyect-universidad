@@ -46,190 +46,190 @@ export interface PreguntaSoftware4to {
 export const HABITOS_SOFTWARE_4TO: HabitoSoftware4to[] = [
   {
     id: '1',
-    texto: 'Conozco las leyes básicas de propiedad intelectual que protegen el software en mi país.',
-    categoria: 'Legislación',
-    enfoque: 'Saber qué es legal y qué no te evita problemas con la justicia.'
+    texto: 'Tengo activada la opción "Extensiones de nombre de archivo" en Windows para ver siempre el formato real.',
+    categoria: 'Configuración del Sistema',
+    enfoque: 'Windows oculta las extensiones por defecto. Mostrarlas te permite descubrir virus camuflados al instante.'
   },
   {
     id: '2',
-    texto: 'Entiendo la diferencia entre uso personal, uso educativo y uso comercial del software.',
-    categoria: 'Uso Justo',
-    enfoque: 'Algunas licencias permiten uso educativo gratuito, pero no comercial. Infórmate antes de usar.'
+    texto: 'Verifico siempre la extensión final de cada descarga antes de hacer doble clic (.pdf frente a .pdf.exe).',
+    categoria: 'Inspección de Archivos',
+    enfoque: 'La última extensión determina cómo actuará el archivo en tu sistema operativo.'
   },
   {
     id: '3',
-    texto: 'Sé qué es una licencia EULA (End User License Agreement) y la leo antes de instalar.',
-    categoria: 'Contratos',
-    enfoque: 'La EULA es un contrato legal. Aceptarla sin leerla puede tener consecuencias.'
+    texto: 'Sé que extensiones como .exe, .bat, .vbs, .msi o .iso ejecutan código directo en mi computadora.',
+    categoria: 'Formatos Ejecutables',
+    enfoque: 'Un archivo de datos (documento, foto) nunca necesita ser un ejecutable para abrirse.'
   },
   {
     id: '4',
-    texto: 'No comparto ni distribuyo software pirata, ni siquiera "por ayudar" a un amigo.',
-    categoria: 'Distribución',
-    enfoque: 'Distribuir software ilegal es un delito más grave que usarlo.'
+    texto: 'No abro archivos ejecutables contenidos dentro de archivos .zip o .rar de procedencia dudosa.',
+    categoria: 'Archivos Comprimidos',
+    enfoque: 'Los ciberdelincuentes comprimen virus en .zip para saltarse los filtros automáticos de correo.'
   },
   {
     id: '5',
-    texto: 'Sé a qué institución acudir para denunciar la venta de software pirata en mi comunidad.',
-    categoria: 'Denuncia',
-    enfoque: 'En Venezuela, el SAPI (Servicio Autónomo de Propiedad Intelectual) protege los derechos de autor.'
+    texto: 'Desconfío de iconos que imitan documentos de Word o PDF cuando el archivo es de tipo "Aplicación".',
+    categoria: 'Detección Visual',
+    enfoque: 'Cualquier ejecutable malicioso puede incorporar el icono gráfico de un lector de PDF.'
   }
 ];
 
 export const CASOS_LEGALES: CasoLegal[] = [
   {
     id: 'caso1',
-    titulo: 'Venta de CDs con programas piratas',
-    descripcion: 'Un buhonero vende CDs con Windows, Office y juegos "full" a 2 dólares en la calle.',
+    titulo: 'factura_pago.pdf.exe',
+    descripcion: 'Un correo adjunta un archivo con icono rojo de Adobe Reader, pero en sus propiedades termina en .pdf.exe.',
     esDelito: true,
-    explicacion: 'La venta de software pirata es un delito contra la propiedad intelectual. Se puede denunciar ante el SAPI o la policía.'
+    explicacion: '¡Peligro! Es un ejecutable camuflado con la técnica de la doble extensión. La verdadera extensión es .exe y ejecutará malware.'
   },
   {
     id: 'caso2',
-    titulo: 'Uso de un programa con licencia educativa',
-    descripcion: 'Un estudiante usa AutoCAD con licencia educativa (gratis) para hacer una tarea escolar.',
+    titulo: 'guia_matematica.pdf',
+    descripcion: 'Descargas una guía de estudio desde el aula virtual oficial del liceo en formato PDF genuino.',
     esDelito: false,
-    explicacion: 'Las licencias educativas permiten uso académico sin costo. Sin embargo, no se puede usar para trabajo comercial.'
+    explicacion: 'Es un formato de documento de datos seguro (.pdf) proveniente de una fuente escolar confiable.'
   },
   {
     id: 'caso3',
-    titulo: 'Compartir tu copia de un juego con 20 amigos',
-    descripcion: 'Compraste un juego y lo instalaste en las computadoras de varios amigos para que no lo compren.',
+    titulo: 'cancion_favorita.mp3.bat',
+    descripcion: 'Bajas una canción desde una web de descargas no oficial. Muestra un icono de nota musical pero termina en .bat.',
     esDelito: true,
-    explicacion: 'Distribuir software sin licencia a terceros es una violación de los términos de uso y de las leyes de derechos de autor.'
+    explicacion: '¡Peligro! La extensión .bat corresponde a un archivo por lotes (Batch) que ejecuta comandos directos en tu computadora.'
   },
   {
     id: 'caso4',
-    titulo: 'Descargar software libre desde su web oficial',
-    descripcion: 'Descargaste GIMP desde gimp.org (sitio oficial) para editar fotos de un proyecto.',
+    titulo: 'foto_promocion.png',
+    descripcion: 'Una fotografía de la actividad escolar compartida por tu profesor en formato de imagen PNG.',
     esDelito: false,
-    explicacion: 'El software libre es legal y su descarga desde fuentes oficiales es completamente válida.'
+    explicacion: 'Es un formato de imagen estándar (.png). Los formatos de imagen limpios son datos de visualización, no ejecutables.'
   },
   {
     id: 'caso5',
-    titulo: 'Usar un programa de pago crackeado para un negocio',
-    descripcion: 'Un cibercafé usa Photoshop crackeado para ofrecer servicios de diseño a clientes.',
+    titulo: 'presentacion_ciencias.pptx.vbs',
+    descripcion: 'Un supuesto archivo de diapositivas enviado por mensajería que termina en extensión .vbs.',
     esDelito: true,
-    explicacion: 'Usar software pirata con fines comerciales es un delito grave, con penas económicas y hasta cárcel.'
+    explicacion: '¡Peligro! Los archivos .vbs son scripts de Visual Basic que ejecutan acciones automáticas dañinas en segundo plano.'
   }
 ];
 
 export const ESCENARIOS_LEGALES: EscenarioLegal[] = [
   {
     id: 'esc1',
-    titulo: 'Denuncia de software pirata',
-    descripcion: 'Descubres que en un local venden programas piratas cerca de tu liceo. ¿Qué puedes hacer?',
+    titulo: 'Extensiones ocultas en Windows',
+    descripcion: 'Acabas de recibir una computadora y notas que los archivos solo dicen "tarea" sin el ".pdf". ¿Cómo proteges tu equipo?',
     opciones: [
-      'Comprar uno, total es barato',
-      'Denunciar ante el SAPI (Servicio Autónomo de Propiedad Intelectual) o informar a un adulto',
-      'No hacer nada, no es mi problema'
+      'Dejarlo así, es más cómodo ver solo los nombres cortos',
+      'Ir a "Vista" en el Explorador de Archivos y marcar "Extensiones de nombre de archivo"',
+      'Renombrar los archivos escribiendo cualquier extensión al azar'
     ],
     opcionCorrecta: 1,
-    explicacion: 'Denunciar es un acto de responsabilidad ciudadana. En Venezuela, el SAPI es el ente encargado de proteger la propiedad intelectual.'
+    explicacion: 'Habilitar las extensiones de nombre de archivo te permite ver el formato real de cada archivo y neutralizar virus con nombres dobles.'
   },
   {
     id: 'esc2',
-    titulo: 'Uso de licencia educativa para negocio',
-    descripcion: 'Tienes una licencia educativa gratuita de un programa de diseño. Un tío te pide que le hagas un logo para su negocio. ¿Qué haces?',
+    titulo: 'La trampa del icono cambiado',
+    descripcion: 'Descargas un trabajo escolar que tiene el icono azul de Microsoft Word, pero al colocar el cursor encima dice "Tipo: Aplicación". ¿Qué haces?',
     opciones: [
-      'Lo hago, es solo una vez',
-      'No lo hago, la licencia educativa prohíbe el uso comercial',
-      'Le cobro barato'
+      'Hacer doble clic rápido para abrir el documento',
+      'Eliminarlo de inmediato sin abrirlo porque es un ejecutable disfrazado',
+      'Reenviarlo al grupo de WhatsApp del liceo para ver si a otros les abre'
     ],
     opcionCorrecta: 1,
-    explicacion: 'Las licencias educativas son solo para fines académicos. Usarlas para negocio es ilegal y viola los términos.'
+    explicacion: 'Si dice "Tipo: Aplicación" (.exe) y no "Documento de Word" (.docx), se trata de un programa malicioso con icono falsificado.'
   },
   {
     id: 'esc3',
-    titulo: 'Tu amigo te pide que le pases el instalador',
-    descripcion: 'Compraste un programa con tu dinero y un amigo te pide que le pases el instalador para no comprarlo. ¿Qué haces?',
+    titulo: 'Archivo comprimido sospechoso',
+    descripcion: 'Un desconocido en internet te envía un archivo "juego_gratis.zip". Al descomprimirlo, solo hay un archivo "instalar.scr". ¿Qué decisión tomas?',
     opciones: [
-      'Se lo paso, es mi amigo',
-      'No lo comparto y le explico que es ilegal, sugiriéndole alternativas gratuitas',
-      'Le digo que me pague la mitad'
+      'Ejecutarlo, porque .scr es un archivo seguro de fotos',
+      'No ejecutarlo; la extensión .scr es un ejecutable (antiguos salvapantallas) frecuentemente usado para infectar',
+      'Cambiarle el nombre a .mp3 para escucharlo'
     ],
     opcionCorrecta: 1,
-    explicacion: 'Compartir software con licencia es distribución ilegal. Mejor sugiérele alternativas libres o que compre su copia.'
+    explicacion: 'Los archivos .scr son ejecutables de Windows que corren código directamente. Es una trampa muy común de malware.'
   },
   {
     id: 'esc4',
-    titulo: 'Términos de uso (EULA)',
-    descripcion: 'Instalas un programa y aparece una ventana larga con términos legales. ¿La lees?',
+    titulo: 'Aviso de descarga del navegador',
+    descripcion: 'Bajas una plantilla para PowerPoint y el navegador web te muestra la alerta: "Este tipo de archivo (.exe) puede dañar tu dispositivo". ¿Por qué aparece?',
     opciones: [
-      'No, nadie la lee',
-      'La leo por encima, sobre todo las cláusulas sobre uso y distribución',
-      'La imprimo y la guardo'
+      'Porque una presentación real nunca debe ser un ejecutable (.exe), sino .pptx; la descarga es engañosa',
+      'Porque tu navegador tiene un error y no reconoce PowerPoint',
+      'Porque el archivo pesa muchos megabytes'
     ],
-    opcionCorrecta: 1,
-    explicacion: 'La EULA es un contrato. Al menos debes conocer qué usos están permitidos y cuáles prohibidos.'
+    opcionCorrecta: 0,
+    explicacion: 'Los navegadores alertan cuando un enlace promete un documento pero entrega un ejecutable (.exe). Es una señal inequívoca de fraude.'
   }
 ];
 
 export const VIDEOS_SOFTWARE_4TO: VideoSoftware4to[] = [
   {
     id: 'v1',
-    titulo: 'Propiedad intelectual y derechos de autor',
-    url: 'https://www.youtube.com/embed/propiedad4to1',
-    descripcion: 'Explicación de qué es la propiedad intelectual y por qué el software está protegido.'
+    titulo: 'Cómo mostrar extensiones ocultas en Windows',
+    url: 'https://www.youtube.com/embed/extensiones4to1',
+    descripcion: 'Tutorial para activar la visualización de extensiones reales y evitar ser engañado por iconos falsos.'
   },
   {
     id: 'v2',
-    titulo: 'Consecuencias legales de la piratería',
-    url: 'https://www.youtube.com/embed/consecuencias4to2',
-    descripcion: 'Casos reales de personas y empresas sancionadas por usar software pirata.'
+    titulo: 'Diferencia entre archivos de datos y ejecutables',
+    url: 'https://www.youtube.com/embed/formatos4to2',
+    descripcion: 'Conoce por qué los archivos .exe, .bat y .vbs requieren máxima precaución antes de abrirse.'
   },
   {
     id: 'v3',
-    titulo: 'Cómo denunciar software ilegal en Venezuela',
-    url: 'https://www.youtube.com/embed/denuncias4to3',
-    descripcion: 'Guía para reportar la venta o distribución de software pirata ante el SAPI.'
+    titulo: 'La técnica de la doble extensión explicada',
+    url: 'https://www.youtube.com/embed/dobleextension4to3',
+    descripcion: 'Cómo los ciberdelincuentes ocultan malware tras nombres como archivo.pdf.exe.'
   }
 ];
 
 export const PREGUNTAS_SOFTWARE_4TO: PreguntaSoftware4to[] = [
   {
     id: 1,
-    pregunta: '¿Qué es la propiedad intelectual?',
+    pregunta: '¿Para qué sirve la extensión de un archivo informático?',
     opciones: [
-      'Un derecho que protege las creaciones del intelecto: software, música, libros, arte',
-      'Un tipo de antivirus',
-      'Una licencia de software'
+      'Indica el formato real del archivo y le dice al sistema operativo cómo debe procesarlo',
+      'Solo sirve como adorno visual para el usuario',
+      'Es una clave de seguridad que bloquea el archivo'
     ],
     respuestaCorrecta: 0,
-    explicacion: 'La propiedad intelectual protege las obras creativas y da al autor derechos exclusivos sobre su uso y distribución.'
+    explicacion: 'La extensión (.pdf, .png, .exe) define si el archivo contiene datos de lectura o instrucciones ejecutables.'
   },
   {
     id: 2,
-    pregunta: '¿Qué es una EULA?',
+    pregunta: '¿Por qué los ciberdelincuentes usan nombres con doble extensión como "tarea.pdf.exe"?',
     opciones: [
-      'Un virus informático',
-      'El contrato de licencia de usuario final que aceptas al instalar un software',
-      'Una herramienta de diseño'
+      'Para que el archivo pese la mitad en el disco duro',
+      'Para aprovechar que Windows oculta la extensión final y hacer creer que es un PDF inofensivo',
+      'Para que el archivo funcione tanto en Windows como en Android'
     ],
     respuestaCorrecta: 1,
-    explicacion: 'EULA (End User License Agreement) es el contrato que define lo que puedes y no puedes hacer con el software.'
+    explicacion: 'Al estar ocultas las extensiones, el usuario solo lee "tarea.pdf" y no percibe el ".exe" final que ejecuta el virus.'
   },
   {
     id: 3,
-    pregunta: '¿Cuál es la diferencia entre uso personal y comercial de software?',
+    pregunta: '¿Cuál de las siguientes extensiones representa un archivo de datos seguro que NO ejecuta código por sí mismo?',
     opciones: [
-      'No hay diferencia',
-      'El uso comercial requiere licencias diferentes y suele ser más costoso',
-      'El personal es siempre ilegal'
+      '.png (Imagen gráfica)',
+      '.bat (Archivo por lotes)',
+      '.exe (Archivo ejecutable)'
     ],
-    respuestaCorrecta: 1,
-    explicacion: 'El uso comercial exige licencias específicas. Usar licencias educativas o personales para negocio es ilegal.'
+    respuestaCorrecta: 0,
+    explicacion: 'Los formatos como .png, .jpg y .mp3 son archivos de datos pasivos; no son programas ejecutables.'
   },
   {
     id: 4,
-    pregunta: '¿Dónde puedes denunciar la venta de software pirata en Venezuela?',
+    pregunta: '¿Qué acción de seguridad básica debes realizar en tu computadora para evitar ser engañado por extensiones falsas?',
     opciones: [
-      'En el SAPI (Servicio Autónomo de Propiedad Intelectual)',
-      'En la tienda de la esquina',
-      'No se puede denunciar'
+      'Activar la opción "Extensiones de nombre de archivo" en la pestaña Vista del Explorador',
+      'Desconectar el teclado y ratón durante las descargas',
+      'Instalar tres antivirus diferentes simultáneamente'
     ],
     respuestaCorrecta: 0,
-    explicacion: 'El SAPI es el organismo venezolano que protege los derechos de propiedad intelectual y recibe denuncias.'
+    explicacion: 'Activar las extensiones visibles en el sistema operativo es la primera regla de oro para identificar ejecutables maliciosos.'
   }
 ];
 

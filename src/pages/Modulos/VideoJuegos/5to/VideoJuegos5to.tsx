@@ -46,12 +46,12 @@ export const Videojuegos5to: React.FC = () => {
     <main className="pagina-modulo-videojuegos">
       <HeaderModulo
         grado="5to"
-        modulo="5: eSports, Compras Digitales y Denuncias"
-        titulo="Protege tu inversión y tu comunidad"
-        subTitulo="Aprende a cuidar cuentas con valor monetario, evitar estafas en compras digitales y denunciar conductas abusivas."
+        modulo="5: Descargas Seguras de Mods y Protección de Cuentas Gamer"
+        titulo="Repositorios oficiales de mods vs. archivos inseguros"
+        subTitulo="Aprende a descargar mods exclusivamente de fuentes verificadas (Steam Workshop, CurseForge), evitar la trampa de 'desactiva tu antivirus' y proteger cuentas valiosas en 5to Año."
         categoria="Videojuegos y Seguridad"
-        tiempoEstimado="60 min"
-        icono={<Trophy size={36} />}
+        tiempoEstimado="55 min"
+        icono={<Gamepad2 size={36} />}
       />
 
       <div className="contenedor-videojuegos-contenido">
@@ -59,32 +59,32 @@ export const Videojuegos5to: React.FC = () => {
         <section className="bloque-modulo-tarjeta">
           <div className="encabezado-bloque">
             <Sparkles className="icono-bloque-azul" size={24} />
-            <h2>1. Cuentas con Valor Monetario y Compras Digitales</h2>
+            <h2>1. Descargas Seguras en Videojuegos y Protección de Cuentas</h2>
           </div>
           <p className="texto-lectura-modulo">
-            Las cuentas de juegos con <strong>skins legendarias, diamantes o niveles altos</strong> tienen valor económico real. Esto las convierte en objetivo de <strong>ladrones y estafadores</strong>. Además, las compras digitales mal realizadas pueden exponer tus datos bancarios.
+            Los videojuegos modernos permiten expandir su contenido mediante modificaciones (mods). Sin embargo, descargar mods de enlaces dudosos en foros o Discord es una de las mayores fuentes de infección por ransomware y troyanos.
           </p>
 
           <div className="grid-pilares-videojuegos">
             <div className="caja-pilar-videojuegos">
-              <Coins className="icono-pilar rojo" size={28} />
-              <h3>Mercado Negro de Cuentas</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Venta ilegítima de perfiles valiosos en páginas de terceros.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve conocerlo?:</strong> Para entender que comprar cuentas viola los términos de servicio y deriva en bloqueos permanentes o estafas.</p>
+              <ShieldCheck className="icono-pilar verde" size={28} />
+              <h3>Repositorios Verificados (Workshop / CurseForge)</h3>
+              <p><strong>¿Qué son?:</strong> Plataformas oficiales que analizan los archivos antes de distribuirlos.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>Regla de oro:</strong> Usa siempre los talleres y gestores autorizados; evita enlaces directos de Mega o MediaFire compartidos por extraños.</p>
             </div>
 
             <div className="caja-pilar-videojuegos">
-              <ShieldCheck className="icono-pilar verde" size={28} />
-              <h3>Pasarelas de Pago Oficiales</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Canales autorizados (Play Store, App Store, Steam Wallet) para comprar activos virtuales.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Garantizar que los datos de tarjeta de tus padres queden cifrados sin riesgo de clonación.</p>
+              <Coins className="icono-pilar rojo" size={28} />
+              <h3>La Trampa de "Desactiva tu Antivirus"</h3>
+              <p><strong>¿Qué es?:</strong> Un engaño frecuente donde el creador del mod dice que su archivo es seguro pero el antivirus da un "falso positivo".</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>Regla de oro:</strong> Si un mod exige apagar Windows Defender para instalarse, ¡no lo instales! Está intentando infectar tu PC sin oposición.</p>
             </div>
 
             <div className="caja-pilar-videojuegos">
               <Flag className="icono-pilar azul" size={28} />
-              <h3>Sistemas de Reportes eSports</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Herramientas institucionales de denuncia en salas multijugador.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Reportar trampas (cheats), doxing y jugadores tóxicos para mantener partidas limpias y éticas.</p>
+              <h3>Autenticación Móvil Gamer (Steam Guard)</h3>
+              <p><strong>¿Qué es?:</strong> Capa de seguridad adicional con código en tu teléfono.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Para qué sirve?:</strong> Resguardar cuentas con inventario valioso ante filtraciones o troyanos.</p>
             </div>
           </div>
         </section>
@@ -205,7 +205,7 @@ export const Videojuegos5to: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -221,11 +221,11 @@ export const Videojuegos5to: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Excelente! Proteges tu inversión y contribuyes a una comunidad sana.
+                ¡Excelente! Proteges tu inversión y contribuyes a una comunidad sana.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Completa todas las prácticas para ser un jugador ejemplar.
+                Completa todas las prácticas para ser un jugador ejemplar.
               </div>
             )}
           </div>
@@ -311,7 +311,7 @@ export const Videojuegos5to: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}

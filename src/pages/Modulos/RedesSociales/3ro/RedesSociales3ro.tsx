@@ -66,15 +66,15 @@ export const RedesSociales3ro: React.FC = () => {
             <div className="caja-pilar-redes">
               <ShieldAlert className="icono-pilar rojo" size={28} />
               <h3>Ciberacoso (Ciberbullying)</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Hostigamiento sistemático mediante chats, memes hirientes o grupos.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve combatirlo?:</strong> Crear comunidades virtuales pacíficas y libres de violencia.</p>
+              <p><strong>¿Qué es?:</strong> Hostigamiento sistemático mediante chats, memes hirientes o grupos.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Para qué sirve combatirlo?:</strong> Crear comunidades virtuales pacíficas y libres de violencia.</p>
             </div>
 
             <div className="caja-pilar-redes">
               <UserX className="icono-pilar azul" size={28} />
               <h3>Protocolo de Bloqueo y Evidencia</h3>
-              <p><strong>📖 ¿Qué es?:</strong> Captura de pantallas y reporte en la plataforma antes de eliminar.</p>
-              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>⚙️ ¿Para qué sirve?:</strong> Respaldar denuncias ante la dirección del liceo o las autoridades.</p>
+              <p><strong>¿Qué es?:</strong> Captura de pantallas y reporte en la plataforma antes de eliminar.</p>
+              <p style={{ marginTop: '0.4rem', color: '#0369a1' }}><strong>¿Para qué sirve?:</strong> Respaldar denuncias ante la dirección del liceo o las autoridades.</p>
             </div>
           </div>
         </section>
@@ -152,7 +152,7 @@ export const RedesSociales3ro: React.FC = () => {
                 <div className="info-item-habito">
                   <span className="categoria-badge-mini">{habito.categoria}</span>
                   <p className="texto-habito">{habito.texto}</p>
-                  <span className="importancia-habito">📌 Por qué es importante: {habito.enfoque}</span>
+                  <span className="importancia-habito">Por qué es importante: {habito.enfoque}</span>
                 </div>
               </div>
             ))}
@@ -168,11 +168,11 @@ export const RedesSociales3ro: React.FC = () => {
             </div>
             {porcentajeHabitos === 100 ? (
               <div className="mensaje-resultado excelente">
-                🏆 ¡Excelente! Eres un defensor de la convivencia digital.
+                ¡Excelente! Eres un defensor de la convivencia digital.
               </div>
             ) : (
               <div className="mensaje-resultado inicial">
-                💡 Completa todas las prácticas para un entorno digital más sano.
+                Completa todas las prácticas para un entorno digital más sano.
               </div>
             )}
           </div>
@@ -258,7 +258,7 @@ export const RedesSociales3ro: React.FC = () => {
                   <Award size={24} className="icono-premio" />
                   <p>
                     Obtuviste {puntajeQuiz.correctas} de {puntajeQuiz.total} correctas.
-                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' 🏆 ¡Perfecto!' : ' ¡Sigue practicando!'}
+                    {puntajeQuiz.correctas === puntajeQuiz.total ? ' ¡Perfecto!' : ' ¡Sigue practicando!'}
                   </p>
                 </div>
               )}
