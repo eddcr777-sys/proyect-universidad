@@ -8,20 +8,13 @@ import foto5 from '../../assets/handshake.jpg';
 import foto6 from '../../assets/fi.jpeg';
 import foto7 from '../../assets/etic.jpeg';
 import foto8 from '../../assets/Gemini_Generated_Image_2p4dkt2p4dkt2p4d.jpeg';
+import VisorImagenes from '../../components/VisorImagenes';
 import './Galeria.css';
-import { X } from 'lucide-react';
 
 interface ItemGaleria {
   id: number;
   src: string;
   titulo: string;
-}
-
-
-const cerrar : React.MouseEventHandler<HTMLButtonElement> = (setFotoModal:any) => {
-  setFotoModal(null);
-  
-
 }
 
 const ITEMS_GALERIA: ItemGaleria[] = [
@@ -32,20 +25,26 @@ const ITEMS_GALERIA: ItemGaleria[] = [
   { id: 5, src: foto5, titulo: 'Comunidad y Docentes' },
   { id: 6, src: foto6, titulo: 'Laboratorios y Ciencias' },
   { id: 7, src: foto7, titulo: 'Formación Ética y Cívica' },
-  { id: 8, src: foto8, titulo: 'Orígenes y Memoria' }
+  { id: 8, src: foto8, titulo: 'Orígenes y Memoria' },
 ];
 
-/**
- * Página de Galería idéntica a la Captura 1 del mensaje 3 (Colegio Los Arcos):
- * - Hero en blanco y negro con título destacado "GALERÍA"
- * - Cuadrícula de 4 tarjetas por fila con fotos redondeadas a 20px y título blanco centrado sobre overlay oscuro
- */
 export const Galeria: React.FC = () => {
-  const [fotoModal, setFotoModal] = useState<string | null>(null);
+  // Estado: una sola imagen seleccionada (o null si está cerrado)
+  const [imagenVisor, setImagenVisor] = useState<{
+    src: string;
+    alt?: string;
+    caption?: string;
+  } | null>(null);
+
+  const abrirVisor = (item: ItemGaleria) => {
+    setImagenVisor({ src: item.src, alt: item.titulo, caption: item.titulo });
+  };
+
+  const cerrarVisor = () => setImagenVisor(null);
 
   return (
     <div className="pagina-galeria-losarcos">
-      {/* ── BANNER HERO: GALERÍA (Captura 1) ── */}
+      {/* ── BANNER HERO ── */}
       <header
         className="galeria-hero-losarcos"
         style={{ backgroundImage: `url(${fotoHero})` }}
@@ -54,14 +53,14 @@ export const Galeria: React.FC = () => {
         <h1 className="galeria-hero-titulo">Galería</h1>
       </header>
 
-      {/* ── CUADRÍCULA DE TARJETAS REDONDEADAS ── */}
+      {/* ── CUADRÍCULA ── */}
       <main className="galeria-contenedor-losarcos">
         <div className="galeria-encabezado-seccion">
           <span className="galeria-badge-etiqueta">Memoria Visual y Espacios</span>
           <h2 className="galeria-subtitulo-principal">Instalaciones y Vida Estudiantil</h2>
           <p className="galeria-descripcion-intro">
-            Explora las áreas académicas, canchas deportivas, laboratorios y proyectos comunitarios 
-            del Complejo Educativo «Antonio Lemus Pérez» en Cumaná.
+            Explora las áreas académicas, canchas deportivas, laboratorios y proyectos
+            comunitarios del Complejo Educativo «Antonio Lemus Pérez» en Cumaná.
           </p>
         </div>
 
@@ -70,8 +69,9 @@ export const Galeria: React.FC = () => {
             <div
               key={item.id}
               className="tarjeta-galeria-losarcos"
-              onClick={() => setFotoModal(item.src)}
+              onClick={() => abrirVisor(item)}
               title={`Ver ${item.titulo}`}
+              style={{ cursor: 'pointer' }}
             >
               <img src={item.src} alt={item.titulo} loading="lazy" />
               <div className="tarjeta-galeria-overlay">
@@ -82,58 +82,13 @@ export const Galeria: React.FC = () => {
         </div>
       </main>
 
-      {/* Modal simple para ver foto completa */}
-      {fotoModal && (
-        <div
-          style={{
-            position: 'fixed',
-            inset: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.85)',
-            zIndex: 2000,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '20px',
-            cursor: 'pointer'
-          }}
-          onClick={() => setFotoModal(null)}
-        >
-          <img
-            src={fotoModal}
-            alt="Ampliación"
-            style={{
-              maxWidth: '90vw',
-              maxHeight: '90vh',
-              borderRadius: '24px',
-              objectFit: 'contain',
-              boxShadow: '0 20px 50px rgba(0, 0, 0, 0.5)'
-            }}
-          />
-
-          <button className="btn-cerrarfoto" 
-          onClick={cerrar}
-           aria-label="Cerrar menú" 
-           style={{
-            position: 'fixed',
-            top: '20px',
-            right: '20px',
-            zIndex: 2001,
-            cursor: 'pointer',
-            backgroundColor: 'rgba(255, 255, 255, 1)',
-            border: '1px solid #ffffff',
-            color: '#0F2C59',
-            width: '32px',
-            height: '32px',
-            borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-           }}>
-            <X size={20} />
-          </button>
-        </div>
-       
-      )}
+      {/* Visor global (abre solo la imagen tocada) */}
+      <VisorImagenes
+        src={imagenVisor?.src ?? null}
+        alt={imagenVisor?.alt}
+        caption={imagenVisor?.caption}
+        onCerrar={cerrarVisor}
+      />
     </div>
   );
 };
