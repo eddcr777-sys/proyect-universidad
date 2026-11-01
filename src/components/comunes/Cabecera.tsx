@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, BookOpen, GraduationCap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import escudoLiceo from '../../assets/lbefd.png';
 import { useMenuMovil } from '../../hooks/useMenuMovil';
 import NavegacionEscritorio from './Navegacion/NavegacionEscritorio';
 import DrawerMovil from './Navegacion/DrawerMovil';
@@ -32,7 +33,11 @@ const Cabecera: React.FC = () => {
         <div className="cabecera-contenedor">
            <Link to="/" className="cabecera-logo" aria-label="Ir al inicio">
             <div className="cabecera-escudo-caja" aria-hidden="true">
-              <GraduationCap size={22} strokeWidth={1.8} />
+              <img
+                src={escudoLiceo}
+                alt="Escudo C.E. Antonio Lemus Pérez"
+                className="cabecera-escudo-img"
+              />
             </div>
             <div className="cabecera-logo-texto">
               <span className="cabecera-titulo">C.E. Antonio Lemus Pérez</span>

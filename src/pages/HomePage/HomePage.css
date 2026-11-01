@@ -41,15 +41,48 @@
   box-sizing: border-box;
 }
 
+/* ── CINTILLO TRICOLOR VENEZOLANO EN COMPONENTES DEL HOME ── */
+.cintillo-vzla-linea {
+  display: flex;
+  width: 100%;
+  height: 4px;
+}
+
+.cintillo-vzla-amarillo { background-color: #CF9B22; flex: 1; }
+.cintillo-vzla-azul     { background-color: #00247D; flex: 1; }
+.cintillo-vzla-rojo     { background-color: #CF142B; flex: 1; }
+
+@keyframes entradaFlotanteHero {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(35px);
+  }
+}
+
 .portal-hero-tarjeta-flotante {
+  position: relative;
+  overflow: hidden;
   background: #ffffff;
-  padding: 34px 44px;
+  padding: 36px 44px 34px 44px;
   border-radius: 26px;
   max-width: 660px;
   box-shadow: 0 20px 48px rgba(5, 24, 51, 0.22);
   border: 1px solid #e2e8f0;
   transform: translateY(35px);
   box-sizing: border-box;
+  animation: entradaFlotanteHero 0.75s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.portal-hero-tarjeta-flotante .cintillo-vzla-linea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
 }
 
 .portal-hero-etiqueta {
@@ -193,6 +226,16 @@
   margin: 0;
 }
 
+/* Divisor cívico tricolor venezolano */
+.portal-divisor-tricolor {
+  width: 54px;
+  height: 3.5px;
+  margin: 12px auto 16px auto;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #CF9B22 0%, #CF9B22 33.3%, #00247D 33.3%, #00247D 66.6%, #CF142B 66.6%, #CF142B 100%);
+  box-shadow: 0 2px 8px rgba(0, 36, 125, 0.2);
+}
+
 .portal-grid-cuatro-accesos {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -200,6 +243,8 @@
 }
 
 .portal-tarjeta-acceso {
+  position: relative;
+  overflow: hidden;
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 24px;
@@ -208,8 +253,25 @@
   flex-direction: column;
   text-decoration: none;
   box-shadow: 0 10px 24px rgba(5, 24, 51, 0.05);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
   box-sizing: border-box;
+}
+
+/* Fino acento tricolor superior con colores marcados estilo cintillo */
+.portal-tarjeta-acceso::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, #CF9B22 0% 33.333%, #00247D 33.333% 66.666%, #CF142B 66.666% 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.portal-tarjeta-acceso:hover::before {
+  opacity: 1;
 }
 
 .portal-tarjeta-acceso:hover {
@@ -269,14 +331,24 @@
 
 /* ── 3. CIFRAS INSTITUCIONALES (STATS) ── */
 .portal-seccion-stats {
+  position: relative;
+  overflow: hidden;
   background-color: #051833;
   border-radius: 28px;
-  padding: 50px 36px;
+  padding: 52px 36px 48px 36px;
   color: #ffffff;
   margin-bottom: 75px;
   box-shadow: 0 20px 45px rgba(5, 24, 51, 0.22);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-sizing: border-box;
+}
+
+.cintillo-vzla-stats {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4.5px;
 }
 
 .portal-grid-stats {
@@ -289,6 +361,11 @@
 .portal-stat-item {
   padding: 0 16px;
   border-right: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.25s ease;
+}
+
+.portal-stat-item:hover {
+  transform: translateY(-2px);
 }
 
 .portal-stat-item:last-child {
@@ -303,6 +380,13 @@
   line-height: 1;
   margin-bottom: 8px;
   display: block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.portal-stat-item:hover .portal-stat-numero {
+  transform: scale(1.05);
+  color: #F8FAFC;
+  text-shadow: 0 0 12px rgba(207, 155, 34, 0.35);
 }
 
 .portal-stat-texto {
@@ -489,6 +573,24 @@
   flex-direction: column;
   padding: 24px 22px;
   color: #ffffff;
+  overflow: hidden;
+}
+
+/* Detalle tricolor en hover sobre fotos escolares (franjas marcadas estilo cintillo) */
+.portal-tarjeta-vida-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, #CF9B22 0% 33.333%, #00247D 33.333% 66.666%, #CF142B 66.666% 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.portal-tarjeta-vida:hover .portal-tarjeta-vida-overlay::before {
+  opacity: 1;
 }
 
 .portal-tarjeta-vida-overlay h4 {
@@ -508,9 +610,11 @@
 
 /* ── 6. BANNER DE ADMISIÓN CTA ── */
 .portal-seccion-cta {
+  position: relative;
+  overflow: hidden;
   background-color: #051833;
   border-radius: 30px;
-  padding: 56px 48px;
+  padding: 58px 48px 54px 48px;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -520,6 +624,14 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   margin-bottom: 20px;
   box-sizing: border-box;
+}
+
+.cintillo-vzla-cta {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4.5px;
 }
 
 .portal-cta-texto h2 {
@@ -579,85 +691,131 @@
 }
 
 @media (max-width: 768px) {
-  /* ── HERO: tarjeta full-width (no 86%) ── */
+  /* ── HERO: tarjeta pequeña, abajo y a la derecha en relieve sin tapar el hero ── */
   .portal-hero {
-    min-height: 520px;
+    min-height: 430px;
     height: auto;
-    padding: 12px;
+    padding: 24px 16px 20px 16px;
     display: flex;
     align-items: flex-end;
-    justify-content: flex-start;
+    justify-content: flex-end;
     margin-bottom: 32px;
+    box-sizing: border-box;
+  }
+
+  .portal-hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(5, 24, 51, 0.32) 0%,
+      rgba(5, 24, 51, 0.52) 50%,
+      rgba(5, 24, 51, 0.78) 100%
+    );
   }
 
   .portal-hero-contenedor {
     padding: 0;
     width: 100%;
+    max-width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    box-sizing: border-box;
   }
 
   .portal-hero-tarjeta-flotante {
-    position: static;
-    transform: none;
-    max-width: 100%;
-    padding: 20px 22px;
-    border-radius: 14px;
-    box-shadow: 0 10px 24px rgba(5, 24, 51, 0.3);
+    position: relative;
+    transform: none !important;
+    animation: none !important;
+    width: 88%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: 0;
+    padding: 18px 18px 16px 18px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 
+      0 18px 38px rgba(5, 24, 51, 0.35),
+      0 4px 12px rgba(0, 0, 0, 0.08),
+      inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .portal-hero-tarjeta-flotante .cintillo-vzla-linea {
+    border-radius: 18px 18px 0 0;
   }
 
   .portal-hero-etiqueta {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     letter-spacing: 0.8px;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
+    font-weight: 700;
   }
 
   .portal-hero-titulo {
-    font-size: 1.35rem;
-    line-height: 1.22;
-    margin: 0 0 8px 0;
+    font-size: 1.15rem;
+    line-height: 1.2;
+    margin: 0 0 6px 0;
+    letter-spacing: -0.2px;
   }
 
   .portal-hero-subtitulo {
-    font-size: 0.85rem;
-    line-height: 1.45;
-    margin: 0 0 14px 0;
+    font-size: 0.78rem;
+    line-height: 1.4;
+    margin: 0 0 12px 0;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    color: #4b5563;
   }
 
+  /* Botones en columna para que entren con su texto completo sin cortarse */
   .portal-hero-botones {
     display: flex;
-    flex-wrap: nowrap;
-    gap: 8px;
+    flex-direction: column;
+    gap: 7px;
+    width: 100%;
   }
 
   .portal-btn-rojo,
   .portal-btn-borde {
-    flex: 1 1 0;
+    width: 100%;
     justify-content: center;
-    padding: 10px 12px;
-    font-size: 0.74rem;
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
     gap: 6px;
     text-align: center;
+    border-radius: 50px;
+    box-sizing: border-box;
   }
 
   .portal-btn-rojo svg,
   .portal-btn-borde svg {
-    width: 14px;
-    height: 14px;
+    width: 13px;
+    height: 13px;
     flex-shrink: 0;
   }
 
-  /* ── CUERPO: gutters reducidos (12px en vez de 16px) ── */
+  /* ── CUERPO: gutters cómodos de 24px (evita textos pegados a los bordes) ── */
   .portal-cuerpo {
-    padding: 16px 12px 40px 12px;
+    padding: 5px;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 
-  /* Encabezados de sección más compactos */
+  /* Encabezados de sección con resguardo lateral */
   .portal-accesos-encabezado,
   .portal-vida-encabezado {
-    margin-bottom: 22px;
+    margin-bottom: 24px;
+    padding: 0 6px;
   }
 
   .portal-accesos-encabezado h2,
@@ -668,38 +826,43 @@
   .portal-accesos-encabezado p,
   .portal-vida-encabezado p {
     font-size: 0.92rem;
+    line-height: 1.6;
   }
 
-  /* ── ACCESOS: 1 col, pero tarjetas más anchas por dentro ── */
+  /* ── ACCESOS: tarjetas con padding interior amplio ── */
   .portal-grid-cuatro-accesos {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 14px;
+    border: none;
   }
 
   .portal-tarjeta-acceso {
-    padding: 20px 20px;
-    border-radius: 14px;
+    padding: 24px 22px;
+    border-radius: 16px;
   }
 
   .portal-tarjeta-acceso h3 {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    margin-bottom: 8px;
   }
 
   .portal-tarjeta-acceso p {
-    font-size: 0.88rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
   }
 
-  /* ── STATS: 2 columnas para sentirse densas, no una torre larga ── */
+  /* ── STATS: 2 columnas con padding interior cómodo ── */
   .portal-seccion-stats {
-    padding: 26px 20px;
-    border-radius: 14px;
-    margin-bottom: 40px;
+    padding: 30px 22px;
+    border-radius: 18px;
+    margin-bottom: 42px;
   }
 
   .portal-grid-stats {
     grid-template-columns: repeat(2, 1fr);
-    gap: 22px 12px;
+    gap: 22px 14px;
     text-align: left;
+    border: none;
   }
 
   .portal-stat-item {
@@ -709,45 +872,48 @@
   }
 
   .portal-stat-numero {
-    font-size: 2rem;
+    font-size: 2.1rem;
     margin-bottom: 4px;
   }
 
   .portal-stat-texto {
-    font-size: 0.78rem;
-    line-height: 1.35;
+    font-size: 0.8rem;
+    line-height: 1.4;
   }
 
   /* ── CIBER DESTACADO ── */
   .portal-seccion-ciber-destacado {
-    padding: 24px 18px;
-    border-radius: 14px;
+    padding: 1rem;
+    border-radius: 0px;
     gap: 24px;
-    margin-bottom: 40px;
+    margin-bottom: 42px;
+    border: none;
   }
 
+
   .portal-ciber-titulo {
-    font-size: 1.5rem;
+    font-size: 1.55rem;
     line-height: 1.25;
   }
 
   .portal-ciber-desc {
-    font-size: 0.92rem;
+    font-size: 0.94rem;
+    line-height: 1.65;
   }
 
   .portal-ciber-features {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 10px;
   }
 
   .portal-feature-item {
-    padding: 9px 12px;
-    font-size: 0.84rem;
+    padding: 10px 14px;
+    font-size: 0.86rem;
   }
 
   .portal-ciber-card-visual {
-    padding: 24px 20px;
-    border-radius: 14px;
+    padding: 1rem;
+    border-radius: 16px;
   }
 
   .portal-ciber-card-visual h4 {
@@ -757,48 +923,51 @@
   /* ── VIDA ESCOLAR ── */
   .portal-grid-tres-vida {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 14px;
   }
 
   .portal-tarjeta-vida {
-    height: 240px;
-    border-radius: 14px;
+    height: 250px;
+    border-radius: 16px;
   }
 
   .portal-tarjeta-vida img {
-    border-radius: 14px;
+    border-radius: 16px;
   }
 
   .portal-tarjeta-vida-overlay {
-    border-radius: 0 0 14px 14px;
-    padding: 18px 18px;
+    border-radius: 0 0 16px 16px;
+    padding: 20px 20px;
   }
 
   .portal-tarjeta-vida-overlay h4 {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
   }
 
   .portal-tarjeta-vida-overlay p {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
+    line-height: 1.5;
   }
 
   /* ── CTA ADMISIÓN ── */
   .portal-seccion-cta {
-    padding: 28px 20px;
-    border-radius: 14px;
+    padding: 32px 24px;
+    border-radius: 18px;
     flex-direction: column;
     align-items: stretch;
     text-align: left;
-    gap: 20px;
-    margin-bottom: 20px;
+    gap: 22px;
+    margin-bottom: 24px;
   }
 
   .portal-cta-texto h2 {
-    font-size: 1.5rem;
+    font-size: 1.55rem;
+    margin-bottom: 8px;
   }
 
   .portal-cta-texto p {
-    font-size: 0.92rem;
+    font-size: 0.94rem;
+    line-height: 1.6;
   }
 
   .portal-cta-boton-caja {
@@ -808,5 +977,6 @@
   .portal-cta-boton-caja .portal-btn-rojo {
     width: 100%;
     justify-content: center;
+    padding: 14px 20px;
   }
 }

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { 
-  ArrowRight, 
-  GraduationCap, 
+import {
+  ArrowRight,
+  GraduationCap,
   Clock,
   Award,
   ChevronRight,
@@ -23,6 +23,8 @@ import fotoOrigenA from '../../assets/Gemini_Generated_Image_2p4dkt2p4dkt2p4d.jp
 import fotoOrigenB from '../../assets/Gemini_Generated_Image_qrp9miqrp9miqrp9.jpeg';
 import fotoEtica from '../../assets/etic.jpeg';
 import fotoFormacion from '../../assets/fi.jpeg';
+import { MarginBandera } from '../../components/comunes/Extras/MarginBandera/MarginBandera';
+import { DivisorEditorial } from '../../components/comunes/Extras/DivisorEditorial/DivisorEditorial';
 import './QuienesSomos.css';
 
 export const QuienesSomos: React.FC = () => {
@@ -67,19 +69,19 @@ export const QuienesSomos: React.FC = () => {
         <section className="seccion-intro-quienes" id="quienes-somos">
           <div className="intro-texto-col" id="conoce-el-complejo">
             <p>
-              El <strong>Complejo Educativo "Antonio Lemus Pérez"</strong> tuvo sus orígenes en septiembre de 1984 
-              bajo la iniciativa de la <strong>E.B. “Creación Bolivariana”</strong>. Es un plantel público de educación media 
-              orientado hacia la formación integral de adolescentes y jóvenes, a través de una pedagogía humanista, científica y 
+              El <strong>Complejo Educativo "Antonio Lemus Pérez"</strong> tuvo sus orígenes en septiembre de 1984
+              bajo la iniciativa de la <strong>E.B. “Creación Bolivariana”</strong>. Es un plantel público de educación media
+              orientado hacia la formación integral de adolescentes y jóvenes, a través de una pedagogía humanista, científica y
               social encuadrada dentro de los valores de la identidad patria y abierta a la cultura universal.
             </p>
             <p>
-              Formamos bachilleres íntegros, críticos y comprometidos con el desarrollo socioproductivo de Sucre y de la nación. 
-              Nuestra casa de estudios acompaña a cada estudiante en el descubrimiento de sus aptitudes, fomentando virtudes 
-              ciudadanas, el respeto irrestricto, la convivencia pacífica y el trabajo colaborativo para afrontar con éxito 
+              Formamos bachilleres íntegros, críticos y comprometidos con el desarrollo socioproductivo de Sucre y de la nación.
+              Nuestra casa de estudios acompaña a cada estudiante en el descubrimiento de sus aptitudes, fomentando virtudes
+              ciudadanas, el respeto irrestricto, la convivencia pacífica y el trabajo colaborativo para afrontar con éxito
               los retos del porvenir.
             </p>
             <a href="#historia" className="intro-enlace-historia">
-              Explorar cronología e historia institucional completa
+              Historia institucional completa
               <ArrowRight size={18} />
             </a>
           </div>
@@ -91,7 +93,11 @@ export const QuienesSomos: React.FC = () => {
               loading="lazy"
             />
           </div>
+
+          
         </section>
+
+        <MarginBandera />
 
         {/* ───── SECCIÓN 2: GRID DESTACADO AZUL MARINO 2x2 (Captura 1) ───── */}
         <section className="seccion-grid-destacado-losarcos">
@@ -148,6 +154,8 @@ export const QuienesSomos: React.FC = () => {
           </div>
         </section>
 
+        <DivisorEditorial texto="Identidad y Propósito" />
+
         {/* ───── SECCIÓN 3: MISIÓN & VISIÓN (Capturas 2 y 3) ───── */}
         <div id="mision-vision">
           {/* VISIÓN */}
@@ -156,10 +164,10 @@ export const QuienesSomos: React.FC = () => {
               <span className="editorial-numero-orden">Horizonte Institucional</span>
               <h2 className="editorial-titulo">Visión</h2>
               <p className="editorial-parrafo">
-                El Complejo Educativo "Antonio Lemus Pérez" pretende fomentar un proceso colectivo e integrador, 
-                formador de nuevos republicanos y republicanas, socializando y generando relaciones sólidas entre la escuela, 
-                la familia y la comunidad. Respaldamos la interculturalidad, la práctica del trabajo liberador y el pensamiento 
-                crítico, donde el aprendizaje esté en permanente construcción para desarrollar conocimientos, virtudes y 
+                El Complejo Educativo "Antonio Lemus Pérez" pretende fomentar un proceso colectivo e integrador,
+                formador de nuevos republicanos y republicanas, socializando y generando relaciones sólidas entre la escuela,
+                la familia y la comunidad. Respaldamos la interculturalidad, la práctica del trabajo liberador y el pensamiento
+                crítico, donde el aprendizaje esté en permanente construcción para desarrollar conocimientos, virtudes y
                 habilidades solidarias, democráticas y protagónicas con profunda conciencia ambiental y sentido de soberanía.
               </p>
             </div>
@@ -179,10 +187,10 @@ export const QuienesSomos: React.FC = () => {
               <span className="editorial-numero-orden">Razón de Ser</span>
               <h2 className="editorial-titulo">Misión</h2>
               <p className="editorial-parrafo">
-                Promover, incentivar e implementar en el Complejo Educativo "Antonio Lemus Pérez", en concordancia con los 
-                lineamientos del Ministerio del Poder Popular para la Educación, un mayor nivel de desarrollo socio-ético-cultural 
-                mediante la formación integral de estudiantes capaces de enfrentar la vida, de construir su propio destino, 
-                responsables con su núcleo familiar, solidarios con sus comunidades y comprometidos con la salvaguarda 
+                Promover, incentivar e implementar en el Complejo Educativo "Antonio Lemus Pérez", en concordancia con los
+                lineamientos del Ministerio del Poder Popular para la Educación, un mayor nivel de desarrollo socio-ético-cultural
+                mediante la formación integral de estudiantes capaces de enfrentar la vida, de construir su propio destino,
+                responsables con su núcleo familiar, solidarios con sus comunidades y comprometidos con la salvaguarda
                 de los valores sociales y democráticos de la nación.
               </p>
             </div>
@@ -196,6 +204,8 @@ export const QuienesSomos: React.FC = () => {
             </div>
           </section>
         </div>
+
+        <MarginBandera />
 
         {/* ───── SECCIÓN 4: 6 RAZONES DE EXCELENCIA (ESTILO 11 RAZONES LOS ARCOS) ───── */}
         <section className="seccion-razones-excelencia" id="razones">
@@ -313,6 +323,8 @@ export const QuienesSomos: React.FC = () => {
           </div>
         </section>
 
+        <DivisorEditorial texto="Memoria y Legado" />
+
         {/* ───── SECCIÓN 6: HISTORIA INSTITUCIONAL EXPANDIDA ───── */}
         <section className="seccion-historia-expandida" id="historia">
           <div className="historia-expandida-encabezado">
@@ -330,20 +342,20 @@ export const QuienesSomos: React.FC = () => {
                 <span className="capitulo-badge-anio">Septiembre de 1984</span>
                 <h3>Los Orígenes: E.B. "Creación Bolivariana"</h3>
                 <p>
-                  El Complejo Educativo tuvo sus inicios en septiembre de 1984 bajo el plan experimental de la <strong>E.B. “Creación Bolivariana”</strong>. 
-                  Durante sus primeros cinco años funcionó provisionalmente en la planta física de la hoy U.E. “José Silverio González”, en el Barrio Bolívar de Cumaná, 
+                  El Complejo Educativo tuvo sus inicios en septiembre de 1984 bajo el plan experimental de la <strong>E.B. “Creación Bolivariana”</strong>.
+                  Durante sus primeros cinco años funcionó provisionalmente en la planta física de la hoy U.E. “José Silverio González”, en el Barrio Bolívar de Cumaná,
                   Parroquia Altagracia.
                 </p>
                 <div className="capitulo-destacado-caja">
-                  <strong>Estructura Fundacional:</strong> 22 secciones de 7mo grado con una matrícula de <strong>716 alumnos</strong>, 
-                  implementando la innovadora estrategia pedagógica UGA (Unidad Generadora de Aprendizaje) Nº 3.205 con áreas de Lengua, Educación Estética, 
+                  <strong>Estructura Fundacional:</strong> 22 secciones de 7mo grado con una matrícula de <strong>716 alumnos</strong>,
+                  implementando la innovadora estrategia pedagógica UGA (Unidad Generadora de Aprendizaje) Nº 3.205 con áreas de Lengua, Educación Estética,
                   Formación para el Trabajo, Pensamiento Social e Identidad Nacional, Salud, Educación Física, Ciencias Naturales y Matemáticas.
                 </div>
                 <p>
-                  En paralelo, coexistía el <strong>Ciclo Básico Común</strong> con 189 alumnos distribuidos en 6 secciones en el turno de la tarde. 
+                  En paralelo, coexistía el <strong>Ciclo Básico Común</strong> con 189 alumnos distribuidos en 6 secciones en el turno de la tarde.
                   Sus primeros directores fueron la <strong>Prof. Belén Campos de Santos (Directora)</strong> y el{' '}
-                  <strong>Licdo. Juan Navarro Carvajal (Subdirector)</strong>, acompañados por un histórico cuerpo docente pionero integrado por 
-                  Oneida Abreu, Sully Decena, Rosa Elena Sánchez, Daycis Salazar, Magda Rincones, Iraima Aguilera, Julián Vallejo, Augusto Marval, 
+                  <strong>Licdo. Juan Navarro Carvajal (Subdirector)</strong>, acompañados por un histórico cuerpo docente pionero integrado por
+                  Oneida Abreu, Sully Decena, Rosa Elena Sánchez, Daycis Salazar, Magda Rincones, Iraima Aguilera, Julián Vallejo, Augusto Marval,
                   José Caratt y Juan Márquez.
                 </p>
               </div>
@@ -371,16 +383,16 @@ export const QuienesSomos: React.FC = () => {
                 <span className="capitulo-badge-anio">Año 1989</span>
                 <h3>El Bautizo: Nace "Antonio Lemus Pérez"</h3>
                 <p>
-                  Al consolidarse su trayectoria pedagógica, el Ministerio de Educación decretó el epónimo oficial de la institución en honor 
-                  al ilustre educador, insigne matemático y pensador sucrense <strong>Prof. Antonio Lemus Pérez (1913-1980)</strong>, quien dedicó su 
+                  Al consolidarse su trayectoria pedagógica, el Ministerio de Educación decretó el epónimo oficial de la institución en honor
+                  al ilustre educador, insigne matemático y pensador sucrense <strong>Prof. Antonio Lemus Pérez (1913-1980)</strong>, quien dedicó su
                   vida entera a la docencia pública, sembrando virtudes republicanas, rigor analítico y amor por la patria en la juventud oriental.
                 </p>
                 <div className="capitulo-destacado-caja">
-                  <strong>El Legado del Epónimo:</strong> El Prof. Lemus Pérez representó la cúspide de la vocación pedagógica cumanesa. 
+                  <strong>El Legado del Epónimo:</strong> El Prof. Lemus Pérez representó la cúspide de la vocación pedagógica cumanesa.
                   Su lema de integridad y disciplina científica se convirtió en el faro rector de la misión formativa de nuestro liceo.
                 </div>
                 <p>
-                  Este nombramiento impulsó la identidad institucional del plantel y la creación de su estandarte y escudo con los símbolos 
+                  Este nombramiento impulsó la identidad institucional del plantel y la creación de su estandarte y escudo con los símbolos
                   del libro, el átomo de la ciencia y las ramas del laurel que premian el esfuerzo escolar.
                 </p>
               </div>
@@ -392,12 +404,12 @@ export const QuienesSomos: React.FC = () => {
                 <span className="capitulo-badge-anio">Década de 1990</span>
                 <h3>La Sede Definitiva: Av. Las Industrias</h3>
                 <p>
-                  Gracias al esfuerzo mancomunado de la comunidad educativa, padres, representantes y autoridades regionales, se edificó y entregó 
+                  Gracias al esfuerzo mancomunado de la comunidad educativa, padres, representantes y autoridades regionales, se edificó y entregó
                   la sede definitiva del liceo en la <strong>Avenida Las Industrias, sector Súper-Bloque</strong> de la Parroquia Altagracia.
                 </p>
                 <p>
-                  La nueva planta física dotó a la institución de pabellones con amplias aulas ventiladas, canchas múltiples deportivas, 
-                  laboratorios de Física, Química y Biología, y oficinas directivas para brindar una educación media técnica y científica 
+                  La nueva planta física dotó a la institución de pabellones con amplias aulas ventiladas, canchas múltiples deportivas,
+                  laboratorios de Física, Química y Biología, y oficinas directivas para brindar una educación media técnica y científica
                   de primer orden a las populosas barriadas de Cumaná.
                 </p>
               </div>
@@ -430,8 +442,8 @@ export const QuienesSomos: React.FC = () => {
                   <strong>64 docentes especialistas</strong>.
                 </p>
                 <p>
-                  La institución se mantiene como un referente de la educación pública en Sucre, incorporando programas pioneros en tecnologías 
-                  digitales, ciberseguridad escolar, brigadas ambientales y semilleros científicos, preservando con orgullo su lema inmortal: 
+                  La institución se mantiene como un referente de la educación pública en Sucre, incorporando programas pioneros en tecnologías
+                  digitales, ciberseguridad escolar, brigadas ambientales y semilleros científicos, preservando con orgullo su lema inmortal:
                   <strong> «Trabajo, Ciencia y Patria»</strong>.
                 </p>
               </div>
@@ -476,6 +488,8 @@ export const QuienesSomos: React.FC = () => {
           </div>
         </section>
 
+        <MarginBandera />
+
         {/* ───── SECCIÓN 8: INSTALACIONES EN MOSAICO (Captura 1 mensaje 3) ───── */}
         <section className="seccion-galeria-instalaciones" id="instalaciones">
           <div className="instalaciones-encabezado">
@@ -515,6 +529,8 @@ export const QuienesSomos: React.FC = () => {
           </div>
         </section>
 
+        <DivisorEditorial texto="Convivencia y Disciplina" />
+
         {/* ───── SECCIÓN 9: MANUAL DE CONVIVENCIA & NORMAS ───── */}
         <section className="seccion-normas-bloque" id="manual-convivencia">
           <div className="normas-encabezado" id="normas">
@@ -538,7 +554,7 @@ export const QuienesSomos: React.FC = () => {
             <div className="tarjeta-norma-item">
               <h3> Uniforme Reglamentario</h3>
               <p>
-                Pantalón azul marino de vestir, correa negra y calzado escolar negro. 
+                Pantalón azul marino de vestir, correa negra y calzado escolar negro.
                 Camisa celeste (1er a 3er año) y camisa beige/marrón (4to y 5to año), con su respectivo distintivo institucional.
               </p>
             </div>
@@ -546,7 +562,7 @@ export const QuienesSomos: React.FC = () => {
             <div className="tarjeta-norma-item">
               <h3>Deberes y Convivencia</h3>
               <p>
-                Cuidado de las instalaciones, respeto irrestricto hacia el personal docente y directivo, 
+                Cuidado de las instalaciones, respeto irrestricto hacia el personal docente y directivo,
                 y prohibición absoluta de conductas discriminatorias o ciberacoso dentro o fuera de la institución.
               </p>
             </div>

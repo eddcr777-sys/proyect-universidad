@@ -84,9 +84,8 @@
 }
 
 .cabecera.cabecera-solida .cabecera-escudo-caja {
-  background-color: var(--color-inst-azul, #051833);
-  color: #ffffff;
-  border-color: transparent;
+  background: transparent;
+  border: none;
 }
 
 .cabecera.cabecera-solida .menu-hamburguesa {
@@ -94,18 +93,17 @@
 }
 
 /* ============================================================================
-   CONTENEDOR CENTRAL — Altura espaciosa y distribución limpia
+   CONTENEDOR CENTRAL — Altura compacta y balanceada
    ============================================================================ */
 
 .cabecera-contenedor {
-  max-width: 1400px;
+  max-width: 1360px;
   margin: 0 auto;
-  padding: 26px 32px;
-  min-height: 96px;
+  padding: 18px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 40px;
+  gap: 24px;
 }
 
 /* ============================================================================
@@ -126,17 +124,27 @@
   opacity: 0.88;
 }
 
-/* Caja del ícono de escuela */
 .cabecera-escudo-caja {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  border: 1px solid;
+  width: 68px;
+  height: 68px;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  background: transparent;
   transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Imagen del escudo institucional */
+.cabecera-escudo-img {
+  width: 100%;
+  height: 100%;
+  
+  object-fit: contain;
+  display: block;
+
 }
 
 /* Texto del logo */
@@ -245,7 +253,7 @@
   }
 
   .cabecera-escudo-caja {
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
   }
 }

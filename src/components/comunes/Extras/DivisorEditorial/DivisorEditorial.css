@@ -1,0 +1,80 @@
+/* ==========================================================================
+   DIVISOR EDITORIAL INSTITUCIONAL
+   - Hilo degradado desvanecido hacia los laterales
+   - Medallón central con relieve suave, icono y sombra flotante
+   ========================================================================== */
+
+.divisor-editorial-contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 520px;
+  margin: 52px auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.divisor-editorial-linea {
+  flex: 1;
+  height: 1px;
+}
+
+.divisor-editorial-linea.izquierda {
+  background: linear-gradient(90deg, transparent, rgba(15, 44, 89, 0.28));
+}
+
+.divisor-editorial-linea.derecha {
+  background: linear-gradient(90deg, rgba(15, 44, 89, 0.28), transparent);
+}
+
+.divisor-editorial-medallon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  margin: 0 12px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 50px;
+  box-shadow: 0 4px 14px rgba(5, 24, 51, 0.06);
+  color: var(--color-inst-azul, #0F2C59);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.divisor-editorial-medallon:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(5, 24, 51, 0.1);
+}
+
+.divisor-editorial-icono {
+  color: var(--color-inst-rojo, #8B1E2F);
+  flex-shrink: 0;
+}
+
+.divisor-editorial-texto {
+  font-family: var(--fuente-ciber-titulos, 'Outfit', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #4b5563;
+}
+
+@media (max-width: 600px) {
+  .divisor-editorial-contenedor {
+    margin: 38px auto;
+    max-width: 320px;
+    padding: 0 10px;
+  }
+
+  .divisor-editorial-medallon {
+    padding: 5px 12px;
+    margin: 0 8px;
+  }
+
+  .divisor-editorial-texto {
+    font-size: 0.68rem;
+    letter-spacing: 0.8px;
+  }
+}

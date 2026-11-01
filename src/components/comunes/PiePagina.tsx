@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import escudoLiceo from '../../assets/logooow.png';
 import './PiePagina.css';
 
 /**
@@ -17,6 +18,13 @@ const PiePagina: React.FC = () => {
       <div className="losarcos-footer-contenedor">
         {/* COLUMNA 1: LOGO, EMBLEMA Y COPYRIGHT */}
         <div className="losarcos-columna losarcos-columna-logo">
+          {/* Escudo como marca de agua decorativa */}
+          <img
+            src={escudoLiceo}
+            alt=""
+            aria-hidden="true"
+            className="footer-escudo-marca"
+          />
           <div className="losarcos-logo-caja">
             <h3 className="losarcos-nombre-liceo">
               Complejo Educativo<br />

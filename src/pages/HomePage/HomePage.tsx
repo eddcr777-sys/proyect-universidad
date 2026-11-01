@@ -36,7 +36,13 @@ export const Home: React.FC = () => {
         <div className="portal-hero-overlay" />
         <div className="portal-hero-contenedor">
           <div className="portal-hero-tarjeta-flotante">
-            <span className="portal-hero-etiqueta">Desde 1984 · Cumaná, Estado Sucre</span>
+            {/* Cintillo venezolano superior sutil */}
+            <div className="cintillo-vzla-linea" aria-hidden="true">
+              <span className="cintillo-vzla-amarillo" />
+              <span className="cintillo-vzla-azul" />
+              <span className="cintillo-vzla-rojo" />
+            </div>
+            <span className="portal-hero-etiqueta">Desde 1984 · Cumaná, Estado Sucre · Venezuela</span>
             <h1 className="portal-hero-titulo">
               Complejo Educativo<br />
               «Antonio Lemus Pérez»
@@ -64,6 +70,7 @@ export const Home: React.FC = () => {
         <section className="portal-seccion-accesos">
           <div className="portal-accesos-encabezado">
             <h2>Nuestra Comunidad Educativa</h2>
+            <div className="portal-divisor-tricolor" aria-hidden="true" />
             <p>Accede directamente a las diferentes áreas, servicios y proyectos del complejo escolar.</p>
           </div>
 
@@ -112,6 +119,12 @@ export const Home: React.FC = () => {
 
         {/* ───── 3. CIFRAS DE IMPACTO INSTITUCIONAL ───── */}
         <section className="portal-seccion-stats">
+          {/* Cintillo tricolor superior */}
+          <div className="cintillo-vzla-linea cintillo-vzla-stats" aria-hidden="true">
+            <span className="cintillo-vzla-amarillo" />
+            <span className="cintillo-vzla-azul" />
+            <span className="cintillo-vzla-rojo" />
+          </div>
           <div className="portal-grid-stats">
             <div className="portal-stat-item">
               <span className="portal-stat-numero">1984</span>
@@ -137,6 +150,7 @@ export const Home: React.FC = () => {
         <section className="portal-seccion-vida">
           <div className="portal-vida-encabezado">
             <h2>Vida Estudiantil y Formación Activa</h2>
+            <div className="portal-divisor-tricolor" aria-hidden="true" />
             <p>Espacios donde nuestros estudiantes potencian sus habilidades deportivas, científicas y sociales.</p>
           </div>
 
@@ -169,6 +183,12 @@ export const Home: React.FC = () => {
 
         {/* ───── 5. BANNER DE ADMISIÓN CTA ───── */}
         <section className="portal-seccion-cta">
+          {/* Cintillo tricolor superior */}
+          <div className="cintillo-vzla-linea cintillo-vzla-cta" aria-hidden="true">
+            <span className="cintillo-vzla-amarillo" />
+            <span className="cintillo-vzla-azul" />
+            <span className="cintillo-vzla-rojo" />
+          </div>
           <div className="portal-cta-texto">
             <h2>¿Deseas Inscribirte en el Complejo Educativo?</h2>
             <p>
@@ -186,6 +206,7 @@ export const Home: React.FC = () => {
 
         {/* ───── 4. SHOWCASE PROYECTO INSIGNIA: CIBERSEGURIDAD ───── */}
         <section className="portal-seccion-ciber-destacado">
+          
           <div className="portal-ciber-info">
             <span className="portal-ciber-badge">Iniciativa Estudiantil y Docente</span>
             <h2 className="portal-ciber-titulo">

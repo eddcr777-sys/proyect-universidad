@@ -1,5 +1,5 @@
 footer.losarcos-footer {
-  background-color: #051833 ;
+  background-color: #051833;
   color: #ffffff !important;
   padding: 70px 24px 50px 24px !important;
   border-top: 3.5px solid #8B1E2F !important;
@@ -123,6 +123,18 @@ footer.losarcos-footer {
   color: #051833 !important;
   text-decoration: none !important;
   transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease !important;
+}
+
+.footer-escudo-marca {
+  width: 160px;
+  height: 180px;
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.25));
+  padding: 10px;
+}
+
+.footer-escudo-marca-img {
+  width: 100%;
+  height: 100%;
 }
 
 .red-social-icono:hover {
