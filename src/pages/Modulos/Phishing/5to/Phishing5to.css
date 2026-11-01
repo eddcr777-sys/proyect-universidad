@@ -647,7 +647,7 @@
     flex-direction: column;
     align-items: flex-start;
   }
-}
+
 
 /* ══ Responsividad Móvil y Adaptabilidad ══ */
 @media (max-width: 768px) {
@@ -684,3 +684,4 @@
   .boton-enviar-quiz.phishing {
     width: 100%;
   }
+}
