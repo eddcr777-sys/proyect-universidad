@@ -11,15 +11,9 @@
   "icons": [
     {
       "src": "/logooow.png",
-      "sizes": "192x192",
-      "type": "image/svg+xml",
+      "sizes": "896x1172",
+      "type": "image/png",
       "purpose": "any"
-    },
-    {
-      "src": "/logooow.png",
-      "sizes": "512x512",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
     }
   ]
 }

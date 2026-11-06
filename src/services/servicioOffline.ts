@@ -6,6 +6,11 @@
 const CLAVE_DESCARGA_OFFLINE = 'alps_ciberseguridad_offline_v1';
 const NOMBRE_CACHE_OFFLINE = 'ciberseguridad-paginas-offline-v1';
 
+interface EventoInstalacionPWA extends Event {
+  prompt: () => Promise<void>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
+}
+
 // Módulos y grados disponibles en el Proyecto de Ciberseguridad
 export const MODULOS_CIBERSEGURIDAD = [
   'phishing',
@@ -68,12 +73,12 @@ export const obtenerRutasProyectoCiberseguridad = (): { ruta: string; nombre: st
 };
 
 // Variable para capturar el prompt de instalación PWA nativa
-let eventoInstalacionDiferido: any = null;
+let eventoInstalacionDiferido: EventoInstalacionPWA | null = null;
 
 if (typeof window !== 'undefined') {
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
-    eventoInstalacionDiferido = e;
+    eventoInstalacionDiferido = e as EventoInstalacionPWA;
     window.dispatchEvent(new CustomEvent('pwa-instalable-disponible'));
   });
 }
@@ -111,7 +116,7 @@ export const estaProyectoDescargado = (): boolean => {
  * de los módulos para que sus scripts JS y estilos queden cacheados.
  */
 const precargarModulosDinamicos = async () => {
-  const modulosImportadores: (() => Promise<any>)[] = [
+  const modulosImportadores: (() => Promise<unknown>)[] = [
     // Auditorías
     () => import('../pages/Modulos/Auditorias/1ro/AuditoriaDigital1ro'),
     () => import('../pages/Modulos/Auditorias/2do/AuditoriaDigital2do'),
