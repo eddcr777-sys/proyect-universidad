@@ -38,18 +38,16 @@ const RECURSOS_ESTATICOS = [
  * Aquí se precachean los recursos esenciales para que la aplicación pueda funcionar offline.
  */
 self.addEventListener('install', (evento) => {
-  // waitUntil mantiene vivo el evento de instalación hasta que termine la promesa indicada.
   evento.waitUntil(
     caches.open(NOMBRE_CACHE).then(async (cache) => {
-      try {
-        // addAll descarga y guarda todos los recursos indicados en la lista.
-        // Si alguno falla, se captura el error para que la instalación no se rompa por completo.
-        await cache.addAll(RECURSOS_ESTATICOS);
-      } catch (err) {
-        // Si algún recurso no se puede precachear, se muestra una advertencia.
-        // Esto puede pasar si una ruta no existe o si no hay conexión en ese momento.
-        console.warn('[SW] Algunos recursos iniciales no pudieron precachearse:', err);
-      }
+      await Promise.all(RECURSOS_ESTATICOS.map(async (recurso) => {
+        try {
+          const respuesta = await fetch(recurso);
+          if (respuesta.ok) await cache.put(recurso, respuesta);
+        } catch (error) {
+          console.warn(`[SW] No se pudo precargar ${recurso}:`, error);
+        }
+      }));
     })
   );
 
@@ -117,31 +115,30 @@ self.addEventListener('fetch', (evento) => {
    */
   if (solicitud.mode === 'navigate') {
     evento.respondWith(
-      fetch(solicitud)
-        .then((respuestaRed) => {
-          // Si la red responde correctamente, se guarda una copia de la página en caché.
-          if (respuestaRed && respuestaRed.status === 200) {
-            const copiaRespuesta = respuestaRed.clone();
-            caches.open(NOMBRE_CACHE).then((cache) => cache.put(solicitud, copiaRespuesta));
+      (async () => {
+        const cache = await caches.open(NOMBRE_CACHE);
+        try {
+          const respuestaRed = await fetch(solicitud);
+          if (respuestaRed.ok) {
+            await cache.put(solicitud, respuestaRed.clone());
+            return respuestaRed;
           }
-          return respuestaRed;
-        })
-        .catch(async () => {
-          // Si no hay internet, se intenta devolver la misma ruta desde la caché.
-          const cache = await caches.open(NOMBRE_CACHE);
-          const respuestaCache = await cache.match(solicitud);
+
+          if (respuestaRed.status !== 404) return respuestaRed;
+          const index = await fetch('/index.html');
+          return index.ok ? index : respuestaRed;
+        } catch {
+          const respuestaCache = await caches.match(solicitud);
           if (respuestaCache) return respuestaCache;
 
-          // Si la ruta exacta no está en caché, se intenta devolver el index.html
-          // o la raíz '/', para que la aplicación SPA pueda seguir funcionando.
           const indexOffline = await cache.match('/index.html') || await cache.match('/');
           if (indexOffline) return indexOffline;
-
-          // Si no hay nada en caché, se devuelve una respuesta HTML mínima de emergencia.
           return new Response('Modo Offline: Proyecto Ciberseguridad Lemus Pérez', {
-            headers: { 'Content-Type': 'text/html; charset=utf-8' }
+            status: 503,
+            headers: { 'Content-Type': 'text/html; charset=utf-8' },
           });
-        })
+        }
+      })()
     );
     return;
   }
@@ -180,11 +177,10 @@ self.addEventListener('fetch', (evento) => {
           return respuestaRed;
         })
         .catch(() => {
-          // Si la petición falla y se trata de una imagen,
-          // se intenta devolver un recurso alternativo desde caché.
           if (solicitud.destination === 'image') {
-            return caches.match('');
+            return new Response(null, { status: 504, statusText: 'Offline' });
           }
+          return Response.error();
         });
     })
   );

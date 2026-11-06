@@ -80,9 +80,7 @@
 
 /* ===== TARJETAS / BLOQUES ===== */
 .bloque-phishing-tarjeta {
-  background-color: var(--ciber-bg-surface, #ffffff);
-  border: 1px solid var(--ciber-border-subtle, #d1e7dd);
-  border-radius: var(--ciber-radius-md, 16px);
+
   padding: var(--pad-card);
   box-shadow: 0 4px 16px rgba(5, 150, 105, 0.05);
 }

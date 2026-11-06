@@ -138,7 +138,7 @@ const NavegacionEscritorio: React.FC<NavegacionEscritorioProps> = ({ esTranspare
         </button>
         <div className="dropdown-content">
           <Link to="/proyectos/ciberseguridad" className="dropdown-item">
-            Ciberseguridad y Convivencia Digital
+            Ciberseguridad y Conciencia Digital
           </Link>
         </div>
       </div>

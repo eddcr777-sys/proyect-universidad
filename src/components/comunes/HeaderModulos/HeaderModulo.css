@@ -10,7 +10,8 @@
   display: flex;
   flex-direction: column;
   gap: var(--ciber-space-sm, 8px);
-  padding-top: 72px; 
+  padding-top: 12px; 
+  
 }
 
 /* Navegación de retorno al grado */
@@ -29,10 +30,7 @@
   font-size: 0.9rem;
   text-decoration: none;
   padding: 0.4rem 0.8rem;
-  border-radius: var(--ciber-radius-sm, 8px);
-  background-color: rgba(5, 150, 105, 0.08);
-  border: 1px solid rgba(5, 150, 105, 0.25);
-  transition: all 0.2s ease;
+ 
 }
 
 .boton-volver-grado:hover {
@@ -47,20 +45,13 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--ciber-space-lg, 24px);
-  background-color: var(--ciber-bg-surface, #ffffff);
-  border: 1px solid var(--ciber-border-subtle, #d1e7dd);
   padding: 1.75rem 2rem;
-  border-radius: var(--ciber-radius-md, 20px);
-  box-shadow: 0 4px 16px rgba(5, 150, 105, 0.06);
   position: relative;
   overflow: hidden;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
 }
 
-.header-modulo-tarjeta:hover {
-  border-color: var(--ciber-border-strong, #059669);
-  box-shadow: 0 8px 24px rgba(5, 150, 105, 0.12);
-}
+
 
 /* Información textual */
 .header-modulo-info {
@@ -234,7 +225,7 @@
 
 @media (max-width: 480px) {
   .header-modulo-contenedor {
-    padding-top: 62px;
+    padding-top: 22px;
     margin-bottom: 0.75rem;
   }
 
