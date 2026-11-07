@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { 
   DownloadCloud, 
-  CheckCircle, 
   X, 
-  Wifi, 
   WifiOff, 
   Smartphone, 
   Loader2, 
@@ -30,10 +28,11 @@ export const BannerDescargaOffline: React.FC = () => {
   const [descargando, setDescargando] = useState<boolean>(false);
   const [progreso, setProgreso] = useState<number>(0);
   const [descargadoExitoso, setDescargadoExitoso] = useState<boolean>(false);
+  const [errorDescarga, setErrorDescarga] = useState<string>('');
   const [enLinea, setEnLinea] = useState<boolean>(() => {
     return typeof navigator !== 'undefined' ? navigator.onLine : true;
   });
-  const [instalable, setInstalable] = useState<boolean>(false);
+  const [instalable, setInstalable] = useState<boolean>(() => esPwaInstalable());
   const [recursoActual, setRecursoActual] = useState<string>('');
 
   // Determinar si la ruta actual es parte del Proyecto de Ciberseguridad
@@ -78,7 +77,6 @@ export const BannerDescargaOffline: React.FC = () => {
     // Escuchar si la PWA se vuelve instalable
     const manejarInstalable = () => setInstalable(true);
     window.addEventListener('pwa-instalable-disponible', manejarInstalable);
-    if (esPwaInstalable()) setInstalable(true);
 
     // Revisar de forma segura si ya está descargado o si fue descartado en esta sesión
     let yaDescargado = false;
@@ -136,8 +134,9 @@ export const BannerDescargaOffline: React.FC = () => {
   const handleDescargar = async () => {
     try {
       setDescargando(true);
+      setErrorDescarga('');
       setProgreso(5);
-      setRecursoActual('Conectando y preparando páginas...');
+      setRecursoActual('Preparando recursos...');
 
       await descargarProyectoOffline((porc, nombre) => {
         setProgreso(porc);
@@ -164,8 +163,7 @@ export const BannerDescargaOffline: React.FC = () => {
     } catch (error) {
       console.error('Error al descargar para offline:', error);
       setDescargando(false);
-      setRecursoActual('Contenido descargado en memoria.');
-      setDescargadoExitoso(true);
+      setErrorDescarga(error instanceof Error ? error.message : 'No se pudo completar la descarga. Inténtalo de nuevo.');
     }
   };
 
@@ -214,7 +212,9 @@ export const BannerDescargaOffline: React.FC = () => {
           </div>
 
           <p className="banner-offline-descripcion">
-            {!enLinea ? (
+            {errorDescarga ? (
+              errorDescarga
+            ) : !enLinea ? (
               'Estás navegando sin conexión a internet. Los contenidos previamente descargados siguen disponibles.'
             ) : descargadoExitoso ? (
               '¡Descarga completada! Todas las lecciones, guías y evaluaciones ahora funcionan sin conexión a internet.'

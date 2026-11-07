@@ -12,24 +12,17 @@
 
 // Nombre de la caché utilizada por esta versión del Service Worker.
 // Si se cambia la versión, se puede forzar la renovación de la caché.
-const NOMBRE_CACHE = 'alps-ciberseguridad-v1';
+const NOMBRE_CACHE = 'alps-site-v2';
+const CACHE_ANTERIOR = 'alps-ciberseguridad-v1';
+const ARCHIVO_RECURSOS_OFFLINE = '/offline-assets.json';
 
 // Lista de rutas y recursos estáticos que se intentarán precachear durante la instalación.
 // Estas rutas corresponden a páginas principales del proyecto de ciberseguridad.
-const RECURSOS_ESTATICOS = [
+const RECURSOS_ESENCIALES = [
   '/',
   '/index.html',
   '/manifest.webmanifest',
-  '/proyectos/ciberseguridad',
-  '/proyectos/ciberseguridad/modulos',
-  '/proyectos/ciberseguridad/justificacion',
-  '/proyectos/ciberseguridad/indices',
-  '/proyectos/ciberseguridad/guias/docentes',
-  '/proyectos/ciberseguridad/guias/padres',
-  '/proyectos/ciberseguridad/guias/defensa',
-  '/proyectos/ciberseguridad/guias/manual-completo',
-  '/proyectos/ciberseguridad/nosotros/sobre-devs',
-  '/proyectos/ciberseguridad/nosotros/sobre-ue'
+  ARCHIVO_RECURSOS_OFFLINE,
 ];
 
 /*
@@ -40,14 +33,33 @@ const RECURSOS_ESTATICOS = [
 self.addEventListener('install', (evento) => {
   evento.waitUntil(
     caches.open(NOMBRE_CACHE).then(async (cache) => {
-      await Promise.all(RECURSOS_ESTATICOS.map(async (recurso) => {
+      const precargar = async (recurso) => {
         try {
-          const respuesta = await fetch(recurso);
+          const respuesta = await fetch(recurso, { cache: 'reload' });
           if (respuesta.ok) await cache.put(recurso, respuesta);
         } catch (error) {
           console.warn(`[SW] No se pudo precargar ${recurso}:`, error);
         }
-      }));
+      };
+
+      await Promise.all(RECURSOS_ESENCIALES.map(precargar));
+
+      try {
+        const respuestaManifiesto = await fetch(ARCHIVO_RECURSOS_OFFLINE, { cache: 'reload' });
+        if (respuestaManifiesto.ok) {
+          const recursos = await respuestaManifiesto.json();
+          if (Array.isArray(recursos)) {
+            for (let inicio = 0; inicio < recursos.length; inicio += 6) {
+              const lote = recursos
+                .slice(inicio, inicio + 6)
+                .filter((recurso) => typeof recurso === 'string' && recurso.startsWith('/'));
+              await Promise.all(lote.map(precargar));
+            }
+          }
+        }
+      } catch (error) {
+        console.warn('[SW] No se pudo leer el manifiesto offline:', error);
+      }
     })
   );
 
@@ -67,9 +79,7 @@ self.addEventListener('activate', (evento) => {
       // Se recorren todas las cachés existentes en el navegador.
       return Promise.all(
         claves.map((clave) => {
-          // Si la caché no es la actual y tampoco contiene la palabra "offline",
-          // se elimina para evitar acumular versiones antiguas.
-          if (clave !== NOMBRE_CACHE && !clave.includes('offline')) {
+          if (clave === CACHE_ANTERIOR || (clave.startsWith('alps-site-') && clave !== NOMBRE_CACHE)) {
             return caches.delete(clave);
           }
         })
@@ -96,6 +106,10 @@ self.addEventListener('fetch', (evento) => {
 
   // Se crea un objeto URL para analizar la ruta y los parámetros de la petición.
   const url = new URL(solicitud.url);
+
+  if (url.origin !== self.location.origin) {
+    return;
+  }
 
   // Dejar pasar libremente peticiones relacionadas con el desarrollo y HMR de Vite.
   // Esto evita que el Service Worker interfiera con recargas en caliente o archivos internos.

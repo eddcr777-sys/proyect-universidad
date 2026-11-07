@@ -4,7 +4,13 @@
  */
 
 const CLAVE_DESCARGA_OFFLINE = 'alps_ciberseguridad_offline_v1';
-const NOMBRE_CACHE_OFFLINE = 'ciberseguridad-paginas-offline-v1';
+const NOMBRE_CACHE_OFFLINE = 'alps-site-v2';
+const RECURSOS_ESENCIALES_OFFLINE = [
+  '/',
+  '/index.html',
+  '/manifest.webmanifest',
+  '/offline-assets.json',
+];
 
 interface EventoInstalacionPWA extends Event {
   prompt: () => Promise<void>;
@@ -112,133 +118,51 @@ export const estaProyectoDescargado = (): boolean => {
 };
 
 /**
- * Precarga programáticamente en background los componentes y actividades interactivas
- * de los módulos para que sus scripts JS y estilos queden cacheados.
- */
-const precargarModulosDinamicos = async () => {
-  const modulosImportadores: (() => Promise<unknown>)[] = [
-    // Auditorías
-    () => import('../pages/Modulos/Auditorias/1ro/AuditoriaDigital1ro'),
-    () => import('../pages/Modulos/Auditorias/2do/AuditoriaDigital2do'),
-    () => import('../pages/Modulos/Auditorias/3ro/AuditoriaDigital3ro'),
-    () => import('../pages/Modulos/Auditorias/4to/AuditoriaDigital4to'),
-    () => import('../pages/Modulos/Auditorias/5to/AuditoriaDigital5to'),
-    // Phishing
-    () => import('../pages/Modulos/Phishing/1ro/Phishing1ro'),
-    () => import('../pages/Modulos/Phishing/2do/Phishing2do'),
-    () => import('../pages/Modulos/Phishing/3ro/Phishing3ro'),
-    () => import('../pages/Modulos/Phishing/4to/Phishing4to'),
-    () => import('../pages/Modulos/Phishing/5to/Phishing5to'),
-    // Videojuegos
-    () => import('../pages/Modulos/VideoJuegos/1ro/VideoJuegos1ro'),
-    () => import('../pages/Modulos/VideoJuegos/2do/VideoJuegos2do'),
-    () => import('../pages/Modulos/VideoJuegos/3ro/VideoJuegos3ro'),
-    () => import('../pages/Modulos/VideoJuegos/4to/VideoJuegos4to'),
-    () => import('../pages/Modulos/VideoJuegos/5to/VideoJuegos5to'),
-    // Software Pirata
-    () => import('../pages/Modulos/SoftwarePiratas/1ro/SoftwarePirata1ro'),
-    () => import('../pages/Modulos/SoftwarePiratas/2do/SoftwarePirata2do'),
-    () => import('../pages/Modulos/SoftwarePiratas/3ro/SoftwarePirata3ro'),
-    () => import('../pages/Modulos/SoftwarePiratas/4to/SoftwarePirata4to'),
-    () => import('../pages/Modulos/SoftwarePiratas/5to/SoftwarePirata5to'),
-    // Protección de Cuentas
-    () => import('../pages/Modulos/ProteccionCuentas/1ro/ProteccionCuentas1ro'),
-    () => import('../pages/Modulos/ProteccionCuentas/2do/ProteccionCuentas2do'),
-    () => import('../pages/Modulos/ProteccionCuentas/3ro/ProteccionCuentas3ro'),
-    () => import('../pages/Modulos/ProteccionCuentas/4to/ProteccionCuentas4to'),
-    () => import('../pages/Modulos/ProteccionCuentas/5to/ProteccionCuentas5to'),
-    // Redes Sociales
-    () => import('../pages/Modulos/RedesSociales/1ro/RedesSociales1ro'),
-    () => import('../pages/Modulos/RedesSociales/2do/RedesSociales2do'),
-    () => import('../pages/Modulos/RedesSociales/3ro/RedesSociales3ro'),
-    () => import('../pages/Modulos/RedesSociales/4to/RedesSociales4to'),
-    () => import('../pages/Modulos/RedesSociales/5to/RedesSociales5to')
-  ];
-
-  // Ejecutar precargas en lotes
-  for (const fn of modulosImportadores) {
-    try {
-      await fn();
-    } catch {
-      // Ignorar errores menores en dev
-    }
-  }
-};
-
-/**
  * Descarga y almacena en caché todas las páginas, submódulos y recursos
  * del Proyecto de Ciberseguridad con reporte de progreso en tiempo real.
  */
 export const descargarProyectoOffline = async (
   enProgreso?: (porcentaje: number, elementoActual: string) => void
 ): Promise<boolean> => {
-  try {
-    await registrarServiceWorker();
-    
-    // Soporte seguro de Cache Storage si está disponible en el entorno
-    const tieneCacheApi = typeof window !== 'undefined' && 'caches' in window;
-    let cache: Cache | null = null;
-    if (tieneCacheApi) {
-      try {
-        cache = await caches.open(NOMBRE_CACHE_OFFLINE);
-      } catch (errCache) {
-        console.warn('[Offline] Cache Storage no disponible en este contexto:', errCache);
-      }
-    }
+  await registrarServiceWorker();
 
-    const listaRutas = obtenerRutasProyectoCiberseguridad();
-    const totalElementos = listaRutas.length + 1; // +1 por los módulos JS
-    let procesados = 0;
-
-    // 1. Descargar y almacenar cada página HTML del proyecto
-    for (const item of listaRutas) {
-      try {
-        const respuesta = await fetch(item.ruta, { 
-          cache: 'reload',
-          headers: { 'X-PWA-Precache': 'true' }
-        });
-        
-        if (cache && respuesta && (respuesta.status === 200 || respuesta.status === 0)) {
-          await cache.put(item.ruta, respuesta);
-        }
-      } catch (err) {
-        // En caso de que alguna ruta particular falle, continuar con el resto
-        console.warn(`[Offline] Descargando ${item.ruta}:`, err);
-      }
-
-      procesados++;
-      const porcentaje = Math.round((procesados / totalElementos) * 85);
-      if (enProgreso) {
-        enProgreso(porcentaje, item.nombre);
-      }
-    }
-
-    // 2. Precargar e incorporar en memoria/caché los módulos interactivos dinámicos
-    if (enProgreso) {
-      enProgreso(90, 'Actividades interactivas y simuladores');
-    }
-    await precargarModulosDinamicos();
-
-    if (enProgreso) {
-      enProgreso(100, 'Proyecto de Ciberseguridad descargado');
-    }
-
-    try {
-      localStorage.setItem(CLAVE_DESCARGA_OFFLINE, 'true');
-      localStorage.setItem('alps_ciberseguridad_fecha_descarga', new Date().toISOString());
-    } catch {
-      // Ignorar restricciones en modo privado móvil
-    }
-
-    return true;
-  } catch (error) {
-    console.error('[Offline] Error en descarga completa:', error);
-    // Aunque ocurra un fallo secundario, reportar éxito de precarga parcial
-    if (enProgreso) {
-      enProgreso(100, 'Contenidos precargados');
-    }
-    return true;
+  if (typeof window === 'undefined' || !('caches' in window)) {
+    throw new Error('Este navegador no permite guardar contenido para usarlo sin conexión.');
   }
+
+  const respuestaManifiesto = await fetch('/offline-assets.json', { cache: 'no-store' });
+  if (!respuestaManifiesto.ok) {
+    throw new Error('No se pudo obtener la lista de archivos para el modo sin conexión.');
+  }
+
+  const recursos = await respuestaManifiesto.json() as unknown;
+  if (!Array.isArray(recursos) || !recursos.every((recurso) => typeof recurso === 'string' && recurso.startsWith('/'))) {
+    throw new Error('La lista de archivos sin conexión no es válida.');
+  }
+
+  const cache = await caches.open(NOMBRE_CACHE_OFFLINE);
+  const listaRecursos = Array.from(new Set([...RECURSOS_ESENCIALES_OFFLINE, ...recursos]));
+
+  for (const [indice, recurso] of listaRecursos.entries()) {
+    const respuesta = await fetch(recurso, { cache: 'reload' });
+    if (!respuesta.ok) {
+      throw new Error(`No se pudo guardar ${recurso} para usarlo sin conexión.`);
+    }
+
+    await cache.put(recurso, respuesta);
+    enProgreso?.(
+      Math.round(((indice + 1) / listaRecursos.length) * 100),
+      recurso === '/' || recurso === '/index.html' ? 'Aplicación principal' : recurso.split('/').pop() || recurso
+    );
+  }
+
+  try {
+    localStorage.setItem(CLAVE_DESCARGA_OFFLINE, 'true');
+    localStorage.setItem('alps_ciberseguridad_fecha_descarga', new Date().toISOString());
+  } catch (error) {
+    console.warn('[Offline] No se pudo guardar el estado de descarga:', error);
+  }
+  return true;
 };
 
 /**
